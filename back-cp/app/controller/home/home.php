@@ -1,0 +1,1 @@
+<? include_once(ROOT . 'view/home/home.php');
