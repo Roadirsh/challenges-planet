@@ -4,10 +4,10 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>ChallengesPlanet - Dashboard</title>
-	<meta name="description" content="Bootstrap Metro Dashboard">
-	<meta name="author" content="Dennis Ji">
-	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+	<title>ChallengesPlanet - <?php echo PAGE_TITLE; ?></title>
+	<meta name="description" content="<?php echo PAGE_DESCR; ?>">
+	<meta name="author" content="3ADev">
+	<meta name="keyword" content="<?php echo PAGE_KEYWORDS; ?>">
 	<!-- end: Meta -->
 	
 	<!-- start: Mobile Specific -->

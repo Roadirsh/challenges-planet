@@ -9,17 +9,23 @@ session_name('ChallengesPlanet');
     header('Content-type: text/html; charset=UTF-8');
     include(ROOT . "conf/mysql.php");
     include(ROOT . "conf/conf_url.php");
+    include_once('../app/config/levels.inc.php');
     
     
     error_reporting(E_ALL);
     //include("lib/lib.php");
+    
+    define('BASE_DIR', "http://".$_SERVER["HTTP_HOST"].dirname($_SERVER["SCRIPT_NAME"]));
+    
+    include_once('../app/app.php')
 
 
     /////////////////////////////////////////////////////////////////////////////////
     //******************************************************//
     // --------------- PAGE POLYMORPHE ---------------------//
 
-	if(isset($_SESSION["login_compte"]))
+	/*
+if(isset($_SESSION["login_compte"]))
 	{
 		// dispatching des modules
 		if (isset($_GET['a']))
@@ -61,4 +67,5 @@ session_name('ChallengesPlanet');
 	{
 		include_once(ROOT . 'controller/connexion/login.php');
 	}
+*/
 
