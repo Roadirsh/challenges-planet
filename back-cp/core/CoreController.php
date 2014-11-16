@@ -19,6 +19,21 @@ class CoreController{
 	//Stock message dans la session
 	protected function coreDefinirMessage($coreMessage){
 		$_SESSION["coreMessage"] = $coreMessage;
+		
+	}
+	// Retourne le message et la class du type du message 
+	protected function coreEcrireMessage(){
+		if(isset($_SESSION["coreMessage"])){
+			include_once '../app/config/messages.php';
+			$coreMessage = $_SESSION["coreMessage"];
+			if($coreMessage['typeMessage'] === 0){
+				// nom class css alerte verte
+			}else{
+				// nom class css alerte rouge
+			}
+			unset($_SESSION["coreMessage"]);
+			return $message;
+		}
 	}
 	//Controle l'accès selon un niveau
 	protected function coreRestrictLevel($level, $module, $action){

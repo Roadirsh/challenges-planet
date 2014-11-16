@@ -42,6 +42,7 @@ class CoreModel{
 			$records = $curseur->fetchAll();
 			$curseur->closeCursor();
 			return $records;
+			
 		} catch (Exception $e){
 			$this->coreBdError($e);
 		}
