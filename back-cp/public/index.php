@@ -1,71 +1,30 @@
 <?
 
-session_start();
-session_name('ChallengesPlanet');
+/**
+* Controller principal 
+* 
+* @package 		Framework L&S
+* @copyright 	L&S
+**/
 
 
-    /////////////////////////////////////////////////////////////////////////////////
-    require_once('../app/conf/conf_define.php');
-    header('Content-type: text/html; charset=UTF-8');
-    include(ROOT . "conf/mysql.php");
-    include(ROOT . "conf/conf_url.php");
-    include_once('../app/config/levels.inc.php');
-    
-    
-    error_reporting(E_ALL);
-    //include("lib/lib.php");
-    
-    define('BASE_DIR', "http://".$_SERVER["HTTP_HOST"].dirname($_SERVER["SCRIPT_NAME"]));
-    
-    include_once('../app/app.php')
+// Demmarage de la session
+	session_start();
+// Nommage de la session
+	session_name('ChallengesPlanet');
 
 
-    /////////////////////////////////////////////////////////////////////////////////
-    //******************************************************//
-    // --------------- PAGE POLYMORPHE ---------------------//
+// Fichier de configuration principal
+	require_once('../app/conf/conf_define.php');
+// Parametrage de l'UTF8 
+	header('Content-type: text/html; charset=UTF-8');
+// Ensemble des urls en dur
+	include(ROOT . "conf/conf_url.php");
+// Librairie principale et globale du framework
+	include("lib/lib.php");
 
-	/*
-if(isset($_SESSION["login_compte"]))
-	{
-		// dispatching des modules
-		if (isset($_GET['a']))
-		{
-			$a = $_GET['a'];
-		}
-		else
-		{
-			// module par défaut
-			$a = "connexion";
-		}
+// Affichage des erreurs php
+	error_reporting(E_ALL);
 
-		// dispatching des actions
-		if (isset($_GET['b']))
-		{
-			$b = $_GET['b'];
-		}
-		else
-		{
-			// action par défaut
-			$b = "login";
-		}
-
-		// construction de l'url
-		$url = "controller/" . $a . "/" . $b . ".php";
-
-		// dispatching vers les controlers/action ou bien redirection 404
-		if (file_exists($url))
-		{
-			include_once($url);
-		}
-		else
-		{
-			include_once(ROOT . 'vue/404.php');
-		}
-	}
-
-	else
-	{
-		include_once(ROOT . 'controller/connexion/login.php');
-	}
-*/
-
+// Lancement de l'application !!!!!
+    include_once(ROOT . 'app.php')

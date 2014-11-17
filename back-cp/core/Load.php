@@ -1,16 +1,40 @@
 <?php
-	//Class qui gère l'affiche des vues
+
+/**
+* Load
+*
+* Gère l'affichage des vues
+*
+* @package 		Framework Challenges Planete L&G
+* @copyright 	L&G
+**/
+
+
 class Load{
-	//Affiche une vue dans un module 
+
+
+	/**
+	* Affiche une vue dans un module 
+	* @param String $module 	dossier du controller
+	* @param String $vue 		fichier dans le dossier
+	* @param array $data 		données facultatives
+	**/
 	public function view($module, $vue, $data = null){
 		$urlVue = dirname(__FILE__) . DIRECTORY_SEOARATIR . '../app/view/' .$module.'/'.$vue.'.php';
+
 		if (file_exists($urlVue)){
-			include('../app/view/'.$module.'/'.$vue.'.php');
+			// si on trouve la vue
+			include(ROOT . 'view/'.$module.'/'.$vue.'.php');
 		}else{
-			include '../app/view/layout/404.php';
+			// si on ne trouve pas la vue
+			include(ROOT . 'view/layout/404.php');
 		}
 	}
-	// Classe active
+
+	/**
+	* Class .active
+	* @param String $pageId 	page ayant l'id sur le body
+	**/
 	private function coreMenu($pageId){
 		if (define('PAGE_ID') && (PAGE_ID === $pageId)){
 			echo "<li class='active'>";
@@ -19,10 +43,12 @@ class Load{
 		}
 	}
 	
-	//Message cnil
+	/**
+	* Message CNIL cookies
+	**/
 	private function coreCnilCookies(){
 		if (!isset($_COOKIE["CookieCnil"])){
-			include '../app/view/layout/cnil.php';
+			include(ROOT . 'view/layout/cnil.php');
 		}
 	}
 }

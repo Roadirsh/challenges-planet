@@ -47,4 +47,5 @@
 	</div><!--/.fluid-container-->
 	
 </div><!--/fluid-row-->
+
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

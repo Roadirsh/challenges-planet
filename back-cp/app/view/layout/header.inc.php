@@ -4,10 +4,10 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>ChallengesPlanet - <?php echo PAGE_TITLE; ?></title>
+	<title><?php echo PAGE_TITLE; ?></title>
 	<meta name="description" content="<?php echo PAGE_DESCR; ?>">
 	<meta name="author" content="3ADev">
-	<meta name="keyword" content="<?php echo PAGE_KEYWORDS; ?>">
+	<meta name="keyword" content="<?php echo PAGE_KW; ?>">
 	<!-- end: Meta -->
 	
 	<!-- start: Mobile Specific -->

@@ -1,3 +1,13 @@
 <?
-$conf = array();
-$conf['img_accueil'] = 'http://perlbal.hi-pi.com/blog-images/166877/gd/1186491494/Fleur-de-Lys.jpg';
+
+/**
+* Tableau des URL en dur 
+*
+* @package 		Framework Challenges Planete L&G
+* @copyright 	L&G
+**/
+
+// définition du tableau
+	$conf = array();
+// 
+	$conf[''] = '';

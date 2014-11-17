@@ -1,4 +1,11 @@
-	
+<footer>
+
+	<p>
+		<span style="text-align:left;float:left">&copy; 2014 <a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard"> Challenges Planet</a></span>
+		
+	</p>
+
+</footer>	
 	<!-- start: JavaScript-->
 
 		<script src="js/jquery-1.9.1.min.js"></script>
