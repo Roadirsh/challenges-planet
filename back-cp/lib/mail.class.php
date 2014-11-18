@@ -1,4 +1,13 @@
 <?php
+
+/**
+* Mail
+*
+* Envoi de mail
+*
+* @package      Framework_L&G
+* @copyright    L&G
+**/
 	class Mail
 	{
 		private $nom_expe;		//nom de l'expe

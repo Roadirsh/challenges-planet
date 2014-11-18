@@ -3,8 +3,8 @@
 /**
 * Controller principal 
 * 
-* @package 		Framework L&S
-* @copyright 	L&S
+* @package      Framework_L&G
+* @copyright    L&G
 **/
 
 

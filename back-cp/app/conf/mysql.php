@@ -3,7 +3,7 @@
 /**
 * Connexion PDO 
 *
-* @package 		Framework Challenges Planete L&G
+* @package 		Framework_L&G
 * @copyright 	L&G
 **/
 

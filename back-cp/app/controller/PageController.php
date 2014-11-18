@@ -5,7 +5,7 @@
 *
 * Affichage des pages sans traitement spécifique // static
 *
-* @package 		Framework Challenges Planete L&G
+* @package 		Framework_L&G
 * @copyright 	L&G
 **/
 
@@ -29,8 +29,6 @@ class PageController extends CoreController{
 			$this->cgu();
 		} elseif($_GET['action'] === "apropos"){
 			$this->apropos();
-		} elseif($_GET['action'] === "cookies"){
-			$this->cookies();
 		} else{
 			$this->corePage404();
 		}
@@ -40,8 +38,8 @@ class PageController extends CoreController{
 	/**
 	* Page static INDEX
 	**/
-	public function home()
-	{
+	public function home(){
+		
 		// Définition des constante
 		define("PAGE_TITLE", SITE_NAME . " home");
 		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO

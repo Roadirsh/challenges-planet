@@ -5,7 +5,7 @@
 *
 * Gère l'affichage des vues
 *
-* @package 		Framework Challenges Planete L&G
+* @package 		Framework_L&G
 * @copyright 	L&G
 **/
 
@@ -20,11 +20,11 @@ class Load{
 	* @param array $data 		données facultatives
 	**/
 	public function view($module, $vue, $data = null){
-		$urlVue = dirname(__FILE__) . DIRECTORY_SEOARATIR . '../app/view/' .$module.'/'.$vue.'.php';
+		$urlVue = dirname(__FILE__) . DIRECTORY_SEOARATIR . ROOT . 'view/' . $module . '/' . $vue . '.php';
 
 		if (file_exists($urlVue)){
 			// si on trouve la vue
-			include(ROOT . 'view/'.$module.'/'.$vue.'.php');
+			include(ROOT . 'view/' . $module . '/' . $vue . '.php');
 		}else{
 			// si on ne trouve pas la vue
 			include(ROOT . 'view/layout/404.php');
