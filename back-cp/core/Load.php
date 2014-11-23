@@ -1,24 +1,24 @@
 <?php
 
 /**
-* Load
-*
-* Gère l'affichage des vues
-*
-* @package 		Framework_L&G
-* @copyright 	L&G
-**/
+ * Load
+ *
+ * Gère l'affichage des vues
+ *
+ * @package 		Framework_L&G
+ * @copyright 	L&G
+ */
 
 
 class Load{
 
 
 	/**
-	* Affiche une vue dans un module 
-	* @param String $module 	dossier du controller
-	* @param String $vue 		fichier dans le dossier
-	* @param array $data 		données facultatives
-	**/
+	 * Affiche une vue dans un module 
+	 * @param String $module 	dossier du controller
+	 * @param String $vue 		fichier dans le dossier
+	 * @param array $data 		données facultatives
+	 */
 	public function view($module, $vue, $data = null){
 		$urlVue = dirname(__FILE__) . DIRECTORY_SEOARATIR . ROOT . 'view/' . $module . '/' . $vue . '.php';
 
@@ -32,9 +32,9 @@ class Load{
 	}
 
 	/**
-	* Class .active
-	* @param String $pageId 	page ayant l'id sur le body
-	**/
+	 * Class .active
+	 * @param String $pageId 	page ayant l'id sur le body
+	 */
 	private function coreMenu($pageId){
 		if (define('PAGE_ID') && (PAGE_ID === $pageId)){
 			echo "<li class='active'>";
@@ -44,8 +44,8 @@ class Load{
 	}
 	
 	/**
-	* Message CNIL cookies
-	**/
+	 * Message CNIL cookies
+	 */
 	private function coreCnilCookies(){
 		if (!isset($_COOKIE["CookieCnil"])){
 			include(ROOT . 'view/layout/cnil.php');

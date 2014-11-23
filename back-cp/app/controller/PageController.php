@@ -1,13 +1,13 @@
 <?
 
 /**
-* PageController
-*
-* Affichage des pages sans traitement spécifique // static
-*
-* @package 		Framework_L&G
-* @copyright 	L&G
-**/
+ * PageController
+ *
+ * Affichage des pages sans traitement spécifique // static
+ *
+ * @package 	Framework_L&G
+ * @copyright 	L&G
+ */
 
 class PageController extends CoreController{
 	

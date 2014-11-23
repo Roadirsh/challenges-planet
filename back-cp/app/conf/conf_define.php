@@ -1,11 +1,11 @@
 <? 
 
 /**
-* Configuration des DEFINE
-*
-* @package 		Framework_L&G
-* @copyright 	L&G
-**/
+ * Configuration des DEFINE
+ *
+ * @package     Framework_L&G
+ * @copyright 	L&G
+ */
 
 // Vers le dossier app global
 	define("ROOT", '../app/');

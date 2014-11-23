@@ -1,13 +1,13 @@
 <?
 
 /**
-* Page404
-*
-* Affichage de la page 404
-*
-* @package 		Framework_L&G
-* @copyright 	L&G
-**/
+ * Page404
+ *
+ * Affichage de la page 404
+ *
+ * @package 	Framework_L&G
+ * @copyright 	L&G
+ */
 
 class 404Controller extends CoreController{
 

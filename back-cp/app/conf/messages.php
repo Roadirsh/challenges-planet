@@ -1,11 +1,11 @@
 <?php
 
 /**
-* Messages
-*
-* @package 		Framework_L&G
-* @copyright 	L&G
-**/
+ * Messages
+ *
+ * @package 	Framework_L&G
+ * @copyright 	L&G
+ */
 
 //rouge
 	$messageErreur = array(

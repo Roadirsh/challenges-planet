@@ -1,13 +1,13 @@
 <?php 
 
 /**
-* UserModel
-*
-* Requêtes relatifs au user
-*
-* @package 		Framework_L&G
-* @copyright 	L&G
-**/
+ * UserModel
+ *
+ * Requêtes relatifs au user
+ *
+ * @package 	Framework_L&G
+ * @copyright 	L&G
+ */
 
 
 class UserModel extends CoreModel{

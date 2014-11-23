@@ -1,13 +1,13 @@
 <? 
 
 /**
-* UserController
-*
-* Traitements relatifs au user
-*
-* @package 		Framework_L&G
-* @copyright 	L&G
-**/
+ * UserController
+ *
+ * Traitements relatifs au user
+ *
+ * @package 	Framework_L&G
+ * @copyright 	L&G
+ */
 
 
 

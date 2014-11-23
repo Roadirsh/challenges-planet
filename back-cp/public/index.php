@@ -1,11 +1,11 @@
 <?
 
 /**
-* Controller principal 
-* 
-* @package      Framework_L&G
-* @copyright    L&G
-**/
+ * Controller principal 
+ * 
+ * @package      Framework_L&G
+ * @copyright    L&G
+ */
 
 
 // Demmarage de la session
@@ -21,10 +21,10 @@
 // Ensemble des urls en dur
 	include(ROOT . "conf/conf_url.php");
 // Librairie principale et globale du framework
-	include("lib/lib.php");
+	include("../lib/lib.php");
 
 // Affichage des erreurs php
 	error_reporting(E_ALL);
 
 // Lancement de l'application !!!!!
-    include_once(ROOT . 'app.php')
+    include_once(ROOT . 'app.php');

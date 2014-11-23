@@ -1,25 +1,25 @@
 <?php
 
 /**
-* CoreModel
-*
-* Requetes prédéfinies et globales du model
-*
-* @package 		Framework_L&G
-* @copyright 	L&G
-**/
+ * CoreModel
+ *
+ * Requetes prédéfinies et globales du model
+ *
+ * @package 		Framework_L&G
+ * @copyright 	L&G
+ */
 
 class CoreModel{
 	/**
-	* Variable gestionnaire de vue et chargement du model
-	* @var 	object $pdo
-	**/
+	 * Variable gestionnaire de vue et chargement du model
+	 * @var 	object $pdo
+	 */
 	protected $pdo;
 	
 
 	/**
-	* Constructor
-	**/
+	 * Constructor
+	 */
 	function __construct(){
 		// appel du fichier contenant tout les logs
 		include_once(ROOT . 'conf/conf_mysql.php');
@@ -34,9 +34,9 @@ class CoreModel{
 
 
 	/**
-	* Message erreur pdo
-	* @param exception $e
-	**/
+	 * Message erreur pdo
+	 * @param exception $e
+	 */
 	private function coreBdError($e){
 		echo SITE_NAME." : Désolé, une erreur est survenue !";
 		exit;
@@ -44,10 +44,10 @@ class CoreModel{
 	
 
 	/**
-	* Lecture table, retourne fetchAll
-	* @param String $table 		nom de la table du select
-	* @param array $options 	tableau des options
-	**/
+	 * Lecture table, retourne fetchAll
+	 * @param String $table 		nom de la table du select
+	 * @param array $options 	tableau des options
+	 */
 	protected function coreTableAll($table, $options = null){
 		try{
 			$query = "SELECT ";
@@ -80,11 +80,11 @@ class CoreModel{
 	
 
 	/**
-	* Surpression d'un enregistrement par l'id
-	* @param String $table 		nom de la table du select
-	* @param String $colonne 	nom de la colonne à tester
-	* @param int $valeur 		valeur à tester
-	**/
+	 * Surpression d'un enregistrement par l'id
+	 * @param String $table 		nom de la table du select
+	 * @param String $colonne 	nom de la colonne à tester
+	 * @param int $valeur 		valeur à tester
+	 */
 	public function coreDeleteById($table, $colonne, $valeur){
 		try{
 			$query = "DELETE FROM ".$table." WHERE ".$colonne."=:id";

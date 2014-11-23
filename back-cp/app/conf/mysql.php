@@ -1,11 +1,13 @@
 <?php
 
 /**
-* Connexion PDO 
-*
-* @package 		Framework_L&G
-* @copyright 	L&G
-**/
+ * Connexion PDO 
+ *
+ * ! require 	conf_mysql.php
+ * 
+ * @package 	Framework_L&G
+ * @copyright 	L&G
+ */
 
 
 try
