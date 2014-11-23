@@ -31,14 +31,17 @@
 		include_once '../core/Load.php';
 	// Controller Globale
 		include_once '../core/CoreController.php';
-
+		
 
 	// Le controller appelé par la variable $module
 		include_once('controller/' . $module . 'Controller.php');
 	// Lancement du module
 		$controller = $module . 'Controller';
+		
 
-		new $controller();
+		$index = new UserController();
+		$index->Login();
 
+		
 
 		

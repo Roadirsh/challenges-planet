@@ -13,20 +13,13 @@
 
 class UserController extends CoreController{
 	
-	/**
-	* Constructor
-	**/
-	function __construct(){
-		parent::__construct();
-
-	}
 
 
 	/**
 	* Login
 	**/
 	public function Login(){
-
+	
 		if(isset($_POST['login'])){
 
 			//Charger le modèle pour vérifier le login et mot de passe

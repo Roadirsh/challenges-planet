@@ -17,7 +17,7 @@
 // Fichier de configuration principal
 	require_once('../app/conf/conf_define.php');
 // Parametrage de l'UTF8 
-	header('Content-type: text/html; charset=UTF-8');
+	//header('Content-type: text/html; charset=UTF-8');
 // Ensemble des urls en dur
 	include(ROOT . "conf/conf_url.php");
 // Librairie principale et globale du framework
@@ -28,3 +28,4 @@
 
 // Lancement de l'application !!!!!
     include_once(ROOT . 'app.php');
+    
