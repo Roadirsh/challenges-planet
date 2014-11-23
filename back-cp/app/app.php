@@ -33,12 +33,12 @@
 		include_once '../core/CoreController.php';
 
 
+	// Le controller appelé par la variable $module
+		include_once('controller/' . $module . 'Controller.php');
 	// Lancement du module
 		$controller = $module . 'Controller';
 
 		new $controller();
-	// Le controller appelé par la variable $module
-		include_once('controller/' . $module . 'Controller.php');
 
 
 		
