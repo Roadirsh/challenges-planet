@@ -13,6 +13,7 @@
 
 class UserController extends CoreController{
 	
+
 	/**
 	* Constructor
 	**/
@@ -29,11 +30,12 @@ class UserController extends CoreController{
 
 		if(isset($_POST['login'])){
 
-			//Charger le modèle pour vérifier le login et mot de passe
+			// var_dump($_POST); exit();
+			// Charger le modèle pour vérifier le login et mot de passe
 			$isUser = $this->model = new UserModel($_POST);
 
 			// Appel de la vue
-			if($isUser == true){
+			if($isUser==true){
 
 				// Dispatcher des actions du controller
 				define("PAGE_TITLE", "Home"); // TODO

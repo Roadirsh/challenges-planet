@@ -25,7 +25,7 @@ try
 	// créer une variable globale pour récupérer la connexion dans toutes les fonctions
 	global $connexion;
 	// on instentie la classe
-	$connexion = new PDO($dns, $PARAM_utilisateur, $PARAM_mot_passe, $option);
+	//$connexion = new PDO($dns, $PARAM_utilisateur, $PARAM_mot_passe, $option);
 }
 
 catch (Exception $e) 

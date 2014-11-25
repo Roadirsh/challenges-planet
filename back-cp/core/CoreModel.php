@@ -12,9 +12,9 @@
 class CoreModel{
 	/**
 	 * Variable gestionnaire de vue et chargement du model
-	 * @var 	object $pdo
+	 * @var 	object $connexion
 	 */
-	protected $pdo;
+	protected $connexion;
 	
 
 	/**
@@ -23,9 +23,12 @@ class CoreModel{
 	function __construct(){
 		// appel du fichier contenant tout les logs
 		include_once(ROOT . 'conf/conf_mysql.php');
-		try{
+		include_once(ROOT . 'conf/mysql.php');
+		try {
 			// on tente une connexion
-			$this->pdo = new PDO($dns, $PARAM_utilisateur, $PARAM_mot_passe, $options)
+			//$this->pdo = new PDO($dns, $PARAM_utilisateur, $PARAM_mot_passe, $options);
+			$this->connexion = new PDO($dns, $PARAM_utilisateur, $PARAM_mot_passe, $option);
+			
 		} catch (Exception $e){
 			// on renvoi au message d'erreur de la connexion
 			$this->CoreBdError($e);

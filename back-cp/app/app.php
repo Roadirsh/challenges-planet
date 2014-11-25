@@ -30,9 +30,13 @@
 		include_once '../core/Load.php';
 	// Controller Globale
 		include_once '../core/CoreController.php';
+	// Model Globale
+		include_once '../core/CoreModel.php';
 		
 	// Le controller appelé par la variable $module
 		include_once('controller/' . $module . 'Controller.php');
+	// Le cmodel appelé par la variable $module
+		include_once('model/' . $module . 'Model.php');
 	// Lancement du module
 		$controller = $module . 'Controller';
 		

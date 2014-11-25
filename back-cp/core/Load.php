@@ -20,7 +20,7 @@ class Load{
 	 * @param array $data 		données facultatives
 	 */
 	public function view($module, $vue, $data = null){
-		$urlVue = dirname(__FILE__) . DIRECTORY_SEOARATIR . ROOT . 'view/' . $module . '/' . $vue . '.php';
+		$urlVue = dirname(__FILE__) . DIRECTORY_SEPARATOR . ROOT . 'view/' . $module . '/' . $vue . '.php';
 
 		if (file_exists($urlVue)){
 			// si on trouve la vue

@@ -17,5 +17,7 @@
 	define("SITE_NAME", 'Challenges Planet');
 // PREFIXE des tables de la BDD
 	define("PREFIX", 'cp_');
+// URL de dev
+    define("DEV", 'ns366377.ovh.net');
 // URL de la racine du serveur
 	define('BASE_DIR', "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));

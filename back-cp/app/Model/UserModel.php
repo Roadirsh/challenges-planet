@@ -19,7 +19,7 @@ class UserModel extends CoreModel{
 		parent::__construct();
 
 		// on instentie la fonction avec ses paramètres
-		LoginUser($post);
+		$this->LoginUser($post);
 	}
 
 
@@ -32,19 +32,19 @@ class UserModel extends CoreModel{
 	public function LoginUser($post){
 
 		$login = $post['login'];
-		$pwd = md5($post['login']);
+		$pwd = md5($post['pwd']);
 
 		try {
 			// on récupère toutes les informations d'un user s'il correspond au login et password
-			$select = $connexion -> prepare("SELECT * 
-											FROM user
+			$select = $this->connexion->prepare("SELECT * 
+											FROM " . PREFIX . "user
 											WHERE pseudo = '" . $login . "'
 											AND password = '" . $pwd . "'");
 					
 			$select -> execute();
 
             // création des cookies
-			if($co = $select -> fetch(PDO::FETCH_OBJ)){
+			if($co = $select->fetch(PDO::FETCH_OBJ)){
 				$_SESSION['connect_compte'] = true;
 				$_SESSION['name'] = "$login";
 				$_SESSION['Users'] = $row;
@@ -57,12 +57,16 @@ class UserModel extends CoreModel{
 					{
 						die("cookie ne peut etre enregistré !");
 					}
-				}	
+				}
+
+
 				return true;
 				
 			}
-            
+			//return true;
+
 			$select -> closeCursor();
+
 		}
 
 		catch (Exception $e)

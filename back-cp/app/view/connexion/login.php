@@ -1,7 +1,6 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
-
-
-		<div class="container-fluid-full">
+	
+	<div class="container-fluid-full">
 		<div class="row-fluid">
 					
 			<div class="row-fluid">
@@ -21,13 +20,13 @@
 							
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="login" id="username" type="text" placeholder="Username"/>
+								<input class="input-large span10" name="login" id="username" type="text" placeholder="Username" required autofocus />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password">
 								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="pwd" id="password" type="password" placeholder="Password"/>
+								<input class="input-large span10" name="pwd" id="password" type="password" placeholder="Password" required/>
 							</div>
 							<div class="clearfix"></div>
 							
