@@ -11,9 +11,10 @@
 
 class 404Controller extends CoreController{
 
+
 	/**
-	* Page 404
-	**/
+	 * Page 404
+	 */
 	function __construct(){
 
 		// Définition des constante
@@ -23,7 +24,7 @@ class 404Controller extends CoreController{
 		define("PAGE_ID", "404");
 
 		// Appel de la vue
-		$this->Load->view('layout', '404');
+		$this->Load->view('layout', 'notfound');
 	}
 
 }

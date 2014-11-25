@@ -17,9 +17,6 @@ class UserModel extends CoreModel{
 	**/
 	function __construct($post){
 		parent::__construct();
-
-		// on instentie la fonction avec ses paramètres
-		$this->LoginUser($post);
 	}
 
 
@@ -34,6 +31,7 @@ class UserModel extends CoreModel{
 		$login = $post['login'];
 		$pwd = md5($post['pwd']);
 
+
 		try {
 			// on récupère toutes les informations d'un user s'il correspond au login et password
 			$select = $this->connexion->prepare("SELECT * 
@@ -41,13 +39,18 @@ class UserModel extends CoreModel{
 											WHERE pseudo = '" . $login . "'
 											AND password = '" . $pwd . "'");
 					
+			// var_dump($select);
+
 			$select -> execute();
+			$select -> setFetchMode(PDO::FETCH_ASSOC);
+			$retour = $select -> fetchAll();
 
             // création des cookies
-			if($co = $select->fetch(PDO::FETCH_OBJ)){
+			if(count($retour) != 0){
 				$_SESSION['connect_compte'] = true;
-				$_SESSION['name'] = "$login";
-				$_SESSION['Users'] = $row;
+				$_SESSION['user'] = $login;
+				// $_SESSION['level'] = ''; // TO DO // TYPE D'ADMIN
+
 				if (isset($post['reco'])){
 					if(!setcookie("Login",$login,time()+3600*24*31))
 					{
@@ -58,14 +61,12 @@ class UserModel extends CoreModel{
 						die("cookie ne peut etre enregistré !");
 					}
 				}
-
-
-				return true;
 				
-			}
-			//return true;
+			} 
 
 			$select -> closeCursor();
+
+			return count($retour);
 
 		}
 

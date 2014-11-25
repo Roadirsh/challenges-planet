@@ -122,7 +122,7 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> Dennis Ji
+								<i class="halflings-icon white user"></i> <? echo $_SESSION['name']; ?>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
@@ -130,7 +130,7 @@
  									<span>User skills settings</span>
 								</li>
 								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
+								<li><a href="#"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -172,7 +172,7 @@
 								<li><a class="submenu" href="submenu2.html"><i class="icon-plus"></i><span class="hidden-tablet"><em> Add a event</em></span></a></li>
 							</ul>	
 						</li>
-						<li><a href="#"><i class="icon-beaker"></i><span class="hidden-tablet"> Team</span></a></li>
+						<li><a href='index.php?module="team"'><i class="icon-beaker"></i><span class="hidden-tablet"> Team</span></a></li>
 
 					</ul>
 				</div>

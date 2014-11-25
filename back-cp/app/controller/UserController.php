@@ -30,13 +30,20 @@ class UserController extends CoreController{
 
 		if(isset($_POST['login'])){
 
-			// var_dump($_POST); exit();
+			// on rétabli les paramètres à zéro pour établir une nouvelle connexion
+			session_unset();
+
+			
 			// Charger le modèle pour vérifier le login et mot de passe
-			$isUser = $this->model = new UserModel($_POST);
+			$isUser = $this->model = new UserModel();
+
+			$user = $isUser->LoginUser($_POST);
+			// var_dump($_SESSION);
 
 			// Appel de la vue
-			if($isUser==true){
+			if($user != 0){
 
+				$_POST = array();
 				// Dispatcher des actions du controller
 				define("PAGE_TITLE", "Home"); // TODO
 				define('PAGE_DESCR', "Se connecter pour acceder au Dashboard."); // TODO
@@ -47,7 +54,6 @@ class UserController extends CoreController{
 				$this->load->view('page', 'home'); // TODO
 
 			} else{
-
 				// Dispatcher des actions du controller
 				define("PAGE_TITLE", "Login"); // TODO
 				define('PAGE_DESCR', "Se connecter pour acceder au Dashboard."); // TODO
@@ -61,7 +67,6 @@ class UserController extends CoreController{
 			}
 
 		} else {
-
 			// Dispatcher des actions du controller
 			define("PAGE_TITLE", "Login"); // TODO
 			define('PAGE_DESCR', "Se connecter pour acceder au Dashboard."); // TODO

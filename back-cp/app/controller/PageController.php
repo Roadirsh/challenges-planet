@@ -8,9 +8,8 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-
 class PageController extends CoreController{
-	
+
 	/**
 	* Constructor
 	**/
@@ -23,21 +22,21 @@ class PageController extends CoreController{
 		//$this->model = new Model();
 
 		// Dispatcher des actions du controller
-		if((isset($_GET['action'])) || ($_GET['action'] === "home")) {
-			$this->index();
-		} elseif($_GET['action'] === "cgu"){
-			$this->cgu();
-		} elseif($_GET['action'] === "apropos"){
-			$this->apropos();
-		} else{
-			$this->corePage404();
-		}
+		// if((isset($_GET['action'])) || ($_GET['action'] === "")) {
+		// 	$this->index();
+		// } elseif($_GET['action'] === "cgu"){
+		// 	$this->cgu();
+		// } elseif($_GET['action'] === "apropos"){
+		// 	$this->apropos();
+		// } else{
+		// 	$this->corePage404();
+		// }
 	}
 
 
 	/**
-	* Page static INDEX
-	**/
+	 * Page static INDEX
+	 */
 	public function home(){
 		
 		// Définition des constante
