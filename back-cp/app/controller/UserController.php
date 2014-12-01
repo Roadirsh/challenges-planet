@@ -9,47 +9,35 @@
  * @copyright 	L&G
  */
 
-
 class UserController extends CoreController{
 	/**
 	 * Constructor
 	*/
-
 	function __construct(){
 		parent::__construct();
-					if(isset($_GET['action'])){
+		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
-			// echo ucfirst($_GET['action']);
-			// echo 'lala';
 			$action = ucfirst($_GET['action']);
 			$this->$action();
 
 		} else {
-			// on test voir s'il y a une sesison ou non
-			if(isset($_SESSION['user']) != ''){
-				
-				$this->NbUsers();
-			} else {
-				$this->Login();
-
-			}
+			$this->Login();
 		}
+
 	}
 
 	/**
 	 * Login
 	 */
 	public function Login(){
-
 		if(isset($_POST['login'])){
 
 			// on rétabli les paramètres à zéro pour établir une nouvelle connexion
 			session_unset();
 
-			
 			// Charger le modèle pour vérifier le login et mot de passe
-
 			$isUser = $this->model = new UserModel();
+
 			$user = $isUser->LoginUser($_POST);
 			// var_dump($_SESSION);
 
@@ -64,6 +52,7 @@ class UserController extends CoreController{
 				define("PAGE_ID", "page_login"); // TODO
 
 				// on charge la page de la home
+
 				$this->load->view('page', 'home'); // TODO
 
 			} else{
@@ -78,7 +67,6 @@ class UserController extends CoreController{
 				//$mess = $_SESSION["coreMessage"] = $messageErreur["USER_LOGIN_NOK"]; // TODO
 				//$this->coreEcrireMessage($mess);
 			}
-
 		} else {
 			// Dispatcher des actions du controller
 			define("PAGE_TITLE", "Login"); // TODO
@@ -97,7 +85,6 @@ class UserController extends CoreController{
 	 */
 	public function Logout(){
 
-		echo 'lala';
 		$_SESSION['user'] == '';
 		session_unset();
 		session_destroy();

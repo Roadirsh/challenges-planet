@@ -43,7 +43,6 @@
     include_once '../core/CoreController.php';
 // Model Globale
     include_once '../core/CoreModel.php';
-    
 
 
 

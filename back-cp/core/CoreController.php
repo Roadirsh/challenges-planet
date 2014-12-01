@@ -22,7 +22,6 @@ class CoreController{
 	 * Constructor
 	 */
 	function __construct(){
-		echo 'lal';
 		$this->load = new Load();
 	}
 	
@@ -33,7 +32,6 @@ class CoreController{
 	 * @param String $action
 	 */
 	protected function coreRedirect($module, $action){
-		echo 'lala';
 		header('location:?module='.$module.'&amp;action='.$action);
 		exit;
 	}

@@ -14,25 +14,33 @@
  * instanciation de la class
  */
 
-$index = new UserController();
-
-if(isset($_GET['action'])){
-	//ucfirt = Met le premier caractère en majuscule
-	$index->Logout;
-
-} else {
-	$index->coreRedirect('user', 'login');
-}
-
 class UserModel extends CoreModel{
 
 	/**
-	* Constructor
-	**/
-	
+	 * Constructor
+	 */
 	function __construct($post){
 		parent::__construct();
+
+		if(isset($_GET['action'])){
+			//ucfirt = Met le premier caractère en majuscule
+			// echo ucfirst($_GET['action']);
+			$action = ucfirst($_GET['action']);
+
+			$this->$action();
+
+		} else {
+			// on test voir s'il y a une sesison ou non
+			if(isset($_SESSION['user']) != ''){
+				
+				$this->NbUsers();
+			} else {
+				$this->Login();
+
+			}
+		}
 	}
+
 
 	/**
 	 * LoginUser
@@ -40,12 +48,10 @@ class UserModel extends CoreModel{
 	 *
 	 * @param array $_POST
 	 */
-	public function LoginUser($post){
+	public function Login($post){
 
 		$login = $post['login'];
 		$pwd = md5($post['pwd']);
-
-		
 
 		try {
 			// on récupère toutes les informations d'un user s'il correspond au login et password
@@ -55,7 +61,6 @@ class UserModel extends CoreModel{
 											AND password = '" . $pwd . "'");
 					
 			// var_dump($select);
-
 			$select -> execute();
 			$select -> setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select -> fetchAll();
@@ -81,32 +86,11 @@ class UserModel extends CoreModel{
 			$select -> closeCursor();
 
 			return count($retour);
-
 		}
 
 		catch (Exception $e)
 		{
 			echo 'Message:' . $e -> getMessage();
 		}
-	}
-
-	/**
-	 * LogoutUser
-	 */
-	public function Logout(){
-
-		// on unset la session
-		session_unset();
-		session_destroy()
-		// on regirige sur une autre page
-		$this->coreRedirect('user', 'login');
-	}
-
-	/**
-	 * Nombre de Users
-	 */
-	public function Nbuser(){
-
-		
 	}
 }
