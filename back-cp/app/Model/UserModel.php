@@ -29,6 +29,7 @@ class UserModel extends CoreModel{
 	/**
 	* Constructor
 	**/
+	
 	function __construct($post){
 		parent::__construct();
 	}

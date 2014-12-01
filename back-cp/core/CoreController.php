@@ -22,6 +22,7 @@ class CoreController{
 	 * Constructor
 	 */
 	function __construct(){
+		echo 'lal';
 		$this->load = new Load();
 	}
 	

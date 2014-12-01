@@ -13,11 +13,11 @@
 class UserController extends CoreController{
 	/**
 	 * Constructor
-	 */
+	*/
+
 	function __construct(){
 		parent::__construct();
-
-		if(isset($_GET['action'])){
+					if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			// echo ucfirst($_GET['action']);
 			// echo 'lala';
@@ -27,6 +27,7 @@ class UserController extends CoreController{
 		} else {
 			// on test voir s'il y a une sesison ou non
 			if(isset($_SESSION['user']) != ''){
+				
 				$this->NbUsers();
 			} else {
 				$this->Login();
