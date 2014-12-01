@@ -9,6 +9,20 @@
  * @copyright 	L&G
  */
 
+/**
+ * choix de l'action
+ * instanciation de la class
+ */
+
+$index = new UserController();
+
+if(isset($_GET['action'])){
+	//ucfirt = Met le premier caractère en majuscule
+	$index->Logout;
+
+} else {
+	$index->coreRedirect('user', 'login');
+}
 
 class UserModel extends CoreModel{
 
@@ -19,18 +33,18 @@ class UserModel extends CoreModel{
 		parent::__construct();
 	}
 
-
 	/**
-	* LoginUser
-	* Requete vérifiant si le user existe, et si son mdp lui correspond
-	*
-	* @param array $_POST
-	**/
+	 * LoginUser
+	 * Requete vérifiant si le user existe, et si son mdp lui correspond
+	 *
+	 * @param array $_POST
+	 */
 	public function LoginUser($post){
 
 		$login = $post['login'];
 		$pwd = md5($post['pwd']);
 
+		
 
 		try {
 			// on récupère toutes les informations d'un user s'il correspond au login et password
@@ -61,7 +75,6 @@ class UserModel extends CoreModel{
 						die("cookie ne peut etre enregistré !");
 					}
 				}
-				
 			} 
 
 			$select -> closeCursor();
@@ -76,16 +89,23 @@ class UserModel extends CoreModel{
 		}
 	}
 
-
 	/**
-	* LogoutUser
-	**/
-	public function LogoutUser(){
+	 * LogoutUser
+	 */
+	public function Logout(){
 
 		// on unset la session
 		session_unset();
+		session_destroy()
 		// on regirige sur une autre page
-		$this->coreRedirect('page', 'home');
+		$this->coreRedirect('user', 'login');
 	}
-	
+
+	/**
+	 * Nombre de Users
+	 */
+	public function Nbuser(){
+
+		
+	}
 }

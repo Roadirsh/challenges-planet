@@ -59,7 +59,7 @@ class CoreModel{
 			} else {
 				$query .= "*";
 			}
-			$query .= " FROM " .$table;
+			$query .= " FROM " . PREFIX .$table;
 			if(isset($options["orderBy"])){
 				$query .= " ORDER BY ".$options["orderBy"];	
 			}

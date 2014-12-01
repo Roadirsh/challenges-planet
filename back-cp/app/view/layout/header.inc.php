@@ -3,7 +3,7 @@
 <head>
 	
 	<!-- start: Meta -->
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<title><?php echo PAGE_TITLE; ?></title>
 	<meta name="description" content="<?php echo PAGE_DESCR; ?>">
 	<meta name="author" content="3ADev">

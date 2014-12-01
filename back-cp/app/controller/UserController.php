@@ -10,22 +10,34 @@
  */
 
 
-
 class UserController extends CoreController{
-	
-
 	/**
-	* Constructor
-	**/
+	 * Constructor
+	 */
 	function __construct(){
 		parent::__construct();
 
+		if(isset($_GET['action'])){
+			//ucfirt = Met le premier caractère en majuscule
+			// echo ucfirst($_GET['action']);
+			// echo 'lala';
+			$action = ucfirst($_GET['action']);
+			$this->$action();
+
+		} else {
+			// on test voir s'il y a une sesison ou non
+			if(isset($_SESSION['user']) != ''){
+				$this->NbUsers();
+			} else {
+				$this->Login();
+
+			}
+		}
 	}
 
-
 	/**
-	* Login
-	**/
+	 * Login
+	 */
 	public function Login(){
 
 		if(isset($_POST['login'])){
@@ -35,8 +47,8 @@ class UserController extends CoreController{
 
 			
 			// Charger le modèle pour vérifier le login et mot de passe
-			$isUser = $this->model = new UserModel();
 
+			$isUser = $this->model = new UserModel();
 			$user = $isUser->LoginUser($_POST);
 			// var_dump($_SESSION);
 
@@ -80,12 +92,19 @@ class UserController extends CoreController{
 
 
 	/**
-	* Logout
-	**/
+	 * Logout
+	 */
 	public function Logout(){
 
-		$this->model = new LogoutModel();
+		echo 'lala';
+		$_SESSION['user'] == '';
+		session_unset();
+		session_destroy();
+		$this->coreRedirect('user', 'login');
+		// $this->model = new LogoutModel();
 		// redirection dans le fichier UserModel
+
 	}
-	
+
+		
 }

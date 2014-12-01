@@ -122,7 +122,7 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> <? echo $_SESSION['name']; ?>
+								<i class="halflings-icon white user"></i> <? echo $_SESSION['user']; ?>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
@@ -130,7 +130,7 @@
  									<span>User skills settings</span>
 								</li>
 								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="#"><i class="halflings-icon off"></i> Logout</a></li>
+								<li><a href="<? echo MODULE . 'user' . ACTION . 'logout'; ?>"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->

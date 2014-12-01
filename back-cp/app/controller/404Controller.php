@@ -9,14 +9,26 @@
  * @copyright 	L&G
  */
 
-class 404Controller extends CoreController{
+$index = new NotfoundController();
+if(isset($_GET['action'])){
+	//ucfirt = Met le premier caractère en majuscule
+	$index-> ucfirst($_GET['action']) . '()';
+} else {
+
+	$index->Notfound();
+}
+
+class NotfoundController extends CoreController{
 
 
 	/**
 	 * Page 404
 	 */
 	function __construct(){
+		parent::__construct();
+	}
 
+	public function Notfound(){
 		// Définition des constante
 		define("PAGE_TITLE", SITE_NAME . " 404 - not found");
 		define("PAGE_DESCR", SITE_NAME . " "); // TODO
@@ -24,7 +36,8 @@ class 404Controller extends CoreController{
 		define("PAGE_ID", "404");
 
 		// Appel de la vue
-		$this->Load->view('layout', 'notfound');
+		$this->load->view('layout', 'notfound');
+
 	}
 
 }
