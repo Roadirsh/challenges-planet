@@ -14,6 +14,7 @@
  * instanciation de la class
  */
 
+
 class UserModel extends CoreModel{
 
 	/**
@@ -83,7 +84,7 @@ class UserModel extends CoreModel{
 				}
 			} 
 
-			$select -> closeCursor();
+			// $select -> closeCursor();
 
 			return count($retour);
 		}

@@ -21,7 +21,13 @@ class UserController extends CoreController{
 			$this->$action();
 
 		} else {
-			$this->Login();
+			// on test voir s'il y a une sesison ou non
+			if(isset($_SESSION['user']) != ''){
+				$this->NbUsers();
+			} else {
+				$this->Login();
+
+			}
 		}
 
 	}
@@ -38,9 +44,9 @@ class UserController extends CoreController{
 			// Charger le modèle pour vérifier le login et mot de passe
 			$isUser = $this->model = new UserModel();
 
-			$user = $isUser->LoginUser($_POST);
+			$user = $isUser->Login($_POST);
+			
 			// var_dump($_SESSION);
-
 			// Appel de la vue
 			if($user != 0){
 
