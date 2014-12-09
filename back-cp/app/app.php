@@ -7,6 +7,8 @@
  * @copyright 	L&G
  */
 
+
+	 
 	/**
 	 * Analyse du module demandé
 	 */
@@ -41,11 +43,20 @@
 		$controller = $module . 'Controller';
 
 	// Le controller appelé par la variable $module
+<<<<<<< HEAD
 		include_once(ROOT . 'controller/' . $controller . '.php');
+=======
+		include_once(ROOT . 'controller/' . $module . 'Controller.php');
+
+>>>>>>> 2e3aff766ecc7de4ddc8f4c374fa7c57259c46cf
 	// Le model appelé par la variable $module
 		include_once(ROOT . 'model/' . $module . 'Model.php');
 
 	
+<<<<<<< HEAD
 	$index = new $controller();
 	
+=======
+
+>>>>>>> 2e3aff766ecc7de4ddc8f4c374fa7c57259c46cf
 

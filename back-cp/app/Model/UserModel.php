@@ -22,6 +22,7 @@ class UserModel extends CoreModel{
 	 */
 	function __construct($post){
 		parent::__construct();
+<<<<<<< HEAD
 
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
@@ -34,6 +35,15 @@ class UserModel extends CoreModel{
 			echo 'login';
 			$this->Login($_POST);
 		}
+=======
+		if(isset($_GET['action'])){
+	//ucfirt = Met le premier caractère en majuscule
+	$index->Logout;
+
+} else {
+	$index->coreRedirect('user', 'login');
+}
+>>>>>>> lala
 	}
 
 
