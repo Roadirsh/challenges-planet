@@ -6,7 +6,7 @@
  * @package     Framework_L&G
  * @copyright 	L&G
  */
-
+$logger->log('test', 'load', "Chargement de  conf_define", Logger::GRAN_MONTH);
 // Vers le dossier app global
 	define("ROOT", '../app/');
 // Vers le Model principal

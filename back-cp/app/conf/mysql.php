@@ -9,7 +9,7 @@
  * @copyright 	L&G
  */
 
-
+$logger->log('test', 'loadapp', "Chargement de mysql.php", Logger::GRAN_MONTH);
 try
 {
     // se connecter avec PDO 

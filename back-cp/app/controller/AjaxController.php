@@ -10,7 +10,7 @@
 /**
  * Action AJAX de traitement de POST
  */
-
+$logger->log('test', 'loadapp', "Chargement du controller ajax", Logger::GRAN_MONTH);
 class AjaxController extends CoreController{
 
 

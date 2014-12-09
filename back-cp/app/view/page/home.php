@@ -1,4 +1,5 @@
-<?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php");
+	$logger->log('test', 'loadapp', "Chargement de la vue home.php", Logger::GRAN_MONTH); ?>
 
 		<!-- start: Header -->
 	<div class="navbar">

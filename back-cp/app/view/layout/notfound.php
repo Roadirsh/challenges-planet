@@ -1,4 +1,6 @@
-<?php include("header.inc.php"); ?>
+<?php include("header.inc.php"); 
+	$logger->log('test', 'loadapp', "Chargement de la vue notfound.php", Logger::GRAN_MONTH);
+?>
 
 <div class="notfound jumbotron">
         <h1>404 NOT FOUND</h1>

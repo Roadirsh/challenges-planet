@@ -9,7 +9,7 @@
  * @copyright 	L&G
  */
 
-echo 'lili';
+$logger->log('test', 'loadapp', "Chargement du controller user", Logger::GRAN_MONTH);
 class UserController extends CoreController{
 	/**
 	 * Constructor

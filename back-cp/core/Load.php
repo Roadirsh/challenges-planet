@@ -8,7 +8,7 @@
  * @package 		Framework_L&G
  * @copyright 	L&G
  */
-
+$logger->log('test', 'loadapp', "Chargement du core Load", Logger::GRAN_MONTH);
 
 class Load{
 

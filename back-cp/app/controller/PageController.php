@@ -8,16 +8,8 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-echo 'laa'; exit();
-
-<<<<<<< HEAD
-=======
-
-$index = new PageController();
-
-
-
->>>>>>> lala
+ 
+ $logger->log('test', 'loadapp', "Chargement du controller page", Logger::GRAN_MONTH);
 class PageController extends CoreController {
 
 	/**
@@ -27,7 +19,6 @@ class PageController extends CoreController {
 		parent::__construct();
 		
 		if(isset($_GET['action'])){
-<<<<<<< HEAD
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
 			$this->$action();
@@ -40,14 +31,6 @@ class PageController extends CoreController {
 				//$this->coreRedirect('user', 'login');
 			}
 		}
-
-=======
-	//ucfirt = Met le premier caractère en majuscule
-	$this-> ucfirst($_GET['action']) . '()';
-} else {
-	$this->Home();
-}
->>>>>>> lala
 	}
 	echo 'lala';
 
@@ -70,3 +53,5 @@ class PageController extends CoreController {
 	
 	}
 }
+
+?>

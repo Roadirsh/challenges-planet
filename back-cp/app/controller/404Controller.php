@@ -8,7 +8,7 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-
+$logger->log('test', 'loadapp', "Chargement du controller 404", Logger::GRAN_MONTH);
 $index = new NotfoundController();
 if(isset($_GET['action'])){
 	//ucfirt = Met le premier caractère en majuscule

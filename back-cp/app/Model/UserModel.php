@@ -13,8 +13,8 @@
  * choix de l'action
  * instanciation de la class
  */
-echo 'baby';
-
+ 
+ $logger->log('test', 'loadapp', "Chargement du modele user", Logger::GRAN_MONTH);
 class UserModel extends CoreModel{
 
 	/**
@@ -93,3 +93,5 @@ class UserModel extends CoreModel{
 	}
 
 }
+
+?>

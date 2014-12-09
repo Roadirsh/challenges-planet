@@ -1,4 +1,5 @@
-<?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php");
+	$logger->log('test', 'loadapp', "Chargement de la vue login.php", Logger::GRAN_MONTH); ?>
 	
 	<div class="container-fluid-full">
 		<div class="row-fluid">

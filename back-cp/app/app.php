@@ -8,7 +8,7 @@
  */
 
 
-	 
+	 $logger->log('test', 'loadapp', "Chargement de l'application app.php", Logger::GRAN_MONTH);
 	/**
 	 * Analyse du module demandé
 	 */

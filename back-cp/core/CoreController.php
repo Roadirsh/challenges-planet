@@ -8,7 +8,7 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-	
+	$logger->log('test', 'loadapp', "Chargement du core controller", Logger::GRAN_MONTH);
 class CoreController{
 	/**
 	 * Variable gestionnaire de vue et chargement du model

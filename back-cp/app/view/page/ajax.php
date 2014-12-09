@@ -1,4 +1,6 @@
-<?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); 
+	$logger->log('test', 'loadapp', "Chargement de la vue ajax.php", Logger::GRAN_MONTH);
+?>
 
 <h1>Test ajax baby</h1>
 <form id="formu" name="sample" action="" method="post" role="form">

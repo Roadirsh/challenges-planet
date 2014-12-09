@@ -6,7 +6,7 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-
+$logger->log('test', 'loadapp', "Chargement de l'application messages.php", Logger::GRAN_MONTH);
 //rouge
 	$messageErreur = array(
 		"LEVEL_REQUIRED"	=> "Désolé, vous devez être identifié.",
