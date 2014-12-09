@@ -29,6 +29,8 @@ include_once(ROOT . 'model/UserModel.php');
 
 // Affichage des erreurs php
     error_reporting(E_ALL);
+    
+    
 
 
 
@@ -43,8 +45,15 @@ include_once(ROOT . 'model/UserModel.php');
     include_once '../core/CoreController.php';
 // Model Globale
     include_once '../core/CoreModel.php';
+    
+    include_once '../lib/Logger.class.php';
 
 
+	 
+	// Création d'un objet Logger
+	$logger = new Logger('../logs/');
+	
+	$logger->log('test', 'loadapp', "Chargement de l'application index.php", Logger::GRAN_MONTH);
 
 // Lancement de l'application !!!!!
-    include_once(ROOT . 'app.php');
+    //include_once(ROOT . 'app.php');
