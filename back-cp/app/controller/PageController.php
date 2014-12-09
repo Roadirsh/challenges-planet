@@ -8,29 +8,37 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
+echo 'laa'; exit();
 
 class PageController extends CoreController {
 
 	/**
 	 * Constructor
 	 */
-	function __construct() {
+	function __construct(){
 		parent::__construct();
+		
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
 			$this->$action();
 
 		} else {
-			$this->Home();
+			// on test voir s'il y a une sesison ou non
+			if(isset($_SESSION['user']) != ''){
+				$this->Home();
+			} else {
+				//$this->coreRedirect('user', 'login');
+			}
 		}
 
 	}
+	echo 'lala';
 
 	/**
 	 * Page static INDEX
 	 */
-	public function Home() {
+	public function Home(){
 
 		// Définition des constante
 		define("PAGE_TITLE", SITE_NAME . " home");

@@ -13,7 +13,7 @@
  * choix de l'action
  * instanciation de la class
  */
-
+echo 'baby';
 
 class UserModel extends CoreModel{
 
@@ -31,14 +31,8 @@ class UserModel extends CoreModel{
 			$this->$action();
 
 		} else {
-			// on test voir s'il y a une sesison ou non
-			if(isset($_SESSION['user']) != ''){
-				
-				$this->NbUsers();
-			} else {
-				$this->Login();
-
-			}
+			echo 'login';
+			$this->Login($_POST);
 		}
 	}
 
@@ -49,10 +43,12 @@ class UserModel extends CoreModel{
 	 *
 	 * @param array $_POST
 	 */
+	//echo 'lolo';
 	public function Login($post){
 
 		$login = $post['login'];
 		$pwd = md5($post['pwd']);
+		var_dump($post);
 
 		try {
 			// on récupère toutes les informations d'un user s'il correspond au login et password
@@ -61,7 +57,7 @@ class UserModel extends CoreModel{
 											WHERE pseudo = '" . $login . "'
 											AND password = '" . $pwd . "'");
 					
-			// var_dump($select);
+		 	var_dump($select); 
 			$select -> execute();
 			$select -> setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select -> fetchAll();
@@ -85,7 +81,7 @@ class UserModel extends CoreModel{
 			} 
 
 			// $select -> closeCursor();
-
+			// echo count($retour); exit();
 			return count($retour);
 		}
 
@@ -94,4 +90,5 @@ class UserModel extends CoreModel{
 			echo 'Message:' . $e -> getMessage();
 		}
 	}
+
 }

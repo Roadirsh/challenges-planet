@@ -9,6 +9,7 @@
  * @copyright 	L&G
  */
 
+echo 'lili';
 class UserController extends CoreController{
 	/**
 	 * Constructor
@@ -36,8 +37,9 @@ class UserController extends CoreController{
 	 * Login
 	 */
 	public function Login(){
+		
 		if(isset($_POST['login'])){
-
+			echo 'post';
 			// on rétabli les paramètres à zéro pour établir une nouvelle connexion
 			session_unset();
 
@@ -49,17 +51,11 @@ class UserController extends CoreController{
 			// var_dump($_SESSION);
 			// Appel de la vue
 			if($user != 0){
-
+				echo 'oui';
 				$_POST = array();
-				// Dispatcher des actions du controller
-				define("PAGE_TITLE", "Home"); // TODO
-				define('PAGE_DESCR', "Se connecter pour acceder au Dashboard."); // TODO
-				define("PAGE_KW", "login, etc"); // TODO
-				define("PAGE_ID", "page_login"); // TODO
 
-				// on charge la page de la home
-
-				$this->load->view('page', 'home'); // TODO
+				$this->coreRedirect('page', 'home');
+				// header('location:index.php');
 
 			} else{
 				// Dispatcher des actions du controller

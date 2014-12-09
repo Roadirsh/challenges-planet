@@ -32,7 +32,7 @@ class CoreController{
 	 * @param String $action
 	 */
 	protected function coreRedirect($module, $action){
-		header('location:?module='.$module.'&amp;action='.$action);
+		header('location:index.php?module='.$module.'&action='.$action);
 		exit;
 	}
 	protected function corePage404(){
