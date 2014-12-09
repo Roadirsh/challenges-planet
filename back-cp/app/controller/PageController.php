@@ -9,6 +9,14 @@
  * @copyright 	L&G
  */
 
+<<<<<<< HEAD
+=======
+
+$index = new PageController();
+
+
+
+>>>>>>> lala
 class PageController extends CoreController {
 
 	/**
@@ -17,6 +25,7 @@ class PageController extends CoreController {
 	function __construct() {
 		parent::__construct();
 		if(isset($_GET['action'])){
+<<<<<<< HEAD
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
 			$this->$action();
@@ -25,6 +34,13 @@ class PageController extends CoreController {
 			$this->Home();
 		}
 
+=======
+	//ucfirt = Met le premier caractère en majuscule
+	$this-> ucfirst($_GET['action']) . '()';
+} else {
+	$this->Home();
+}
+>>>>>>> lala
 	}
 
 	/**

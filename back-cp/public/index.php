@@ -17,7 +17,7 @@
 
 // Fichier de configuration principal
     require_once('../app/conf/conf_define.php');
-
+include_once(ROOT . 'model/UserModel.php');
 // Parametrage de l'UTF8 
     header('Content-type: text/html; charset=UTF-8');
 
