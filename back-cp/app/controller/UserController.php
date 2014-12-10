@@ -51,6 +51,22 @@ class UserController extends CoreController {
 	
 	}
 	
+	/**
+	 * Page static INDEX
+	 */
+	public function Adduser(){
+
+		// Définition des constante
+		define("PAGE_TITLE", SITE_NAME . " home");
+		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
+		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_ID", "addUser");
+		
+		// Appel de la vue 
+		$this->load->view('user', 'addUser'); // TODO
+	
+	}
+	
 }
 
 ?>

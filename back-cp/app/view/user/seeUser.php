@@ -2,8 +2,9 @@
 <? include(ROOT . "view/layout/header.inc.php"); ?>
 <? include(ROOT . "view/layout/menutop.inc.php"); ?>
 <? include(ROOT . "view/layout/menu.inc.php"); ?>
-	
-	<div class="box span4" onTablet="span6" onDesktop="span4">
+
+<div id="content" class="span10">
+	<div class="box span13" onTablet="span13" onDesktop="span13">
 		<div class="box-header">
 			<h2><i class="halflings-icon user"></i><span class="break"></span>Last Users Alt.</h2>
 			<div class="box-icon">

@@ -2,9 +2,8 @@
 <? include(ROOT . "view/layout/header.inc.php"); ?>
 <? include(ROOT . "view/layout/menutop.inc.php"); ?>
 <? include(ROOT . "view/layout/menu.inc.php"); ?>
-	
-		<div class="container-fluid-full">
-		<div class="row-fluid">
+
+
 			<noscript>
 				<div class="alert alert-block span10">
 					<h4 class="alert-heading">Warning!</h4>
@@ -64,5 +63,4 @@
 	</div>
 	
 	<div class="clearfix"></div>
-
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>
