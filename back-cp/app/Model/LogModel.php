@@ -66,7 +66,7 @@ class LogModel extends CoreModel{
 			$select -> execute();
 			$select -> setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select -> fetchAll();
-			var_dump($retour);
+			
 
             // création des cookies
 			if(count($retour) != 0){

@@ -20,6 +20,7 @@ class LogController extends CoreController{
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
+			
 			$this->$action();
 
 		} else {
@@ -33,7 +34,7 @@ class LogController extends CoreController{
 		}
 
 	}
-
+	
 	/**
 	 * Login
 	 */
@@ -88,7 +89,7 @@ class LogController extends CoreController{
 	 */
 	public function Logout(){
 
-		$_SESSION[''] == '';
+		
 		session_unset();
 		session_destroy();
 		$this->coreRedirect('', 'login');
