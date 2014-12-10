@@ -1,4 +1,3 @@
-
 <?
 //phpinfo();
 /**
@@ -16,9 +15,10 @@
 // Nommage de la session
     session_name('ChallengesPlanet');
 
-    
-    // include_once '../lib/Logger.class.php';
-    // $logger = new Logger('../logs/');
+    include_once '../lib/Logger.class.php';
+     global $logger;
+     $logger = new Logger('../logs/');
+     
 
 // Fichier de configuration principal
     require_once('../app/conf/conf_define.php');

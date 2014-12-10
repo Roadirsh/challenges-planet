@@ -8,8 +8,8 @@
  * @package     Framework_L&G
  * @copyright   L&G
  */
-
-//$logger->log('test', 'loadapp', "Chargement du model page", Logger::GRAN_MONTH);
+$logger = new Logger('../logs/');
+$logger->log('test', 'loadapp', "Chargement du model page", Logger::GRAN_MONTH);
 
 class PageModel extends CoreModel{
 

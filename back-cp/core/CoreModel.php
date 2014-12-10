@@ -9,7 +9,7 @@
  * @copyright 	L&G
  */
 
-//$logger->log('test', 'loadapp', "Chargement du core model", Logger::GRAN_MONTH);
+
 
 class CoreModel{
 	/**
@@ -24,6 +24,9 @@ class CoreModel{
 	 */
 	function __construct(){
 		// appel du fichier contenant tout les logs
+		$logger = new Logger('../logs/');
+		$logger->log('test', 'loadapp', "Chargement de mysql", Logger::GRAN_MONTH);
+
 		include_once(ROOT . 'conf/mysql.php');
 		try {
 			// on tente une connexion

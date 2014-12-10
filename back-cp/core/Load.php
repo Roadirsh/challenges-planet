@@ -9,7 +9,7 @@
  * @copyright 	L&G
  */
 
-//$logger->log('test', 'loadapp', "Chargement du core Load", Logger::GRAN_MONTH);
+$logger->log('test', 'loadapp', "Chargement du core Load", Logger::GRAN_MONTH);
 
 class Load{
 

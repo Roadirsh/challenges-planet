@@ -9,7 +9,7 @@
  * @copyright 	L&G
  */
 
-//$logger->log('test', 'loadapp', "Chargement du core controller", Logger::GRAN_MONTH);
+$logger->log('test', 'loadapp', "Chargement du core controller", Logger::GRAN_MONTH);
 
 class CoreController{
 	/**
