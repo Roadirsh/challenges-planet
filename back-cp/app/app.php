@@ -26,7 +26,7 @@
 			$module = "Page";
 		}
 	} else {
-		$module = "User";
+		$module = "Log";
 	}
 
 	$urlController = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'controller/' . $module . 'Controller.php';

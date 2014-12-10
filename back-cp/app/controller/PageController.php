@@ -29,7 +29,7 @@ class PageController extends CoreController {
 			if(isset($_SESSION['user']) != ''){
 				$this->Home();
 			} else {
-				//$this->coreRedirect('user', 'login');
+				$this->coreRedirect('user', 'login');
 			}
 		}
 	}
@@ -48,11 +48,17 @@ class PageController extends CoreController {
 
 		// $allUser = $this->model = new CoreModel();
 		// $allu = $allUser->coreTableAll('user');
-
+		
+		$countUser = $this->model = new PageModel();
+		$NbUser = $countUser->NbUsers();
+		
+		echo 'nombre de user = ' . $NbUser;
+		
 		// Appel de la vue 
 		$this->load->view('page', 'home'); // TODO
 	
 	}
+	
 }
 
 ?>

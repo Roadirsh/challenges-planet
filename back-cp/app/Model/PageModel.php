@@ -22,14 +22,14 @@ class PageModel extends CoreModel{
             $select = $this->connexion->prepare("SELECT * 
                                             FROM " . PREFIX . "user");
                     
-            var_dump($select);
+            //var_dump($select);
             $select -> execute();
             $select -> setFetchMode(PDO::FETCH_ASSOC);
             $retour = $select -> rowCount();
 
             // $select -> closeCursor();
 
-            var_dump($retour);
+            //var_dump($retour);
 
             return $retour;
         }
