@@ -8,7 +8,9 @@
  * @package 		Framework_L&G
  * @copyright 	L&G
  */
-$logger->log('test', 'loadapp', "Chargement du core model", Logger::GRAN_MONTH);
+
+//$logger->log('test', 'loadapp', "Chargement du core model", Logger::GRAN_MONTH);
+
 class CoreModel{
 	/**
 	 * Variable gestionnaire de vue et chargement du model
@@ -22,7 +24,6 @@ class CoreModel{
 	 */
 	function __construct(){
 		// appel du fichier contenant tout les logs
-		include_once(ROOT . 'conf/conf_mysql.php');
 		include_once(ROOT . 'conf/mysql.php');
 		try {
 			// on tente une connexion

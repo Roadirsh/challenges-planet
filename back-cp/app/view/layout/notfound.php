@@ -1,5 +1,5 @@
 <?php include("header.inc.php"); 
-	$logger->log('test', 'loadapp', "Chargement de la vue notfound.php", Logger::GRAN_MONTH);
+	// $logger->log('test', 'loadapp', "Chargement de la vue notfound.php", Logger::GRAN_MONTH);
 ?>
 
 <div class="notfound jumbotron">

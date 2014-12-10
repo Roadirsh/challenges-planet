@@ -1,5 +1,5 @@
 <?php include(ROOT . "view/layout/header.inc.php"); 
-	$logger->log('test', 'loadapp', "Chargement de la vue ajax.php", Logger::GRAN_MONTH);
+	//$logger->log('test', 'loadapp', "Chargement de la vue ajax.php", Logger::GRAN_MONTH);
 ?>
 
 <h1>Test ajax baby</h1>

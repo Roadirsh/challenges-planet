@@ -1,5 +1,5 @@
 <?php include(ROOT . "view/layout/header.inc.php");
-	$logger->log('test', 'loadapp', "Chargement de la vue home.php", Logger::GRAN_MONTH); ?>
+	// $logger->log('test', 'loadapp', "Chargement de la vue home.php", Logger::GRAN_MONTH); ?>
 
 		<!-- start: Header -->
 	<div class="navbar">
@@ -205,7 +205,7 @@
 				<a class="quick-button metro yellow span2">
 					<i class="icon-group"></i>
 					<p>Users's number</p>
-					<span class="badge"><? echo $NbUsers; ?></span>
+					<span class="badge"><? //echo $NbUsers; ?></span>
 				</a>
 				<a class="quick-button metro pink span2">
 					<i class="icon-envelope"></i>

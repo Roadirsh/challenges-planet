@@ -9,7 +9,8 @@
  * @copyright   L&G
  */
 
-$logger->log('test', 'loadapp', "Chargement du model page", Logger::GRAN_MONTH);
+//$logger->log('test', 'loadapp', "Chargement du model page", Logger::GRAN_MONTH);
+
 class PageModel extends CoreModel{
 
     /**

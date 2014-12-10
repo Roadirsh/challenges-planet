@@ -9,7 +9,8 @@
  * @copyright 	L&G
  */
 
-$logger->log('test', 'loadapp', "Chargement du controller user", Logger::GRAN_MONTH);
+//$logger->log('test', 'loadapp', "Chargement du controller user", Logger::GRAN_MONTH);
+
 class UserController extends CoreController{
 	/**
 	 * Constructor
@@ -39,7 +40,7 @@ class UserController extends CoreController{
 	public function Login(){
 		
 		if(isset($_POST['login'])){
-			echo 'post';
+			//echo 'post';
 			// on rétabli les paramètres à zéro pour établir une nouvelle connexion
 			session_unset();
 
@@ -51,7 +52,7 @@ class UserController extends CoreController{
 			// var_dump($_SESSION);
 			// Appel de la vue
 			if($user != 0){
-				echo 'oui';
+				//echo 'oui';
 				$_POST = array();
 
 				$this->coreRedirect('page', 'home');

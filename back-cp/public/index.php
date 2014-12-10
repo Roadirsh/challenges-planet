@@ -15,8 +15,9 @@
 // Nommage de la session
     session_name('ChallengesPlanet');
 
-include_once '../lib/Logger.class.php';
-$logger = new Logger('../logs/');
+    
+    // include_once '../lib/Logger.class.php';
+    // $logger = new Logger('../logs/');
 
 // Fichier de configuration principal
     require_once('../app/conf/conf_define.php');
@@ -56,7 +57,7 @@ $logger = new Logger('../logs/');
 	 
 	// Création d'un objet Logger
 		
-	$logger->log('test', 'loadapp', "Chargement de l'application index.php", Logger::GRAN_MONTH);
+	//$logger->log('test', 'loadapp', "Chargement de l'application index.php", Logger::GRAN_MONTH);
 
 // Lancement de l'application !!!!!
     include_once(ROOT . 'app.php');

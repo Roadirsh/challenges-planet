@@ -14,25 +14,31 @@
  * instanciation de la class
  */
  
- $logger->log('test', 'loadapp', "Chargement du modele user", Logger::GRAN_MONTH);
+//$logger->log('test', 'loadapp', "Chargement du modele user", Logger::GRAN_MONTH);
+
 class UserModel extends CoreModel{
 
 	/**
 	 * Constructor
 	 */
-	function __construct($post){
-		parent::__construct();
+	function __construct(){
+		parent::__construct($_POST);
 
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			// echo ucfirst($_GET['action']);
 			$action = ucfirst($_GET['action']);
 
-			$this->$action();
+            if(ucfirst($_GET['action']) == 'Login'){
+                $this->$action($_POST);
+            } else{
+                $this->$action();
+            }
+			
 
 		} else {
-			echo 'login';
-			$this->Login($_POST);
+
+			$this->Login($post);
 		}
 
 	}
@@ -49,7 +55,7 @@ class UserModel extends CoreModel{
 
 		$login = $post['login'];
 		$pwd = md5($post['pwd']);
-		var_dump($post);
+		//var_dump($post);
 
 		try {
 			// on récupère toutes les informations d'un user s'il correspond au login et password
@@ -58,7 +64,7 @@ class UserModel extends CoreModel{
 											WHERE pseudo = '" . $login . "'
 											AND password = '" . $pwd . "'");
 					
-		 	var_dump($select); 
+		 	//var_dump($select); 
 			$select -> execute();
 			$select -> setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select -> fetchAll();

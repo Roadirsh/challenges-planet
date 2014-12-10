@@ -8,13 +8,13 @@
  */
 
 
-	 $logger->log('test', 'loadapp', "Chargement de l'application app.php", Logger::GRAN_MONTH);
+	 // $logger->log('test', 'loadapp', "Chargement de l'application app.php", Logger::GRAN_MONTH);
 	/**
 	 * Analyse du module demandé
 	 */
 	// session_destroy();
 	//$_POST = '';
-	var_dump($_SESSION);
+	//var_dump($_SESSION);
 
 	if(isset($_SESSION['user']) != ''){
 
@@ -43,20 +43,15 @@
 		$controller = $module . 'Controller';
 
 	// Le controller appelé par la variable $module
-<<<<<<< HEAD
-		include_once(ROOT . 'controller/' . $controller . '.php');
-=======
-		include_once(ROOT . 'controller/' . $module . 'Controller.php');
 
->>>>>>> 2e3aff766ecc7de4ddc8f4c374fa7c57259c46cf
+		include_once('controller/' . $controller . '.php');
+
+		include_once('controller/' . $module . 'Controller.php');
+
+
 	// Le model appelé par la variable $module
-		include_once(ROOT . 'model/' . $module . 'Model.php');
+		include_once('model/' . $module . 'Model.php');
 
 	
-<<<<<<< HEAD
+
 	$index = new $controller();
-	
-=======
-
->>>>>>> 2e3aff766ecc7de4ddc8f4c374fa7c57259c46cf
-
