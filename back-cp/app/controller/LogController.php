@@ -45,7 +45,7 @@ class LogController extends CoreController{
 			session_unset();
 
 			// Charger le modèle pour vérifier le login et mot de passe
-			$isUser = $this->model = new LogModel();
+			$isUser = $this->model = new LogModel($_POST);
 
 			$User = $isUser->Login($_POST);
 			

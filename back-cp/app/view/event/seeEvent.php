@@ -7,7 +7,7 @@
     <div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon user"></i><span class="break"></span>Users </h2>
+						<h2><i class="halflings-icon user"></i><span class="break"></span>Event </h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -18,26 +18,20 @@
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
 							  <tr>
-								  <th>User name</th>
-								  <th>First name</th>
-								  <th>Last name</th>
-								  <th>D.O.B</th>
-								  <th>Mail</th>
+								  <th>Event Name</th>
+								  <th>Date begin</th>
+								  <th>Date end</th>
 								  <th>Date regist.</th>
-								  <th>Role</th>
 								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
 							<tr>
-								<td><a class="btn btn-info" href="#">Admin</a></td>
-								<td>FIRST NAME</td>
-								<td>LAST NAME</td>
+								<td><a class="btn btn-info" href="#">4L TROPHY</a></td>
 								<td>2012/01/01</td>
-								<td>mail@mail.com</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">Member</td>
+								<td>2013/01/01</td>
+								<td>2012/01/01</td>
 								<td class="center">
 									<span class="label label-success">Active</span>
 								</td>

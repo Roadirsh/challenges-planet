@@ -16,18 +16,18 @@
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-leaf"></i><span class="hidden-tablet"> Projects</span></a>
                         <ul>
-                            <li><a class="submenu" href="#"><i class="icon-eye-open"></i><span class="hidden-tablet"><em> See all project</em></span></a></li>
-                            <li><a class="submenu" href="#"><i class="icon-plus"></i><span class="hidden-tablet"><em> Add a project</em></span></a></li>
+                            <li><a class="submenu" href="<? echo MODULE . 'project' . ACTION . 'seeproject'; ?>"><i class="icon-eye-open"></i><span class="hidden-tablet"><em> See all project</em></span></a></li>
+                            <li><a class="submenu" href="<? echo MODULE . 'project' . ACTION . 'addproject'; ?>"><i class="icon-plus"></i><span class="hidden-tablet"><em> Add a project</em></span></a></li>
                         </ul>	
                     </li>
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-dashboard"></i><span class="hidden-tablet"> Events</span></a>
                         <ul>
-                            <li><a class="submenu" href="#"><i class="icon-eye-open"></i><span class="hidden-tablet"><em> See all events</em></span></a></li>
-                            <li><a class="submenu" href="#"><i class="icon-plus"></i><span class="hidden-tablet"><em> Add a event</em></span></a></li>
+                            <li><a class="submenu" href="<? echo MODULE . 'event' . ACTION . 'seeevent'; ?>"><i class="icon-eye-open"></i><span class="hidden-tablet"><em> See all events</em></span></a></li>
+                            <li><a class="submenu" href="<? echo MODULE . 'event' . ACTION . 'addevent'; ?>"><i class="icon-plus"></i><span class="hidden-tablet"><em> Add a event</em></span></a></li>
                         </ul>	
                     </li>
-                    <li><a href='index.php?module="team"'><i class="icon-beaker"></i><span class="hidden-tablet"> Team</span></a></li>
+                    <li><a href='<? echo MODULE . 'page' . ACTION . 'team'; ?>'><i class="icon-beaker"></i><span class="hidden-tablet"> Team</span></a></li>
                 </ul>
             </div>
         </div>

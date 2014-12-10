@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * UserController
+ * ProjetController
  *
  * Affichage des pages sans traitement spécifique // static
  *
@@ -11,7 +11,7 @@
  
 //$logger->log('test', 'loadapp', "Chargement du controller page", Logger::GRAN_MONTH);
 
-class UserController extends CoreController {
+class ProjectController extends CoreController {
 
 	/**
 	 * Constructor
@@ -27,7 +27,7 @@ class UserController extends CoreController {
 		} else {
 			// on test voir s'il y a une sesison ou non
 			if(isset($_SESSION['user']) != ''){
-				$this->Seeuser();
+				$this->Seeproject();
 			} else {
 				$this->coreRedirect('user', 'login');
 			}
@@ -36,36 +36,34 @@ class UserController extends CoreController {
 
 
 	/**
-	 * Page static INDEX
+	 * Page
 	 */
-	public function Seeuser(){
+	public function Seeproject(){
 
 		// Définition des constante
 		define("PAGE_TITLE", SITE_NAME . " home");
 		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
 		define("PAGE_KW", SITE_NAME); // TODO
-		define("PAGE_ID", "seeUser");
-		
-		var_dump($_SESSION);
+		define("PAGE_ID", "seeProject");
 		
 		// Appel de la vue 
-		$this->load->view('user', 'seeUser'); // TODO
+		$this->load->view('project', 'seeProject'); // TODO
 	
 	}
 	
 	/**
-	 * Page static INDEX
+	 * Page
 	 */
-	public function Adduser(){
+	public function Addproject(){
 
 		// Définition des constante
 		define("PAGE_TITLE", SITE_NAME . " home");
 		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
 		define("PAGE_KW", SITE_NAME); // TODO
-		define("PAGE_ID", "addUser");
+		define("PAGE_ID", "addProject");
 		
 		// Appel de la vue 
-		$this->load->view('user', 'addUser'); // TODO
+		$this->load->view('project', 'addProject'); // TODO
 	
 	}
 	

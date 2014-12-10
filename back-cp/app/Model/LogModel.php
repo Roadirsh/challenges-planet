@@ -34,11 +34,9 @@ class LogModel extends CoreModel{
             } else{
                 $this->$action();
             }
-			
 
 		} else {
-
-			$this->Login($post);
+			$this->Login($_POST);
 		}
 
 	}

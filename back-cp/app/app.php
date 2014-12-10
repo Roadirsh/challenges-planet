@@ -33,7 +33,8 @@
 	// echo $urlController;
 
 	if(!file_exists($urlController)){
-		$module = "404";
+		include_once('controller/404Controller.php');
+		exit();
 
 		$urlController = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'controller/' . $module . 'Controller.php';
 		// echo $urlController;
