@@ -1,3 +1,4 @@
 back-cp/logs/*
 .DS_Store
 back-cp/app/conf/conf_mysql.php
+cp.mwb.bak
