@@ -59,19 +59,18 @@ class LogModel extends CoreModel{
 			// on récupère toutes les informations d'un user s'il correspond au login et password
 			$select = $this->connexion->prepare("SELECT * 
 											FROM " . PREFIX . "user
-											WHERE pseudo = '" . $login . "'
-											AND password = '" . $pwd . "'");
+											WHERE user_pseudo = '" . $login . "'
+											AND user_password = '" . $pwd . "'");
 					
 		 	//var_dump($select); 
 			$select -> execute();
 			$select -> setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select -> fetchAll();
 			
-
             // création des cookies
 			if(count($retour) != 0){
 				$_SESSION['connect_compte'] = true;
-				$_SESSION['user'] = $retour[0]['name'];
+				$_SESSION['user'] = $retour[0]['user_name'];
 				$_SESSION['userID'] = $retour[0]['user_id'];
 				$_SESSION['spyID'] = rand();
 				// $_SESSION['level'] = ''; // TO DO // TYPE D'ADMIN

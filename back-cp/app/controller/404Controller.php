@@ -10,15 +10,7 @@
  */
 
 // $logger->log('test', 'loadapp', "Chargement du controller 404", Logger::GRAN_MONTH);
-$index = new NotfoundController();
 
-if(isset($_GET['action'])){
-	//ucfirt = Met le premier caractère en majuscule
-	$index-> ucfirst($_GET['action']) . '()';
-} else {
-
-	$index->Notfound();
-}
 
 class NotfoundController extends CoreController{
 
@@ -28,6 +20,15 @@ class NotfoundController extends CoreController{
 	 */
 	function __construct(){
 		parent::__construct();
+		$index = new NotfoundController();
+
+if(isset($_GET['action'])){
+	//ucfirt = Met le premier caractère en majuscule
+	$index-> ucfirst($_GET['action']) . '()';
+} else {
+
+	$index->Notfound();
+}
 	}
 
 	public function Notfound(){
