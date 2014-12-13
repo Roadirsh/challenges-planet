@@ -15,7 +15,7 @@
  */
 class UserModel extends CoreModel{
 	private $userBirthday;
-	private $userName;
+	private $userLastName;
 	private $userFirstName;
 	private $userMail;
 	private $userPseudo;
@@ -25,13 +25,34 @@ class UserModel extends CoreModel{
 	/**
 	 * Constructor
 	 */
-	function __construct($_POST){
+	function __construct(){
 		parent::__construct();
 		
 
 	}
 
+	public function insertNewUser($birthday, $lastname, $firstName, $mail, $pseudo, $password, $profpic = ''){
+		try {
+            $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_user` (`user_id`, `user_date`, `user_birthday`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`) VALUES (NULL, now(), ':birthday', ':lastname', ':firstname', ':mail', ':pseudo', ':password', :profpic)");
+            
+            
+            $select->bindParam(':birthday', $birthday);
+            $select->bindParam(':lastname', $lastname);
+            $select->bindParam(':firstname', $firstName);
+            $select->bindParam(':mail', $mail);
+            $select->bindParam(':pseudo', $pseudo);
+            $select->bindParam(':password', $password);
+            $select->bindParam(':profpic', $profpic);
+            
+			$select->execute();
+        }
 
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
 	public function getUserBirthday($id){
 		try {
             $select = $this->connexion->prepare("SELECT user_birthday 
@@ -54,15 +75,15 @@ class UserModel extends CoreModel{
 		}
 	}
 
-	public function getUserName($id){
+	public function getUserlastName($id){
 		try {
-            $select = $this->connexion->prepare("SELECT user_name 
+            $select = $this->connexion->prepare("SELECT user_lastname 
                                             FROM " . PREFIX . "user WHERE user_id = :id");
             $select->bindValue(':id', $id, PDO::PARAM_INT);
            
-            $userName = $select->execute();
+            $userLastName = $select->execute();
             
-            return $userName;
+            return $userLastName;
         }
 
         catch (Exception $e)
@@ -73,7 +94,7 @@ class UserModel extends CoreModel{
 	
 	public function setUserName($name){
 		if(is_string($name)){
-			$this->$userName = $name;
+			$this->$userLastName = $name;
 		}
 	}
 
@@ -83,9 +104,9 @@ class UserModel extends CoreModel{
                                             FROM " . PREFIX . "user WHERE user_id = :id");
             $select->bindValue(':id', $id, PDO::PARAM_INT);
            
-            $userName = $select->execute();
+            $userFirstName = $select->execute();
             
-            return $userName;
+            return $userFirstName;
         }
 
         catch (Exception $e)
@@ -116,8 +137,11 @@ class UserModel extends CoreModel{
             echo 'Message:' . $e -> getMessage();
         }	
 	}
+	function isValidEmail($email){ 
+    	return filter_var($email, FILTER_VALIDATE_EMAIL);
+	}
 	public function setUserMail($mail){
-		if(is_string($mail)){
+		if(isValidEmail($mail)){
 			$this->$userMail = $mail;
 		}
 	}
