@@ -25,8 +25,20 @@ class UserModel extends CoreModel{
 	/**
 	 * Constructor
 	 */
-	function __construct(){
+	function __construct($post ){
 		parent::__construct();
+		
+		setUserBirthday($post['birthday']);
+		setUserLastName($post['lastname']);
+		setUserFirstName($post['firstname']);
+		setUserMail($post['mail']);
+		setUserPseudo($post['pseudo']);
+		setUserPassword(md5($post['password']));
+		setUserProfPic($post['profpic']);
+		
+		$this->insertNewUser($userBirthday, $userLastName, $userFirstName, $userMail, $userPseudo, $userPassword, $userProfPic);
+		
+		
 		
 
 	}
@@ -53,21 +65,32 @@ class UserModel extends CoreModel{
         }
 
 	}
-	public function getUserBirthday($id){
+	public function RecupUserData($id){
 		try {
-            $select = $this->connexion->prepare("SELECT user_birthday 
+            $select = $this->connexion->prepare("SELECT user_birthday, user_lastname, user_firstname, user_mail, user_pseudo, user_password, user_profil_pic 
                                             FROM " . PREFIX . "user WHERE user_id = :id");
             $select->bindValue(':id', $id, PDO::PARAM_INT);
            
-            $userBirthday = $select->execute();
+            $select->execute();
             
-            return $userBirthday;
-        }
+            $select = $select->setFetchMode(PDO::FETCH_ASSOC);
+            }
 
         catch (Exception $e)
         {
             echo 'Message:' . $e -> getMessage();
         }
+        
+        setUserBirthday($select['user_birthday']);
+		setUserLastName($select['user_lastname']);
+		setUserFirstName($select['user_firstname']);
+		setUserMail($select['user_mail']);
+		setUserPseudo($select['user_pseudo']);
+		setUserPassword($select['user_password']);
+		setUserProfPic($select['user_profil_pic']);
+	}
+	public function getUserBirthday(){
+        return $userBirthday;
 	}
 	public function setUserBirthday($birthday){
 		if(is_integer($birthday)){
@@ -75,45 +98,19 @@ class UserModel extends CoreModel{
 		}
 	}
 
-	public function getUserlastName($id){
-		try {
-            $select = $this->connexion->prepare("SELECT user_lastname 
-                                            FROM " . PREFIX . "user WHERE user_id = :id");
-            $select->bindValue(':id', $id, PDO::PARAM_INT);
-           
-            $userLastName = $select->execute();
-            
-            return $userLastName;
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }	
+	public function getUserlastName(){
+		return $userLastName;
+        
 	}
 	
-	public function setUserName($name){
+	public function setUserLastName($name){
 		if(is_string($name)){
 			$this->$userLastName = $name;
 		}
 	}
 
-	public function getUserFirstName($id){
-		try {
-            $select = $this->connexion->prepare("SELECT user_firstname 
-                                            FROM " . PREFIX . "user WHERE user_id = :id");
-            $select->bindValue(':id', $id, PDO::PARAM_INT);
-           
-            $userFirstName = $select->execute();
-            
-            return $userFirstName;
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }	
-
+	public function getUserFirstName(){
+		return $userFirstName;
 	}
 	public function setUserFirstName($firstName){
 		if(is_string($firstName)){
@@ -121,21 +118,8 @@ class UserModel extends CoreModel{
 		}
 	}
 
-	public function getUserMail($id){
-		try {
-            $select = $this->connexion->prepare("SELECT user_mail 
-                                            FROM " . PREFIX . "user WHERE user_id = :id");
-            $select->bindValue(':id', $id, PDO::PARAM_INT);
-           
-            $userMail = $select->execute();
-            
-            return $userMail;
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }	
+	public function getUserMail(){
+		return $userMail;
 	}
 	function isValidEmail($email){ 
     	return filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -146,21 +130,8 @@ class UserModel extends CoreModel{
 		}
 	}
 
-	public function getUserPseudo($id){
-		try {
-            $select = $this->connexion->prepare("SELECT user_pseudo 
-                                            FROM " . PREFIX . "user WHERE user_id = :id");
-            $select->bindValue(':id', $id, PDO::PARAM_INT);
-           
-            $userPseudo = $select->execute();
-            
-            return $userPseudo;
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }	
+	public function getUserPseudo(){
+		return $userPseudo;
 	}
 	public function setUserPseudo($pseudo){
 		if(is_string($pseudo)){
@@ -168,21 +139,8 @@ class UserModel extends CoreModel{
 		}
 	}
 	
-	public function getUserPassword($id){
-		try {
-            $select = $this->connexion->prepare("SELECT user_password 
-                                            FROM " . PREFIX . "user WHERE user_id = :id");
-            $select->bindValue(':id', $id, PDO::PARAM_INT);
-           
-            $userPassword = $select->execute();
-            
-            return $userPassword;
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }	
+	public function getUserPassword(){
+		return $userPassword;
 	}
 	public function isValidMd5($md5)
 	{
@@ -205,31 +163,14 @@ class UserModel extends CoreModel{
 		return false;
 		
 	}
-	public function getUserProfPic($id){
-		try {
-            $select = $this->connexion->prepare("SELECT user_profil_pic 
-                                            FROM " . PREFIX . "user WHERE user_id = :id");
-            $select->bindValue(':id', $id, PDO::PARAM_INT);
-           
-            $userProfPic = $select->execute();
-            
-            return $userProfPic;
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }	
+	public function getUserProfPic(){
+		return $userProfPic;
 	}
 	public function setUserProfPic($profpic){
 		if(isValidImg($profpic)){
 			$this->$userProfPic = $profpic;
 		}
 	}
-
-
-
-
 
 }
 
