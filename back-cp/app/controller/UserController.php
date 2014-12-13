@@ -63,7 +63,11 @@ class UserController extends CoreController {
 		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "addUser");
-		
+		if(isset($_POST) and $_POST['nameUser'] != ''){
+			$userAdd = $this->model = new UserModel($_POST);
+			$userAdd->AddUsers();
+		}
+
 		// Appel de la vue 
 		$this->load->view('user', 'addUser'); // TODO
 	
