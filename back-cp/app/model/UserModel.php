@@ -25,36 +25,31 @@ class UserModel extends CoreModel{
 	/**
 	 * Constructor
 	 */
-	function __construct($post ){
+	function __construct($post){
 		parent::__construct();
 		
-		setUserBirthday($post['birthday']);
-		setUserLastName($post['lastname']);
-		setUserFirstName($post['firstname']);
-		setUserMail($post['mail']);
-		setUserPseudo($post['pseudo']);
-		setUserPassword(md5($post['password']));
-		setUserProfPic($post['profpic']);
-		
-		$this->insertNewUser($userBirthday, $userLastName, $userFirstName, $userMail, $userPseudo, $userPassword, $userProfPic);
-		
-		
-		
-
+		$this->setUserBirthday($post['birthday']);
+		$this->setUserLastName($post['lastname']);
+		$this->setUserFirstName($post['firstname']);
+		$this->setUserMail($post['mail']);
+		$this->setUserPseudo($post['pseudo']);
+		$this->setUserPassword(md5($post['password']));
+		$this->setUserProfPic($post['profpic']);
 	}
 
-	public function insertNewUser($birthday, $lastname, $firstName, $mail, $pseudo, $password, $profpic = ''){
+	public function insertNewUser(){
 		try {
+			
             $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_user` (`user_id`, `user_date`, `user_birthday`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`) VALUES (NULL, now(), ':birthday', ':lastname', ':firstname', ':mail', ':pseudo', ':password', :profpic)");
             
             
-            $select->bindParam(':birthday', $birthday);
-            $select->bindParam(':lastname', $lastname);
-            $select->bindParam(':firstname', $firstName);
-            $select->bindParam(':mail', $mail);
-            $select->bindParam(':pseudo', $pseudo);
-            $select->bindParam(':password', $password);
-            $select->bindParam(':profpic', $profpic);
+            $select->bindParam(':birthday', $this->getUserBirthday());
+            $select->bindParam(':lastname', $this->getUserlastName());
+            $select->bindParam(':firstname', $this->getUserFirstName());
+            $select->bindParam(':mail', $this->getUserMail());
+            $select->bindParam(':pseudo', $this->getUserPseudo());
+            $select->bindParam(':password', $this->getUserPassword());
+            $select->bindParam(':profpic', $this->getUserProfPic());
             
 			$select->execute();
         }

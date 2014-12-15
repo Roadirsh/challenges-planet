@@ -10,7 +10,6 @@
  */
  
 //$logger->log('test', 'loadapp', "Chargement du controller page", Logger::GRAN_MONTH);
-
 class UserController extends CoreController {
 
 	/**
@@ -63,9 +62,11 @@ class UserController extends CoreController {
 		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "addUser");
-		if(isset($_POST) and $_POST['nameUser'] != ''){
+		var_dump($_POST);
+		if(isset($_POST) and !empty($_POST)){
 			$userAdd = $this->model = new UserModel($_POST);
-			$userAdd->AddUsers();
+			var_dump($_POST);
+			$userAdd->insertNewUser();
 		}
 
 		// Appel de la vue 
