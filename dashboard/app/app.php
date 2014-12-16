@@ -47,11 +47,13 @@
 
 		include_once('controller/' . $controller . '.php');
 
-		//include_once('controller/' . $module . 'Controller.php');
+		include_once('controller/' . $module . 'Controller.php');
 
 
 	// Le model appelé par la variable $module
-		include_once('model/' . $module . 'Model.php');
+
+        include_once('model/' . $module . 'Model.php');
+		
 
 	
 
