@@ -14,6 +14,7 @@
  * instanciation de la class
  */
 class UserModel extends CoreModel{
+
 	private $userBirthday;
 	private $userLastName;
 	private $userFirstName;
@@ -25,20 +26,38 @@ class UserModel extends CoreModel{
 	/**
 	 * Constructor
 	 */
-	function __construct($post){
+	function __construct(){
 		parent::__construct();
+
+        if(isset($_POST) && !empty($_POST)){
+            
+            $post = $_POST;
+            
+            $this->setUserBirthday($post['birthday']);
+    		$this->setUserLastName($post['lastname']);
+    		$this->setUserFirstName($post['firstname']);
+    		$this->setUserMail($post['mail']);
+    		$this->setUserPseudo($post['pseudo']);
+    		$this->setUserPassword(md5($post['password']));
 		
-		$this->setUserBirthday($post['birthday']);
-		$this->setUserLastName($post['lastname']);
-		$this->setUserFirstName($post['firstname']);
-		$this->setUserMail($post['mail']);
-		$this->setUserPseudo($post['pseudo']);
-		$this->setUserPassword(md5($post['password']));
-		if(isset($_POST['profil'])){
-			$this->setUserProfPic($post['profpic']);
-		}else{
-			$this->setUserProfPic('');
-		}
+		
+            if(isset($_POST['profil'])){
+    			$this->setUserProfPic($post['profpic']);
+    		}else{
+    			$this->setUserProfPic('');
+    		}
+    		
+        } else {
+        
+            if(isset($_GET['action']) && !empty($_GET['action'])){
+    			//ucfirt = Met le premier caractère en majuscule
+    			// echo ucfirst($_GET['action']);
+    			$action = ucfirst($_GET['action']);
+			    $this->$action();
+    
+    		}
+        }
+    		
 		
 	}
 
@@ -72,7 +91,7 @@ class UserModel extends CoreModel{
         }
 
 	}
-	public function RecupUserData($id){
+	static function RecupUserData($id){
 		try {
             $select = $this->connexion->prepare("SELECT user_birthday, user_lastname, user_firstname, user_mail, user_pseudo, user_password, user_profil_pic 
                                             FROM " . PREFIX . "user WHERE user_id = :id");
@@ -179,6 +198,32 @@ class UserModel extends CoreModel{
 				$this->userProfPic = $profpic;
 			}
 		}
+	}
+	
+	
+	
+	
+	// Afficher l'ensembles de users
+	// static function Seeuser(){
+	public function Seeuser(){
+    	//var_dump($GLOBALS);
+    	try {
+        	$select = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "user
+                                            where user_type != 'admin'");
+           
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $AllUser = $select -> FetchAll();
+            
+            //var_dump($AllUser);
+            return $AllUser;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    	
 	}
 
 }

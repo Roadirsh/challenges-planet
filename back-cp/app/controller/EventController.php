@@ -46,8 +46,12 @@ class EventController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "seeEvent");
 		
+		$AllEvents = $this->model = new EventModel();
+        $AllEvent = $AllEvents-> getShowEvents();
+        //var_dump($AllEvent);
+        
 		// Appel de la vue 
-		$this->load->view('event', 'seeEvent'); // TODO
+		$this->load->view('event', 'seeEvent', $AllEvent); // TODO
 	
 	}
 	

@@ -25,21 +25,21 @@
 								  <th>Mail</th>
 								  <th>Date regist.</th>
 								  <th>Role</th>
-								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
+						    <? foreach($data as $k => $AllUser){ ?>
+                            <? // var_dump($AllUser); ?>
 							<tr>
-								<td><a class="btn btn-info" href="#">Admin</a></td>
-								<td>FIRST NAME</td>
-								<td>LAST NAME</td>
-								<td>2012/01/01</td>
-								<td>mail@mail.com</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">Member</td>
+								<td><a class="btn btn-info" href="#"><? echo $AllUser['user_pseudo']; ?></a></td>
+								<td><? echo $AllUser['user_firstname']; ?></td>
+								<td><? echo $AllUser['user_lastname']; ?></td>
+								<td><? echo $AllUser['user_birthday']; ?></td>
+								<td><? echo $AllUser['user_mail']; ?></td>
+								<td class="center"><? echo $AllUser['user_date']; ?></td>
 								<td class="center">
-									<span class="label label-success">Active</span>
+									<span class="label label-info"> -- </span>
 								</td>
 								<td class="center">
 									<a class="btn btn-info" href="#">
@@ -50,12 +50,16 @@
 									</a>
 								</td>
 							</tr>
+							<? } ?>
 						  </tbody>
 					  </table>            
 					</div>
 				</div><!--/span-->
 			
 			</div><!--/row-->
+</div>
+
+
 
 
 

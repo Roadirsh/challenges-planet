@@ -29,7 +29,7 @@
 				<a class="quick-button metro yellow span2">
 					<i class="icon-group"></i>
 					<p>User's number</p>
-					<span class="badge"><?php echo '3'; // $NbUser;?></span>
+					<span class="badge"><?php echo $data;?></span>
 				</a>
 				<a class="quick-button metro pink span2">
 					<i class="icon-envelope"></i>

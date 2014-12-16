@@ -52,10 +52,10 @@ class PageController extends CoreController {
 		$countUser = $this->model = new PageModel();
 		$NbUser = $countUser->NbUsers();
 		
-		echo 'nombre de user = ' . $NbUser;
+		// echo 'nombre de user = ' . $NbUser;
 		
 		// Appel de la vue 
-		$this->load->view('page', 'home'); // TODO
+		$this->load->view('page', 'home', $NbUser); // TODO
 	
 	}
 	
@@ -70,8 +70,11 @@ class PageController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "team");
 		
+		$Allteamusers = $this->model = new PageModel();
+		$AllTeam = $Allteamusers->Seeteam();
+		
 		// Appel de la vue 
-		$this->load->view('page', 'team'); // TODO
+		$this->load->view('page', 'team', $AllTeam); // TODO
 	
 	}
 	

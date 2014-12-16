@@ -45,10 +45,15 @@ class UserController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "seeUser");
 		
-		var_dump($_SESSION);
+        $showUser = $this->model = new UserModel();
+		$AllUser = $showUser->Seeuser();
+		// UserModel::Seeuser();
+		
+		// echo 'user = '; var_dump($AllUser);
+
 		
 		// Appel de la vue 
-		$this->load->view('user', 'seeUser'); // TODO
+		$this->load->view('user', 'seeUser', $AllUser); // TODO
 	
 	}
 	

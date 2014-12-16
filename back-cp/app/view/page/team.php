@@ -14,6 +14,7 @@
 		</div>
 		<div class="box-content">
 			<ul class="dashboard-list">
+			<?php //foreach($data as $k => $AllTeam){ ?>
 				<li>
 					<a href="#">
 						<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
@@ -22,30 +23,7 @@
 					<strong>Since:</strong> Jul 25, 2012 11:09<br>
 					<strong>Status:</strong> <span class="label label-success">Approved</span>                                  
 				</li>
-				<li>
-					<a href="#">
-						<img class="avatar" alt="" src="img/avatar.jpg">
-					</a>
-					<strong>Name:</strong> <a href="#">Dennis Ji</a><br>
-					<strong>Since:</strong> Jul 25, 2012 11:09<br>
-					<strong>Status:</strong> <span class="label label-warning">Pending</span>                                 
-				</li>
-				<li>
-					<a href="#">
-						<img class="avatar" alt="" src="img/avatar.jpg">
-					</a>
-					<strong>Name:</strong> <a href="#">Dennis Ji</a><br>
-					<strong>Since:</strong> Jul 25, 2012 11:09<br>
-					<strong>Status:</strong> <span class="label label-important">Banned</span>                                  
-				</li>
-				<li>
-					<a href="#">
-						<img class="avatar" alt="" src="img/avatar.jpg">
-					</a>
-					<strong>Name:</strong> <a href="#">Dennis Ji</a><br>
-					<strong>Since:</strong> Jul 25, 2012 11:09<br>
-					<strong>Status:</strong> <span class="label label-info">Updates</span>                                  
-				</li>
+            <? // } ?>
 			</ul>
 		</div>
     </div>

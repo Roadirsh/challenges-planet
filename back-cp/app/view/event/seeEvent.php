@@ -3,6 +3,7 @@
 <? include(ROOT . "view/layout/menutop.inc.php"); ?>
 <? include(ROOT . "view/layout/menu.inc.php"); ?>
 
+
 <div id="content" class="span10">
     <div class="row-fluid sortable">		
 				<div class="box span12">
@@ -28,21 +29,25 @@
 						  </thead>   
 						  <tbody>
 							<tr>
-								<td><a class="btn btn-info" href="#">4L TROPHY</a></td>
-								<td>2012/01/01</td>
-								<td>2013/01/01</td>
-								<td>2012/01/01</td>
-								<td class="center">
-									<span class="label label-success">Active</span>
-								</td>
-								<td class="center">
-									<a class="btn btn-info" href="#">
-										<i class="halflings-icon white edit"></i>  
-									</a>
-									<a class="btn btn-danger" href="#">
-										<i class="halflings-icon white trash"></i> 
-									</a>
-								</td>
+							    <?php foreach($data as $k => $AllEvent){ ?>
+                                    <td><a class="btn btn-info" href="#"><? echo $AllEvent['event_name']; ?></a></td>
+    								<td>--</td>
+    								<td>--</td>
+    								<td><? echo $AllEvent['event_date']; ?></td>
+    								<td class="center">
+    									<span class="label label-warning">No active</span>
+    								</td>
+    								<td class="center">
+    									<a class="btn btn-info" href="#">
+    										<i class="halflings-icon white edit"></i>  
+    									</a>
+    									<a class="btn btn-danger" href="#">
+    										<i class="halflings-icon white trash"></i> 
+    									</a>
+    								</td>
+    							
+							    <? } ?>
+								
 							</tr>
 						  </tbody>
 					  </table>            

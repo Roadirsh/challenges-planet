@@ -38,4 +38,29 @@ class PageModel extends CoreModel{
             echo 'Message:' . $e -> getMessage();
         }
     }
+    
+    public function Seeteam(){
+
+        try {
+            $select = $this->connexion->prepare("SELECT * 
+                                            FROM " . PREFIX . "user
+                                            WHERE user_type = 'admin'");
+                    
+            //var_dump($select);
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select -> fetchAll();
+
+            // $select -> closeCursor();
+
+            //var_dump($retour);
+
+            return $retour;
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
     }
+}
