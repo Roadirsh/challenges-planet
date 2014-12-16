@@ -9,9 +9,7 @@
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon edit"></i><span class="break"></span>Form Elements</h2>
 						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
 						</div>
 					</div>
 					<div class="box-content">
@@ -20,43 +18,43 @@
 								<div class="control-group">
 									<label class="control-label" for="firstname">Nom:</label>
 									<div class="controls">
-										<input class="input-xlarge focused" id="firstname" type="text" value="">
+										<input class="input-xlarge focused" name="firstname" id="firstname" type="text" value="" required>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="lastname">Prenom:</label>
 									<div class="controls">
-										<input class="input-xlarge focused" id="lastname" type="text" value="">
+										<input class="input-xlarge focused" name="lastname" id="lastname" type="text" value="" required>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="birthday">Date de naissance:</label>
 									<div class="controls">
-										<input class="input-xlarge focused" id="birthday" type="date" value="">
+										<input class="input-xlarge focused" name="birthday" id="birthday" type="date" value="" required>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="mail">Mail:</label>
 									<div class="controls">
-										<input class="input-xlarge focused" id="mail" type="email" value="">
+										<input class="input-xlarge focused" name="mail" id="mail" type="email" value="" required>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="pseudo">Pseudo:</label>
 									<div class="controls">
-										<input class="input-xlarge focused" id="pseudo" type="text" value="">
+										<input class="input-xlarge focused" name="pseudo" id="pseudo" type="text" value="" required>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="password">Mot de passe:</label>
 									<div class="controls">
-										<input class="input-xlarge focused" id="password" type="password" value="">
+										<input class="input-xlarge focused" name="password" id="password" type="password" value="" required>
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label" for="name">Photo de profil:</label>
+									<label class="control-label" for="profil">Photo de profil:</label>
 									<div class="controls">
-										<input class="input-xlarge focused" id="name" type="file" value="">
+										<input class="input-xlarge focused" name="profil" id="profil" type="file" value="">
 									</div>
 								</div>
 								

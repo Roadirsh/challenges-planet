@@ -34,7 +34,11 @@ class UserModel extends CoreModel{
 		$this->setUserMail($post['mail']);
 		$this->setUserPseudo($post['pseudo']);
 		$this->setUserPassword(md5($post['password']));
-		$this->setUserProfPic($post['profpic']);
+		if(isset($_POST['profil'])){
+			$this->setUserProfPic($post['profpic']);
+		}else{
+			$this->setUserProfPic('');
+		}
 	}
 
 	public function insertNewUser(){
@@ -42,16 +46,16 @@ class UserModel extends CoreModel{
 			
             $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_user` (`user_id`, `user_date`, `user_birthday`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`) VALUES (NULL, now(), ':birthday', ':lastname', ':firstname', ':mail', ':pseudo', ':password', :profpic)");
             
+			var_dump($this->getUserBirthday());            
+            $insert->bindParam(':birthday', $this->getUserBirthday());
+            $insert->bindParam(':lastname', $this->getUserlastName());
+            $insert->bindParam(':firstname', $this->getUserFirstName());
+            $insert->bindParam(':mail', $this->getUserMail());
+            $insert->bindParam(':pseudo', $this->getUserPseudo());
+            $insert->bindParam(':password', $this->getUserPassword());
+            $insert->bindParam(':profpic', $this->getUserProfPic());
             
-            $select->bindParam(':birthday', $this->getUserBirthday());
-            $select->bindParam(':lastname', $this->getUserlastName());
-            $select->bindParam(':firstname', $this->getUserFirstName());
-            $select->bindParam(':mail', $this->getUserMail());
-            $select->bindParam(':pseudo', $this->getUserPseudo());
-            $select->bindParam(':password', $this->getUserPassword());
-            $select->bindParam(':profpic', $this->getUserProfPic());
-            
-			$select->execute();
+			$insert->execute();
         }
 
         catch (Exception $e)
@@ -85,65 +89,66 @@ class UserModel extends CoreModel{
 		setUserProfPic($select['user_profil_pic']);
 	}
 	public function getUserBirthday(){
-        return $userBirthday;
+        return $this->userBirthday;
 	}
 	public function setUserBirthday($birthday){
 		if(is_integer($birthday)){
-			$this->$userBirthday = $birthday;
+			$this->userBirthday = $birthday;
 		}
 	}
 
 	public function getUserlastName(){
-		return $userLastName;
+		return $this->userLastName;
         
 	}
 	
 	public function setUserLastName($name){
 		if(is_string($name)){
-			$this->$userLastName = $name;
+			$this->userLastName = $name;
 		}
 	}
 
 	public function getUserFirstName(){
-		return $userFirstName;
+		return $this->userFirstName;
 	}
 	public function setUserFirstName($firstName){
 		if(is_string($firstName)){
-			$this->$userFirstName = $firstName;
+			$this->userFirstName = $firstName;
 		}
 	}
 
 	public function getUserMail(){
-		return $userMail;
+		return $this->userMail;
 	}
-	function isValidEmail($email){ 
+	public function isValidEmail($email){ 
     	return filter_var($email, FILTER_VALIDATE_EMAIL);
 	}
+	
 	public function setUserMail($mail){
-		if(isValidEmail($mail)){
-			$this->$userMail = $mail;
+		if($this->isValidEmail($mail)){
+			$this->userMail = $mail;
 		}
 	}
 
 	public function getUserPseudo(){
-		return $userPseudo;
+		return $this->userPseudo;
 	}
 	public function setUserPseudo($pseudo){
 		if(is_string($pseudo)){
-			$this->$userPseudo = $pseudo;
+			$this->userPseudo = $pseudo;
 		}
 	}
 	
 	public function getUserPassword(){
-		return $userPassword;
+		return $this->userPassword;
 	}
 	public function isValidMd5($md5)
 	{
 	    return preg_match('/^[a-f0-9]{32}$/', $md5);
 	}
 	public function setUserPassword($password){
-		if(isValidMd5($password)){
-			$this->$userPassword = $password;
+		if($this->isValidMd5($password)){
+			$this->userPassword = $password;
 		}
 	}
 	
@@ -159,11 +164,13 @@ class UserModel extends CoreModel{
 		
 	}
 	public function getUserProfPic(){
-		return $userProfPic;
+		return $this->userProfPic;
 	}
 	public function setUserProfPic($profpic){
-		if(isValidImg($profpic)){
-			$this->$userProfPic = $profpic;
+		if($profpic != ''){
+			if($this->isValidImg($profpic)){
+				$this->userProfPic = $profpic;
+			}
 		}
 	}
 

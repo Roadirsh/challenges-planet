@@ -62,7 +62,6 @@ class UserController extends CoreController {
 		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "addUser");
-		var_dump($_POST);
 		if(isset($_POST) and !empty($_POST)){
 			$userAdd = $this->model = new UserModel($_POST);
 			var_dump($_POST);
