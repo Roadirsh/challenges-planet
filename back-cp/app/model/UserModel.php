@@ -39,21 +39,29 @@ class UserModel extends CoreModel{
 		}else{
 			$this->setUserProfPic('');
 		}
+		
 	}
 
 	public function insertNewUser(){
 		try {
 			
-            $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_user` (`user_id`, `user_date`, `user_birthday`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`) VALUES (NULL, now(), ':birthday', ':lastname', ':firstname', ':mail', ':pseudo', ':password', :profpic)");
+            $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_user` (`user_id`, `user_date`, `user_birthday`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`) VALUES (NULL, now(), :birthday, :lastname, :firstname, :mail, :pseudo, :password, :profpic)");
             
-			var_dump($this->getUserBirthday());            
-            $insert->bindParam(':birthday', $this->getUserBirthday());
-            $insert->bindParam(':lastname', $this->getUserlastName());
-            $insert->bindParam(':firstname', $this->getUserFirstName());
-            $insert->bindParam(':mail', $this->getUserMail());
-            $insert->bindParam(':pseudo', $this->getUserPseudo());
-            $insert->bindParam(':password', $this->getUserPassword());
-            $insert->bindParam(':profpic', $this->getUserProfPic());
+			$birthday = $this->getUserBirthday();
+			$firstName = $this->getUserFirstName();
+			$lastName = $this->getUserlastName();
+			$mail = $this->getUserMail();
+			$pseudo = $this->getUserPseudo();
+			$password = $this->getUserPassword();
+			$profpic = $this->getUserProfPic();
+			
+            $insert->bindParam(':birthday', $birthday);
+            $insert->bindParam(':lastname', $lastName);
+            $insert->bindParam(':firstname', $firstName);
+            $insert->bindParam(':mail', $mail);
+            $insert->bindParam(':pseudo', $pseudo);
+            $insert->bindParam(':password', $password);
+            $insert->bindParam(':profpic', $profpic);
             
 			$insert->execute();
         }
@@ -80,21 +88,20 @@ class UserModel extends CoreModel{
             echo 'Message:' . $e -> getMessage();
         }
         
-        setUserBirthday($select['user_birthday']);
-		setUserLastName($select['user_lastname']);
-		setUserFirstName($select['user_firstname']);
-		setUserMail($select['user_mail']);
-		setUserPseudo($select['user_pseudo']);
-		setUserPassword($select['user_password']);
-		setUserProfPic($select['user_profil_pic']);
+        $this->setUserBirthday($select['user_birthday']);
+		$this->setUserLastName($select['user_lastname']);
+		$this->setUserFirstName($select['user_firstname']);
+		$this->setUserMail($select['user_mail']);
+		$this->setUserPseudo($select['user_pseudo']);
+		$this->setUserPassword($select['user_password']);
+		$this->setUserProfPic($select['user_profil_pic']);
 	}
 	public function getUserBirthday(){
         return $this->userBirthday;
 	}
 	public function setUserBirthday($birthday){
-		if(is_integer($birthday)){
-			$this->userBirthday = $birthday;
-		}
+		$birthday = (int) date('Ymd', strtotime($birthday)); //en int.
+		$this->userBirthday = $birthday;
 	}
 
 	public function getUserlastName(){

@@ -64,7 +64,6 @@ class UserController extends CoreController {
 		define("PAGE_ID", "addUser");
 		if(isset($_POST) and !empty($_POST)){
 			$userAdd = $this->model = new UserModel($_POST);
-			var_dump($_POST);
 			$userAdd->insertNewUser();
 		}
 
