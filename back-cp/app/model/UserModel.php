@@ -22,6 +22,7 @@ class UserModel extends CoreModel{
 	private $userPseudo;
 	private $userPassword;
 	private $userProfPic;
+	private $nameImg;
 	
 	/**
 	 * Constructor
@@ -42,7 +43,7 @@ class UserModel extends CoreModel{
 		
 		
             if(isset($_POST['profil'])){
-    			$this->setUserProfPic($post['profpic']);
+    			$this->setUserProfPic($_FILES[$_POST['profil']]['name']);
     		}else{
     			$this->setUserProfPic('');
     		}
@@ -54,13 +55,19 @@ class UserModel extends CoreModel{
     			// echo ucfirst($_GET['action']);
     			$action = ucfirst($_GET['action']);
 			    $this->$action();
-    
     		}
         }
-    		
-		
 	}
-
+	
+	public function upload($index, $destination)
+	{
+	   //Test1: fichier correctement uploadé
+	    if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0){
+		    return FALSE;
+		}
+	   	//Déplacement
+	    return move_uploaded_file($_FILES[$index]['tmp_name'],$destination);
+	}
 	public function insertNewUser(){
 		try {
 			
@@ -73,6 +80,7 @@ class UserModel extends CoreModel{
 			$pseudo = $this->getUserPseudo();
 			$password = $this->getUserPassword();
 			$profpic = $this->getUserProfPic();
+
 			
             $insert->bindParam(':birthday', $birthday);
             $insert->bindParam(':lastname', $lastName);
@@ -83,6 +91,10 @@ class UserModel extends CoreModel{
             $insert->bindParam(':profpic', $profpic);
             
 			$insert->execute();
+			
+			if($profpic != ''){
+				$this->upload($profpic, '../public/img/avatar/');
+			}
         }
 
         catch (Exception $e)
@@ -191,6 +203,9 @@ class UserModel extends CoreModel{
 	}
 	public function getUserProfPic(){
 		return $this->userProfPic;
+	}
+	public function getNameImg(){
+		return $this->nameImg;
 	}
 	public function setUserProfPic($profpic){
 		if($profpic != ''){
