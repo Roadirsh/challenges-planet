@@ -5,18 +5,13 @@
 
 
 <div id="content" class="span10">
-    <div class="row-fluid sortable">		
+    <div class="row-fluid">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon user"></i><span class="break"></span>Event </h2>
-						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
-							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
-						</div>
 					</div>
 					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
+						<table class="table table-striped table-bordered bootstrap-datatable">
 						  <thead>
 							  <tr>
 								  <th>Event Name</th>
@@ -31,11 +26,15 @@
 							<tr>
 							    <?php foreach($data as $k => $AllEvent){ ?>
                                     <td><a class="btn btn-info" href="#"><? echo $AllEvent['event_name']; ?></a></td>
-    								<td>--</td>
-    								<td>--</td>
+    								<td><? echo $AllEvent['event_begin']; ?></td>
+    								<td><? echo $AllEvent['event_end']; ?></td>
     								<td><? echo $AllEvent['event_date']; ?></td>
     								<td class="center">
-    									<span class="label label-warning">No active</span>
+                    				    <?php if($AllEvent['event_valid'] == 1){ ?>
+                    					    <span class="label label-success">Active</span> 
+                    				    <? } else { ?>
+                    				        <span class="label label-warning">No active</span> 
+                                        <? } ?>	
     								</td>
     								<td class="center">
     									<a class="btn btn-info" href="#">

@@ -13,8 +13,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-
-						<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
+						<form class="form-horizontal" action="" method="post">
 							<fieldset>
 								<div class="control-group">
 									<label class="control-label" for="firstname">Nom:</label>
@@ -55,7 +54,6 @@
 								<div class="control-group">
 									<label class="control-label" for="profil">Photo de profil:</label>
 									<div class="controls">
-										<input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
 										<input class="input-xlarge focused" name="profil" id="profil" type="file" value="">
 									</div>
 								</div>

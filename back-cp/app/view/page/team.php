@@ -6,24 +6,36 @@
 <div id="content" class="span10">
 	<div class="box span13" onTablet="span13" onDesktop="span13">
 		<div class="box-header">
-			<h2><i class="halflings-icon user"></i><span class="break"></span>Last Users Alt.</h2>
-			<div class="box-icon">
-				<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-				<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
-			</div>
+			<h2><i class="halflings-icon user"></i><span class="break"></span>Admin</h2>
 		</div>
 		<div class="box-content">
 			<ul class="dashboard-list">
-			<?php //foreach($data as $k => $AllTeam){ ?>
+			<?php foreach($data as $k => $AllTeam){ ?>
+			<?php // var_dump($AllTeam); ?>
 				<li>
 					<a href="#">
-						<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
+                        <?php if(!empty($AllTeam['user_profil_pic'])){ ?>
+    				        <img class="avatar" alt="Dennis Ji" src="<? echo $AllTeam['user_profil_pic']; ?>">
+                        <? } else { ?>
+    				        <img class="avatar" alt="Dennis Ji" src="img/avatar.jpg"> 
+                        <? } ?> 
 					</a>
-					<strong>Name:</strong> <a href="#">Dennis Ji</a><br>
-					<strong>Since:</strong> Jul 25, 2012 11:09<br>
-					<strong>Status:</strong> <span class="label label-success">Approved</span>                                  
+					<strong>Pseudo:</strong> <a href="#"><? echo $AllTeam['user_pseudo']; ?></a><br>
+					<span class="admin_status">
+    					<strong>Status:</strong> 
+    				    <?php if($AllTeam['user_super_admin'] == 1){ ?>
+    					    <span class="label label-warning">Super Admin</span>  
+    				    <? } else { ?>
+    				        <span class="label label-info">Admin</span> 
+                        <? } ?> 
+					</span>
+					<small><em>Register date: <a href="#"><? echo $AllTeam['user_date']; ?></a></em></small><br>
+					FirstName: <a href="#"><? echo $AllTeam['user_firstname']; ?></a><br>
+					LastName: <a href="#"><? echo $AllTeam['user_lastname']; ?></a><br>
+					D.O.B: <a href="#"><? echo $AllTeam['user_birthday']; ?></a><br>
+					e-mail: <a href="#"><? echo $AllTeam['user_mail']; ?></a><br>                                   
 				</li>
-            <? // } ?>
+            <? } ?>
 			</ul>
 		</div>
     </div>

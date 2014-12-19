@@ -1179,6 +1179,10 @@ ul.dashboard-list li{
 	list-style:none;
 	border-bottom: 1px solid #eee;
 	font-size: 12px;
+	
+	/*************/
+	/* RAJOUT CHALLENGES PLANET */
+	height: 145px;
 }
 
 ul.dashboard-list li i{
@@ -1207,6 +1211,8 @@ ul.dashboard-list{
 	margin:0;
 }
 
+
+
 ul.dashboard-list li a span {
 	display: inline-block;
 	font-size: 18px;
@@ -1216,14 +1222,26 @@ ul.dashboard-list li a span {
 }
 
 ul.dashboard-list li .avatar {
-	height: 50px;
-	width: 50px;
+	height: 133px;
+    width: 133px;
 	padding: 1px;
 	float: left;
 	margin-top: 3px;
 	margin-right: 15px;
 	border: 1px solid #eee;
 }
+
+/* RAJOUTE POUR CHALLENGES PLANET */
+ul.dashboard-list li .projet {
+	height: 50px;
+    width: auto;
+	padding: 1px;
+	float: left;
+	margin-top: 3px;
+	margin-right: 15px;
+	border: 1px solid #eee;
+}
+
 
 ul.dashboard-list li .avatar img{
 	height: 40px;
@@ -2972,4 +2990,9 @@ ul.messagesList li span.date {
 		background-size: 100%;
 	}
     
+}
+
+/***************** RAJOUTE PAR CHALLENGES PLANET *****************/
+.admin_status{
+    float: right;
 }

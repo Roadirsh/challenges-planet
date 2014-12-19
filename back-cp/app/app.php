@@ -33,7 +33,7 @@
 	// echo $urlController;
 
 	if(!file_exists($urlController)){
-		include_once('controller/404Controller.php');
+		include_once('controller/NotfoundController.php');
 		exit();
 
 		$urlController = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'controller/' . $module . 'Controller.php';
@@ -50,9 +50,14 @@
 		//include_once('controller/' . $module . 'Controller.php');
 
 
+    
 	// Le model appelé par la variable $module
-		include_once('model/' . $module . 'Model.php');
+	$urlModel = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'model/' . $module . 'Model.php';
+	// echo $urlController;
 
-	
+	if(file_exists($urlModel)){
+        include_once('model/' . $module . 'Model.php');
+	}
+		
 
 	$index = new $controller();

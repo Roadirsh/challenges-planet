@@ -8,8 +8,8 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
- 
-//$logger->log('test', 'loadapp', "Chargement du controller page", Logger::GRAN_MONTH);
+
+			
 class UserController extends CoreController {
 
 	/**
@@ -21,7 +21,8 @@ class UserController extends CoreController {
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
-			$this->$action();
+            $this->$action();
+            
 
 		} else {
 			// on test voir s'il y a une sesison ou non
