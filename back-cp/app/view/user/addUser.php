@@ -13,7 +13,8 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" action="" method="post">
+
+						<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
 							<fieldset>
 								<div class="control-group">
 									<label class="control-label" for="firstname">Nom:</label>

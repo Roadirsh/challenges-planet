@@ -22,6 +22,8 @@ class UserModel extends CoreModel{
 	private $userPseudo;
 	private $userPassword;
 	private $userProfPic;
+	private $nameImg;
+	private $userProfPicTmp;
 	
 	/**
 	 * Constructor
@@ -39,10 +41,9 @@ class UserModel extends CoreModel{
     		$this->setUserMail($post['mail']);
     		$this->setUserPseudo($post['pseudo']);
     		$this->setUserPassword(md5($post['password']));
-		
-		
-            if(isset($_POST['profil'])){
-    			$this->setUserProfPic($post['profpic']);
+			var_dump($_FILES);
+            if(isset($_FILES['profil'])){
+    			$this->setUserProfPic($_FILES['profil']);
     		}else{
     			$this->setUserProfPic('');
     		}
@@ -54,13 +55,19 @@ class UserModel extends CoreModel{
     			// echo ucfirst($_GET['action']);
     			$action = ucfirst($_GET['action']);
 			    $this->$action();
-    
     		}
         }
-    		
-		
 	}
-
+	
+	public function upload($index, $destination)
+	{
+	   //Test1: fichier correctement uploadé
+	    if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0){
+		    return FALSE;
+		}
+	   	//Déplacement
+	    return move_uploaded_file($_FILES[$index]['tmp_name'],$destination);
+	}
 	public function insertNewUser(){
 		try {
 			
@@ -73,6 +80,7 @@ class UserModel extends CoreModel{
 			$pseudo = $this->getUserPseudo();
 			$password = $this->getUserPassword();
 			$profpic = $this->getUserProfPic();
+			$tmp = $this->getEmplacementImg();
 			
             $insert->bindParam(':birthday', $birthday);
             $insert->bindParam(':lastname', $lastName);
@@ -83,6 +91,10 @@ class UserModel extends CoreModel{
             $insert->bindParam(':profpic', $profpic);
             
 			$insert->execute();
+			
+			if($profpic != ''){
+				$this->upload($tmp, '../public/img/avatar/');
+			}
         }
 
         catch (Exception $e)
@@ -179,23 +191,29 @@ class UserModel extends CoreModel{
 	}
 	
 	public function isValidImg($fichier){
-		$array= getImageSize($fichier); 
-		$type= $array[2]; 
-		switch($type){ 
-		  case 1 : $type= "JPG"; return true; 
-		  case 2 : $type= "PNG"; return true; 
-		  case 3 : $type= "JPEG"; return true;
-		} 
-		return false;
-		
+		$extensions_valides = array( 'jpg' , 'jpeg' , 'png' );
+		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
+		if(in_array($extension_upload,$extensions_valides) )
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	public function getUserProfPic(){
 		return $this->userProfPic;
 	}
+	
+	public function getEmplacementImg(){
+		return $this->userProfPicTmp;
+	}
 	public function setUserProfPic($profpic){
-		if($profpic != ''){
-			if($this->isValidImg($profpic)){
-				$this->userProfPic = $profpic;
+		if($profpic['name'] != ''){
+			if($this->isValidImg($profpic['name'])){
+				$this->userProfPic = $profpic['name'];
+				$this->userProfPicTmp = $profpic['tmp_name'];
 			}
 		}
 	}
