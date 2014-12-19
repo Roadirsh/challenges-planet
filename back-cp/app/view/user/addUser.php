@@ -17,6 +17,24 @@
 						<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
 							<fieldset>
 								<div class="control-group">
+									<label class="control-label">Type:</label>
+									<div class="controls">
+										<select name="type">
+											<option value="student">Etudiant</option>
+											<option value="organisme">Organisme</option>
+											<option value="admin">Administrateur</option>
+										</select>
+									</div>
+								</div>
+								<?php if(isset($resultat) && $resultat)
+									{
+										echo '<div class="control-group">
+									<label class="control-label" >Ce pseudo est déjà pris.</label>
+									</div>';
+									}
+									?>
+								
+								<div class="control-group">
 									<label class="control-label" for="firstname">Nom:</label>
 									<div class="controls">
 										<input class="input-xlarge focused" name="firstname" id="firstname" type="text" value="" required>

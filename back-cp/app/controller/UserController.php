@@ -70,11 +70,19 @@ class UserController extends CoreController {
 		define("PAGE_ID", "addUser");
 		if(isset($_POST) and !empty($_POST)){
 			$userAdd = $this->model = new UserModel($_POST);
-			$userAdd->insertNewUser();
+			 $Existdeja = $userAdd->insertNewUser();
 		}
+		var_dump($Existdeja);
 
 		// Appel de la vue 
-		$this->load->view('user', 'addUser'); // TODO
+		if(isset($Existdeja) and $Existdeja == true )
+		{	
+			$this->load->view('user', 'addUser', $Existdeja);
+		}
+		else
+		{
+			$this->load->view('user', 'addUser');
+		}
 	
 	}
 	

@@ -24,24 +24,24 @@ class UserModel extends CoreModel{
 	private $userProfPic;
 	private $nameImg;
 	private $userProfPicTmp;
+	private $userType;
 	
 	/**
 	 * Constructor
 	 */
 	function __construct(){
 		parent::__construct();
-
+		
         if(isset($_POST) && !empty($_POST)){
             
             $post = $_POST;
-            
+            $this->setUserType($post['type']);
             $this->setUserBirthday($post['birthday']);
     		$this->setUserLastName($post['lastname']);
     		$this->setUserFirstName($post['firstname']);
     		$this->setUserMail($post['mail']);
     		$this->setUserPseudo($post['pseudo']);
     		$this->setUserPassword(md5($post['password']));
-			var_dump($_FILES);
             if(isset($_FILES['profil'])){
     			$this->setUserProfPic($_FILES['profil']);
     		}else{
@@ -68,32 +68,26 @@ class UserModel extends CoreModel{
 	   	//Déplacement
 	    return move_uploaded_file($_FILES[$index]['tmp_name'],$destination);
 	}
-	public function insertNewUser(){
+	
+	public function user_exist($pseudo)
+	{
 		try {
 			
-            $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_user` (`user_id`, `user_date`, `user_birthday`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`) VALUES (NULL, now(), :birthday, :lastname, :firstname, :mail, :pseudo, :password, :profpic)");
-            
-			$birthday = $this->getUserBirthday();
-			$firstName = $this->getUserFirstName();
-			$lastName = $this->getUserlastName();
-			$mail = $this->getUserMail();
-			$pseudo = $this->getUserPseudo();
-			$password = $this->getUserPassword();
-			$profpic = $this->getUserProfPic();
-			$tmp = $this->getEmplacementImg();
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                            FROM " . PREFIX . "user WHERE user_pseudo = :pseudo");
+            			
+            $select->bindParam(':pseudo', $pseudo);
+            $select->execute();
+			$select->setFetchMode(PDO::FETCH_ASSOC);
+			$select = $select -> FetchAll();
 			
-            $insert->bindParam(':birthday', $birthday);
-            $insert->bindParam(':lastname', $lastName);
-            $insert->bindParam(':firstname', $firstName);
-            $insert->bindParam(':mail', $mail);
-            $insert->bindParam(':pseudo', $pseudo);
-            $insert->bindParam(':password', $password);
-            $insert->bindParam(':profpic', $profpic);
-            
-			$insert->execute();
-			
-			if($profpic != ''){
-				$this->upload($tmp, '../public/img/avatar/');
+			if($select[0]['exist'] == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
 			}
         }
 
@@ -103,29 +97,64 @@ class UserModel extends CoreModel{
         }
 
 	}
-	static function RecupUserData($id){
-		try {
-            $select = $this->connexion->prepare("SELECT user_birthday, user_lastname, user_firstname, user_mail, user_pseudo, user_password, user_profil_pic 
-                                            FROM " . PREFIX . "user WHERE user_id = :id");
-            $select->bindValue(':id', $id, PDO::PARAM_INT);
-           
-            $select->execute();
-            
-            $select = $select->setFetchMode(PDO::FETCH_ASSOC);
-            }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
+	public function insertNewUser(){
+		$birthday = $this->getUserBirthday();
+		$firstName = $this->getUserFirstName();
+		$lastName = $this->getUserlastName();
+		$mail = $this->getUserMail();
+		$pseudo = $this->getUserPseudo();
+		$password = $this->getUserPassword();
+		$profpic = $this->getUserProfPic();
+		$tmp = $this->getEmplacementImg();
+		$type = $this->getUserType();
+		$user_exist = $this->user_exist($pseudo);
+		if($user_exist)
+		{
+			return true;
+		}
+		else
+		{
+			try {
+				
+	            $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_user` (`user_id`, `user_date`, `user_birthday`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`, `user_type`) VALUES (NULL, now(), :birthday, :lastname, :firstname, :mail, :pseudo, :password, :profpic, :type)");
+	            
+				
+				
+	            $insert->bindParam(':birthday', $birthday);
+	            $insert->bindParam(':lastname', $lastName);
+	            $insert->bindParam(':firstname', $firstName);
+	            $insert->bindParam(':mail', $mail);
+	            $insert->bindParam(':pseudo', $pseudo);
+	            $insert->bindParam(':password', $password);
+	            $insert->bindParam(':profpic', $profpic);
+	            $insert->bindParam(':type', $type);
+	            
+				$insert->execute();
+				
+				if($profpic != ''){
+					$this->upload($tmp, '../../public/img/avatar/');
+				}
+				return false;
+	        }
+	
+	        catch (Exception $e)
+	        {
+	            echo 'Message:' . $e -> getMessage();
+	        }
         }
-        
-        $this->setUserBirthday($select['user_birthday']);
-		$this->setUserLastName($select['user_lastname']);
-		$this->setUserFirstName($select['user_firstname']);
-		$this->setUserMail($select['user_mail']);
-		$this->setUserPseudo($select['user_pseudo']);
-		$this->setUserPassword($select['user_password']);
-		$this->setUserProfPic($select['user_profil_pic']);
+
+	}
+		public function getUserType()
+	{
+		return $this->userType;
+	}
+	
+	public function setUserType($type)
+	{
+		if(is_string($type))
+		{
+			$this->userType = $type;
+		}
 	}
 	public function getUserBirthday(){
         return $this->userBirthday;
