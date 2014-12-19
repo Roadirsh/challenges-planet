@@ -16,6 +16,14 @@
 
 						<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
 							<fieldset>
+								<?php 
+									if($data)
+									{
+										echo '<div class="control-group">
+									<p color="red">Ce pseudo est déjà pris.<p>
+									</div>';
+									}
+									?>
 								<div class="control-group">
 									<label class="control-label">Type:</label>
 									<div class="controls">
@@ -26,13 +34,7 @@
 										</select>
 									</div>
 								</div>
-								<?php if(isset($resultat) && $resultat)
-									{
-										echo '<div class="control-group">
-									<label class="control-label" >Ce pseudo est déjà pris.</label>
-									</div>';
-									}
-									?>
+								
 								
 								<div class="control-group">
 									<label class="control-label" for="firstname">Nom:</label>
