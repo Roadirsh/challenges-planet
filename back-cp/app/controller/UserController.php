@@ -36,7 +36,7 @@ class UserController extends CoreController {
 
 
 	/**
-	 * Page static INDEX
+	 * 
 	 */
 	public function Seeuser(){
 
@@ -59,7 +59,7 @@ class UserController extends CoreController {
 	}
 	
 	/**
-	 * Page static INDEX
+	 * 
 	 */
 	public function Adduser(){
 
@@ -82,6 +82,18 @@ class UserController extends CoreController {
 		{
 			$this->load->view('user', 'addUser');
 		}
+	
+	}
+	
+	/**
+	 * 
+	 */
+	public function Deluser(){
+	
+        $deleteUser = $this->model = new UserModel();
+		$DeleUser = $deleteUser->Deluser();
+		$message = "has been deleted";
+		$this->coreRedirect('user', 'seeUser', $message);
 	
 	}
 	

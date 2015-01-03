@@ -272,6 +272,29 @@ class UserModel extends CoreModel{
         }
     	
 	}
+	
+	public function Deluser(){
+    	//var_dump($GLOBALS);
+    	$deluserID = $_GET['id'];
+    	
+    	try {
+    	    // rajouer un trigger corbeille
+        	$select = $this->connexion->prepare("DELETE
+                                            FROM " . PREFIX . "user
+                                            where user_id = '" . $deluserID . "'");
+           
+            //var_dump($select); exit();
+            $select -> execute();
+            
+            //var_dump($AllUser);
+            return true;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    	
+	}
 
 }
 

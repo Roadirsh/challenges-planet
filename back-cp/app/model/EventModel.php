@@ -61,4 +61,27 @@ class EventModel extends CoreModel{
         }
     	
 	}
+	
+	public function Delevent(){
+    	//var_dump($GLOBALS);
+    	$deleventID = $_GET['id'];
+    	
+    	try {
+    	    // rajouer un trigger corbeille
+        	$select = $this->connexion->prepare("DELETE
+                                            FROM " . PREFIX . "event
+                                            where event_id = '" . $deleventID . "'");
+           
+            //var_dump($select); exit();
+            $select -> execute();
+            
+            //var_dump($AllUser);
+            return true;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    	
+	}
 }

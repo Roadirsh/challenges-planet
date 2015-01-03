@@ -34,7 +34,7 @@ class EventController extends CoreController {
 
 
 	/**
-	 * Page static INDEX
+	 * 
 	 */
 	public function Seeevent(){
 
@@ -54,7 +54,7 @@ class EventController extends CoreController {
 	}
 	
 	/**
-	 * Page static INDEX
+	 * 
 	 */
 	public function Addevent(){
 
@@ -66,6 +66,19 @@ class EventController extends CoreController {
 		
 		// Appel de la vue 
 		$this->load->view('event', 'addEvent'); // TODO
+	
+	}
+	
+	/**
+	 * 
+	 */
+	public function Delevent(){
+	
+        $deleteEvent = $this->model = new EventModel();
+		$DeleEvent = $deleteEvent->Delevent();
+		$message = "has been deleted";
+		
+		$this->coreRedirect('event', 'seeEvent', $message);
 	
 	}
 	
