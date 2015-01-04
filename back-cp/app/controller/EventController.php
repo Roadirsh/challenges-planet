@@ -64,6 +64,11 @@ class EventController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "addEvent");
 		
+		if(isset($_POST) and !empty($_POST)){
+			$eventAdd = $this->model = new EventModel($_POST);
+			$eventAdd->insertNewEvent();
+		}
+		
 		// Appel de la vue 
 		$this->load->view('event', 'addEvent'); // TODO
 	

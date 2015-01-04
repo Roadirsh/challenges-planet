@@ -23,7 +23,6 @@ class ProjectModel extends CoreModel{
 	private $GroupImg;      		// STRING
 	private $GroupOnline;			// BOOL
 	private $GroupEmplacementTmpImg;// STRING (Emplacement temporaire de l'image)
-	private $GroupType;				// STRING
 	
 	/**
 	 * Constructor
