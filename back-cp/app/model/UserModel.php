@@ -61,12 +61,14 @@ class UserModel extends CoreModel{
 	
 	public function upload($index, $destination)
 	{
+		
+		
 	   //Test1: fichier correctement uploadé
-	    if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0){
+	    if (!isset($_FILES["profil"]) OR $_FILES["profil"]['error'] > 0){
 		    return FALSE;
 		}
 	   	//Déplacement
-	    return move_uploaded_file($_FILES[$index]['tmp_name'],$destination);
+	    return move_uploaded_file($index,$destination);
 	}
 	
 	public function user_exist($pseudo)
@@ -131,8 +133,9 @@ class UserModel extends CoreModel{
 	            
 				$insert->execute();
 				
-				if($profpic != ''){
-					$this->upload($tmp, '../../public/img/avatar/');
+				if(!empty($profpic)){
+					$string= '../public/img/avatar/'.$profpic;
+					$this->upload($tmp, $string);
 				}
 				return false;
 	        }
@@ -241,7 +244,7 @@ class UserModel extends CoreModel{
 	public function setUserProfPic($profpic){
 		if($profpic['name'] != ''){
 			if($this->isValidImg($profpic['name'])){
-				$this->userProfPic = $profpic['name'];
+				$this->userProfPic = uniqid().$profpic['name'];
 				$this->userProfPicTmp = $profpic['tmp_name'];
 			}
 		}
