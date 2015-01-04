@@ -31,11 +31,13 @@
 					<p>User's number</p>
 					<span class="badge"><?php echo $data;?></span>
 				</a>
-				<a class="quick-button metro pink span2">
+				<!--
+                <a class="quick-button metro pink span2">
 					<i class="icon-envelope"></i>
 					<p>Messages</p>
 					<span class="badge">88</span>
 				</a>
+                -->
 				
 				<div class="clearfix"></div>
 								

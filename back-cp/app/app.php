@@ -16,7 +16,7 @@
 	//$_POST = '';
 	//var_dump($_SESSION);
 
-	if(isset($_SESSION['user']) != ''){
+	if(!empty($_SESSION['user'])){
 
 		if(isset($_GET['module'])){
 			//ucfirt = Met le premier caractère en majuscule

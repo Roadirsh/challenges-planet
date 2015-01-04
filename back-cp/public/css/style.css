@@ -1201,6 +1201,7 @@ ul.dashboard-list li:first-child {
 
 ul.dashboard-list li:last-child {
 	border-bottom: none;
+	height: auto;
 }
 
 ul.dashboard-list a:hover{
@@ -2994,5 +2995,8 @@ ul.messagesList li span.date {
 
 /***************** RAJOUTE PAR CHALLENGES PLANET *****************/
 .admin_status{
+    float: right;
+}
+.trash{
     float: right;
 }

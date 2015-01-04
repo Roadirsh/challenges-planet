@@ -77,6 +77,18 @@ class ProjectController extends CoreController {
 	
 	}
 	
+	/**
+	 * 
+	 */
+	public function Delproject(){
+	
+        $deleteProject = $this->model = new ProjectModel();
+		$DeleProject = $deleteProject->Delproject();
+		$message = "has been deleted";
+		$this->coreRedirect('project', 'seeProject', $message);
+	
+	}
+	
 }
 
 ?>

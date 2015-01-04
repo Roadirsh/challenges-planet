@@ -77,6 +77,18 @@ class PageController extends CoreController {
 	
 	}
 	
+	/**
+	 * 
+	 */
+	public function Delteam(){
+	
+        $deleteTeam = $this->model = new PageModel();
+		$DeleTeam = $deleteTeam->Delteam();
+		$message = "has been deleted";
+		$this->coreRedirect('page', 'team', $message);
+	
+	}
+	
 }
 
 ?>

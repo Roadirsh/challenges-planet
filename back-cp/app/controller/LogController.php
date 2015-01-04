@@ -20,16 +20,19 @@ class LogController extends CoreController{
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
+			if(function_exists($action)){
+    			$this->$action();
+			} else{
+    			$this->Login();
+			}
 			
-			$this->$action();
 
 		} else {
 			// on test voir s'il y a une sesison ou non
-			if(isset($_SESSION['']) != ''){
-				$this->coreRedirect('', 'login');
+			if(isset($_SESSION['user']) != ''){
+				$this->coreRedirect('user', 'login');
 			} else {
 				$this->Login();
-
 			}
 		}
 
@@ -92,7 +95,7 @@ class LogController extends CoreController{
 		
 		session_unset();
 		session_destroy();
-		$this->coreRedirect('', 'login');
+		$this->coreRedirect('user', 'login');
 		// $this->model = new LogoutModel();
 		// redirection dans le fichier Model
 

@@ -32,7 +32,12 @@ class LogModel extends CoreModel{
             if(ucfirst($_GET['action']) == 'Login'){
                 $this->$action($_POST);
             } else{
-                $this->$action();
+                if(file_exists($action)){
+                   $this->$action(); 
+                } else{
+                    $this->Login($_POST);
+                }
+                
             }
 
 		} else {

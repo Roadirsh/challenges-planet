@@ -23,9 +23,13 @@
     				    <? } else { ?>
     				        <strong>Status:</strong> <span class="label label-warning">Waiting</span><br>  
                         <? } ?> 
+                        <a class="btn btn-danger" href="<? echo MODULE . 'project' . ACTION . 'delproject' . '&id=' . $AllGroup['group_id']; ?>">
+							<i class="halflings-icon white trash"></i> 
+						</a>
 					</span>
 					<strong>Since:</strong> <? echo $AllGroup['group_date']; ?><br>
-					<strong>Description:</strong><br> <? echo $AllGroup['group_descr']; ?>
+					<strong>Description:</strong><br>
+					<div class="description"><? echo strip_tags($AllGroup['group_descr']); ?></div>
 					<hr>                       
 				</li>
             <? } ?>

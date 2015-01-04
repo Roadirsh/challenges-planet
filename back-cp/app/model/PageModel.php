@@ -63,4 +63,27 @@ class PageModel extends CoreModel{
             echo 'Message:' . $e -> getMessage();
         }
     }
+    
+    public function Delteam(){
+    	//var_dump($GLOBALS);
+    	$delteamID = $_GET['id'];
+    	
+    	try {
+    	    // rajouer un trigger corbeille
+        	$select = $this->connexion->prepare("DELETE
+                                            FROM " . PREFIX . "user
+                                            where user_id = '" . $delteamID . "'");
+           
+            //var_dump($select); exit();
+            $select -> execute();
+            
+            //var_dump($AllUser);
+            return true;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    	
+	}
 }

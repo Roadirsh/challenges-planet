@@ -213,5 +213,29 @@ class ProjectModel extends CoreModel{
 	   	//Déplacement
 	    return move_uploaded_file($index,$destination);
 	}
+	
+	
+	public function Delproject(){
+    	//var_dump($GLOBALS);
+    	$delgroupID = $_GET['id'];
+    	
+    	try {
+    	    // rajouer un trigger corbeille
+        	$select = $this->connexion->prepare("DELETE
+                                            FROM " . PREFIX . "group
+                                            where group_id = '" . $delgroupID . "'");
+           
+            //var_dump($select); exit();
+            $select -> execute();
+            
+            //var_dump($AllUser);
+            return true;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    	
+	}
 
 }

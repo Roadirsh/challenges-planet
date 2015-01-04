@@ -7,7 +7,7 @@
 <div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon edit"></i><span class="break"></span>Form Elements</h2>
+						<h2><i class="halflings-icon edit"></i><span class="break"></span> Add a project</h2>
 						
 					</div>
 					<div class="box-content">
@@ -16,13 +16,13 @@
 							<div class="control-group">
 								<label class="control-label" for="name">Titre du groupe de projet</label>
 								<div class="controls">
-								  <input class="input-xlarge focused" id="name" name="name" type="text" value="">
+								  <input class="input-xlarge focused" id="name" name="name" type="text" value="" required>
 								</div>
 							</div>
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="descr">Description</label>
 							  <div class="controls">
-								<textarea class="cleditor" id="descr" name="descr" rows="3"></textarea>
+								<textarea class="cleditor" id="descr" name="descr" rows="3" required></textarea>
 							  </div>
 							</div>
 							<div class="control-group">

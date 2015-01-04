@@ -28,6 +28,11 @@
     				    <? } else { ?>
     				        <span class="label label-info">Admin</span> 
                         <? } ?> 
+                        <?php if($_SESSION['user'] == 'ADMIN'){ ?>
+                            <a class="btn btn-danger" href="<? echo MODULE . 'page' . ACTION . 'delteam' . '&id=' . $AllTeam['user_id']; ?>">
+							    <i class="halflings-icon white trash"></i> 
+                            </a>
+						<? } ?>
 					</span>
 					<small><em>Register date: <a href="#"><? echo $AllTeam['user_date']; ?></a></em></small><br>
 					FirstName: <a href="#"><? echo $AllTeam['user_firstname']; ?></a><br>
