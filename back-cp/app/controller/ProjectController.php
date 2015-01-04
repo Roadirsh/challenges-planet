@@ -67,6 +67,11 @@ class ProjectController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "addProject");
 		
+		if(isset($_POST) and !empty($_POST)){
+			$projectAdd = $this->model = new ProjectModel($_POST);
+			$projectAdd->insertNewProject();
+		}
+		
 		// Appel de la vue 
 		$this->load->view('project', 'addProject'); // TODO
 	
