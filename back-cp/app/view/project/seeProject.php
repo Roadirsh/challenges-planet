@@ -4,6 +4,9 @@
 <? include(ROOT . "view/layout/menu.inc.php"); ?>
 
 <div id="content" class="span10">
+    <?if(!empty($_SESSION['message'])){ ?>
+        <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
+    <? $_SESSION['message'] = ''; } ?>
 	<div class="box span13" onTablet="span13" onDesktop="span13">
 		<div class="box-header">
 			<h2><i class="halflings-icon user"></i><span class="break"></span>Projects</h2>
@@ -13,7 +16,7 @@
 			<?php foreach($data as $k => $AllGroup){ ?>
 				<li>
 					<a href="#">
-						<img class="projet" alt="Dennis Ji" src="img/avatar.jpg">
+						<img class="projet" alt="Dennis Ji" src="img/avatar/<? echo $AllGroup['group_img']; ?>">
 					</a>
 					<strong>Name:</strong> <a href="#"><? echo $AllGroup['group_name']; ?></a><br>
 					<span class="admin_status">

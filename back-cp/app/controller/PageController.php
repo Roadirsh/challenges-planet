@@ -84,7 +84,7 @@ class PageController extends CoreController {
 	
         $deleteTeam = $this->model = new PageModel();
 		$DeleTeam = $deleteTeam->Delteam();
-		$message = "has been deleted";
+		$_SESSION['message'] = "The admin has been well deleted";
 		$this->coreRedirect('page', 'team', $message);
 	
 	}

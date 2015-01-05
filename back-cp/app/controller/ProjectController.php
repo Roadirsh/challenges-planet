@@ -84,7 +84,7 @@ class ProjectController extends CoreController {
 	
         $deleteProject = $this->model = new ProjectModel();
 		$DeleProject = $deleteProject->Delproject();
-		$message = "has been deleted";
+		$_SESSION['message'] = "The project group has been well deleted";
 		$this->coreRedirect('project', 'seeProject', $message);
 	
 	}

@@ -23,9 +23,6 @@ class CoreModel{
 	 * Constructor
 	 */
 	function __construct(){
-		// appel du fichier contenant tout les logs
-		$logger = new Logger('../logs/');
-		$logger->log('test', 'loadapp', "Chargement de mysql", Logger::GRAN_MONTH);
 
 		include_once(ROOT . 'conf/mysql.php');
 		try {

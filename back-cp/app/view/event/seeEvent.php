@@ -5,6 +5,9 @@
 
 
 <div id="content" class="span10">
+    <?if(!empty($_SESSION['message'])){ ?>
+        <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
+    <? $_SESSION['message'] = ''; } ?>
     <div class="row-fluid">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>

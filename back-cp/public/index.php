@@ -13,12 +13,8 @@
     session_start();
 
 // Nommage de la session
-    session_name('ChallengesPlanet');
+    session_name('ChallengesPlanet_DASHBOARD');
 
-    include_once '../lib/Logger.class.php';
-     global $logger;
-     $logger = new Logger('../logs/');
-     
 
 // Fichier de configuration principal
     require_once('../app/conf/conf_define.php');

@@ -85,7 +85,7 @@ class EventController extends CoreController {
 	
         $deleteEvent = $this->model = new EventModel();
 		$DeleEvent = $deleteEvent->Delevent();
-		$message = "has been deleted";
+		$_SESSION['message'] = "The event has been well deleted";
 		
 		$this->coreRedirect('event', 'seeEvent', $message);
 	

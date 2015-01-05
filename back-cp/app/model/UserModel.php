@@ -319,17 +319,42 @@ class UserModel extends CoreModel{
     	//var_dump($GLOBALS);
     	$userID = $_GET['id'];
     	try {
-        	$select = $this->connexion->prepare("SELECT *
-                                            FROM " . PREFIX . "user A, " . PREFIX . "group B, " . PREFIX . "event C
-                                            where user_id = '" . $userID . "'");
+    	    
+    	    $select = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "user
+                                            WHERE  user_id = " . $userID . "");
            
             $select -> execute();
             $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $OneUser = $select -> Fetch();
-            
-            var_dump($OneUser);
+            $OneUser = $select -> FetchAll();
+    	
+    	
+    	    if(!empty($OneUser)){
+                $userID = $_GET['id'];
+                $select = $this->connexion->prepare("SELECT * 
+                                                FROM cp_user A, cp_group B, cp_user_has_group C, cp_event_has_group D, cp_event E 
+                                                WHERE A.user_id = " . $userID . "
+                                                AND A.user_id = C.user_user_id 
+                                                AND C.group_group_id = B.group_id 
+                                                AND B.group_id = D.group_group_id 
+                                                AND D.event_event_id = E.event_id");
+                
+                $select -> execute();
+                $select -> setFetchMode(PDO::FETCH_ASSOC);
+                $Usercomplement = $select -> Fetch();
+                
+                //var_dump($OneUser);
+                //var_dump($Usercomplement);
+                if(!empty($Usercomplement)){
+                    return $OneUser;
+                    return $Usercomplement;
+                } else{
+                    return $OneUser;
+                }
+    	    }
+    	    
+        	//var_dump($OneUser);
             return $OneUser;
-            
             
     	} catch (Exception $e) {
             echo 'Message:' . $e -> getMessage();

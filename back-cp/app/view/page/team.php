@@ -4,6 +4,9 @@
 <? include(ROOT . "view/layout/menu.inc.php"); ?>
 
 <div id="content" class="span10">
+    <?if(!empty($_SESSION['message'])){ ?>
+        <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
+    <? $_SESSION['message'] = ''; } ?>
 	<div class="box span13" onTablet="span13" onDesktop="span13">
 		<div class="box-header">
 			<h2><i class="halflings-icon user"></i><span class="break"></span>Admin</h2>
@@ -15,7 +18,7 @@
 				<li>
 					<a href="#">
                         <?php if(!empty($AllTeam['user_profil_pic'])){ ?>
-    				        <img class="avatar" alt="Dennis Ji" src="<? echo $AllTeam['user_profil_pic']; ?>">
+    				        <img class="avatar" alt="Dennis Ji" src="img/avatar/<? echo $AllTeam['user_profil_pic']; ?>">
                         <? } else { ?>
     				        <img class="avatar" alt="Dennis Ji" src="img/avatar.jpg"> 
                         <? } ?> 

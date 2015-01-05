@@ -16,14 +16,9 @@
 
 						<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
 							<fieldset>
-								<?php 
-									if($data)
-									{
-										echo '<div class="control-group">
-									<p color="red">Ce pseudo est déjà pris.<p>
-									</div>';
-									}
-									?>
+								<?php if($data) { ?>
+									    <div class="alert alert-danger"  role="alert">Ce pseudo est déjà pris !</div>
+								<? } ?>
 								<div class="control-group">
 									<label class="control-label">Type:</label>
 									<div class="controls">

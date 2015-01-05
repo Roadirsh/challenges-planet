@@ -68,7 +68,7 @@ class UserController extends CoreController {
 		
 		
 		// Définition des constante
-		define("PAGE_TITLE", SITE_NAME . " - " . $OneUser['user_firstname'] . "");
+		define("PAGE_TITLE", SITE_NAME . " - " . $OneUser[0]['user_firstname'] . "");
 		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "seeUser");
@@ -98,7 +98,7 @@ class UserController extends CoreController {
 		define("PAGE_ID", "addUser");
 		if(isset($_POST) and !empty($_POST)){
 			$userAdd = $this->model = new UserModel($_POST);
-			 $Existdeja = $userAdd->insertNewUser();
+            $Existdeja = $userAdd->insertNewUser();
 		}
 
 		// Appel de la vue 
@@ -120,8 +120,9 @@ class UserController extends CoreController {
 	
         $deleteUser = $this->model = new UserModel();
 		$DeleUser = $deleteUser->Deluser();
-		$message = "has been deleted";
-		$this->coreRedirect('user', 'seeUser', $message);
+		$_SESSION['message'] = "The user has been well deleted";
+		
+		$this->coreRedirect('user', 'seeUser');
 	
 	}
 	
