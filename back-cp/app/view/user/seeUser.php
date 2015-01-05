@@ -27,7 +27,7 @@
 						    <? foreach($data as $k => $AllUser){ ?>
                             <? // var_dump($AllUser); ?>
 							<tr>
-								<td><a class="btn btn-info" href="#"><? echo $AllUser['user_pseudo']; ?></a></td>
+								<td><a class="btn btn-info" href="<? echo MODULE . 'user' . ACTION . 'seeoneuser' . '&id=' . $AllUser['user_id']; ?>"><? echo $AllUser['user_pseudo']; ?></a></td>
 								<td><? echo $AllUser['user_firstname']; ?></td>
 								<td><? echo $AllUser['user_lastname']; ?></td>
 								<td><? echo $AllUser['user_birthday']; ?></td>

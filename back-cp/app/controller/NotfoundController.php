@@ -9,8 +9,6 @@
  * @copyright 	L&G
  */
 
-// $logger->log('test', 'loadapp', "Chargement du controller 404", Logger::GRAN_MONTH);
-
 class NotfoundController extends CoreController{
 
 	/**
@@ -24,6 +22,9 @@ class NotfoundController extends CoreController{
 
 	}
 
+    /**
+	 * Notfount 404
+	 */
 	public function Notfound(){
 		// Définition des constante
 		define("PAGE_TITLE", SITE_NAME . " 404 - not found");

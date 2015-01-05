@@ -7,15 +7,15 @@
  * @copyright 	L&G
  */
 
-
-	//$logger->log('test', 'loadapp', "Chargement de l'application app.php", Logger::GRAN_MONTH);
 	/**
 	 * Analyse du module demandé
+	 *
+	 * @param array $_GET
 	 */
-	// session_destroy();
-	//$_POST = '';
-	//var_dump($_SESSION);
-
+	    // session_destroy();
+    	// $_POST = '';
+    	// var_dump($_SESSION);
+    	
 	if(!empty($_SESSION['user'])){
 
 		if(isset($_GET['module'])){

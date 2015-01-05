@@ -8,8 +8,6 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
- 
-//$logger->log('test', 'loadapp', "Chargement du controller page", Logger::GRAN_MONTH);
 
 class ProjectController extends CoreController {
 
@@ -36,7 +34,7 @@ class ProjectController extends CoreController {
 
 
 	/**
-	 * Page
+	 * Voir l'ensemble des projets
 	 */
 	public function Seeproject(){
 
@@ -57,7 +55,9 @@ class ProjectController extends CoreController {
 	}
 	
 	/**
-	 * Page
+	 * Ajouter un projet
+	 *
+	 * @param array $_POST
 	 */
 	public function Addproject(){
 
@@ -78,7 +78,7 @@ class ProjectController extends CoreController {
 	}
 	
 	/**
-	 * 
+	 * Supprimer un projet
 	 */
 	public function Delproject(){
 	

@@ -13,6 +13,8 @@ class EventController extends CoreController {
 
 	/**
 	 * Constructor
+	 *
+	 * @param array $_GET
 	 */
 	function __construct(){
 		parent::__construct();
@@ -34,7 +36,7 @@ class EventController extends CoreController {
 
 
 	/**
-	 * 
+	 * Voir l'ensemble des évenements
 	 */
 	public function Seeevent(){
 
@@ -54,7 +56,9 @@ class EventController extends CoreController {
 	}
 	
 	/**
-	 * 
+	 * Ajouter un évenement
+	 *
+	 * @param array $_POST
 	 */
 	public function Addevent(){
 
@@ -75,7 +79,7 @@ class EventController extends CoreController {
 	}
 	
 	/**
-	 * 
+	 * Supprimer un évenement
 	 */
 	public function Delevent(){
 	

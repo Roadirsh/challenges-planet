@@ -54,6 +54,9 @@ class ProjectModel extends CoreModel{
         }
 	}
 	
+	/**
+	 * GETTERS voir l'ensemble des groups
+	 */
 	public function getShowProjects(){
     	
     	try {
@@ -74,6 +77,9 @@ class ProjectModel extends CoreModel{
     	
 	}
     
+    /**
+	 * Compter le nombre de groups
+	 */
 	public function CountProjects(){
     	
     	try {
@@ -93,6 +99,9 @@ class ProjectModel extends CoreModel{
     	
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir le nom d'un groupe
+	 */
 	public function setGroupName($name)
 	{
 		if(is_string($name))
@@ -100,12 +109,14 @@ class ProjectModel extends CoreModel{
 			$this->GroupName = $name;
 		}
 	}
-	
 	public function getGroupName()
 	{
 		return $this->GroupName;
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir la description d'un groupe
+	 */
 	public function setGroupDescr($descr)
 	{
 		if(is_string($descr))
@@ -113,12 +124,14 @@ class ProjectModel extends CoreModel{
 			$this->GroupDescr = $descr;
 		}
 	}
-	
 	public function getGroupDescr()
 	{
 		return $this->GroupDescr;
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir l'image d'un groupe
+	 */
 	public function setGroupImg($img)
 	{
 		if($img['name'] != ''){
@@ -128,18 +141,22 @@ class ProjectModel extends CoreModel{
 			}
 		}
 	}
-	
 	public function getGroupImg()
 	{
 		return $this->GroupImg;
 	}
 	
+	/**
+	 * voir l'emplacement de l'image temporaire
+	 */
 	public function getEmplacementTmp()
 	{
 		return $this->GroupEmplacementTmpImg;
 	}
 	
-	
+	/**
+	 * Vérifier le format de l'image
+	 */
 	public function isValidImg($fichier){
 		$extensions_valides = array( 'jpg' , 'jpeg' , 'png' );
 		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
@@ -153,6 +170,9 @@ class ProjectModel extends CoreModel{
 		}
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir si le groupe est validé ou non
+	 */
 	public function setGroupOnline($check)
 	{
 		if($check == true)
@@ -164,14 +184,15 @@ class ProjectModel extends CoreModel{
 			$this->GroupOnline = false;
 		}
 	}
-	
 	public function getGroupOnline()
 	{
 		return $this->GroupOnline;
 	}
 	
 	
-	// Ajout d'un nouveau projet dans la base de données
+	/**
+	 * Ajout d'un nouveau projet dans la base de données
+	 */
 	public function insertNewProject()
 	{
 		$name = $this->getGroupName();
@@ -201,10 +222,12 @@ class ProjectModel extends CoreModel{
             echo 'Message:' . $e -> getMessage();
         }
     }
+    
+    /**
+	 * Déplacement du fichier de l'emplacement tmp 'public function getEmplacementTmp()' vers le bon emplacement serveur
+	 */
     public function upload($index, $destination)
 	{
-		
-		
 	   //Test1: fichier correctement uploadé
 	    if (!isset($_FILES["image"]) OR $_FILES["image"]['error'] > 0){
 		    return FALSE;
@@ -213,7 +236,9 @@ class ProjectModel extends CoreModel{
 	    return move_uploaded_file($index,$destination);
 	}
 	
-	
+	/**
+     * Supprimer un groupe
+     */
 	public function Delproject(){
     	//var_dump($GLOBALS);
     	$delgroupID = $_GET['id'];

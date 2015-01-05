@@ -10,10 +10,13 @@
 /**
  * Action AJAX de traitement de POST
  */
-$logger->log('test', 'loadapp', "Chargement du controller ajax", Logger::GRAN_MONTH);
 class AjaxController extends CoreController{
 
-
+    /**
+     * formAjax
+     *
+     * @param array $_POST
+     */
     public function formAjax() {
 
         if(isset($_POST['ajax1'])) {

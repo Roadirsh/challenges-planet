@@ -36,7 +36,7 @@ class UserController extends CoreController {
 
 
 	/**
-	 * 
+	 * Voir l'ensemble des utilisateurs différents des admins
 	 */
 	public function Seeuser(){
 
@@ -59,7 +59,35 @@ class UserController extends CoreController {
 	}
 	
 	/**
-	 * 
+	 * Voir UN utilisateur avec sont évenement associé et son groupe
+	 */
+	public function Seeoneuser(){
+		
+        $showOneUser = $this->model = new UserModel();
+		$OneUser = $showOneUser->Seeoneuser();
+		
+		
+		// Définition des constante
+		define("PAGE_TITLE", SITE_NAME . " - " . $OneUser['user_firstname'] . "");
+		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
+		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_ID", "seeUser");
+		
+		
+		// UserModel::Seeuser();
+		
+		// echo 'user = '; var_dump($AllUser);
+
+		
+		// Appel de la vue 
+		$this->load->view('user', 'seeOneUser', $OneUser); // TODO
+	
+	}
+	
+	/**
+	 * Ajouter un utilisateur
+	 *
+	 * @param array $_POST
 	 */
 	public function Adduser(){
 
@@ -86,7 +114,7 @@ class UserController extends CoreController {
 	}
 	
 	/**
-	 * 
+	 * Supprimer un utilisateur
 	 */
 	public function Deluser(){
 	

@@ -13,7 +13,7 @@
 class PageModel extends CoreModel{
 
     /**
-     * Nombre de Users
+     * Compte du nombre de Users
      */
     public function NbUsers(){
 
@@ -39,6 +39,9 @@ class PageModel extends CoreModel{
         }
     }
     
+    /**
+     * Voir l'ensemble des admins
+     */
     public function Seeteam(){
 
         try {
@@ -64,6 +67,9 @@ class PageModel extends CoreModel{
         }
     }
     
+    /**
+     * Supprimer un membre des admins
+     */
     public function Delteam(){
     	//var_dump($GLOBALS);
     	$delteamID = $_GET['id'];

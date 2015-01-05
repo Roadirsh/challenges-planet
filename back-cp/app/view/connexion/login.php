@@ -1,5 +1,4 @@
-<?php include(ROOT . "view/layout/header.inc.php");
-	// $logger->log('test', 'loadapp', "Chargement de la vue login.php", Logger::GRAN_MONTH); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
 	
 	<div class="container-fluid-full">
 		<div class="row-fluid">
@@ -15,7 +14,7 @@
         					There seems to be a problem! </div>';
     					}
 					} ?>
-					<h2>Login to enter the Donjon ! </h2>
+					<h2>Login to enter !</h2>
 					<form class="form-horizontal" action="" method="post">
 						<fieldset>
 							
@@ -31,7 +30,7 @@
 							</div>
 							<div class="clearfix"></div>
 							
-							<label class="remember" for="remember"> <input type="checkbox" id="remember" />Remember me</label>
+							<!-- <label class="remember" for="remember"> <input type="checkbox" id="remember" />Remember me</label> -->
 
 							<div class="button-login">	
 								<button type="submit" class="btn btn-primary">Login</button>
@@ -39,7 +38,7 @@
 							<div class="clearfix"></div>
 					</form>
 					<hr>
-					<h3><a href="#">Forgot Password?</a></h3>
+					<!-- <h3><a href="#">Forgot Password?</a></h3> -->
 				</div><!--/span-->
 			</div><!--/row-->
 			

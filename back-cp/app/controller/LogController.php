@@ -3,13 +3,11 @@
 /**
  * Controller
  *
- * Traitements relatifs au 
+ * Page de connexion et déconnexion
  *
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-
-//$logger->log('test', 'loadapp', "Chargement du controller ", Logger::GRAN_MONTH);
 
 class LogController extends CoreController{
 	/**
@@ -40,6 +38,8 @@ class LogController extends CoreController{
 	
 	/**
 	 * Login
+	 *
+	 * @param array $_POST
 	 */
 	public function Login(){
 		

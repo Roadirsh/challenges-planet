@@ -56,6 +56,9 @@ class EventModel extends CoreModel{
         }
 	}
 	
+	/**
+	 * Voir l'ensemble des évenements
+	 */
 	public function getShowEvents(){
     	
     	try {
@@ -76,6 +79,9 @@ class EventModel extends CoreModel{
     	
 	}
     
+    /**
+	 * Compter l'ensemble des évenements
+	 */
 	public function CountEvents(){
     	
     	try {
@@ -95,6 +101,9 @@ class EventModel extends CoreModel{
     	
 	}
 	
+	/**
+	 * Supprimer un évenement
+	 */
 	public function Delevent(){
     	//var_dump($GLOBALS);
     	$deleventID = $_GET['id'];
@@ -118,6 +127,9 @@ class EventModel extends CoreModel{
     	
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir le nom d'un évenement
+	 */
 	public function setEventName($name)
 	{
 		if(is_string($name))
@@ -125,12 +137,14 @@ class EventModel extends CoreModel{
 			$this->EventName = $name;
 		}
 	}
-	
 	public function getEventName()
 	{
 		return $this->EventName;
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir la description d'un évenement
+	 */
 	public function setEventDescr($descr)
 	{
 		if(is_string($descr))
@@ -138,12 +152,14 @@ class EventModel extends CoreModel{
 			$this->EventDescr = $descr;
 		}
 	}
-	
 	public function getEventDescr()
 	{
 		return $this->EventDescr;
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir l'image d'un évenement
+	 */
 	public function setEventImg($img)
 	{
 		if($img['name'] != ''){
@@ -153,18 +169,19 @@ class EventModel extends CoreModel{
 			}
 		}
 	}
-	
 	public function getEventImg()
 	{
 		return $this->EventImg;
 	}
-	
+	// Récupérer l'emplacement d'une image
 	public function getEmplacementTmp()
 	{
 		return $this->EventEmplacementTmpImg;
 	}
 	
-	
+	/**
+	 * Vérifier le format de l'image
+	 */
 	public function isValidImg($fichier){
 		$extensions_valides = array( 'jpg' , 'jpeg' , 'png' );
 		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
@@ -178,6 +195,9 @@ class EventModel extends CoreModel{
 		}
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir si l'évenement est validé ou non
+	 */
 	public function setEventOnline($check)
 	{
 		if($check == true)
@@ -189,33 +209,38 @@ class EventModel extends CoreModel{
 			$this->EventOnline = false;
 		}
 	}
-	
 	public function getEventOnline()
 	{
 		return $this->EventOnline;
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir la date de début d'un évenement
+	 */
+    public function setEventBegin($begin)
+    {
+		$this->EventBegin = $begin;
+    }
 	public function getEventBegin()
 	{
 		return $this->EventBegin;
 	}
-	
+    
+    /**
+	 * SETTERS & GETTERS voir la date de fin d'un évenement
+	 */
+    public function setEventEnd($end)
+	{
+		$this->EventEnd = $end;
+	}
 	public function getEventEnd()
 	{
 		return $this->EventEnd;
 	}
-	
-	public function setEventBegin($begin)
-	{
-		$this->EventBegin = $begin;
-	}
-	
-	public function setEventEnd($end)
-	{
-		$this->EventEnd = $end;
-	}
-	
-	// Ajout d'un nouveau projet dans la base de données
+
+    /**
+	 * Ajout d'un nouveau projet dans la base de données
+	 */
 	public function insertNewEvent()
 	{
 		$name = $this->getEventName();
@@ -250,11 +275,13 @@ class EventModel extends CoreModel{
             echo 'Message:' . $e -> getMessage();
         }
     }
+    
+    /**
+	 * Déplacement du fichier de l'emplacement tmp 'public function getEmplacementTmp()' vers le bon emplacement serveur
+	 */
     public function upload($index, $destination)
 	{
-		
-		
-	   //Test1: fichier correctement uploadé
+	    //Test1: fichier correctement uploadé
 	    if (!isset($_FILES["imageEvent"]) OR $_FILES["imageEvent"]['error'] > 0){
 		    return FALSE;
 		}

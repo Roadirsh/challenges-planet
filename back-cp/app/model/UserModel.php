@@ -59,10 +59,11 @@ class UserModel extends CoreModel{
         }
 	}
 	
+	/**
+	 * Déplacement du fichier de l'emplacement tmp 'public function $userProfPicTmp()' vers le bon emplacement serveur
+	 */
 	public function upload($index, $destination)
 	{
-		
-		
 	   //Test1: fichier correctement uploadé
 	    if (!isset($_FILES["profil"]) OR $_FILES["profil"]['error'] > 0){
 		    return FALSE;
@@ -71,6 +72,9 @@ class UserModel extends CoreModel{
 	    return move_uploaded_file($index,$destination);
 	}
 	
+	/**
+	 * Vérification de l'existence d'un user, pour éviter les doublons
+	 */
 	public function user_exist($pseudo)
 	{
 		try {
@@ -99,6 +103,9 @@ class UserModel extends CoreModel{
         }
 
 	}
+	/**
+	 * Ajout d'un utilisateur si il n'existe pas déjà
+	 */
 	public function insertNewUser(){
 		$birthday = $this->getUserBirthday();
 		$firstName = $this->getUserFirstName();
@@ -147,11 +154,14 @@ class UserModel extends CoreModel{
         }
 
 	}
-		public function getUserType()
+	
+	/**
+	 * SETTERS & GETTERS voir le type de l'utilisateur (admin, étudiant, organisme)
+	 */
+	public function getUserType()
 	{
 		return $this->userType;
 	}
-	
 	public function setUserType($type)
 	{
 		if(is_string($type))
@@ -159,6 +169,10 @@ class UserModel extends CoreModel{
 			$this->userType = $type;
 		}
 	}
+	
+	/**
+	 * SETTERS & GETTERS voir la date d'anniversaire d'un utilisateur
+	 */
 	public function getUserBirthday(){
         return $this->userBirthday;
 	}
@@ -167,17 +181,22 @@ class UserModel extends CoreModel{
 		$this->userBirthday = $birthday;
 	}
 
+    /**
+	 * SETTERS & GETTERS voir le nom de famille de l'utilisateur
+	 */
 	public function getUserlastName(){
 		return $this->userLastName;
         
 	}
-	
 	public function setUserLastName($name){
 		if(is_string($name)){
 			$this->userLastName = $name;
 		}
 	}
 
+    /**
+	 * SETTERS & GETTERS voir le prénom de l'utilisateur
+	 */
 	public function getUserFirstName(){
 		return $this->userFirstName;
 	}
@@ -187,19 +206,25 @@ class UserModel extends CoreModel{
 		}
 	}
 
+    /**
+	 * SETTERS & GETTERS voir le mail de l'utilisateur
+	 */
 	public function getUserMail(){
 		return $this->userMail;
 	}
+	// vérification de la validité du mail
 	public function isValidEmail($email){ 
     	return filter_var($email, FILTER_VALIDATE_EMAIL);
 	}
-	
 	public function setUserMail($mail){
 		if($this->isValidEmail($mail)){
 			$this->userMail = $mail;
 		}
 	}
 
+    /**
+	 * SETTERS & GETTERS voir le pseudo de l'utilisateur
+	 */
 	public function getUserPseudo(){
 		return $this->userPseudo;
 	}
@@ -209,9 +234,13 @@ class UserModel extends CoreModel{
 		}
 	}
 	
+	/**
+	 * SETTERS & GETTERS voir le mot de passe de l'utilisateur
+	 */
 	public function getUserPassword(){
 		return $this->userPassword;
 	}
+	// vérification de l'encrypte du MDP
 	public function isValidMd5($md5)
 	{
 	    return preg_match('/^[a-f0-9]{32}$/', $md5);
@@ -222,6 +251,9 @@ class UserModel extends CoreModel{
 		}
 	}
 	
+	/**
+	 * Vérifier le format de l'image
+	 */
 	public function isValidImg($fichier){
 		$extensions_valides = array( 'jpg' , 'jpeg' , 'png' );
 		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
@@ -234,10 +266,16 @@ class UserModel extends CoreModel{
 			return false;
 		}
 	}
+	
+	/**
+	 * SETTERS & GETTERS voir la photo profil d'un utilisateur
+	 */
 	public function getUserProfPic(){
 		return $this->userProfPic;
 	}
-	
+	/**
+	 * voir l'emplacement de l'image temporaire
+	 */
 	public function getEmplacementImg(){
 		return $this->userProfPicTmp;
 	}
@@ -250,11 +288,9 @@ class UserModel extends CoreModel{
 		}
 	}
 	
-	
-	
-	
-	// Afficher l'ensembles de users
-	// static function Seeuser(){
+	/**
+	 * Voir l'emsemble des utilisateurs NON ADMINS
+	 */
 	public function Seeuser(){
     	//var_dump($GLOBALS);
     	try {
@@ -276,6 +312,34 @@ class UserModel extends CoreModel{
     	
 	}
 	
+	/**
+	 * Voir un utilisateur NON ADMINS
+	 */
+	public function Seeoneuser(){
+    	//var_dump($GLOBALS);
+    	$userID = $_GET['id'];
+    	try {
+        	$select = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "user A, " . PREFIX . "group B, " . PREFIX . "event C
+                                            where user_id = '" . $userID . "'");
+           
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneUser = $select -> Fetch();
+            
+            var_dump($OneUser);
+            return $OneUser;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    	
+	}
+	
+	/**
+	 * Supprimer un utilisateur
+	 */
 	public function Deluser(){
     	//var_dump($GLOBALS);
     	$deluserID = $_GET['id'];

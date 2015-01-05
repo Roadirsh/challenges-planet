@@ -13,9 +13,6 @@
  * choix de l'action
  * instanciation de la class
  */
- 
-//$logger->log('test', 'loadapp', "Chargement du modele user", Logger::GRAN_MONTH);
-
 class LogModel extends CoreModel{
 
 	/**
@@ -53,7 +50,7 @@ class LogModel extends CoreModel{
 	 *
 	 * @param array $_POST
 	 */
-	//echo 'lolo';
+        //echo 'lolo';
 	public function Login($post){
 
 		$login = $post['login'];

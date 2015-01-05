@@ -35,7 +35,7 @@ class PageController extends CoreController {
 
 
 	/**
-	 * Page static INDEX
+	 * Page static ACCUEIL
 	 */
 	public function Home(){
 
@@ -59,7 +59,7 @@ class PageController extends CoreController {
 	}
 	
 	/**
-	 * Page static INDEX
+	 * Page static EQUIPE ADMINS
 	 */
 	public function Team(){
 
@@ -78,7 +78,7 @@ class PageController extends CoreController {
 	}
 	
 	/**
-	 * 
+	 * Suppression d'un membre de l'équipe si SUPER ADMIN
 	 */
 	public function Delteam(){
 	
