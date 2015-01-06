@@ -237,6 +237,31 @@ class ProjectModel extends CoreModel{
 	}
 	
 	/**
+	 * Voir UN group
+	 */
+	public function Seeoneproject(){
+    	$groupID = $_GET['id'];
+    	try {
+        	$select = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "group
+                                            WHERE group_id = " . $groupID);
+           
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneGroup = $select -> FetchAll();
+            
+            //var_dump($OneGroup); exit();
+            return $OneGroup;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    	
+	}
+	
+	
+	/**
      * Supprimer un groupe
      */
 	public function Delproject(){

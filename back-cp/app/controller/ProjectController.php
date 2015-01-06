@@ -55,6 +55,27 @@ class ProjectController extends CoreController {
 	}
 	
 	/**
+	 * Voir UN projet
+	 */
+	public function Seeoneproject(){
+
+		// Définition des constante
+		define("PAGE_TITLE", SITE_NAME . " home");
+		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
+		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_ID", "seeProject");
+		
+		
+		$OneGroups = $this->model = new ProjectModel();
+        $OneGroup = $OneGroups-> Seeoneproject();
+
+
+		// Appel de la vue 
+		$this->load->view('project', 'seeOneProject', $OneGroup); // TODO
+	
+	}
+	
+	/**
 	 * Ajouter un projet
 	 *
 	 * @param array $_POST

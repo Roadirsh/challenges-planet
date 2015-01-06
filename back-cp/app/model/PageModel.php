@@ -18,8 +18,62 @@ class PageModel extends CoreModel{
     public function NbUsers(){
 
         try {
-            $select = $this->connexion->prepare("SELECT * 
+            $select = $this->connexion->prepare("SELECT user_id 
                                             FROM " . PREFIX . "user");
+                    
+            //var_dump($select);
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select -> rowCount();
+
+            // $select -> closeCursor();
+
+            //var_dump($retour);
+
+            return $retour;
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }
+    
+    /**
+     * Compte du nombre de Users
+     */
+    public function NbEvents(){
+
+        try {
+            $select = $this->connexion->prepare("SELECT event_id 
+                                            FROM " . PREFIX . "event");
+                    
+            //var_dump($select);
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select -> rowCount();
+
+            // $select -> closeCursor();
+
+            //var_dump($retour);
+
+            return $retour;
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }
+    
+    /**
+     * Compte du nombre de Users
+     */
+    public function NbGroups(){
+
+        try {
+            $select = $this->connexion->prepare("SELECT group_id 
+                                            FROM " . PREFIX . "group");
                     
             //var_dump($select);
             $select -> execute();

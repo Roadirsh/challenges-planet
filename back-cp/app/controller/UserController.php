@@ -68,19 +68,44 @@ class UserController extends CoreController {
 		
 		
 		// Définition des constante
-		define("PAGE_TITLE", SITE_NAME . " - " . $OneUser[0]['user_firstname'] . "");
+		define("PAGE_TITLE", SITE_NAME . " - " . $OneUser['user'][0]['user_lastname']); // " . $OneUser[0]['user_firstname'] . "
 		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "seeUser");
 		
-		
-		// UserModel::Seeuser();
-		
-		// echo 'user = '; var_dump($AllUser);
-
-		
 		// Appel de la vue 
 		$this->load->view('user', 'seeOneUser', $OneUser); // TODO
+	
+	}
+	
+	/**
+	 * Voir UN admin
+	 */
+	public function Seeoneadmin(){
+		
+        $showOneAdmin = $this->model = new UserModel();
+		$OneAdmin = $showOneAdmin->Seeoneadmin();
+		// Définition des constante
+		define("PAGE_TITLE", SITE_NAME . " - " . $OneAdmin['user'][0]['user_pseudo']); // " . $OneUser[0]['user_firstname'] . "
+		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
+		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_ID", "seeUser");
+		
+		// Appel de la vue 
+		$this->load->view('user', 'seeOneAdmin', $OneAdmin); // TODO
+	
+	}
+	
+	/**
+	 * Modifier UN admin
+	 */
+	public function Uponeadmin(){
+	
+	    $upOneAdmin = $this->model = new UserModel();
+		$upAdmin = $upOneAdmin->Uponeadmin();
+		
+		$_SESSION['message'] = "You've succeed in updating your profil";
+		$this->coreRedirect('user', 'seeOneAdmin');
 	
 	}
 	

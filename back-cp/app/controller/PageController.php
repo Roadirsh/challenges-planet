@@ -48,13 +48,20 @@ class PageController extends CoreController {
 		// $allUser = $this->model = new CoreModel();
 		// $allu = $allUser->coreTableAll('user');
 		
-		$countUser = $this->model = new PageModel();
-		$NbUser = $countUser->NbUsers();
+		$count = $this->model = new PageModel();
+		$NbUser = $count->NbUsers();
+		$NbEvent = $count->NbEvents();
+		$NbGroup = $count->NbGroups();
 		
-		// echo 'nombre de user = ' . $NbUser;
+		$countArray = '';
+		$countArray['user'] = $NbUser;
+		$countArray['event'] = $NbEvent;
+		$countArray['group'] = $NbGroup;
+		
+		//var_dump($countArray);
 		
 		// Appel de la vue 
-		$this->load->view('page', 'home', $NbUser); // TODO
+		$this->load->view('page', 'home', $countArray); // TODO
 	
 	}
 	

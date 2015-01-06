@@ -35,18 +35,20 @@ class UserModel extends CoreModel{
         if(isset($_POST) && !empty($_POST)){
             
             $post = $_POST;
-            $this->setUserType($post['type']);
-            $this->setUserBirthday($post['birthday']);
-    		$this->setUserLastName($post['lastname']);
-    		$this->setUserFirstName($post['firstname']);
-    		$this->setUserMail($post['mail']);
-    		$this->setUserPseudo($post['pseudo']);
-    		$this->setUserPassword(md5($post['password']));
-            if(isset($_FILES['profil'])){
-    			$this->setUserProfPic($_FILES['profil']);
-    		}else{
-    			$this->setUserProfPic('');
-    		}
+            if(isset($post['type'])){   
+                $this->setUserType($post['type']);
+                $this->setUserBirthday($post['birthday']);
+        		$this->setUserLastName($post['lastname']);
+        		$this->setUserFirstName($post['firstname']);
+        		$this->setUserMail($post['mail']);
+        		$this->setUserPseudo($post['pseudo']);
+        		$this->setUserPassword(md5($post['password']));
+                if(isset($_FILES['profil'])){
+        			$this->setUserProfPic($_FILES['profil']);
+        		}else{
+        			$this->setUserProfPic('');
+        		}
+            }
     		
         } else {
         
@@ -327,34 +329,59 @@ class UserModel extends CoreModel{
             $select -> execute();
             $select -> setFetchMode(PDO::FETCH_ASSOC);
             $OneUser = $select -> FetchAll();
-    	
-    	
+
+            $oneuserID = $OneUser[0]['user_id'];
+            $select1 = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "adress A, " . PREFIX . "phone B  
+                                            WHERE  A.user_user_id = " . $oneuserID . "
+                                            AND B.user_user_id = " . $oneuserID . "");
+           
+            $select1 -> execute();
+            $select1 -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneUser1 = $select1 -> FetchAll();
+ 
+            
     	    if(!empty($OneUser)){
                 $userID = $_GET['id'];
-                $select = $this->connexion->prepare("SELECT * 
-                                                FROM cp_user A, cp_group B, cp_user_has_group C, cp_event_has_group D, cp_event E 
+                $select = $this->connexion->prepare("SELECT *
+                                                FROM " . PREFIX . "user A, " . PREFIX . "group B, " . PREFIX . "user_has_group C, " . PREFIX . "event_has_group D, " . PREFIX . "event E, " . PREFIX . "event_has_user F
                                                 WHERE A.user_id = " . $userID . "
                                                 AND A.user_id = C.user_user_id 
                                                 AND C.group_group_id = B.group_id 
                                                 AND B.group_id = D.group_group_id 
-                                                AND D.event_event_id = E.event_id");
-                
+                                                AND D.event_event_id = E.event_id
+                                                AND A.user_id = F.user_user_id
+                                                GROUP BY E.event_id");
+                 
                 $select -> execute();
                 $select -> setFetchMode(PDO::FETCH_ASSOC);
-                $Usercomplement = $select -> Fetch();
+                $Usercomplement = $select -> FetchAll();
                 
                 //var_dump($OneUser);
                 //var_dump($Usercomplement);
                 if(!empty($Usercomplement)){
-                    return $OneUser;
-                    return $Usercomplement;
+                    $array = "";
+                    $array['user'] = $OneUser;
+                    $array['plususer'] = $OneUser1;
+                    $array['action'] = $Usercomplement;
+                    
+                    return $array;
+                    
                 } else{
-                    return $OneUser;
+                    $array = "";
+                    $array['user'] = $OneUser;
+                    $array['plususer'] = $OneUser1;
+                    
+                    return $array;
                 }
     	    }
     	    
         	//var_dump($OneUser);
-            return $OneUser;
+            $array = "";
+                    $array['user'] = $OneUser;
+                    $array['plususer'] = $OneUser1;
+                    
+                    return $array;
             
     	} catch (Exception $e) {
             echo 'Message:' . $e -> getMessage();
@@ -362,6 +389,112 @@ class UserModel extends CoreModel{
     	
 	}
 	
+	
+	/**
+	 * Voir un utilisateur NON ADMINS
+	 */
+	public function Seeoneadmin(){
+    	//var_dump($GLOBALS);
+    	$userID = $_SESSION['userID'];
+    	try {
+    	    
+    	    $select = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "user
+                                            WHERE  user_id = " . $userID . "");
+           
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneUser = $select -> FetchAll();
+
+            $oneuserID = $OneUser[0]['user_id'];
+            $select1 = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "adress A, " . PREFIX . "phone B  
+                                            WHERE  A.user_user_id = " . $oneuserID . "
+                                            AND B.user_user_id = " . $oneuserID . "");
+           
+            $select1 -> execute();
+            $select1 -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneUser1 = $select1 -> FetchAll();
+            
+            $array = "";
+            $array['user'] = $OneUser;
+            $array['info'] = $OneUser1;
+            
+            return $array;
+            
+        } catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    	
+	}
+       
+       
+    /**
+	 * Voir un utilisateur NON ADMINS
+	 */
+	public function Uponeadmin(){
+	    $userID = $_SESSION['userID'];
+	    
+    	try {
+    	    // UPDATE DANS LA TABLE USER 
+    	    $update = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+    	                                        SET
+    	                                        `user_lastname` = :lastname,
+    	                                        `user_firstname` = :firstname,
+    	                                        `user_mail` = :mail,
+    	                                        `user_pseudo` = :pseudo,
+    	                                        `user_password` = :password
+    	                                        WHERE user_id = " . $userID); 
+    	                                        // `user_profil_pic` = :profpic
+
+            $update->bindParam(':lastname', $_POST['user_lastname']);
+            $update->bindParam(':firstname', $_POST['user_firstname']);
+            $update->bindParam(':mail', $_POST['user_mail']);
+            $update->bindParam(':pseudo', $_POST['user_pseudo']);
+            $update->bindParam(':password', md5($_POST['user_password']));
+            //$update->bindParam(':profpic', $_FILES['user_profil_pic']);
+            
+			$update->execute();
+			
+			// UPDATE DANS LA TABLE ADRESS
+			$update1 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
+    	                                        SET
+    	                                        `ad_num` = :num,
+    	                                        `ad_street` = :street,
+    	                                        `ad_zipcode` = :zipcode,
+    	                                        `ad_city` = :city,
+    	                                        `ad_country` = :country
+    	                                        WHERE user_user_id = " . $userID); 
+
+            $update1->bindParam(':num', $_POST['ad_num']);
+            $update1->bindParam(':street', $_POST['ad_street']);
+            $update1->bindParam(':zipcode', $_POST['ad_zipcode']);
+            $update1->bindParam(':city', $_POST['ad_city']);
+            $update1->bindParam(':country', $_POST['ad_country']);
+            
+			$update1->execute();
+			
+            // UPDATE DANS LA TABLE PHONE
+			$update2 = $this->connexion->prepare("UPDATE " . PREFIX . "phone 
+    	                                        SET
+    	                                        `phone_indi` = :indi,
+    	                                        `phone_num` = :num
+    	                                        WHERE user_user_id = " . $userID); 
+
+            $update2->bindParam(':indi', $_POST['phone_indi']);
+            $update2->bindParam(':num', $_POST['phone_num']);
+            
+			$update2->execute();
+			
+			return false;
+				
+				
+				
+        } catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
 	/**
 	 * Supprimer un utilisateur
 	 */
