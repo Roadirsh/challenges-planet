@@ -27,17 +27,20 @@
 			<div class="row-fluid">	
 
 				<a class="quick-button metro yellow span2">
-					<i class="icon-group"></i>
+					<i class="icon-user"></i>
 					<p>User's number</p>
-					<span class="badge"><?php echo $data;?></span>
+					<span class="badge"><?php echo $data['user'];?></span>
 				</a>
-				<!--
-                <a class="quick-button metro pink span2">
-					<i class="icon-envelope"></i>
-					<p>Messages</p>
-					<span class="badge">88</span>
+				<a class="quick-button metro blue span2">
+					<i class="icon-leaf"></i>
+					<p>Project's number</p>
+					<span class="badge"><?php echo $data['group'];?></span>
 				</a>
-                -->
+                <a class="quick-button metro green span2">
+					<i class="icon-dashboard"></i>
+					<p>Event's number</p>
+					<span class="badge"><?php echo $data['event'];?></span>
+				</a>
 				
 				<div class="clearfix"></div>
 								

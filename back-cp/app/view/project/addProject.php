@@ -8,7 +8,6 @@
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon edit"></i><span class="break"></span> Add a project</h2>
-						
 					</div>
 					<div class="box-content">
 						<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">

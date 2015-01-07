@@ -243,14 +243,17 @@ class ProjectModel extends CoreModel{
     	$groupID = $_GET['id'];
     	try {
         	$select = $this->connexion->prepare("SELECT *
-                                            FROM " . PREFIX . "group
-                                            WHERE group_id = " . $groupID);
+                                            FROM " . PREFIX . "group A, " . PREFIX . "event_has_group B, " . PREFIX . "event C
+                                            WHERE A.group_id = " . $groupID . "
+                                            AND A.group_id = B.group_group_id
+                                            AND B.event_event_id = C.event_id");
            
             $select -> execute();
             $select -> setFetchMode(PDO::FETCH_ASSOC);
             $OneGroup = $select -> FetchAll();
             
             //var_dump($OneGroup); exit();
+
             return $OneGroup;
             
             

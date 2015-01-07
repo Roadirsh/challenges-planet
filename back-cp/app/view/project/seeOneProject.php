@@ -1,4 +1,3 @@
-<? var_dump($data); ?>
 <? if(!empty($data)){ $group = $data[0]; } ?>
 <? include(ROOT . "view/layout/header.inc.php"); ?>
 <? include(ROOT . "view/layout/menutop.inc.php"); ?>
@@ -10,16 +9,29 @@
 
     <div class="row-fluid">		
         <div class="user user_profil">
-            <? if(!empty($user['user_profil_pic'])){ ?>
+            <? if(!empty($group['group_img'])){ ?>
                 <img src="img/group/<? echo $group['group_img']; ?>" alt="..." class="img-thumbnail">
             <? } ?>
-        </div>	
+        </div>
+        <div class="user user_info">
+            <?php if($group['group_valid'] == 1){ ?>
+			    <strong>Status:</strong> <span class="label label-success">Approved</span><br>   
+		    <? } else { ?>
+		        <strong>Status:</strong> <span class="label label-warning">Waiting</span><br>  
+            <? } ?>
+            <strong>Event:</strong> <? echo $group['event_name']; ?><br><br>
+            <strong>Group members:</strong>
+            <ul>
+                <li><em>-- un membre --</em></li>
+            </ul>
+        </div>
+        <div style="clear:both"></div>
         <div class="user user_info">
             <h2><? echo $group['group_name']; ?></h2>
             <p><small><em>sign up date : <? echo $group['group_date']; ?> </em></small></p>
-
+            <p><? echo $group['group_descr']; ?></p>
         </div>
-        <div style="clear:both"></div>
+        
 
 	</div><!--/row-->
 </div>

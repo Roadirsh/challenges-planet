@@ -1,4 +1,3 @@
-<?php // $logger->log('test', 'loadapp', "Chargement de la vue home.php", Logger::GRAN_MONTH); ?>
 <? include(ROOT . "view/layout/header.inc.php"); ?>
 <? include(ROOT . "view/layout/menutop.inc.php"); ?>
 <? include(ROOT . "view/layout/menu.inc.php"); ?>
@@ -7,12 +6,31 @@
     <?if(!empty($_SESSION['message'])){ ?>
         <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
     <? $_SESSION['message'] = ''; } ?>
-    <div class="row-fluid">
+    
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon user"></i><span class="break"></span>User </h2>
 					</div>
 					<div class="box-content">
+					    <div class="row-fluid">
+					        <div class="span6">
+					            <div id="DataTables_Table_0_length" class="dataTables_length">
+					                <label>
+					                    <select size="1" name="DataTables_Table_0_length" aria-controls="DataTables_Table_0">
+					                    <option value="10" selected="selected">10</option>
+					                    <option value="25">25</option>
+					                    <option value="50">50</option>
+					                    <option value="100">100</option>
+                                        </select> records per page
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div class="dataTables_filter" id="DataTables_Table_0_filter">
+                                    <label>Search: <input type="text" aria-controls="DataTables_Table_0"></label>
+                                </div>
+                            </div>
+                        </div>
 						<table class="table table-striped table-bordered bootstrap-datatable">
 						  <thead>
 							  <tr>

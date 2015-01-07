@@ -14,9 +14,9 @@
 		<div class="box-content">
 			<ul class="dashboard-list">
 			<?php foreach($data as $k => $AllGroup){ ?>
-				<li>
-					<a href="#">
-						<img class="projet" alt="Dennis Ji" src="img/avatar/<? echo $AllGroup['group_img']; ?>">
+				<li class="allgroup">
+					<a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . '&id=' . $AllGroup['group_id']; ?>">
+						<img class="projet" alt="Dennis Ji" src="img/group/<? echo $AllGroup['group_img']; ?>">
 					</a>
 					<strong>Name:</strong> <a href="#"><? echo $AllGroup['group_name']; ?></a><br>
 					<span class="admin_status">
