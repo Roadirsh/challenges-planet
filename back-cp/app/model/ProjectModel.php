@@ -243,18 +243,31 @@ class ProjectModel extends CoreModel{
     	$groupID = $_GET['id'];
     	try {
         	$select = $this->connexion->prepare("SELECT *
-                                            FROM " . PREFIX . "group A, " . PREFIX . "event_has_group B, " . PREFIX . "event C
-                                            WHERE A.group_id = " . $groupID . "
-                                            AND A.group_id = B.group_group_id
-                                            AND B.event_event_id = C.event_id");
+                                                FROM " . PREFIX . "group A, " . PREFIX . "event_has_group B, " . PREFIX . "event C
+                                                WHERE A.group_id = " . $groupID . "
+                                                AND A.group_id = B.group_group_id
+                                                AND B.event_event_id = C.event_id");
            
             $select -> execute();
             $select -> setFetchMode(PDO::FETCH_ASSOC);
             $OneGroup = $select -> FetchAll();
             
+            $select1 = $this->connexion->prepare("SELECT * 
+                                                FROM " . PREFIX . "user_has_group A, " . PREFIX . "user B 
+                                                WHERE A.group_group_id = " . $groupID . "
+                                                AND A.user_user_id = B.user_id");
+           
+            $select1 -> execute();
+            $select1 -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneGroupMember = $select1 -> FetchAll();
+            
             //var_dump($OneGroup); exit();
 
-            return $OneGroup;
+            $array = "";
+            $array['group'] = $OneGroup;
+            $array['group_user'] = $OneGroupMember;
+            
+            return $array;
             
             
     	} catch (Exception $e) {

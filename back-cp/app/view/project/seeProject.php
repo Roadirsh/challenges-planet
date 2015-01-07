@@ -1,4 +1,3 @@
-<?php // $logger->log('test', 'loadapp', "Chargement de la vue home.php", Logger::GRAN_MONTH); ?>
 <? include(ROOT . "view/layout/header.inc.php"); ?>
 <? include(ROOT . "view/layout/menutop.inc.php"); ?>
 <? include(ROOT . "view/layout/menu.inc.php"); ?>
@@ -7,7 +6,7 @@
     <?if(!empty($_SESSION['message'])){ ?>
         <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
     <? $_SESSION['message'] = ''; } ?>
-	<div class="box span13" onTablet="span13" onDesktop="span13">
+	<div class="box span13" onTablet="span12" onDesktop="span13">
 		<div class="box-header">
 			<h2><i class="halflings-icon user"></i><span class="break"></span>Projects</h2>
 		</div>
@@ -26,7 +25,7 @@
     				    <? } else { ?>
     				        <strong>Status:</strong> <span class="label label-warning">Waiting</span><br>  
                         <? } ?> 
-                        <a class="btn btn-danger" href="<? echo MODULE . 'project' . ACTION . 'delproject' . '&id=' . $AllGroup['group_id']; ?>">
+                        <a class="btn btn-danger" href="<? echo MODULE . 'project' . ACTION . 'delproject' . ID . $AllGroup['group_id']; ?>">
 							<i class="halflings-icon white trash"></i> 
 						</a>
 					</span>

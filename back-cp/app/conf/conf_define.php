@@ -3,8 +3,8 @@
 /**
  * Configuration des DEFINE
  *
- * @package     Framework_L&G
- * @copyright 	L&G
+ * @package     Framework_L&amp;G
+ * @copyright 	L&amp;G
  */
 
 
@@ -23,6 +23,8 @@
 // MODULE
     define("MODULE", 'index.php?module=');
 // ACTION
-    define("ACTION", '&action=');
+    define("ACTION", '&amp;action=');
+// ACTION
+    define("ID", '&amp;id=');
 // URL de la racine du serveur
 	define('BASE_DIR', "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));

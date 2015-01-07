@@ -5,15 +5,9 @@
 					
 			<div class="row-fluid">
 				<div class="login-box">
-					<div class="icons">
-						<i class="halflings-icon home"></i>
-					</div>
-                    <? if(isset($_GET['m'])){
-    					if($_GET['m'] = 'nok'){
-        					echo '<div class="alert alert-warning" role="alert">
-        					There seems to be a problem! </div>';
-    					}
-					} ?>
+                    <?if(!empty($_SESSION['message'])){ ?>
+                        <div class="alert alert-warning" role="alert"><? echo $_SESSION['message']; ?></div>
+                    <? $_SESSION['message'] = ''; } ?>
 					<h2>Login to enter !</h2>
 					<form class="form-horizontal" action="" method="post">
 						<fieldset>

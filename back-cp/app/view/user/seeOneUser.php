@@ -1,5 +1,5 @@
 <? if(!empty($data['user'])){ $user = $data['user'][0]; } ?>
-<? if(!empty($data['plususer'])){ $infoplus = $data['plususer'][0]; } ?>
+<? if(!empty($data['plususer'])){ $infoplus = $data['plususer']; } ?>
 <? if(!empty($data['action'])){ $actions = $data['action']; } ?>
 
 <? include(ROOT . "view/layout/header.inc.php"); ?>
@@ -39,22 +39,30 @@
                     } else { echo 'Ø'; } ?> 
                 </li>
             </ul>
-            <? if(!empty($infoplus['ad_country'])){ ?>
-            <ul>
-                <b>Adress</b>:
-                <li>
-                    <? if(!empty($infoplus['ad_num'])){ echo $infoplus['ad_num']; } ?>
-                    <? if(!empty($infoplus['ad_street'])){ echo $infoplus['ad_street']; } ?>
-                </li>
-                <li>
-                    <? if(!empty($infoplus['ad_zipcode'])){ echo $infoplus['ad_zipcode']; } ?>
-                    <? if(!empty($infoplus['ad_city'])){ echo $infoplus['ad_city']; } ?>
-                </li>
-                <li>   
-                    <? if(!empty($infoplus['ad_country'])){ echo strtoupper($infoplus['ad_country']); } ?>
-                </li>
-            </ul>
+            <div style="clear:both"></div>
+            <div class="user_adress">
+            <? if(!empty($infoplus[0]['ad_country'])){ ?>
+                <? $i = 0; ?>
+                <? while(count($infoplus) > $i){ ?>
+                
+                <ul>
+                    <b><? if(!empty($infoplus[$i]['ad_type'])){ echo $infoplus[$i]['ad_type']; } ?> address </b>:
+                    <li>
+                        <? if(!empty($infoplus[$i]['ad_num'])){ echo $infoplus[$i]['ad_num']; } ?>
+                        <? if(!empty($infoplus[$i]['ad_street'])){ echo $infoplus[$i]['ad_street']; } ?>
+                    </li>
+                    <li>
+                        <? if(!empty($infoplus[$i]['ad_zipcode'])){ echo $infoplus[$i]['ad_zipcode']; } ?>
+                        <? if(!empty($infoplus[$i]['ad_city'])){ echo $infoplus[$i]['ad_city']; } ?>
+                    </li>
+                    <li>  
+                        <? if(!empty($infoplus[$i]['ad_country'])){ echo strtoupper($infoplus[$i]['ad_country']); } ?>
+                    </li>
+                </ul>
+                <? $i ++; ?>
+                <? } ?>
             <? } ?>
+            </div>
         </div>
         <div style="clear:both"></div>
         

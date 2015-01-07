@@ -23,7 +23,7 @@
                 <h2><input type='text' name="user_lastname" value="<? echo strtoupper($user['user_lastname']); ?>" /> 
                     <input type='text' name="user_firstname" value="<? echo $user['user_firstname']; ?> " /> 
                     <small><em><input type='text' name="user_pseudo" value="<? echo $user['user_pseudo']; ?>"/></em></small>
-                    <small><em><input type='password' name="user_password" value="" placeholder="password ***"/></em></small>
+                    <small><em><input type='password' name="user_password" value="" placeholder="password"/></em></small>
                 </h2>
                 <p><small><em>sign up date : <? echo $user['user_date']; ?> </em></small></p>
                 <ul class="admin_info">

@@ -56,6 +56,26 @@ class EventController extends CoreController {
 	}
 	
 	/**
+	 * Voir l'ensemble des évenements
+	 */
+	public function Seeoneevent(){
+
+		// Définition des constante
+		define("PAGE_TITLE", SITE_NAME . " home");
+		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
+		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_ID", "seeEvent");
+		
+		$OneEvents = $this->model = new EventModel();
+        $OneEvent = $OneEvents-> Seeoneevent();
+        //var_dump($OneEvent);
+        
+		// Appel de la vue 
+		$this->load->view('event', 'seeOneEvent', $OneEvent); // TODO
+
+	}
+	
+	/**
 	 * Ajouter un évenement
 	 *
 	 * @param array $_POST

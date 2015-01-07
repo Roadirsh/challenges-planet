@@ -339,7 +339,7 @@ class UserModel extends CoreModel{
             $select1 -> execute();
             $select1 -> setFetchMode(PDO::FETCH_ASSOC);
             $OneUser1 = $select1 -> FetchAll();
- 
+
             
     	    if(!empty($OneUser)){
                 $userID = $_GET['id'];

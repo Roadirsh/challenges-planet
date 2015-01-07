@@ -70,6 +70,7 @@ class LogController extends CoreController{
 				define("PAGE_ID", "page_login"); // TODO
 
 				// on recharge la page de la connexion + message
+				$_SESSION['message'] = "Seems to be a problem, try again please";
 				$this->load->view('connexion', 'login'); // TODO
 				//$mess = $_SESSION["coreMessage"] = $messageErreur["_LOGIN_NOK"]; // TODO
 				//$this->coreEcrireMessage($mess);

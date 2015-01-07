@@ -1,4 +1,5 @@
-<? if(!empty($data)){ $group = $data[0]; } ?>
+<? if(!empty($data)){ $group = $data['group'][0]; } ?>
+<? if(!empty($data)){ $member = $data['group_user']; } ?>
 <? include(ROOT . "view/layout/header.inc.php"); ?>
 <? include(ROOT . "view/layout/menutop.inc.php"); ?>
 <? include(ROOT . "view/layout/menu.inc.php"); ?>
@@ -22,7 +23,9 @@
             <strong>Event:</strong> <? echo $group['event_name']; ?><br><br>
             <strong>Group members:</strong>
             <ul>
-                <li><em>-- un membre --</em></li>
+                <? foreach($member as $k => $m){ ?>
+                    <li><em><a href="<? echo MODULE . 'user' . ACTION . 'seeoneuser' . ID . $m['user_id']; ?>"><? echo $m['user_pseudo']; ?></a></em></li>
+                <? } ?>
             </ul>
         </div>
         <div style="clear:both"></div>

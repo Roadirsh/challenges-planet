@@ -27,7 +27,7 @@
 						  <tbody>
 						   <?php foreach($data as $k => $AllEvent){ ?>
 							<tr>
-							    <td><a class="btn btn-info" href="#"><? echo $AllEvent['event_name']; ?></a></td>
+							    <td><a class="btn btn-info" href="<? echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $AllEvent['event_id']; ?>"><? echo $AllEvent['event_name']; ?></a></td>
 								<td><? echo $AllEvent['event_begin']; ?></td>
 								<td><? echo $AllEvent['event_end']; ?></td>
 								<td><? echo $AllEvent['event_date']; ?></td>
@@ -42,7 +42,7 @@
 									<a class="btn btn-info" href="#">
 										<i class="halflings-icon white edit"></i>  
 									</a>
-									<a class="btn btn-danger" href="<? echo MODULE . 'event' . ACTION . 'delevent' . '&id=' . $AllEvent['event_id']; ?>">
+									<a class="btn btn-danger" href="<? echo MODULE . 'event' . ACTION . 'delevent' . ID . $AllEvent['event_id']; ?>">
 										<i class="halflings-icon white trash"></i> 
 									</a>
 								</td>

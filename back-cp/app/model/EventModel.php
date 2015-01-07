@@ -80,6 +80,45 @@ class EventModel extends CoreModel{
 	}
     
     /**
+	 * Voir l'ensemble des évenements
+	 */
+	public function Seeoneevent(){
+    	
+    	$eventID = $_GET['id'];
+    	try {
+        	$select2 = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "event
+                                            WHERE event_id = " . $eventID);
+           
+            $select2 -> execute();
+            $select2 -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneEvent = $select2 -> FetchAll();
+            
+            $select3 = $this->connexion->prepare("SELECT B.group_id, B.group_name 
+                                                FROM " . PREFIX . "event_has_group A, " . PREFIX . "group B
+                                                WHERE A.event_event_id = " . $eventID . "
+                                                AND B.group_id = A.group_group_id
+                                                group by A.group_group_id");
+           
+            $select3 -> execute();
+            $select3 -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneEventGroup = $select3 -> FetchAll();
+
+            //var_dump($AllEvent);
+            $array = "";
+            $array['event'] = $OneEvent;
+            $array['event_group'] = $OneEventGroup;
+            
+            return $array;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    	
+	}
+	
+    /**
 	 * Compter l'ensemble des évenements
 	 */
 	public function CountEvents(){

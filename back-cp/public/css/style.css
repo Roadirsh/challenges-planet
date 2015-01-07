@@ -2994,9 +2994,43 @@ ul.messagesList li span.date {
 }
 
 /***************** RAJOUTE PAR CHALLENGES PLANET *****************/
+.allgroup{
+height: auto !important;
+}
 .admin_status{
-    float: right;
+float: right;
 }
 .trash{
-    float: right;
+float: right;
+}
+
+.user_profil{
+width: 30%;
+float:  left;
+}
+.user_profil img{
+width: 100%;
+}
+.user_info{
+width: 60%;
+height: auto;
+float: left;
+margin-left: 3%;
+}
+.user_info ul{
+padding: 10px;
+margin: 0px;
+width: 30%;
+float: left;
+}
+.user_info ul li{
+    list-style-type: none;
+}
+.user_event{
+margin-top: 5%;
+}
+.admin_info{
+float: left;
+width: 45%;
+margin-left: 1%;
 }

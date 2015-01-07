@@ -128,7 +128,7 @@
 								<li class="dropdown-menu-title">
  									<span>User skills settings</span>
 								</li>
-								<li><a href="<? echo MODULE . 'user' . ACTION . 'seeoneadmin' . '&id=' . $_SESSION['userID']; ?>"><i class="halflings-icon user"></i> Profile</a></li>
+								<li><a href="<? echo MODULE . 'user' . ACTION . 'seeoneadmin' . ID . $_SESSION['userID']; ?>"><i class="halflings-icon user"></i> Profile</a></li>
 								<li><a href="<? echo MODULE . 'log' . ACTION . 'logout'; ?>"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
