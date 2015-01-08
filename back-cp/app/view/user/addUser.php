@@ -70,6 +70,46 @@
 										<input class="input-xlarge focused" name="profil" id="profil" type="file" value="">
 									</div>
 								</div>
+								<div class="control-group">
+									<label class="control-label" for="numRue">Numero de la rue:</label>
+									<div class="controls">
+										<input class="input-xlarge focused" name="numRue" id="numRue" type="integer" value="" >
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="nomRue">Nom de la rue:</label>
+									<div class="controls">
+										<input class="input-xlarge focused" name="nomRue" id="nomRue" type="text" value="" >
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="zipcode">Code postal:</label>
+									<div class="controls">
+										<input class="input-xlarge focused" name="zipcode" id="zipcode" type="text" value="" >
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="city">Ville:</label>
+									<div class="controls">
+										<input class="input-xlarge focused" name="city" id="city" type="text" value="" >
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="country">Pays:</label>
+									<div class="controls">
+										<input class="input-xlarge focused" name="country" id="country" type="text" value="">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="typeAdress">Type d'adresse:</label>
+									<div class="controls">
+										<select name="typeAdress" id="typeAdress" > 
+										   <option name="typeAdress" value="Domicile">Domicile</option> 
+										   <option name="typeAdress" value="Facture"> Facturation</option> 
+										   <option name="typeAdress" value="both">Les deux</option> 
+										</select> 
+									</div>
+								</div>
 								
 								<div class="form-actions">
 									<input type="submit" class="btn btn-primary">

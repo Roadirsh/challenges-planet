@@ -146,6 +146,15 @@ class UserModel extends CoreModel{
 					$string= '../public/img/avatar/'.$profpic;
 					$this->upload($tmp, $string);
 				}
+				if(isset($_POST['numRue']) && isset($_POST['nomRue']) && isset($_POST['zipcode']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['typeAdress']) )
+				{	
+					include_once '../conf/mysql.php';
+					require_once 'AdressModel.php';
+					$adress = new AdressModel($_POST['nomRue'],$_POST['numRue'],$_POST['zipcode'],$_POST['city'],$_POST['country'], $_POST['typeAdress']);
+					
+					
+					$adress->insertNewAdress();
+				}
 				return false;
 	        }
 	
