@@ -73,7 +73,11 @@ class LogModel extends CoreModel{
 			if(count($retour) != 0){
 				$_SESSION['connect_compte'] = true;
 				$_SESSION['user'] = $retour[0]['user_lastname'];
+				$_SESSION['userF'] = $retour[0]['user_firstname'];
 				$_SESSION['userID'] = $retour[0]['user_id'];
+				$_SESSION['userPic'] = $retour[0]['user_profil_pic'];
+				$_SESSION['userDate'] = $retour[0]['user_date'];
+				$_SESSION['userPseudo'] = $retour[0]['user_pseudo'];
 				$_SESSION['spyID'] = rand();
 				// $_SESSION['level'] = ''; // TO DO // TYPE D'ADMIN
 

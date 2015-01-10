@@ -1,44 +1,33 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
-	
-	<div class="container-fluid-full">
-		<div class="row-fluid">
-					
-			<div class="row-fluid">
-				<div class="login-box">
+
+        <div class="form-box" id="login-box">
+            <div class="header logo">
+                Challenges Planet
+            </div>
+            <form action="" method="post">
+                <div class="body bg-gray">
                     <?if(!empty($_SESSION['message'])){ ?>
                         <div class="alert alert-warning" role="alert"><? echo $_SESSION['message']; ?></div>
                     <? $_SESSION['message'] = ''; } ?>
-					<h2>Login to enter !</h2>
-					<form class="form-horizontal" action="" method="post">
-						<fieldset>
-							
-							<div class="input-prepend" title="Username">
-								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="login" id="username" type="text" placeholder="Username" required autofocus />
-							</div>
-							<div class="clearfix"></div>
-
-							<div class="input-prepend" title="Password">
-								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="pwd" id="password" type="password" placeholder="Password" required/>
-							</div>
-							<div class="clearfix"></div>
-							
-							<!-- <label class="remember" for="remember"> <input type="checkbox" id="remember" />Remember me</label> -->
-
-							<div class="button-login">	
-								<button type="submit" class="btn btn-primary">Login</button>
-							</div>
-							<div class="clearfix"></div>
-					</form>
-					<hr>
-					<!-- <h3><a href="#">Forgot Password?</a></h3> -->
-				</div><!--/span-->
-			</div><!--/row-->
-			
-
-	</div><!--/.fluid-container-->
-	
-</div><!--/fluid-row-->
-
+                    
+                    <div class="form-group">
+                        <input type="text" name="login" id="username" class="form-control" placeholder="Login"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="pwd" id="password" class="form-control" placeholder="Password"/>
+                    </div>          
+                    <!--
+                    <div class="form-group">
+                        <input type="checkbox" name="remember_me"/> Remember me
+                    </div>
+                    -->
+                </div>
+                <div class="footer">                                                               
+                    <button type="submit" class="btn bg-light-blue btn-block">Let me in</button>  
+                    
+                    <!-- <p><a href="#">I forgot my password</a></p> -->
+                </div>
+            </form>
+        </div>
+        
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>
