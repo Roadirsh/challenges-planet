@@ -416,11 +416,12 @@ class UserModel extends CoreModel{
             $OneUser = $select -> FetchAll();
 
             $oneuserID = $OneUser[0]['user_id'];
+            
             $select1 = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "adress A, " . PREFIX . "phone B  
                                             WHERE  A.user_user_id = " . $oneuserID . "
                                             AND B.user_user_id = " . $oneuserID . "");
-           
+
             $select1 -> execute();
             $select1 -> setFetchMode(PDO::FETCH_ASSOC);
             $OneUser1 = $select1 -> FetchAll();

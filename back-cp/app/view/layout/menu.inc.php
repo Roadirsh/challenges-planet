@@ -52,7 +52,7 @@
                                 <li><a href="<? echo MODULE . 'event' . ACTION . 'addevent'; ?>"><i class="fa fa-angle-double-right"></i> Add event</a></li>
                             </ul>
                         </li>
-                        <li class="treeview">
+                        <li class="active">
                             <a href="<? echo MODULE . 'page' . ACTION . 'team'; ?>">
                                 <i class="fa fa-cogs"></i> <span>Team</span>
                             </a>
