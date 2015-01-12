@@ -25,8 +25,7 @@ class UserModel extends CoreModel{
 	private $nameImg;
 	private $userProfPicTmp;
 	private $userType;
-<<<<<<< HEAD
-=======
+
 	private $nomRueHome;
 	private $numRueHome;
 	private $zipcodeHome;
@@ -37,7 +36,6 @@ class UserModel extends CoreModel{
 	private $zipcodeInvoice;
 	private $cityInvoice;
 	private $countryInvoice;
->>>>>>> insert user with adress
 	
 	/**
 	 * Constructor
@@ -46,10 +44,7 @@ class UserModel extends CoreModel{
 		parent::__construct();
 		
         if(isset($_POST) && !empty($_POST)){
-<<<<<<< HEAD
-            
-=======
->>>>>>> insert user with adress
+
             $post = $_POST;
             if(isset($post['type'])){   
                 $this->setUserType($post['type']);   
