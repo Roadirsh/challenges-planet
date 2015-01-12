@@ -33,7 +33,7 @@
         							<div class="control-group">
         								<label class="control-label">Type:</label>
         								<div class="">
-        									<select name="form-control">
+        									<select name="type">
         										<option value="student">Student</option>
         										<option value="organisme">Organism</option>
         										<option value="admin">Admin</option>
@@ -115,15 +115,7 @@
         									<input class="input-xlarge focused" name="country" id="country" type="text" value="">
         								</div>
         							</div>
-        							<div class="control-group">
-        								<label class="control-label" for="typeAdress">Address type:</label>
-        								<div class="controls">
-        									<select name="typeAdress" id="typeAdress" > 
-        									   <option name="typeAdress" value="Home">Home</option> 
-        									   <option name="typeAdress" value="Invoice"> Invoice</option> 
-        									   <option name="typeAdress" value="Both">Both</option> 
-        									</select> 
-        								</div>
+
         							</div>
 
                                 </div>
@@ -172,8 +164,8 @@
         							
         							<div class="form-actions">
         								<input type="submit" class="btn btn-primary">
-        								<button class="btn">Cancel</button>
         							</div>
+
                                 </div>
         					</form>
                         </div>
@@ -183,4 +175,25 @@
             </section><!-- /.content -->
         </aside><!-- /.right-side -->
     </div>
+
+    
+    <!--
+<script type="text/javascript">
+	$(document).on('change','input[type=checkbox]', function()
+	    {
+		    console.log("CA PASSE le change");
+
+		    if ($(this).prop("checked")) {
+		        //do the stuff that you would do when 'checked'
+				console.log("CA PASSE le change checked");
+				var valeur = $("#numRueHome").val();
+				$("#numRueInvoice").val(valeur);
+		        return;
+		    }
+		    console.log("CA PASSE le change unchecked");
+
+	    //Here do the stuff you want to do when 'unchecked'
+		});
+	</script>
+-->
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

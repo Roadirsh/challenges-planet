@@ -25,6 +25,19 @@ class UserModel extends CoreModel{
 	private $nameImg;
 	private $userProfPicTmp;
 	private $userType;
+<<<<<<< HEAD
+=======
+	private $nomRueHome;
+	private $numRueHome;
+	private $zipcodeHome;
+	private $cityHome;
+	private $countryHome;
+	private $nomRueInvoice;
+	private $numRueInvoice;
+	private $zipcodeInvoice;
+	private $cityInvoice;
+	private $countryInvoice;
+>>>>>>> insert user with adress
 	
 	/**
 	 * Constructor
@@ -33,14 +46,17 @@ class UserModel extends CoreModel{
 		parent::__construct();
 		
         if(isset($_POST) && !empty($_POST)){
+<<<<<<< HEAD
             
+=======
+>>>>>>> insert user with adress
             $post = $_POST;
             if(isset($post['type'])){   
-                $this->setUserType($post['type']);
-                $this->setUserBirthday($post['birthday']);
+                $this->setUserType($post['type']);   
+           		$this->setUserFirstName($post['firstname']);
         		$this->setUserLastName($post['lastname']);
-        		$this->setUserFirstName($post['firstname']);
-        		$this->setUserMail($post['mail']);
+                $this->setUserBirthday($post['birthday']);
+				$this->setUserMail($post['mail']);
         		$this->setUserPseudo($post['pseudo']);
         		$this->setUserPassword(md5($post['password']));
                 if(isset($_FILES['profil'])){
@@ -48,6 +64,13 @@ class UserModel extends CoreModel{
         		}else{
         			$this->setUserProfPic('');
         		}
+        		//adresse
+        		$this->setUserNumRue($post['numRueHome'], $post["numRueInvoice"]);
+        		$this->setUserNomRue($post['nomRueHome'], $post['nomRueInvoice']);
+        		$this->setUserZipcode($post["zipcodeHome"], $post["zipcodeInvoice"]);
+        		$this->setUserCity($post['cityHome'], $post['cityInvoice']);
+        		$this->setUserCountry($post["countryHome"], $post['countryInvoice']);
+        		
             }
     		
         } else {
@@ -118,6 +141,16 @@ class UserModel extends CoreModel{
 		$profpic = $this->getUserProfPic();
 		$tmp = $this->getEmplacementImg();
 		$type = $this->getUserType();
+		$streetHome = $this->getNomRueHome();
+		$numHome = $this->getNumRueHome();
+		$zipcodeHome = $this->getZipcodeHome();
+		$cityHome = $this->getCityHome();
+		$countryHome = $this->getCountryHome();
+		$streetInvoice = $this->getNomRueInvoice();
+		$numInvoice = $this->getNumRueInvoice();
+		$zipcodeInvoice = $this->getZipcodeInvoice();
+		$cityInvoice = $this->getCityInvoice();
+		$countryInvoice = $this->getCountryInvoice();
 		$user_exist = $this->user_exist($pseudo);
 		if($user_exist)
 		{
@@ -146,15 +179,37 @@ class UserModel extends CoreModel{
 					$string= '../public/img/avatar/'.$profpic;
 					$this->upload($tmp, $string);
 				}
-				if(isset($_POST['numRue']) && isset($_POST['nomRue']) && isset($_POST['zipcode']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['typeAdress']) )
-				{	
-					include_once '../conf/mysql.php';
-					require_once 'AdressModel.php';
-					$adress = new AdressModel($_POST['nomRue'],$_POST['numRue'],$_POST['zipcode'],$_POST['city'],$_POST['country'], $_POST['typeAdress']);
-					
-					
-					$adress->insertNewAdress();
-				}
+				$id = $this->connexion->lastInsertId();
+				// Insert home adress
+				$insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'home', :user_id)");
+	            
+				
+				
+	            $insert->bindParam(':num', $numHome);
+	            $insert->bindParam(':street', $streetHome);
+	            $insert->bindParam(':zipcode', $zipcodeHome);
+	            $insert->bindParam(':city', $cityHome);
+	            $insert->bindParam(':country', $countryHome);
+	            $insert->bindParam(':user_id', $id);
+	            
+				$insert->execute();
+				
+				// Insert invoice adress
+				$insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'invoice', :user_id)");
+	            
+				
+				
+	            $insert->bindParam(':num', $numInvoice);
+	            $insert->bindParam(':street', $streetInvoice);
+	            $insert->bindParam(':zipcode', $zipcodeInvoice);
+	            $insert->bindParam(':city', $cityInvoice);
+	            $insert->bindParam(':country', $countryInvoice);
+	            $insert->bindParam(':user_id', $id);
+	            
+				$insert->execute();
+
+
+				
 				return false;
 	        }
 	
@@ -530,6 +585,118 @@ class UserModel extends CoreModel{
         }
     	
 	}
+	
+	
+	
+	
+	
+	
+		
+	/**
+	 * SETTERS & GETTERS voir le num de la rue d'un utilisateur
+	 */
+	public function getnumRueHome()
+	{
+		return $this->numRueHome;
+	}
+	public function getnumRueInvoice()
+	{
+		return $this->numRueInvoice;
+	}
+	public function setUserNumRue($numRueHome, $numRueInvoice)
+	{
+		if(is_string($numRueHome) && is_string($numRueInvoice))
+		{
+			$this->numRueHome = $numRueHome;
+			$this->numRueInvoice = $numRueInvoice;
+		}
+	}
+	
+	
+	/**
+	 * SETTERS & GETTERS voir le nom de la rue d'un utilisateur
+	 */
+	public function getNomRueHome()
+	{
+		return $this->nomRueHome;
+	}
+	public function getNomRueInvoice()
+	{
+		return $this->nomRueInvoice;
+	}
+	public function setUserNomRue($nomRueHome, $nomRueInvoice)
+	{
+		if(is_string($nomRueHome) && is_string($nomRueInvoice))
+		{
+			$this->nomRueHome = $nomRueHome;
+			$this->nomRueInvoice = $nomRueInvoice;
+		}
+	}
+		
+	/**
+	 * SETTERS & GETTERS voir code postal d'un utilisateur
+	 */
+	public function getZipcodeHome()
+	{
+		return $this->zipcodeHome;
+	}
+	public function getZipcodeInvoice()
+	{
+		return $this->zipcodeInvoice;
+	}
+	public function setUserZipcode($zipcodeHome, $zipcodeInvoice)
+	{
+		if(is_string($zipcodeHome) && strlen($zipcodeHome) <= 9 && strlen($zipcodeHome) >= 1 && is_string($zipcodeInvoice) && strlen($zipcodeInvoice) <= 9 && strlen($zipcodeInvoice) >= 1)
+		{
+			$this->zipcodeHome = $zipcodeHome;
+			$this->zipcodeInvoice = $zipcodeInvoice;
+		}
+	}
+	
+	/**
+	 * SETTERS & GETTERS voir la ville d'un utilisateur
+	 */
+	public function getCityHome()
+	{
+		return $this->cityHome;
+	}
+	public function getCityInvoice()
+	{
+		return $this->cityInvoice;
+	}
+	public function setUserCity($cityHome, $cityInvoice)
+	{
+		if(is_string($cityHome) && is_string($cityInvoice))
+		{
+			$this->cityHome = $cityHome;
+			$this->cityInvoice = $cityInvoice;
+		}
+	}
+	
+	/**
+	 * SETTERS & GETTERS voir le pays d'un utilisateur
+	 */
+	public function getCountryHome()
+	{
+		return $this->countryHome;
+	}
+	public function getCountryInvoice()
+	{
+		return $this->countryInvoice;
+	}
+	public function setUserCountry($countryHome, $countryInvoice)
+	{
+		$arrayCountry = getPays();
+		$arrayCountry = array_map('strtolower', $arrayCountry);
+		$countryHome = strtolower($countryHome);
+		$countryInvoice = strtolower($countryInvoice);
+		if(in_array($countryHome, $arrayCountry) && in_array($countryInvoice, $arrayCountry))
+		{
+			$this->countryHome = $countryHome;
+			$this->countryInvoice = $countryInvoice;
+		}
+	}
+
 
 }
 
