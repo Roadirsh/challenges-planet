@@ -1,0 +1,5 @@
+<div class="box-body pad">        
+    <textarea class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;" placeholder="Place some text here" id="descr" name="descr"></textarea>
+    <input type="hidden" value="1">
+    <iframe class="wysihtml5-sandbox" security="restricted" allowtransparency="true" frameborder="0" width="0" height="0" marginwidth="0" marginheight="0" style="border-collapse: separate; border: 1px solid rgb(221, 221, 221); clear: none; display: inline-block; float: none; margin: 0px; outline: rgb(51, 51, 51) none 0px; outline-offset: 0px; padding: 10px; position: static; top: auto; left: auto; right: auto; bottom: auto; z-index: auto; vertical-align: baseline; text-align: start; -webkit-box-shadow: none; box-shadow: none; border-radius: 0px; width: 100%; height: 200px; background-color: rgb(255, 255, 255);"></iframe>
+</div>
