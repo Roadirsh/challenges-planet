@@ -1,46 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	
-	<!-- start: Meta -->
-	<meta charset="UTF-8">
-	<title><?php echo PAGE_TITLE; ?></title>
-	<meta name="description" content="<?php echo PAGE_DESCR; ?>">
-	<meta name="author" content="3ADev">
-	<meta name="keyword" content="<?php echo PAGE_KW; ?>">
-	<!-- end: Meta -->
-	
-	<!-- start: Mobile Specific -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- end: Mobile Specific -->
-	
-	<link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link id="base-style" href="css/style.css" rel="stylesheet">
-	<link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
-	
+		<div class="header">
+			<div class="logo show-for-small-only">
+				<a href="index.php"><img src="img/logo_mobile.png" alt=""></a>
+			</div>
 
-	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<link id="ie-style" href="css/ie.css" rel="stylesheet">
-	<![endif]-->
-	
-	<!--[if IE 9]>
-		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
-	<![endif]-->
-		
-	<!-- start: Favicon -->
-	<link rel="shortcut icon" href="img/favicon.ico">
-	<!-- end: Favicon -->
-	<!-- <style type="text/css">
-			body { background: url('img/4L.jpg') !important; background-size: 100% !important;}
-	</style> -->
-		
-		
-		
-</head>
+			<nav class="show-for-small-only menu-mobile">
+				<ul>
+					<li><a href="list_events.php">let's see events</a></li>
+					<li><a href="">they helped them</a></li>
+					<li class="join"><a href="create.php">ready for your adventure ?</a></li>
+					<li class="clearfix"><a class="connect popup-with-form" href="#form-login">Login</a><a href="register.php" class="register">Sign up</a></li>
+					<li><a target="_blank" href="https://www.facebook.com/challengesplanet?fref=ts"><img src="img/fb.png" height="42" width="44" alt=""></a>
+					<a href="https://twitter.com/ChallPlanet" target="_blank"><img src="img/twitter.png" alt=""></a>
+					<a href="" target="_blank"><img src="img/google+.png" alt=""></a>
+					</li>
+				</ul>
+			</nav>
 
-<body>
-<? include("menutop.inc.php"); ?>
+
+			<nav class="show-for-medium-up menu clearfix">
+				<div class="logo show-for-medium-up">
+					<a href="index.php"><img src="img/logo.png"alt=""></a>
+				</div>
+				<ul class="first-nav">
+					<li><a href="list_events.php">let's see events</a></li>
+					<li class="helped"><a href="arrivee.html">they helped them</a></li>
+					<li class="join"><a href="create.php" onClick="ga('send', 'event', 'link','clic', 'create-eventv3');">ready for your adventure ?</a></li>
+				</ul>
+				<ul class="second-nav clearfix">
+					<li><a class="connect popup-with-form" href="#form-login" onClick="ga('send', 'event', 'link','clic', 'connect3');">Login</a></li>
+					<li><a class="register" href="register.php" onClick="ga('send', 'event', 'link','clic', 'registerv3');">Sign up</a></li>
+
+					<ul class="social-media clearfix">
+						<li><a target="_blank" href="https://www.facebook.com/challengesplanet?fref=ts"><img src="img/fb.png" width="20" alt=""></a></li>
+						<li><a target="_blank" href="https://twitter.com/ChallPlanet"><img src="img/twitter.png" width="20" alt=""></a></li>
+						<li><a target="_blank" href="https://plus.google.com/116420885451887262970/about"><img src="img/google+.png" width="20" alt=""></a></li>
+					</ul>
+				</ul>
+			</nav>
+
+		    <form id="form-login" class="clearfix mfp-hide white-popup-block">
+		    	<div class="classic-login medium-6 columns">
+		    		<fieldset>
+		    			<h1>Start your challenge here !</h1>
+			            <label for="name">Email</label>
+			            <input id="email" name="email" type="text" placeholder="" required>
+			            <label for="password">Password</label>
+			            <input id="password" name="password" type="password" placeholder="" required>
+			            <a href="#" class="columns medium-6">forgot password ?</a>
+			            <a href="#" class="columns medium-6">forgot email ?</a>
+			            <input type="button" class="button-submit" value="login" alt="login">
+			        </fieldset>
+		    	</div>
+		    	<div class="medium-6 columns">
+		    		<fieldset>
+		    			<h1>Or sign up with your favorite social media !</h1>
+		    			<div class="social-sign-up">
+		    				<a href="#"><img src="img/fb-login.png">Sign up with Facebook</a>
+		    				<a href="#"><img src="img/google+_login.png">Sign up with Google +</a>
+		    				<a href="register.php">Or sign up with your email !</a>
+		    			</div>
+		    		</fieldset>
+		    	</div>
+		    </form>
+
+		</div>
