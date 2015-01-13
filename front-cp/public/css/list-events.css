@@ -1,0 +1,124 @@
+/* line 21, ../sass/list-events.scss */
+.list-events {
+  background-color: #e5ded8;
+}
+/* line 25, ../sass/list-events.scss */
+.list-events .head {
+  text-align: center;
+  padding: 10px 0px;
+}
+/* line 29, ../sass/list-events.scss */
+.list-events .head h1 {
+  font-family: "franklin_gothic_fsdemi";
+  text-transform: uppercase;
+  font-size: 29px;
+}
+/* line 35, ../sass/list-events.scss */
+.list-events .head p {
+  margin: auto;
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+/* line 41, ../sass/list-events.scss */
+.list-events .head .medium-9 {
+  float: right;
+}
+/* line 46, ../sass/list-events.scss */
+.list-events .main-contain {
+  padding: 15px 0px;
+}
+/* line 51, ../sass/list-events.scss */
+.list-events .main-contain .sidebar-sort h2 {
+  margin-top: 0px;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-family: "franklin_gothic_fsdemi";
+}
+/* line 58, ../sass/list-events.scss */
+.list-events .main-contain .sidebar-sort span {
+  text-transform: uppercase;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 20px;
+}
+/* line 65, ../sass/list-events.scss */
+.list-events .main-contain .sidebar-sort .number-teams, .list-events .main-contain .sidebar-sort .kind-race {
+  border-top: 1px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;
+  padding: 10px 0px;
+}
+/* line 71, ../sass/list-events.scss */
+.list-events .main-contain .sidebar-sort .begin-race {
+  padding: 10px 0px;
+}
+/* line 76, ../sass/list-events.scss */
+.list-events .main-contain .event {
+  margin-bottom: 15px;
+}
+/* line 79, ../sass/list-events.scss */
+.list-events .main-contain .event .wrapper {
+  background-color: #fff;
+  border: 1px solid #d6d6d6;
+  position: relative;
+}
+/* line 84, ../sass/list-events.scss */
+.list-events .main-contain .event .wrapper .adventure {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  right: 0;
+}
+/* line 92, ../sass/list-events.scss */
+.list-events .main-contain .event .wrapper .adventure .button-submit {
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+}
+/* line 100, ../sass/list-events.scss */
+.list-events .main-contain .event .wrapper .teams {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+/* line 105, ../sass/list-events.scss */
+.list-events .main-contain .event .wrapper .teams h3 {
+  color: #478bb2;
+  font-family: "roboto_slabbold";
+  font-size: 19px;
+  text-transform: uppercase;
+  text-align: center;
+}
+/* line 113, ../sass/list-events.scss */
+.list-events .main-contain .event .wrapper .teams .button-submit {
+  font-size: 14px;
+  width: 100%;
+  color: #fff;
+}
+/* line 121, ../sass/list-events.scss */
+.list-events .main-contain .event .img {
+  padding: 0;
+}
+/* line 124, ../sass/list-events.scss */
+.list-events .main-contain .event .img img {
+  width: 100%;
+}
+/* line 129, ../sass/list-events.scss */
+.list-events .main-contain .event .infos {
+  text-transform: uppercase;
+  text-align: center;
+}
+/* line 133, ../sass/list-events.scss */
+.list-events .main-contain .event .infos h2 {
+  font-size: 19px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+/* line 139, ../sass/list-events.scss */
+.list-events .main-contain .event .infos span {
+  display: block;
+  font-size: 13px;
+  color: #adadad;
+}

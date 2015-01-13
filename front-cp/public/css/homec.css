@@ -1,0 +1,924 @@
+/* line 21, ../sass/homec.scss */
+body {
+  background-color: #f2efec !important;
+}
+/* line 24, ../sass/homec.scss */
+body .row {
+  max-width: 1280px;
+}
+/* line 28, ../sass/homec.scss */
+body #form-login {
+  background: #FFF;
+  text-align: left;
+  max-width: 750px;
+  margin: 40px auto;
+  position: relative;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 28, ../sass/homec.scss */
+  body #form-login {
+    padding: 15px;
+  }
+}
+/* line 39, ../sass/homec.scss */
+body #form-login fieldset {
+  border: none;
+  position: relative;
+  padding: 10px 0px;
+}
+/* line 44, ../sass/homec.scss */
+body #form-login fieldset h1 {
+  text-align: center;
+  font-family: "franklin_gothic_fsdemi";
+  text-transform: uppercase;
+  color: #1a2129;
+  font-size: 28px;
+}
+/* line 53, ../sass/homec.scss */
+body #form-login .classic-login {
+  position: relative;
+}
+/* line 56, ../sass/homec.scss */
+body #form-login .classic-login:after {
+  position: absolute;
+  content: "";
+  background-color: #d6d6d6;
+  width: 1px;
+  height: 90%;
+  right: 0;
+  top: 50%;
+  transform: translatey(-50%);
+  -webkit-transform: translatey(-50%);
+  -moz-transform: translatey(-50%);
+  -ms-transform: translatey(-50%);
+}
+/* line 70, ../sass/homec.scss */
+body #form-login .classic-login a {
+  color: #478bb2;
+  margin-bottom: 15px;
+  display: block;
+  text-align: center;
+}
+/* line 78, ../sass/homec.scss */
+body #form-login .social-sign-up {
+  position: relative;
+  top: 19px;
+}
+/* line 83, ../sass/homec.scss */
+body #form-login .social-sign-up a {
+  text-transform: uppercase;
+  width: 100%;
+  color: #fff;
+  padding: 10px;
+  display: block;
+}
+/* line 90, ../sass/homec.scss */
+body #form-login .social-sign-up a img {
+  margin-right: 15px;
+  width: 25px;
+}
+/* line 95, ../sass/homec.scss */
+body #form-login .social-sign-up a:first-child {
+  background-color: #0c6ba9;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 102, ../sass/homec.scss */
+body #form-login .social-sign-up a:first-child:hover {
+  background-color: #0a5a8f;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 110, ../sass/homec.scss */
+body #form-login .social-sign-up a:nth-child(2) {
+  background-color: #d51f1f;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 116, ../sass/homec.scss */
+body #form-login .social-sign-up a:nth-child(2):hover {
+  background-color: #bd1c1c;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 124, ../sass/homec.scss */
+body #form-login .social-sign-up a:last-child {
+  color: #478bb2;
+  text-transform: inherit;
+  padding: 0;
+  margin-top: 23px;
+  text-align: center;
+  display: block;
+}
+/* line 135, ../sass/homec.scss */
+body #form-login .button-submit {
+  width: 100%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 141, ../sass/homec.scss */
+body #form-login .button-submit:hover {
+  background-color: #376b8a;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+
+/* line 151, ../sass/homec.scss */
+.active {
+  opacity: 1 !important;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+
+/* line 158, ../sass/homec.scss */
+.button-submit {
+  display: block;
+  margin: auto;
+  background-color: #478bb2;
+  color: white;
+  padding: 10px;
+  text-transform: uppercase;
+  border: none;
+  font-family: "roboto_slabbold";
+  width: 50%;
+  font-size: 18px;
+  cursor: pointer;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 158, ../sass/homec.scss */
+  .button-submit {
+    font-size: 20px;
+  }
+}
+
+/* line 176, ../sass/homec.scss */
+.container {
+  background-color: #f2efec;
+}
+/* line 179, ../sass/homec.scss */
+.container ul {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+/* line 184, ../sass/homec.scss */
+.container .join {
+  background-color: #88a83b;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  cursor: pointer;
+}
+/* line 191, ../sass/homec.scss */
+.container .join:hover {
+  background-color: #67802d;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 200, ../sass/homec.scss */
+.container .help, .container .button-submit {
+  background-color: #478bb2;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  cursor: pointer;
+}
+/* line 207, ../sass/homec.scss */
+.container .help:hover, .container .button-submit:hover {
+  background-color: #376b8a;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 215, ../sass/homec.scss */
+.container .connect {
+  color: #cf651a !important;
+  font-weight: bold;
+  margin-right: 15px;
+  float: left;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 224, ../sass/homec.scss */
+.container .connect:hover {
+  color: #e8721e !important;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 232, ../sass/homec.scss */
+.container .register {
+  color: #9dacc1 !important;
+  font-weight: bold;
+  float: right;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 240, ../sass/homec.scss */
+.container .register:hover {
+  color: #b2c3db !important;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 248, ../sass/homec.scss */
+.container .header {
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #1a2129;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 248, ../sass/homec.scss */
+  .container .header {
+    background-color: transparent;
+  }
+}
+/* line 257, ../sass/homec.scss */
+.container .header .logo {
+  padding: 15px;
+  display: inline-block;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 257, ../sass/homec.scss */
+  .container .header .logo {
+    float: left;
+  }
+}
+/* line 266, ../sass/homec.scss */
+.container .header .menu {
+  position: relative;
+  background-color: #1a2129;
+  margin-bottom: 15px;
+}
+/* line 271, ../sass/homec.scss */
+.container .header .menu .social-media {
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 0;
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  padding-right: 15px;
+}
+/* line 280, ../sass/homec.scss */
+.container .header .menu .social-media li {
+  text-align: center;
+  display: inline-block;
+  margin-left: 7px;
+}
+/* line 287, ../sass/homec.scss */
+.container .header .menu .second-nav {
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 0;
+  float: right;
+  position: relative;
+  top: 18px;
+  padding-right: 15px;
+}
+/* line 296, ../sass/homec.scss */
+.container .header .menu .second-nav #nav-search {
+  position: relative;
+}
+/* line 299, ../sass/homec.scss */
+.container .header .menu .second-nav #nav-search .bar-search {
+  padding: 10px;
+  border: 1px solid #d6d6d6;
+  height: 16px;
+  display: inline-block;
+}
+/* line 306, ../sass/homec.scss */
+.container .header .menu .second-nav #nav-search .btn-search {
+  background-color: #FFF;
+  position: absolute;
+  bottom: 16px;
+  right: 0;
+  border: 1px solid #d6d6d6;
+  height: 22px;
+  padding: 4px;
+}
+/* line 317, ../sass/homec.scss */
+.container .header .menu .second-nav li {
+  text-align: center;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+/* line 322, ../sass/homec.scss */
+.container .header .menu .second-nav li a {
+  font-size: 15px;
+}
+/* line 328, ../sass/homec.scss */
+.container .header .menu .first-nav {
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 0;
+  float: left;
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  -webkit-transform: translatey(-50%);
+  -moz-transform: translatey(-50%);
+  -ms-transform: translatey(-50%);
+  left: 230px;
+}
+/* line 341, ../sass/homec.scss */
+.container .header .menu .first-nav .helped {
+  padding: 0px 15px;
+}
+/* line 345, ../sass/homec.scss */
+.container .header .menu .first-nav .join {
+  padding: 5px 15px;
+}
+/* line 349, ../sass/homec.scss */
+.container .header .menu .first-nav li {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+/* line 354, ../sass/homec.scss */
+.container .header .menu .first-nav li:first-child {
+  padding-right: 15px;
+}
+/* line 357, ../sass/homec.scss */
+.container .header .menu .first-nav li:first-child:after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  background-color: #fff;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+/* line 368, ../sass/homec.scss */
+.container .header .menu .first-nav li a {
+  color: #fff;
+  position: relative;
+  font-size: 15px;
+}
+/* line 380, ../sass/homec.scss */
+.container .slider .slick-dots {
+  display: none !important;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 380, ../sass/homec.scss */
+  .container .slider .slick-dots {
+    margin-bottom: 25px;
+    left: inherit;
+    right: 24px;
+    display: block !important;
+  }
+}
+/* line 391, ../sass/homec.scss */
+.container .slider .slick-dots li button:before {
+  font-size: 20px;
+  line-height: 20px;
+}
+/* line 396, ../sass/homec.scss */
+.container .slider .slick-prev, .container .slider .slick-next {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+/* line 403, ../sass/homec.scss */
+.container .slider .slick-prev {
+  left: 0;
+}
+/* line 406, ../sass/homec.scss */
+.container .slider .slick-next {
+  right: 0;
+}
+/* line 410, ../sass/homec.scss */
+.container .slider .img-slider {
+  position: relative;
+}
+/* line 413, ../sass/homec.scss */
+.container .slider .img-slider .slogan-title-event {
+  font-family: "franklin_gothic_fsdemi";
+  padding: 15px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0;
+  margin-top: 0;
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translatey(-50%);
+  -webkit-transform: translatey(-50%);
+  -moz-transform: translatey(-50%);
+  -ms-transform: translatey(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 55%;
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 413, ../sass/homec.scss */
+  .container .slider .img-slider .slogan-title-event {
+    width: 30%;
+  }
+}
+/* line 434, ../sass/homec.scss */
+.container .slider .img-slider .slogan-title-event span {
+  color: #88a83b;
+}
+/* line 438, ../sass/homec.scss */
+.container .slider .img-slider .slogan-title-event h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+/* line 444, ../sass/homec.scss */
+.container .slider .img-slider .slogan-title-event h3:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #d6d6d6;
+}
+/* line 455, ../sass/homec.scss */
+.container .slider .img-slider .slogan-title-event h1 {
+  font-size: 30px;
+  color: #fff;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 30px;
+  width: 100%;
+  line-height: 35px;
+}
+/* line 469, ../sass/homec.scss */
+.container .slider .img-slider img {
+  width: 100%;
+}
+/* line 473, ../sass/homec.scss */
+.container .slider .img-slider .caption-slider {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  padding: 15px;
+}
+/* line 481, ../sass/homec.scss */
+.container .slider .img-slider .caption-slider .clearfix {
+  width: 50%;
+  margin: auto;
+}
+/* line 486, ../sass/homec.scss */
+.container .slider .img-slider .caption-slider button {
+  width: 48%;
+  margin: 0;
+  text-transform: uppercase;
+  background-color: #818181;
+}
+/* line 493, ../sass/homec.scss */
+.container .slider .img-slider .caption-slider .join {
+  float: left;
+}
+/* line 497, ../sass/homec.scss */
+.container .slider .img-slider .caption-slider .help {
+  float: right;
+}
+/* line 502, ../sass/homec.scss */
+.container .slider .img-slider .caption {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  padding: 5px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+/* line 510, ../sass/homec.scss */
+.container .slider .img-slider .caption span {
+  color: #1a2129;
+  font-family: "roboto_slabbold";
+  float: right;
+}
+/* line 519, ../sass/homec.scss */
+.container .menu-mobile {
+  background-color: #1a2129;
+  text-transform: uppercase;
+}
+/* line 523, ../sass/homec.scss */
+.container .menu-mobile ul {
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+/* line 528, ../sass/homec.scss */
+.container .menu-mobile ul li {
+  padding: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+/* line 532, ../sass/homec.scss */
+.container .menu-mobile ul li img {
+  width: 30px;
+}
+/* line 536, ../sass/homec.scss */
+.container .menu-mobile ul li a {
+  color: #fff;
+  margin-left: 15px;
+}
+/* line 546, ../sass/homec.scss */
+.container .slogan {
+  font-family: "franklin_gothic_fsdemi";
+  text-align: center;
+  padding: 9px;
+  font-size: 17px;
+  color: #fff;
+  margin-bottom: 0;
+  margin-top: 0;
+  background-color: #1a2129;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 546, ../sass/homec.scss */
+  .container .slogan {
+    background-color: transparent;
+  }
+}
+/* line 561, ../sass/homec.scss */
+.container .slogan span {
+  color: #88a83b;
+}
+/* line 566, ../sass/homec.scss */
+.container .see-event {
+  position: relative;
+}
+/* line 569, ../sass/homec.scss */
+.container .see-event:after {
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #88a83b;
+}
+/* line 581, ../sass/homec.scss */
+.container .global-content h2 {
+  position: relative;
+  width: 310px;
+  margin: auto;
+  text-align: center;
+}
+/* line 587, ../sass/homec.scss */
+.container .global-content h2:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  right: -35px;
+  width: 50px;
+  height: 1px;
+  background-color: #1a2129;
+}
+/* line 602, ../sass/homec.scss */
+.container .global-content h2:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  left: 10px;
+  width: 50px;
+  height: 1px;
+  background-color: #1a2129;
+}
+/* line 618, ../sass/homec.scss */
+.container .global-content .services {
+  text-align: center;
+  margin-top: 35px;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 618, ../sass/homec.scss */
+  .container .global-content .services {
+    margin-top: 15px;
+    background-color: #e5ded8;
+    padding: 15px 0px;
+  }
+}
+/* line 628, ../sass/homec.scss */
+.container .global-content .services img {
+  margin: 35px 0px;
+  text-align: center;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 633, ../sass/homec.scss */
+  .container .global-content .services p {
+    margin-bottom: 0;
+  }
+}
+/* line 639, ../sass/homec.scss */
+.container .global-content .services h3 {
+  margin-top: 15px;
+}
+/* line 643, ../sass/homec.scss */
+.container .global-content .services .subscribe-bar {
+  margin: 10px auto;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 643, ../sass/homec.scss */
+  .container .global-content .services .subscribe-bar {
+    width: 50%;
+  }
+}
+/* line 652, ../sass/homec.scss */
+.container .global-content .teams {
+  margin-top: 35px;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 652, ../sass/homec.scss */
+  .container .global-content .teams {
+    background-color: #e5ded8;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+}
+/* line 662, ../sass/homec.scss */
+.container .global-content .teams h2 {
+  margin-bottom: 35px;
+}
+/* line 666, ../sass/homec.scss */
+.container .global-content .teams .done {
+  background-color: transparent !important;
+}
+/* line 670, ../sass/homec.scss */
+.container .global-content .teams .wrapper {
+  border: 1px solid #d6d6d6;
+  position: relative;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+/* line 677, ../sass/homec.scss */
+.container .global-content .teams .wrapper .img {
+  position: relative;
+  cursor: pointer;
+}
+/* line 681, ../sass/homec.scss */
+.container .global-content .teams .wrapper .img .done {
+  background-color: rgba(136, 168, 59, 0.7) !important;
+}
+/* line 685, ../sass/homec.scss */
+.container .global-content .teams .wrapper .img .hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(71, 139, 178, 0.7);
+  opacity: 0;
+  color: #fff;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  height: 100%;
+  width: 100%;
+}
+/* line 698, ../sass/homec.scss */
+.container .global-content .teams .wrapper .img .hover span {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 15px;
+  transform: translatey(-50%) translatex(-50%);
+  -webkit-transform: translatey(-50%) translatex(-50%);
+  -moz-transform: translatey(-50%) translatex(-50%);
+  -ms-transform: translatey(-50%) translatex(-50%);
+}
+/* line 714, ../sass/homec.scss */
+.container .global-content .teams .wrapper .img img {
+  width: 100%;
+}
+/* line 719, ../sass/homec.scss */
+.container .global-content .teams .wrapper .title-team {
+  font-family: "roboto_slabbold";
+  text-align: center;
+  margin: 10px 0px;
+}
+/* line 725, ../sass/homec.scss */
+.container .global-content .teams .wrapper .chief-team, .container .global-content .teams .wrapper .date {
+  font-size: 13px;
+  color: #adadad;
+}
+/* line 730, ../sass/homec.scss */
+.container .global-content .teams .wrapper .date {
+  margin-bottom: 10px;
+}
+/* line 734, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam {
+  text-align: center;
+  position: relative;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+/* line 740, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #d6d6d6;
+}
+/* line 750, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .validate {
+  background-image: url(../img/checked.png);
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+}
+/* line 757, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .daysleft {
+  display: inline-block;
+  color: #1a2129;
+  line-height: 16px;
+  float: right;
+  font-size: 13px;
+}
+/* line 764, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .daysleft span {
+  font-weight: bold;
+  font-size: 20px;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 764, ../sass/homec.scss */
+  .container .global-content .teams .wrapper .progressteam .daysleft span {
+    font-size: 18px;
+  }
+}
+/* line 774, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .number {
+  display: inline-block;
+  line-height: 16px;
+  text-align: left;
+  color: #88a83b;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+/* line 782, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .number span {
+  font-weight: bold;
+  font-size: 20px;
+}
+/* line 788, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .numbers {
+  display: inline-block;
+  line-height: 16px;
+  text-align: center;
+  color: #88a83b;
+  font-size: 13px;
+  margin-bottom: 10px;
+  float: left;
+}
+/* line 797, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .numbers span {
+  font-weight: bold;
+  font-size: 20px;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 797, ../sass/homec.scss */
+  .container .global-content .teams .wrapper .progressteam .numbers span {
+    font-size: 18px;
+  }
+}
+/* line 809, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .good .ui-widget-header {
+  background-color: #88a83b;
+}
+/* line 815, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .notyet .ui-widget-header {
+  background-color: #818181;
+}
+/* line 820, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .ui-progressbar {
+  height: 12px;
+}
+/* line 824, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .ui-progressbar .ui-progressbar-value {
+  margin: 0px;
+}
+/* line 828, ../sass/homec.scss */
+.container .global-content .teams .wrapper .progressteam .ui-widget-header {
+  border: none;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 835, ../sass/homec.scss */
+  .container .global-content .sponsors {
+    margin-top: 15px;
+    background-color: #e5ded8;
+    padding-top: 15px;
+  }
+}
+/* line 842, ../sass/homec.scss */
+.container .global-content .sponsors h2 {
+  margin-bottom: 35px;
+}
+/* line 845, ../sass/homec.scss */
+.container .global-content .sponsors .wrapper {
+  background: #fff;
+  border: 1px solid #d6d6d6;
+  position: relative;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+/* line 852, ../sass/homec.scss */
+.container .global-content .sponsors .wrapper img {
+  width: 100%;
+}
+/* line 856, ../sass/homec.scss */
+.container .global-content .sponsors .wrapper button {
+  width: 100%;
+  margin: 0;
+}
+/* line 861, ../sass/homec.scss */
+.container .global-content .sponsors .wrapper .website {
+  background-color: #818181;
+  border: 1px solid #d6d6d6;
+  margin: 10px 0px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 870, ../sass/homec.scss */
+.container .global-content .sponsors .wrapper .website:hover {
+  background-color: #595959;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 878, ../sass/homec.scss */
+.container .global-content .sponsors .wrapper .sponsored {
+  border: 1px solid #d6d6d6;
+}
+/* line 885, ../sass/homec.scss */
+.container .footer {
+  background-color: #1a2129;
+  text-align: center;
+  padding: 8px;
+  color: #fff;
+  margin-top: 15px;
+}
+
+/* ANIMATIONS POP UP */
+/* line 897, ../sass/homec.scss */
+.mfp-fade.mfp-bg {
+  opacity: 0;
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+
+/* overlay animate in */
+/* line 905, ../sass/homec.scss */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+
+/* overlay animate out */
+/* line 909, ../sass/homec.scss */
+.mfp-fade.mfp-bg.mfp-removing {
+  opacity: 0;
+}
+
+/* content at start */
+/* line 914, ../sass/homec.scss */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+
+/* content animate it */
+/* line 922, ../sass/homec.scss */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+
+/* content animate out */
+/* line 926, ../sass/homec.scss */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}

@@ -1,0 +1,21 @@
+/* line 1, ../sass/finish.scss */
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: url(../img/fond.png) center no-repeat;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 30px;
+  width: 100%;
+}
+
+/* line 12, ../sass/finish.scss */
+#header img {
+  width: 200px;
+}
+
+/* line 16, ../sass/finish.scss */
+#header p {
+  margin-top: 0px;
+}
