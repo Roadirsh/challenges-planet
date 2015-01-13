@@ -86,33 +86,33 @@
                                 <div class="form-left">
                                     <h3 class="box-title">Users Home Address</h3>
         							<div class="control-group">
-        								<label class="control-label" for="numRue">Street number:</label>
+        								<label class="control-label" for="numRueHome">Street number:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="numRue" id="numRue" type="integer" value="" >
+        									<input class="input-xlarge focused" name="numRueHome" id="numRueHome" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="nomRue">Street name:</label>
+        								<label class="control-label" for="nomRueHome">Street name:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="nomRue" id="nomRue" type="text" value="" >
+        									<input class="input-xlarge focused" name="nomRueHome" id="nomRueHome" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="zipcode">Zip code:</label>
+        								<label class="control-label" for="zipcodeHome">Zip code:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="zipcode" id="zipcode" type="text" value="" >
+        									<input class="input-xlarge focused" name="zipcodeHome" id="zipcodeHome" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="city">Town:</label>
+        								<label class="control-label" for="cityHome">Town:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="city" id="city" type="text" value="" >
+        									<input class="input-xlarge focused" name="cityHome" id="cityHome" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="country">Country:</label>
+        								<label class="control-label" for="countryHome">Country:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="country" id="country" type="text" value="">
+        									<input class="input-xlarge focused" name="countryHome" id="countryHome" type="text" value="">
         								</div>
         							</div>
 
@@ -122,45 +122,36 @@
                                 <div class="form-left">
                                     <h3 class="box-title">Users Invoice Address</h3>
         							<div class="control-group">
-        								<label class="control-label" for="numRue">Street number:</label>
+        								<label class="control-label" for="numRueInvoice">Street number:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="numRue" id="numRue" type="integer" value="" >
+        									<input class="input-xlarge focused" name="numRueInvoice" id="numRueInvoice" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="nomRue">Street name:</label>
+        								<label class="control-label" for="nomRueInvoice">Street name:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="nomRue" id="nomRue" type="text" value="" >
+        									<input class="input-xlarge focused" name="nomRueInvoice" id="nomRueInvoice" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
         								<label class="control-label" for="zipcode">Zip code:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="zipcode" id="zipcode" type="text" value="" >
+        									<input class="input-xlarge focused" name="zipcodeInvoice" id="zipcodeInvoice" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="city">Town:</label>
+        								<label class="control-label" for="cityInvoice">Town:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="city" id="city" type="text" value="" >
+        									<input class="input-xlarge focused" name="cityInvoice" id="cityInvoice" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
         								<label class="control-label" for="country">Country:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="country" id="country" type="text" value="">
+        									<input class="input-xlarge focused" name="countryInvoice" id="countryInvoice" type="text" value="">
         								</div>
         							</div>
-        							<div class="control-group">
-        								<label class="control-label" for="typeAdress">Adress type:</label>
-        								<div class="controls">
-        									<select name="typeAdress" id="typeAdress" > 
-        									   <option name="typeAdress" value="Home">Home</option> 
-        									   <option name="typeAdress" value="Invoice"> Invoice</option> 
-        									   <option name="typeAdress" value="Both">Both</option> 
-        									</select> 
-        								</div>
-        							</div>
+        							
         							
         							<div class="form-actions">
         								<input type="submit" class="btn btn-primary">
