@@ -123,6 +123,38 @@ class UserModel extends CoreModel{
         }
 
 	}
+	
+	/**
+	 * Vérification de l'existence d'un mail, pour éviter les doublons
+	 */
+	public function email_exist($mail)
+	{
+		try {
+			
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                            FROM " . PREFIX . "user WHERE user_mail = :mail");
+            			
+            $select->bindParam(':mail', $mail);
+            $select->execute();
+			$select->setFetchMode(PDO::FETCH_ASSOC);
+			$select = $select -> FetchAll();
+			
+			if($select[0]['exist'] == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
 	/**
 	 * Ajout d'un utilisateur si il n'existe pas déjà
 	 */
@@ -147,7 +179,8 @@ class UserModel extends CoreModel{
 		$cityInvoice = $this->getCityInvoice();
 		$countryInvoice = $this->getCountryInvoice();
 		$user_exist = $this->user_exist($pseudo);
-		if($user_exist)
+		$email_exist = $this->email_exist($mail);
+		if($user_exist || $email_exist )
 		{
 			return true;
 		}
