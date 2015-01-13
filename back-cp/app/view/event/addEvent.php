@@ -32,8 +32,14 @@
 								</div>
 							</div>
 							<div class="control-group">
+								<label class="control-label" for="locationEvent">Location</label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="locationEvent" name="locationEvent" type="text" value="" required>
+								</div>
+							</div>
+							<div class="control-group">
                                 <label>Description</label>
-                                <textarea class="form-control" rows="5" placeholder="Enter ..."></textarea>
+                                <textarea class="form-control" rows="5" placeholder="Enter ..." name="descrEvent" id="descrEvent"></textarea>
                             </div> 
 							<div class="control-group">
 							  <label class="control-label" for="imageEvent">Image</label>
