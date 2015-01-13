@@ -29,7 +29,10 @@ class ProjectModel extends CoreModel{
 	 */
 	function __construct(){
 		parent::__construct();
-		if(isset($_POST) && !empty($_POST)){
+		if(isset($_POST['search']) && !empty($_POST['search'])){
+		    $this->SearchProject($_POST);
+		    
+		} elseif(isset($_POST) && !empty($_POST)){
             
             $post = $_POST;
             $this->setGroupName($post['name']);
@@ -276,6 +279,64 @@ class ProjectModel extends CoreModel{
     	
 	}
 	
+	
+	/**
+	 * Search Project
+	 *
+	 * @param array $_POST
+	 */
+	public function SearchProject($post){
+	
+	    include('../lib/blacklist.inc.php');
+        $post = $_POST['search'];
+        $exp = explode(" ", $post);
+
+	    $i = 0;
+	    $count = count($exp);
+        
+	    foreach($exp as $k => $e)
+	    {
+	        if(!empty($e))
+	        {
+	            if(strlen($e) > 3)
+	            {
+	                if(!in_array(strtolower($e), $adv))
+	                { 
+	                    $r = '';
+                        // GROUP TABLE BDD
+                        $r .= "group_name LIKE '%".addslashes($e)."%' ";
+                        if($i < $count){
+                            $r .= "OR ";
+                        }
+                        $r .= "group_descr LIKE '%".addslashes($e)."%' ";
+                        if($i < $count){
+                            $r .= "OR ";
+                        }
+	                }
+	            }
+	        }
+	        $i ++; 
+	    }
+
+	    $r = substr($r, 0, -4);
+	    if(!empty($r)): $ajout = $r; endif;
+	    
+	    
+	    
+	    $select = $this->connexion->prepare("SELECT *
+		                                FROM 
+    		                                " . PREFIX . "group
+		                                WHERE " . $ajout . "
+		                                GROUP BY group_id");
+        //var_dump($select);
+		$select -> execute();
+		$select -> setFetchMode(PDO::FETCH_ASSOC);
+		$retour = $select -> fetchAll();
+		
+		//var_dump($retour); exit();
+		return $retour;
+    }
+    
 	
 	/**
      * Supprimer un groupe

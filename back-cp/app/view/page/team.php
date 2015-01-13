@@ -8,7 +8,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            See Admins
+            Admins <small>(<? echo count($data); ?>)</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<? echo MODULE . 'page' . ACTION . 'home'; ?>"><i class="fa fa-dashboard"></i> Home</a></li>

@@ -33,7 +33,7 @@
         							<div class="control-group">
         								<label class="control-label">Type:</label>
         								<div class="">
-        									<select name="type">
+        									<select name="form-control">
         										<option value="student">Student</option>
         										<option value="organisme">Organism</option>
         										<option value="admin">Admin</option>
@@ -86,77 +86,94 @@
                                 <div class="form-left">
                                     <h3 class="box-title">Users Home Address</h3>
         							<div class="control-group">
-        								<label class="control-label" for="numRueHome">Street number:</label>
+        								<label class="control-label" for="numRue">Street number:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="numRueHome" id="numRueHome" type="text" value="" required>
+        									<input class="input-xlarge focused" name="numRue" id="numRue" type="integer" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="nomRueHome">Street name:</label>
+        								<label class="control-label" for="nomRue">Street name:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="nomRueHome" id="nomRueHome" type="text" value="" required>
+        									<input class="input-xlarge focused" name="nomRue" id="nomRue" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="zipcodeHome">Zip code:</label>
+        								<label class="control-label" for="zipcode">Zip code:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="zipcodeHome" id="zipcodeHome" type="text" value="" required>
+        									<input class="input-xlarge focused" name="zipcode" id="zipcode" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="cityHome">Town:</label>
+        								<label class="control-label" for="city">Town:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="cityHome" id="cityHome" type="text" value="" required>
+        									<input class="input-xlarge focused" name="city" id="city" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="countryHome">Country:</label>
+        								<label class="control-label" for="country">Country:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="countryHome" id="countryHome" type="text" value=""required>
+        									<input class="input-xlarge focused" name="country" id="country" type="text" value="">
         								</div>
         							</div>
-
+        							<div class="control-group">
+        								<label class="control-label" for="typeAdress">Address type:</label>
+        								<div class="controls">
+        									<select name="typeAdress" id="typeAdress" > 
+        									   <option name="typeAdress" value="Home">Home</option> 
+        									   <option name="typeAdress" value="Invoice"> Invoice</option> 
+        									   <option name="typeAdress" value="Both">Both</option> 
+        									</select> 
+        								</div>
         							</div>
 
                                 </div>
                                 <div class="form-left">
                                     <h3 class="box-title">Users Invoice Address</h3>
         							<div class="control-group">
-        								<label class="control-label" for="numRueInvoice">Street number:</label>
+        								<label class="control-label" for="numRue">Street number:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="numRueInvoice" id="numRueInvoice" type="text" value="" required>
+        									<input class="input-xlarge focused" name="numRue" id="numRue" type="integer" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="nomRueInvoice">Street name:</label>
+        								<label class="control-label" for="nomRue">Street name:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="nomRueInvoice" id="nomRueInvoice" type="text" value="" required>
+        									<input class="input-xlarge focused" name="nomRue" id="nomRue" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
         								<label class="control-label" for="zipcode">Zip code:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="zipcodeInvoice" id="zipcodeInvoice" type="text" value="" required>
+        									<input class="input-xlarge focused" name="zipcode" id="zipcode" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="cityInvoice">Town:</label>
+        								<label class="control-label" for="city">Town:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="cityInvoice" id="cityInvoice" type="text" value="" required >
+        									<input class="input-xlarge focused" name="city" id="city" type="text" value="" >
         								</div>
         							</div>
         							<div class="control-group">
         								<label class="control-label" for="country">Country:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="countryInvoice" id="countryInvoice" type="text" value="" required>
+        									<input class="input-xlarge focused" name="country" id="country" type="text" value="">
+        								</div>
+        							</div>
+        							<div class="control-group">
+        								<label class="control-label" for="typeAdress">Adress type:</label>
+        								<div class="controls">
+        									<select name="typeAdress" id="typeAdress" > 
+        									   <option name="typeAdress" value="Home">Home</option> 
+        									   <option name="typeAdress" value="Invoice"> Invoice</option> 
+        									   <option name="typeAdress" value="Both">Both</option> 
+        									</select> 
         								</div>
         							</div>
         							
-        							
         							<div class="form-actions">
         								<input type="submit" class="btn btn-primary">
+        								<button class="btn">Cancel</button>
         							</div>
-
                                 </div>
         					</form>
                         </div>
@@ -166,25 +183,4 @@
             </section><!-- /.content -->
         </aside><!-- /.right-side -->
     </div>
-
-    
-    <!--
-<script type="text/javascript">
-	$(document).on('change','input[type=checkbox]', function()
-	    {
-		    console.log("CA PASSE le change");
-
-		    if ($(this).prop("checked")) {
-		        //do the stuff that you would do when 'checked'
-				console.log("CA PASSE le change checked");
-				var valeur = $("#numRueHome").val();
-				$("#numRueInvoice").val(valeur);
-		        return;
-		    }
-		    console.log("CA PASSE le change unchecked");
-
-	    //Here do the stuff you want to do when 'unchecked'
-		});
-	</script>
--->
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

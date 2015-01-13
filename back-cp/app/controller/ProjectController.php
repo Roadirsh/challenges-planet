@@ -44,10 +44,20 @@ class ProjectController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "seeProject");
 		
+		if(isset($_POST['search']) and !empty($_POST['search'])){
+		    //var_dump($_POST);
+            $search = $this->model = new ProjectModel($_POST);
+            $AllGroup = $search->searchProject($_POST);
+            $_POST = null;
+		} else{
+    		$AllGroups = $this->model = new ProjectModel();
+            $AllGroup = $AllGroups-> getShowProjects();
+            // UserModel::Seeuser();
+            //var_dump($AllGroup);
+		}
 		
-		$AllGroups = $this->model = new ProjectModel();
-        $AllGroup = $AllGroups-> getShowProjects();
-        //var_dump($AllGroup);
+		
+        
 
 		// Appel de la vue 
 		$this->load->view('project', 'seeProject', $AllGroup); // TODO

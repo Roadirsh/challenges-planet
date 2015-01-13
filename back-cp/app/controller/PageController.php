@@ -45,13 +45,18 @@ class PageController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "home");
 
-		// $allUser = $this->model = new CoreModel();
-		// $allu = $allUser->coreTableAll('user');
+		if(isset($_POST) and !empty($_POST)){
+		    var_dump($_POST);
+            $search = $this->model = new PageModel($_POST);
+            $searchAll = $search->searchAll($_POST);
+            $this->coreRedirect('page', 'result', $searchAll);
+		} else{
+    		$count = $this->model = new PageModel();
+            $NbUser = $count->NbUsers();
+            $NbEvent = $count->NbEvents();
+            $NbGroup = $count->NbGroups();
+		}
 		
-		$count = $this->model = new PageModel();
-		$NbUser = $count->NbUsers();
-		$NbEvent = $count->NbEvents();
-		$NbGroup = $count->NbGroups();
 		
 		$countArray = '';
 		$countArray['user'] = $NbUser;
@@ -95,6 +100,23 @@ class PageController extends CoreController {
 		$this->coreRedirect('page', 'team', $message);
 	
 	}
+	
+	/**
+	 * Page static RESULTATS
+	 */
+	public function Result($searchUser){
+
+		// Définition des constante
+		define("PAGE_TITLE", SITE_NAME . " home");
+		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
+		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_ID", "team");
+		
+		// Appel de la vue 
+		$this->load->view('page', 'result', $searchUser); // TODO
+	
+	}
+	
 	
 }
 

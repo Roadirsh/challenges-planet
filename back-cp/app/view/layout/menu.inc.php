@@ -12,6 +12,15 @@
                             <p>Hello, <? echo $_SESSION['userPseudo']; ?> !</p>
                         </div>
                     </div>
+                    <!-- search on all the dashboard -->
+                    <form action="" method="post" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="search" id="search" type="text" value="" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
@@ -52,7 +61,7 @@
                                 <li><a href="<? echo MODULE . 'event' . ACTION . 'addevent'; ?>"><i class="fa fa-angle-double-right"></i> Add event</a></li>
                             </ul>
                         </li>
-                        <li class="active">
+                        <li class="">
                             <a href="<? echo MODULE . 'page' . ACTION . 'team'; ?>">
                                 <i class="fa fa-cogs"></i> <span>Team</span>
                             </a>

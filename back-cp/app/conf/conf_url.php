@@ -9,6 +9,6 @@
 
     
 // définition du tableau
-	$conf = array();
+	$url = array();
 // 
-	$conf[''] = '';
+	$url['online'] = 'http://www.challengespla.net/index.php';

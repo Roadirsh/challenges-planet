@@ -14,7 +14,6 @@
  * instanciation de la class
  */
 class LogModel extends CoreModel{
-
 	/**
 	 * Constructor
 	 */

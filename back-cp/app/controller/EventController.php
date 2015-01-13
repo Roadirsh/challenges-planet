@@ -46,9 +46,18 @@ class EventController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "seeEvent");
 		
-		$AllEvents = $this->model = new EventModel();
-        $AllEvent = $AllEvents-> getShowEvents();
-        //var_dump($AllEvent);
+		if(isset($_POST) and !empty($_POST)){
+		    //var_dump($_POST);
+            $search = $this->model = new EventModel($_POST);
+            $AllEvent = $search->searchEvent($_POST);
+            $_POST = null;
+		} else{
+    		$AllEvents = $this->model = new EventModel();
+            $AllEvent = $AllEvents-> getShowEvents();
+            //var_dump($AllEvent);
+		}
+		
+		
         
 		// Appel de la vue 
 		$this->load->view('event', 'seeEvent', $AllEvent); // TODO

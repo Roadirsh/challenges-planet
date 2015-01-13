@@ -22,6 +22,20 @@
             <?if(!empty($_SESSION['message'])){ ?>
                 <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
             <? $_SESSION['message'] = ''; } ?>
+            <!-- search on all the dashboard -->
+            <form action="" method="post" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="search" id="search" type="text" value="" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+            <? if(empty($data)){ ?>
+                <div class="alert alert-danger user_event">
+    				<center>There is no result to this research</center>
+    			</div>
+            <? } ?>
         	<div class="box span13" onTablet="span12" onDesktop="span13">
         		<div class="box-content">
         			<ul class="dashboard-list">

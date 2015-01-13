@@ -1,4 +1,5 @@
-        <!-- header logo: style can be found in header.less -->
+<? include(ROOT . "conf/conf_url.php"); ?>
+           <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a href="<? echo MODULE . 'page' . ACTION . 'home'; ?>" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
@@ -16,6 +17,7 @@
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
+                        <!--
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
@@ -25,8 +27,10 @@
                                 <li class="header">You have 4 messages</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
+                                    <!--
                                     <ul class="menu">
                                         <li><!-- start message -->
+                                        <!--
                                             <a href="#">
                                                 <div class="pull-left">
                                                     <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
@@ -38,12 +42,15 @@
                                                 <p>Why not buy a new awesome theme?</p>
                                             </a>
                                         </li><!-- end message -->
+                                    <!--
                                     </ul>
                                 </li>
                                 <li class="footer"><a href="#">See All Messages</a></li>
                             </ul>
                         </li>
+                        -->
                         <!-- Notifications: style can be found in dropdown.less -->
+                        <!--
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-warning"></i>
@@ -53,6 +60,7 @@
                                 <li class="header">You have 10 notifications</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
+                                    <!--
                                     <ul class="menu">
                                         <li>
                                             <a href="#">
@@ -65,6 +73,7 @@
                             </ul>
                         </li>
                         <!-- Tasks: style can be found in dropdown.less -->
+                        <!--
                         <li class="dropdown tasks-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-tasks"></i>
@@ -74,8 +83,10 @@
                                 <li class="header">You have 9 tasks</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
+                                    <!--
                                     <ul class="menu">
                                         <li><!-- Task item -->
+                                        <!--
                                             <a href="#">
                                                 <h3>
                                                     Design some buttons
@@ -88,6 +99,7 @@
                                                 </div>
                                             </a>
                                         </li><!-- end task item -->
+                                        <!--
                                     </ul>
                                 </li>
                                 <li class="footer">
@@ -96,6 +108,11 @@
                             </ul>
                         </li>
                         <!-- User Account: style can be found in dropdown.less -->
+                        <li>
+                            <a href="<? echo $url['online']; ?>" target="blank" >
+                                Online Challenges Planet
+                            </a>
+                        </li>
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>

@@ -46,9 +46,18 @@ class UserController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "seeUser");
 		
-        $showUser = $this->model = new UserModel();
-		$AllUser = $showUser->Seeuser();
-		// UserModel::Seeuser();
+		
+		if(isset($_POST) and !empty($_POST)){
+		    //var_dump($_POST);
+            $search = $this->model = new UserModel($_POST);
+            $AllUser = $search->searchUser($_POST);
+            $_POST = null;
+		} else{
+    		$showUser = $this->model = new UserModel();
+            $AllUser = $showUser->Seeuser();
+            // UserModel::Seeuser();
+		}
+        
 		
 		// echo 'user = '; var_dump($AllUser);
 
