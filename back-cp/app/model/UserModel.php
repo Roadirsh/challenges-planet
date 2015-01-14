@@ -130,6 +130,39 @@ class UserModel extends CoreModel{
         }
 
 	}
+	
+	/**
+	 * Vérification d'un email, pour éviter les doublons
+	 */
+	public function email_exist($mail)
+	{
+		try {
+			
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                            FROM " . PREFIX . "user WHERE user_mail = :mail");
+            			
+            $select->bindParam(':mail', $mail);
+            $select->execute();
+			$select->setFetchMode(PDO::FETCH_ASSOC);
+			$select = $select -> FetchAll();
+			
+			if($select[0]['exist'] == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
+
 	/**
 	 * Ajout d'un utilisateur si il n'existe pas déjà
 	 */
@@ -184,7 +217,7 @@ class UserModel extends CoreModel{
 				$insert->execute();
 				
 				if(!empty($profpic)){
-					$string= '../public/img/avatar/'.$profpic;
+					$string= '../public/images/avatar/'.$profpic;
 					$this->upload($tmp, $string);
 				}
 
@@ -260,8 +293,10 @@ class UserModel extends CoreModel{
         return $this->userBirthday;
 	}
 	public function setUserBirthday($birthday){
-		$birthday = (int) date('Ymd', strtotime($birthday)); //en int.
-		$this->userBirthday = $birthday;
+		if($birthday > "1900-01-01" && $birthday < date('Y-m-d', strtotime('-13 years')))
+		{
+			$this->userBirthday = $birthday;
+		}
 	}
 
     /**
@@ -790,7 +825,7 @@ class UserModel extends CoreModel{
 	}
 	public function setUserPhone($phone){
 	
-		if(preg_match("^\+(?:[0-9]?){6,14}[0-9]$", $phone))
+		if(preg_match("/^\+(?:[0-9]?){6,14}[0-9]$/", $phone))
 		{
 			$this->userPhone = $phone;
 		}

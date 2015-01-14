@@ -385,7 +385,6 @@ class EventModel extends CoreModel{
     public function upload($index, $destination)
 	{
 
-		
 		$extension = $this->getExtension($destination);
 		//Déplacement
 	   move_uploaded_file($index,$destination);
