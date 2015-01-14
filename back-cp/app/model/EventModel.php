@@ -384,6 +384,60 @@ class EventModel extends CoreModel{
 	 */
     public function upload($index, $destination)
 	{
+
+		
+		$extension = $this->getExtension($destination);
+		//Déplacement
+	   move_uploaded_file($index,$destination);
+		if($extension=="jpg" || $extension=="jpeg" )
+		{
+			$src = imagecreatefromjpeg($destination);
+		}
+		else if($extension=="png")
+		{
+			$src = imagecreatefrompng($destination);
+		}
+		else 
+		{
+			$src = imagecreatefromgif($destination);
+		}
+		
+		list($width,$height)=getimagesize($destination);
+		
+		$newwidth=1280;
+		$newheight=($height/$width)*$newwidth;
+		$tmp=imagecreatetruecolor($newwidth,$newheight);
+		
+		$newwidth1=196;
+		$newheight1=($height/$width)*$newwidth1;
+		$tmp1=imagecreatetruecolor($newwidth1,$newheight1);
+		
+		imagecopyresampled($tmp,$src,0,0,0,0,$newwidth,$newheight,
+		 $width,$height);
+		
+		imagecopyresampled($tmp1,$src,0,0,0,0,$newwidth1,$newheight1, 
+		$width,$height);
+		
+		$filename = $destination;
+		$filename1 = '../public/images/event/mini/'.$img;
+		
+		imagejpeg($tmp,$filename,100);
+		imagejpeg($tmp1,$filename1,100);
+		
+		imagedestroy($src);
+		imagedestroy($tmp);
+		imagedestroy($tmp1);
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	    //Test1: fichier correctement uploadé
 	    if (!isset($_FILES["imageEvent"]) OR $_FILES["imageEvent"]['error'] > 0){
 		    return FALSE;

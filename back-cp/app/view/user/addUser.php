@@ -55,7 +55,7 @@
         							<div class="control-group">
         								<label class="control-label" for="birthday">D.O.B:</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="birthday" id="birthday" type="date" value="" required>
+        									<input class="input-xlarge focused" name="birthday" id="birthday" type="date" value="" max="<?=date('Y-m-d', time())?>" required>
         								</div>
         							</div>
         							<div class="control-group">
@@ -63,6 +63,13 @@
         								<div class="controls">
         									<input class="input-xlarge focused" name="mail" id="mail" type="email" value="" required>
         								</div>
+        							</div>
+        							<div class="control-group">
+        								<label class="control-label" for="phoneIndicator">Phone: </label>
+        								<div class="controls">
+        									<input class="input-large focused" name="phoneNumber" id="phoneNumber" type="text" title='The phone number must be between 6 and 14 numbers and begin with a "+".' pattern="^\+(?:[0-9]?){6,14}[0-9]$" placeholder="+33xxxxxxx">
+        								</div>
+
         							</div>
         							<div class="control-group">
         								<label class="control-label" for="pseudo">Login:</label>
@@ -82,6 +89,7 @@
         									<input class="input-xlarge focused" name="profil" id="profil" type="file" value="">
         								</div>
         							</div>
+        							
         						</div>
                                 <div class="form-left">
                                     <h3 class="box-title">Users Home Address</h3>
