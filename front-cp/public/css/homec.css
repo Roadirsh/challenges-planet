@@ -847,11 +847,13 @@ body #form-login .button-submit:hover {
   width: 100%;
 }
 /* line 856, ../sass/homec.scss */
-.container .global-content .sponsors .wrapper button {
+.container .global-content .sponsors .wrapper a {
   width: 100%;
-  margin: 0;
+  display: inline-block;
+  color: #fff;
+  padding: 16px 32px 17px 32;
 }
-/* line 861, ../sass/homec.scss */
+/* line 863, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .website {
   background-color: #818181;
   border: 1px solid #d6d6d6;
@@ -861,18 +863,18 @@ body #form-login .button-submit:hover {
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 870, ../sass/homec.scss */
+/* line 872, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .website:hover {
   background-color: #595959;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 878, ../sass/homec.scss */
+/* line 880, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .sponsored {
   border: 1px solid #d6d6d6;
 }
-/* line 885, ../sass/homec.scss */
+/* line 887, ../sass/homec.scss */
 .container .footer {
   background-color: #1a2129;
   text-align: center;
@@ -882,7 +884,7 @@ body #form-login .button-submit:hover {
 }
 
 /* ANIMATIONS POP UP */
-/* line 897, ../sass/homec.scss */
+/* line 899, ../sass/homec.scss */
 .mfp-fade.mfp-bg {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -891,19 +893,19 @@ body #form-login .button-submit:hover {
 }
 
 /* overlay animate in */
-/* line 905, ../sass/homec.scss */
+/* line 907, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-ready {
   opacity: 0.8;
 }
 
 /* overlay animate out */
-/* line 909, ../sass/homec.scss */
+/* line 911, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-removing {
   opacity: 0;
 }
 
 /* content at start */
-/* line 914, ../sass/homec.scss */
+/* line 916, ../sass/homec.scss */
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -912,13 +914,13 @@ body #form-login .button-submit:hover {
 }
 
 /* content animate it */
-/* line 922, ../sass/homec.scss */
+/* line 924, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
   opacity: 1;
 }
 
 /* content animate out */
-/* line 926, ../sass/homec.scss */
+/* line 928, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
 }

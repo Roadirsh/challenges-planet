@@ -853,9 +853,11 @@ body {
 					width: 100%;
 				}
 
-				button {
+				a {
 					width: 100%;
-					margin: 0;
+					display: inline-block;
+					color: #fff;
+					padding: 16px 32px 17px 32;
 				}
 
 				.website {
