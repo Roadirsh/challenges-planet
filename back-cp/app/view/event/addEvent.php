@@ -23,7 +23,7 @@
 				<div class="box-content">
                     <div class="box box-info">
                         <div class="box-body">
-						<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
+						<form class="form-horizontal" enctype="multipart/form-data" action="?" method="post">
 							<fieldset>
 							<div class="control-group">
 								<label class="control-label" for="nameEvent">Nom de l'événement</label>

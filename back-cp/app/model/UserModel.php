@@ -698,7 +698,6 @@ class UserModel extends CoreModel{
 		$select -> setFetchMode(PDO::FETCH_ASSOC);
 		$retour = $select -> fetchAll();
 		
-		//var_dump($retour); exit();
 		return $retour;
     }
     
@@ -710,14 +709,34 @@ class UserModel extends CoreModel{
     	$deluserID = $_GET['id'];
     	
     	try {
+	    	$select  = $this->connexion->prepare("Select user_profil_pic FROM " . PREFIX . "user where user_id = '" . $deluserID . "'" );
+	    	$select->execute();
+	    	$select -> setFetchMode(PDO::FETCH_ASSOC);
+			$retour = $select -> fetch();
+			/*
+echo "<pre>";
+			
+			var_dump($retour[0]['user_profil_pic']);
+			echo "</pre>";
+			exit();
+*/
+			$retour = $retour['user_profil_pic'];
+			$file = '../public/images/avatar/'.$retour;
+			
+			if(file_exists($file) && $file != '../public/images/avatar/')
+			{
+	    		unlink($file);
+			}
+			
     	    // rajouer un trigger corbeille
-        	$select = $this->connexion->prepare("DELETE
+        	$delete = $this->connexion->prepare("DELETE
                                             FROM " . PREFIX . "user
                                             where user_id = '" . $deluserID . "'");
            
             //var_dump($select); exit();
-            $select -> execute();
+            $delete -> execute();
             
+
             //var_dump($AllUser);
             return true;
             

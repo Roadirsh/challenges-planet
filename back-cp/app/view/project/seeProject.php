@@ -23,7 +23,7 @@
                 <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
             <? $_SESSION['message'] = ''; } ?>
             <!-- search on all the dashboard -->
-            <form action="" method="post" class="sidebar-form">
+            <form action="?" method="post" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="search" id="search" value="" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
