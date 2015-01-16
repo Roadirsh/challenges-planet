@@ -296,29 +296,29 @@
 					<div class="medium-4 large-3 columns">
 						<div class="wrapper">
 							<img src="../../public/img/marque1.jpg">
-							<a class="website">Go their website</a>
-							<a class="sponsored help">View events sponsored</a>
+							<button class="website">Go their website</button>
+							<button class="sponsored help">View events sponsored</button>
 						</div>
 					</div>
 					<div class="medium-4 large-3 columns">
 						<div class="wrapper">
 							<img src="../../public/img/marque2.jpg">
-							<a class="website">Go their website</a>
-							<a class="sponsored help">View events sponsored</a>
+							<button class="website">Go their website</button>
+							<button class="sponsored help">View events sponsored</button>
 						</div>
 					</div>
 					<div class="medium-4 large-3 columns">
 						<div class="wrapper">
 							<img src="../../public/img/marque3.jpg">
-							<a class="website">Go their website</a>
-							<a class="sponsored help">View events sponsored</a>
+							<button class="website">Go their website</button>
+							<button class="sponsored help">View events sponsored</button>
 						</div>
 					</div>
 					<div class="show-for-large-up large-3 columns">
 						<div class="wrapper">
 							<img src="../../public/img/marque7.jpg">
-							<a class="website">Go their website</a>
-							<a class="sponsored help">View events sponsored</a>
+							<button class="website">Go their website</button>
+							<button class="sponsored help">View events sponsored</button>
 						</div>
 					</div>
 				</section>
@@ -326,29 +326,29 @@
 					<div class="large-3 medium-4 columns">
 						<div class="wrapper">
 							<img src="../../public/img/marque4.jpg">
-							<a class="website">Go their website</a>
-							<a class="sponsored help">View events sponsored</a>
+							<button class="website">Go their website</button>
+							<button class="sponsored help">View events sponsored</button>
 						</div>
 					</div>
 					<div class="large-3 medium-4 columns">
 						<div class="wrapper">
 							<img src="../../public/img/marque5.jpg">
-							<a class="website">Go their website</a>
-							<a class="sponsored help">View events sponsored</a>
+							<button class="website">Go their website</button>
+							<button class="sponsored help">View events sponsored</button>
 						</div>
 					</div>
 					<div class="large-3 medium-4 columns">
 						<div class="wrapper">
 							<img src="../../public/img/marque6.jpg">
-							<a class="website">Go their website</a>
-							<a class="sponsored help">View events sponsored</a>
+							<button class="website">Go their website</button>
+							<button class="sponsored help">View events sponsored</button>
 						</div>
 					</div>
 					<div class="show-for-large-up large-3 columns">
 						<div class="wrapper">
 							<img src="../../public/img/marque8.jpg">
-							<a class="website">Go their website</a>
-							<a class="sponsored">View events sponsored</a>
+							<button class="website">Go their website</button>
+							<button class="sponsored">View events sponsored</button>
 						</div>
 					</div>
 				</section>

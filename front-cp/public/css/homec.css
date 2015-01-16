@@ -401,6 +401,7 @@ body #form-login .button-submit:hover {
 /* line 410, ../sass/homec.scss */
 .container .slider .img-slider {
   position: relative;
+  height: 500px;
 }
 /* line 413, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event {
@@ -460,6 +461,7 @@ body #form-login .button-submit:hover {
 /* line 469, ../sass/homec.scss */
 .container .slider .img-slider img {
   width: 100%;
+  height: 550px;
 }
 /* line 473, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider {
@@ -671,6 +673,7 @@ body #form-login .button-submit:hover {
 .container .global-content .teams .wrapper .img {
   position: relative;
   cursor: pointer;
+  height: 255px;
 }
 /* line 681, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .done {
@@ -708,6 +711,7 @@ body #form-login .button-submit:hover {
 /* line 714, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img img {
   width: 100%;
+  height: 255px;
 }
 /* line 719, ../sass/homec.scss */
 .container .global-content .teams .wrapper .title-team {
@@ -723,6 +727,7 @@ body #form-login .button-submit:hover {
 /* line 730, ../sass/homec.scss */
 .container .global-content .teams .wrapper .date {
   margin-bottom: 10px;
+  text-align: center;
 }
 /* line 734, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam {

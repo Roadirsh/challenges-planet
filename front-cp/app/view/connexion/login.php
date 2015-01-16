@@ -16,12 +16,16 @@
 		</div>
 		<div class="clearfix"></div>
 		
-		<label class="remember" for="remember"> <input type="checkbox" id="remember" />Remember me</label>
+		<!-- <label class="remember" for="remember"> <input type="checkbox" id="remember" />Forgot password</label> -->
+		<!-- <label class="remember" for="remember"> <input type="checkbox" id="remember" />Forgot email</label> -->
 
 		<div class="button-login">	
 			<button type="submit" class="btn btn-primary">Login</button>
 		</div>
 		<div class="clearfix"></div>
 </form>
+
+<h1> >>UP COMING - FACEBOOK </h1>
+<h1> >>UP COMING - GOOGLE + </h1>
 
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

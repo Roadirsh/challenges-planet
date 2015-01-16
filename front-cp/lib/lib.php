@@ -30,3 +30,33 @@ function confirmation($messageOK, $messageNOK, $e)
         echo '<p class="conf-nok">'.$e.'</p>';
     }
 }
+
+function comp_date($str){
+    // DATE TIME - PHP
+    $year = date("Y");
+    $month = date('m');
+    $day = date('d');
+    
+    // DATE STR EXPLODE
+    $year1 = substr($str, 0, 4);
+    $month1 = substr($str, 5, 2);
+    $day1 = substr($str, 8, 2);
+    
+    // CALCUL DU RESTE
+    $newYear = $year-$year1;
+    $newMonth = $month-$month1;
+    $newDay = $day-$day1;
+    
+    // GESTION DES NEGATIFS
+    $newYear = preg_replace('/-/', '', $newYear);
+    $newMonth = preg_replace('/-/', '', $newMonth);
+    $newDay = preg_replace('/-/', '', $newDay);
+    
+    $new = array('');
+    $new['Cy'] = $newYear;
+    $new['Cm'] = $newMonth;
+    $new['Cd'] = $newDay;
+    
+    return $new;
+}
+

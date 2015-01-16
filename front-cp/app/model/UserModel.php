@@ -273,6 +273,8 @@ class UserModel extends CoreModel{
     	
 	}
 	
+	
+	
 	public function Deluser(){
     	//var_dump($GLOBALS);
     	$deluserID = $_GET['id'];

@@ -43,17 +43,50 @@ class PageController extends CoreController {
 
 		// Définition des constante
 		define("PAGE_TITLE", SITE_NAME . " home");
-		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
+		define("PAGE_DESCR", "Plateforme de mise en relation d'étudiants et entreprises dans le cadre de participation d'évènement sportifs à sponsoriser"); // TODO
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "home");
+
+		$Group = $this->model = new PageModel();
+		$AllfourEvents = $Group->SeeFourEvents();
+		$AllLastGroups = $Group->SeeLastGroups();
+		$DoneGroup = $Group->SeeDoneGroup();
+		$AllLastSponsors = $Group->SeeLastSponsors();
 		
-		$LastGroup = $this->model = new PageModel();
-		$AllLastGroups = $LastGroup->SeeLastGroups();
+		$array = '';
+		$array['slider'] = $AllfourEvents;
+		$array['group'] = $AllLastGroups;
+		$array['sponsor'] = $AllLastSponsors;
+		$array['done'] = $DoneGroup;
+
+        $i = 0;
+		foreach($array['group'] as $k => $t){
+		    $CountLastGroups = $Group->CountLastGroups($t['group_id']);
+		    $CountDonut = $Group->CountDonut($t['group_id']);
+		    // var_dump($CountDonut);
+		    $array['group'][$i] = array_merge($t, $CountLastGroups, $CountDonut);
+		    $i ++;
+		}
+		//var_dump($array['group']);
 		
-		echo '<h1>VAR_DUMP: les derniers groupes de projets ajoutés</h1>';
-		var_dump($AllLastGroups);
 		// Appel de la vue 
-		$this->load->view('page', 'home', $AllLastGroups); // TODO
+		$this->load->view('page', 'home', $array); // TODO
+	
+	}
+	
+	/**
+	 * Page static INDEX
+	 */
+	public function Notfound(){
+
+		// Définition des constante
+		define("PAGE_TITLE", SITE_NAME . " home");
+		define("PAGE_DESCR", SITE_NAME . " - ERROR"); // TODO
+		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_ID", "notfound");
+		
+		// Appel de la vue 
+		$this->load->view('layout', 'notfound'); // TODO
 	
 	}
 	

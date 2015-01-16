@@ -1,66 +1,35 @@
-		<div class="header">
-			<div class="logo show-for-small-only">
-				<a href="index.php"><img src="img/logo_mobile.png" alt=""></a>
-			</div>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="google-site-verification" content="1EVwB4lBqged9t4drbHK5koCvzph3PSlvaodOb1xD3g">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><?php echo PAGE_TITLE; ?></title>
+    <meta name="description" content="<?php echo PAGE_DESCR; ?>">
 
-			<nav class="show-for-small-only menu-mobile">
-				<ul>
-					<li><a href="list_events.php">let's see events</a></li>
-					<li><a href="">they helped them</a></li>
-					<li class="join"><a href="create.php">ready for your adventure ?</a></li>
-					<li class="clearfix"><a class="connect popup-with-form" href="#form-login">Login</a><a href="register.php" class="register">Sign up</a></li>
-					<li><a target="_blank" href="https://www.facebook.com/challengesplanet?fref=ts"><img src="img/fb.png" height="42" width="44" alt=""></a>
-					<a href="https://twitter.com/ChallPlanet" target="_blank"><img src="img/twitter.png" alt=""></a>
-					<a href="" target="_blank"><img src="img/google+.png" alt=""></a>
-					</li>
-				</ul>
-			</nav>
+	<meta name="google-site-verification" content="w-H4iipKymZTQfZRGhRaM4Cprp5WG9y3sByMi22zXSw">
+
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+	<link rel="stylesheet" href="css/homec.css">
+	<link rel="stylesheet" href="css/foundation.css">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+   	<link rel="stylesheet" href="css/jquery-ui.css">
+
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+  	<script src="js/jquery-ui.js"></script>
+
+    <script src="js/script.js"></script>
+   	<script src="js/slick/slick.js"></script>
+   	<script src="js/magnific-popup/jquery.magnific-popup.js"></script>
+   	<script src="js/happy/happy.js"></script>
 
 
-			<nav class="show-for-medium-up menu clearfix">
-				<div class="logo show-for-medium-up">
-					<a href="index.php"><img src="img/logo.png"alt=""></a>
-				</div>
-				<ul class="first-nav">
-					<li><a href="list_events.php">let's see events</a></li>
-					<li class="helped"><a href="arrivee.html">they helped them</a></li>
-					<li class="join"><a href="create.php" onClick="ga('send', 'event', 'link','clic', 'create-eventv3');">ready for your adventure ?</a></li>
-				</ul>
-				<ul class="second-nav clearfix">
-					<li><a class="connect popup-with-form" href="#form-login" onClick="ga('send', 'event', 'link','clic', 'connect3');">Login</a></li>
-					<li><a class="register" href="register.php" onClick="ga('send', 'event', 'link','clic', 'registerv3');">Sign up</a></li>
-
-					<ul class="social-media clearfix">
-						<li><a target="_blank" href="https://www.facebook.com/challengesplanet?fref=ts"><img src="img/fb.png" width="20" alt=""></a></li>
-						<li><a target="_blank" href="https://twitter.com/ChallPlanet"><img src="img/twitter.png" width="20" alt=""></a></li>
-						<li><a target="_blank" href="https://plus.google.com/116420885451887262970/about"><img src="img/google+.png" width="20" alt=""></a></li>
-					</ul>
-				</ul>
-			</nav>
-
-		    <form id="form-login" class="clearfix mfp-hide white-popup-block">
-		    	<div class="classic-login medium-6 columns">
-		    		<fieldset>
-		    			<h1>Start your challenge here !</h1>
-			            <label for="name">Email</label>
-			            <input id="email" name="email" type="text" placeholder="" required>
-			            <label for="password">Password</label>
-			            <input id="password" name="password" type="password" placeholder="" required>
-			            <a href="#" class="columns medium-6">forgot password ?</a>
-			            <a href="#" class="columns medium-6">forgot email ?</a>
-			            <input type="button" class="button-submit" value="login" alt="login">
-			        </fieldset>
-		    	</div>
-		    	<div class="medium-6 columns">
-		    		<fieldset>
-		    			<h1>Or sign up with your favorite social media !</h1>
-		    			<div class="social-sign-up">
-		    				<a href="#"><img src="img/fb-login.png">Sign up with Facebook</a>
-		    				<a href="#"><img src="img/google+_login.png">Sign up with Google +</a>
-		    				<a href="register.php">Or sign up with your email !</a>
-		    			</div>
-		    		</fieldset>
-		    	</div>
-		    </form>
-
-		</div>
+</head>
+<? include("menutop.inc.php"); ?>
