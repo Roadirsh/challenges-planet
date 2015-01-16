@@ -27,9 +27,14 @@
                 <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
             <? $_SESSION['message'] = ''; } ?>
             <div class="row-fluid">		
+	        	<form class="form-horizontal" enctype="multipart/form-data" action="<? echo MODULE . 'user' . ACTION . 'uponeadmin'; ?>" method="post">
+
                 <div class="user user_profil">
                     <?php if(!empty($user['user_profil_pic'])){ ?>
 				        <img class="avatar" alt="Dennis Ji" src="images/avatar/<? echo $user['user_profil_pic']; ?>">
+				        
+				        <? echo $user['user_profil_pic']; ?>
+				        <input  type="hidden" name="profpic" value="<? echo $user['user_profil_pic']; ?>"/>
                     <? } else { ?>
 				        <img class="avatar" alt="Dennis Ji" src="images/avatar/default.png"> 
                     <? } ?> 
@@ -37,7 +42,6 @@
                 </div>	
                 <div class="user user_info">
                 
-                    <form class="form-horizontal" enctype="multipart/form-data" action="<? echo MODULE . 'user' . ACTION . 'uponeadmin'; ?>" method="post">
                     
                         <h3>
                             <input type='text' name="user_lastname" value="<? echo strtoupper($user['user_lastname']); ?>" /> 
@@ -68,7 +72,6 @@
                                             } ?> Phone</b>: <br>
                                 </span>
                                 <? if(!empty($infoplus['phone_num'])){ ?>
-                                    <input type="text" class="mini_num" name="phone_indi" value="<? echo $infoplus['phone_indi']; ?>"/>
                                     <input type="text" name="phone_num" value="<? echo $infoplus['phone_num']; ?>" />
                                 <? } else { ?>
                                     <input type="text" class="mini_num" name="phone_indi" placeholder="+31"/>

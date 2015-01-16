@@ -92,9 +92,11 @@ class UserModel extends CoreModel{
 	public function upload($index, $destination)
 	{
 	   //Test1: fichier correctement uploadé
-	    if (!isset($_FILES["profil"]) OR $_FILES["profil"]['error'] > 0){
-		    return FALSE;
-		}
+	   /*
+		if (!isset($_FILES["profil"]) OR $_FILES["profil"]['error'] > 0){
+				    return FALSE;
+				}
+		*/
 	   	//Déplacement
 	    return move_uploaded_file($index,$destination);
 	}
@@ -547,29 +549,49 @@ class UserModel extends CoreModel{
        
        
     /**
-	 * Voir un utilisateur NON ADMINS
+	 * Update un utilisateur admin
 	 */
 	public function Uponeadmin(){
 	    $userID = $_SESSION['userID'];
 	    
+	    
     	try {
     	    // UPDATE DANS LA TABLE USER 
-    	    $update = $this->connexion->prepare("UPDATE " . PREFIX . "user 
-    	                                        SET
-    	                                        `user_lastname` = :lastname,
-    	                                        `user_firstname` = :firstname,
-    	                                        `user_mail` = :mail,
-    	                                        `user_pseudo` = :pseudo,
-    	                                        `user_password` = :password
-    	                                        WHERE user_id = " . $userID); 
-    	                                        // `user_profil_pic` = :profpic
+    	   
+			$requete = "UPDATE " . PREFIX . "user SET `user_lastname` = :lastname, `user_firstname` = :firstname, `user_mail` = :mail, `user_pseudo` = :pseudo,";
+			
+			if(isset($_POST['user_password']) && !empty($_POST['user_password']))
+			{
+			    $requete .= "`user_password` = :password,";
+			}
+			
+    	    $requete .="`user_profil_pic` = :profpic WHERE user_id = :id";
+    	    
+    	    $update = $this->connexion->prepare($requete); 
 
             $update->bindParam(':lastname', $_POST['user_lastname']);
             $update->bindParam(':firstname', $_POST['user_firstname']);
             $update->bindParam(':mail', $_POST['user_mail']);
             $update->bindParam(':pseudo', $_POST['user_pseudo']);
-            $update->bindParam(':password', md5($_POST['user_password']));
-            //$update->bindParam(':profpic', $_FILES['user_profil_pic']);
+            $update->bindParam(':id', $userID);
+			if(isset($_POST['user_password']) && !empty($_POST['user_password']))
+			{
+            	$update->bindParam(':password', md5($_POST['user_password']));
+            }
+            if(isset($_FILES))
+            {
+	            $profpic = uniqid().$_FILES['user_img']['name'];
+	            $update->bindParam(':profpic', $profpic);
+				$string= '../public/images/avatar/'.$profpic;
+				$this->upload($_FILES['user_img']['tmp_name'], $string);
+				
+
+            }
+            else
+            {
+	        	$update->bindParam(':profpic', $_POST['profpic']);
+
+            }
             
 			$update->execute();
 			
@@ -594,11 +616,9 @@ class UserModel extends CoreModel{
             // UPDATE DANS LA TABLE PHONE
 			$update2 = $this->connexion->prepare("UPDATE " . PREFIX . "phone 
     	                                        SET
-    	                                        `phone_indi` = :indi,
     	                                        `phone_num` = :num
     	                                        WHERE user_user_id = " . $userID); 
 
-            $update2->bindParam(':indi', $_POST['phone_indi']);
             $update2->bindParam(':num', $_POST['phone_num']);
             
 			$update2->execute();
