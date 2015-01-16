@@ -1,4 +1,4 @@
-        <div class="wrapper row-offcanvas row-offcanvas-left">
+        <!-- <div class="wrapper row-offcanvas row-offcanvas-left"> -->
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
                 <!-- sidebar: style can be found in sidebar.less -->
@@ -15,9 +15,9 @@
                     <!-- search on all the dashboard -->
                     <form action="" method="post" class="sidebar-form">
                         <div class="input-group">
-                            <input type="text" name="search" id="search" type="text" value="" class="form-control" placeholder="Search...">
+<!--                             <input type="text" name="searchMenu" id="searchMenu"  value="" class="form-control" placeholder="Search..."> -->
                             <span class="input-group-btn">
-                                <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                                <button type="submit" id="search-btnMenu" class="btn btn-flat"><i class="fa fa-search"></i></button>
                             </span>
                         </div>
                     </form>

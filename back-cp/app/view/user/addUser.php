@@ -18,7 +18,6 @@
     <!-- Main content -->
     <section class="content">
         <div id="content" class="span10">
-
 			<div class="row-fluid sortable">
 				<div class="box-content">
                     <div class="box box-success">
@@ -65,7 +64,7 @@
         								</div>
         							</div>
         							<div class="control-group">
-        								<label class="control-label" for="phoneIndicator">Phone: </label>
+        								<label class="control-label" for="phoneNumber">Phone: </label>
         								<div class="controls">
         									<input class="input-large focused" name="phoneNumber" id="phoneNumber" type="text" title='The phone number must be between 6 and 14 numbers and begin with a "+".' pattern="^\+(?:[0-9]?){6,14}[0-9]$" placeholder="+33xxxxxxx">
         								</div>
@@ -86,7 +85,7 @@
         							<div class="control-group">
         								<label class="control-label" for="profil">Profil pic':</label>
         								<div class="controls">
-        									<input class="input-xlarge focused" name="profil" id="profil" type="file" value="">
+        									<input class="input-xlarge focused" name="profil" id="profil" type="file">
         								</div>
         							</div>
         							
@@ -166,11 +165,11 @@
         							</div>
                                 </div>
         					</form>
-                        </div>
+						</div>
                     </div>
-				
 				</div>
-            </section><!-- /.content -->
-        </aside><!-- /.right-side -->
-    </div>
+            </div>
+		</div>
+    </section><!-- /.content -->
+</aside><!-- /.right-side -->
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

@@ -24,7 +24,7 @@
                     <!-- search on all the dashboard -->
                     <form action="" method="post" class="sidebar-form">
                         <div class="input-group">
-                            <input type="text" name="search" id="search" type="text" value="" class="form-control" placeholder="Search...">
+                            <input type="text" name="search" id="search" value="" class="form-control" placeholder="Search...">
                             <span class="input-group-btn">
                                 <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
                             </span>

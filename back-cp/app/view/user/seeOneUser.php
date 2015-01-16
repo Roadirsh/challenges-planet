@@ -59,8 +59,9 @@
                         <? while(count($infoplus) > $i){ ?>
                         
                         <ul>
-                            <b><? if(!empty($infoplus[$i]['ad_type'])){ echo $infoplus[$i]['ad_type']; } ?> address </b>:
                             <li>
+                            	<? if(!empty($infoplus[$i]['ad_type'])){ echo $infoplus[$i]['ad_type']; } ?> address:
+
                                 <? if(!empty($infoplus[$i]['ad_num'])){ echo $infoplus[$i]['ad_num']; } ?>
                                 <? if(!empty($infoplus[$i]['ad_street'])){ echo $infoplus[$i]['ad_street']; } ?>
                             </li>
@@ -95,13 +96,11 @@
                 </table>
                 <? } else { ?>
                     <div class="alert alert-info user_event">
-        				<center>There is no event or groups linked</center>
+        				There is no event or groups linked
         			</div>
                 <? } ?>
-                
-			</div><!--/row-->
-        </section><!-- /.content -->
-    </aside><!-- /.right-side -->
-</div>
-
+            </div>
+		</div><!--/row-->
+    </section><!-- /.content -->
+</aside><!-- /.right-side -->
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

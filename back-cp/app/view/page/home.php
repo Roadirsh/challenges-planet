@@ -90,9 +90,6 @@
                             </div>
                         </div><!-- ./col -->
                     </div><!-- /.row -->
-
-                    </div><!-- /.row (main row) -->
-
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
