@@ -25,20 +25,6 @@ class UserModel extends CoreModel{
 	private $nameImg;
 	private $userProfPicTmp;
 	private $userType;
-
-	
-	private $userPhone;
-
-	private $nomRueHome;
-	private $numRueHome;
-	private $zipcodeHome;
-	private $cityHome;
-	private $countryHome;
-	private $nomRueInvoice;
-	private $numRueInvoice;
-	private $zipcodeInvoice;
-	private $cityInvoice;
-	private $countryInvoice;
 	
 	/**
 	 * Constructor
@@ -62,17 +48,6 @@ class UserModel extends CoreModel{
         		}else{
         			$this->setUserProfPic('');
         		}
-
-        		//adresse
-        		$this->setUserNumRue($post['numRueHome'], $post["numRueInvoice"]);
-        		$this->setUserNomRue($post['nomRueHome'], $post['nomRueInvoice']);
-        		$this->setUserZipcode($post["zipcodeHome"], $post["zipcodeInvoice"]);
-        		$this->setUserCity($post['cityHome'], $post['cityInvoice']);
-        		$this->setUserCountry($post["countryHome"], $post['countryInvoice']);
-        		if(isset($post["phoneNumber"]) && !empty($post["phoneNumber"]))
-        		{
-        			$this->setUserPhone($post["phoneNumber"]);
-        		}
             }
     		
         } else {
@@ -92,11 +67,9 @@ class UserModel extends CoreModel{
 	public function upload($index, $destination)
 	{
 	   //Test1: fichier correctement uploadé
-	   /*
-		if (!isset($_FILES["profil"]) OR $_FILES["profil"]['error'] > 0){
-				    return FALSE;
-				}
-		*/
+	    if (!isset($_FILES["profil"]) OR $_FILES["profil"]['error'] > 0){
+		    return FALSE;
+		}
 	   	//Déplacement
 	    return move_uploaded_file($index,$destination);
 	}
@@ -132,39 +105,6 @@ class UserModel extends CoreModel{
         }
 
 	}
-	
-	/**
-	 * Vérification d'un email, pour éviter les doublons
-	 */
-	public function email_exist($mail)
-	{
-		try {
-			
-            $select = $this->connexion->prepare("SELECT count(*) as exist
-                                            FROM " . PREFIX . "user WHERE user_mail = :mail");
-            			
-            $select->bindParam(':mail', $mail);
-            $select->execute();
-			$select->setFetchMode(PDO::FETCH_ASSOC);
-			$select = $select -> FetchAll();
-			
-			if($select[0]['exist'] == 1)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }
-
-	}
-
 	/**
 	 * Ajout d'un utilisateur si il n'existe pas déjà
 	 */
@@ -178,24 +118,8 @@ class UserModel extends CoreModel{
 		$profpic = $this->getUserProfPic();
 		$tmp = $this->getEmplacementImg();
 		$type = $this->getUserType();
-
-		$streetHome = $this->getNomRueHome();
-		$numHome = $this->getNumRueHome();
-		$zipcodeHome = $this->getZipcodeHome();
-		$cityHome = $this->getCityHome();
-		$countryHome = $this->getCountryHome();
-		$streetInvoice = $this->getNomRueInvoice();
-		$numInvoice = $this->getNumRueInvoice();
-		$zipcodeInvoice = $this->getZipcodeInvoice();
-		$cityInvoice = $this->getCityInvoice();
-		$countryInvoice = $this->getCountryInvoice();
-		$phone = $this->getUserPhone();
 		$user_exist = $this->user_exist($pseudo);
-		$email_exist = $this->email_exist($mail);
-		
-
-		
-		if($user_exist || $email_exist )
+		if($user_exist)
 		{
 			return true;
 		}
@@ -219,49 +143,18 @@ class UserModel extends CoreModel{
 				$insert->execute();
 				
 				if(!empty($profpic)){
-					$string= '../public/images/avatar/'.$profpic;
+					$string= '../public/img/avatar/'.$profpic;
 					$this->upload($tmp, $string);
 				}
-
-				$id = $this->connexion->lastInsertId();
-				// Insert home adress
-				$insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'home', :user_id)");
-	            
-				
-				
-	            $insert->bindParam(':num', $numHome);
-	            $insert->bindParam(':street', $streetHome);
-	            $insert->bindParam(':zipcode', $zipcodeHome);
-	            $insert->bindParam(':city', $cityHome);
-	            $insert->bindParam(':country', $countryHome);
-	            $insert->bindParam(':user_id', $id);
-	            
-				$insert->execute();
-				
-				// Insert invoice adress
-				$insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'invoice', :user_id)");
-	            
-				
-				
-	            $insert->bindParam(':num', $numInvoice);
-	            $insert->bindParam(':street', $streetInvoice);
-	            $insert->bindParam(':zipcode', $zipcodeInvoice);
-	            $insert->bindParam(':city', $cityInvoice);
-	            $insert->bindParam(':country', $countryInvoice);
-	            $insert->bindParam(':user_id', $id);
-	            
-				$insert->execute();
-
-				if($phone != null)
-				{
-					$insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_phone` (`phone_id`, `phone_date`, `phone_num`, `user_user_id`) VALUES (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
+				if(isset($_POST['numRue']) && isset($_POST['nomRue']) && isset($_POST['zipcode']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['typeAdress']) )
+				{	
+					include_once '../conf/mysql.php';
+					require_once 'AdressModel.php';
+					$adress = new AdressModel($_POST['nomRue'],$_POST['numRue'],$_POST['zipcode'],$_POST['city'],$_POST['country'], $_POST['typeAdress']);
 					
-					$insert->bindParam(':phone', $phone);
-					$insert->bindParam(':id', $id);
 					
-					$insert->execute();
+					$adress->insertNewAdress();
 				}
-				
 				return false;
 	        }
 	
@@ -295,10 +188,8 @@ class UserModel extends CoreModel{
         return $this->userBirthday;
 	}
 	public function setUserBirthday($birthday){
-		if($birthday > "1900-01-01" && $birthday < date('Y-m-d', strtotime('-13 years')))
-		{
-			$this->userBirthday = $birthday;
-		}
+		$birthday = (int) date('Ymd', strtotime($birthday)); //en int.
+		$this->userBirthday = $birthday;
 	}
 
     /**
@@ -549,51 +440,41 @@ class UserModel extends CoreModel{
        
        
     /**
-	 * Update un utilisateur admin
+	 * Voir un utilisateur NON ADMINS
 	 */
-	public function Uponeadmin(){
-	    $userID = $_SESSION['userID'];
-	    
+	public function Uponeuser(){
+	    $userID = $_GET['id'];
 	    
     	try {
     	    // UPDATE DANS LA TABLE USER 
-    	   
-			$requete = "UPDATE " . PREFIX . "user SET `user_lastname` = :lastname, `user_firstname` = :firstname, `user_mail` = :mail, `user_pseudo` = :pseudo,";
-			
-			if(isset($_POST['user_password']) && !empty($_POST['user_password']))
-			{
-			    $requete .= "`user_password` = :password,";
-			}
-			
-    	    $requete .="`user_profil_pic` = :profpic WHERE user_id = :id";
-    	    
-    	    $update = $this->connexion->prepare($requete); 
+    	    $update = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+    	                                        SET
+    	                                        `user_lastname` = :lastname,
+    	                                        `user_firstname` = :firstname,
+    	                                        `user_mail` = :mail,
+    	                                        `user_pseudo` = :pseudo
+    	                                        WHERE user_id = " . $userID); 
+    	                                        // `user_profil_pic` = :profpic
 
             $update->bindParam(':lastname', $_POST['user_lastname']);
             $update->bindParam(':firstname', $_POST['user_firstname']);
             $update->bindParam(':mail', $_POST['user_mail']);
             $update->bindParam(':pseudo', $_POST['user_pseudo']);
-            $update->bindParam(':id', $userID);
-			if(isset($_POST['user_password']) && !empty($_POST['user_password']))
-			{
-            	$update->bindParam(':password', md5($_POST['user_password']));
-            }
-            if(isset($_FILES))
-            {
-	            $profpic = uniqid().$_FILES['user_img']['name'];
-	            $update->bindParam(':profpic', $profpic);
-				$string= '../public/images/avatar/'.$profpic;
-				$this->upload($_FILES['user_img']['tmp_name'], $string);
-				
-
-            }
-            else
-            {
-	        	$update->bindParam(':profpic', $_POST['profpic']);
-
-            }
+            //$update->bindParam(':profpic', $_FILES['user_profil_pic']);
             
 			$update->execute();
+			
+			if(!empty($_POST['user_password'])){
+    			$update3 = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+    	                                        SET
+    	                                        `user_password` = :password
+    	                                        WHERE user_id = " . $userID); 
+    	                                        // `user_profil_pic` = :profpic
+
+                $update3->bindParam(':password', $_POST['user_password']);
+                
+    			$update3->execute();
+			}
 			
 			// UPDATE DANS LA TABLE ADRESS
 			$update1 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
@@ -616,9 +497,11 @@ class UserModel extends CoreModel{
             // UPDATE DANS LA TABLE PHONE
 			$update2 = $this->connexion->prepare("UPDATE " . PREFIX . "phone 
     	                                        SET
+    	                                        `phone_indi` = :indi,
     	                                        `phone_num` = :num
     	                                        WHERE user_user_id = " . $userID); 
 
+            $update2->bindParam(':indi', $_POST['phone_indi']);
             $update2->bindParam(':num', $_POST['phone_num']);
             
 			$update2->execute();
@@ -698,6 +581,7 @@ class UserModel extends CoreModel{
 		$select -> setFetchMode(PDO::FETCH_ASSOC);
 		$retour = $select -> fetchAll();
 		
+		//var_dump($retour); exit();
 		return $retour;
     }
     
@@ -709,34 +593,14 @@ class UserModel extends CoreModel{
     	$deluserID = $_GET['id'];
     	
     	try {
-	    	$select  = $this->connexion->prepare("Select user_profil_pic FROM " . PREFIX . "user where user_id = '" . $deluserID . "'" );
-	    	$select->execute();
-	    	$select -> setFetchMode(PDO::FETCH_ASSOC);
-			$retour = $select -> fetch();
-			/*
-echo "<pre>";
-			
-			var_dump($retour[0]['user_profil_pic']);
-			echo "</pre>";
-			exit();
-*/
-			$retour = $retour['user_profil_pic'];
-			$file = '../public/images/avatar/'.$retour;
-			
-			if(file_exists($file) && $file != '../public/images/avatar/')
-			{
-	    		unlink($file);
-			}
-			
     	    // rajouer un trigger corbeille
-        	$delete = $this->connexion->prepare("DELETE
+        	$select = $this->connexion->prepare("DELETE
                                             FROM " . PREFIX . "user
                                             where user_id = '" . $deluserID . "'");
            
             //var_dump($select); exit();
-            $delete -> execute();
+            $select -> execute();
             
-
             //var_dump($AllUser);
             return true;
             
@@ -746,131 +610,6 @@ echo "<pre>";
         }
     	
 	}
-
-	
-	
-	
-	
-	
-	
-		
-	/**
-	 * SETTERS & GETTERS voir le num de la rue d'un utilisateur
-	 */
-	public function getnumRueHome()
-	{
-		return $this->numRueHome;
-	}
-	public function getnumRueInvoice()
-	{
-		return $this->numRueInvoice;
-	}
-	public function setUserNumRue($numRueHome, $numRueInvoice)
-	{
-		if(is_string($numRueHome) && is_string($numRueInvoice))
-		{
-			$this->numRueHome = $numRueHome;
-			$this->numRueInvoice = $numRueInvoice;
-		}
-	}
-	
-	
-	/**
-	 * SETTERS & GETTERS voir le nom de la rue d'un utilisateur
-	 */
-	public function getNomRueHome()
-	{
-		return $this->nomRueHome;
-	}
-	public function getNomRueInvoice()
-	{
-		return $this->nomRueInvoice;
-	}
-	public function setUserNomRue($nomRueHome, $nomRueInvoice)
-	{
-		if(is_string($nomRueHome) && is_string($nomRueInvoice))
-		{
-			$this->nomRueHome = $nomRueHome;
-			$this->nomRueInvoice = $nomRueInvoice;
-		}
-	}
-		
-	/**
-	 * SETTERS & GETTERS voir code postal d'un utilisateur
-	 */
-	public function getZipcodeHome()
-	{
-		return $this->zipcodeHome;
-	}
-	public function getZipcodeInvoice()
-	{
-		return $this->zipcodeInvoice;
-	}
-	public function setUserZipcode($zipcodeHome, $zipcodeInvoice)
-	{
-		if(is_string($zipcodeHome) && strlen($zipcodeHome) <= 9 && strlen($zipcodeHome) >= 1 && is_string($zipcodeInvoice) && strlen($zipcodeInvoice) <= 9 && strlen($zipcodeInvoice) >= 1)
-		{
-			$this->zipcodeHome = $zipcodeHome;
-			$this->zipcodeInvoice = $zipcodeInvoice;
-		}
-	}
-	
-	/**
-	 * SETTERS & GETTERS voir la ville d'un utilisateur
-	 */
-	public function getCityHome()
-	{
-		return $this->cityHome;
-	}
-	public function getCityInvoice()
-	{
-		return $this->cityInvoice;
-	}
-	public function setUserCity($cityHome, $cityInvoice)
-	{
-		if(is_string($cityHome) && is_string($cityInvoice))
-		{
-			$this->cityHome = $cityHome;
-			$this->cityInvoice = $cityInvoice;
-		}
-	}
-	
-	/**
-	 * SETTERS & GETTERS voir le pays d'un utilisateur
-	 */
-	public function getCountryHome()
-	{
-		return $this->countryHome;
-	}
-	public function getCountryInvoice()
-	{
-		return $this->countryInvoice;
-	}
-	public function setUserCountry($countryHome, $countryInvoice)
-	{
-		$arrayCountry = getPays();
-		$arrayCountry = array_map('strtolower', $arrayCountry);
-		$countryHome = strtolower($countryHome);
-		$countryInvoice = strtolower($countryInvoice);
-		if(in_array($countryHome, $arrayCountry) && in_array($countryInvoice, $arrayCountry))
-		{
-			$this->countryHome = $countryHome;
-			$this->countryInvoice = $countryInvoice;
-		}
-	}
-	public function getUserPhone()
-	{
-		return $this->userPhone;
-	}
-	public function setUserPhone($phone){
-	
-		if(preg_match("/^\+(?:[0-9]?){6,14}[0-9]$/", $phone))
-		{
-			$this->userPhone = $phone;
-		}
-	}
-
-
 
 }
 

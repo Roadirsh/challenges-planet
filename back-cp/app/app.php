@@ -59,6 +59,4 @@
         include_once('model/' . $module . 'Model.php');
 	}
 	
-		
-
 	$index = new $controller();

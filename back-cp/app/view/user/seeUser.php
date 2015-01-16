@@ -22,9 +22,9 @@
                 <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
             <? $_SESSION['message'] = ''; } ?>
                     <!-- search on all the dashboard -->
-                    <form action="?" method="post" class="sidebar-form">
+                    <form action="" method="post" class="sidebar-form">
                         <div class="input-group">
-                            <input type="text" name="search" id="search" value="" class="form-control" placeholder="Search...">
+                            <input type="text" name="search" id="search" type="text" value="" class="form-control" placeholder="Search...">
                             <span class="input-group-btn">
                                 <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
                             </span>
@@ -72,7 +72,7 @@
         								<? } ?>
         								</td>
         								<td class="center">
-        									<a class="btn btn-info" href="">
+        									<a class="btn btn-info" href="<? //echo MODULE . 'user' . ACTION . 'uponeuser' . ID . $AllUser['user_id']; ?>">
         										<i class="fa fa-pencil-square-o"></i>  
         									</a>
         									<a class="btn btn-danger" href="<? echo MODULE . 'user' . ACTION . 'deluser' . ID . $AllUser['user_id']; ?>">

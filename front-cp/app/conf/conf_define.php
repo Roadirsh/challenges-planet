@@ -27,3 +27,5 @@
 	define('BASE_DIR', "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));
 // Slogan du site
 	define("JOIN", "<span>Join </span>the best caritives student challenges");
+
+	

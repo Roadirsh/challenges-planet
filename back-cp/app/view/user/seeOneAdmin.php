@@ -27,20 +27,17 @@
                 <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
             <? $_SESSION['message'] = ''; } ?>
             <div class="row-fluid">		
-	        	<form class="form-horizontal" enctype="multipart/form-data" action="<? echo MODULE . 'user' . ACTION . 'uponeadmin'; ?>" method="post">
-
                 <div class="user user_profil">
                     <?php if(!empty($user['user_profil_pic'])){ ?>
 				        <img class="avatar" alt="Dennis Ji" src="images/avatar/<? echo $user['user_profil_pic']; ?>">
-				        
-				        <input  type="hidden" name="profpic" value="<? echo $user['user_profil_pic']; ?>"/>
                     <? } else { ?>
 				        <img class="avatar" alt="Dennis Ji" src="images/avatar/default.png"> 
                     <? } ?> 
-                    <input type="file" name="user_img" />
+                    <center><input type="file" name="user_img" /></center>
                 </div>	
                 <div class="user user_info">
                 
+                    <form class="form-horizontal" enctype="multipart/form-data" action="<? echo MODULE . 'user' . ACTION . 'uponeadmin'; ?>" method="post">
                     
                         <h3>
                             <input type='text' name="user_lastname" value="<? echo strtoupper($user['user_lastname']); ?>" /> 
@@ -59,7 +56,7 @@
                         <p><small><em>sign up date : <? echo $user['user_date']; ?> </em></small></p>
                         <ul class="admin_info">
                             <li>
-                                <span><b>Type</b>: <? echo $user['user_type']; ?></span>
+                                <span><b>Type</b>: <? echo $user['user_type']; ?>
                             </li>
                             <li>
                                 <span><b>E-mail</b>: <br></span><input type='email' name="user_mail" value="<? echo $user['user_mail']; ?>" />
@@ -71,8 +68,10 @@
                                             } ?> Phone</b>: <br>
                                 </span>
                                 <? if(!empty($infoplus['phone_num'])){ ?>
+                                    <input type="text" class="mini_num" name="phone_indi" value="<? echo $infoplus['phone_indi']; ?>"/>
                                     <input type="text" name="phone_num" value="<? echo $infoplus['phone_num']; ?>" />
                                 <? } else { ?>
+                                    <input type="text" class="mini_num" name="phone_indi" placeholder="+31"/>
                                     <input type="text" name="phone_num" />
                                 <? } ?> 
                             </li>
@@ -80,9 +79,8 @@
                         </ul>
                         
                         <ul class="admin_info">
-                           
+                            <b>Adress</b>:
                             <li>
-                             Adress:
                                 <? if(!empty($infoplus['ad_num'])){ ?>
                                     <input type="text" name="ad_num" value="<? echo $infoplus['ad_num']; ?>" />
                                 <? } else { ?> 
@@ -117,10 +115,9 @@
                         
         				<div style="clear:both"></div>
         				<input type="submit" class="btn btn-success">
+                    </form>
                     
                 </div>
-                </form>
-
                 <div style="clear:both"></div>
         	</div><!--/row-->
         </div>

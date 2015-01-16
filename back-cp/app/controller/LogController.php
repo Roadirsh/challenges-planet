@@ -8,18 +8,17 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-//echo $_GET['action']; exit();
+
 class LogController extends CoreController{
 	/**
 	 * Constructor
 	*/
 	function __construct(){
 		parent::__construct();
-		//echo $_GET['action']; exit();
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
-			if(method_exists($this, $action)){
+			if(function_exists($action)){
     			$this->$action();
 			} else{
     			$this->Login();
@@ -88,9 +87,7 @@ class LogController extends CoreController{
 		}
 	}
 
-	public function Jexisteconnard(){
-		echo "fdp";
-	}
+
 	/**
 	 * Logout
 	 */

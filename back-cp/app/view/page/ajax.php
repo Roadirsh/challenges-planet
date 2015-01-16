@@ -3,7 +3,7 @@
 ?>
 
 <h1>Test ajax baby</h1>
-<form id="formu" name="sample" action="?" method="post" role="form">
+<form id="formu" name="sample" action="" method="post" role="form">
     <label for="num1">Numero 1</label>
     <input type="text" name="num1" id="num1"><br>
     <label for="num1">Numero 2</label>
