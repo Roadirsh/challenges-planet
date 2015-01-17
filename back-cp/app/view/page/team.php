@@ -21,7 +21,7 @@
             <?if(!empty($_SESSION['message'])){ ?>
                 <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
             <? $_SESSION['message'] = ''; } ?>
-        	<div class="box span13" onTablet="span13" onDesktop="span13">
+        	<div class="box span13" >
         		<div class="box-content box-info">
         			<ul class="dashboard-list admin">
         			<?php foreach($data as $k => $AllTeam){ ?>
@@ -58,8 +58,8 @@
         			</ul>
         		</div>
             </div>
-            </section><!-- /.content -->
-        </aside><!-- /.right-side -->
-    </div>
+		</div>
+    </section><!-- /.content -->
+</aside><!-- /.right-side -->
 
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

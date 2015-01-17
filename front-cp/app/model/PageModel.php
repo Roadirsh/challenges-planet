@@ -53,7 +53,7 @@ class PageModel extends CoreModel{
                                             AND A.group_id = C.group_group_id
                                             AND B.event_id = C.event_event_id
                                             GROUP BY A.group_id
-                                            LIMIT 7");
+                                            LIMIT 6");
 
             //var_dump($select);
             $select -> execute();

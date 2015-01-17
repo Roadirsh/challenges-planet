@@ -43,6 +43,7 @@ class CoreModel{
 	 */
 	private function coreBdError($e){
 		echo SITE_NAME." : Désolé, une erreur est survenue !";
+		var_dump($e);
 		exit;
 	}
 	

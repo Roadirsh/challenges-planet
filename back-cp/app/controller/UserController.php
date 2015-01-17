@@ -111,7 +111,7 @@ class UserController extends CoreController {
 	public function Uponeadmin(){
 	
 	    $upOneAdmin = $this->model = new UserModel();
-		$upAdmin = $upOneAdmin->Uponeuser();
+		$upAdmin = $upOneAdmin->Uponeadmin();
 		
 		$_SESSION['message'] = "You've succeed in updating your profil";
 		$this->coreRedirect('user', 'seeOneAdmin');
@@ -146,7 +146,6 @@ class UserController extends CoreController {
 		}
 	
 	}
-	
 	
 	/**
 	 * Supprimer un utilisateur

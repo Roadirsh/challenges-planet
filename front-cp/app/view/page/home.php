@@ -112,7 +112,7 @@
     		    <? foreach($sponsor as $k => $s){ ?>
     			<div class="medium-4 large-3 columns">
     				<div class="wrapper">
-    					<img src="img/avatar/<? echo $s['user_profil_pic']; ?>" alt="">
+    					<img src="img/organism/<? echo $s['user_profil_pic']; ?>" alt="">
     					<a class="website">Go their website</a>
     					<a class="sponsored">View events sponsored</a>
     				</div>

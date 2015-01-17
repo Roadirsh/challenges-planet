@@ -19,47 +19,46 @@
     <!-- Main content -->
     <section class="content">
     
-    <div id="content" class="span10">
-        <div class="row-fluid sortable">
-				<div class="box-content">
-                    <div class="box box-info">
-                        <div class="box-body">
-						<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
-						  <fieldset>
-							<div class="control-group">
-								<label class="control-label" for="name">Titre du groupe de projet</label>
-								<div class="controls">
-								  <input class="input-xlarge focused" id="name" name="name" type="text" value="" required>
+	    <div id="content" class="span10">
+	        <div class="row-fluid sortable">
+					<div class="box-content">
+	                    <div class="box box-info">
+	                        <div class="box-body">
+							<form class="form-horizontal" enctype="multipart/form-data" action="?" method="post">
+							  <fieldset>
+								<div class="control-group">
+									<label class="control-label" for="name">Titre du groupe de projet</label>
+									<div class="controls">
+									  <input class="input-xlarge focused" id="name" name="name" type="text" value="" required>
+									</div>
 								</div>
-							</div>
-                            <div class="control-group">
-                                <label>Description</label>
-                                <textarea class="form-control" rows="5" placeholder="Enter ..."></textarea>
-                            </div>   
-							<div class="control-group">
-							  <label class="control-label" for="image">Image</label>
-							  <div class="controls">
-								<input class="input-file uniform_on" id="image" name="image" type="file">
-							  </div>
-							</div>
-							<div class="control-group">
-							    <label class="checkbox" for="check">
-								    <input type="checkbox" id="check" name="check" value="oui">
-								Mettre en ligne
-                                </label>
-                            </div>
-							<div class="submit">
-							  <button type="submit" class="btn btn-primary">Submit</button>
-							</div>
-							
-						  </fieldset>
-						</form>   
-
-					</div>
-				</div><!--/span-->
-
-			</div><!--/row-->
-        </section><!-- /.content -->
-    </aside><!-- /.right-side -->
-</div>
+	                            <div class="control-group">
+	                                <label>Description</label>
+	                                <textarea class="form-control" rows="5" placeholder="Enter ..."></textarea>
+	                            </div>   
+								<div class="control-group">
+								  <label class="control-label" for="image">Image</label>
+								  <div class="controls">
+									<input class="input-file uniform_on" id="image" name="image" type="file">
+								  </div>
+								</div>
+								<div class="control-group">
+								    <label class="checkbox" for="check">
+									    <input type="checkbox" id="check" name="check" value="oui">
+									Mettre en ligne
+	                                </label>
+	                            </div>
+								<div class="submit">
+								  <button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+								
+							  </fieldset>
+							</form>   
+	                    </div>
+	                </div>
+				</div>
+			</div><!--/span-->
+		</div><!--/row-->
+    </section><!-- /.content -->
+</aside><!-- /.right-side -->
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

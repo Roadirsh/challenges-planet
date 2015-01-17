@@ -21,7 +21,6 @@ class PageController extends CoreController {
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
-			//echo $action; 
 			$this->$action();
 
 		} else {
@@ -46,12 +45,19 @@ class PageController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "home");
 
-
-		$count = $this->model = new PageModel();
-        $NbUser = $count->NbUsers();
-        $NbEvent = $count->NbEvents();
-        $NbGroup = $count->NbGroups();
-
+		if(isset($_POST) and !empty($_POST)){
+		    var_dump($_POST);
+            $search = $this->model = new PageModel($_POST);
+            $searchAll = $search->searchAll($_POST);
+            $this->coreRedirect('page', 'result', $searchAll);
+		} else{
+    		$count = $this->model = new PageModel();
+            $NbUser = $count->NbUsers();
+            $NbEvent = $count->NbEvents();
+            $NbGroup = $count->NbGroups();
+		}
+		
+		
 		$countArray = '';
 		$countArray['user'] = $NbUser;
 		$countArray['event'] = $NbEvent;
@@ -98,7 +104,7 @@ class PageController extends CoreController {
 	/**
 	 * Page static RESULTATS
 	 */
-	public function Result(){
+	public function Result($searchUser){
 
 		// Définition des constante
 		define("PAGE_TITLE", SITE_NAME . " home");
@@ -106,16 +112,8 @@ class PageController extends CoreController {
 		define("PAGE_KW", SITE_NAME); // TODO
 		define("PAGE_ID", "team");
 		
-		//echo 'lala';
-		if(isset($_POST) and !empty($_POST)){
-		    //var_dump($_POST); 
-            $search = $this->model = new PageModel($_POST);
-            $searchAll = $search->searchAll($_POST); //var_dump($searchAll); exit();
-            $this->coreRedirect('page', 'result', $searchAll);
-		}
-		$searchAll = '';
 		// Appel de la vue 
-		$this->load->view('page', 'result', $searchAll); // TODO
+		$this->load->view('page', 'result', $searchUser); // TODO
 	
 	}
 	
