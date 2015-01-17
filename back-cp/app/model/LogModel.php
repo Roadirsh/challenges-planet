@@ -54,7 +54,7 @@ class LogModel extends CoreModel{
 
 		$login = $post['login'];
 		$pwd = md5($post['pwd']);
-		//var_dump($post);
+		//var_dump(md5($post['pwd']));
 
 		try {
 			// on récupère toutes les informations d'un user s'il correspond au login et password
@@ -68,8 +68,10 @@ class LogModel extends CoreModel{
 			$select -> setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select -> fetchAll();
 			
+			//var_dump($retour); exit();
+			
             // création des cookies
-			if(count($retour) != 0){
+			if(count($retour) == '1'){
 				$_SESSION['connect_compte'] = true;
 				$_SESSION['user'] = $retour[0]['user_lastname'];
 				$_SESSION['userF'] = $retour[0]['user_firstname'];

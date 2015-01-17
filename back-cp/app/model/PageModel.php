@@ -155,7 +155,7 @@ class PageModel extends CoreModel{
 	public function SearchAll($post){
 	
 	    include('../lib/blacklist.inc.php');
-        $post = $_POST['search'];
+        $post = $_POST['searchALL'];
         $exp = explode(" ", $post);
 
 	    $i = 0;
@@ -258,11 +258,11 @@ class PageModel extends CoreModel{
     		                                " . PREFIX . "phone D, 
     		                                " . PREFIX . "user E
 		                                WHERE " . $ajout);
-        var_dump($select);
+        //var_dump($select);
 		$select -> execute();
 		$select -> setFetchMode(PDO::FETCH_ASSOC);
 		$retour = $select -> fetchAll();
 		
-		var_dump($retour); exit();
+		//var_dump($retour); exit();
     }
 }

@@ -54,5 +54,6 @@
         </div>
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
+</div>
 
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>
