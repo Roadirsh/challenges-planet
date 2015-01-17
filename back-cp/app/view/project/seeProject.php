@@ -23,13 +23,9 @@
                 <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
             <? $_SESSION['message'] = ''; } ?>
             <!-- search on all the dashboard -->
-<<<<<<< HEAD
-            <form action="" method="post" class="sidebar-form">
-=======
             <form action="?module=project&action=seeproject" method="post" class="sidebar-form">
->>>>>>> 217400ccbf52af8ea135db1f46e347b10d850f81
                 <div class="input-group">
-                    <input type="text" name="search" id="search" type="text" value="" class="form-control" placeholder="Search...">
+                    <input type="text" name="search" id="search" value="" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
                         <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
                     </span>
@@ -40,15 +36,15 @@
     				<center>There is no result to this research</center>
     			</div>
             <? } ?>
-        	<div class="box span13" onTablet="span12" onDesktop="span13">
+        	<div class="box span13">
         		<div class="box-content">
         			<ul class="dashboard-list">
         			<?php foreach($data as $k => $AllGroup){ ?>
         				<li class="allgroup">
-        					<a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . '&id=' . $AllGroup['group_id']; ?>">
+        					<a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . '&amp;id=' . $AllGroup['group_id']; ?>">
         						<img class="projet" alt="Dennis Ji" src="images/group/<? echo $AllGroup['group_img']; ?>">
         					</a>
-        					<strong>Name:</strong> <a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . '&id=' . $AllGroup['group_id']; ?>"><? echo $AllGroup['group_name']; ?></a><br>
+        					<strong>Name:</strong> <a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . '&amp;id=' . $AllGroup['group_id']; ?>"><? echo $AllGroup['group_name']; ?></a><br>
         					<span class="admin_status">
         					    <a class="btn btn-danger del" href="<? echo MODULE . 'project' . ACTION . 'delproject' . ID . $AllGroup['group_id']; ?>">
         							<i class="fa fa-trash-o"></i> 
@@ -73,6 +69,5 @@
             </div>
         </div>
     </section><!-- /.content -->
-    </aside><!-- /.right-side -->
-</div>
+</aside><!-- /.right-side -->
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

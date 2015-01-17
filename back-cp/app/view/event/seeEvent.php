@@ -17,19 +17,14 @@
 
     <!-- Main content -->
     <section class="content">
-
         <div id="content" class="span10">
             <?if(!empty($_SESSION['message'])){ ?>
                 <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
             <? $_SESSION['message'] = ''; } ?>
             <!-- search on all the dashboard -->
-<<<<<<< HEAD
-            <form action="" method="post" class="sidebar-form">
-=======
             <form action="?module=project&action=seeevent" method="post" class="sidebar-form">
->>>>>>> 217400ccbf52af8ea135db1f46e347b10d850f81
                 <div class="input-group">
-                    <input type="text" name="search" id="search" type="text" value="" class="form-control" placeholder="Search...">
+                    <input type="text" name="search" id="search" value="" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
                         <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
                     </span>
@@ -82,10 +77,10 @@
         					  </table>            
         					</div>
         				</div><!--/span-->
-        			
-        			</div><!--/row-->
+            </div>	
+   		</div><!--/row-->
     </section><!-- /.content -->
-    </aside><!-- /.right-side -->
+</aside><!-- /.right-side -->
 
 
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

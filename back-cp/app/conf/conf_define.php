@@ -28,9 +28,3 @@
     define("ID", '&amp;id=');
 // URL de la racine du serveur
 	define('BASE_DIR', "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));
-// lien vers le dossier avatar img
-	define("AVATAR", '../../../public/img/avatar/');
-// lien vers le dossier event img
-	define("EVENT", '../../../public/img/event/');
-// lien vers le dossier project img
-	define("PROJECT", '../../../public/img/group/');

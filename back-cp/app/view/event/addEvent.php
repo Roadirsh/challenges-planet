@@ -23,11 +23,7 @@
 				<div class="box-content">
                     <div class="box box-info">
                         <div class="box-body">
-<<<<<<< HEAD
-						<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
-=======
 						<form class="form-horizontal" enctype="multipart/form-data" action="?module=event&action=addevent" method="post">
->>>>>>> 217400ccbf52af8ea135db1f46e347b10d850f81
 							<fieldset>
 							<div class="control-group">
 								<label class="control-label" for="nameEvent">Nom de l'événement</label>

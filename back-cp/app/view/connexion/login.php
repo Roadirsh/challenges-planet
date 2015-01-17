@@ -4,7 +4,7 @@
             <div class="header logo">
                 Challenges Planet
             </div>
-            <form action="" method="post">
+            <form action="?" method="post">
                 <div class="body bg-gray">
                     <?if(!empty($_SESSION['message'])){ ?>
                         <div class="alert alert-warning" role="alert"><? echo $_SESSION['message']; ?></div>
