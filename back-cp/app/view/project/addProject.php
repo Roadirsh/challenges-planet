@@ -19,6 +19,7 @@
     <!-- Main content -->
     <section class="content">
     
+<<<<<<< HEAD
     <div id="content" class="span10">
         <div class="row-fluid sortable">
 				<div class="box-content">
@@ -30,6 +31,20 @@
 								<label class="control-label" for="name">Titre du groupe de projet</label>
 								<div class="controls">
 								  <input class="input-xlarge focused" id="name" name="name" type="text" value="" required>
+=======
+	    <div id="content" class="span10">
+	        <div class="row-fluid sortable">
+					<div class="box-content">
+	                    <div class="box box-info">
+	                        <div class="box-body">
+							<form class="form-horizontal" enctype="multipart/form-data" action="?module=project&action=addproject" method="post">
+							  <fieldset>
+								<div class="control-group">
+									<label class="control-label" for="name">Titre du groupe de projet</label>
+									<div class="controls">
+									  <input class="input-xlarge focused" id="name" name="name" type="text" value="" required>
+									</div>
+>>>>>>> 217400ccbf52af8ea135db1f46e347b10d850f81
 								</div>
 							</div>
                             <div class="control-group">

@@ -23,7 +23,11 @@
 				<div class="box-content">
                     <div class="box box-success">
                         <div class="box-body">
+<<<<<<< HEAD
         					<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
+=======
+        					<form class="form-horizontal" enctype="multipart/form-data" action="?module=user&action=adduser" method="post">
+>>>>>>> 217400ccbf52af8ea135db1f46e347b10d850f81
         					    
         						<div class="form-left">
         						<h3 class="box-title">Users Basic Information</h3>
