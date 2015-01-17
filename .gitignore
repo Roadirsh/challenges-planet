@@ -1,5 +1,10 @@
 back-cp/logs/*
+front-cp/logs/*
+
 .DS_Store
-back-cp/app/conf/conf_mysql.php
 cp.mwb.bak
+
+back-cp/app/conf/conf_mysql.php
+front-cp/app/conf/conf_mysql.php
+
 front-cp/public/.sass-cache/
