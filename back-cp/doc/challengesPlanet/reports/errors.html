@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; Compilation errors
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">229</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">346</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">Navigation</li>
+                                                                            <li><a href="#app/app.php"><i class="icon-file"></i> app/app.php</a></li>
+                                                                                                    <li><a href="#app/conf/conf_define.php"><i class="icon-file"></i> app/conf/conf_define.php</a></li>
+                                                                                                    <li><a href="#app/conf/conf_mysql.php"><i class="icon-file"></i> app/conf/conf_mysql.php</a></li>
+                                                                                                    <li><a href="#app/conf/conf_url.php"><i class="icon-file"></i> app/conf/conf_url.php</a></li>
+                                                                                                    <li><a href="#app/conf/messages.php"><i class="icon-file"></i> app/conf/messages.php</a></li>
+                                                                                                    <li><a href="#app/conf/mysql.php"><i class="icon-file"></i> app/conf/mysql.php</a></li>
+                                                                                                    <li><a href="#app/controller/AjaxController.php"><i class="icon-file"></i> app/controller/AjaxController.php</a></li>
+                                                                                                    <li><a href="#app/controller/EventController.php"><i class="icon-file"></i> app/controller/EventController.php</a></li>
+                                                                                                    <li><a href="#app/controller/LogController.php"><i class="icon-file"></i> app/controller/LogController.php</a></li>
+                                                                                                    <li><a href="#app/controller/NotfoundController.php"><i class="icon-file"></i> app/controller/NotfoundController.php</a></li>
+                                                                                                    <li><a href="#app/controller/PageController.php"><i class="icon-file"></i> app/controller/PageController.php</a></li>
+                                                                                                    <li><a href="#app/controller/ProjectController.php"><i class="icon-file"></i> app/controller/ProjectController.php</a></li>
+                                                                                                    <li><a href="#app/controller/UserController.php"><i class="icon-file"></i> app/controller/UserController.php</a></li>
+                                                                                                    <li><a href="#app/model/EventModel.php"><i class="icon-file"></i> app/model/EventModel.php</a></li>
+                                                                                                    <li><a href="#app/model/LogModel.php"><i class="icon-file"></i> app/model/LogModel.php</a></li>
+                                                                                                    <li><a href="#app/model/PageModel.php"><i class="icon-file"></i> app/model/PageModel.php</a></li>
+                                                                                                    <li><a href="#app/model/ProjectModel.php"><i class="icon-file"></i> app/model/ProjectModel.php</a></li>
+                                                                                                    <li><a href="#app/model/UserModel.php"><i class="icon-file"></i> app/model/UserModel.php</a></li>
+                                                                                                    <li><a href="#app/view/connexion/login.php"><i class="icon-file"></i> app/view/connexion/login.php</a></li>
+                                                                                                    <li><a href="#app/view/event/addEvent.php"><i class="icon-file"></i> app/view/event/addEvent.php</a></li>
+                                                                                                    <li><a href="#app/view/event/seeEvent.php"><i class="icon-file"></i> app/view/event/seeEvent.php</a></li>
+                                                                                                    <li><a href="#app/view/event/seeOneEvent.php"><i class="icon-file"></i> app/view/event/seeOneEvent.php</a></li>
+                                                                                                    <li><a href="#app/view/layout/footer.inc.php"><i class="icon-file"></i> app/view/layout/footer.inc.php</a></li>
+                                                                                                    <li><a href="#app/view/layout/header.inc.php"><i class="icon-file"></i> app/view/layout/header.inc.php</a></li>
+                                                                                                    <li><a href="#app/view/layout/input_txt.inc.php"><i class="icon-file"></i> app/view/layout/input_txt.inc.php</a></li>
+                                                                                                    <li><a href="#app/view/layout/menu.inc.php"><i class="icon-file"></i> app/view/layout/menu.inc.php</a></li>
+                                                                                                    <li><a href="#app/view/layout/menutop.inc.php"><i class="icon-file"></i> app/view/layout/menutop.inc.php</a></li>
+                                                                                                    <li><a href="#app/view/layout/notfound.php"><i class="icon-file"></i> app/view/layout/notfound.php</a></li>
+                                                                                                    <li><a href="#app/view/page/ajax.php"><i class="icon-file"></i> app/view/page/ajax.php</a></li>
+                                                                                                    <li><a href="#app/view/page/home.php"><i class="icon-file"></i> app/view/page/home.php</a></li>
+                                                                                                    <li><a href="#app/view/page/team.php"><i class="icon-file"></i> app/view/page/team.php</a></li>
+                                                                                                    <li><a href="#app/view/project/addProject.php"><i class="icon-file"></i> app/view/project/addProject.php</a></li>
+                                                                                                    <li><a href="#app/view/project/seeOneProject.php"><i class="icon-file"></i> app/view/project/seeOneProject.php</a></li>
+                                                                                                    <li><a href="#app/view/project/seeProject.php"><i class="icon-file"></i> app/view/project/seeProject.php</a></li>
+                                                                                                    <li><a href="#app/view/user/addUser.php"><i class="icon-file"></i> app/view/user/addUser.php</a></li>
+                                                                                                    <li><a href="#app/view/user/result.php"><i class="icon-file"></i> app/view/user/result.php</a></li>
+                                                                                                    <li><a href="#app/view/user/seeOneAdmin.php"><i class="icon-file"></i> app/view/user/seeOneAdmin.php</a></li>
+                                                                                                    <li><a href="#app/view/user/seeOneUser.php"><i class="icon-file"></i> app/view/user/seeOneUser.php</a></li>
+                                                                                                    <li><a href="#app/view/user/seeUser.php"><i class="icon-file"></i> app/view/user/seeUser.php</a></li>
+                                                                                                    <li><a href="#core/CoreController.php"><i class="icon-file"></i> core/CoreController.php</a></li>
+                                                                                                    <li><a href="#core/CoreModel.php"><i class="icon-file"></i> core/CoreModel.php</a></li>
+                                                                                                    <li><a href="#core/Load.php"><i class="icon-file"></i> core/Load.php</a></li>
+                                                                                                    <li><a href="#lib/blacklist.inc.php"><i class="icon-file"></i> lib/blacklist.inc.php</a></li>
+                                                                                                    <li><a href="#lib/lib.php"><i class="icon-file"></i> lib/lib.php</a></li>
+                                                                                                    <li><a href="#lib/Logger.class.php"><i class="icon-file"></i> lib/Logger.class.php</a></li>
+                                                                                                    <li><a href="#lib/mail.class.php"><i class="icon-file"></i> lib/mail.class.php</a></li>
+                                                                                                    <li><a href="#lib/pagination.php"><i class="icon-file"></i> lib/pagination.php</a></li>
+                                                                                                    <li><a href="#public/ajax/dashboard-boxrefresh-demo.php"><i class="icon-file"></i> public/ajax/dashboard-boxrefresh-demo.php</a></li>
+                                                                                                    <li><a href="#public/index.php"><i class="icon-file"></i> public/index.php</a></li>
+                                                                    </ul>
+        </div>
+
+        <div class="span10 offset2">
+            <ul class="breadcrumb">
+                <li><a href="../"><i class="icon-remove-sign"></i></a><span class="divider">\</span></li>
+                <li>Compilation Errors</li>
+            </ul>
+
+            
+                            <div class="package-contents">
+                                            <a name="app/app.php" id="app/app.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/app.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/conf/conf_define.php" id="app/conf/conf_define.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/conf/conf_define.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/conf/conf_mysql.php" id="app/conf/conf_mysql.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/conf/conf_mysql.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/conf/conf_url.php" id="app/conf/conf_url.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/conf/conf_url.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/conf/messages.php" id="app/conf/messages.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/conf/messages.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/conf/mysql.php" id="app/conf/mysql.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/conf/mysql.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/controller/AjaxController.php" id="app/controller/AjaxController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/controller/AjaxController.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/controller/EventController.php" id="app/controller/EventController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/controller/EventController.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/controller/LogController.php" id="app/controller/LogController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/controller/LogController.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>91</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/controller/NotfoundController.php" id="app/controller/NotfoundController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/controller/NotfoundController.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/controller/PageController.php" id="app/controller/PageController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/controller/PageController.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>107</td>
+                                        <td>Argument $searchUser is missing from the Docblock of Result</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/controller/ProjectController.php" id="app/controller/ProjectController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/controller/ProjectController.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/controller/UserController.php" id="app/controller/UserController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/controller/UserController.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/model/EventModel.php" id="app/model/EventModel.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/model/EventModel.php
+                            <small style="float: right;padding-right: 10px;">30</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>170</td>
+                                        <td>Argument $name is missing from the Docblock of setEventName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>177</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>185</td>
+                                        <td>Argument $descr is missing from the Docblock of setEventDescr</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>192</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>200</td>
+                                        <td>Argument $location is missing from the Docblock of setEventLocation</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>207</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>216</td>
+                                        <td>Argument $img is missing from the Docblock of setEventImg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>225</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>230</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>241</td>
+                                        <td>Argument $fichier is missing from the Docblock of isValidImg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>253</td>
+                                        <td>Argument $fichier is missing from the Docblock of getExtension</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>253</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>261</td>
+                                        <td>Argument $check is missing from the Docblock of setEventOnline</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>272</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>280</td>
+                                        <td>Argument $begin is missing from the Docblock of setEventBegin</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>284</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>292</td>
+                                        <td>Argument $end is missing from the Docblock of setEventEnd</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>296</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>345</td>
+                                        <td>Argument $index is missing from the Docblock of upload</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>345</td>
+                                        <td>Argument $destination is missing from the Docblock of upload</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>345</td>
+                                        <td>Argument $img is missing from the Docblock of upload</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $EventName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $EventDescr</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $EventImg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $EventBegin</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $EventEnd</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $EventOnline</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $EventEmplacementTmpImg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $EventLocation</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/model/LogModel.php" id="app/model/LogModel.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/model/LogModel.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>Argument $post is missing from the Docblock of Login</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/model/PageModel.php" id="app/model/PageModel.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/model/PageModel.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>155</td>
+                                        <td>Argument $post is missing from the Docblock of SearchAll</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/model/ProjectModel.php" id="app/model/ProjectModel.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/model/ProjectModel.php
+                            <small style="float: right;padding-right: 10px;">20</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>108</td>
+                                        <td>Argument $name is missing from the Docblock of setGroupName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>115</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>123</td>
+                                        <td>Argument $descr is missing from the Docblock of setGroupDescr</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>130</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>138</td>
+                                        <td>Argument $img is missing from the Docblock of setGroupImg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>147</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>163</td>
+                                        <td>Argument $fichier is missing from the Docblock of isValidImg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>179</td>
+                                        <td>Argument $check is missing from the Docblock of setGroupOnline</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>190</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>232</td>
+                                        <td>Argument $index is missing from the Docblock of upload</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>232</td>
+                                        <td>Argument $destination is missing from the Docblock of upload</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>288</td>
+                                        <td>Argument $post is missing from the Docblock of SearchProject</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $GroupID</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $GroupDate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $GroupName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $GroupDescr</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $GroupImg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for property $GroupOnline</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for property $GroupEmplacementTmpImg</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/model/UserModel.php" id="app/model/UserModel.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/model/UserModel.php
+                            <small style="float: right;padding-right: 10px;">71</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>92</td>
+                                        <td>Argument $index is missing from the Docblock of upload</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>92</td>
+                                        <td>Argument $destination is missing from the Docblock of upload</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>107</td>
+                                        <td>Argument $pseudo is missing from the Docblock of user_exist</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>139</td>
+                                        <td>Argument $mail is missing from the Docblock of email_exist</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>283</td>
+                                        <td>Argument $type is missing from the Docblock of setUserType</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>283</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>297</td>
+                                        <td>Argument $birthday is missing from the Docblock of setUserBirthday</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>297</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>311</td>
+                                        <td>Argument $name is missing from the Docblock of setUserLastName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>311</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>323</td>
+                                        <td>Argument $firstName is missing from the Docblock of setUserFirstName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>323</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>336</td>
+                                        <td>Argument $email is missing from the Docblock of isValidEmail</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>336</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>339</td>
+                                        <td>Argument $mail is missing from the Docblock of setUserMail</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>339</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>351</td>
+                                        <td>Argument $pseudo is missing from the Docblock of setUserPseudo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>351</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>364</td>
+                                        <td>Argument $md5 is missing from the Docblock of isValidMd5</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>364</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>368</td>
+                                        <td>Argument $password is missing from the Docblock of setUserPassword</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>368</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>377</td>
+                                        <td>Argument $fichier is missing from the Docblock of isValidImg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>402</td>
+                                        <td>Argument $profpic is missing from the Docblock of setUserProfPic</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>402</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>641</td>
+                                        <td>Argument $post is missing from the Docblock of SearchUser</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>757</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>761</td>
+                                        <td>Argument $numRueHome is missing from the Docblock of setUserNumRue</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>761</td>
+                                        <td>Argument $numRueInvoice is missing from the Docblock of setUserNumRue</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>761</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>778</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>782</td>
+                                        <td>Argument $nomRueHome is missing from the Docblock of setUserNomRue</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>782</td>
+                                        <td>Argument $nomRueInvoice is missing from the Docblock of setUserNomRue</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>782</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>798</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>802</td>
+                                        <td>Argument $zipcodeHome is missing from the Docblock of setUserZipcode</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>802</td>
+                                        <td>Argument $zipcodeInvoice is missing from the Docblock of setUserZipcode</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>802</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>818</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>822</td>
+                                        <td>Argument $cityHome is missing from the Docblock of setUserCity</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>822</td>
+                                        <td>Argument $cityInvoice is missing from the Docblock of setUserCity</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>822</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>838</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>842</td>
+                                        <td>Argument $countryHome is missing from the Docblock of setUserCountry</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>842</td>
+                                        <td>Argument $countryInvoice is missing from the Docblock of setUserCountry</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>842</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>854</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>858</td>
+                                        <td>Argument $phone is missing from the Docblock of setUserPhone</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>858</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $userBirthday</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $userLastName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $userFirstName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $userMail</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $userPseudo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $userPassword</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for property $userProfPic</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for property $nameImg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for property $userProfPicTmp</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>No summary for property $userType</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for property $userPhone</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for property $nomRueHome</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>33</td>
+                                        <td>No summary for property $numRueHome</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for property $zipcodeHome</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>35</td>
+                                        <td>No summary for property $cityHome</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>36</td>
+                                        <td>No summary for property $countryHome</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>37</td>
+                                        <td>No summary for property $nomRueInvoice</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>38</td>
+                                        <td>No summary for property $numRueInvoice</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>No summary for property $zipcodeInvoice</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>No summary for property $cityInvoice</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>41</td>
+                                        <td>No summary for property $countryInvoice</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/connexion/login.php" id="app/view/connexion/login.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/connexion/login.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/event/addEvent.php" id="app/view/event/addEvent.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/event/addEvent.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/event/seeEvent.php" id="app/view/event/seeEvent.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/event/seeEvent.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/event/seeOneEvent.php" id="app/view/event/seeOneEvent.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/event/seeOneEvent.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/layout/footer.inc.php" id="app/view/layout/footer.inc.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/layout/footer.inc.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/layout/header.inc.php" id="app/view/layout/header.inc.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/layout/header.inc.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/layout/input_txt.inc.php" id="app/view/layout/input_txt.inc.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/layout/input_txt.inc.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/layout/menu.inc.php" id="app/view/layout/menu.inc.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/layout/menu.inc.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/layout/menutop.inc.php" id="app/view/layout/menutop.inc.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/layout/menutop.inc.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/layout/notfound.php" id="app/view/layout/notfound.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/layout/notfound.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/page/ajax.php" id="app/view/page/ajax.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/page/ajax.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/page/home.php" id="app/view/page/home.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/page/home.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/page/team.php" id="app/view/page/team.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/page/team.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/project/addProject.php" id="app/view/project/addProject.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/project/addProject.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/project/seeOneProject.php" id="app/view/project/seeOneProject.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/project/seeOneProject.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/project/seeProject.php" id="app/view/project/seeProject.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/project/seeProject.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/user/addUser.php" id="app/view/user/addUser.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/user/addUser.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/user/result.php" id="app/view/user/result.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/user/result.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/user/seeOneAdmin.php" id="app/view/user/seeOneAdmin.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/user/seeOneAdmin.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/user/seeOneUser.php" id="app/view/user/seeOneUser.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/user/seeOneUser.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="app/view/user/seeUser.php" id="app/view/user/seeUser.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            app/view/user/seeUser.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="core/CoreController.php" id="core/CoreController.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            core/CoreController.php
+                            <small style="float: right;padding-right: 10px;">6</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>Argument $module is missing from the Docblock of coreRedirect</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>38</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>47</td>
+                                        <td>Argument $coreMessage is missing from the Docblock of coreDefinirMessage</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>78</td>
+                                        <td>Argument $level is missing from the Docblock of coreRestrictLevel</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $model</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="core/CoreModel.php" id="core/CoreModel.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            core/CoreModel.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>44</td>
+                                        <td>Argument $e is missing from the Docblock of coreBdError</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>56</td>
+                                        <td>Argument $table is missing from the Docblock of coreTableAll</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>93</td>
+                                        <td>Argument $table is missing from the Docblock of coreDeleteById</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="core/Load.php" id="core/Load.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            core/Load.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>Argument $module is missing from the Docblock of view</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>38</td>
+                                        <td>Argument $pageId is missing from the Docblock of coreMenu</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="lib/blacklist.inc.php" id="lib/blacklist.inc.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            lib/blacklist.inc.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="lib/lib.php" id="lib/lib.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            lib/lib.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2</td>
+                                        <td>No summary for function &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>Argument $messageOK is missing from the Docblock of confirmation</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>Argument $messageNOK is missing from the Docblock of confirmation</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>Argument $e is missing from the Docblock of confirmation</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for function &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for function &quot;&quot;</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="lib/Logger.class.php" id="lib/Logger.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            lib/Logger.class.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>Argument $path is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>50</td>
+                                        <td>Argument $type is missing from the Docblock of path</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>109</td>
+                                        <td>Argument $type is missing from the Docblock of log</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>140</td>
+                                        <td>Argument $logfile is missing from the Docblock of write</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>11</td>
+                                        <td>No summary for property $depot</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for property $ready</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="lib/mail.class.php" id="lib/mail.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            lib/mail.class.php
+                            <small style="float: right;padding-right: 10px;">33</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>Argument $civi_expe is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>Argument $nom_expe is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>Argument $email_expe is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>Argument $email_reply is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>67</td>
+                                        <td>Argument $email is missing from the Docblock of valideEmail</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>67</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>72</td>
+                                        <td>Argument $mail is missing from the Docblock of ajouter_destinataire</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>72</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>96</td>
+                                        <td>Argument $mail is missing from the Docblock of ajouter_bcc</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>96</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>119</td>
+                                        <td>Argument $files is missing from the Docblock of ajouter_pj</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>119</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>Argument $sujet is missing from the Docblock of contenu</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>Argument $message_html is missing from the Docblock of contenu</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>Argument $civi_expe is missing from the Docblock of contenu</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>Argument $nom_expe is missing from the Docblock of contenu</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>Argument $email_reply is missing from the Docblock of contenu</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>168</td>
+                                        <td>No summary for method &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $nom_expe</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for property $civi_expe</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $email_expe</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $email_reply</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $emails_bcc</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $destinataires</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $message_text</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $message_html</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $sujet</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $files</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $frontiere</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for property $header</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="lib/pagination.php" id="lib/pagination.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            lib/pagination.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3</td>
+                                        <td>Argument $requete1 is missing from the Docblock of pagination</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3</td>
+                                        <td>Argument $limit is missing from the Docblock of pagination</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3</td>
+                                        <td>No summary for function &quot;&quot;</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="public/ajax/dashboard-boxrefresh-demo.php" id="public/ajax/dashboard-boxrefresh-demo.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            public/ajax/dashboard-boxrefresh-demo.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="public/index.php" id="public/index.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            public/index.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                    </div>
+    </section>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on 
+Warning: date_default_timezone_get(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in /Users/saskiagiraud/Documents/ChallengesPlanet/challenges-planet/back-cp/vendor/twig/twig/lib/Twig/Extension/Core.php on line 89
+January 20th, 2015 at 10:42.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

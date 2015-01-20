@@ -1,0 +1,28 @@
+<?
+
+/**
+ * CONFIDENTIEL
+ *
+ * @package 	Framework_L&G
+ * @copyright 	L&G
+ */
+
+
+	// le chemin vers le serveur
+		//$PARAM_hote = 'localhost';
+		$PARAM_hote = 'ns366377.ovh.net'; 
+	// port utilisé
+		//$PARAM_port = '8889';
+		$PARAM_port = '3306';
+	// le nom de la BDD
+		//$PARAM_nom_bd ="ChallengesPlanet";
+		$PARAM_nom_bd = 'giraudsa'; 
+	// login de l'utilisateur
+		//$PARAM_utilisateur = 'root';
+		$PARAM_utilisateur = 'giraudsa'; 
+	// mdp de l'utilisateur
+		//$PARAM_mot_passe = 'root';
+		$PARAM_mot_passe = '600106'; 
+	// construction 
+		$dns = 'mysql:host=' . $PARAM_hote . ';port=' . $PARAM_port . ';dbname=' . $PARAM_nom_bd;
+

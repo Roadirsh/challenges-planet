@@ -74,21 +74,21 @@
 		<? foreach($events as $k => $e){ ?>
 			<div class="clearfix">
 				<div class="event medium-6 columns">
-						<div class="wrapper clearfix">
-							<div class="img medium-6 columns">
-								<img src="img/vignette-event-4l.png">
-							</div>
-							<div class="infos medium-6 columns">
-								<h2>4L trophy</h2>
-								<span>32nd edition</span>
-								<span>2015, July 5th</span>
-							</div>
-							<div class="medium-6 columns teams">
-								<h3>12 teams</h3>
-								<a href="" class="button-submit">Let's see this event !</a>
-							</div>
+					<div class="wrapper clearfix">
+						<div class="img medium-6 columns">
+							<img src="img/vignette-event-4l.png">
+						</div>
+						<div class="infos medium-6 columns">
+							<h2>4L trophy</h2>
+							<span>32nd edition</span>
+							<span>2015, July 5th</span>
+						</div>
+						<div class="medium-6 columns teams">
+							<h3>12 teams</h3>
+							<a href="<? echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . '1'; ?>" class="button-submit">Let's see this event !</a>
 						</div>
 					</div>
+				</div>
 				<div class="event medium-6 columns">
 					<div class="wrapper clearfix">
 						<div class="img medium-6 columns">
@@ -102,7 +102,7 @@
 
 						<div class="medium-6 columns teams">
 							<h3>11 teams</h3>
-							<a href="" class="button-submit">Let's see this event !</a>
+							<a href="<? echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . '2'; ?>" class="button-submit">Let's see this event !</a>
 						</div>
 					</div>
 				</div>

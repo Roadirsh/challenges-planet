@@ -7,7 +7,7 @@
 		 <nav class="show-for-small-only menu-mobile">
 			<ul>
 				<li><a href="<? echo MODULE . 'event' . ACTION . 'seeevent'; ?>">let's see events</a></li>
-				<li><a href="#">they helped them</a></li>
+				<li><a href="<? echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>">they helped them</a></li>
 				<li class="join"><a href="<? echo MODULE . 'event' . ACTION . 'addevent'; ?>">ready for your adventure ?</a></li>
 				<li class="clearfix">
 				    <a class="connect popup-with-form" href="#form-login">Login</a>
@@ -32,7 +32,7 @@
 			</div>
 			<ul class="first-nav">
 				<li><a href="<? echo MODULE . 'event' . ACTION . 'seeevent'; ?>">let's see events</a></li>
-				<li class="helped"><a href="#">they helped them</a></li>
+				<li class="helped"><a href="<? echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>">they helped them</a></li>
 				<li class="join"><a href="<? echo MODULE . 'event' . ACTION . 'addevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'create-eventv3');">ready for your adventure ?</a></li>
 			</ul>
 			<ul class="second-nav clearfix">

@@ -1,0 +1,12 @@
+{
+    "name": "saskiagiraud/back-cp",
+    "authors": [
+        {
+            "name": "Saskiagi",
+            "email": "saskia.giraud@gmail.com"
+        }
+    ],
+    "require": {
+        "phpdocumentor/phpdocumentor": "2.*"
+    }
+}

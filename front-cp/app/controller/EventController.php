@@ -20,7 +20,13 @@ class EventController extends CoreController {
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
-            $this->$action();
+			
+            if(method_exists($this, $action)){
+                $this->$action();
+            } else{
+                $this->coreRedirect('notfound', 'notfound');
+            }
+            
 
 		} else {
 			// on test voir s'il y a une sesison ou non

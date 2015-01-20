@@ -1,12 +1,9 @@
         <!-- add new calendar event modal -->
 
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
         <!-- Morris.js charts -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-        <script src="js/plugins/morris/morris.min.js" type="text/javascript"></script>
         <!-- Sparkline -->
         <script src="js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
         <!-- jvectormap -->
@@ -26,8 +23,6 @@
         <!-- AdminLTE App -->
         <script src="js/AdminLTE/app.js" type="text/javascript"></script>
 
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="js/AdminLTE/dashboard.js" type="text/javascript"></script>
 
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>

@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; Markers
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">229</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">346</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">Navigation</li>
+                                                                        <li><a href="#app/app.php"><i class="icon-file"></i> app/app.php</a></li>
+                                                                                                <li><a href="#app/conf/conf_define.php"><i class="icon-file"></i> app/conf/conf_define.php</a></li>
+                                                                                                <li><a href="#app/conf/conf_mysql.php"><i class="icon-file"></i> app/conf/conf_mysql.php</a></li>
+                                                                                                <li><a href="#app/conf/conf_url.php"><i class="icon-file"></i> app/conf/conf_url.php</a></li>
+                                                                                                <li><a href="#app/conf/messages.php"><i class="icon-file"></i> app/conf/messages.php</a></li>
+                                                                                                <li><a href="#app/conf/mysql.php"><i class="icon-file"></i> app/conf/mysql.php</a></li>
+                                                                                                                                                        <li><a href="#app/controller/EventController.php"><i class="icon-file"></i> app/controller/EventController.php</a></li>
+                                                                                                <li><a href="#app/controller/LogController.php"><i class="icon-file"></i> app/controller/LogController.php</a></li>
+                                                                                                <li><a href="#app/controller/NotfoundController.php"><i class="icon-file"></i> app/controller/NotfoundController.php</a></li>
+                                                                                                <li><a href="#app/controller/PageController.php"><i class="icon-file"></i> app/controller/PageController.php</a></li>
+                                                                                                <li><a href="#app/controller/ProjectController.php"><i class="icon-file"></i> app/controller/ProjectController.php</a></li>
+                                                                                                <li><a href="#app/controller/UserController.php"><i class="icon-file"></i> app/controller/UserController.php</a></li>
+                                                                                                <li><a href="#app/model/EventModel.php"><i class="icon-file"></i> app/model/EventModel.php</a></li>
+                                                                                                <li><a href="#app/model/LogModel.php"><i class="icon-file"></i> app/model/LogModel.php</a></li>
+                                                                                                <li><a href="#app/model/PageModel.php"><i class="icon-file"></i> app/model/PageModel.php</a></li>
+                                                                                                <li><a href="#app/model/ProjectModel.php"><i class="icon-file"></i> app/model/ProjectModel.php</a></li>
+                                                                                                <li><a href="#app/model/UserModel.php"><i class="icon-file"></i> app/model/UserModel.php</a></li>
+                                                                                                                                                                                                                                                                                                                                <li><a href="#app/view/layout/footer.inc.php"><i class="icon-file"></i> app/view/layout/footer.inc.php</a></li>
+                                                                                                <li><a href="#app/view/layout/header.inc.php"><i class="icon-file"></i> app/view/layout/header.inc.php</a></li>
+                                                                                                                                                                                                                                                                        <li><a href="#app/view/layout/notfound.php"><i class="icon-file"></i> app/view/layout/notfound.php</a></li>
+                                                                                                <li><a href="#app/view/page/ajax.php"><i class="icon-file"></i> app/view/page/ajax.php</a></li>
+                                                                                                                                                        <li><a href="#app/view/page/team.php"><i class="icon-file"></i> app/view/page/team.php</a></li>
+                                                                                                <li><a href="#app/view/project/addProject.php"><i class="icon-file"></i> app/view/project/addProject.php</a></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                <li><a href="#app/view/user/seeUser.php"><i class="icon-file"></i> app/view/user/seeUser.php</a></li>
+                                                                                                <li><a href="#core/CoreController.php"><i class="icon-file"></i> core/CoreController.php</a></li>
+                                                                                                <li><a href="#core/CoreModel.php"><i class="icon-file"></i> core/CoreModel.php</a></li>
+                                                                                                <li><a href="#core/Load.php"><i class="icon-file"></i> core/Load.php</a></li>
+                                                                                                                                                                                                                                                                        <li><a href="#lib/mail.class.php"><i class="icon-file"></i> lib/mail.class.php</a></li>
+                                                                                                <li><a href="#lib/pagination.php"><i class="icon-file"></i> lib/pagination.php</a></li>
+                                                                                                <li><a href="#public/ajax/dashboard-boxrefresh-demo.php"><i class="icon-file"></i> public/ajax/dashboard-boxrefresh-demo.php</a></li>
+                                                                                                <li><a href="#public/index.php"><i class="icon-file"></i> public/index.php</a></li>
+                                                                    </ul>
+        </div>
+
+        <div class="span10 offset2">
+
+            <ul class="breadcrumb">
+                <li><a href="../"><i class="icon-map-marker"></i></a><span class="divider">\</span></li>
+                <li>Markers</li>
+            </ul>
+
+            
+            <div id="marker-accordion">
+                                                            <div class="package-contents">
+                            <a name="app/app.php" id="app/app.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/app.php
+                                <small style="float: right;padding-right: 10px;">11</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>15</td>
+                                            <td>session_destroy();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>16</td>
+                                            <td>$_POST = &#039;&#039;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>17</td>
+                                            <td>var_dump($_SESSION);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>22</td>
+                                            <td>ucfirt = Met le premier caractère en majuscule</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>33</td>
+                                            <td>echo $urlController;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>40</td>
+                                            <td>echo $urlController;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>43</td>
+                                            <td>Lancement du module</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>46</td>
+                                            <td>Le controller appelé par la variable $module</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>50</td>
+                                            <td>include_once(&#039;controller/&#039; . $module . &#039;Controller.php&#039;);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>54</td>
+                                            <td>Le model appelé par la variable $module</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>56</td>
+                                            <td>echo $urlController;</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/conf/conf_define.php" id="app/conf/conf_define.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/conf/conf_define.php
+                                <small style="float: right;padding-right: 10px;">11</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>Vers le dossier app global</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>13</td>
+                                            <td>Vers le Model principal</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>15</td>
+                                            <td>Index.php</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>17</td>
+                                            <td>Nom du site web</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td>PREFIXE des tables de la BDD</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>URL de dev</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>23</td>
+                                            <td>MODULE</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>25</td>
+                                            <td>ACTION</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>27</td>
+                                            <td>ACTION</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>29</td>
+                                            <td>URL de la racine du serveur</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>30</td>
+                                            <td>&quot; . $_SERVER[&quot;HTTP_HOST&quot;] . dirname($_SERVER[&quot;SCRIPT_NAME&quot;]));</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/conf/conf_mysql.php" id="app/conf/conf_mysql.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/conf/conf_mysql.php
+                                <small style="float: right;padding-right: 10px;">11</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>le chemin vers le serveur</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>12</td>
+                                            <td>$PARAM_hote = &#039;localhost&#039;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>14</td>
+                                            <td>port utilisé</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>15</td>
+                                            <td>$PARAM_port = &#039;8889&#039;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>17</td>
+                                            <td>le nom de la BDD</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>18</td>
+                                            <td>$PARAM_nom_bd =&quot;ChallengesPlanet&quot;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td>login de l&#039;utilisateur</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>$PARAM_utilisateur = &#039;root&#039;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>23</td>
+                                            <td>mdp de l&#039;utilisateur</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>$PARAM_mot_passe = &#039;root&#039;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>26</td>
+                                            <td>construction </td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/conf/conf_url.php" id="app/conf/conf_url.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/conf/conf_url.php
+                                <small style="float: right;padding-right: 10px;">3</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>définition du tableau</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>13</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>14</td>
+                                            <td>www.challengespla.net/index.php&#039;;</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/conf/messages.php" id="app/conf/messages.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/conf/messages.php
+                                <small style="float: right;padding-right: 10px;">2</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>10</td>
+                                            <td>rouge</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>17</td>
+                                            <td>vert</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/conf/mysql.php" id="app/conf/mysql.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/conf/mysql.php
+                                <small style="float: right;padding-right: 10px;">9</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>14</td>
+                                            <td>se connecter avec PDO </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>16</td>
+                                            <td>option de connexion</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>18</td>
+                                            <td>sur la classe PDO on va initialiser statiquement une info qui est MYSQL_ATTR_INIT_COMMAND</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td>et dans cette variable, on va lui donner la commande initial SET NAMES utf8</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>et on gère les erreurs avec le mode voulu</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>créer une variable globale pour récupérer la connexion dans toutes les fonctions</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>26</td>
+                                            <td>$GLOBALS[&#039;connexion&#039;] = $connexion;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>27</td>
+                                            <td>on instentie la classe</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td>$connexion = new PDO($dns, $PARAM_utilisateur, $PARAM_mot_passe, $option);</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                                                    <div class="package-contents">
+                            <a name="app/controller/EventController.php" id="app/controller/EventController.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/controller/EventController.php
+                                <small style="float: right;padding-right: 10px;">21</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>6</td>
+                                            <td>static</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>23</td>
+                                            <td>ucfirt = Met le premier caractère en majuscule</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td>on test voir s&#039;il y a une sesison ou non</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>43</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>45</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>46</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>50</td>
+                                            <td>var_dump($_POST);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>57</td>
+                                            <td>var_dump($AllEvent);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>62</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>63</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>72</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>74</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>75</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>80</td>
+                                            <td>var_dump($OneEvent);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>82</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>83</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>94</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>96</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>97</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>105</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>106</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/controller/LogController.php" id="app/controller/LogController.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/controller/LogController.php
+                                <small style="float: right;padding-right: 10px;">28</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>echo $_GET[&#039;action&#039;]; exit();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>18</td>
+                                            <td>echo $_GET[&#039;action&#039;]; exit();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td>ucfirt = Met le premier caractère en majuscule</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>30</td>
+                                            <td>on test voir s&#039;il y a une sesison ou non</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>48</td>
+                                            <td>echo &#039;post&#039;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>49</td>
+                                            <td>on rétabli les paramètres à zéro pour établir une nouvelle connexion</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>52</td>
+                                            <td>Charger le modèle pour vérifier le login et mot de passe</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>57</td>
+                                            <td>var_dump($_SESSION);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>58</td>
+                                            <td>Appel de la vue</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>60</td>
+                                            <td>echo &#039;oui&#039;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>64</td>
+                                            <td>header(&#039;location:index.php&#039;);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>67</td>
+                                            <td>Dispatcher des actions du controller</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>68</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>69</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>70</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>71</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>73</td>
+                                            <td>on recharge la page de la connexion + message</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>75</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>76</td>
+                                            <td>$mess = $_SESSION[&quot;coreMessage&quot;] = $messageErreur[&quot;_LOGIN_NOK&quot;]; // TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>77</td>
+                                            <td>$this-&gt;coreEcrireMessage($mess);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>80</td>
+                                            <td>Dispatcher des actions du controller</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>81</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>82</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>83</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>84</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>86</td>
+                                            <td>si il n&#039;y a pas de formulaire </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>103</td>
+                                            <td>$this-&gt;model = new LogoutModel();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>104</td>
+                                            <td>redirection dans le fichier Model</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/controller/NotfoundController.php" id="app/controller/NotfoundController.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/controller/NotfoundController.php
+                                <small style="float: right;padding-right: 10px;">5</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td>on test voir s&#039;il y a une sesison ou non</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>29</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>31</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>32</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>35</td>
+                                            <td>Appel de la vue</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/controller/PageController.php" id="app/controller/PageController.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/controller/PageController.php
+                                <small style="float: right;padding-right: 10px;">19</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>6</td>
+                                            <td>static</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>22</td>
+                                            <td>ucfirt = Met le premier caractère en majuscule</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>27</td>
+                                            <td>on test voir s&#039;il y a une sesison ou non</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>42</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>44</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>45</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>66</td>
+                                            <td>var_dump($countArray);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>68</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>69</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>78</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>80</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>81</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>87</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>88</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>109</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>111</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>112</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>115</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>116</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/controller/ProjectController.php" id="app/controller/ProjectController.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/controller/ProjectController.php
+                                <small style="float: right;padding-right: 10px;">21</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>6</td>
+                                            <td>static</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>ucfirt = Met le premier caractère en majuscule</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>26</td>
+                                            <td>on test voir s&#039;il y a une sesison ou non</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>41</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>43</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>44</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>48</td>
+                                            <td>var_dump($_POST);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>55</td>
+                                            <td>UserModel::Seeuser();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>56</td>
+                                            <td>var_dump($AllGroup);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>62</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>63</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>72</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>74</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>75</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>83</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>84</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>95</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>97</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>98</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>106</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>107</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/controller/UserController.php" id="app/controller/UserController.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/controller/UserController.php
+                                <small style="float: right;padding-right: 10px;">27</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>6</td>
+                                            <td>static</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>22</td>
+                                            <td>ucfirt = Met le premier caractère en majuscule</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td>on test voir s&#039;il y a une sesison ou non</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>43</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>45</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>46</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>51</td>
+                                            <td>var_dump($_POST);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>58</td>
+                                            <td>UserModel::Seeuser();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>62</td>
+                                            <td>echo &#039;user = &#039;; var_dump($AllUser);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>65</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>66</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>79</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>80</td>
+                                            <td>&quot; . $OneUser[0][&#039;user_firstname&#039;] . &quot;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>81</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>82</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>85</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>86</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>97</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>98</td>
+                                            <td>&quot; . $OneUser[0][&#039;user_firstname&#039;] . &quot;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>99</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>100</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>103</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>104</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>128</td>
+                                            <td>Définition des constante</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>130</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>131</td>
+                                            <td>TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>138</td>
+                                            <td>Appel de la vue </td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/model/EventModel.php" id="app/model/EventModel.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/model/EventModel.php
+                                <small style="float: right;padding-right: 10px;">12</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>STRING (Emplacement temporaire de l&#039;image)</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>71</td>
+                                            <td>var_dump($AllEvent);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>105</td>
+                                            <td>var_dump($AllEvent);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>145</td>
+                                            <td>var_dump($GLOBALS);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>149</td>
+                                            <td>rajouer un trigger corbeille</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>154</td>
+                                            <td>var_dump($select); exit();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>157</td>
+                                            <td>var_dump($AllUser);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>229</td>
+                                            <td>Récupérer l&#039;emplacement d&#039;une image</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>349</td>
+                                            <td>Déplacement</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>399</td>
+                                            <td>Test1: fichier correctement uploadé</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>404</td>
+                                            <td>$img = $this-&gt;getEventImg();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>405</td>
+                                            <td>copy($destination, &#039;../public/images/event/mini/&#039;.$img);</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/model/LogModel.php" id="app/model/LogModel.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/model/LogModel.php
+                                <small style="float: right;padding-right: 10px;">10</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>ucfirt = Met le premier caractère en majuscule</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>25</td>
+                                            <td>echo ucfirst($_GET[&#039;action&#039;]);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>52</td>
+                                            <td>echo &#039;lolo&#039;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>57</td>
+                                            <td>var_dump($post);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>60</td>
+                                            <td>on récupère toutes les informations d&#039;un user s&#039;il correspond au login et password</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>66</td>
+                                            <td>var_dump($select); </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>71</td>
+                                            <td>création des cookies</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>81</td>
+                                            <td>$_SESSION[&#039;level&#039;] = &#039;&#039;; // TO DO // TYPE D&#039;ADMIN</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>95</td>
+                                            <td>$select -&gt; closeCursor();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>96</td>
+                                            <td>echo count($retour); exit();</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/model/PageModel.php" id="app/model/PageModel.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/model/PageModel.php
+                                <small style="float: right;padding-right: 10px;">21</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>var_dump($select);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>29</td>
+                                            <td>$select -&gt; closeCursor();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>31</td>
+                                            <td>var_dump($retour);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>51</td>
+                                            <td>var_dump($select);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>56</td>
+                                            <td>$select -&gt; closeCursor();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>58</td>
+                                            <td>var_dump($retour);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>78</td>
+                                            <td>var_dump($select);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>83</td>
+                                            <td>$select -&gt; closeCursor();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>85</td>
+                                            <td>var_dump($retour);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>106</td>
+                                            <td>var_dump($select);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>111</td>
+                                            <td>$select -&gt; closeCursor();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>113</td>
+                                            <td>var_dump($retour);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>128</td>
+                                            <td>var_dump($GLOBALS);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>132</td>
+                                            <td>rajouer un trigger corbeille</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>137</td>
+                                            <td>var_dump($select); exit();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>140</td>
+                                            <td>var_dump($AllUser);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>173</td>
+                                            <td>ADDRESS TABLE BDD</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>194</td>
+                                            <td>EVENT TABLE BDD</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>207</td>
+                                            <td>GROUP TABLE BDD</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>216</td>
+                                            <td>PHONE TABLE BDD</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>221</td>
+                                            <td>USER TABLE BDD</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/model/ProjectModel.php" id="app/model/ProjectModel.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/model/ProjectModel.php
+                                <small style="float: right;padding-right: 10px;">18</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td>INT</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td>DATE</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>STRING</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>22</td>
+                                            <td>LONG STRING</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>23</td>
+                                            <td>STRING</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>BOOL</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>25</td>
+                                            <td>STRING (Emplacement temporaire de l&#039;image)</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>73</td>
+                                            <td>var_dump($AllGroup);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>234</td>
+                                            <td>Test1: fichier correctement uploadé</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>238</td>
+                                            <td>Déplacement</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>267</td>
+                                            <td>var_dump($OneGroup); exit();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>306</td>
+                                            <td>GROUP TABLE BDD</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>331</td>
+                                            <td>var_dump($select);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>336</td>
+                                            <td>var_dump($retour); exit();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>345</td>
+                                            <td>var_dump($GLOBALS);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>349</td>
+                                            <td>rajouer un trigger corbeille</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>354</td>
+                                            <td>var_dump($select); exit();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>357</td>
+                                            <td>var_dump($AllUser);</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/model/UserModel.php" id="app/model/UserModel.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/model/UserModel.php
+                                <small style="float: right;padding-right: 10px;">24</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>66</td>
+                                            <td>adresse</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>81</td>
+                                            <td>ucfirt = Met le premier caractère en majuscule</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>82</td>
+                                            <td>echo ucfirst($_GET[&#039;action&#039;]);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>94</td>
+                                            <td>Test1: fichier correctement uploadé</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>100</td>
+                                            <td>Déplacement</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>227</td>
+                                            <td>Insert home adress</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>241</td>
+                                            <td>Insert invoice adress</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>335</td>
+                                            <td>vérification de la validité du mail</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>363</td>
+                                            <td>vérification de l&#039;encrypte du MDP</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>415</td>
+                                            <td>var_dump($GLOBALS);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>425</td>
+                                            <td>var_dump($AllUser);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>439</td>
+                                            <td>var_dump($GLOBALS);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>478</td>
+                                            <td>var_dump($OneUser);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>479</td>
+                                            <td>var_dump($Usercomplement);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>497</td>
+                                            <td>var_dump($OneUser);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>515</td>
+                                            <td>var_dump($GLOBALS);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>559</td>
+                                            <td>UPDATE DANS LA TABLE USER </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>598</td>
+                                            <td>UPDATE DANS LA TABLE ADRESS</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>616</td>
+                                            <td>UPDATE DANS LA TABLE PHONE</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>659</td>
+                                            <td>USER TABLE BDD</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>696</td>
+                                            <td>var_dump($select);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>708</td>
+                                            <td>var_dump($GLOBALS);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>725</td>
+                                            <td>rajouer un trigger corbeille</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>733</td>
+                                            <td>var_dump($AllUser);</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                                                                                                                                                                <div class="package-contents">
+                            <a name="app/view/layout/footer.inc.php" id="app/view/layout/footer.inc.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/view/layout/footer.inc.php
+                                <small style="float: right;padding-right: 10px;">4</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>4</td>
+                                            <td>ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>5</td>
+                                            <td>maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>6</td>
+                                            <td>code.jquery.com/ui/1.11.1/jquery-ui.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>8</td>
+                                            <td>cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js&quot;&gt;&lt;/script&gt;</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/view/layout/header.inc.php" id="app/view/layout/header.inc.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/view/layout/header.inc.php
+                                <small style="float: right;padding-right: 10px;">6</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>9</td>
+                                            <td>maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>10</td>
+                                            <td>cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>12</td>
+                                            <td>code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td>--&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>30</td>
+                                            <td>oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>31</td>
+                                            <td>oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js&quot;&gt;&lt;/script&gt;</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                                                                                                                            <div class="package-contents">
+                            <a name="app/view/layout/notfound.php" id="app/view/layout/notfound.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/view/layout/notfound.php
+                                <small style="float: right;padding-right: 10px;">1</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>2</td>
+                                            <td>$logger-&gt;log(&#039;test&#039;, &#039;loadapp&#039;, &quot;Chargement de la vue notfound.php&quot;, Logger::GRAN_MONTH);</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/view/page/ajax.php" id="app/view/page/ajax.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/view/page/ajax.php
+                                <small style="float: right;padding-right: 10px;">1</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>2</td>
+                                            <td>$logger-&gt;log(&#039;test&#039;, &#039;loadapp&#039;, &quot;Chargement de la vue ajax.php&quot;, Logger::GRAN_MONTH);</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                                                    <div class="package-contents">
+                            <a name="app/view/page/team.php" id="app/view/page/team.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/view/page/team.php
+                                <small style="float: right;padding-right: 10px;">2</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>1</td>
+                                            <td>$logger-&gt;log(&#039;test&#039;, &#039;loadapp&#039;, &quot;Chargement de la vue home.php&quot;, Logger::GRAN_MONTH); ?&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td>var_dump($AllTeam); ?&gt;</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="app/view/project/addProject.php" id="app/view/project/addProject.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/view/project/addProject.php
+                                <small style="float: right;padding-right: 10px;">1</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>1</td>
+                                            <td>$logger-&gt;log(&#039;test&#039;, &#039;loadapp&#039;, &quot;Chargement de la vue home.php&quot;, Logger::GRAN_MONTH); ?&gt;</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                                                                                                                                                                                                                                        <div class="package-contents">
+                            <a name="app/view/user/seeUser.php" id="app/view/user/seeUser.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                app/view/user/seeUser.php
+                                <small style="float: right;padding-right: 10px;">2</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>56</td>
+                                            <td>var_dump($data); ?&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>59</td>
+                                            <td>var_dump($AllUser); ?&gt;</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="core/CoreController.php" id="core/CoreController.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                core/CoreController.php
+                                <small style="float: right;padding-right: 10px;">5</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>60</td>
+                                            <td>nom class css alerte verte // TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>61</td>
+                                            <td>&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;...&lt;/div&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>63</td>
+                                            <td>nom class css alerte rouge // TODO</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>64</td>
+                                            <td>&lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;...&lt;/div&gt;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>79</td>
+                                            <td>Si son niveau d&#039;accès est élevé ex=SuperAdmin</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="core/CoreModel.php" id="core/CoreModel.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                core/CoreModel.php
+                                <small style="float: right;padding-right: 10px;">3</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>29</td>
+                                            <td>on tente une connexion</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>30</td>
+                                            <td>$this-&gt;pdo = new PDO($dns, $PARAM_utilisateur, $PARAM_mot_passe, $options);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>34</td>
+                                            <td>on renvoi au message d&#039;erreur de la connexion</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="core/Load.php" id="core/Load.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                core/Load.php
+                                <small style="float: right;padding-right: 10px;">2</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>26</td>
+                                            <td>si on trouve la vue</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>29</td>
+                                            <td>si on ne trouve pas la vue</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                                                                                                                            <div class="package-contents">
+                            <a name="lib/mail.class.php" id="lib/mail.class.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                lib/mail.class.php
+                                <small style="float: right;padding-right: 10px;">26</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>13</td>
+                                            <td>nom de l&#039;expe</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>14</td>
+                                            <td>nom de l&#039;expe</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>15</td>
+                                            <td>mail de l&#039;expe</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>16</td>
+                                            <td>mail de réponse</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>17</td>
+                                            <td>messages cachés</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>18</td>
+                                            <td>mails des destinataires</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td>message text</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td>message en html</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>sujet du mail</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>22</td>
+                                            <td>les fichiers</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>23</td>
+                                            <td>la frontiere	</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>le header</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>26</td>
+                                            <td>CONSTRUIRE LE MAIL</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>31</td>
+                                            <td>deux des param doivent être des mails // on les sépares pour differencier les messages</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>40</td>
+                                            <td>echo &#039;contruct&#039;; var_dump($_SESSION[&#039;erreur&#039;]);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>46</td>
+                                            <td>initialisation des propriétés</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>57</td>
+                                            <td>generer la frontiere entre le texte, html et PJ</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>60</td>
+                                            <td>on a donc ici un contenu sécurisé</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>62</td>
+                                            <td>echo $nom_expe . &#039;-&#039; . $civi_expe . &#039;-&#039; . $email_expe . &#039;-&#039; . $email_reply;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>63</td>
+                                            <td>echo nom inserée, civi choisie, email en dure, email inserée</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>66</td>
+                                            <td>VALIDATION D&#039;EMAIL</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>67</td>
+                                            <td>$email, sors d&#039;ici :D</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>143</td>
+                                            <td>DEFINITION DES SETTERS</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>147</td>
+                                            <td>deux des param doivent être des mails // on les sépares pour differencier les messages</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>152</td>
+                                            <td>echo &#039;contenu&#039;; var_dump($_SESSION[&#039;erreur&#039;]);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>164</td>
+                                            <td>$this-&gt;message_text = $message_text;</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="lib/pagination.php" id="lib/pagination.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                lib/pagination.php
+                                <small style="float: right;padding-right: 10px;">23</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>2</td>
+                                            <td>pagination([requete globale], [requete avec limit], [limit]);  </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>6</td>
+                                            <td>var_dump($requete1);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>7</td>
+                                            <td>/////////////////////////////////////////////////////////////</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>8</td>
+                                            <td>ETAPE petit beurre: RECUPERER LES CHAMPS DE L&#039;URL POUR REECRITURE DE L&#039;URL</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>9</td>
+                                            <td>à changé, voir htacess</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td>/////////////////////////////////////////////////////////////</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>ETAPE 1: RECUPERER LE NBRE TOTAL </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>23</td>
+                                            <td>Nombre par page</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>25</td>
+                                            <td>count de la requete COMPLETE sans limites</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>27</td>
+                                            <td>/////////////////////////////////////////////////////////////</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td>ETAPE 2: COMPTER LE NOMBRE DE PAGE</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>30</td>
+                                            <td>ceil = arrondis au superieur</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>32</td>
+                                            <td>echo $_GET[&#039;page&#039;]; </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>33</td>
+                                            <td>isset, vérifie l&#039;existance de ()</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>37</td>
+                                            <td>Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nb_pages...</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>44</td>
+                                            <td>La page actuelle est la n°1    </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>47</td>
+                                            <td>echo $page;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>48</td>
+                                            <td>/////////////////////////////////////////////////////////////</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>49</td>
+                                            <td>ETAPE 3: SAVOIR OU L&#039;ON EST DANS LES PAGES</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>51</td>
+                                            <td>On calcul la première entrée à lire</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>69</td>
+                                            <td>1ere partie  </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>73</td>
+                                            <td>echo $page;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>86</td>
+                                            <td>3ere partie   </td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="public/ajax/dashboard-boxrefresh-demo.php" id="public/ajax/dashboard-boxrefresh-demo.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                public/ajax/dashboard-boxrefresh-demo.php
+                                <small style="float: right;padding-right: 10px;">1</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>58</td>
+                                            <td>Pad given value to the left with &quot;0&quot;</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="public/index.php" id="public/index.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                public/index.php
+                                <small style="float: right;padding-right: 10px;">16</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>2</td>
+                                            <td>phpinfo();</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>12</td>
+                                            <td>Demmarage de la session</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>15</td>
+                                            <td>Nommage de la session</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td>Fichier de configuration principal</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>Parametrage de l&#039;UTF8 </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td>Affichage des erreurs php</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>29</td>
+                                            <td>error_reporting(E_ALL);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>30</td>
+                                            <td>ini_set(&quot;error_reporting&quot;, &quot;E_ALL&quot;);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>31</td>
+                                            <td>ini_set(&#039;display_errors&#039;, 1);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>41</td>
+                                            <td>Affichage des pages</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>43</td>
+                                            <td>Controller Globale</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>45</td>
+                                            <td>Model Globale</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>48</td>
+                                            <td>Librairie principale et globale du framework</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>54</td>
+                                            <td>Création d&#039;un objet Logger</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>56</td>
+                                            <td>$logger-&gt;log(&#039;test&#039;, &#039;loadapp&#039;, &quot;Chargement de l&#039;application index.php&quot;, Logger::GRAN_MONTH);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>58</td>
+                                            <td>Lancement de l&#039;application !!!!!</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                </div>
+        </div>
+    </section>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on 
+Warning: date_default_timezone_get(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in /Users/saskiagiraud/Documents/ChallengesPlanet/challenges-planet/back-cp/vendor/twig/twig/lib/Twig/Extension/Core.php on line 89
+January 20th, 2015 at 10:42.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
