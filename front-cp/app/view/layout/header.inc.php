@@ -13,11 +13,14 @@
 	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
 	<link rel="stylesheet" href="css/homec.css">
+	<link rel="stylesheet" href="css/create.css">
+	<link rel="stylesheet" href="css/register.css">
 	<link rel="stylesheet" href="css/foundation.css">
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/slick.css">
 	<link rel="stylesheet" href="css/magnific-popup.css">
    	<link rel="stylesheet" href="css/jquery-ui.css">
+   	<link rel="stylesheet" href="css/list-events.css">
 
     <script async="" src="//www.google-analytics.com/analytics.js"></script>
     <script src="js/vendor/modernizr.js"></script>
