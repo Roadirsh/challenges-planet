@@ -23,6 +23,9 @@ class ProjectModel extends CoreModel{
 	private $GroupImg;      		// STRING
 	private $GroupOnline;			// BOOL
 	private $GroupEmplacementTmpImg;// STRING (Emplacement temporaire de l'image)
+	private $GroupStudent;
+	private $GroupEvent;
+	private $GroupMoney;
 	
 	/**
 	 * Constructor
@@ -34,9 +37,13 @@ class ProjectModel extends CoreModel{
 		    
 		} elseif(isset($_POST) && !empty($_POST)){
             
+    
             $post = $_POST;
+            $this->setGroupStudent($post['student']);
+            $this->setGroupEvent($post['event']);
             $this->setGroupName($post['name']);
             $this->setGroupDescr($post['descr']);
+            $this->setGroupMoney($post['money']);
             if(isset($post['check']))
             {
     			$this->setGroupOnline(true);
@@ -54,9 +61,38 @@ class ProjectModel extends CoreModel{
     			$this->setGroupImg('');
     		}
     		
+    		
         }
 	}
 	
+	// Récupére la liste des étudiants et la liste des événements en ligne
+	public function getDataAdd()
+	{
+		try
+		{
+			$selectEvent = $this->connexion->prepare("SELECT event_id, event_name FROM " . PREFIX . "event where event_valid = 1");
+			$selectEvent->execute();
+            $selectEvent -> setFetchMode(PDO::FETCH_ASSOC);
+			$listEvent = $selectEvent->FetchAll();
+			
+			$selectUser = $this->connexion->prepare("SELECT user_id, user_pseudo, user_mail FROM " . PREFIX . "user where user_type = 'student'");
+			$selectUser->execute();
+            $selectUser -> setFetchMode(PDO::FETCH_ASSOC);
+			$listUser = $selectUser->FetchAll();
+			$array = array($listEvent, $listUser);
+
+			
+			return $array;
+
+		}
+		catch (Exeption $e)
+		{
+			echo 'Message:' . $e->getMessage();
+		}
+		
+		
+		
+	}
 	/**
 	 * GETTERS voir l'ensemble des groups
 	 */
@@ -102,6 +138,79 @@ class ProjectModel extends CoreModel{
     	
 	}
 	
+	/**
+	 * SETTERS & GETTERS étudiant
+	 */
+	public function setGroupStudent($student)
+	{
+		try 
+		{
+			$selectUser = $this->connexion->prepare("SELECT count(*) as exist FROM " . PREFIX . "user where user_id = :student");
+			$selectUser->bindParam(':student', $student);
+
+			$selectUser->execute();
+			
+            $selectUser -> setFetchMode(PDO::FETCH_ASSOC);
+			$user = $selectUser->FetchAll();
+			if($user[0]['exist'] == 1)
+			{
+				$this->GroupStudent = $student;
+			}
+
+		}
+		catch (Exception $e) 
+		{
+            echo 'Message:' . $e -> getMessage();
+        }
+		
+	}
+	public function getGroupStudent()
+	{
+		return $this->GroupStudent;
+	}
+	
+	/**
+	 * SETTERS & GETTERS événement
+	 */
+	public function setGroupEvent($event)
+	{
+		try 
+		{
+			$selectEvent = $this->connexion->prepare("SELECT count(*) as exist FROM " . PREFIX . "event where event_id = :event");
+			$selectEvent->bindParam(':event', $event);
+
+			$selectEvent->execute();
+			
+            $selectEvent -> setFetchMode(PDO::FETCH_ASSOC);
+			$Event = $selectEvent->FetchAll();
+			if($Event[0]['exist'] == 1)
+			{
+				$this->GroupEvent = $event;
+			}
+
+		}
+		catch (Exception $e) 
+		{
+            echo 'Message:' . $e -> getMessage();
+        }
+		
+	}
+	public function getGroupEvent()
+	{
+		return $this->GroupEvent;
+	}
+
+	/**
+	 * SETTERS & GETTERS montant recherché
+	 */
+	public function setGroupMoney($money)
+	{	
+		$this->GroupMoney = $money;
+	}
+	public function getGroupMoney()
+	{
+		return $this->GroupMoney;
+	}
 	/**
 	 * SETTERS & GETTERS voir le nom d'un groupe
 	 */
@@ -203,22 +312,44 @@ class ProjectModel extends CoreModel{
 		$check = $this->getGroupOnline();
 		$img = $this->getGroupImg();
 		$tmp = $this->getEmplacementTmp();
+		$event = $this->getGroupEvent();
+		$student = $this->getGroupStudent();
+		$money = $this->getGroupMoney();
+		
 		try 
 		{		
-	        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_group` (`group_id`, `group_date`, `group_name`, `group_descr`, `group_img`, `group_valid`) VALUES (NULL, now(), :name, :descr, :img, :valid)");
+	        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_group` (`group_id`, `group_date`, `group_name`, `group_descr`, `group_img`, `group_money`, `group_valid`) VALUES (NULL, now(), :name, :descr, :img, :money, :valid)");
 	            	
 	        $insert->bindParam(':name', $name);
 	        $insert->bindParam(':descr', $descr);
 	        $insert->bindParam(':img', $img);
+			$insert->bindParam(':money', $money);
             $insert->bindParam(':valid', $check);
 	        
 			$insert->execute();
-				
+			$idGroup = $this->connexion->lastInsertId();
 			if(!empty($img))
 			{
-				$string= '../public/img/group/'.$img;
+				$string= '../../front-cp/public/img/group/'.$img;
 				$this->upload($tmp, $string);
 			}
+			
+			
+			$insertEventHasGroup = $this->connexion->prepare("INSERT INTO `cp_event_has_group` (`event_event_id`, `group_group_id`) VALUES (:event, :group)");
+			$insertEventHasGroup->bindParam(':event', $event);
+			$insertEventHasGroup->bindParam(':group', $idGroup);
+			$insertEventHasGroup->execute();
+			
+			
+			$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
+			$insertEventHasUser->bindParam(':event', $event);
+			$insertEventHasUser->bindParam(':user', $student);
+			$insertEventHasUser->execute();
+			
+			$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
+			$insertUserHasGroup->bindParam(':user', $student);
+			$insertUserHasGroup->bindParam(':group', $idGroup);
+			$insertUserHasGroup->execute();
 		}
         catch (Exception $e)
         {
