@@ -60,6 +60,7 @@
   background-color: #fff;
   border: 1px solid #d6d6d6;
   position: relative;
+  padding: 7px;
 }
 /* line 84, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .adventure {
@@ -96,6 +97,7 @@
   font-size: 14px;
   width: 100%;
   color: #fff;
+  margin-bottom: 7px;
 }
 /* line 121, ../sass/list-events.scss */
 .list-events .main-contain .event .img {

@@ -22,8 +22,14 @@
 // MODULE
     define("MODULE", 'index.php?module=');
 // ACTION
-    define("ACTION", '&action=');
+    define("ACTION", '&amp;action=');
+// ID
+    define("ID", '&amp;id=');
+// MESSAGES
+    define("MESS", '&amp;m=');
 // URL de la racine du serveur
 	define('BASE_DIR', "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));
 // Slogan du site
 	define("JOIN", "<span>Join </span>the best caritives student challenges");
+
+	

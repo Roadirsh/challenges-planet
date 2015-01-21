@@ -1,5 +1,4 @@
 <?php 
-
 /**
  * ProjectModel
  *
@@ -8,7 +7,6 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-
 /**
  * choix de l'action
  * instanciation de la class
@@ -21,7 +19,7 @@ class EventModel extends CoreModel{
 	private $EventEnd;
 	private $EventOnline;
 	private $EventEmplacementTmpImg; // STRING (Emplacement temporaire de l'image)
-
+	private $EventLocation; 
 	
 	/**
 	 * Constructor
@@ -29,13 +27,11 @@ class EventModel extends CoreModel{
 	function __construct(){
 		parent::__construct();
 		
-		if(isset($_POST['search']) && !empty($_POST['search'])){
-		    $this->SearchEvent($_POST);
-		    
-		} elseif(isset($_POST) && !empty($_POST)){
+		if(isset($_POST) && !empty($_POST)){
             
             $post = $_POST;
             $this->setEventName($post['nameEvent']);
+            $this->setEventLocation($post['locationEvent']);
             $this->setEventDescr($post['descrEvent']);
             if(isset($_FILES['imageEvent']))
             {
@@ -106,7 +102,6 @@ class EventModel extends CoreModel{
             $select3 -> execute();
             $select3 -> setFetchMode(PDO::FETCH_ASSOC);
             $OneEventGroup = $select3 -> FetchAll();
-
             //var_dump($AllEvent);
             $array = "";
             $array['event'] = $OneEvent;
@@ -142,67 +137,6 @@ class EventModel extends CoreModel{
         }
     	
 	}
-	
-	/**
-	 * Search Event
-	 *
-	 * @param array $_POST
-	 */
-	public function searchEvent($post){
-	
-	    include('../lib/blacklist.inc.php');
-        $post = $_POST['search'];
-        $exp = explode(" ", $post);
-
-	    $i = 0;
-	    $count = count($exp);
-        
-	    foreach($exp as $k => $e)
-	    {
-	        if(!empty($e))
-	        {
-	            if(strlen($e) > 3)
-	            {
-	                if(!in_array(strtolower($e), $adv))
-	                { 
-	                    $r = '';
-                        // EVENT TABLE BDD
-	                    $r .= "event_name LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-                        $r .= "event_decr LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-                        $r .= "event_location LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-	                }
-	            }
-	        }
-	        $i ++; 
-	    }
-
-	    $r = substr($r, 0, -4);
-	    if(!empty($r)): $ajout = $r; endif;
-	    
-	    
-	    
-	    $select = $this->connexion->prepare("SELECT *
-		                                FROM 
-    		                                " . PREFIX . "event
-		                                WHERE " . $ajout . "
-		                                GROUP BY event_id");
-        //var_dump($select);
-		$select -> execute();
-		$select -> setFetchMode(PDO::FETCH_ASSOC);
-		$retour = $select -> fetchAll();
-		
-		//var_dump($retour); exit();
-		return $retour;
-    }
 	
 	/**
 	 * Supprimer un évenement
@@ -261,6 +195,22 @@ class EventModel extends CoreModel{
 	}
 	
 	/**
+	 * SETTERS & GETTERS location event
+	 */
+	public function setEventLocation($location)
+	{
+		if(is_string($location))
+		{
+			$this->EventLocation = $location;
+		}
+	}
+	public function getEventLocation()
+	{
+		return $this->EventLocation;
+	}
+	
+	
+	/**
 	 * SETTERS & GETTERS voir l'image d'un évenement
 	 */
 	public function setEventImg($img)
@@ -282,12 +232,15 @@ class EventModel extends CoreModel{
 		return $this->EventEmplacementTmpImg;
 	}
 	
+	
+	
+	
 	/**
 	 * Vérifier le format de l'image
 	 */
 	public function isValidImg($fichier){
 		$extensions_valides = array( 'jpg' , 'jpeg' , 'png' );
-		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
+		$extension_upload = $this->getExtension($fichier);
 		if(in_array($extension_upload,$extensions_valides) )
 		{
 			return true;
@@ -296,6 +249,10 @@ class EventModel extends CoreModel{
 		{
 			return false;
 		}
+	}
+	public function getExtension($fichier){
+		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
+		return $extension_upload;
 	}
 	
 	/**
@@ -340,7 +297,6 @@ class EventModel extends CoreModel{
 	{
 		return $this->EventEnd;
 	}
-
     /**
 	 * Ajout d'un nouveau projet dans la base de données
 	 */
@@ -353,9 +309,11 @@ class EventModel extends CoreModel{
 		$tmp = $this->getEmplacementTmp();
 		$begin = $this->getEventBegin();
 		$end = $this->getEventEnd();
+		$location = $this->getEventLocation();
+		
 		try 
 		{		
-	        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_event` (`event_id`, `event_date`, `event_name`, `event_decr`, `event_img`, `event_begin`, `event_end`, `event_valid`) VALUES (NULL, now(), :name, :descr, :img, :begin, :end, :valid)");
+	        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_event` (`event_id`, `event_date`, `event_name`, `event_decr`, `event_img`, `event_begin`, `event_end`, `event_valid`, `event_location`) VALUES (NULL, now(), :name, :descr, :img, :begin, :end, :valid, :location)");
 	            	
 	        $insert->bindParam(':name', $name);
 	        $insert->bindParam(':descr', $descr);
@@ -363,15 +321,17 @@ class EventModel extends CoreModel{
             $insert->bindParam(':valid', $check);
             $insert->bindParam(':begin', $begin);
             $insert->bindParam(':end', $end);
-
+            $insert->bindParam(':location', $location);
 	        
-			$insert->execute();
 				
 			if(!empty($img))
 			{
-				$string= '../public/img/event/'.$img;
-				$this->upload($tmp, $string);
+				$string= '../../front-cp/public/img/event/slider/'.$img;
+				
+				$this->upload($tmp, $string, $img);
 			}
+			
+			$insert->execute();
 		}
         catch (Exception $e)
         {
@@ -382,9 +342,9 @@ class EventModel extends CoreModel{
     /**
 	 * Déplacement du fichier de l'emplacement tmp 'public function getEmplacementTmp()' vers le bon emplacement serveur
 	 */
-    public function upload($index, $destination)
+    public function upload($index, $destination, $img)
 	{
-
+		
 		$extension = $this->getExtension($destination);
 		//Déplacement
 	   move_uploaded_file($index,$destination);
@@ -407,7 +367,7 @@ class EventModel extends CoreModel{
 		$newheight=($height/$width)*$newwidth;
 		$tmp=imagecreatetruecolor($newwidth,$newheight);
 		
-		$newwidth1=196;
+		$newwidth1=268;
 		$newheight1=($height/$width)*$newwidth1;
 		$tmp1=imagecreatetruecolor($newwidth1,$newheight1);
 		
@@ -418,7 +378,7 @@ class EventModel extends CoreModel{
 		$width,$height);
 		
 		$filename = $destination;
-		$filename1 = '../public/images/event/mini/'.$img;
+		$filename1 = '../../front-cp/public/img/event/mini/'.$img;
 		
 		imagejpeg($tmp,$filename,100);
 		imagejpeg($tmp1,$filename1,100);
@@ -426,7 +386,6 @@ class EventModel extends CoreModel{
 		imagedestroy($src);
 		imagedestroy($tmp);
 		imagedestroy($tmp1);
-
 		
 		
 		
@@ -441,8 +400,10 @@ class EventModel extends CoreModel{
 	    if (!isset($_FILES["imageEvent"]) OR $_FILES["imageEvent"]['error'] > 0){
 		    return FALSE;
 		}
-	   	//Déplacement
-	    return move_uploaded_file($index,$destination);
+	   	
+	   //$img = $this->getEventImg();
+	   //copy($destination, '../public/images/event/mini/'.$img);
+	   
+	   return true;
 	}
-
 }

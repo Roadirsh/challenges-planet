@@ -38,8 +38,8 @@ class LogController extends CoreController{
 	 */
 	public function Login(){
 		
-		if(isset($_POST['login'])){
-			//echo 'post';
+		if(isset($_POST['email']) && !empty($_POST['email'])){
+		
 			// on rétabli les paramètres à zéro pour établir une nouvelle connexion
 			session_unset();
 
@@ -65,7 +65,7 @@ class LogController extends CoreController{
 				define("PAGE_ID", "page_login"); // TODO
 
 				// on recharge la page de la connexion + message
-				$this->load->view('connexion', 'login'); // TODO
+				$this->coreRedirect('page', 'home');
 				//$mess = $_SESSION["coreMessage"] = $messageErreur["_LOGIN_NOK"]; // TODO
 				//$this->coreEcrireMessage($mess);
 			}
@@ -77,7 +77,7 @@ class LogController extends CoreController{
 			define("PAGE_ID", "page_login"); // TODO
 
 			// si il n'y a pas de formulaire 
-			$this->load->view('connexion', 'login');
+			$this->coreRedirect('page', 'home');
 		}
 	}
 
@@ -90,7 +90,34 @@ class LogController extends CoreController{
 		
 		session_unset();
 		session_destroy();
-		$this->coreRedirect('', 'login');
+		$this->coreRedirect('page', 'home');
+		// $this->model = new LogoutModel();
+		// redirection dans le fichier Model
+
+	}
+	
+	/**
+	 * Logout
+	 */
+	public function Signup(){
+
+        // Dispatcher des actions du controller
+		define("PAGE_TITLE", "Sign Up! - " . SITE_NAME); // TODO
+		define('PAGE_DESCR', ""); // TODO
+		define("PAGE_KW", "login, etc"); // TODO
+		define("PAGE_ID", "page_signup"); // TODO
+		
+		$user = $this->model = new LogModel();
+		
+		if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['pwd']) && !empty($_POST['pwd'])){
+		    //echo 'controller'; var_dump($_POST); 
+			$addUser = $user->Signup($_POST);
+			if($addUser){
+    			$this->coreRedirect('page', 'home');
+			}
+		}
+		
+		$this->load->view('connexion', 'signup'); // TODO
 		// $this->model = new LogoutModel();
 		// redirection dans le fichier Model
 

@@ -23,7 +23,7 @@
 				<div class="box-content">
                     <div class="box box-info">
                         <div class="box-body">
-						<form class="form-horizontal" enctype="multipart/form-data" action="?" method="post">
+						<form class="form-horizontal" enctype="multipart/form-data" action="?module=event&action=addevent" method="post">
 							<fieldset>
 							<div class="control-group">
 								<label class="control-label" for="nameEvent">Nom de l'événement</label>
@@ -32,8 +32,14 @@
 								</div>
 							</div>
 							<div class="control-group">
+								<label class="control-label" for="locationEvent">Location</label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="locationEvent" name="locationEvent" type="text" value="" required>
+								</div>
+							</div>
+							<div class="control-group">
                                 <label>Description</label>
-                                <textarea class="form-control" rows="5" placeholder="Enter ..."></textarea>
+                                <textarea class="form-control" rows="5" placeholder="Enter ..." name="descrEvent" id="descrEvent"></textarea>
                             </div> 
 							<div class="control-group">
 							  <label class="control-label" for="imageEvent">Image</label>
@@ -72,4 +78,5 @@
         </div>
             </section><!-- /.content -->
         </aside><!-- /.right-side -->
+    </div>
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

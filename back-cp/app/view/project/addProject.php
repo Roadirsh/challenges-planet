@@ -18,23 +18,53 @@
 
     <!-- Main content -->
     <section class="content">
-    
 	    <div id="content" class="span10">
 	        <div class="row-fluid sortable">
 					<div class="box-content">
 	                    <div class="box box-info">
 	                        <div class="box-body">
-							<form class="form-horizontal" enctype="multipart/form-data" action="?" method="post">
+							<form class="form-horizontal" enctype="multipart/form-data" action="?module=project&action=addproject" method="post">
 							  <fieldset>
+								<div class="control-group">
+									<label class="control-label" for="student">Ajouter un étudiant</label>
+									<div class="controls">
+										<select class="combobox" name="student" required>
+										  <option></option>
+										  <?php foreach($data[1] as $student) {
+											  echo '<option value="'.$student["user_id"].'">'.$student["user_pseudo"]. " - ".$student["user_mail"].'</option>';
+										  }
+										  ?>
+										  
+										</select>									
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="event">Lier à l'événement:</label>
+									<div class="controls">
+									  <select class="combobox" name="event" required>
+										  <option></option>
+										  <?php foreach($data[0] as $event) {
+											  echo '<option value="'.$event["event_id"].'">'.$event["event_name"].'</option>';
+										  }
+										  ?>
+										</select>
+									</div>
+								</div>
 								<div class="control-group">
 									<label class="control-label" for="name">Titre du groupe de projet</label>
 									<div class="controls">
 									  <input class="input-xlarge focused" id="name" name="name" type="text" value="" required>
 									</div>
 								</div>
+								<div class="control-group">
+									<label class="control-label" for="money">Montant recherché</label>
+									<div class="controls">
+									  <input class="input-xlarge focused" id="money" name="money" type="number" value="" required>
+									</div>
+								</div>
 	                            <div class="control-group">
 	                                <label>Description</label>
-	                                <textarea class="form-control" rows="5" placeholder="Enter ..."></textarea>
+	                                <textarea class="form-control" rows="5" placeholder="Enter ..." name="descr"></textarea>
 	                            </div>   
 								<div class="control-group">
 								  <label class="control-label" for="image">Image</label>
@@ -61,4 +91,9 @@
 		</div><!--/row-->
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.combobox').combobox();
+  });
+</script>
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

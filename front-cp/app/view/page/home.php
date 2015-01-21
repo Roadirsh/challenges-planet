@@ -17,7 +17,7 @@
         			<h1 class="slogan"><? echo JOIN ?></h1>
         			<h3><? echo $s['event_name']; ?></h3>
         			<p><? echo mb_strimwidth($s['event_decr'], 0, 300, "..."); ?></p>
-        			<a href="<? echo MODULE . 'page' . ACTION . 'notfound'; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
+        			<a href="<? echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
         			    <span class="see-event">Let's see the event !</span></a>
         		</div>
         	</div>
@@ -39,7 +39,7 @@
     
     		<p>All competitions are organised to support sustainable development initiatives and proceeds of those sporting events will be forwarded to charities</p>
     	</div>
-		<a href="<? echo MODULE . 'page' . ACTION . 'notfound'; ?>" onClick="ga('send', 'event', 'link','clic', 'teamv3');">
+		<a href="<? echo MODULE . 'project' . ACTION . 'seeproject'; ?>" onClick="ga('send', 'event', 'link','clic', 'teamv3');"> 
 		<div class="teams clearfix">
 		    <h2>Our teams</h2>
     		<section class="first clearfix">
@@ -59,10 +59,11 @@
         							<div class="numbers"><span><? echo $t[0]['count']; ?></span><br>supporters</div>
         							<div class="daysleft">
         							    <span>
-        							        <? //echo (date("Y-m-d")-strtotime($t['event_end'])); ?>
-                                            <? echo ($t[0]['group_money']-$t[1]['needed']); ?> €
+        							        <? echo (date("Y-m-d")-strtotime($t['event_end'])); ?>
+                                            <? //echo ($t[0]['group_money']-$t[1]['needed']); ?> 
         							    </span>
-                                        <br><? echo $t[0]['group_money']; ?> € <!-- Days left -->
+                                        <br><? //echo $t[0]['group_money']; ?>  <!-- Days left -->
+                                            DAYS LEFT
                                     </div>
         						</div>
                                 <? $percent = ($t[1]['needed'] / $t[0]['group_money']) *100;?>
@@ -103,7 +104,7 @@
 
 		<p>All competitions are organised to support sustainable development initiatives and proceeds of those sporting events will be forwarded to charities</p>
 	</div>
-	<a href="<? echo MODULE . 'page' . ACTION . 'notfound'; ?>" onClick="ga('send', 'event', 'link','clic', 'sponsorsv3');">
+	<a href="<? echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>" onClick="ga('send', 'event', 'link','clic', 'sponsorsv3');">
 		<div class="sponsors clearfix">
 		<h2>Our sponsors</h2>
 		<section class="first">
@@ -112,9 +113,9 @@
     		    <? foreach($sponsor as $k => $s){ ?>
     			<div class="medium-4 large-3 columns">
     				<div class="wrapper">
-    					<img src="img/organism/<? echo $s['user_profil_pic']; ?>" alt="">
-    					<a class="website">Go their website</a>
-    					<a class="sponsored">View events sponsored</a>
+    					<img src="img/avatar/<? echo $s['user_profil_pic']; ?>" alt="">
+    					<a class="website" href="<? echo $s['user_site']; ?>" target="blank">Go their website</a>
+    					<a class="sponsored" href="<? echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">View events sponsored</a>
     				</div>
     			</div>
     			<? } ?>

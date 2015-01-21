@@ -219,7 +219,7 @@ class UserModel extends CoreModel{
 				$insert->execute();
 				
 				if(!empty($profpic)){
-					$string= '../public/images/avatar/'.$profpic;
+					$string= '../../front-cp/public/img/avatar/'.$profpic;
 					$this->upload($tmp, $string);
 				}
 
@@ -582,7 +582,7 @@ class UserModel extends CoreModel{
             {
 	            $profpic = uniqid().$_FILES['user_img']['name'];
 	            $update->bindParam(':profpic', $profpic);
-				$string= '../public/images/avatar/'.$profpic;
+				$string= '../../front-cp/public/img/avatar/'.$profpic;
 				$this->upload($_FILES['user_img']['tmp_name'], $string);
 				
 
@@ -713,17 +713,11 @@ class UserModel extends CoreModel{
 	    	$select->execute();
 	    	$select -> setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select -> fetch();
-			/*
-echo "<pre>";
-			
-			var_dump($retour[0]['user_profil_pic']);
-			echo "</pre>";
-			exit();
-*/
+
 			$retour = $retour['user_profil_pic'];
-			$file = '../public/images/avatar/'.$retour;
+			$file = '../../front-cp/public/img/avatar/'.$retour;
 			
-			if(file_exists($file) && $file != '../public/images/avatar/')
+			if(file_exists($file) && $file != '../../front-cp/public/img/avatar/')
 			{
 	    		unlink($file);
 			}
@@ -733,7 +727,6 @@ echo "<pre>";
                                             FROM " . PREFIX . "user
                                             where user_id = '" . $deluserID . "'");
            
-            //var_dump($select); exit();
             $delete -> execute();
             
 
