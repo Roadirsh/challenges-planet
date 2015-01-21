@@ -1,10 +1,18 @@
 back-cp/logs/*
 front-cp/logs/*
 
+composer.lock
+
+back-cp/vendor/*
+front-cp/vendor/*
+
+back-cp/doc/*
+front-cp/doc/*
+
 .DS_Store
 cp.mwb.bak
 
-back-cp/app/conf/conf_mysql.php
-front-cp/app/conf/conf_mysql.php
+conf_mysql.php
 
 front-cp/public/.sass-cache/
+
