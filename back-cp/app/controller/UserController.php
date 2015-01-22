@@ -1,4 +1,5 @@
 <?php 
+	$logger->log('Include', 'loadapp', "Chargement du controleur UserController.php", Logger::GRAN_MONTH);
 
 /**
  * UserController

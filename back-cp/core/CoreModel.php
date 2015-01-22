@@ -17,6 +17,8 @@ class CoreModel{
 	 * @var 	object $connexion
 	 */
 	protected $connexion;
+	protected $logger;
+	
 	
 
 	/**
@@ -34,6 +36,11 @@ class CoreModel{
 			// on renvoi au message d'erreur de la connexion
 			$this->CoreBdError($e);
 		}
+		include_once(LOGGER);
+
+	 
+	// Création d'un objet Logger
+	$this->logger = new Logger('../logs/');
 	}
 
 

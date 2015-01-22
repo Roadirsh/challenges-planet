@@ -34,3 +34,4 @@
 	define("EVENT", '../../../public/img/event/');
 // lien vers le dossier project img
 	define("PROJECT", '../../../public/img/group/');
+	define("LOGGER", '../lib/Logger.class.php')
