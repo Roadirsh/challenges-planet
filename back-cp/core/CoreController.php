@@ -17,12 +17,18 @@ class CoreController{
 	 */
 	protected $load;
 	protected $model;
+	protected $logger;
 	
 	/**
 	 * Constructor
 	 */
 	function __construct(){
 		$this->load = new Load();
+		include(LOGGER);
+
+	 
+	// Création d'un objet Logger
+	$this->logger = new Logger('../logs/');
 	}
 	
 
@@ -91,4 +97,28 @@ class CoreController{
 			$this->coreRedirect($module, $action);
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

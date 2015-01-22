@@ -18,11 +18,16 @@ class EventController extends CoreController {
 	 */
 	function __construct(){
 		parent::__construct();
-		
+			$this->logger->log('Include', 'loadapp', "Chargement du controleur EventController.php", Logger::GRAN_MONTH);
+
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
-            $this->$action();
+			if(method_exists($this, $action)){
+    			$this->$action();
+			} else{
+    			$this->Seeevent();
+			}
 
 		} else {
 			// on test voir s'il y a une sesison ou non
@@ -32,6 +37,7 @@ class EventController extends CoreController {
 				$this->coreRedirect('user', 'login');
 			}
 		}
+		
 	}
 
 
@@ -118,6 +124,14 @@ class EventController extends CoreController {
 		
 		$this->coreRedirect('event', 'seeEvent', $message);
 	
+	}
+	// Pour l'aplication mobile
+	public function Eventjson()
+	{
+		header('Content-Type: application/json');
+		$event = $this->model = new EventModel();
+		$json = $event->getEventJSON();
+		echo $json;
 	}
 	
 }

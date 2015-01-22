@@ -48,12 +48,6 @@
 // Librairie principale et globale du framework
     include("../lib/lib.php");
 
-
-
-	 
-	// Création d'un objet Logger
-		
-	//$logger->log('test', 'loadapp', "Chargement de l'application index.php", Logger::GRAN_MONTH);
-
+	
 // Lancement de l'application !!!!!
     include_once(ROOT . 'app.php');
