@@ -8,7 +8,7 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-
+$logger->log('Include', 'loadapp', "Chargement du controller SponsorController.php", Logger::GRAN_MONTH);
 class SponsorController extends CoreController {
 
 	/**

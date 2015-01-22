@@ -8,14 +8,7 @@
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-
-/**
- * choix de l'action
- * instanciation de la class
- */
- 
-//$logger->log('test', 'loadapp', "Chargement du modele user", Logger::GRAN_MONTH);
-
+$logger->log('Include', 'loadapp', "Chargement du model LogModel.php", Logger::GRAN_MONTH);
 class LogModel extends CoreModel{
 
 	/**

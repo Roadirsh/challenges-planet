@@ -5,7 +5,7 @@
 		<h1>Dynamics and charity challenges</h1>
 		<p class="medium-8">Find any best sports events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating your !</p>
 		<div class="medium-9 clearfix">
-			<span class="columns medium-6 number-events">45 events</span>
+			<span class="columns medium-6 number-events"><? echo count($events); ?>   events</span>
 			<div class="columns medium-6 pagination">Page <span>1 </span>2 3</div>
 		</div>
 	</div>
@@ -45,7 +45,7 @@
 				</div>
 
 				<div class="kind-race">
-					<span>Kind of race</span>
+					<span>Type of race</span>
 					<div>
 						<input type="checkbox" name="earth" value="earth"> Earth
 					</div>

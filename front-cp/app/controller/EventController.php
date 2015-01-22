@@ -1,9 +1,9 @@
 <?php 
 
 /**
- * ProjetController
+ * EventController
  *
- * Affichage des pages sans traitement spécifique // static
+ * Affichage des events et le module de recherche
  *
  * @package 	Framework_L&G
  * @copyright 	L&G
@@ -16,6 +16,7 @@ class EventController extends CoreController {
 	 */
 	function __construct(){
 		parent::__construct();
+		
 		
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
@@ -54,7 +55,10 @@ class EventController extends CoreController {
         $SeeEvent = $event->SeeTopEvent();
         
         if(isset($_POST) and !empty($_POST)){
-
+            
+            //var_dump($_FILES); 
+            //echo getimagesize($_FILES['cover']['size']);
+            //exit();
 			$event->insertNewEvent($_POST);
 			$_POST = '';
 			$this->coreRedirect('page', 'home');
