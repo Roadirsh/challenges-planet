@@ -72,7 +72,7 @@
 		</div>
 		<div class="events medium-9 columns">
 		<? foreach($events as $k => $e){ ?>
-			<div class="clearfix">
+
 				<div class="event medium-6 columns">
 					<div class="wrapper clearfix">
 						<div class="img medium-6 columns">
@@ -106,9 +106,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
+
 			<? } ?>
-			<div class="clearfix">
+
 				<div class="event medium-6 columns">
 					<div class="wrapper clearfix">
 						<div class="img medium-6 columns">
@@ -136,7 +136,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			
 			
 		</div>
 	</div>
