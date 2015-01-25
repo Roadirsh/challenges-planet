@@ -9,8 +9,10 @@ $medium-only: "#{$screen} and (min-width: 56.813emss) and (max-width: 64em)";
 $large-up: "#{$screen} and (min-width: 64.063em)";
 $large-only: "#{$screen} and (min-width: 64.063em) and (max-width: 90em)";
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,400);
+
 $font-normal:   Helvetica, sans-serif;
-$font-title:    'franklin_gothic_fsdemi';
+$font-title:    'Open Sans, sans-serif';
 $font-caption:	'roboto_slabbold';
 $color-dark:	#1a2129;
 $color-grey:	#818181;
@@ -187,6 +189,8 @@ body {
 		-moz-transition: all 0.5s ease;
 		-ms-transition: all 0.5s ease;
 		cursor: pointer;
+		color: #fff;
+
 
 		&:hover {
 			background-color: #67802d;
@@ -222,7 +226,7 @@ body {
 		-ms-transition: all 0.5s ease;
 
 		&:hover {
-			color: #e8721e !important;
+			color: #ff7e21 !important;
 			-webkit-transition: all 0.5s ease;
 			-moz-transition: all 0.5s ease;
 			-ms-transition: all 0.5s ease;
@@ -238,7 +242,7 @@ body {
 		-ms-transition: all 0.5s ease;
 
 		&:hover {
-			color: #b2c3db !important;
+			color: #cfe3ff !important;
 			-webkit-transition: all 0.5s ease;
 			-moz-transition: all 0.5s ease;
 			-ms-transition: all 0.5s ease;
@@ -344,6 +348,13 @@ body {
 
 				.join {
 					padding: 5px 15px;
+					border-radius: 5px;
+					border: 1px solid #fff;
+					font-weight: 800;
+
+					&:after {
+						background-color: transparent !important;
+					}
 				}
 
 				li {
@@ -353,22 +364,13 @@ body {
 
 					&:first-child {
 						padding-right: 15px;
-
-							&:after {
-								position: absolute;
-								content: "";
-								width: 1px;
-								background-color: #fff;
-								height: 100%;
-								top: 0;
-								right: 0;
-							}
-						}
+					}
 
 					a {
 						color: #fff;
 						position: relative;
 						font-size: 15px;
+						font-weight: 400;
 					}
 				}
 			}
@@ -583,6 +585,10 @@ body {
 			width: 310px;
 			margin: auto;
 			text-align: center;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			text-transform: uppercase;
+			letter-spacing: -2px;
 
 			&:after {
 				content: "";
@@ -592,7 +598,7 @@ body {
 				-webkit-transform: translateX(-50%);
 				-ms-transform: translateX(-50%);
 				-moz-transform: translateX(-50%);
-				right: -35px;
+				right: -55px;
 
 				width: 50px;
 				height: 1px;
@@ -607,7 +613,7 @@ body {
 				-webkit-transform: translateX(-50%);
 				-ms-transform: translateX(-50%);
 				-moz-transform: translateX(-50%);
-				left: 10px;
+				left: -5px;
 
 				width: 50px;
 				height: 1px;
@@ -857,7 +863,8 @@ body {
 					width: 100%;
 					display: inline-block;
 					color: #fff;
-					padding: 16px 32px 17px 32;
+					padding: 16px 32px 17px 32px;
+					text-align: center;
 				}
 
 				.website {
