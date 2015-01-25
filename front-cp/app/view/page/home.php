@@ -46,7 +46,7 @@
     		    <? //var_dump($team); ?>
                 <? if(isset($data['group']) && !empty($data['group']) ){ ?>
         		    <? foreach($team as $k => $t){ ?>
-                    <div class="columns large-3 medium-4">
+                    <div class="columns medium-3">
         				<div class="wrapper">
         					<div class="img">
         						<img src="img/group/<? echo $t['group_img']; ?>" alt="">
@@ -74,7 +74,7 @@
         			<? } ?>
                 <? } ?>
                 <? if(isset($data['done'][0]) && !empty($data['done'][0]) ){ ?>
-    			<div class="columns large-3 medium-4">
+    			<div class="columns medium-3">
     				<div class="wrapper done">
     					<div class="img">
     						<img src="img/group/<? echo $done['group_img']; ?>" alt="">
