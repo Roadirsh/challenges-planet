@@ -317,13 +317,13 @@
 										
 										<label for="date-from">Beginning date (required)</label>
 										<div>
-											<input class="input-xlarge focused" id="dateBegin" name="from" type="date" value="" required>
+											<input class="input-xlarge focused" id="dateBegin" min="<?=date('Y-m-d', strtotime('0 day'))?>" name="from" type="date" value="" required>
 										</div>
 									</div>
 										<div class="medium-6 to columns">
 											<label for="date-to">Ending date (required)</label>
 											<div>
-												<input class="input-xlarge focused" id="dateEnd" name="end" type="date" value="" required>
+												<input class="input-xlarge focused" id="dateEnd" max="<?=date('Y-m-d', strtotime('1 year'))?>" name="end" type="date" value="" required>
 											</div>
 										</div>
 									</div>
@@ -331,9 +331,11 @@
 							
 								<div class="medium-4 columns second">
 									<div class="fileupload clearfix">
-										<img src="img/camera.png">
-										<span>Add a cover, it's better !</span>
-										<input  type="file" name="cover"/>
+										<!-- <img src="img/camera.png"> -->
+                                        <img name="my_im" src="img/camera.png"/><br/>
+										<span>Add a cover, it's better !<br>
+										<small>( min size 1280 x 1024 )</small></span>
+                                        <input type="file" name="cover" /> <!-- onchange="document.my_im.src=this.value;" -->
 									</div>
 								</div>
 				       		</div>

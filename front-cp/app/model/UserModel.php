@@ -3,16 +3,12 @@
 /**
  * UserModel
  *
- * Requêtes relatifs a la connexion
+ * Requêtes relatifs aux utilisateurs
  *
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-
-/**
- * choix de l'action
- * instanciation de la class
- */
+$logger->log('Include', 'loadapp', "Chargement du model UserModel.php", Logger::GRAN_MONTH);
 class UserModel extends CoreModel{
 
 	private $userBirthday;

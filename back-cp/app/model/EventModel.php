@@ -1,4 +1,5 @@
 <?php 
+
 /**
  * ProjectModel
  *
@@ -26,7 +27,8 @@ class EventModel extends CoreModel{
 	 */
 	function __construct(){
 		parent::__construct();
-		
+				$this->logger->log('Include', 'loadapp', "Chargement du modèle EventModel.php", Logger::GRAN_MONTH);
+
 		if(isset($_POST) && !empty($_POST)){
             
             $post = $_POST;
@@ -61,13 +63,15 @@ class EventModel extends CoreModel{
 	public function getShowEvents(){
     	
     	try {
+	    	
         	$select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "event");
            
             $select -> execute();
             $select -> setFetchMode(PDO::FETCH_ASSOC);
             $AllEvent = $select -> FetchAll();
-            
+            $this->logger->log('Model', 'sql', "Select all event", Logger::GRAN_MONTH);
+
             //var_dump($AllEvent);
             return $AllEvent;
             
@@ -388,22 +392,36 @@ class EventModel extends CoreModel{
 		imagedestroy($tmp1);
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	    //Test1: fichier correctement uploadé
 	    if (!isset($_FILES["imageEvent"]) OR $_FILES["imageEvent"]['error'] > 0){
 		    return FALSE;
 		}
 	   	
-	   //$img = $this->getEventImg();
-	   //copy($destination, '../public/images/event/mini/'.$img);
-	   
+		   
 	   return true;
+	}
+	
+	
+	public function getEventJSON()
+	{
+		try 
+		{		
+	        $select = $this->connexion->prepare("SELECT event_id, event_name, event_img FROM cp_event where event_valid = 1;");
+	       			
+			$select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $event = $select -> FetchAll();	
+            
+            $json = json_encode($event);
+            $this->logger->log('Model', 'sql', "Select event JSON", Logger::GRAN_MONTH);
+
+            return $json;
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
 	}
 }

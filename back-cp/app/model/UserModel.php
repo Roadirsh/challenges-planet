@@ -1,4 +1,5 @@
 <?php 
+		$logger->log('Include', 'loadapp', "Chargement du modèle UserModel.php", Logger::GRAN_MONTH);
 
 /**
  * UserModel
@@ -862,6 +863,10 @@ class UserModel extends CoreModel{
 			$this->userPhone = $phone;
 		}
 	}
+	
+	
+	
+
 
 
 

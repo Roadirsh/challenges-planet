@@ -60,4 +60,13 @@ function comp_date($str){
     return $new;
 }
 
+function nbJours($debut, $fin) {
+    //60 secondes X 60 minutes X 24 heures dans une journée
+    $nbSecondes= 60*60*24;
+
+    $debut_ts = strtotime($debut);
+    $fin_ts = strtotime($fin);
+    $diff = $fin_ts - $debut_ts;
+    return round($diff / $nbSecondes);
+}
 

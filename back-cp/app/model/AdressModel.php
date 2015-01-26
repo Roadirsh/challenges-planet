@@ -1,4 +1,5 @@
 <?php 
+	$logger->log('Include', 'loadapp', "Chargement du modèle AdressModel.php", Logger::GRAN_MONTH);
 
 /**
  * AdressModel
