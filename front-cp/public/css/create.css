@@ -6,7 +6,7 @@
   background-color: #e5ded8;
 }
 /* line 29, ../sass/create.scss */
-.form-join-create input[type="text"], .form-join-create select {
+.form-join-create input[type="text"], .form-join-create input[type="date"], .form-join-create select {
   background-color: #fff !important;
 }
 /* line 33, ../sass/create.scss */

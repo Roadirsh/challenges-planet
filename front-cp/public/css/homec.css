@@ -357,12 +357,16 @@ body #form-login .button-submit:hover {
   position: relative;
   font-size: 15px;
 }
-/* line 375, ../sass/homec.scss */
+/* line 373, ../sass/homec.scss */
+.container .slider {
+  max-height: 490px;
+}
+/* line 376, ../sass/homec.scss */
 .container .slider .slick-dots {
   display: none !important;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 375, ../sass/homec.scss */
+  /* line 376, ../sass/homec.scss */
   .container .slider .slick-dots {
     margin-bottom: 25px;
     left: inherit;
@@ -370,31 +374,31 @@ body #form-login .button-submit:hover {
     display: block !important;
   }
 }
-/* line 386, ../sass/homec.scss */
+/* line 387, ../sass/homec.scss */
 .container .slider .slick-dots li button:before {
   font-size: 20px;
   line-height: 20px;
 }
-/* line 391, ../sass/homec.scss */
+/* line 392, ../sass/homec.scss */
 .container .slider .slick-prev, .container .slider .slick-next {
   background-color: rgba(0, 0, 0, 0.7);
   width: auto;
   height: auto;
   padding: 10px;
 }
-/* line 398, ../sass/homec.scss */
+/* line 399, ../sass/homec.scss */
 .container .slider .slick-prev {
   left: 0;
 }
-/* line 401, ../sass/homec.scss */
+/* line 402, ../sass/homec.scss */
 .container .slider .slick-next {
   right: 0;
 }
-/* line 405, ../sass/homec.scss */
+/* line 406, ../sass/homec.scss */
 .container .slider .img-slider {
   position: relative;
 }
-/* line 408, ../sass/homec.scss */
+/* line 409, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event {
   font-family: "franklin_gothic_fsdemi";
   padding: 15px;
@@ -413,23 +417,23 @@ body #form-login .button-submit:hover {
   width: 55%;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 408, ../sass/homec.scss */
+  /* line 409, ../sass/homec.scss */
   .container .slider .img-slider .slogan-title-event {
     width: 30%;
   }
 }
-/* line 429, ../sass/homec.scss */
+/* line 430, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event span {
   color: #88a83b;
 }
-/* line 433, ../sass/homec.scss */
+/* line 434, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event h3 {
   color: #fff;
   font-size: 1.4rem;
   position: relative;
   padding-bottom: 10px;
 }
-/* line 439, ../sass/homec.scss */
+/* line 440, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event h3:after {
   content: "";
   position: absolute;
@@ -439,7 +443,7 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #d6d6d6;
 }
-/* line 450, ../sass/homec.scss */
+/* line 451, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event h1 {
   font-size: 30px;
   color: #fff;
@@ -449,12 +453,12 @@ body #form-login .button-submit:hover {
   width: 100%;
   line-height: 35px;
 }
-/* line 464, ../sass/homec.scss */
+/* line 465, ../sass/homec.scss */
 .container .slider .img-slider img {
   width: 100%;
   max-height: 490px;
 }
-/* line 469, ../sass/homec.scss */
+/* line 470, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
@@ -463,27 +467,27 @@ body #form-login .button-submit:hover {
   bottom: 0;
   padding: 15px;
 }
-/* line 477, ../sass/homec.scss */
+/* line 478, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider .clearfix {
   width: 50%;
   margin: auto;
 }
-/* line 482, ../sass/homec.scss */
+/* line 483, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider button {
   width: 48%;
   margin: 0;
   text-transform: uppercase;
   background-color: #818181;
 }
-/* line 489, ../sass/homec.scss */
+/* line 490, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider .join {
   float: left;
 }
-/* line 493, ../sass/homec.scss */
+/* line 494, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider .help {
   float: right;
 }
-/* line 498, ../sass/homec.scss */
+/* line 499, ../sass/homec.scss */
 .container .slider .img-slider .caption {
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
@@ -492,38 +496,38 @@ body #form-login .button-submit:hover {
   left: 0;
   bottom: 0;
 }
-/* line 506, ../sass/homec.scss */
+/* line 507, ../sass/homec.scss */
 .container .slider .img-slider .caption span {
   color: #1a2129;
   font-family: "roboto_slabbold";
   float: right;
 }
-/* line 515, ../sass/homec.scss */
+/* line 516, ../sass/homec.scss */
 .container .menu-mobile {
   background-color: #1a2129;
   text-transform: uppercase;
 }
-/* line 519, ../sass/homec.scss */
+/* line 520, ../sass/homec.scss */
 .container .menu-mobile ul {
   list-style: none;
   margin-left: 0;
   margin-bottom: 0;
 }
-/* line 524, ../sass/homec.scss */
+/* line 525, ../sass/homec.scss */
 .container .menu-mobile ul li {
   padding: 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 528, ../sass/homec.scss */
+/* line 529, ../sass/homec.scss */
 .container .menu-mobile ul li img {
   width: 30px;
 }
-/* line 532, ../sass/homec.scss */
+/* line 533, ../sass/homec.scss */
 .container .menu-mobile ul li a {
   color: #fff;
   margin-left: 15px;
 }
-/* line 542, ../sass/homec.scss */
+/* line 543, ../sass/homec.scss */
 .container .slogan {
   font-family: "franklin_gothic_fsdemi";
   text-align: center;
@@ -536,20 +540,20 @@ body #form-login .button-submit:hover {
   text-transform: uppercase;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 542, ../sass/homec.scss */
+  /* line 543, ../sass/homec.scss */
   .container .slogan {
     background-color: transparent;
   }
 }
-/* line 557, ../sass/homec.scss */
+/* line 558, ../sass/homec.scss */
 .container .slogan span {
   color: #88a83b;
 }
-/* line 562, ../sass/homec.scss */
+/* line 563, ../sass/homec.scss */
 .container .see-event {
   position: relative;
 }
-/* line 565, ../sass/homec.scss */
+/* line 566, ../sass/homec.scss */
 .container .see-event:after {
   position: absolute;
   content: "";
@@ -559,14 +563,14 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #88a83b;
 }
-/* line 577, ../sass/homec.scss */
+/* line 578, ../sass/homec.scss */
 .container .global-content h2 {
   position: relative;
   width: 310px;
   margin: auto;
   text-align: center;
 }
-/* line 583, ../sass/homec.scss */
+/* line 584, ../sass/homec.scss */
 .container .global-content h2:after {
   content: "";
   position: absolute;
@@ -580,7 +584,7 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #1a2129;
 }
-/* line 598, ../sass/homec.scss */
+/* line 599, ../sass/homec.scss */
 .container .global-content h2:before {
   content: "";
   position: absolute;
@@ -594,75 +598,75 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #1a2129;
 }
-/* line 614, ../sass/homec.scss */
+/* line 615, ../sass/homec.scss */
 .container .global-content .services {
   text-align: center;
   margin-top: 35px;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 614, ../sass/homec.scss */
+  /* line 615, ../sass/homec.scss */
   .container .global-content .services {
     margin-top: 15px;
     background-color: #e5ded8;
     padding: 15px 0px;
   }
 }
-/* line 624, ../sass/homec.scss */
+/* line 625, ../sass/homec.scss */
 .container .global-content .services img {
   margin: 35px 0px;
   text-align: center;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 629, ../sass/homec.scss */
+  /* line 630, ../sass/homec.scss */
   .container .global-content .services p {
     margin-bottom: 0;
   }
 }
-/* line 635, ../sass/homec.scss */
+/* line 636, ../sass/homec.scss */
 .container .global-content .services h3 {
   margin-top: 15px;
 }
-/* line 639, ../sass/homec.scss */
+/* line 640, ../sass/homec.scss */
 .container .global-content .services .subscribe-bar {
   margin: 10px auto;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 639, ../sass/homec.scss */
+  /* line 640, ../sass/homec.scss */
   .container .global-content .services .subscribe-bar {
     width: 50%;
   }
 }
-/* line 648, ../sass/homec.scss */
+/* line 649, ../sass/homec.scss */
 .container .global-content .teams {
   margin-top: 35px;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 648, ../sass/homec.scss */
+  /* line 649, ../sass/homec.scss */
   .container .global-content .teams {
     background-color: #e5ded8;
     padding-top: 15px;
     margin-top: 15px;
   }
 }
-/* line 659, ../sass/homec.scss */
+/* line 660, ../sass/homec.scss */
 .container .global-content .teams .first div:nth-child(4), .container .global-content .teams .first div:nth-child(7) {
   display: none;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 659, ../sass/homec.scss */
+  /* line 660, ../sass/homec.scss */
   .container .global-content .teams .first div:nth-child(4), .container .global-content .teams .first div:nth-child(7) {
     display: block;
   }
 }
-/* line 668, ../sass/homec.scss */
+/* line 669, ../sass/homec.scss */
 .container .global-content .teams h2 {
   margin-bottom: 35px;
 }
-/* line 672, ../sass/homec.scss */
+/* line 673, ../sass/homec.scss */
 .container .global-content .teams .done {
   background-color: transparent !important;
 }
-/* line 676, ../sass/homec.scss */
+/* line 677, ../sass/homec.scss */
 .container .global-content .teams .wrapper {
   border: 1px solid #d6d6d6;
   position: relative;
@@ -670,16 +674,16 @@ body #form-login .button-submit:hover {
   margin-bottom: 15px;
   background-color: #fff;
 }
-/* line 683, ../sass/homec.scss */
+/* line 684, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img {
   position: relative;
   cursor: pointer;
 }
-/* line 687, ../sass/homec.scss */
+/* line 688, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .done {
   background-color: rgba(136, 168, 59, 0.7) !important;
 }
-/* line 691, ../sass/homec.scss */
+/* line 692, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .hover {
   position: absolute;
   top: 0;
@@ -693,7 +697,7 @@ body #form-login .button-submit:hover {
   height: 100%;
   width: 100%;
 }
-/* line 704, ../sass/homec.scss */
+/* line 705, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .hover span {
   font-weight: bold;
   text-align: center;
@@ -708,34 +712,34 @@ body #form-login .button-submit:hover {
   -moz-transform: translatey(-50%) translatex(-50%);
   -ms-transform: translatey(-50%) translatex(-50%);
 }
-/* line 720, ../sass/homec.scss */
+/* line 721, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img img {
   width: 100%;
   max-height: 328px;
 }
-/* line 726, ../sass/homec.scss */
+/* line 727, ../sass/homec.scss */
 .container .global-content .teams .wrapper .title-team {
   font-family: "roboto_slabbold";
   text-align: center;
   margin: 10px 0px;
 }
-/* line 732, ../sass/homec.scss */
+/* line 733, ../sass/homec.scss */
 .container .global-content .teams .wrapper .chief-team, .container .global-content .teams .wrapper .date {
   font-size: 13px;
   color: #adadad;
 }
-/* line 737, ../sass/homec.scss */
+/* line 738, ../sass/homec.scss */
 .container .global-content .teams .wrapper .date {
   margin-bottom: 10px;
 }
-/* line 741, ../sass/homec.scss */
+/* line 742, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam {
   text-align: center;
   position: relative;
   padding-top: 10px;
   text-transform: uppercase;
 }
-/* line 747, ../sass/homec.scss */
+/* line 748, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam:before {
   position: absolute;
   top: 0;
@@ -745,14 +749,14 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #d6d6d6;
 }
-/* line 757, ../sass/homec.scss */
+/* line 758, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .validate {
   background-image: url(../img/checked.png);
   height: 22px;
   width: 22px;
   display: inline-block;
 }
-/* line 764, ../sass/homec.scss */
+/* line 765, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .daysleft {
   display: inline-block;
   color: #1a2129;
@@ -760,18 +764,18 @@ body #form-login .button-submit:hover {
   float: right;
   font-size: 13px;
 }
-/* line 771, ../sass/homec.scss */
+/* line 772, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .daysleft span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 771, ../sass/homec.scss */
+  /* line 772, ../sass/homec.scss */
   .container .global-content .teams .wrapper .progressteam .daysleft span {
     font-size: 18px;
   }
 }
-/* line 781, ../sass/homec.scss */
+/* line 782, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .number {
   display: inline-block;
   line-height: 16px;
@@ -780,12 +784,12 @@ body #form-login .button-submit:hover {
   font-size: 15px;
   margin-bottom: 10px;
 }
-/* line 789, ../sass/homec.scss */
+/* line 790, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .number span {
   font-weight: bold;
   font-size: 20px;
 }
-/* line 795, ../sass/homec.scss */
+/* line 796, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .numbers {
   display: inline-block;
   line-height: 16px;
@@ -795,60 +799,60 @@ body #form-login .button-submit:hover {
   margin-bottom: 10px;
   float: left;
 }
-/* line 804, ../sass/homec.scss */
+/* line 805, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .numbers span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 804, ../sass/homec.scss */
+  /* line 805, ../sass/homec.scss */
   .container .global-content .teams .wrapper .progressteam .numbers span {
     font-size: 18px;
   }
 }
-/* line 816, ../sass/homec.scss */
+/* line 817, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .good .ui-widget-header {
   background-color: #88a83b;
 }
-/* line 822, ../sass/homec.scss */
+/* line 823, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .notyet .ui-widget-header {
   background-color: #818181;
 }
-/* line 827, ../sass/homec.scss */
+/* line 828, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-progressbar {
   height: 12px;
 }
-/* line 831, ../sass/homec.scss */
+/* line 832, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-progressbar .ui-progressbar-value {
   margin: 0px;
 }
-/* line 835, ../sass/homec.scss */
+/* line 836, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-widget-header {
   border: none;
 }
-/* line 845, ../sass/homec.scss */
+/* line 846, ../sass/homec.scss */
 .container .global-content .sponsors .first div:nth-child(4), .container .global-content .sponsors .first div:nth-child(7) {
   display: none;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 845, ../sass/homec.scss */
+  /* line 846, ../sass/homec.scss */
   .container .global-content .sponsors .first div:nth-child(4), .container .global-content .sponsors .first div:nth-child(7) {
     display: block;
   }
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 842, ../sass/homec.scss */
+  /* line 843, ../sass/homec.scss */
   .container .global-content .sponsors {
     margin-top: 15px;
     background-color: #e5ded8;
     padding-top: 15px;
   }
 }
-/* line 861, ../sass/homec.scss */
+/* line 862, ../sass/homec.scss */
 .container .global-content .sponsors h2 {
   margin-bottom: 35px;
 }
-/* line 864, ../sass/homec.scss */
+/* line 865, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper {
   background: #fff;
   border: 1px solid #d6d6d6;
@@ -856,12 +860,12 @@ body #form-login .button-submit:hover {
   padding: 10px;
   margin-bottom: 15px;
 }
-/* line 871, ../sass/homec.scss */
+/* line 872, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper img {
   width: 100%;
   max-height: 328px;
 }
-/* line 876, ../sass/homec.scss */
+/* line 877, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper a {
   width: 100%;
   display: inline-block;
@@ -871,7 +875,7 @@ body #form-login .button-submit:hover {
   text-transform: uppercase;
   text-align: center;
 }
-/* line 886, ../sass/homec.scss */
+/* line 887, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .website {
   background-color: #818181;
   border: 1px solid #d6d6d6;
@@ -881,18 +885,18 @@ body #form-login .button-submit:hover {
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 895, ../sass/homec.scss */
+/* line 896, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .website:hover {
   background-color: #595959;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 903, ../sass/homec.scss */
+/* line 904, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .sponsored {
   border: 1px solid #d6d6d6;
 }
-/* line 910, ../sass/homec.scss */
+/* line 911, ../sass/homec.scss */
 .container .footer {
   background-color: #1a2129;
   text-align: center;
@@ -902,7 +906,7 @@ body #form-login .button-submit:hover {
 }
 
 /* ANIMATIONS POP UP */
-/* line 922, ../sass/homec.scss */
+/* line 923, ../sass/homec.scss */
 .mfp-fade.mfp-bg {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -911,19 +915,19 @@ body #form-login .button-submit:hover {
 }
 
 /* overlay animate in */
-/* line 930, ../sass/homec.scss */
+/* line 931, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-ready {
   opacity: 0.8;
 }
 
 /* overlay animate out */
-/* line 934, ../sass/homec.scss */
+/* line 935, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-removing {
   opacity: 0;
 }
 
 /* content at start */
-/* line 939, ../sass/homec.scss */
+/* line 940, ../sass/homec.scss */
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -932,13 +936,13 @@ body #form-login .button-submit:hover {
 }
 
 /* content animate it */
-/* line 947, ../sass/homec.scss */
+/* line 948, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
   opacity: 1;
 }
 
 /* content animate out */
-/* line 951, ../sass/homec.scss */
+/* line 952, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
 }
