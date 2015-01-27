@@ -107,7 +107,7 @@
 	<a href="<? echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>" onClick="ga('send', 'event', 'link','clic', 'sponsorsv3');">
 		<div class="sponsors clearfix">
 		<h2>Our sponsors</h2>
-		<section class="first">
+		<section class="first clearfix">
 		    <? if(isset($data['sponsor']) && !empty($data['sponsor']) ){ ?>
     		    <? //var_dump($sponsor); ?>
     		    <? foreach($sponsor as $k => $s){ ?>
@@ -115,7 +115,7 @@
     				<div class="wrapper">
     					<img src="img/avatar/<? echo $s['user_profil_pic']; ?>" alt="">
     					<a class="website" href="<? echo $s['user_site']; ?>" target="blank">Go their website</a>
-    					<a class="sponsored" href="<? echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">View events sponsored</a>
+    					<a class="help sponsored" href="<? echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">View events sponsored</a>
     				</div>
     			</div>
     			<? } ?>

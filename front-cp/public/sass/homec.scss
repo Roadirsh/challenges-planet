@@ -9,8 +9,11 @@ $medium-only: "#{$screen} and (min-width: 56.813emss) and (max-width: 64em)";
 $large-up: "#{$screen} and (min-width: 64.063em)";
 $large-only: "#{$screen} and (min-width: 64.063em) and (max-width: 90em)";
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,400);
+
 $font-normal:   Helvetica, sans-serif;
-$font-title:    'franklin_gothic_fsdemi';
+$font-head:    	'Open Sans';
+$font-title:	'franklin_gothic_fsdemi';
 $font-caption:	'roboto_slabbold';
 $color-dark:	#1a2129;
 $color-grey:	#818181;
@@ -249,14 +252,17 @@ body {
 		text-transform: uppercase;
 		color: #fff;
 		background-color: $color-dark;
+		font-family: $font-head;
 
 		@media #{$medium-up} {
 			background-color: transparent;
 		}
 
 		.logo {
-			padding: 15px;
+			padding: 8px 15px;
 			display: inline-block;
+			width: 150px;
+			text-align: center;
 
 			@media #{$medium-up} {
 				float: left;
@@ -272,15 +278,11 @@ body {
 				list-style: none;
 				margin-left: 0;
 				margin-bottom: 0;
-				position: absolute;
-				bottom: -20px;
-				right: 0;
-				padding-right: 15px;
 
 				li {
 					text-align: center;
 					display: inline-block;
-					margin-left: 7px;
+					margin-right: 7px;
 				}
 			}
 
@@ -289,8 +291,13 @@ body {
 				margin-left: 0;
 				margin-bottom: 0;
 				float: right;
-				position: relative;
-				top: 18px;
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translatey(-50%);
+				-webkit-transform: translatey(-50%);
+				-moz-transform: translatey(-50%);
+				-ms-transform: translatey(-50%);
 				padding-right: 15px;
 
 				#nav-search {
@@ -317,7 +324,6 @@ body {
 				li {
 					text-align: center;
 					display: inline-block;
-					padding-bottom: 10px;
 
 					a {
 						font-size: 15px;
@@ -329,14 +335,13 @@ body {
 				list-style: none;
 				margin-left: 0;
 				margin-bottom: 0;
-				float: left;
 				position: absolute;
 				top: 50%;
-				transform: translatey(-50%);
-				-webkit-transform: translatey(-50%);
-				-moz-transform: translatey(-50%);
-				-ms-transform: translatey(-50%);
-				left: 230px;
+				left: 50%;
+				transform: translatey(-50%) translatex(-50%);
+				-webkit-transform: translatey(-50%) translatex(-50%);
+				-moz-transform: translatey(-50%) translatex(-50%);
+				-ms-transform: translatey(-50%) translatex(-50%);
 
 				.helped {
 					padding: 0px 15px;
@@ -344,26 +349,16 @@ body {
 
 				.join {
 					padding: 5px 15px;
+					font-weight: 800;
+					border-radius: 10px;
+					color: #fff;
+
 				}
 
 				li {
 					display: inline-block;
 					position: relative;
 					text-align: center;
-
-					&:first-child {
-						padding-right: 15px;
-
-							&:after {
-								position: absolute;
-								content: "";
-								width: 1px;
-								background-color: #fff;
-								height: 100%;
-								top: 0;
-								right: 0;
-							}
-						}
 
 					a {
 						color: #fff;
@@ -376,6 +371,7 @@ body {
 	}
 
 			.slider {
+				max-height: 490px;
 
 			.slick-dots {
 				display: none !important;
@@ -409,6 +405,7 @@ body {
 
 			.img-slider {
 				position: relative;
+				max-height: 490px;
 
 			.slogan-title-event {
 				font-family: $font-title;
@@ -468,6 +465,7 @@ body {
 
 				img {
 					width: 100%;
+					max-height: 490px;
 				}
 
 				.caption-slider {
@@ -659,6 +657,16 @@ body {
 				margin-top: 15px;
 			}
 
+			.first {
+				div:nth-child(4), div:nth-child(7) {
+					display: none;
+
+					@media #{$large-up} {
+						display: block;
+					}
+				}
+			}
+
 			h2 {
 				margin-bottom: 35px;
 			}
@@ -713,6 +721,7 @@ body {
 
 					img {
 						width: 100%;
+						max-height: 328px;
 					}
 				}
 
@@ -720,6 +729,7 @@ body {
 					font-family: $font-caption;
 					text-align: center;
 					margin: 10px 0px;
+					text-transform: uppercase;
 				}
 
 				.chief-team, .date {
@@ -833,6 +843,18 @@ body {
 		}
 
 		.sponsors {
+
+			.first {
+				div:nth-child(4), div:nth-child(7) {
+					display: none;
+
+					@media #{$large-up} {
+						display: block;
+					}
+				}
+			}
+
+
 			@media #{$medium-up} {
 				margin-top: 15px;
 				background-color: #e5ded8;
@@ -851,6 +873,7 @@ body {
 
 				img {
 					width: 100%;
+					max-height: 328px;
 				}
 
 				a {
@@ -858,6 +881,9 @@ body {
 					display: inline-block;
 					color: #fff;
 					padding: 16px 32px 17px 32;
+					font-size: 14px;
+					text-transform: uppercase;
+					text-align: center;
 				}
 
 				.website {

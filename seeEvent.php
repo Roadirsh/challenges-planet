@@ -122,16 +122,17 @@
 					</div>
 				</div>
             <? } ?>
-			<div class="event medium-6 columns">
-				<div class="wrapper clearfix">
-					<div class="img medium-6 columns">
-						<img src="img/ready.jpg" alt="">
-					</div>
-					<div class="medium-6 columns adventure">
-						<a href="<? echo MODULE . 'event' . ACTION . 'addevent'; ?>" class="button-submit">Ready for your adventure ?</a>
+				<div class="event medium-6 columns">
+					<div class="wrapper clearfix">
+						<div class="img medium-6 columns">
+							<img src="img/ready.jpg" alt="">
+						</div>
+						<div class="medium-6 columns adventure">
+							<a href="<? echo MODULE . 'event' . ACTION . 'addevent'; ?>" class="button-submit">Ready for your adventure ?</a>
+						</div>
 					</div>
 				</div>
-			</div>
+
 			
 		</div>
 	</div>

@@ -1,7 +1,7 @@
 <div class="container row"> <!-- CONTAINER -->
     <div class="header"> <!-- HEADER -->
 		<div class="logo show-for-small-only">
-			<a href="<? echo MODULE . 'page' . ACTION . 'home'; ?>"><img src="img/logo_mobile.png" alt=""></a>
+			<a href="<? echo MODULE . 'page' . ACTION . 'home'; ?>"><img src="img/logo.png" alt=""></a>
 		</div>
 
 		 <nav class="show-for-small-only menu-mobile">
