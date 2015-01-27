@@ -1,14 +1,14 @@
 <?php 
 
 /**
- * LogController
+ * Controller
  *
- * Traitements relatifs au login / logout
+ * Traitements relatifs au 
  *
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-$logger->log('Include', 'loadapp', "Chargement du controller LogController.php", Logger::GRAN_MONTH);
+
 class LogController extends CoreController{
 	/**
 	 * Constructor

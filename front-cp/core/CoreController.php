@@ -91,4 +91,12 @@ class CoreController{
 			$this->coreRedirect($module, $action);
 		}
 	}
+	
+	/**
+	 * Stock message dans la session
+	 * @param String $coreMessage
+	 */
+	protected function coreSession($name, $key, $array){
+		$_SESSION[$name][$key] = $array;
+	}
 }

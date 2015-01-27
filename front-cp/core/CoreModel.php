@@ -9,6 +9,8 @@
  * @copyright 	L&G
  */
 
+
+
 class CoreModel{
 	/**
 	 * Variable gestionnaire de vue et chargement du model
@@ -41,6 +43,8 @@ class CoreModel{
 	 */
 	private function coreBdError($e){
 		echo SITE_NAME." : Désolé, une erreur est survenue !";
+		
+		var_dump($e);
 		exit;
 	}
 	

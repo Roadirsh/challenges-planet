@@ -60,9 +60,9 @@
         							<div class="daysleft">
         							    <span>
         							        <? echo (date("Y-m-d")-strtotime($t['event_end'])); ?>
-                                            <? //echo ($t[0]['group_money']-$t[1]['needed']); ?> 
+                                            <? // echo ($t[0]['group_money']-$t[1]['needed']); ?> 
         							    </span>
-                                        <br><? //echo $t[0]['group_money']; ?>  <!-- Days left -->
+                                        <br><? // echo $t[0]['group_money']; ?>  <!-- Days left -->
                                             DAYS LEFT
                                     </div>
         						</div>

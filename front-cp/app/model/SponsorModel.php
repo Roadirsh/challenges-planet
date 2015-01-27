@@ -1,14 +1,18 @@
 <?php 
 
 /**
- * SponsorModel
+ * ProjectModel
  *
- * Requêtes relatifs aux sponsors
+ * Requêtes relatifs aux groupes de projects
  *
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-$logger->log('Include', 'loadapp', "Chargement du model SponsorModel.php", Logger::GRAN_MONTH);
+
+/**
+ * choix de l'action
+ * instanciation de la class
+ */
 class SponsorModel extends CoreModel{
 
 

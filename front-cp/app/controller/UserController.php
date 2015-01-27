@@ -3,12 +3,13 @@
 /**
  * UserController
  *
- * Affichage des utilisateurs
+ * Affichage des pages sans traitement spécifique // static
  *
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
-$logger->log('Include', 'loadapp', "Chargement du controller UserController.php", Logger::GRAN_MONTH);	
+
+			
 class UserController extends CoreController {
 
 	/**

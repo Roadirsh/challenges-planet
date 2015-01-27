@@ -1,0 +1,1 @@
+<? include(ROOT . "view/layout/header.inc.php"); ?>

@@ -28,6 +28,9 @@
 
 // Librairie principale et globale du framework
     include("../lib/lib.php");
+    
+// Librairie principale et globale du framework
+    //include("../lib/Logger.class.php");
 
 // Affichage des erreurs php
     //error_reporting(E_ALL);
@@ -56,8 +59,9 @@
 
 	 
 	// Création d'un objet Logger
-    $logger = new Logger('../logs/');
-	$logger->log('test', 'loadapp', "Chargement de l'application index.php", Logger::GRAN_MONTH);
+    //$logger = new Logger('../logs/');
+	//$logger->log('test', 'loadapp', "Chargement de l'application index.php", Logger::GRAN_MONTH);
 
 // Lancement de l'application !!!!!
+
     include_once(ROOT . 'app.php');

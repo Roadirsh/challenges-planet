@@ -2,6 +2,8 @@
 
 
 /* SI PAS LA BONNE TAILLE D'IMAGE: PREVOIR */
+
+/* HOME */
 .container .global-content .sponsors .wrapper img {
 /* mettre une max-min */
 height: 190px;
@@ -13,4 +15,17 @@ height: 255px;
 .container .slider .img-slider img {
 /* mettre une max-min */
 height: 550px;
+}
+
+
+/* LIST EVENT */
+.list-events .main-contain .event .img img {
+width: 100%;
+height: 177px;
+}
+
+
+/* SEARCH EVENTS LIGNE 134 */
+.active{
+    color : #7b9e2a;
 }

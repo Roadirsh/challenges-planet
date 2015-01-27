@@ -70,3 +70,28 @@ function nbJours($debut, $fin) {
     return round($diff / $nbSecondes);
 }
 
+function formDate($date, $mode) {
+
+    $retour = array();
+    
+    $year = substr($date, 0, 4);
+    
+    $month = jdmonthname(substr($date, 5, 2), $mode);
+    
+	$day = substr($date, 8, 2);
+	
+	if($day == '01'){
+	    $att = 'st';
+	} elseif($day == '02'){
+    	$att = 'nd';
+	} elseif($day == '03'){
+    	$att = 'rd';
+	} else{
+    	$att = 'th';
+	}
+	
+	$string = $month . ' ' . $day  . '<small>'.$att.'</small>' . ' ' . $year;
+	return $string;
+
+}
+

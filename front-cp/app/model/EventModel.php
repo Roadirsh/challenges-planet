@@ -30,6 +30,7 @@ class EventModel extends CoreModel{
         	$select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "event
                                             WHERE event_valid = 1
+                                            ORDER BY RAND()
                                             LIMIT 4");
            
             $select -> execute();
@@ -153,9 +154,31 @@ class EventModel extends CoreModel{
             $select -> execute();
             $select -> setFetchMode(PDO::FETCH_ASSOC);
             $AllEvent = $select -> FetchAll();
+
+            $array = array('');
+            $i = 0;
+            while($i < count($AllEvent)){
             
+                $select = $this->connexion->prepare("SELECT COUNT(*) as event_nb_team
+                                                FROM " . PREFIX . "event_has_group
+                                                WHERE event_event_id = " . $AllEvent[$i]['event_id'] . "
+                                                LIMIT 7");
+               
+                $select -> execute();
+                $select -> setFetchMode(PDO::FETCH_ASSOC);
+                $CountGroupEvent = $select -> FetchAll();
+                
+                //var_dump($AllEvent[$i], $CountGroupEvent['0']); exit();
+                $array[$i]= array_merge($AllEvent[$i], $CountGroupEvent['0']);
+                //var_dump($array);
+
+            $i ++;
+            }
+            
+            return $array;
+
             //var_dump($AllEvent);
-            return $AllEvent;
+            //return $AllEvent;
             
             
     	} catch (Exception $e) {
@@ -163,6 +186,149 @@ class EventModel extends CoreModel{
         }
     	
 	}
-
 	
+	/**
+	 * FILTRE KIND OF RACE
+	 */
+    public function SeeFiltreEventType($post){
+    
+        try {
+        	$select = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "event
+                                            WHERE event_type = '" . $post . "'");
+           
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $ByNb = $select -> FetchAll();
+            
+            $array = array('');
+            $i = 0;
+            while($i < count($ByNb)){
+            
+                $select = $this->connexion->prepare("SELECT COUNT(*) as event_nb_team
+                                                FROM " . PREFIX . "event_has_group
+                                                WHERE event_event_id = " . $ByNb[$i]['event_id']);
+               
+                $select -> execute();
+                $select -> setFetchMode(PDO::FETCH_ASSOC);
+                $CountGroupEvent = $select -> FetchAll();
+                
+                //var_dump($ByNb[$i], $CountGroupEvent['0']); exit();
+                $array[$i]= array_merge($ByNb[$i], $CountGroupEvent['0']);
+                //var_dump($array);
+
+            $i ++;
+            }
+
+            //var_dump($array);
+            return $array;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }
+    
+    /**
+	 * FILTRE BEGINNING EVENT
+	 */
+    public function SeeFiltreEventBeginning($post){
+    
+        var_dump($post); 
+        if($post == '-1 week'){ $date = '';} exit();
+        
+        try {
+        	$select = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "event
+                                            WHERE event_begin '" . $date . "'");
+           
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $ByNb = $select -> FetchAll();
+            
+            $array = array('');
+            $i = 0;
+            while($i < count($ByNb)){
+            
+                $select = $this->connexion->prepare("SELECT COUNT(*) as event_nb_team
+                                                FROM " . PREFIX . "event_has_group
+                                                WHERE event_event_id = " . $ByNb[$i]['event_id']);
+               
+                $select -> execute();
+                $select -> setFetchMode(PDO::FETCH_ASSOC);
+                $CountGroupEvent = $select -> FetchAll();
+                
+                //var_dump($ByNb[$i], $CountGroupEvent['0']); exit();
+                $array[$i]= array_merge($ByNb[$i], $CountGroupEvent['0']);
+                //var_dump($array);
+
+            $i ++;
+            }
+
+            //var_dump($array);
+            return $array;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }
+	
+	/**
+	 * FILTRE NUMBER OF TEAM
+	 */
+    public function SeeFiltreEventNbTeam($post){
+    
+        try {
+        	$select = $this->connexion->prepare("SELECT *
+                                            FROM " . PREFIX . "event
+                                            WHERE event_valid = 1");
+           
+            //var_dump($select);
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $AllEvent = $select -> FetchAll();
+
+            $array = array('');
+            $i = 0;
+            while($i < count($AllEvent)){
+                
+                $select = $this->connexion->prepare("SELECT COUNT(*) as event_nb_team
+                                                FROM " . PREFIX . "event_has_group
+                                                WHERE event_event_id = " . $AllEvent[$i]['event_id']);
+               
+                //var_dump($select);
+                $select -> execute();
+                $select -> setFetchMode(PDO::FETCH_ASSOC);
+                $CountGroupEvent = $select -> FetchAll();
+                
+                //var_dump($post);
+                $nb_team = $CountGroupEvent['0']['event_nb_team'];
+                //echo 'nb team' . $nb_team;
+                
+                if($post == '1-15'){
+                    if($nb_team != 0 && $nb_team < 15){
+                        $array[$i] = array_merge($AllEvent[$i], $CountGroupEvent['0']);
+                    }
+                } elseif($post == '15-50'){
+                    if($nb_team != 0 && $nb_team > 15 && $nb_team < 50){
+                        $array[$i] = array_merge($AllEvent[$i], $CountGroupEvent['0']);
+                    }
+                } elseif($post == '+50'){
+                    if($nb_team != 0 && $nb_team > 50){
+                        $array[$i] = array_merge($AllEvent[$i], $CountGroupEvent['0']);
+                    }
+                }    
+                
+            $i ++;
+
+            }
+
+            return $array;
+            
+            
+    	} catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }
 }

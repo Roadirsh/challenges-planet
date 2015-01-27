@@ -1,9 +1,9 @@
 <?php 
 
 /**
- * EventController
+ * ProjetController
  *
- * Affichage des events et le module de recherche
+ * Affichage des pages sans traitement spécifique // static
  *
  * @package 	Framework_L&G
  * @copyright 	L&G
@@ -17,7 +17,6 @@ class EventController extends CoreController {
 	function __construct(){
 		parent::__construct();
 		
-		
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
@@ -26,6 +25,7 @@ class EventController extends CoreController {
                 $this->$action();
             } else{
                 $this->coreRedirect('notfound', 'notfound');
+                
             }
             
 
@@ -55,10 +55,7 @@ class EventController extends CoreController {
         $SeeEvent = $event->SeeTopEvent();
         
         if(isset($_POST) and !empty($_POST)){
-            
-            //var_dump($_FILES); 
-            //echo getimagesize($_FILES['cover']['size']);
-            //exit();
+
 			$event->insertNewEvent($_POST);
 			$_POST = '';
 			$this->coreRedirect('page', 'home');
@@ -84,9 +81,38 @@ class EventController extends CoreController {
 		define("PAGE_ID", "SeeEvent");
         
 		$events = $this->model = new EventModel();
-		$SeeEvent = $events->SeeEvent();
 		
 		$array = array();
+		
+		//var_dump($_POST); 		
+		
+		// AVEC FILTRE
+		if(isset($_POST) && !empty($_POST)){
+		    // PAR TYPE DE COURSE
+    		if(isset($_POST['type']) && !empty($_POST['type'])){
+    		    $SeeEvent = $events->SeeFiltreEventType($_POST['type']);
+    		    $array['type'] = $_POST['type'];
+                $_POST = '';
+            
+            // PAR DEBUT DE COURSE    
+    		} elseif(isset($_POST['begin']) && !empty($_POST['begin'])){
+    		    $SeeEvent = $events->SeeFiltreEventBeginning($_POST['begin']);
+    		    $array['begin'] = $_POST['begin'];
+                $_POST = '';
+                
+            // PAR NOMBRE D'EQUIPE   
+    		} elseif(isset($_POST['nb_team']) && !empty($_POST['nb_team'])){
+    		    $SeeEvent = $events->SeeFiltreEventNbTeam($_POST['nb_team']);
+    		    $array['nb_team'] = $_POST['nb_team'];
+                $_POST = '';
+            }
+            
+        // SANS FILTRE
+		} else{
+    		$SeeEvent = $events->SeeEvent();
+
+		}
+		
 		$array['events'] = $SeeEvent;
 		// Appel de la vue 
 		$this->load->view('event', 'seeEvent', $array); // TODO
