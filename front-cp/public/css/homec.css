@@ -249,7 +249,7 @@ body #form-login .button-submit:hover {
 .container .header .logo {
   padding: 8px 15px;
   display: inline-block;
-  width: 100px;
+  width: 150px;
   text-align: center;
 }
 @media only screen and (min-width: 56.813em) {
@@ -343,7 +343,7 @@ body #form-login .button-submit:hover {
   padding: 5px 15px;
   font-weight: 800;
   border-radius: 10px;
-  border: 1px solid #fff;
+  color: #fff;
 }
 /* line 358, ../sass/homec.scss */
 .container .header .menu .first-nav li {
@@ -723,24 +723,25 @@ body #form-login .button-submit:hover {
   font-family: "roboto_slabbold";
   text-align: center;
   margin: 10px 0px;
+  text-transform: uppercase;
 }
-/* line 734, ../sass/homec.scss */
+/* line 735, ../sass/homec.scss */
 .container .global-content .teams .wrapper .chief-team, .container .global-content .teams .wrapper .date {
   font-size: 13px;
   color: #adadad;
 }
-/* line 739, ../sass/homec.scss */
+/* line 740, ../sass/homec.scss */
 .container .global-content .teams .wrapper .date {
   margin-bottom: 10px;
 }
-/* line 743, ../sass/homec.scss */
+/* line 744, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam {
   text-align: center;
   position: relative;
   padding-top: 10px;
   text-transform: uppercase;
 }
-/* line 749, ../sass/homec.scss */
+/* line 750, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam:before {
   position: absolute;
   top: 0;
@@ -750,14 +751,14 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #d6d6d6;
 }
-/* line 759, ../sass/homec.scss */
+/* line 760, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .validate {
   background-image: url(../img/checked.png);
   height: 22px;
   width: 22px;
   display: inline-block;
 }
-/* line 766, ../sass/homec.scss */
+/* line 767, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .daysleft {
   display: inline-block;
   color: #1a2129;
@@ -765,18 +766,18 @@ body #form-login .button-submit:hover {
   float: right;
   font-size: 13px;
 }
-/* line 773, ../sass/homec.scss */
+/* line 774, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .daysleft span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 773, ../sass/homec.scss */
+  /* line 774, ../sass/homec.scss */
   .container .global-content .teams .wrapper .progressteam .daysleft span {
     font-size: 18px;
   }
 }
-/* line 783, ../sass/homec.scss */
+/* line 784, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .number {
   display: inline-block;
   line-height: 16px;
@@ -785,12 +786,12 @@ body #form-login .button-submit:hover {
   font-size: 15px;
   margin-bottom: 10px;
 }
-/* line 791, ../sass/homec.scss */
+/* line 792, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .number span {
   font-weight: bold;
   font-size: 20px;
 }
-/* line 797, ../sass/homec.scss */
+/* line 798, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .numbers {
   display: inline-block;
   line-height: 16px;
@@ -800,60 +801,60 @@ body #form-login .button-submit:hover {
   margin-bottom: 10px;
   float: left;
 }
-/* line 806, ../sass/homec.scss */
+/* line 807, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .numbers span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 806, ../sass/homec.scss */
+  /* line 807, ../sass/homec.scss */
   .container .global-content .teams .wrapper .progressteam .numbers span {
     font-size: 18px;
   }
 }
-/* line 818, ../sass/homec.scss */
+/* line 819, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .good .ui-widget-header {
   background-color: #88a83b;
 }
-/* line 824, ../sass/homec.scss */
+/* line 825, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .notyet .ui-widget-header {
   background-color: #818181;
 }
-/* line 829, ../sass/homec.scss */
+/* line 830, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-progressbar {
   height: 12px;
 }
-/* line 833, ../sass/homec.scss */
+/* line 834, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-progressbar .ui-progressbar-value {
   margin: 0px;
 }
-/* line 837, ../sass/homec.scss */
+/* line 838, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-widget-header {
   border: none;
 }
-/* line 847, ../sass/homec.scss */
+/* line 848, ../sass/homec.scss */
 .container .global-content .sponsors .first div:nth-child(4), .container .global-content .sponsors .first div:nth-child(7) {
   display: none;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 847, ../sass/homec.scss */
+  /* line 848, ../sass/homec.scss */
   .container .global-content .sponsors .first div:nth-child(4), .container .global-content .sponsors .first div:nth-child(7) {
     display: block;
   }
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 844, ../sass/homec.scss */
+  /* line 845, ../sass/homec.scss */
   .container .global-content .sponsors {
     margin-top: 15px;
     background-color: #e5ded8;
     padding-top: 15px;
   }
 }
-/* line 863, ../sass/homec.scss */
+/* line 864, ../sass/homec.scss */
 .container .global-content .sponsors h2 {
   margin-bottom: 35px;
 }
-/* line 866, ../sass/homec.scss */
+/* line 867, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper {
   background: #fff;
   border: 1px solid #d6d6d6;
@@ -861,12 +862,12 @@ body #form-login .button-submit:hover {
   padding: 10px;
   margin-bottom: 15px;
 }
-/* line 873, ../sass/homec.scss */
+/* line 874, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper img {
   width: 100%;
   max-height: 328px;
 }
-/* line 878, ../sass/homec.scss */
+/* line 879, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper a {
   width: 100%;
   display: inline-block;
@@ -876,7 +877,7 @@ body #form-login .button-submit:hover {
   text-transform: uppercase;
   text-align: center;
 }
-/* line 888, ../sass/homec.scss */
+/* line 889, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .website {
   background-color: #818181;
   border: 1px solid #d6d6d6;
@@ -886,18 +887,18 @@ body #form-login .button-submit:hover {
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 897, ../sass/homec.scss */
+/* line 898, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .website:hover {
   background-color: #595959;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 905, ../sass/homec.scss */
+/* line 906, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .sponsored {
   border: 1px solid #d6d6d6;
 }
-/* line 912, ../sass/homec.scss */
+/* line 913, ../sass/homec.scss */
 .container .footer {
   background-color: #1a2129;
   text-align: center;
@@ -907,7 +908,7 @@ body #form-login .button-submit:hover {
 }
 
 /* ANIMATIONS POP UP */
-/* line 924, ../sass/homec.scss */
+/* line 925, ../sass/homec.scss */
 .mfp-fade.mfp-bg {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -916,19 +917,19 @@ body #form-login .button-submit:hover {
 }
 
 /* overlay animate in */
-/* line 932, ../sass/homec.scss */
+/* line 933, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-ready {
   opacity: 0.8;
 }
 
 /* overlay animate out */
-/* line 936, ../sass/homec.scss */
+/* line 937, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-removing {
   opacity: 0;
 }
 
 /* content at start */
-/* line 941, ../sass/homec.scss */
+/* line 942, ../sass/homec.scss */
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -937,13 +938,13 @@ body #form-login .button-submit:hover {
 }
 
 /* content animate it */
-/* line 949, ../sass/homec.scss */
+/* line 950, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
   opacity: 1;
 }
 
 /* content animate out */
-/* line 953, ../sass/homec.scss */
+/* line 954, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
 }
