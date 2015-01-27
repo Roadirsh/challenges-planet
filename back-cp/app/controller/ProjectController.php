@@ -1,5 +1,4 @@
 <?php 
-	$logger->log('Include', 'loadapp', "Chargement du controleur ProjectController.php", Logger::GRAN_MONTH);
 
 /**
  * ProjetController

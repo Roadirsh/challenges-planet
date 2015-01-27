@@ -27,7 +27,6 @@ class EventModel extends CoreModel{
 	 */
 	function __construct(){
 		parent::__construct();
-				$this->logger->log('Include', 'loadapp', "Chargement du modèle EventModel.php", Logger::GRAN_MONTH);
 
 		if(isset($_POST) && !empty($_POST)){
             

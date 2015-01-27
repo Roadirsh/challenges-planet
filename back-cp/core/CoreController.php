@@ -29,6 +29,16 @@ class CoreController{
 	 
 	// Création d'un objet Logger
 	$this->logger = new Logger('../logs/');
+
+	if(isset($_GET['module']) && $_GET["action"] !='login' && isset($_SESSION['user'])){
+		$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Chargement du controleur " . $_GET['module'] . "Controller.php", Logger::GRAN_MONTH);
+	}
+	else
+	{
+		$this->logger->log('Include', 'loadapp', "Chargement du controleur LogController.php", Logger::GRAN_MONTH);
+
+	}
+
 	}
 	
 
@@ -66,7 +76,7 @@ class CoreController{
 				// nom class css alerte verte // TODO
 				// <div class="alert alert-success" role="alert">...</div>
 			}else{
-				// nom class css alerte rouge // TODO
+				// nom class css jk rouge // TODO
 				// <div class="alert alert-danger" role="alert">...</div>
 			}
 			unset($_SESSION["coreMessage"]);

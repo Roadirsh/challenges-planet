@@ -1,5 +1,4 @@
 <?
-	$logger->log('Include', 'loadapp', "Chargement du controleur NotFoundController.php", Logger::GRAN_MONTH);
 
 /**
  * Page404

@@ -37,10 +37,21 @@ class CoreModel{
 			$this->CoreBdError($e);
 		}
 		include_once(LOGGER);
+		
+		
 
 	 
 	// Création d'un objet Logger
 	$this->logger = new Logger('../logs/');
+	
+	if(isset($_GET['module']) && isset($_SESSION['user'])){
+		$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Chargement du modèle " . $_GET['module'] . "Model.php", Logger::GRAN_MONTH);
+	}
+	else
+	{
+		$this->logger->log('Include', 'loadapp', "Chargement du modèle LogModel.php", Logger::GRAN_MONTH);
+
+	}
 	}
 
 

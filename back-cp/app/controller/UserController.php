@@ -1,5 +1,4 @@
 <?php 
-	$logger->log('Include', 'loadapp', "Chargement du controleur UserController.php", Logger::GRAN_MONTH);
 
 /**
  * UserController
@@ -22,8 +21,14 @@ class UserController extends CoreController {
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
-            $this->$action();
-            
+			if(method_exists($this, $action))
+			{
+            	$this->$action();
+            }
+            else
+            {
+	            $this->Seeuser();
+            }
 
 		} else {
 			// on test voir s'il y a une sesison ou non

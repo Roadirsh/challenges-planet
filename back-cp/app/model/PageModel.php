@@ -1,5 +1,4 @@
 <?php 
-		$logger->log('Include', 'loadapp', "Chargement du modèle PageModel.php", Logger::GRAN_MONTH);
 
 /**
  * UserModel

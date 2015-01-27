@@ -1,5 +1,35 @@
 <? if(!empty($data['user'])){ $user = $data['user'][0]; } ?>
-<? if(!empty($data['info'])){ $infoplus = $data['info'][0]; } ?>
+<? if(!empty($data['info'])){
+	if($data['info'][0]['ad_type'] == "Home" || $data['info'][1]['ad_type'] == "Home")
+	{
+		if($data['info'][0]['ad_type'] == "Home")
+		{
+			$adressHome = $data['info'][0]; 
+		}
+		else
+		{
+			$adressHome = $data['info'][1];
+		}
+	}
+	if($data['info'][0]['ad_type'] == "Invoice" || $data['info'][1]['ad_type'] == "Invoice"){
+		if($data['info'][0]['ad_type'] == "Invoice")
+		{
+			$adressInvoice = $data['info'][0]; 
+		}
+		else
+		{
+			$adressInvoice = $data['info'][1];
+		}
+	}
+	
+	}
+	
+	/*
+var_dump($adressInvoice);
+	exit(0);
+*/ ?>
+<? if(!empty($data['phone'])){ $infoplusplus = $data['phone'][0]; } ?>
+
 
 <? include(ROOT . "view/layout/header.inc.php"); ?>
 <? include(ROOT . "view/layout/menutop.inc.php"); ?>
@@ -31,12 +61,13 @@
 
                 <div class="user user_profil">
                     <?php if(!empty($user['user_profil_pic'])){ ?>
-				        <img class="avatar" alt="Dennis Ji" src="images/avatar/<? echo $user['user_profil_pic']; ?>">
+				        <img class="avatar" alt="Dennis Ji" src="<? echo AVATAR . $user['user_profil_pic']; ?>">
 				        
 				        <input  type="hidden" name="profpic" value="<? echo $user['user_profil_pic']; ?>"/>
                     <? } else { ?>
 				        <img class="avatar" alt="Dennis Ji" src="images/avatar/default.png"> 
                     <? } ?> 
+                    
                     <input type="file" name="user_img" />
                 </div>	
                 <div class="user user_info">
@@ -66,51 +97,98 @@
                             </li>
                             
                             <li>
-                                <span><b><? if(!empty($infoplus['phone_type'])){ 
-                                                echo $infoplus['phone_type']; 
-                                            } ?> Phone</b>: <br>
+                                <span><b> Phone</b>: <br>
                                 </span>
-                                <? if(!empty($infoplus['phone_num'])){ ?>
-                                    <input type="text" name="phone_num" value="<? echo $infoplus['phone_num']; ?>" />
+                                <? if(!empty($infoplusplus['phone_num'])){ ?>
+                                    <input class="input-large focused" name="phone_num" id="phone_num" type="text" title='The phone number must be between 6 and 14 numbers and begin with a "+".' pattern="^\+(?:[0-9]?){6,14}[0-9]$" value="<? echo $infoplusplus['phone_num']; ?>">
+
                                 <? } else { ?>
-                                    <input type="text" name="phone_num" />
+        									<input class="input-large focused" name="phone_num" id="phone_num" type="text" title='The phone number must be between 6 and 14 numbers and begin with a "+".' pattern="^\+(?:[0-9]?){6,14}[0-9]$" placeholder="+33xxxxxxx">
                                 <? } ?> 
                             </li>
                             
+                        </ul>
+                </div>
+                <div class="user user_info">
+                        
+                        <ul class="admin_info">
+                           
+                            <li>
+                             Home adress:<br/>
+                             	Num:
+                                <? if(!empty($adressHome['ad_num'])){ ?>
+                                    <input type="text" name="ad_numHome" value="<? echo $adressHome['ad_num']; ?>" />
+                                <? } else { ?> 
+                                    <input type="text" name="ad_numHome" />
+                                <? } ?> 
+                                Street:
+                                <? if(!empty($adressHome['ad_street'])){ ?>
+                                    <input type="text" name="ad_streetHome" value="<? echo $adressHome['ad_street']; ?>" />
+                                <? } else { ?>
+                                    <input type="text" name="ad_streetHome" />
+                                <? } ?>
+                            </li>
+                            <li>
+                            Zipcode
+                                <? if(!empty($adressHome['ad_zipcode'])){ ?>
+                                    <input type="text" name="ad_zipcodeHome" value="<? echo $adressHome['ad_zipcode']; ?>" />
+                                <? } else { ?>
+                                    <input type="text" name="ad_zipcodeHome" />
+                                <? } ?>
+                                City:
+                                <? if(!empty($adressHome['ad_city'])){ ?>
+                                    <input type="text" name="ad_cityHome" value="<? echo $adressHome['ad_city']; ?>" />
+                                <? } else { ?>
+                                    <input type="text" name="ad_cityHome" />
+                                <? } ?>
+                            </li>
+                            <li>   
+							Country:
+                                <? if(!empty($adressHome['ad_country'])){ ?>
+                                    <input type="text" name="ad_countryHome" value="<? echo strtoupper($adressHome['ad_country']); ?>" />
+                                <? } else { ?>
+                                    <input type="text" name="ad_countryHome" />
+                                <? } ?>
+                            </li>
                         </ul>
                         
                         <ul class="admin_info">
                            
                             <li>
-                             Adress:
-                                <? if(!empty($infoplus['ad_num'])){ ?>
-                                    <input type="text" name="ad_num" value="<? echo $infoplus['ad_num']; ?>" />
+                             Invoice adress:<br/>
+                             	Num:
+                                <? if(!empty($adressInvoice['ad_num'])){ ?>
+                                    <input type="text" name="ad_numInvoice" value="<? echo $adressInvoice['ad_num']; ?>" />
                                 <? } else { ?> 
-                                    <input type="text" name="ad_num" />
+                                    <input type="text" name="ad_numInvoice" />
                                 <? } ?> 
-                                <? if(!empty($infoplus['ad_street'])){ ?>
-                                    <input type="text" name="ad_street" value="<? echo $infoplus['ad_street']; ?>" />
+                                Street:
+                                <? if(!empty($adressInvoice['ad_street'])){ ?>
+                                    <input type="text" name="ad_streetInvoice" value="<? echo $adressInvoice['ad_street']; ?>" />
                                 <? } else { ?>
-                                    <input type="text" name="ad_street" />
+                                    <input type="text" name="ad_streetInvoice" />
                                 <? } ?>
                             </li>
                             <li>
-                                <? if(!empty($infoplus['ad_zipcode'])){ ?>
-                                    <input type="text" name="ad_zipcode" value="<? echo $infoplus['ad_zipcode']; ?>" />
+                            Zipcode
+                                <? if(!empty($adressInvoice['ad_zipcode'])){ ?>
+                                    <input type="text" name="ad_zipcodeInvoice" value="<? echo $adressInvoice['ad_zipcode']; ?>" />
                                 <? } else { ?>
-                                    <input type="text" name="ad_zipcode" />
+                                    <input type="text" name="ad_zipcodeInvoice" />
                                 <? } ?>
-                                <? if(!empty($infoplus['ad_city'])){ ?>
-                                    <input type="text" name="ad_city" value="<? echo $infoplus['ad_city']; ?>" />
+                                City:
+                                <? if(!empty($adressInvoice['ad_city'])){ ?>
+                                    <input type="text" name="ad_cityInvoice" value="<? echo $adressInvoice['ad_city']; ?>" />
                                 <? } else { ?>
-                                    <input type="text" name="ad_city" />
+                                    <input type="text" name="ad_cityInvoice" />
                                 <? } ?>
                             </li>
                             <li>   
-                                <? if(!empty($infoplus['ad_country'])){ ?>
-                                    <input type="text" name="ad_country" value="<? echo strtoupper($infoplus['ad_country']); ?>" />
+							Country:
+                                <? if(!empty($adressInvoice['ad_country'])){ ?>
+                                    <input type="text" name="ad_countryInvoice" value="<? echo strtoupper($adressInvoice['ad_country']); ?>" />
                                 <? } else { ?>
-                                    <input type="text" name="ad_country" />
+                                    <input type="text" name="ad_countryInvoice" />
                                 <? } ?>
                             </li>
                         </ul>

@@ -18,7 +18,6 @@ class EventController extends CoreController {
 	 */
 	function __construct(){
 		parent::__construct();
-			$this->logger->log('Include', 'loadapp', "Chargement du controleur EventController.php", Logger::GRAN_MONTH);
 
 		if(isset($_GET['action'])){
 			//ucfirt = Met le premier caractère en majuscule

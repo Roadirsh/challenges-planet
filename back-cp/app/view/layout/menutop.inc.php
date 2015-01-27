@@ -29,7 +29,7 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="images/avatar/<? echo $_SESSION['userPic']; ?>" class="img-circle" alt="User Image" />
+                                    <img src="<? echo AVATAR . $_SESSION['userPic']; ?>" class="img-circle" alt="User Image" />
                                     <p>
                                         <? echo $_SESSION['user']; ?> <? echo $_SESSION['userF']; ?>
                                         <small>Member since <? echo $_SESSION['userDate']; ?></small>

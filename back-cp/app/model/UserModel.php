@@ -1,5 +1,4 @@
 <?php 
-		$logger->log('Include', 'loadapp', "Chargement du modèle UserModel.php", Logger::GRAN_MONTH);
 
 /**
  * UserModel
@@ -82,7 +81,12 @@ class UserModel extends CoreModel{
     			//ucfirt = Met le premier caractère en majuscule
     			// echo ucfirst($_GET['action']);
     			$action = ucfirst($_GET['action']);
-			    $this->$action();
+    			if(method_exists($this, $action))
+    			{
+			    	$this->$action();
+			    }
+			    
+			    
     		}
         }
 	}
@@ -133,6 +137,72 @@ class UserModel extends CoreModel{
         }
 
 	}
+	
+	/**
+	 * Vérification de l'existence d'une adresse d'un user
+	*/
+	public function adressUserExist($id, $type)
+	{
+		try {
+			
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                            FROM " . PREFIX . "adress WHERE user_user_id = :id and ad_type = :type");
+            			
+            $select->bindParam(':id', $id);
+            $select->bindParam(':type', $type);
+            $select->execute();
+			$select->setFetchMode(PDO::FETCH_ASSOC);
+			$select = $select -> FetchAll();
+			
+			if($select[0]['exist'] >= 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
+	
+	/**
+	 * Vérification de l'existence d'un numero de téléphone d'un user
+	*/
+	public function numeroUserExist($id)
+	{
+		try {
+			
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                            FROM " . PREFIX . "phone WHERE user_user_id = :id");
+            			
+            $select->bindParam(':id', $id);
+            $select->execute();
+			$select->setFetchMode(PDO::FETCH_ASSOC);
+			$select = $select -> FetchAll();
+			
+			if($select[0]['exist'] == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
+
 	
 	/**
 	 * Vérification d'un email, pour éviter les doublons
@@ -510,7 +580,7 @@ class UserModel extends CoreModel{
 	
 	
 	/**
-	 * Voir un utilisateur NON ADMINS
+	 * Voir un utilisateur  ADMIN
 	 */
 	public function Seeoneadmin(){
     	//var_dump($GLOBALS);
@@ -528,17 +598,28 @@ class UserModel extends CoreModel{
             $oneuserID = $OneUser[0]['user_id'];
             
             $select1 = $this->connexion->prepare("SELECT *
-                                            FROM " . PREFIX . "adress A, " . PREFIX . "phone B  
-                                            WHERE  A.user_user_id = " . $oneuserID . "
-                                            AND B.user_user_id = " . $oneuserID . "");
+                                            FROM " . PREFIX . "adress A  
+                                            WHERE   A.user_user_id = " . $oneuserID . "");
 
             $select1 -> execute();
             $select1 -> setFetchMode(PDO::FETCH_ASSOC);
             $OneUser1 = $select1 -> FetchAll();
             
+            $select2 = $this->connexion->prepare("SELECT * FROM " . PREFIX . "phone B WHERE B.user_user_id = " . $oneuserID . "");
+            $select2->execute();
+            $select2 -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneUser2 = $select2 -> FetchAll();
+            
             $array = "";
             $array['user'] = $OneUser;
             $array['info'] = $OneUser1;
+            $array['phone'] = $OneUser2;
+            /*
+echo '<pre>';
+            var_dump($array);
+            echo '</pre>';
+            exit(0);
+*/
             
             return $array;
             
@@ -555,7 +636,8 @@ class UserModel extends CoreModel{
 	public function Uponeadmin(){
 	    $userID = $_SESSION['userID'];
 	    
-	    
+
+
     	try {
     	    // UPDATE DANS LA TABLE USER 
     	   
@@ -566,7 +648,7 @@ class UserModel extends CoreModel{
 			    $requete .= "`user_password` = :password,";
 			}
 			
-    	    $requete .="`user_profil_pic` = :profpic WHERE user_id = :id";
+    	    $requete .=" `user_profil_pic` = :profpic WHERE user_id = :id";
     	    
     	    $update = $this->connexion->prepare($requete); 
 
@@ -579,12 +661,15 @@ class UserModel extends CoreModel{
 			{
             	$update->bindParam(':password', md5($_POST['user_password']));
             }
-            if(isset($_FILES))
+            if(isset($_FILES) && !empty($_FILES['user_img']['name']))
             {
+	            
 	            $profpic = uniqid().$_FILES['user_img']['name'];
 	            $update->bindParam(':profpic', $profpic);
-				$string= '../../front-cp/public/img/avatar/'.$profpic;
+				$string= AVATAR . $profpic;
 				$this->upload($_FILES['user_img']['tmp_name'], $string);
+				$_SESSION['userPic'] = $profpic;
+				
 				
 
             }
@@ -595,39 +680,101 @@ class UserModel extends CoreModel{
             }
             
 			$update->execute();
-			
-			// UPDATE DANS LA TABLE ADRESS
-			$update1 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
+
+			if($this->numeroUserExist($userID))
+			{
+				// UPDATE DANS LA TABLE PHONE
+				
+			$update1 = $this->connexion->prepare("UPDATE " . PREFIX . "phone
+    	                                        SET phone_num = :phone
+    	   	    	                            WHERE user_user_id = " . $userID); 
+
+            $update1->bindParam(':phone', $_POST['phone_num']);
+			$update1->execute();
+			}
+			else
+			{
+				$insert = $this->connexion->prepare("INSERT INTO `cp_phone` (`phone_id`, `phone_date`, `phone_num`, `user_user_id`) VALUES (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
+					
+					$insert->bindParam(':phone', $_POST['phone_num']);
+					$insert->bindParam(':id', $userID);
+					
+					$insert->execute();	            
+			}
+
+			if($this->adressUserExist($userID, 'Home'))
+			{
+				// UPDATE DANS LA TABLE ADRESS HOME
+				
+			$update2 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
     	                                        SET
     	                                        `ad_num` = :num,
     	                                        `ad_street` = :street,
     	                                        `ad_zipcode` = :zipcode,
     	                                        `ad_city` = :city,
     	                                        `ad_country` = :country
-    	                                        WHERE user_user_id = " . $userID); 
+    	                                        WHERE user_user_id = " . $userID . " and ad_type = 'Home'"); 
 
-            $update1->bindParam(':num', $_POST['ad_num']);
-            $update1->bindParam(':street', $_POST['ad_street']);
-            $update1->bindParam(':zipcode', $_POST['ad_zipcode']);
-            $update1->bindParam(':city', $_POST['ad_city']);
-            $update1->bindParam(':country', $_POST['ad_country']);
-            
-			$update1->execute();
-			
-            // UPDATE DANS LA TABLE PHONE
-			$update2 = $this->connexion->prepare("UPDATE " . PREFIX . "phone 
-    	                                        SET
-    	                                        `phone_num` = :num
-    	                                        WHERE user_user_id = " . $userID); 
-
-            $update2->bindParam(':num', $_POST['phone_num']);
+            $update2->bindParam(':num', $_POST['ad_numHome']);
+            $update2->bindParam(':street', $_POST['ad_streetHome']);
+            $update2->bindParam(':zipcode', $_POST['ad_zipcodeHome']);
+            $update2->bindParam(':city', $_POST['ad_cityHome']);
+            $update2->bindParam(':country', $_POST['ad_countryHome']);
             
 			$update2->execute();
+			}
+			else
+			{
+				$insert = $this->connexion->prepare("INSERT INTO `cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'Home', :user_id)");
+	            
+	            $insert2->bindParam(':num', $_POST['ad_numHome']);
+	            $insert2->bindParam(':street', $_POST['ad_streetHome']);
+	            $insert2->bindParam(':zipcode', $_POST['ad_zipcodeHome']);
+	            $insert2->bindParam(':city', $_POST['ad_cityHome']);
+	            $insert2->bindParam(':country', $_POST['ad_countryHome']);
+	            $insert2->bindParam(':user_id', $userID);
+	            
+				$insert2->execute();
+			}
 			
+			if($this->adressUserExist($userID, 'Invoice'))
+			{
+				// UPDATE DANS LA TABLE ADRESS HOME
+				
+			$update3 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
+    	                                        SET
+    	                                        `ad_num` = :num,
+    	                                        `ad_street` = :street,
+    	                                        `ad_zipcode` = :zipcode,
+    	                                        `ad_city` = :city,
+    	                                        `ad_country` = :country
+    	                                        WHERE user_user_id = " . $userID . " and ad_type = 'Invoice'"); 
+
+            $update3->bindParam(':num', $_POST['ad_numInvoice']);
+            $update3->bindParam(':street', $_POST['ad_streetInvoice']);
+            $update3->bindParam(':zipcode', $_POST['ad_zipcodeInvoice']);
+            $update3->bindParam(':city', $_POST['ad_cityInvoice']);
+            $update3->bindParam(':country', $_POST['ad_countryInvoice']);
+            
+			$update3->execute();
+			}
+			else
+			{
+				$insert3 = $this->connexion->prepare("INSERT INTO `cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'Invoice', :user_id)");
+	            
+	            $insert3->bindParam(':num', $_POST['ad_numInvoice']);
+	            $insert3->bindParam(':street', $_POST['ad_streetInvoice']);
+	            $insert3->bindParam(':zipcode', $_POST['ad_zipcodeInvoice']);
+	            $insert3->bindParam(':city', $_POST['ad_cityInvoice']);
+	            $insert3->bindParam(':country', $_POST['ad_countryInvoice']);
+	            $insert3->bindParam(':user_id', $userID);
+	            
+				$insert3->execute();
+
+			}
+
 			return false;
-				
-				
-				
+	
         } catch (Exception $e) {
             echo 'Message:' . $e -> getMessage();
         }
@@ -716,9 +863,9 @@ class UserModel extends CoreModel{
 			$retour = $select -> fetch();
 
 			$retour = $retour['user_profil_pic'];
-			$file = '../../front-cp/public/img/avatar/'.$retour;
+			$file = AVATAR . $retour;
 			
-			if(file_exists($file) && $file != '../../front-cp/public/img/avatar/')
+			if(file_exists($file) && $file != AVATAR)
 			{
 	    		unlink($file);
 			}
