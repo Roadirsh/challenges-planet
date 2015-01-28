@@ -55,6 +55,7 @@ class PageController extends CoreController {
             $NbUser = $count->NbUsers();
             $NbEvent = $count->NbEvents();
             $NbGroup = $count->NbGroups();
+            $NbDonat = $count->NbDonat();
 		}
 		
 		
@@ -62,6 +63,7 @@ class PageController extends CoreController {
 		$countArray['user'] = $NbUser;
 		$countArray['event'] = $NbEvent;
 		$countArray['group'] = $NbGroup;
+		$countArray['donat'] = $NbDonat;
 		
 		//var_dump($countArray);
 		

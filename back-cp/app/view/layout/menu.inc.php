@@ -12,15 +12,7 @@
                             <p>Hello, <? echo $_SESSION['userPseudo']; ?> !</p>
                         </div>
                     </div>
-                    <!-- search on all the dashboard -->
-                    <form action="?" method="post" class="sidebar-form">
-                        <div class="input-group">
-<!--                             <input type="text" name="searchMenu" id="searchMenu"  value="" class="form-control" placeholder="Search..."> -->
-                            <span class="input-group-btn">
-                                <button type="submit" id="search-btnMenu" class="btn btn-flat"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div>
-                    </form>
+                   
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">

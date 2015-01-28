@@ -77,7 +77,7 @@
                             <div class="small-box bg-red">
                                 <div class="inner">
                                     <h3>
-                                        0 <sup style="font-size: 20px">€</sup>
+                                        <?php echo $data['donat'];?> €
                                     </h3>
                                     <p>Donations </p>
                                 </div>

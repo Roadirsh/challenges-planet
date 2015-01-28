@@ -93,6 +93,29 @@ class PageModel extends CoreModel{
         }
     }
     
+    
+    /**
+     * Compte du nombre de donation total
+     */
+    public function NbDonat(){
+
+        try {
+            $select = $this->connexion->prepare("SELECT sum(donate_amount) as sum
+                                            FROM " . PREFIX . "donate");
+                    
+            //var_dump($select);
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+			$retour = $select -> fetchAll();
+
+            return $retour[0]["sum"];
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }    
     /**
      * Voir l'ensemble des admins
      */
