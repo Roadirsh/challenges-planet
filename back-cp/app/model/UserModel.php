@@ -274,6 +274,8 @@ class UserModel extends CoreModel{
 		{
 			try {
 				
+				$this->connexion->beginTransaction();
+				
 	            $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_user` (`user_id`, `user_date`, `user_birthday`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`, `user_type`) VALUES (NULL, now(), :birthday, :lastname, :firstname, :mail, :pseudo, :password, :profpic, :type)");
 	            
 				
@@ -332,12 +334,13 @@ class UserModel extends CoreModel{
 					
 					$insert->execute();
 				}
-				
+				$this->connexion->commit();
 				return false;
 	        }
 	
 	        catch (Exception $e)
 	        {
+		        $this->connexion->rollBack();
 	            echo 'Message:' . $e -> getMessage();
 	        }
         }
@@ -640,7 +643,8 @@ echo '<pre>';
 
     	try {
     	    // UPDATE DANS LA TABLE USER 
-    	   
+			$this->connexion->beginTransaction();
+
 			$requete = "UPDATE " . PREFIX . "user SET `user_lastname` = :lastname, `user_firstname` = :firstname, `user_mail` = :mail, `user_pseudo` = :pseudo,";
 			
 			if(isset($_POST['user_password']) && !empty($_POST['user_password']))
@@ -772,10 +776,12 @@ echo '<pre>';
 				$insert3->execute();
 
 			}
+			$this->connexion->commit();
 
 			return false;
 	
         } catch (Exception $e) {
+	        $this->connexion->rollBack();
             echo 'Message:' . $e -> getMessage();
         }
 
@@ -789,58 +795,56 @@ echo '<pre>';
 	public function SearchUser($post){
 	
 	    include('../lib/blacklist.inc.php');
-        $post = $_POST['search'];
-        $exp = explode(" ", $post);
+        $search = addslashes($post['search']);
+        
+        $expSearch = explode(" ", $search);
+        
 
 	    $i = 0;
-	    $count = count($exp);
-        
-	    foreach($exp as $k => $e)
+	    $nbArraySearch = count($expSearch);
+   	    foreach($expSearch as $phrase)
 	    {
-	        if(!empty($e))
+			$r = "WHERE ";
+	        if(!empty($phrase))
 	        {
-	            if(strlen($e) > 3)
-	            {
-	                if(!in_array(strtolower($e), $adv))
-	                { 
-	                    $r = '';
-                        // USER TABLE BDD
-                        $r .= "user_lastname LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-                        $r .= "user_firstname LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-                        $r .= "user_mail LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-                        $r .= "user_pseudo LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-                        $r .= "user_type LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-	                }
+				//$adv -> blacklist
+	            if(!in_array(strtolower($phrase), $adv))
+	            { 
+                    // USER TABLE BDD
+                    $r .= "( user_lastname LIKE '%".addslashes($phrase)."%' ";
+                    if($i < $nbArraySearch){
+    	                $r .= "OR ";
+                    }
+                    $r .= "user_firstname LIKE '%".addslashes($phrase)."%' ";
+					if($i < $nbArraySearch){
+                        $r .= "OR ";
+                    }
+                    $r .= "user_mail LIKE '%".addslashes($phrase)."%' ";
+                    if($i < $nbArraySearch){
+                        $r .= "OR ";
+                    }
+                    $r .= "user_pseudo LIKE '%".addslashes($phrase)."%' ";
+                    if($i < $nbArraySearch){
+                        $r .= "OR ";
+                    }
+                    
 	            }
-	        }
-	        $i ++; 
+				$r = substr($r, 0, -3);
+				$r .= "  ) AND ";
+				$i ++; 
+	    	}
+	    	if(!empty($r))
+			{
+		   		$ajout = $r;
+	       	}
+			else 
+			{
+				$ajout = "";
+        	}
 	    }
-
-	    $r = substr($r, 0, -4);
-	    if(!empty($r)): $ajout = $r; endif;
-	    
-	    
-	    
-	    $select = $this->connexion->prepare("SELECT *
-		                                FROM 
-    		                                " . PREFIX . "user
-		                                WHERE " . $ajout . "
-		                                GROUP BY user_id");
+			$query = "SELECT * FROM " . PREFIX . "user " . $ajout . " user_type != 'admin'  GROUP BY user_id";
+			var_dump($query);	
+		    $select = $this->connexion->prepare($query);
         //var_dump($select);
 		$select -> execute();
 		$select -> setFetchMode(PDO::FETCH_ASSOC);
