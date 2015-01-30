@@ -1,7 +1,7 @@
 <?php // $logger->log('test', 'loadapp', "Chargement de la vue home.php", Logger::GRAN_MONTH); ?>
-<? include(ROOT . "view/layout/header.inc.php"); ?>
-<? include(ROOT . "view/layout/menutop.inc.php"); ?>
-<? include(ROOT . "view/layout/menu.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/menutop.inc.php"); ?>
+<?php include(ROOT . "view/layout/menu.inc.php"); ?>
 
 <div id="content" class="span10">
     <div class="row-fluid">		
@@ -24,32 +24,32 @@
 							  </tr>
 						  </thead>   
 						  <tbody>
-						    <? foreach($data as $k => $AllUser){ ?>
-                            <? // var_dump($AllUser); ?>
+						    <?php foreach($data as $k => $AllUser){ ?>
+                            <?php // var_dump($AllUser); ?>
 							<tr>
-								<td><a class="btn btn-info" href="#"><? echo $AllUser['user_pseudo']; ?></a></td>
-								<td><? echo $AllUser['user_firstname']; ?></td>
-								<td><? echo $AllUser['user_lastname']; ?></td>
-								<td><? echo $AllUser['user_birthday']; ?></td>
-								<td><? echo $AllUser['user_mail']; ?></td>
-								<td class="center"><? echo $AllUser['user_date']; ?></td>
+								<td><a class="btn btn-info" href="#"><?php echo $AllUser['user_pseudo']; ?></a></td>
+								<td><?php echo $AllUser['user_firstname']; ?></td>
+								<td><?php echo $AllUser['user_lastname']; ?></td>
+								<td><?php echo $AllUser['user_birthday']; ?></td>
+								<td><?php echo $AllUser['user_mail']; ?></td>
+								<td class="center"><?php echo $AllUser['user_date']; ?></td>
 								<td class="center">
-								<? if($AllUser['user_type'] == "student"){ ?>
-									<span class="label label-info"><? echo $AllUser['user_type']; ?></span>
-								<? } elseif($AllUser['user_type'] == "organisme"){ ?>
-								    <span class="label label-default"><? echo $AllUser['user_type']; ?></span>
-								<? } ?>
+								<?php if($AllUser['user_type'] == "student"){ ?>
+									<span class="label label-info"><?php echo $AllUser['user_type']; ?></span>
+								<?php } elseif($AllUser['user_type'] == "organisme"){ ?>
+								    <span class="label label-default"><?php echo $AllUser['user_type']; ?></span>
+								<?php } ?>
 								</td>
 								<td class="center">
 									<a class="btn btn-info" href="">
 										<i class="halflings-icon white edit"></i>  
 									</a>
-									<a class="btn btn-danger" href="<? echo MODULE . 'user' . ACTION . 'deluser' . '&id=' . $AllUser['user_id']; ?>">
+									<a class="btn btn-danger" href="<?php echo MODULE . 'user' . ACTION . 'deluser' . '&id=' . $AllUser['user_id']; ?>">
 										<i class="halflings-icon white trash"></i> 
 									</a>
 								</td>
 							</tr>
-							<? } ?>
+							<?php } ?>
 						  </tbody>
 					  </table>            
 					</div>

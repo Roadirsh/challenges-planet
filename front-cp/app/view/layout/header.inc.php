@@ -36,4 +36,4 @@
 
 
 </head>
-<? include("menutop.inc.php"); ?>
+<?php include("menutop.inc.php"); ?>

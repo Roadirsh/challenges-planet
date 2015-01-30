@@ -235,7 +235,8 @@ class EventModel extends CoreModel{
     public function SeeFiltreEventBeginning($post){
     
         var_dump($post); 
-        if($post == '-1 week'){ $date = '';} exit();
+        if($post == '-1 week'){ $date = '';} // date actuel - 1semaine
+        exit();
         
         try {
         	$select = $this->connexion->prepare("SELECT *

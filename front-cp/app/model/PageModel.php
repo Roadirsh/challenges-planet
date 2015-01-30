@@ -138,9 +138,10 @@ class PageModel extends CoreModel{
 
         try {
             $select = $this->connexion->prepare("SELECT * 
-                                            FROM " . PREFIX . "user
-                                            where user_type = 'organisme'
-                                            and user_donut > 0
+                                            FROM " . PREFIX . "user A, " . PREFIX . "donate B 
+                                            WHERE A.user_type = 'organisme'
+                                            AND A.user_donut > 0
+                                            ORDER BY B.donate_date ASC
                                             LIMIT 8");
                     
             //var_dump($select);

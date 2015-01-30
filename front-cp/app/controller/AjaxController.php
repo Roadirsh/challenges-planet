@@ -1,4 +1,4 @@
-<? 
+<?php
 
 /**
  * Controller Ajax

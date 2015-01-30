@@ -1,4 +1,4 @@
-<? include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
 <!--=== Content Part ===-->
 <div class="container">		
 	<div class="row-fluid privacy">
@@ -84,7 +84,7 @@
         <p>In accordance with data-processing law the “and freedoms” n°78-17 of January 6th, 1978 modified in 2004, the users of the www.challengespl.net site profit from a right of access and of correction of information which relates to them, and which they can exert:
             <ul>	
                 <li>
-                    Send us a mail to<a href="<? echo MODULE . 'page' . ACTION . 'contact'; ?>">Contact Challenges Planet</a>
+                    Send us a mail to<a href="<?php echo MODULE . 'page' . ACTION . 'contact'; ?>">Contact Challenges Planet</a>
                 </li>
                 <li>or by mail at the address: <br>
                     Company Planet<br> Challenges

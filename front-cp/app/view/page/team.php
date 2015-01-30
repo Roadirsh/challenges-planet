@@ -1,7 +1,7 @@
 <?php // $logger->log('test', 'loadapp', "Chargement de la vue home.php", Logger::GRAN_MONTH); ?>
-<? include(ROOT . "view/layout/header.inc.php"); ?>
-<? include(ROOT . "view/layout/menutop.inc.php"); ?>
-<? include(ROOT . "view/layout/menu.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/menutop.inc.php"); ?>
+<?php include(ROOT . "view/layout/menu.inc.php"); ?>
 
 <div id="content" class="span10">
 	<div class="box span13" onTablet="span13" onDesktop="span13">
@@ -15,27 +15,27 @@
 				<li>
 					<a href="#">
                         <?php if(!empty($AllTeam['user_profil_pic'])){ ?>
-    				        <img class="avatar" alt="Dennis Ji" src="<? echo $AllTeam['user_profil_pic']; ?>">
-                        <? } else { ?>
+    				        <img class="avatar" alt="Dennis Ji" src="<?php echo $AllTeam['user_profil_pic']; ?>">
+                        <?php } else { ?>
     				        <img class="avatar" alt="Dennis Ji" src="img/avatar.jpg"> 
-                        <? } ?> 
+                        <?php } ?> 
 					</a>
-					<strong>Pseudo:</strong> <a href="#"><? echo $AllTeam['user_pseudo']; ?></a><br>
+					<strong>Pseudo:</strong> <a href="#"><?php echo $AllTeam['user_pseudo']; ?></a><br>
 					<span class="admin_status">
     					<strong>Status:</strong> 
     				    <?php if($AllTeam['user_super_admin'] == 1){ ?>
     					    <span class="label label-warning">Super Admin</span>  
-    				    <? } else { ?>
+    				    <?php } else { ?>
     				        <span class="label label-info">Admin</span> 
-                        <? } ?> 
+                        <?php } ?> 
 					</span>
-					<small><em>Register date: <a href="#"><? echo $AllTeam['user_date']; ?></a></em></small><br>
-					FirstName: <a href="#"><? echo $AllTeam['user_firstname']; ?></a><br>
-					LastName: <a href="#"><? echo $AllTeam['user_lastname']; ?></a><br>
-					D.O.B: <a href="#"><? echo $AllTeam['user_birthday']; ?></a><br>
-					e-mail: <a href="#"><? echo $AllTeam['user_mail']; ?></a><br>                                   
+					<small><em>Register date: <a href="#"><?php echo $AllTeam['user_date']; ?></a></em></small><br>
+					FirstName: <a href="#"><?php echo $AllTeam['user_firstname']; ?></a><br>
+					LastName: <a href="#"><?php echo $AllTeam['user_lastname']; ?></a><br>
+					D.O.B: <a href="#"><?php echo $AllTeam['user_birthday']; ?></a><br>
+					e-mail: <a href="#"><?php echo $AllTeam['user_mail']; ?></a><br>                                   
 				</li>
-            <? } ?>
+            <?php } ?>
 			</ul>
 		</div>
     </div>

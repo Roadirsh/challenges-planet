@@ -1,4 +1,4 @@
-<? 
+<?php 
 $adv = array(
 "je", 
 "me", 

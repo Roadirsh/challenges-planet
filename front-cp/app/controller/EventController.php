@@ -93,20 +93,20 @@ class EventController extends CoreController {
     		    $SeeEvent = $events->SeeFiltreEventType($_POST['type']);
     		    $array['type'] = $_POST['type'];
                 $_POST = '';
-            
+
             // PAR DEBUT DE COURSE    
     		} elseif(isset($_POST['begin']) && !empty($_POST['begin'])){
     		    $SeeEvent = $events->SeeFiltreEventBeginning($_POST['begin']);
     		    $array['begin'] = $_POST['begin'];
                 $_POST = '';
-                
+
             // PAR NOMBRE D'EQUIPE   
     		} elseif(isset($_POST['nb_team']) && !empty($_POST['nb_team'])){
     		    $SeeEvent = $events->SeeFiltreEventNbTeam($_POST['nb_team']);
     		    $array['nb_team'] = $_POST['nb_team'];
                 $_POST = '';
             }
-            
+
         // SANS FILTRE
 		} else{
     		$SeeEvent = $events->SeeEvent();
