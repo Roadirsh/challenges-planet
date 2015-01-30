@@ -32,7 +32,8 @@
     <script src="js/script.js"></script>
    	<script src="js/slick/slick.js"></script>
    	<script src="js/magnific-popup/jquery.magnific-popup.js"></script>
-   	<!-- <script src="js/happy/happy.js"></script> -->
+   	<script src="js/happy/happy.js"></script>
+   	<script src="js/classie-master/classie.js"></script>
 
 
 </head>

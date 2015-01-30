@@ -31,10 +31,19 @@ $bg-color:		#f2efec;
 
 	@media #{$medium-up} {
 		padding: 15px;
-		width: 58%;
+		width: 50%;
 		margin: auto;
 		border-radius: 15px;
 		border: 1px solid #d6d6d6;
+	}
+
+	.unhappyMessage {
+		color: red;
+	}
+
+	.unhappy {
+		box-shadow: 0 0 5px red;
+		border: red;
 	}
 
 	.connect {
@@ -79,10 +88,19 @@ $bg-color:		#f2efec;
 			.button-submit {
 				width:100%;
 				margin-bottom: 20px;
+				margin-top: 10px;
 			}
 
 			span {
-				font-size: 13px;
+				font-size: 12px;
+			}
+
+			#email, #password {
+				margin: 0;
+			}
+
+			label[for="password"] {
+				margin-top: 10px;
 			}
 		}
 

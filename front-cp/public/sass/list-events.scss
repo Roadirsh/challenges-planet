@@ -18,9 +18,34 @@ $color-blue:	#478bb2;
 $color-green:	#88a83b;
 $bg-color:		#f2efec;
 
+
+#form-search {
+	background-color: #fff;
+	padding: 40px 25px;
+}
+
 .list-events {
 
 	background-color: #e5ded8;
+
+	.pagination {
+		margin: auto;
+		text-align: center;
+		background-color: #d4d4d4;
+		line-height: 55px;
+
+		.select {
+			color: $color-green;
+			font-weight: 800;
+		}
+
+		a {
+			margin: 0px 10px;
+			font-weight: 800;
+			color: #575765;
+			font-size: 22px;
+		}
+	}
 
 	.head {
 		text-align: center;
@@ -35,29 +60,49 @@ $bg-color:		#f2efec;
 		p {
 			margin: auto;
 			font-size: 17px;
-			margin-bottom: 15px;
+			margin-bottom: 30px;
 		}
 
-		.medium-9 {
-			float: right;
+		.number-events {
+			display: block;
+			color: #575765;
+			font-size: 24px;
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: 800;
 		}
+
 	}
 
 	.main-contain {
 		padding: 15px 0px;
 
+		.sidebar-sort-mobile {
+			display: block;
+			text-transform: uppercase;
+			text-align: center;
+			font-family: $font-title;
+			font-size: 22px;
+			padding-bottom: 15px;
+			border-bottom: 1px solid $color-grey;
+			cursor: pointer;
+			color: $color-dark;
+
+		}
+
 		.sidebar-sort {
 
 h2 {
 	margin-top: 0px;
-	font-size: 22px;
+	font-size: 21px;
 	text-transform: uppercase;
 	font-family: $font-title;
 }
 
 			span {
 				text-transform: uppercase;
-				font-size: 20px;
+				font-size: 14px;
+				font-weight: bold;
 				display: block;
 				margin-bottom: 20px;
 			}
@@ -75,19 +120,34 @@ h2 {
 
 		.event {
 			margin-bottom: 15px;
+			margin-top: 15px;
 
 			.wrapper {
 				background-color: #fff;
 				border: 1px solid #d6d6d6;
 				position: relative;
+				padding: 5px;
+				height: 400px;
+
+				@media #{$medium-up} {
+					height: 430px;
+				}
+
+				@media #{$large-up} {
+					height: auto;
+				}
 
 				.adventure {
 					position: absolute;
-					top: 50%;
-					-webkit-transform: translateY(-50%);
-					-moz-transform: translateY(-50%);
-					-ms-transform: translateY(-50%);
+					top: 69%;
 					right: 0;
+
+					@media #{$large-up} {
+						top: 50%;
+						-webkit-transform: translateY(-50%);
+						-moz-transform: translateY(-50%);
+						-ms-transform: translateY(-50%);
+					}
 
 					.button-submit {
 						text-align: center;
@@ -101,6 +161,7 @@ h2 {
 					position: absolute;
 					bottom: 0;
 					right:0;
+					padding-bottom: 5px;
 
 					h3 {
 						color: $color-blue;
@@ -114,6 +175,7 @@ h2 {
 						font-size: 14px;
 						width: 100%;
 						color: #fff;
+						text-align: center;
 					}
 				}
 			}
@@ -139,6 +201,12 @@ h2 {
 				span {
 					display: block;
 					font-size: 13px;
+					margin-top: 5px;
+					color: $color-green;
+				}
+
+				.date {
+					font-size: 12px;
 					color: #adadad;
 				}
 			}

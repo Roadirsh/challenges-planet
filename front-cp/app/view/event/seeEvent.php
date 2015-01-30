@@ -2,12 +2,11 @@
 <?php if(isset($data['events']) && !empty($data['events']) ){ $events = $data['events']; } ?>
 <?php if(isset($data['type']) && !empty($data['type']) ){ $tpe = $data['type']; } ?>
 <?php if(isset($data['nb_team']) && !empty($data['nb_team']) ){ $nbteam = $data['nb_team']; } ?>
-<div class="list-events">
+<div class="list-events clearfix">
 	<div class="head clearfix">
 		<h1>Dynamics and charity challenges</h1>
 		<p class="medium-8">Find any best sports events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating your !</p>
-		<div class="medium-9 clearfix">
-			<span class="columns medium-6 number-events">
+		<span class="medium-12 number-events">
 			    <?php if(isset($events[0]) && !empty($events[0])){ ?>
 			        <?php if(count($events) == 1){ echo count($events) . ' event for : '; 
 			        } else {echo count($events) . ' events for : '; } ?>
@@ -17,9 +16,7 @@
                 <?php } elseif(isset($nbteam) && !empty($nbteam)){ ?>
                     <span class="active"><?php echo $nbteam; ?></span>
                 <?php }?>
-			</span>
-			<div class="columns medium-6 pagination">Page <span>1 </span>2 3</div>
-		</div>
+		</span>
 	</div>
 
 	<div class="main-contain clearfix">
@@ -94,7 +91,7 @@
 						<div class="infos medium-6 columns">
 							<h2><?php echo $e['event_name']; ?></h2>
 							<span><b><?php echo $e['event_type']; ?></b> race</span>
-							<small><?php echo formDate($e['event_begin'], 0); ?> - <?php echo formDate($e['event_end'], 0); ?></small>
+							<span class="date"><?php echo formDate($e['event_begin'], 0); ?> - <?php echo formDate($e['event_end'], 0); ?></span>
 						</div>
 						<div class="medium-6 columns teams">
 						    <?php if($e['event_nb_team'] == 0){ $team = 'no teams yet'; } ?>
@@ -134,6 +131,14 @@
 			</div>
 			
 		</div>
+	</div>
+	
+	<div class="medium-12 pagination">
+		<a class="previous-link" href="">&lt;</a>
+		<a class="select">1 </a>
+		<a>2</a>
+		<a>3</a>
+		<a class="next-link" href="">&gt;</a>
 	</div>
 
 </div>
