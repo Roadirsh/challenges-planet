@@ -1,0 +1,104 @@
+/*
+Error: Undefined variable: "$color-green".
+        on line 11 of D:/wamp/www/challenges-planet/front-cp/public/sass/event.scss
+
+6: 			width: 100%;
+7: 		}
+8: 
+9: 		.location, .date-begin, .date-finish {
+10: 			span {
+11: 				color: $color-green;
+12: 				font-weight: 800;
+13: 			}
+14: 		}
+15: 	}
+16: 
+
+Backtrace:
+D:/wamp/www/challenges-planet/front-cp/public/sass/event.scss:11
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/script/tree/variable.rb:49:in `_perform'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/script/tree/node.rb:50:in `perform'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:378:in `visit_prop'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+org/jruby/RubyArray.java:2412:in `map'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:412:in `visit_rule'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+org/jruby/RubyArray.java:2412:in `map'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:412:in `visit_rule'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+org/jruby/RubyArray.java:2412:in `map'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:412:in `visit_rule'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+org/jruby/RubyArray.java:2412:in `map'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:412:in `visit_rule'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+org/jruby/RubyArray.java:2412:in `map'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:161:in `visit_children'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:151:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:8:in `visit'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/root_node.rb:36:in `css_tree'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/root_node.rb:20:in `render'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/engine.rb:268:in `render'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+org/jruby/RubyMethod.java:136:in `call'
+file:/D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/compass-app.jar!/hook/compass_patch.rb:108:in `update_stylesheet'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:215:in `update_stylesheets'
+org/jruby/RubyArray.java:1613:in `each'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:329:in `watch'
+org/jruby/RubyProc.java:271:in `call'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/jruby/listen-1.1.6/lib/listen/listener.rb:236:in `on_change'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/jruby/listen-1.1.6/lib/listen/listener.rb:271:in `initialize_adapter'
+org/jruby/RubyProc.java:271:in `call'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/jruby/listen-1.1.6/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/jruby/listen-1.1.6/lib/listen/adapter.rb:289:in `start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$color-green\".\A         on line 11 of D:/wamp/www/challenges-planet/front-cp/public/sass/event.scss\A \A 6: 			width: 100%;\A 7: 		}\A 8: \A 9: 		.location, .date-begin, .date-finish {\A 10: 			span {\A 11: 				color: $color-green;\A 12: 				font-weight: 800;\A 13: 			}\A 14: 		}\A 15: 	}\A 16: "; }

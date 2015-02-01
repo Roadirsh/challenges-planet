@@ -31,13 +31,13 @@ $bg-color:		#f2efec;
 		margin-bottom: 20px;
 	}
 
-	.number-teams, .kind-race {
+	.number-teams, .kind-race, .team-progress {
 		border-top: 1px solid #d6d6d6;
 		border-bottom: 1px solid #d6d6d6;
 		padding: 10px 0px;
 	}
 
-	.begin-race {
+	.begin-race, .team-budget {
 		padding: 10px 0px;
 	}
 }
@@ -93,7 +93,7 @@ $bg-color:		#f2efec;
 	}
 
 	.main-contain {
-		padding: 15px 0px;
+		padding-bottom: 15px;
 
 		.sidebar-sort-mobile {
 			display: block;
@@ -125,13 +125,13 @@ $bg-color:		#f2efec;
 				margin-bottom: 20px;
 			}
 
-			.number-teams, .kind-race {
+			.number-teams, .kind-race, .team-progress {
 				border-top: 1px solid #d6d6d6;
 				border-bottom: 1px solid #d6d6d6;
 				padding: 10px 0px;
 			}
 
-			.begin-race {
+			.begin-race, .team-budget {
 				padding: 10px 0px;
 			}
 		}
