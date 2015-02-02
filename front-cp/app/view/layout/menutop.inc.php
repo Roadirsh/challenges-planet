@@ -8,7 +8,7 @@
 			<ul>
 				<li><a href="<?php echo MODULE . 'event' . ACTION . 'seeevent'; ?>">let's see events</a></li>
 				<li><a href="<?php echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>">they helped them</a></li>
-				<li class="join"><a href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>">ready for your adventure ?</a></li>
+				<a href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>"><li class="join">ready for your adventure ?</li></a>
 				<li class="clearfix">
 				    <a class="connect popup-with-form" href="#form-login">Login</a>
 				    <a href="<?php echo MODULE . 'log' . ACTION . 'signup'; ?>" class="register">Sign up</a>
@@ -33,7 +33,15 @@
 			<ul class="first-nav">
 				<li><a href="<?php echo MODULE . 'event' . ACTION . 'seeevent'; ?>">let's see events</a></li>
 				<li class="helped"><a href="<?php echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>">they helped them</a></li>
-				<li class="join"><a href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'create-eventv3');">ready for your adventure ?</a></li>
+				<a href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'create-eventv3');"><li class="join">ready for your adventure ?</li></a>
+				<li class="search-bar">
+					<div id="navigation-bar" class="clearfix">    
+						<form id="search" action="#" method="post">
+						    <div id="label"><label for="search-terms" id="search-label">search</label></div>
+						    <div id="input"><input type="text" name="search-terms" id="search-terms" placeholder="Search teams, compagnies..."></div>
+						</form>
+					</div>
+				</li>
 			</ul>
 			<ul class="second-nav clearfix">
 			    <?php if(isset($_SESSION['user']) && !empty($_SESSION['user']) || isset($_SESSION['userMail']) && !empty($_SESSION['userMail']) ) {?>

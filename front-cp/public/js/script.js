@@ -1,5 +1,31 @@
 $(document).ready(function(){
 
+  // get vars
+    var searchEl = document.querySelector("#input");
+    var labelEl = document.querySelector("#label");
+
+    // register clicks and toggle classes
+    labelEl.addEventListener("click",function(){
+        if (classie.has(searchEl,"focus")) {
+            classie.remove(searchEl,"focus");
+            classie.remove(labelEl,"active");
+        } else {
+            classie.add(searchEl,"focus");
+            classie.add(labelEl,"active");
+        }
+    });
+
+    // register clicks outisde search box, and toggle correct classes
+    document.addEventListener("click",function(e){
+        var clickedID = e.target.id;
+        if (clickedID != "search-terms" && clickedID != "search-label") {
+            if (classie.has(searchEl,"focus")) {
+                classie.remove(searchEl,"focus");
+                classie.remove(labelEl,"active");
+            }
+        }
+    });
+
   $('.slider').slick({
       dots: true,
       infinite: true,
@@ -28,6 +54,21 @@ $(document).ready(function(){
         }
     });
 
+    $('#form-signup').isHappy({
+    fields: {
+      // reference the field you're talking about, probably by `id`
+      // but you could certainly do $('[name=name]') as well.
+      '#sign-up-email': {
+        required: true,
+        message: 'Without an email, how can we identify you ?'
+      },
+      '#sign-up-password': {
+        required: true,
+        message: 'Affraid to put a password ? For sure it will be our secret'
+      },
+    },
+    happy: function () { }
+  });
 
   $(function() {
       $('#date-from, #date-to').datepicker();

@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="css/magnific-popup.css">
    	<link rel="stylesheet" href="css/jquery-ui.css">
    	<link rel="stylesheet" href="css/list-events.css">
+   	<link rel="stylesheet" href="css/event.css">
    	<link rel="stylesheet" href="css/styledev.css">
 
     <script async="" src="//www.google-analytics.com/analytics.js"></script>
@@ -32,7 +33,8 @@
     <script src="js/script.js"></script>
    	<script src="js/slick/slick.js"></script>
    	<script src="js/magnific-popup/jquery.magnific-popup.js"></script>
-   	<!-- <script src="js/happy/happy.js"></script> -->
+   	<script src="js/happy/happy.js"></script>
+   	<script src="js/classie-master/classie.js"></script>
 
 
 </head>

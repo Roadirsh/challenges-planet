@@ -4,41 +4,35 @@
 <?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; } ?>
 <?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ $sponsor = $data['sponsor']; } ?>
 <?php //var_dump($done); ?>
-<div class="slider">
-    <?php $i = 0; ?>
-    <?php if(isset($data['slider']) && !empty($data['slider']) ){ ?>
-        <?php foreach($slider as $k => $s){ ?>
-        	<div class="img-slider " index='<?php echo $i; ?>'>
-        		<img src="img/event/<?php echo $s['event_img']; ?>" alt="">
-        		<div class="show-for-small-only caption clearfix">
-        			<span><?php echo $s['event_name']; ?></span>
-        		</div>
-        		<div class="show-for-medium-up slogan-title-event">
-        			<h1 class="slogan"><?php echo JOIN ?></h1>
-        			<h3><?php echo $s['event_name']; ?></h3>
-        			<p><?php echo mb_strimwidth($s['event_decr'], 0, 300, "..."); ?></p>
-        			<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
-        			    <span class="see-event">Let's see the event !</span></a>
-        		</div>
-        	</div>
-    	<?php $i ++; ?>
-    	<?php } ?> 
-    <?php } ?> 	
-</div>
+<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
+    <div class="slider">
+        <?php $i = 0; ?>
+        <?php if(isset($data['slider']) && !empty($data['slider']) ){ ?>
+            <?php foreach($slider as $k => $s){ ?>
+            	<div class="img-slider " index='<?php echo $i; ?>'>
+            		<img src="img/event/<?php echo $s['event_img']; ?>" alt="">
+            		<div class="show-for-small-only caption clearfix">
+            			<span><?php echo $s['event_name']; ?></span>
+            		</div>
+            		<div class="show-for-medium-up slogan-title-event">
+            			<h1 class="slogan"><?php echo JOIN ?></h1>
+            			<h3><?php echo $s['event_name']; ?></h3>
+            			<p><?php echo mb_strimwidth($s['event_decr'], 0, 300, "..."); ?></p>
+            			<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
+            			    <span class="see-event">Let's see the event !</span>
+            		</div>
+            	</div>
+        	<?php $i ++; ?>
+        	<?php } ?> 
+        <?php } ?> 	
+    </div>
+</a>
 
 
 <h1 class="show-for-small-only slogan"><span>Join </span>the best caritives student challenges</h1>
 
     <div class="global-content clearfix">
     
-    	<div class="services show-for-small-only">
-    		<h2>Our services</h2>
-    		<img src="img/ourservice.png" alt="">
-    		<h3>Join your forces yourself for a better planet</h3>
-    		<p>Our platform has been designed to link businesses and students on organising specific sports events.</p>
-    
-    		<p>All competitions are organised to support sustainable development initiatives and proceeds of those sporting events will be forwarded to charities</p>
-    	</div>
 		<!-- <a href="<?php //echo MODULE . 'project' . ACTION . 'seeproject'; ?>" onClick="ga('send', 'event', 'link','clic', 'teamv3');">  -->
 		<div class="teams clearfix">
 		    <h2>Our teams</h2>
@@ -56,8 +50,16 @@
         					<div class="date"><?php echo $t['event_name']; ?></div>
         					<div class="progressteam">
         						<div class="clearfix">
-        							<div class="numbers"><span><?php echo $t[0]['count']; ?></span><br>supporters</div>
-        							<div class="daysleft">
+                                    <div class="columns medium-4 small-4 numbers">
+                                        <span>1289 €</span>
+                                        <br>goals
+                                    </div>
+                                    <div class="columns medium-4 small-4 funded">
+                                        <span>53 %</span>
+                                        </br>funded
+                                    </div>
+        							<!-- <div class="numbers"><span><?php echo $t[0]['count']; ?></span><br>supporters</div> -->
+        							<div class="columns medium-4 small-4 daysleft">
         							    <span>
         							        <?php echo (date("Y-m-d")-strtotime($t['event_end'])); ?>
                                             <?php // echo ($t[0]['group_money']-$t[1]['needed']); ?> 
@@ -85,7 +87,7 @@
     					<div class="date"><?php echo $done['event_name']; ?></div>
     					<div class="progressteam">
     						<span class="validate"></span>
-    						<div class="number"><span>50</span><br>supporters</div>
+    						<div class="number"><span>100 %</span><br>goal reached !</div>
     						<div id="progressteam1" class="good"></div>
     					</div>
     				</div>
@@ -96,14 +98,6 @@
         </div>
     </a>
 
-	<div class="services show-for-medium-up">
-		<h2>Our services</h2>
-		<img src="img/ourservice.png" alt="">
-		<h3>Join your forces for a better planet</h3>
-		<p>Our platform has been designed to link businesses and students on organising specific sports events.</p>
-
-		<p>All competitions are organised to support sustainable development initiatives and proceeds of those sporting events will be forwarded to charities</p>
-	</div>
 	<a href="<?php echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>" onClick="ga('send', 'event', 'link','clic', 'sponsorsv3');">
 		<div class="sponsors clearfix">
 		<h2>Our sponsors</h2>
@@ -111,13 +105,19 @@
 		    <?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ ?>
     		    <?php //var_dump($sponsor); ?>
     		    <?php foreach($sponsor as $k => $s){ ?>
-    			<div class="medium-4 large-3 columns">
-    				<div class="wrapper">
-    					<img src="img/avatar/<?php echo $s['user_profil_pic']; ?>" alt="">
-    					<a class="website" href="<?php echo $s['user_site']; ?>" target="blank">Go their website</a>
-    					<a class="help sponsored" href="<?php echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">View events sponsored</a>
-    				</div>
-    			</div>
+    			<a href="<?php echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">
+                    <div class="medium-4 large-3 columns">
+        				<div class="wrapper">
+                            <div class="img">
+                                <img src="img/avatar/<?php echo $s['user_profil_pic']; ?>" alt="">
+                                <div class="hover">
+                                    <span>They helped them !</span>
+                                </div>
+                            </div>
+        					<!-- <a class="website" href="<?php echo $s['user_site']; ?>" target="blank">Go their website</a>
+        					<a class="help sponsored" href="<?php echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">View events sponsored</a> -->
+        				</div>
+    			    </div>
     			<?php } ?>
             <?php } ?>
 		</section>

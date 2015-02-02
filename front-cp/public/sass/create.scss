@@ -26,7 +26,7 @@ $bg-color:		#f2efec;
     display:inline-block;
     background-color: #e5ded8;
 
-    input[type="text"], input[type="date"], select {
+    input[type="text"], select {
         background-color: #fff !important;
     }
 
@@ -161,10 +161,6 @@ $bg-color:		#f2efec;
 
             input[type="text"] {
                 height: 30px;
-            }
-
-            input[type="date"] {
-                background-color: #fff;
             }
 
             .icon-search {
@@ -337,7 +333,7 @@ $bg-color:		#f2efec;
     	margin: auto;
 
     	@media #{$medium-up} {
-    		margin-right: 25px;
+    		margin-right: 15px;
     		position: absolute;
     		right: 0;
     		top: 20px;
