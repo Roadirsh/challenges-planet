@@ -26,7 +26,7 @@
 		<div class="sidebar-sort medium-3 columns">
 			<h2>Search and sort</h2>
 			<form class="search-bar" method="post" action="">
-				<input type="text" size="21">
+				<input type="text" name="search" value="" > <!-- onclick='' -->
 				
 				<div class="number-teams">
 					<span>Number of teams</span>

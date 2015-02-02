@@ -332,4 +332,74 @@ class EventModel extends CoreModel{
             echo 'Message:' . $e -> getMessage();
         }
     }
+
+     /**
+     * Search User
+     *
+     * @param array $_POST
+     */
+    public function Search($post){
+    
+        // var_dump($post);
+
+        include('../lib/blacklist.inc.php');
+        $search = addslashes($post);
+        
+        $expSearch = explode(" ", $search);
+
+        $i = 0;
+        $nbArraySearch = count($expSearch);
+
+        $sql = array();
+        foreach($expSearch as $phrase)
+        {
+
+            //$adv -> blacklist
+            if(!in_array(strtolower($phrase), $adv)) { 
+                // EVENT TABLE BDD
+                $sql[] = " event_name LIKE '%" . addslashes($phrase) . "%' ";
+                $sql[] = " event_decr LIKE '%" . addslashes($phrase) . "%' ";
+            }
+
+            $reqSQL = implode(' OR ', $sql);
+        }
+
+        $ajout = '';
+        if (count($sql) > 0) {
+            $ajout = ' WHERE ' . $reqSQL;
+
+        }
+        
+        $select = $this->connexion->prepare("SELECT event_id
+                                            FROM " . PREFIX . "event
+                                            " . $ajout . " 
+                                            GROUP BY event_id");
+        
+        $select -> execute();
+        $select -> setFetchMode(PDO::FETCH_ASSOC); 
+        $eventID = $select -> fetchAll();
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * *  //
+
+        foreach ($eventID as $key => $e) {
+
+            //var_dump($e);
+            $select = $this->connexion->prepare("SELECT *, 
+                                                    ( SELECT COUNT(*) 
+                                                    FROM cp_event_has_group 
+                                                    WHERE event_event_id = " . $e['event_id'] . ") 
+                                                    AS `event_nb_team` 
+                                                FROM cp_event 
+                                                WHERE event_valid = 1 
+                                                AND event_id =" .  $e['event_id'] . "
+                                                LIMIT 7");
+            //var_dump($select);
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $AllEvent = $select -> FetchAll();
+
+        }
+        
+        return $AllEvent;
+    }
 }

@@ -38,70 +38,27 @@ class UserController extends CoreController {
 			}
 		}
 	}
-
-
+	
 	/**
 	 * 
 	 */
-	public function Seeuser(){
+	public function SeeOneUser(){
 
 		// Définition des constante
 		define("PAGE_TITLE", SITE_NAME . " home");
 		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
 		define("PAGE_KW", SITE_NAME); // TODO
-		define("PAGE_ID", "seeUser");
+		define("PAGE_ID", "seeOneUser");
 		
         $showUser = $this->model = new UserModel();
-		$AllUser = $showUser->Seeuser();
-		// UserModel::Seeuser();
-		
-		// echo 'user = '; var_dump($AllUser);
+		$oneUser = $showUser->SeeOneUser();
+
 
 		
 		// Appel de la vue 
-		$this->load->view('user', 'seeUser', $AllUser); // TODO
+		$this->load->view('user', 'seeUser', $OneUser); // TODO
 	
 	}
-	
-	/**
-	 * 
-	 */
-	public function Adduser(){
-
-		// Définition des constante
-		define("PAGE_TITLE", SITE_NAME . " home");
-		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
-		define("PAGE_KW", SITE_NAME); // TODO
-		define("PAGE_ID", "addUser");
-		if(isset($_POST) and !empty($_POST)){
-			$userAdd = $this->model = new UserModel($_POST);
-			 $Existdeja = $userAdd->insertNewUser();
-		}
-
-		// Appel de la vue 
-		if(isset($Existdeja) and $Existdeja == true )
-		{
-			$this->load->view('user', 'addUser', $Existdeja);
-		}
-		else
-		{
-			$this->load->view('user', 'addUser');
-		}
-	
-	}
-	
-	/**
-	 * 
-	 */
-	public function Deluser(){
-	
-        $deleteUser = $this->model = new UserModel();
-		$DeleUser = $deleteUser->Deluser();
-		$message = "has been deleted";
-		$this->coreRedirect('user', 'seeUser', $message);
-	
-	}
-	
 }
 
 ?>

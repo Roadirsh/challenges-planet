@@ -53,14 +53,6 @@
     include_once '../core/CoreModel.php';
 // Model Globale
     include "../lib/Logger.class.php";
-    
-    
-
-
-	 
-	// Création d'un objet Logger
-    //$logger = new Logger('../logs/');
-	//$logger->log('test', 'loadapp', "Chargement de l'application index.php", Logger::GRAN_MONTH);
 
 // Lancement de l'application !!!!!
 

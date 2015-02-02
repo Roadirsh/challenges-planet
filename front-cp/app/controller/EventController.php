@@ -105,6 +105,13 @@ class EventController extends CoreController {
     		    $SeeEvent = $events->SeeFiltreEventNbTeam($_POST['nb_team']);
     		    $array['nb_team'] = $_POST['nb_team'];
                 $_POST = '';
+            
+            // SEARCH GLOBAL  
+            } elseif(isset($_POST['search']) && !empty($_POST['search'])){
+                //var_dump($_POST['search']); exit();
+                $SeeEvent = $events->Search($_POST['search']);
+                $array['search'] = $_POST['search'];
+                $_POST = '';
             }
 
         // SANS FILTRE
