@@ -12,7 +12,11 @@
 			        <?php if(count($events) == 1){ echo count($events) . ' event for : '; 
 			        } else { echo count($events) . ' events '; } ?>
 			        <?php if(isset($array['type']) || isset($array['begin']) || isset($array['nb_team']) || isset($array['search'])){
-						echo 'for : ' . $array['type'] . $array['begin'] . $array['nb_team'] . $array['search'] ; 
+			        	if(!empty($array['type'])){ $s = $array['type']; }
+						elseif(!empty($array['begin'])){ $s = $array['begin']; }
+						elseif(!empty($array['nb_team'])){ $s =  $array['nb_team']; }
+						elseif(!empty($array['search'])){ $s =  $array['search']; }
+						echo 'for : ' . $s;
 					} ?>
                 <?php } ?>
                 <?php if(isset($tpe) && !empty($tpe)){ ?>

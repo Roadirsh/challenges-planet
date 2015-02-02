@@ -1,214 +1,241 @@
+$screen: "only screen";
+
+$small-up: $screen;
+$small-only: "#{$screen} and (max-width: 40em)";
+
+$medium-up: "#{$screen} and (min-width: 56.813em)";
+$medium-only: "#{$screen} and (min-width: 56.813emss) and (max-width: 64em)";
+
+$large-up: "#{$screen} and (min-width: 64.063em)";
+$large-only: "#{$screen} and (min-width: 64.063em) and (max-width: 90em)";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,400);
+
+$font-normal:   Helvetica, sans-serif;
+$font-head:     'Open Sans';
+$font-title: 'franklin_gothic_fsdemi';
+$font-caption: 'roboto_slabbold';
+$color-dark: #1a2129;
+$color-grey: #818181;
+$color-blue: #478bb2;
+$color-green: #88a83b;
+$bg-color:  #f2efec;
+
+
 .list-events {
 
-	.head {
+ .head {
 
-		img {
-			width: 100%;
-		}
+  border: 1px solid #CACACA;
 
-		.location, .date-begin, .date-finish {
-			span {
-				color: $color-green;
-				font-weight: 800;
-			}
-		}
-	}
+  img {
+   width: 100%;
+  }
 
-	.number-teams-event {
-		display: block;
-		color: #575765;
-		font-size: 24px;
-		text-align: center;
-		text-transform: uppercase;
-		font-weight: 800;
-		margin-top: 25px;
-	}
+  .location, .date-begin, .date-finish {
+   span {
+    color: $color-green;
+    font-weight: 800;
+   }
+  }
+ }
 
-	.teams {
-		margin-top: 35px;
+ .number-teams-event {
+  display: block;
+  color: #575765;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-top: 25px;
+ }
 
-			@media #{$medium-up} {
+ .teams {
+  margin-top: 35px;
 
-				background-color: #e5ded8;
-				padding-top: 15px;
-				margin-top: 15px;
-			}
+   @media #{$medium-up} {
 
-			h2 {
-				margin-bottom: 35px;
-			}
+    background-color: #e5ded8;
+    padding-top: 15px;
+    margin-top: 15px;
+   }
 
-			.done {
-				background-color: transparent !important;
-			}
+   h2 {
+    margin-bottom: 35px;
+   }
 
-			.wrapper {
-				border: 1px solid #d6d6d6;
-				position: relative;
-				padding: 10px;
-				margin-bottom: 15px;
-				background-color: #fff;
+   .done {
+    background-color: transparent !important;
+   }
 
-				.img {
-					position: relative;
-					cursor: pointer;
+   .wrapper {
+    border: 1px solid #d6d6d6;
+    position: relative;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #fff;
 
-					.done {
-						background-color: rgba(136, 168, 59, 0.7) !important;
-					}
+    .img {
+     position: relative;
+     cursor: pointer;
 
-						.hover {
-							position: absolute;
-							top: 0;
-							left: 0;
-							background-color: rgba(71, 139, 178, 0.7);
-							opacity: 0;
-							color: #fff;
-							-webkit-transition: all 0.5s ease;
-							-moz-transition: all 0.5s ease;
-							-ms-transition: all 0.5s ease;
-							height: 100%;
-							width: 100%;
+     .done {
+      background-color: rgba(136, 168, 59, 0.7) !important;
+     }
 
-							span {
-								font-weight: bold;
-								text-align: center;
-								text-transform: uppercase;
-								display: block;
-								position: absolute;
-								top: 50%;
-								left: 50%;
-								font-size: 15px;
-								transform: translatey(-50%) translatex(-50%);
-								-webkit-transform: translatey(-50%) translatex(-50%);
-								-moz-transform: translatey(-50%) translatex(-50%);
-								-ms-transform: translatey(-50%) translatex(-50%);
-							}
-						}
+      .hover {
+       position: absolute;
+       top: 0;
+       left: 0;
+       background-color: rgba(71, 139, 178, 0.7);
+       opacity: 0;
+       color: #fff;
+       -webkit-transition: all 0.5s ease;
+       -moz-transition: all 0.5s ease;
+       -ms-transition: all 0.5s ease;
+       height: 100%;
+       width: 100%;
 
-					img {
-						width: 100%;
-						max-height: 328px;
-					}
-				}
+       span {
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 15px;
+        transform: translatey(-50%) translatex(-50%);
+        -webkit-transform: translatey(-50%) translatex(-50%);
+        -moz-transform: translatey(-50%) translatex(-50%);
+        -ms-transform: translatey(-50%) translatex(-50%);
+       }
+      }
 
-				.title-team {
-					font-family: $font-caption;
-					text-align: center;
-					margin: 10px 0px;
-					text-transform: uppercase;
-				}
+     img {
+      width: 100%;
+      max-height: 328px;
+     }
+    }
 
-				.chief-team, .date {
-					font-size: 13px;
-					color: #adadad;
-				}
+    .title-team {
+     font-family: $font-caption;
+     text-align: center;
+     margin: 10px 0px;
+     text-transform: uppercase;
+    }
 
-				.date {
-					margin-bottom: 10px;
-				}
+    .chief-team, .date {
+     font-size: 13px;
+     color: #adadad;
+    }
 
-				.progressteam {
-					text-align: center;
-					position: relative;
-					padding-top: 10px;
-					text-transform: uppercase;
+    .date {
+     margin-bottom: 10px;
+    }
 
-					&:before {
-						position: absolute;
-						top: 0;
-						left: 0;
-						content: "";
-						width: 100%;
-						height: 1px;
-						background-color: #d6d6d6;
-					}
+    .progressteam {
+     text-align: center;
+     position: relative;
+     padding-top: 10px;
+     text-transform: uppercase;
 
-					.validate {
-						background-image: url(../img/checked.png);
-						height: 22px;
-						width: 22px;
-						display: inline-block;
-					}
+     &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: #d6d6d6;
+     }
 
-					.daysleft {
-						display: inline-block;
-						color: $color-dark;
-						line-height: 16px;
-						font-size: 10px;
+     .validate {
+      background-image: url(../img/checked.png);
+      height: 22px;
+      width: 22px;
+      display: inline-block;
+     }
 
-						span {
-							font-weight: bold;
-							font-size: 20px;
+     .daysleft {
+      display: inline-block;
+      color: $color-dark;
+      line-height: 16px;
+      font-size: 10px;
 
-							@media #{$medium-up} {
-								font-size: 15px;
-							}
-						}
-					}
+      span {
+       font-weight: bold;
+       font-size: 20px;
 
-					.number {
-						display: inline-block;
-						line-height: 16px;
-						text-align: left;
-						color: $color-green;
-						font-size: 15px;
-						margin-bottom: 10px;
+       @media #{$medium-up} {
+        font-size: 15px;
+       }
+      }
+     }
 
-						span {
-							font-weight: bold;
-							font-size: 20px;
-							text-align: center;
-						}
-					}
+     .number {
+      display: inline-block;
+      line-height: 16px;
+      text-align: left;
+      color: $color-green;
+      font-size: 15px;
+      margin-bottom: 10px;
 
-					.numbers, .funded {
-						display: inline-block;
-						line-height: 16px;
-						text-align: center;
-						color: $color-green;
-						font-size: 11px;
-						margin-bottom: 10px;
+      span {
+       font-weight: bold;
+       font-size: 20px;
+       text-align: center;
+      }
+     }
 
-						span {
-							font-weight: bold;
-							font-size: 20px;
+     .numbers, .funded {
+      display: inline-block;
+      line-height: 16px;
+      text-align: center;
+      color: $color-green;
+      font-size: 11px;
+      margin-bottom: 10px;
 
-							@media #{$medium-up} {
-								font-size: 15px;
-							}
-						}
-					}
+      span {
+       font-weight: bold;
+       font-size: 20px;
 
-					.funded {
-						color: $color-blue;
-					}
+       @media #{$medium-up} {
+        font-size: 15px;
+       }
+      }
+     }
 
-					.good {
+     .funded {
+      color: $color-blue;
+     }
 
-						.ui-widget-header {
-							background-color: $color-green;
-						}
-					}
+     .good {
 
-					.notyet {
-						.ui-widget-header {
-							background-color: $color-grey;
-						}
-					}
+      .ui-widget-header {
+       background-color: $color-green;
+      }
+     }
 
-					.ui-progressbar {
-						height: 12px;
-					}
+     .notyet {
+      .ui-widget-header {
+       background-color: $color-grey;
+      }
+     }
 
-					.ui-progressbar .ui-progressbar-value {
-						margin: 0px;
-					}
+     .ui-progressbar {
+      height: 12px;
+     }
 
-					.ui-widget-header {
-						border: none;
-					}
-				}
-			}
-		}
-	}
+     .ui-progressbar .ui-progressbar-value {
+      margin: 0px;
+     }
+
+     .ui-widget-header {
+      border: none;
+     }
+    }
+   }
+  }
+
+}
