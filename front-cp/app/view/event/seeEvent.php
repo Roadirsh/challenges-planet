@@ -7,9 +7,13 @@
 		<h1>Dynamics and charity challenges</h1>
 		<p class="medium-8">Find any best sports events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating your !</p>
 		<span class="medium-12 number-events">
+			
 			    <?php if(isset($events[0]) && !empty($events[0])){ ?>
 			        <?php if(count($events) == 1){ echo count($events) . ' event for : '; 
-			        } else {echo count($events) . ' events for : '; } ?>
+			        } else { echo count($events) . ' events '; } ?>
+			        <?php if(isset($array['type']) || isset($array['begin']) || isset($array['nb_team']) || isset($array['search'])){
+						echo 'for : ' . $array['type'] . $array['begin'] . $array['nb_team'] . $array['search'] ; 
+					} ?>
                 <?php } ?>
                 <?php if(isset($tpe) && !empty($tpe)){ ?>
                     <span class="active"><?php echo ucfirst($tpe); ?></span>
