@@ -59,8 +59,6 @@
     include_once '../core/CoreController.php';
 // Model Globale
     include_once '../core/CoreModel.php';
-// Model Globale
-    // include "../lib/Logger.class.php";
 
 
 // Lancement de l'application !!!!!
