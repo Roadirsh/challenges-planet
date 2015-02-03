@@ -843,7 +843,6 @@ echo '<pre>';
         	}
 	    }
 			$query = "SELECT * FROM " . PREFIX . "user " . $ajout . " user_type != 'admin'  GROUP BY user_id";
-			var_dump($query);	
 		    $select = $this->connexion->prepare($query);
         //var_dump($select);
 		$select -> execute();
@@ -1016,7 +1015,160 @@ echo '<pre>';
 	}
 	
 	
+	/**
+	 * Update un utilisateur
+	 */
+	public function Uponeuser(){
+	    $userID = $_SESSION['userID'];
+	    
+
+
+    	try {
+    	    // UPDATE DANS LA TABLE USER 
+			$this->connexion->beginTransaction();
+
+			$requete = "UPDATE " . PREFIX . "user SET `user_lastname` = :lastname, `user_firstname` = :firstname, `user_mail` = :mail, `user_pseudo` = :pseudo,";
+			
+			if(isset($_POST['user_password']) && !empty($_POST['user_password']))
+			{
+			    $requete .= "`user_password` = :password,";
+			}
+			
+    	    $requete .=" `user_profil_pic` = :profpic WHERE user_id = :id";
+    	    
+    	    $update = $this->connexion->prepare($requete); 
+
+            $update->bindParam(':lastname', $_POST['user_lastname']);
+            $update->bindParam(':firstname', $_POST['user_firstname']);
+            $update->bindParam(':mail', $_POST['user_mail']);
+            $update->bindParam(':pseudo', $_POST['user_pseudo']);
+            $update->bindParam(':id', $userID);
+			if(isset($_POST['user_password']) && !empty($_POST['user_password']))
+			{
+            	$update->bindParam(':password', md5($_POST['user_password']));
+            }
+            if(isset($_FILES) && !empty($_FILES['user_img']['name']))
+            {
+	            
+	            $profpic = uniqid().$_FILES['user_img']['name'];
+	            $update->bindParam(':profpic', $profpic);
+				$string= AVATAR . $profpic;
+				$this->upload($_FILES['user_img']['tmp_name'], $string);
+				$_SESSION['userPic'] = $profpic;
+				
+				
+
+            }
+            else
+            {
+	        	$update->bindParam(':profpic', $_POST['profpic']);
+
+            }
+            
+			$update->execute();
+
+			if($this->numeroUserExist($userID))
+			{
+				// UPDATE DANS LA TABLE PHONE
+				
+			$update1 = $this->connexion->prepare("UPDATE " . PREFIX . "phone
+    	                                        SET phone_num = :phone
+    	   	    	                            WHERE user_user_id = " . $userID); 
+
+            $update1->bindParam(':phone', $_POST['phone_num']);
+			$update1->execute();
+			}
+			else
+			{
+				$insert = $this->connexion->prepare("INSERT INTO `cp_phone` (`phone_id`, `phone_date`, `phone_num`, `user_user_id`) VALUES (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
+					
+					$insert->bindParam(':phone', $_POST['phone_num']);
+					$insert->bindParam(':id', $userID);
+					
+					$insert->execute();	            
+			}
+
+			if($this->adressUserExist($userID, 'Home'))
+			{
+				// UPDATE DANS LA TABLE ADRESS HOME
+				
+			$update2 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
+    	                                        SET
+    	                                        `ad_num` = :num,
+    	                                        `ad_street` = :street,
+    	                                        `ad_zipcode` = :zipcode,
+    	                                        `ad_city` = :city,
+    	                                        `ad_country` = :country
+    	                                        WHERE user_user_id = " . $userID . " and ad_type = 'Home'"); 
+
+            $update2->bindParam(':num', $_POST['ad_numHome']);
+            $update2->bindParam(':street', $_POST['ad_streetHome']);
+            $update2->bindParam(':zipcode', $_POST['ad_zipcodeHome']);
+            $update2->bindParam(':city', $_POST['ad_cityHome']);
+            $update2->bindParam(':country', $_POST['ad_countryHome']);
+            
+			$update2->execute();
+			}
+			else
+			{
+				$insert = $this->connexion->prepare("INSERT INTO `cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'Home', :user_id)");
+	            
+	            $insert2->bindParam(':num', $_POST['ad_numHome']);
+	            $insert2->bindParam(':street', $_POST['ad_streetHome']);
+	            $insert2->bindParam(':zipcode', $_POST['ad_zipcodeHome']);
+	            $insert2->bindParam(':city', $_POST['ad_cityHome']);
+	            $insert2->bindParam(':country', $_POST['ad_countryHome']);
+	            $insert2->bindParam(':user_id', $userID);
+	            
+				$insert2->execute();
+			}
+			
+			if($this->adressUserExist($userID, 'Invoice'))
+			{
+				// UPDATE DANS LA TABLE ADRESS HOME
+				
+			$update3 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
+    	                                        SET
+    	                                        `ad_num` = :num,
+    	                                        `ad_street` = :street,
+    	                                        `ad_zipcode` = :zipcode,
+    	                                        `ad_city` = :city,
+    	                                        `ad_country` = :country
+    	                                        WHERE user_user_id = " . $userID . " and ad_type = 'Invoice'"); 
+
+            $update3->bindParam(':num', $_POST['ad_numInvoice']);
+            $update3->bindParam(':street', $_POST['ad_streetInvoice']);
+            $update3->bindParam(':zipcode', $_POST['ad_zipcodeInvoice']);
+            $update3->bindParam(':city', $_POST['ad_cityInvoice']);
+            $update3->bindParam(':country', $_POST['ad_countryInvoice']);
+            
+			$update3->execute();
+			}
+			else
+			{
+				$insert3 = $this->connexion->prepare("INSERT INTO `cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'Invoice', :user_id)");
+	            
+	            $insert3->bindParam(':num', $_POST['ad_numInvoice']);
+	            $insert3->bindParam(':street', $_POST['ad_streetInvoice']);
+	            $insert3->bindParam(':zipcode', $_POST['ad_zipcodeInvoice']);
+	            $insert3->bindParam(':city', $_POST['ad_cityInvoice']);
+	            $insert3->bindParam(':country', $_POST['ad_countryInvoice']);
+	            $insert3->bindParam(':user_id', $userID);
+	            
+				$insert3->execute();
+
+			}
+			$this->connexion->commit();
+
+			return false;
 	
+        } catch (Exception $e) {
+	        $this->connexion->rollBack();
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
+
 
 
 

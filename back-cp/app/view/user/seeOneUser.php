@@ -25,7 +25,7 @@
             <div class="row-fluid">		
                 <div class="user user_profil">
                     <?php if(!empty($user['user_profil_pic'])){ ?>
-				        <img class="avatar" alt="Dennis Ji" src="images/avatar/<? echo $user['user_profil_pic']; ?>">
+				        <img class="avatar" alt="Dennis Ji" src="<? echo AVATAR . $user['user_profil_pic']; ?>">
                     <? } else { ?>
 				        <img class="avatar" alt="Dennis Ji" src="images/avatar/default.png"> 
                     <? } ?> 
