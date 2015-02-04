@@ -9,15 +9,15 @@
 		<span class="medium-12 number-events">
 			
 			    <?php if(isset($events[0]) && !empty($events[0])){ ?>
-			        <?php if(count($events) == 1){ echo count($events) . ' event for : '; 
+			        <?php if(count($events) == 1){ 
+			        	if(isset($array['type']) || isset($array['begin']) || isset($array['nb_team']) || isset($array['search'])){ 
+				        	if(!empty($array['type'])){ $s = $array['type']; }
+							elseif(!empty($array['begin'])){ $s = $array['begin']; }
+							elseif(!empty($array['nb_team'])){ $s =  $array['nb_team']; }
+							elseif(!empty($array['search'])){ $s =  $array['search']; }
+							echo count($events) . ' event for :' . $s;
+						} 
 			        } else { echo count($events) . ' events '; } ?>
-			        <?php if(isset($array['type']) || isset($array['begin']) || isset($array['nb_team']) || isset($array['search'])){
-			        	if(!empty($array['type'])){ $s = $array['type']; }
-						elseif(!empty($array['begin'])){ $s = $array['begin']; }
-						elseif(!empty($array['nb_team'])){ $s =  $array['nb_team']; }
-						elseif(!empty($array['search'])){ $s =  $array['search']; }
-						echo 'for : ' . $s;
-					} ?>
                 <?php } ?>
                 <?php if(isset($tpe) && !empty($tpe)){ ?>
                     <span class="active"><?php echo ucfirst($tpe); ?></span>

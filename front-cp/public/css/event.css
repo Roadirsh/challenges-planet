@@ -1,104 +1,207 @@
-/*
-Error: Undefined variable: "$color-green".
-        on line 11 of D:/wamp/www/challenges-planet/front-cp/public/sass/event.scss
-
-6: 			width: 100%;
-7: 		}
-8: 
-9: 		.location, .date-begin, .date-finish {
-10: 			span {
-11: 				color: $color-green;
-12: 				font-weight: 800;
-13: 			}
-14: 		}
-15: 	}
-16: 
-
-Backtrace:
-D:/wamp/www/challenges-planet/front-cp/public/sass/event.scss:11
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/script/tree/variable.rb:49:in `_perform'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/script/tree/node.rb:50:in `perform'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:378:in `visit_prop'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
-org/jruby/RubyArray.java:2412:in `map'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:412:in `visit_rule'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
-org/jruby/RubyArray.java:2412:in `map'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:412:in `visit_rule'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
-org/jruby/RubyArray.java:2412:in `map'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:412:in `visit_rule'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
-org/jruby/RubyArray.java:2412:in `map'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:412:in `visit_rule'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-org/jruby/RubyArray.java:2412:in `map'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:161:in `visit_children'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:151:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/visitors/perform.rb:8:in `visit'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/root_node.rb:36:in `css_tree'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/tree/root_node.rb:20:in `render'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/engine.rb:268:in `render'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-org/jruby/RubyMethod.java:136:in `call'
-file:/D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/compass-app.jar!/hook/compass_patch.rb:108:in `update_stylesheet'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:215:in `update_stylesheets'
-org/jruby/RubyArray.java:1613:in `each'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/compass_1.0/sass-3.4.1/lib/sass/plugin/compiler.rb:329:in `watch'
-org/jruby/RubyProc.java:271:in `call'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/jruby/listen-1.1.6/lib/listen/listener.rb:236:in `on_change'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/jruby/listen-1.1.6/lib/listen/listener.rb:271:in `initialize_adapter'
-org/jruby/RubyProc.java:271:in `call'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/jruby/listen-1.1.6/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-D:/wd/challengesplanet/integration/compass.app.windows.v1.28.1/compass.app/lib/ruby/jruby/listen-1.1.6/lib/listen/adapter.rb:289:in `start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$color-green\".\A         on line 11 of D:/wamp/www/challenges-planet/front-cp/public/sass/event.scss\A \A 6: 			width: 100%;\A 7: 		}\A 8: \A 9: 		.location, .date-begin, .date-finish {\A 10: 			span {\A 11: 				color: $color-green;\A 12: 				font-weight: 800;\A 13: 			}\A 14: 		}\A 15: 	}\A 16: "; }
+/* line 26, ../sass/event.scss */
+.list-events .head img {
+  width: 100%;
+}
+/* line 31, ../sass/event.scss */
+.list-events .head .location span, .list-events .head .date-begin span, .list-events .head .date-finish span {
+  color: #88a83b;
+  font-weight: 800;
+}
+/* line 38, ../sass/event.scss */
+.list-events .number-teams-event {
+  display: block;
+  color: #575765;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-top: 25px;
+}
+/* line 48, ../sass/event.scss */
+.list-events .teams {
+  margin-top: 35px;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 48, ../sass/event.scss */
+  .list-events .teams {
+    background-color: #e5ded8;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+}
+/* line 58, ../sass/event.scss */
+.list-events .teams h2 {
+  margin-bottom: 35px;
+}
+/* line 62, ../sass/event.scss */
+.list-events .teams .done {
+  background-color: transparent !important;
+}
+/* line 66, ../sass/event.scss */
+.list-events .teams .wrapper {
+  border: 1px solid #d6d6d6;
+  position: relative;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+/* line 73, ../sass/event.scss */
+.list-events .teams .wrapper .img {
+  position: relative;
+  cursor: pointer;
+}
+/* line 77, ../sass/event.scss */
+.list-events .teams .wrapper .img .done {
+  background-color: rgba(136, 168, 59, 0.7) !important;
+}
+/* line 81, ../sass/event.scss */
+.list-events .teams .wrapper .img .hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(71, 139, 178, 0.7);
+  opacity: 0;
+  color: #fff;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  height: 100%;
+  width: 100%;
+}
+/* line 94, ../sass/event.scss */
+.list-events .teams .wrapper .img .hover span {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 15px;
+  transform: translatey(-50%) translatex(-50%);
+  -webkit-transform: translatey(-50%) translatex(-50%);
+  -moz-transform: translatey(-50%) translatex(-50%);
+  -ms-transform: translatey(-50%) translatex(-50%);
+}
+/* line 110, ../sass/event.scss */
+.list-events .teams .wrapper .img img {
+  width: 100%;
+  max-height: 328px;
+}
+/* line 116, ../sass/event.scss */
+.list-events .teams .wrapper .title-team {
+  font-family: "roboto_slabbold";
+  text-align: center;
+  margin: 10px 0px;
+  text-transform: uppercase;
+}
+/* line 123, ../sass/event.scss */
+.list-events .teams .wrapper .chief-team, .list-events .teams .wrapper .date {
+  font-size: 13px;
+  color: #adadad;
+}
+/* line 128, ../sass/event.scss */
+.list-events .teams .wrapper .date {
+  margin-bottom: 10px;
+}
+/* line 132, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam {
+  text-align: center;
+  position: relative;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+/* line 138, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #d6d6d6;
+}
+/* line 148, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .validate {
+  background-image: url(../img/checked.png);
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+}
+/* line 155, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .daysleft {
+  display: inline-block;
+  color: #1a2129;
+  line-height: 16px;
+  font-size: 10px;
+}
+/* line 161, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .daysleft span {
+  font-weight: bold;
+  font-size: 20px;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 161, ../sass/event.scss */
+  .list-events .teams .wrapper .progressteam .daysleft span {
+    font-size: 15px;
+  }
+}
+/* line 171, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .number {
+  display: inline-block;
+  line-height: 16px;
+  text-align: left;
+  color: #88a83b;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+/* line 179, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .number span {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+/* line 186, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .numbers, .list-events .teams .wrapper .progressteam .funded {
+  display: inline-block;
+  line-height: 16px;
+  text-align: center;
+  color: #88a83b;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+/* line 194, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .numbers span, .list-events .teams .wrapper .progressteam .funded span {
+  font-weight: bold;
+  font-size: 20px;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 194, ../sass/event.scss */
+  .list-events .teams .wrapper .progressteam .numbers span, .list-events .teams .wrapper .progressteam .funded span {
+    font-size: 15px;
+  }
+}
+/* line 204, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .funded {
+  color: #478bb2;
+}
+/* line 210, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .good .ui-widget-header {
+  background-color: #88a83b;
+}
+/* line 216, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .notyet .ui-widget-header {
+  background-color: #818181;
+}
+/* line 221, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .ui-progressbar {
+  height: 12px;
+}
+/* line 225, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .ui-progressbar .ui-progressbar-value {
+  margin: 0px;
+}
+/* line 229, ../sass/event.scss */
+.list-events .teams .wrapper .progressteam .ui-widget-header {
+  border: none;
+}

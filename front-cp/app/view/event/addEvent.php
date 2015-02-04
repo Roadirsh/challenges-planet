@@ -8,8 +8,10 @@
 					<div class="clearfix">
 						<h1><? echo JOIN; ?></h1>
 			
-						<form class="search-bar" method="get" action="">
-							<input type="text" size="21"><input class="icon-search" type="submit" value="">
+						<form class="search-bar" method="post" action="">
+							<input type="text" size="21">
+							<!-- icon -->
+							<input class="icon-search" type="submit" name="search">
 						</form>
 					</div>
                     <? foreach($topev as $k => $topev){ ?>

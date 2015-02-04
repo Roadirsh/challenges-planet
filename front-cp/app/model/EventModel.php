@@ -401,6 +401,9 @@ class EventModel extends CoreModel{
 
         }
         
-        return $AllEvent;
+        if(!empty($AllEvent)){
+            return $AllEvent;
+        }
+        
     }
 }

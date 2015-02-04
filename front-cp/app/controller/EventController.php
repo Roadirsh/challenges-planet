@@ -54,12 +54,16 @@ class EventController extends CoreController {
         $event = $this->model = new EventModel();
         $SeeEvent = $event->SeeTopEvent();
         
-        if(isset($_POST) and !empty($_POST)){
-
+        if(isset($_POST['form_create']) and !empty($_POST['form_create'])){
 			$event->insertNewEvent($_POST);
 			$_POST = '';
 			$this->coreRedirect('page', 'home');
-		}
+		} elseif(isset($_POST['search']) and !empty($_POST['search'])){
+            $SeeEvent = $event->Search($_POST['search']);
+            if(empty($SeeEvent)){
+                $SeeEvent->insertNewEvent($_POST);
+            }
+        }
 		
 		$array = array();
 		$array['topevent'] = $SeeEvent;
