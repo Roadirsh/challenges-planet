@@ -17,6 +17,8 @@ class CoreModel{
 	 * @var 	object $connexion
 	 */
 	protected $connexion;
+	protected $logger;
+	
 	
 
 	/**
@@ -34,6 +36,22 @@ class CoreModel{
 			// on renvoi au message d'erreur de la connexion
 			$this->CoreBdError($e);
 		}
+		include_once(LOGGER);
+		
+		
+
+	 
+	// Création d'un objet Logger
+	$this->logger = new Logger('../logs/');
+	
+	if(isset($_GET['module']) && isset($_SESSION['user'])){
+		$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Chargement du modèle " . $_GET['module'] . "Model.php", Logger::GRAN_MONTH);
+	}
+	else
+	{
+		$this->logger->log('Include', 'loadapp', "Chargement du modèle LogModel.php", Logger::GRAN_MONTH);
+
+	}
 	}
 
 
@@ -43,7 +61,6 @@ class CoreModel{
 	 */
 	private function coreBdError($e){
 		echo SITE_NAME." : Désolé, une erreur est survenue !";
-		
 		var_dump($e);
 		exit;
 	}

@@ -34,7 +34,7 @@
     <div class="global-content clearfix">
     
 		<!-- <a href="<?php //echo MODULE . 'project' . ACTION . 'seeproject'; ?>" onClick="ga('send', 'event', 'link','clic', 'teamv3');">  -->
-		<div class="teams clearfix">
+        <div class="teams clearfix">
 		    <h2>Our teams</h2>
     		<section class="first clearfix">
     		    <?php //var_dump($team); ?>
@@ -55,21 +55,24 @@
                                         <br>goals
                                     </div>
                                     <div class="columns medium-4 small-4 funded">
-                                        <span>53 %</span>
+
+                                        <span><?php  echo number_format(($t[1]['needed'] / $t[0]['group_money']) *100, 0); ?>  %</span>
                                         </br>funded
                                     </div>
-        							<!-- <div class="numbers"><span><?php echo $t[0]['count']; ?></span><br>supporters</div> -->
+        							<!-- <div class="numbers"><span><?php //echo $t[0]['count']; ?></span><br>supporters</div> -->
         							<div class="columns medium-4 small-4 daysleft">
         							    <span>
-        							        <?php echo (date("Y-m-d")-strtotime($t['event_end'])); ?>
-                                            <?php // echo ($t[0]['group_money']-$t[1]['needed']); ?> 
+        							        <?php //echo (date("Y-m-d")-strtotime($t['event_end'])); ?>
+                                            10
         							    </span>
                                         <br><?php // echo $t[0]['group_money']; ?>  <!-- Days left -->
                                             DAYS LEFT
                                     </div>
         						</div>
+
                                 <?php $percent = ($t[1]['needed'] / $t[0]['group_money']) *100;?>
-        						<div id="progressteam<?php echo $i; ?>" class="notyet" data="<?php echo $percent; ?>"></div>
+                                <? echo 'id='.$i; ?>
+        						<div id="progressteam<?php echo $i; ?>" class="notyet" data=""></div>
         					</div>
         				</div>
         			</div>

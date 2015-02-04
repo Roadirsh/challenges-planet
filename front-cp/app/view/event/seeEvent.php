@@ -2,22 +2,16 @@
 <?php if(isset($data['events']) && !empty($data['events']) ){ $events = $data['events']; } ?>
 <?php if(isset($data['type']) && !empty($data['type']) ){ $tpe = $data['type']; } ?>
 <?php if(isset($data['nb_team']) && !empty($data['nb_team']) ){ $nbteam = $data['nb_team']; } ?>
+<?php if(isset($data['search']) && !empty($data['search']) ){ $search = $data['search']; } ?>
+<?php if(isset($data['begin']) && !empty($data['begin']) ){ $begin = $data['begin']; } ?>
 <div class="list-events clearfix">
 	<div class="head clearfix">
 		<h1>Dynamics and charity challenges</h1>
 		<p class="medium-8">Find any best sports events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating your !</p>
 		<span class="medium-12 number-events">
-			
-			    <?php if(isset($events[0]) && !empty($events[0])){ ?>
-			        <?php if(count($events) == 1){ 
-			        	if(isset($array['type']) || isset($array['begin']) || isset($array['nb_team']) || isset($array['search'])){ 
-				        	if(!empty($array['type'])){ $s = $array['type']; }
-							elseif(!empty($array['begin'])){ $s = $array['begin']; }
-							elseif(!empty($array['nb_team'])){ $s =  $array['nb_team']; }
-							elseif(!empty($array['search'])){ $s =  $array['search']; }
-							echo count($events) . ' event for :' . $s;
-						} 
-			        } else { echo count($events) . ' events '; } ?>
+			    <?php if(isset($data) && !empty($data)){
+			        	echo count($events) . ' events for : ' . $begin . $nbteam . $search; 
+			        } else { echo count($events) . ' events'; } ?>
                 <?php } ?>
                 <?php if(isset($tpe) && !empty($tpe)){ ?>
                     <span class="active"><?php echo ucfirst($tpe); ?></span>

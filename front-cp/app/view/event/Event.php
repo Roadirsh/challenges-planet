@@ -1,4 +1,7 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php if(isset($data['events']) && !empty($data['events']) ){ $events = $data['events']; } ?>
+<?php if(isset($data['type']) && !empty($data['type']) ){ $tpe = $data['type']; } ?>
+<?php if(isset($data['nb_team']) && !empty($data['nb_team']) ){ $nbteam = $data['nb_team']; } ?>
 
 		<div class="list-events clearfix">
 			<div class="head clearfix">

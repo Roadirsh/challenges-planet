@@ -359,7 +359,6 @@ class EventModel extends CoreModel{
                 // EVENT TABLE BDD
                 $sql[] = " event_name LIKE '%" . addslashes($phrase) . "%' ";
                 $sql[] = " event_decr LIKE '%" . addslashes($phrase) . "%' ";
-                $sql[] = " event_type LIKE '%" . addslashes($phrase) . "%' ";
             }
 
             $reqSQL = implode(' OR ', $sql);
@@ -382,6 +381,8 @@ class EventModel extends CoreModel{
 
         // * * * * * * * * * * * * * * * * * * * * * * * * *  //
 
+        $AllEvent = ''; 
+        
         foreach ($eventID as $key => $e) {
 
             //var_dump($e);
@@ -401,9 +402,6 @@ class EventModel extends CoreModel{
 
         }
         
-        if(!empty($AllEvent)){
-            return $AllEvent;
-        }
-        
+        return $AllEvent;
     }
 }
