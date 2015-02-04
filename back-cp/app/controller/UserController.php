@@ -125,6 +125,18 @@ class UserController extends CoreController {
 	}
 	
 	/**
+	 * Modifier UN user
+	 */
+	public function Uponeuser(){
+	
+	    $upOneUser = $this->model = new UserModel();
+		$upUser = $upOneUser->Uponeuser();
+		
+		$_SESSION['message'] = "You've succeed in updating your profil";
+		$this->coreRedirect('user', 'seeOneUser');
+	
+	}
+	/**
 	 * Ajouter un utilisateur
 	 *
 	 * @param array $_POST
