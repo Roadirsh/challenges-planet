@@ -1,18 +1,41 @@
+# Specific to Logs #
+################################
+
 back-cp/logs/*
 front-cp/logs/*
+
+# Specific to composer / vendor #
+################################
 
 composer.lock
 
 back-cp/vendor/*
 front-cp/vendor/*
 
+# Specific to documentation #
+################################
+
 back-cp/doc/*
 front-cp/doc/*
 
+# Specific to mac #
+################################
+
 .DS_Store
+.DS_Store?
+
+# Specific to database model #
+################################
+
 cp.mwb.bak
+
+# Specific to conf #
+################################
 
 conf_mysql.php
 
-front-cp/public/.sass-cache/
 
+# Specific to design #
+################################
+
+front-cp/public/.sass-cache/

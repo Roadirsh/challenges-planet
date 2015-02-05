@@ -56,12 +56,14 @@ class EventController extends CoreController {
         
         if(isset($_POST['form_create']) and !empty($_POST['form_create'])){
 			$event->insertNewEvent($_POST);
-			$_POST = '';
+			unset($_POST);
 			$this->coreRedirect('page', 'home');
 		} elseif(isset($_POST['search']) and !empty($_POST['search'])){
             $SeeEvent = $event->Search($_POST['search']);
+            unset($_POST);
             if(empty($SeeEvent)){
-                $SeeEvent->insertNewEvent($_POST);
+                unset($_POST);
+                $SeeEvent = $event->SeeTopEvent();
             }
         }
 		
@@ -130,6 +132,24 @@ class EventController extends CoreController {
 	
 	}
 	
+
+    public function seeOneEvent(){
+        // Définition des constante
+        define("PAGE_TITLE", SITE_NAME);
+        define("PAGE_DESCR", SITE_NAME . " "); // TODO
+        define("PAGE_KW", SITE_NAME); // TODO
+        define("PAGE_ID", "404");
+
+        $eID = $_GET['id'];
+        
+        $event = $this->model = new EventModel();
+        $SeeEvent = $event->SeeTopEvent();
+
+
+        // Appel de la vue
+        $this->load->view('event', 'seeOneEvent');
+
+    }
 }
 
 ?>

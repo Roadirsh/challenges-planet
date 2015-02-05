@@ -127,6 +127,16 @@ $(document).ready(function(){
         value: 0
       });
     });
+  $(function() {
+      $( '#progressteam9' ).progressbar({
+        value: 0
+      });
+    });
+  $(function() {
+      $( '#progressteam10' ).progressbar({
+        value: 0
+      });
+    });
 
   $('.tabs .tab-links a').on('click', function(e)  {
     var currentAttrValue = $(this).attr('href');
