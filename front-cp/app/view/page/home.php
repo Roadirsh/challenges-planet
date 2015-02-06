@@ -4,11 +4,11 @@
 <?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; } ?>
 <?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ $sponsor = $data['sponsor']; } ?>
 <?php //var_dump($done); ?>
-<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
     <div class="slider">
         <?php $i = 0; ?>
         <?php if(isset($data['slider']) && !empty($data['slider']) ){ ?>
             <?php foreach($slider as $k => $s){ ?>
+            <a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
             	<div class="img-slider " index='<?php echo $i; ?>'>
             		<img src="img/event/<?php echo $s['event_img']; ?>" alt="">
             		<div class="show-for-small-only caption clearfix">
@@ -18,15 +18,16 @@
             			<h1 class="slogan"><?php echo JOIN ?></h1>
             			<h3><?php echo $s['event_name']; ?></h3>
             			<p><?php echo mb_strimwidth($s['event_decr'], 0, 300, "..."); ?></p>
-            			<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
+            			<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
             			    <span class="see-event">Let's see the event !</span>
             		</div>
             	</div>
         	<?php $i ++; ?>
+            </a>
         	<?php } ?> 
         <?php } ?> 	
     </div>
-</a>
+
 
 
 <h1 class="show-for-small-only slogan"><span>Join </span>the best caritives student challenges</h1>
@@ -34,7 +35,7 @@
     <div class="global-content clearfix">
     
 		<!-- <a href="<?php //echo MODULE . 'project' . ACTION . 'seeproject'; ?>" onClick="ga('send', 'event', 'link','clic', 'teamv3');">  -->
-		<div class="teams clearfix">
+        <div class="teams clearfix">
 		    <h2>Our teams</h2>
     		<section class="first clearfix">
     		    <?php //var_dump($team); ?>
@@ -51,24 +52,24 @@
         					<div class="progressteam">
         						<div class="clearfix">
                                     <div class="columns medium-4 small-4 numbers">
-                                        <span>1289 €</span>
+                                        <span><?php echo $t[0]['group_money']; ?> €</span>
                                         <br>goals
                                     </div>
                                     <div class="columns medium-4 small-4 funded">
-                                        <span>53 %</span>
+
+                                        <span><?php  echo number_format(($t[1]['needed'] / $t[0]['group_money']) *100, 0); ?>  %</span>
                                         </br>funded
                                     </div>
-        							<!-- <div class="numbers"><span><?php echo $t[0]['count']; ?></span><br>supporters</div> -->
         							<div class="columns medium-4 small-4 daysleft">
         							    <span>
-        							        <?php echo (date("Y-m-d")-strtotime($t['event_end'])); ?>
-                                            <?php // echo ($t[0]['group_money']-$t[1]['needed']); ?> 
+                                            <?php $diff = (new DateTime('now'))->diff(new DateTime($t['event_end'])); ?>
+                                            <?php echo $diff->format('%a'); //%a take the lot Y-m-d ?>
         							    </span>
-                                        <br><?php // echo $t[0]['group_money']; ?>  <!-- Days left -->
+                                        <br>  <!-- Days left -->
                                             DAYS LEFT
                                     </div>
         						</div>
-                                <?php $percent = ($t[1]['needed'] / $t[0]['group_money']) *100;?>
+                                <?php $percent = number_format(($t[1]['needed'] / $t[0]['group_money']) *100, 0);?>
         						<div id="progressteam<?php echo $i; ?>" class="notyet" data="<?php echo $percent; ?>"></div>
         					</div>
         				</div>

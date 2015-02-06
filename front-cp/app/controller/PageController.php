@@ -94,6 +94,22 @@ class PageController extends CoreController {
 		$this->load->view('layout', 'notfound'); // TODO
 	
 	}
+
+	/**
+	 * Page static INDEX
+	 */
+	public function cgu(){
+
+		// Définition des constante
+		define("PAGE_TITLE", SITE_NAME . " home");
+		define("PAGE_DESCR", SITE_NAME . " - ERROR"); // TODO
+		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_ID", "notfound");
+		
+		// Appel de la vue 
+		$this->load->view('page', 'cgu'); // TODO
+	
+	}
 	
 	
 }

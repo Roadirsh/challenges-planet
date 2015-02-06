@@ -2,29 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7518735-9022-45c9-9ec9-34239be9c0c6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/public/img/marque6.jpg" afterPath="$PROJECT_DIR$/front-cp/public/img/marque6.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/core/CoreController.php" afterPath="$PROJECT_DIR$/front-cp/core/CoreController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/core/CoreModel.php" afterPath="$PROJECT_DIR$/front-cp/core/CoreModel.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front-cp/app/view/event/Event.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/controller/EventController.php" afterPath="$PROJECT_DIR$/front-cp/app/controller/EventController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/model/EventModel.php" afterPath="$PROJECT_DIR$/front-cp/app/model/EventModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/core/Load.php" afterPath="$PROJECT_DIR$/front-cp/core/Load.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/controller/LogController.php" afterPath="$PROJECT_DIR$/front-cp/app/controller/LogController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/model/LogModel.php" afterPath="$PROJECT_DIR$/front-cp/app/model/LogModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/controller/NotfoundController.php" afterPath="$PROJECT_DIR$/front-cp/app/controller/NotfoundController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/controller/PageController.php" afterPath="$PROJECT_DIR$/front-cp/app/controller/PageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/model/PageModel.php" afterPath="$PROJECT_DIR$/front-cp/app/model/PageModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/controller/SponsorController.php" afterPath="$PROJECT_DIR$/front-cp/app/controller/SponsorController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/model/SponsorModel.php" afterPath="$PROJECT_DIR$/front-cp/app/model/SponsorModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/controller/UserController.php" afterPath="$PROJECT_DIR$/front-cp/app/controller/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/model/UserModel.php" afterPath="$PROJECT_DIR$/front-cp/app/model/UserModel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/view/event/addEvent.php" afterPath="$PROJECT_DIR$/front-cp/app/view/event/addEvent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/conf/conf_define.php" afterPath="$PROJECT_DIR$/front-cp/app/conf/conf_define.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/view/layout/footer.inc.php" afterPath="$PROJECT_DIR$/front-cp/app/view/layout/footer.inc.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/view/page/home.php" afterPath="$PROJECT_DIR$/front-cp/app/view/page/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/public/index.php" afterPath="$PROJECT_DIR$/front-cp/public/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/lib/lib.php" afterPath="$PROJECT_DIR$/front-cp/lib/lib.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/view/layout/notfound.php" afterPath="$PROJECT_DIR$/front-cp/app/view/layout/notfound.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/public/js/script.js" afterPath="$PROJECT_DIR$/front-cp/public/js/script.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/app/view/event/seeEvent.php" afterPath="$PROJECT_DIR$/front-cp/app/view/event/seeEvent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-cp/public/css/styledev.css" afterPath="$PROJECT_DIR$/front-cp/public/css/styledev.css" />
     </list>
     <ignored path="challenges-planet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,6 +29,7 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="challenges-planet" />
   </component>
@@ -50,7 +38,7 @@
       <file leaf-file-name="conf_define.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front-cp/app/conf/conf_define.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="525">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -60,11 +48,9 @@
       <file leaf-file-name="conf_mysql.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front-cp/app/conf/conf_mysql.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43074325" vertical-offset="0" max-vertical-offset="592">
-              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-              <folding>
-                <marker date="1422366356000" expanded="true" signature="499:893" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.33050847" vertical-offset="0" max-vertical-offset="590">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,6 +67,7 @@
       </list>
     </option>
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="6" />
     <option name="y" value="23" />
@@ -113,7 +100,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -188,12 +174,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.intellij.application.options.CodeStyleSchemesConfigurable" />
+    <property name="options.lastSelected" value="reference.idesettings.quicklists" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
@@ -202,6 +189,9 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a7518735-9022-45c9-9ec9-34239be9c0c6" name="Default" comment="" />
@@ -215,21 +205,21 @@
     <frame x="6" y="23" width="1260" height="734" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2536946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -256,11 +246,26 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/front-cp/app/conf/conf_define.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-cp/app/conf/conf_mysql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="616">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -274,11 +279,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front-cp/app/conf/conf_mysql.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43074325" vertical-offset="0" max-vertical-offset="592">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <marker date="1422366356000" expanded="true" signature="499:893" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.33050847" vertical-offset="0" max-vertical-offset="590">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

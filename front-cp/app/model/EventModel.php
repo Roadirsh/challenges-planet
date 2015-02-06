@@ -339,8 +339,6 @@ class EventModel extends CoreModel{
      * @param array $_POST
      */
     public function Search($post){
-    
-        // var_dump($post);
 
         include('../lib/blacklist.inc.php');
         $search = addslashes($post);
@@ -381,6 +379,8 @@ class EventModel extends CoreModel{
 
         // * * * * * * * * * * * * * * * * * * * * * * * * *  //
 
+        $AllEvent = ''; 
+        
         foreach ($eventID as $key => $e) {
 
             //var_dump($e);
