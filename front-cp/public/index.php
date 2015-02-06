@@ -7,8 +7,6 @@
  * @copyright    L&G
  */
 
-
-
 // Demmarage de la session
     session_start();
 

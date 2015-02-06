@@ -25,3 +25,10 @@ height: 177px;
 .active{
     color : #7b9e2a;
 }
+
+
+/* ONE EVENTS LES PROJECTS LIGNE 88 */
+.list-events .teams .wrapper .img img {
+width: 100%;
+max-height: 257px;
+}

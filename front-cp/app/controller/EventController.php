@@ -1,12 +1,19 @@
 <?php 
 
 /**
- * ProjetController
+ * EventController
  *
- * Affichage des pages sans traitement spécifique // static
+ * Everything who is relative to an EVENT
  *
- * @package 	Framework_L&G
- * @copyright 	L&G
+ * @package     Framework_L&G
+ * @copyright   L&G
+ */
+
+/**
+ * ADD EVENT
+ * SEE EVENTS
+ * FILTER EVENTS
+ * SEE ONE EVENT
  */
 
 class EventController extends CoreController {
@@ -18,19 +25,18 @@ class EventController extends CoreController {
 		parent::__construct();
 		
 		if(isset($_GET['action'])){
-			//ucfirt = Met le premier caractère en majuscule
+			//ucfirt = put the first letter in Uppercase
 			$action = ucfirst($_GET['action']);
 			
             if(method_exists($this, $action)){
                 $this->$action();
             } else{
-                $this->coreRedirect('notfound', 'notfound');
-                
+                $this->coreRedirect('notfound', 'notfound');   
             }
             
 
 		} else {
-			// on test voir s'il y a une sesison ou non
+			// is their a session or not?
 			if(isset($_SESSION['user']) != ''){
 				$this->Seeevent();
 			} else {
@@ -41,113 +47,170 @@ class EventController extends CoreController {
 
 	
 	/**
-	 * Page static INDEX
-	 */
-	public function Addevent(){
+     * addEvent.php
+     *
+     * @param Array $_POST
+     */
+	private function Addevent(){
 
-		// Définition des constante
-		define("PAGE_TITLE", SITE_NAME . " home");
-		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
-		define("PAGE_KW", SITE_NAME); // TODO
+		/* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+		define("PAGE_TITLE", SITE_NAME . " - JOIN and CREATE");
+		define("PAGE_DESCR", SITE_NAME . " JOIN THE BEST CARITIVES STUDENT CHALLENGES");
+		define("PAGE_KW", SITE_NAME);
 		define("PAGE_ID", "addEvent");
         
         $event = $this->model = new EventModel();
-        $SeeEvent = $event->SeeTopEvent();
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * Get 4 events, randomly, to join as a user
+        */
+        $SeeEvent = $event->getTopEvent();
         
-        if(isset($_POST['form_create']) and !empty($_POST['form_create'])){
+        /* * * * * * * * * * * * * * * * * * * * * * * * 
+        * FORM CREATE && SEARCH 
+        */
+        if(isset($_POST['name']) and !empty($_POST['name'])){
 			$event->insertNewEvent($_POST);
-			unset($_POST);
-			$this->coreRedirect('page', 'home');
+			$_POST = null;
+			$this->coreRedirect('page', 'home'); // TODO
+
 		} elseif(isset($_POST['search']) and !empty($_POST['search'])){
-            $SeeEvent = $event->Search($_POST['search']);
-            unset($_POST);
+            $SeeEvent = $event->SearchByEvent($_POST['search']);
+            $_POST = null;
             if(empty($SeeEvent)){
-                unset($_POST);
-                $SeeEvent = $event->SeeTopEvent();
+                $_POST = null;
+                $SeeEvent = $event->getTopEvent();
             }
         }
 		
+        /* Construct the array to pass */
 		$array = array();
 		$array['topevent'] = $SeeEvent;
-		
-		// Appel de la vue 
+
+        /* Load the view */
 		$this->load->view('event', 'addEvent', $array); // TODO
 	
 	}
 	
 	/**
-	 * Page static INDEX
-	 */
-	public function Seeevent(){
+     * seeEvent.php
+     *
+     * @param Array $_POST
+     */
+	private function Seeevent(){
 
-		// Définition des constante
-		define("PAGE_TITLE", SITE_NAME . " home");
-		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
-		define("PAGE_KW", SITE_NAME); // TODO
+		/* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+		define("PAGE_TITLE", SITE_NAME . " - EVENTS");
+		define("PAGE_DESCR", SITE_NAME . "'s all events");
+		define("PAGE_KW", SITE_NAME);
 		define("PAGE_ID", "SeeEvent");
         
 		$events = $this->model = new EventModel();
 		
 		$array = array();
-		
-		//var_dump($_POST); 		
-		
-		// AVEC FILTRE
+
+		/* * * * * * * * * * * * * * * * * * * * * * * * *
+        * WHITH FILTER
+        */
 		if(isset($_POST) && !empty($_POST)){
-		    // PAR TYPE DE COURSE
+		    // KIND OF RACE
     		if(isset($_POST['type']) && !empty($_POST['type'])){
     		    $SeeEvent = $events->SeeFiltreEventType($_POST['type']);
+                $SeeEvent = $events->EventTeamNB($SeeEvent);
     		    $array['type'] = $_POST['type'];
-                $_POST = '';
+                $_POST = null;
 
-            // PAR DEBUT DE COURSE    
+            // BEGIN OF RACE  
     		} elseif(isset($_POST['begin']) && !empty($_POST['begin'])){
     		    $SeeEvent = $events->SeeFiltreEventBeginning($_POST['begin']);
+                $SeeEvent = $events->EventTeamNB($SeeEvent);
     		    $array['begin'] = $_POST['begin'];
-                $_POST = '';
+                $_POST = null;
 
-            // PAR NOMBRE D'EQUIPE   
+            // NUMBER OF TEAMS
     		} elseif(isset($_POST['nb_team']) && !empty($_POST['nb_team'])){
     		    $SeeEvent = $events->SeeFiltreEventNbTeam($_POST['nb_team']);
     		    $array['nb_team'] = $_POST['nb_team'];
-                $_POST = '';
+                $_POST = null;
             
-            // SEARCH GLOBAL  
+            // GLOBAL SEARCH
             } elseif(isset($_POST['search']) && !empty($_POST['search'])){
-                //var_dump($_POST['search']); exit();
-                $SeeEvent = $events->Search($_POST['search']);
+                $SeeEvent = $events->SearchByEvent($_POST['search']);
+                $SeeEvent = $events->EventTeamNB($SeeEvent);
                 $array['search'] = $_POST['search'];
-                $_POST = '';
+                $_POST = null;
             }
 
-        // SANS FILTRE
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * WHITHOUT FILTER
+        */
 		} else{
     		$SeeEvent = $events->SeeEvent();
+            $SeeEvent = $events->EventTeamNB($SeeEvent);
 
 		}
 		
+        /* Construct the array to pass */
 		$array['events'] = $SeeEvent;
-		// Appel de la vue 
+
+		/* Load the view */
 		$this->load->view('event', 'seeEvent', $array); // TODO
 	
 	}
 	
+    /**
+     * seeOneEvent.php
+     *
+     * @param Array $_POST
+     */
+    private function seeOneEvent(){
 
-    public function seeOneEvent(){
-        // Définition des constante
-        define("PAGE_TITLE", SITE_NAME);
-        define("PAGE_DESCR", SITE_NAME . " "); // TODO
-        define("PAGE_KW", SITE_NAME); // TODO
-        define("PAGE_ID", "404");
-
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * Event ID GET_URL
+        */
         $eID = $_GET['id'];
         
         $event = $this->model = new EventModel();
-        $SeeEvent = $event->SeeTopEvent();
 
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * WHITHOUT FILTER
+        */
+        $SeeEvent = $event->SeeOneEvent($eID);
 
-        // Appel de la vue
-        $this->load->view('event', 'seeOneEvent');
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * WHITH FILTER
+        */
+        if(isset($_POST['search']) && !empty($_POST['search'])){
+            $GID = $event->SearchByProject($_POST['search'], $eID);
+            $array['search'] = $_POST['search'];
+            $_POST = '';
+            // var_dump($GID);die;
+        }
+
+        /* Construct the array to pass */
+        // var_dump($SeeEvent);
+        $array['event'] = $SeeEvent['event'];
+
+        if(!empty($SeeEvent['groups'])){
+            $array['groups'] = $SeeEvent['groups'];
+        } elseif(!empty($SeeEvent['done'])){
+            $array['done'] = $SeeEvent['done'];
+        }
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME . " - " . $array['event'][0]['event_name']);
+        define("PAGE_DESCR", SITE_NAME . " - " . substr($array['event'][0]['event_decr'], 0, 100));
+        define("PAGE_KW", SITE_NAME);
+        define("PAGE_ID", $array['event'][0]['event_name']);
+
+        /* Load the view */
+        $this->load->view('event', 'seeOneEvent', $array);
 
     }
 }
