@@ -3,19 +3,18 @@
 /**
  * LogModel
  *
- * Requêtes relatifs a la conenxion
+ * All manipulations relative to the action of login log out sign up
  *
- * @package 	Framework_L&G
- * @copyright 	L&G
+ * @package     Framework_L&G
+ * @copyright   L&G
  */
 
 /**
- * choix de l'action
- * instanciation de la class
+ * LOGIN
+ * LOGOUT
+ * SIGN UP
  */
  
-//$logger->log('test', 'loadapp', "Chargement du modele user", Logger::GRAN_MONTH);
-
 class LogModel extends CoreModel{
 
 	/**
@@ -28,39 +27,42 @@ class LogModel extends CoreModel{
 
 
 	/**
-	 * LoginUser
-	 * Requete vérifiant si le user existe, et si son mdp lui correspond
+	 * home.php 
+	 * Check if is user || user exist
 	 *
 	 * @param array $_POST
 	 */
-	//echo 'lolo';
 	public function Login($post){
 
 		$mail = $post['email'];
 		$pwd = md5($post['pwd']);
-		//var_dump($post);
 
 		try {
-			// on récupère toutes les informations d'un user s'il correspond au login et password
+			/* * * * * * * * * * * * * * * * * * * * * * * *
+            * Get all informations of a user
+            * IF user mail and user password are ok
+            */
 			$select = $this->connexion->prepare("SELECT * 
 											FROM " . PREFIX . "user
 											WHERE user_mail = '" . $mail . "'
 											AND user_password = '" . $pwd . "'");
-					
-		 	//var_dump($select); 
+
 			$select -> execute();
 			$select -> setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select -> fetchAll();
 			
-			//var_dump($retour); exit();
-            // création des cookies
+			/* * * * * * * * * * * * * * * * * * * * * * * *
+            * Let'smake some cookies !
+            */
 			if(count($retour) != 0){
+                /* * * * * * * * * * * * * * * * * * * * * * * *
+                * Make a USER _ SESSION array
+                */
 				$_SESSION['connect_compte'] = true;
 				$_SESSION['user'] = $retour[0]['user_lastname'];
 				$_SESSION['userPseudo'] = $retour[0]['user_pseudo'];
 				$_SESSION['userID'] = $retour[0]['user_id'];
 				$_SESSION['spyID'] = rand();
-				// $_SESSION['level'] = ''; // TO DO // TYPE D'ADMIN
 
 				if (isset($post['reco'])){
 					if(!setcookie("Login",$login,time()+3600*24*31))
@@ -74,8 +76,6 @@ class LogModel extends CoreModel{
 				}
 			} 
 
-			// $select -> closeCursor();
-			// echo count($retour); exit();
 			return count($retour);
 		}
 
@@ -86,20 +86,21 @@ class LogModel extends CoreModel{
 	}
 	
 	/**
-	 * LoginUser
-	 * Requete vérifiant si le user existe, et si son mdp lui correspond
-	 *
-	 * @param array $_POST
-	 */
-	//echo 'lolo';
+     * signup.php 
+     * Insert into the database
+     *
+     * @param array $_POST
+     */
 	public function Signup($var){
-        //var_dump($var); exit();
+
 		$mail = $var['email'];
 		$pwd = md5($var['pwd']);
 		
 
 		try {
-			// on récupère toutes les informations d'un user s'il correspond au login et password
+			/* * * * * * * * * * * * * * * * * * * * * * * *
+            * Get count to verify none existence
+            */
 			$check = $this->connexion->prepare("SELECT * 
     											FROM " . PREFIX . "user
     											WHERE user_mail = '" . $mail . "'
@@ -109,22 +110,24 @@ class LogModel extends CoreModel{
 			$check -> setFetchMode(PDO::FETCH_ASSOC);
 			$user_check = $check -> rowCount();
 
-            // echo $user_check; exit();	
-            					
+
     		if($user_check == 0){
+                /* * * * * * * * * * * * * * * * * * * * * * * *
+                * Insert into the database in two wawes
+                */
         	    $insert = $this->connexion->prepare("INSERT INTO " . PREFIX . "user
 			                                    (`user_mail`, `user_password`) 
 			                                    VALUES (:mail, :password)");
-					
-    		 	//var_dump($select); 
+
     		 	$insert->bindParam(':mail', $mail);
     		 	$insert->bindParam(':password', $pwd);
-                //echo $insert -> execute(); exit();
-                
                 $wellInsert = $insert -> execute();
                 
                 $userID = $this->connexion->lastInsertId(); 
                 
+                /* * * * * * * * * * * * * * * * * * * * * * * *
+                * Put into the SESSION
+                */
                 if($wellInsert == 1){
                     $_SESSION['connect_compte'] = true;
                     $_SESSION['user'] = '';
