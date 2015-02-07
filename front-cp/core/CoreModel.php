@@ -47,6 +47,7 @@ class CoreModel{
 		$this->logger->log('Include', 'loadapp', "loading of the LogModel.php", Logger::GRAN_MONTH);
 
 	}
+	}
 
 
 	/**
