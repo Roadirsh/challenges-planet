@@ -1,5 +1,5 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
-<!--=== Content Part ===-->
+
 <div class="container">		
 	<div class="row-fluid privacy">
         <h3>Company's Activity</h3>

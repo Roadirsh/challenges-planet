@@ -14,7 +14,6 @@
  * LOGOUT
  * SIGN UP
  */
-
 class LogController extends CoreController{
 
 	/**
@@ -100,7 +99,6 @@ class LogController extends CoreController{
         */
 		define("PAGE_TITLE", SITE_NAME . " - Sign up!");
 		define("PAGE_DESCR", SITE_NAME . " sign up!");
-		define("PAGE_KW", SITE_NAME);
 		define("PAGE_ID", "signup");
 		
 		$user = $this->model = new LogModel();

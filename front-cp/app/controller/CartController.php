@@ -53,7 +53,6 @@ class CartController extends CoreController {
     	   // Définition des constante
     		define("PAGE_TITLE", SITE_NAME . " home");
     		define("PAGE_DESCR", ""); // TODO
-    		define("PAGE_KW", SITE_NAME); // TODO
     		define("PAGE_ID", "home");
             $this->coreSession('CART', '1', array(''));
             $this->load->view('cart', 'validation'); // TODO

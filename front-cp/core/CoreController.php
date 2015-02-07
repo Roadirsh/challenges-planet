@@ -31,11 +31,11 @@ class CoreController{
 	$this->logger = new Logger('../logs/');
 
 	if(isset($_GET['module']) && $_GET["action"] !='login' && isset($_SESSION['user'])){
-		$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Chargement du controleur " . $_GET['module'] . "Controller.php", Logger::GRAN_MONTH);
+		$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Controller loaded " . $_GET['module'] . "Controller.php", Logger::GRAN_MONTH);
 	}
 	else
 	{
-		$this->logger->log('Include', 'loadapp', "Chargement du controleur LogController.php", Logger::GRAN_MONTH);
+		$this->logger->log('Include', 'loadapp', "loding of the LogController.php", Logger::GRAN_MONTH);
 
 	}
 

@@ -3,7 +3,7 @@
 /**
  * Load
  *
- * Gère l'affichage des vues
+ * Manage the view 
  *
  * @package 		Framework_L&G
  * @copyright 	L&G
@@ -14,19 +14,19 @@ class Load{
 
 
 	/**
-	 * Affiche une vue dans un module 
-	 * @param String $module 	dossier du controller
-	 * @param String $vue 		fichier dans le dossier
-	 * @param array $data 		données facultatives
+	 * Poster a sight in a module
+	 * @param String $module 	controller repository
+	 * @param String $vue 		file into the repo
+	 * @param array $data 		more data
 	 */
 	public function view($module, $vue, $data = null){
 		$urlVue = dirname(__FILE__) . DIRECTORY_SEPARATOR . ROOT . 'view/' . $module . '/' . $vue . '.php';
 
 		if (file_exists($urlVue)){
-			// si on trouve la vue
+			/* if you get the view file */
 			include(ROOT . 'view/' . $module . '/' . $vue . '.php');
 		}else{
-			// si on ne trouve pas la vue
+			/* if not */
 			include(ROOT . 'view/layout/404.php');
 		}
 	}
@@ -44,7 +44,7 @@ class Load{
 	}
 	
 	/**
-	 * Message CNIL cookies
+	 * CNIL message and cookies
 	 */
 	private function coreCnilCookies(){
 		if (!isset($_COOKIE["CookieCnil"])){

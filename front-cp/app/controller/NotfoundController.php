@@ -1,35 +1,37 @@
 <?php
 
 /**
- * Page404
+ * NotfoundController
  *
- * Affichage de la page 404
+ * Error 404 page, notfound
  *
- * @package 	Framework_L&G
- * @copyright 	L&G
+ * @package     Framework_L&G
+ * @copyright   L&G
  */
 
+/**
+ * NOT FOUND
+ */
 class NotfoundController extends CoreController{
 
 	/**
-	 * Page 404
+	 * Constructor
 	 */
 	function __construct(){
 		parent::__construct();
-			// on test voir s'il y a une sesison ou non
 			$this->Notfound();
-
-
 	}
 
 	public function Notfound(){
-		// Définition des constante
+		
+		/* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
 		define("PAGE_TITLE", SITE_NAME . " 404 - not found");
-		define("PAGE_DESCR", SITE_NAME . " "); // TODO
-		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_DESCR", SITE_NAME . " ");
 		define("PAGE_ID", "404");
 
-		// Appel de la vue
+		/* Load the view */
 		$this->load->view('layout', 'notfound');
 
 	}

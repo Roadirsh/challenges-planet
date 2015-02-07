@@ -15,7 +15,6 @@
  * FILTER EVENTS
  * SEE ONE EVENT
  */
-
 class EventController extends CoreController {
 
 	/**
@@ -58,7 +57,6 @@ class EventController extends CoreController {
         */
 		define("PAGE_TITLE", SITE_NAME . " - JOIN and CREATE");
 		define("PAGE_DESCR", SITE_NAME . " JOIN THE BEST CARITIVES STUDENT CHALLENGES");
-		define("PAGE_KW", SITE_NAME);
 		define("PAGE_ID", "addEvent");
         
         $event = $this->model = new EventModel();
@@ -106,7 +104,6 @@ class EventController extends CoreController {
         */
 		define("PAGE_TITLE", SITE_NAME . " - EVENTS");
 		define("PAGE_DESCR", SITE_NAME . "'s all events");
-		define("PAGE_KW", SITE_NAME);
 		define("PAGE_ID", "SeeEvent");
         
 		$events = $this->model = new EventModel();
@@ -117,27 +114,27 @@ class EventController extends CoreController {
         * WHITH FILTER
         */
 		if(isset($_POST) && !empty($_POST)){
-		    // KIND OF RACE
+		    /* KIND OF RACE */
     		if(isset($_POST['type']) && !empty($_POST['type'])){
     		    $SeeEvent = $events->SeeFiltreEventType($_POST['type']);
                 $SeeEvent = $events->EventTeamNB($SeeEvent);
     		    $array['type'] = $_POST['type'];
                 $_POST = null;
 
-            // BEGIN OF RACE  
+            /* BEGIN OF RACE */ 
     		} elseif(isset($_POST['begin']) && !empty($_POST['begin'])){
     		    $SeeEvent = $events->SeeFiltreEventBeginning($_POST['begin']);
                 $SeeEvent = $events->EventTeamNB($SeeEvent);
     		    $array['begin'] = $_POST['begin'];
                 $_POST = null;
 
-            // NUMBER OF TEAMS
+            /* NUMBER OF TEAMS */
     		} elseif(isset($_POST['nb_team']) && !empty($_POST['nb_team'])){
     		    $SeeEvent = $events->SeeFiltreEventNbTeam($_POST['nb_team']);
     		    $array['nb_team'] = $_POST['nb_team'];
                 $_POST = null;
             
-            // GLOBAL SEARCH
+            /* GLOBAL SEARCH */
             } elseif(isset($_POST['search']) && !empty($_POST['search'])){
                 $SeeEvent = $events->SearchByEvent($_POST['search']);
                 $SeeEvent = $events->EventTeamNB($SeeEvent);
@@ -206,7 +203,6 @@ class EventController extends CoreController {
         */
         define("PAGE_TITLE", SITE_NAME . " - " . $array['event'][0]['event_name']);
         define("PAGE_DESCR", SITE_NAME . " - " . substr($array['event'][0]['event_decr'], 0, 100));
-        define("PAGE_KW", SITE_NAME);
         define("PAGE_ID", $array['event'][0]['event_name']);
 
         /* Load the view */

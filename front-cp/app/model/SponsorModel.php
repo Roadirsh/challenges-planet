@@ -1,26 +1,22 @@
 <?php 
 
 /**
- * ProjectModel
+ * SponsorModel
  *
- * Requêtes relatifs aux groupes de projects
+ * Everything who is relative to a SPONSOR
  *
- * @package 	Framework_L&G
- * @copyright 	L&G
+ * @package     Framework_L&G
+ * @copyright   L&G
  */
 
 /**
- * choix de l'action
- * instanciation de la class
+ * SEE SPONSOR
  */
 class SponsorModel extends CoreModel{
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    private $GroupID;       // INT
-    private $GroupDate;     // DATE
-	private $GroupName;     // STRING
-	private $GroupDescr;    // LONG STRING
-	private $GroupImg;      // STRING
+    /* * * * * * * * * * * * * * * * * * * * * * * * * */
 	
 	/**
 	 * Constructor
@@ -29,9 +25,14 @@ class SponsorModel extends CoreModel{
 		parent::__construct();
 	}
 	
-	public function Seesponsor(){
+/////////////////////////////////////////////////////
+/* SEE SPONSORS * * * * * * * * * * * * * * * * * * */
+	public function Seesponsor() {
     	
     	try {
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * Get all sponsors who have make a donation
+            */
         	$select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "user
                                             where user_type = 'organisme'
@@ -48,7 +49,6 @@ class SponsorModel extends CoreModel{
     	} catch (Exception $e) {
             echo 'Message:' . $e -> getMessage();
         }
-    	
 	}
     
 }

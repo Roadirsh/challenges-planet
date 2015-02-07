@@ -3,13 +3,15 @@
 /**
  * UserController
  *
- * Affichage des pages sans traitement spécifique // static
+ * Everything who is relative to a USER
  *
- * @package 	Framework_L&G
- * @copyright 	L&G
+ * @package     Framework_L&G
+ * @copyright   L&G
  */
 
-			
+/**
+ * SEE ONE USER
+ */			
 class UserController extends CoreController {
 
 	/**
@@ -19,7 +21,7 @@ class UserController extends CoreController {
 		parent::__construct();
 		
 		if(isset($_GET['action'])){
-			//ucfirt = Met le premier caractère en majuscule
+			//ucfirt = put the first letter in Uppercase
 			$action = ucfirst($_GET['action']);
             
             if(method_exists($this, $action)){
@@ -30,7 +32,7 @@ class UserController extends CoreController {
             
 
 		} else {
-			// on test voir s'il y a une sesison ou non
+			// is their a session or not?
 			if(isset($_SESSION['user']) != ''){
 				$this->Seeuser();
 			} else {
@@ -40,23 +42,32 @@ class UserController extends CoreController {
 	}
 	
 	/**
-	 * 
-	 */
-	public function SeeOneUser(){
-
-		// Définition des constante
-		define("PAGE_TITLE", SITE_NAME . " home");
-		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
-		define("PAGE_KW", SITE_NAME); // TODO
-		define("PAGE_ID", "seeOneUser");
+     * addEvent.php
+     *
+     * @param INT $_GET ID
+     */
+	private function SeeOneUser(){
 		
         $showUser = $this->model = new UserModel();
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * Information about one user only
+        */
 		$oneUser = $showUser->SeeOneUser();
 
+		/* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+		define("PAGE_TITLE", SITE_NAME . " User name"); // TODO
+		define("PAGE_DESCR", SITE_NAME . " user name"); // TODO
+		define("PAGE_ID", "seeOneUser");
 
-		
-		// Appel de la vue 
-		$this->load->view('user', 'seeUser', $OneUser); // TODO
+		/* Construct the array to pass */
+		$array = array();
+		$array['user'] = $oneUser;
+
+        /* Load the view */
+		$this->load->view('user', 'seeUser', $array);
 	
 	}
 }

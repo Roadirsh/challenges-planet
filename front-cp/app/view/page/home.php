@@ -1,9 +1,10 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
+
 <?php if(isset($data['slider']) && !empty($data['slider']) ){ $slider = $data['slider']; } ?>
 <?php if(isset($data['group']) && !empty($data['group']) ){ $team = $data['group']; } ?>
 <?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; } ?>
 <?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ $sponsor = $data['sponsor']; } ?>
-<?php //var_dump($done); ?>
+
     <div class="slider">
         <?php $i = 0; ?>
         <?php if(isset($data['slider']) && !empty($data['slider']) ){ ?>

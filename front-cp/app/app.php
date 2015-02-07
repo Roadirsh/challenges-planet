@@ -1,36 +1,28 @@
 <?php
 
 /**
- * Page Polymorphe
+ * Polymorphius page
  * 
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
 
-	/**
-	 * Analyse du module demandé
-	 *
-	 * @param array $_GET
-	 */
-	    // session_destroy();
-    	// $_POST = '';
-    	// var_dump($_SESSION);
-    	
-
+/**
+ * Check wich module is called and call him
+ *
+ * @param array $_GET
+ */
 
     if(isset($_GET['module'])){
-		//ucfirt = Met le premier caractère en majuscule
+		/* ucfirt = put the first letter in Uppercase */
 		$module = ucfirst($_GET['module']);
 
 	} else {
 		$module = "Page";
 	}
-    
-    // module temporaire 
-    //$module = "Page";
-    
+
 	$urlController = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'controller/' . $module . 'Controller.php';
-	// echo $urlController;
+		// echo $urlController;
 
 	if(!file_exists($urlController)){
 		include_once('controller/NotfoundController.php');
@@ -40,18 +32,13 @@
 		// echo $urlController;
 	}
 
-	// Lancement du module
+	/* Start module */
 		$controller = $module . 'Controller';
 
-	// Le controller appelé par la variable $module
-
+	/* Start controller called by the module */
 		include_once('controller/' . $controller . '.php');
 
-		//include_once('controller/' . $module . 'Controller.php');
-
-
-    
-	// Le model appelé par la variable $module
+	/* Start model called by the module */
 	$urlModel = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'model/' . $module . 'Model.php';
 	// echo $urlController;
 
