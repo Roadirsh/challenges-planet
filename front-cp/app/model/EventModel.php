@@ -39,7 +39,7 @@ class EventModel extends CoreModel{
      * 
      * 4 events that a user can join
      */
-    protected function SeeTopEvent(){
+    private function SeeTopEvent(){
         
         try {
             /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -78,7 +78,7 @@ class EventModel extends CoreModel{
      * 
      * @param Array = $_POST as $post
      */
-    public function insertNewEvent($post) {
+    private function insertNewEvent($post) {
         $location = $post['place'] . ', ' . $post['country'];
         //var_dump($_FILES); exit();
         $img = $_FILES['cover']['name'];
@@ -118,7 +118,7 @@ class EventModel extends CoreModel{
      * @param String $destination
      * @param String $img
      */
-    public function upload($index, $destination, $img) {
+    private function upload($index, $destination, $img) {
     
         $extension = $_FILES['cover']['type'];
         // Move
@@ -208,7 +208,7 @@ class EventModel extends CoreModel{
         
         return $array;
     }
-    
+
     /**
      * seeEvent.php
      * 
@@ -586,7 +586,7 @@ class EventModel extends CoreModel{
                                                 WHERE group_id = :eventID
                                                 AND group_valid = 1");
 
-            $select2->bindValue(':eventID', $e['event_id'], PDO::PARAM_INT);
+            $select2->bindValue(':eventID', $eID, PDO::PARAM_INT);
             $select2->execute();
             $select2->setFetchMode(PDO::FETCH_ASSOC);
             $AllGroups = $select2->FetchAll();

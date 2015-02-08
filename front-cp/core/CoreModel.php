@@ -33,20 +33,15 @@ class CoreModel{
 		}
 		include_once(LOGGER);
 		
+		/* Creat a LOGGER object */
+		$this->logger = new Logger('../logs/');
 		
+		if(isset($_GET['module']) && isset($_SESSION['user'])){
+			$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Model loaded " . $_GET['module'] . "Model.php", Logger::GRAN_MONTH);
+		} else{
+			$this->logger->log('Include', 'loadapp', "loading of the LogModel.php", Logger::GRAN_MONTH);
 
-	 
-	/* Creat a LOGGER object */
-	$this->logger = new Logger('../logs/');
-	
-	if(isset($_GET['module']) && isset($_SESSION['user'])){
-		$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Model loaded " . $_GET['module'] . "Model.php", Logger::GRAN_MONTH);
-	}
-	else
-	{
-		$this->logger->log('Include', 'loadapp', "loading of the LogModel.php", Logger::GRAN_MONTH);
-
-	}
+		}
 	}
 
 

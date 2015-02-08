@@ -76,13 +76,12 @@ class PageModel extends CoreModel{
             $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
                                             WHERE A.group_valid = 1
-                                            AND B.event_end > ':date'
+                                            AND B.event_end > '" . date("Y-m-d H:i:s") . "'
                                             AND A.group_id = C.group_group_id
                                             AND B.event_id = C.event_event_id
                                             GROUP BY A.group_id
                                             LIMIT 7");
             
-            $select->bindParam(':date', date("Y-m-d H:i:s"));
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $retour = $select->fetchAll();
@@ -204,11 +203,10 @@ class PageModel extends CoreModel{
                                             WHERE A.group_valid = 1
                                             AND A.group_id = B.group_group_id
                                             AND C.event_id = B.event_event_id
-                                            AND C.event_end < ':date'
+                                            AND C.event_end < '" . date("Y-m-d H:i:s") . "'
                                             GROUP BY A.group_id
                                             LIMIT 1");
             
-            $select->bindParam(':date', date("Y-m-d H:i:s"));
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $retour = $select->fetchAll();

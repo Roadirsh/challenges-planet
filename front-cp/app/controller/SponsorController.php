@@ -27,7 +27,7 @@ class SponsorController extends CoreController {
 			if(method_exists($this, $action)){
                 $this->$action();
             } else{
-                $this->coreRedirect('notfound', 'notfound');
+                $this->corePage404();
             }
 
 		} else {

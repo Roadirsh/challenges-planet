@@ -1,4 +1,4 @@
-<?php 
+$this->corePage404();<?php 
 
 /**
  * UserController
@@ -27,7 +27,7 @@ class UserController extends CoreController {
             if(method_exists($this, $action)){
                 $this->$action();
             } else{
-                $this->coreRedirect('notfound', 'notfound');
+                $this->corePage404();
             }
             
 

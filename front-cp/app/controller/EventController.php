@@ -30,7 +30,7 @@ class EventController extends CoreController {
             if(method_exists($this, $action)){
                 $this->$action();
             } else{
-                $this->coreRedirect('notfound', 'notfound');   
+                $this->corePage404();  
             }
             
 
@@ -117,7 +117,7 @@ class EventController extends CoreController {
 		    /* KIND OF RACE */
     		if(isset($_POST['type']) && !empty($_POST['type'])){
     		    $SeeEvent = $events->SeeFiltreEventType($_POST['type']);
-                $SeeEvent = $events->EventTeamNB($SeeEvent);
+                $SeeEvent = $events->getEventTeamNB($SeeEvent);
     		    $array['type'] = $_POST['type'];
                 $_POST = null;
 
@@ -177,15 +177,16 @@ class EventController extends CoreController {
         * WHITHOUT FILTER
         */
         $SeeEvent = $event->SeeOneEvent($eID);
-
+        // var_dump($SeeEvent);
+        
         /* * * * * * * * * * * * * * * * * * * * * * * * *
         * WHITH FILTER
         */
         if(isset($_POST['search']) && !empty($_POST['search'])){
-            $GID = $event->SearchByProject($_POST['search'], $eID);
+            $SeeEvent = $event->SearchByProject($_POST['search'], $eID);
             $array['search'] = $_POST['search'];
             $_POST = '';
-            // var_dump($GID);die;
+             var_dump($SeeEvent);die;
         }
 
         /* Construct the array to pass */
