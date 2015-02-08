@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * BIG DADY Controller 
