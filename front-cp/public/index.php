@@ -1,5 +1,6 @@
 <?
-//phpinfo();
+phpinfo();
+exit;
 /**
  * Controller principal 
  * 
