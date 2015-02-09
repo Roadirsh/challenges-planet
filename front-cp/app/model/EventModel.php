@@ -629,7 +629,7 @@ class EventModel extends CoreModel{
 	{
 		try 
 		{		
-	        $select = $this->connexion->prepare("SELECT event_id, event_name, event_img FROM cp_event where event_valid = 1;");
+	        $select = $this->connexion->prepare("SELECT event_id, event_name, event_location FROM cp_event where event_valid = 1;");
 	       			
 			$select -> execute();
             $select -> setFetchMode(PDO::FETCH_ASSOC);
