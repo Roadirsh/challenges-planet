@@ -638,7 +638,6 @@ class EventModel extends CoreModel{
         } 
     }
     
-
     /**
      * seeEvent.php
      * 
@@ -668,7 +667,30 @@ class EventModel extends CoreModel{
             $where = '> 6000 AND A.group_money <= 10000';
         }
 
-        try {
+    public function getEventJSON()
+	{
+		try 
+		{		
+	        $select = $this->connexion->prepare("SELECT event_id, event_name, event_location 
+                                                FROM " . PREFIX . "event 
+                                                WHERE event_valid = 1");
+	       			
+			$select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $event = $select -> FetchAll();	
+            
+            $json = json_encode($event);
+
+            return $json;
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
+
+    try {
 
             $select1 = $this->connexion->prepare("SELECT group_group_id
                                                 FROM " . PREFIX . "event_has_group 

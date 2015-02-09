@@ -402,25 +402,5 @@ class EventModel extends CoreModel{
 	}
 	
 	
-	public function getEventJSON()
-	{
-		try 
-		{		
-	        $select = $this->connexion->prepare("SELECT event_id, event_name, event_img FROM cp_event where event_valid = 1;");
-	       			
-			$select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $event = $select -> FetchAll();	
-            
-            $json = json_encode($event);
-            $this->logger->log('Model', 'sql', "Select event JSON", Logger::GRAN_MONTH);
-
-            return $json;
-        }
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }
-
-	}
+	
 }

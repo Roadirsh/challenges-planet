@@ -238,6 +238,17 @@ class EventController extends CoreController {
         $this->load->view('event', 'seeOneEvent', $array);
 
     }
+    
+    
+	// Pour l'aplication mobile
+	public function Eventjson()
+	{
+		header('Content-Type: application/json');
+		$event = $this->model = new EventModel();
+		$json = $event->getEventJSON();
+		echo $json;
+	}
+
 }
 
 ?>
