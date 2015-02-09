@@ -1,9 +1,8 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
-
 <?php if(isset($data['events']) && !empty($data['events']) ){ $events = $data['events']; } ?>
 <?php if(isset($data['type']) && !empty($data['type']) ){ $tpe = $data['type']; } ?>
 <?php if(isset($data['nb_team']) && !empty($data['nb_team']) ){ $nbteam = $data['nb_team']; } ?>
-<?php if(isset($data['search']) && !empty($data['search']) ){ $search = $data['search']; } ?>
+<?php if(isset($data['search'])){ $search = $data['search']; } ?>
 <?php if(isset($data['begin']) && !empty($data['begin']) ){ $begin = $data['begin']; } ?>
 
 <div class="list-events clearfix">
@@ -11,9 +10,9 @@
 		<h1>Dynamics and charity challenges</h1>
 		<p class="medium-8">Find any best sports events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating your !</p>
 		<span class="medium-12 number-events">
-			    <?php if(!empty($tpe) || !empty($begin) || !empty($nbteam) || !empty($search)){ 
-			        	echo count($events) . ' events for : ';
-			        } else { echo count($events) . ' events'; } ?>
+			    <?php if(isset($events) && !empty($events)){ 
+			        	echo titleCP($events, $search, 'event'); // count || array search || title;
+			        } else { echo "Sorry, we don't have any projects for <span class='active'>'" . $search[1] . "'</span>";  } ?>
                 <?php if(isset($tpe) && !empty($tpe)){ ?>
                     <span class="active"><?php echo ucfirst($tpe); ?></span>
                 <?php } elseif(isset($nbteam) && !empty($nbteam)){ ?>

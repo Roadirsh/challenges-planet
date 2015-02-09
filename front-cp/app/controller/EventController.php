@@ -117,28 +117,38 @@ class EventController extends CoreController {
 		    /* KIND OF RACE */
     		if(isset($_POST['type']) && !empty($_POST['type'])){
     		    $SeeEvent = $events->SeeFiltreEventType($_POST['type']);
-                $SeeEvent = $events->getEventTeamNB($SeeEvent);
-    		    $array['type'] = $_POST['type'];
+                if(!empty($SeeEvent)){
+                    $SeeEvent = $events->EventTeamNB($SeeEvent);
+                }
+    		    $array['search'][1] = $_POST['type'];
+                $array['search'][2] = 'Type ';
                 $_POST = null;
 
             /* BEGIN OF RACE */ 
     		} elseif(isset($_POST['begin']) && !empty($_POST['begin'])){
     		    $SeeEvent = $events->SeeFiltreEventBeginning($_POST['begin']);
-                $SeeEvent = $events->EventTeamNB($SeeEvent);
-    		    $array['begin'] = $_POST['begin'];
+                if(!empty($SeeEvent)){
+                    $SeeEvent = $events->EventTeamNB($SeeEvent);
+                }
+    		    $array['search'][1] = $_POST['begin'];
+                $array['search'][2] = 'Begin date ';
                 $_POST = null;
 
             /* NUMBER OF TEAMS */
     		} elseif(isset($_POST['nb_team']) && !empty($_POST['nb_team'])){
     		    $SeeEvent = $events->SeeFiltreEventNbTeam($_POST['nb_team']);
-    		    $array['nb_team'] = $_POST['nb_team'];
+    		    $array['search'][1] = $_POST['nb_team'];
+                $array['search'][2] = 'Ending date ';
                 $_POST = null;
             
             /* GLOBAL SEARCH */
             } elseif(isset($_POST['search']) && !empty($_POST['search'])){
                 $SeeEvent = $events->SearchByEvent($_POST['search']);
-                $SeeEvent = $events->EventTeamNB($SeeEvent);
-                $array['search'] = $_POST['search'];
+                if(!empty($SeeEvent)){
+                    $SeeEvent = $events->EventTeamNB($SeeEvent);
+                }
+                $array['search'][1] = $_POST['search'];
+                $array['search'][2] = '';
                 $_POST = null;
             }
 
@@ -148,12 +158,11 @@ class EventController extends CoreController {
 		} else{
     		$SeeEvent = $events->SeeEvent();
             $SeeEvent = $events->EventTeamNB($SeeEvent);
-
+            $array['search'] = '';
 		}
 		
         /* Construct the array to pass */
 		$array['events'] = $SeeEvent;
-
 		/* Load the view */
 		$this->load->view('event', 'seeEvent', $array); // TODO
 	
@@ -177,21 +186,40 @@ class EventController extends CoreController {
         * WHITHOUT FILTER
         */
         $SeeEvent = $event->SeeOneEvent($eID);
-        // var_dump($SeeEvent);
+
+        /* Construct the array to pass */
+        $array['event'] = $SeeEvent['event'];;
         
         /* * * * * * * * * * * * * * * * * * * * * * * * *
         * WHITH FILTER
         */
-        if(isset($_POST['search']) && !empty($_POST['search'])){
+        /* DEGRE OF HELP NEEDED */ 
+        if(isset($_POST['help']) && !empty($_POST['help'])){
+            $SeeEvent = $event->SeeFiltreGroupHelp($_POST['begin']);
+            $SeeEvent = $event->EventTeamNB($SeeEvent);
+            $array['help'] = $_POST['help'];
+            $_POST = null;
+
+        /* GOAL FOR MONEY */
+        } elseif(isset($_POST['budget']) && !empty($_POST['budget'])){
+            $SeeEvent = $event->SeeFiltreGroupMoney($_POST['budget'], $eID);
+            $array['budget'] = $_POST['budget'];
+            $_POST = null;
+        
+        /* GLOBAL SEARCH */
+        } elseif(isset($_POST['search']) && !empty($_POST['search'])){
             $SeeEvent = $event->SearchByProject($_POST['search'], $eID);
             $array['search'] = $_POST['search'];
             $_POST = '';
-             var_dump($SeeEvent);die;
+
+        }
+
+        if(empty($SeeEvent)){
+            $SeeEvent = $event->SeeOneEvent($eID);
+            
         }
 
         /* Construct the array to pass */
-        // var_dump($SeeEvent);
-        $array['event'] = $SeeEvent['event'];
 
         if(!empty($SeeEvent['groups'])){
             $array['groups'] = $SeeEvent['groups'];

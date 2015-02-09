@@ -1,6 +1,5 @@
 <?php
-function lang_url()
-{
+function lang_url(){
    $ret = "";
    
    if(isset($_GET['a']))
@@ -94,4 +93,49 @@ function formDate($date, $mode) {
 	return $string;
 
 }
+
+
+function titleCP($count = null, $array = null, $str = null){
+
+  $title = '';
+
+  // Number 
+  if(isset($count) && !empty($count[0])){
+    $title .= count($count) . ' ';
+  } else{
+    $title .= "Sorry, we don't have any projects for <span class='active'>'" . $array[1] . "'</span>";
+    return $title;
+    exit;
+  }
+  // Subject
+  if(isset($str)){
+    $title .= $str;
+  }
+  // Plural
+  if(isset($count) && $count > 1){
+    $title .= 's '; // s
+  }
+
+  if(isset($array)){
+    // Type of research
+    if(!empty($array[2])){
+      $title .= ' for ' . $array[2];
+    }
+    // $_POST
+    if(!empty($array[1])){
+      $title .= " '<span class='active'>" . $array[1] . "</span>'";
+    }
+
+  }
+
+  return $title;
+  
+}
+
+
+
+
+
+
+
 
