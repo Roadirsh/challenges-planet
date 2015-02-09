@@ -3,13 +3,16 @@
 /**
  * PageController
  *
- * Affichage des pages sans traitement spécifique // static
+ * All pages without any action from the user, except home
  *
- * @package 	Framework_L&G
- * @copyright 	L&G
+ * @package     Framework_L&G
+ * @copyright   L&G
  */
- 
 
+/**
+ * HOME
+ * CGU
+ */
 class PageController extends CoreController {
 
 	/**
@@ -19,46 +22,48 @@ class PageController extends CoreController {
 		parent::__construct();
 		
 		if(isset($_GET['action'])){
-			//ucfirt = Met le premier caractère en majuscule
+			//ucfirt = put the first letter in Uppercase
 			$action = ucfirst($_GET['action']);
 			
 			if(method_exists($this, $action)){
                 $this->$action();
             } else{
-                $this->coreRedirect('notfound', 'notfound');
+                $this->corePage404();
             }
 
 		} else {
-			// on test voir s'il y a une sesison ou non
-			if(isset($_SESSION['user']) != ''){
-				$this->Home();
-			} else {
-				//$this->coreRedirect('user', 'login');
-				// temporaire
-				$this->Home();
-			}
+			
+			$this->Home();
 		}
 	}
 
 
 	/**
-	 * Page static INDEX
-	 */
-	public function Home(){
+     * home.php
+     *
+     */
+	private function Home(){
 
-		// Définition des constante
+		/* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
 		define("PAGE_TITLE", SITE_NAME . " home");
-		define("PAGE_DESCR", "Plateforme de mise en relation d'étudiants et entreprises dans le cadre de participation d'évènement sportifs à sponsoriser"); // TODO
-		define("PAGE_KW", SITE_NAME); // TODO
+		define("PAGE_DESCR", "Platform of comparison of students and companies within the framework of participation of event sportsmen to be sponsored");
 		define("PAGE_ID", "home");
 
 		$Group = $this->model = new PageModel();
+		/* Get 4 events for the slider */
 		$AllfourEvents = $Group->SeeFourEvents();
+		// var_dump($AllfourEvents);
+		/* Get 7 last added teams */
 		$AllLastGroups = $Group->SeeLastGroups();
+		/* Get 1 teams from a finish event */
 		$DoneGroup = $Group->SeeDoneGroup();
+		/* Get 7 sponsors */
 		$AllLastSponsors = $Group->SeeLastSponsors();
 		
-		$array = '';
+		/* Construct the array to pass */
+		$array = array();
 		$array['slider'] = $AllfourEvents;
 		$array['group'] = $AllLastGroups;
 		$array['sponsor'] = $AllLastSponsors;
@@ -72,42 +77,27 @@ class PageController extends CoreController {
 		    $array['group'][$i] = array_merge($t, $CountLastGroups, $CountDonut);
 		    $i ++;
 		}
-		//var_dump($array['group']);
 		
-		// Appel de la vue 
-		$this->load->view('page', 'home', $array); // TODO
-	
-	}
-	
-	/**
-	 * Page static INDEX
-	 */
-	public function Notfound(){
-
-		// Définition des constante
-		define("PAGE_TITLE", SITE_NAME . " home");
-		define("PAGE_DESCR", SITE_NAME . " - ERROR"); // TODO
-		define("PAGE_KW", SITE_NAME); // TODO
-		define("PAGE_ID", "notfound");
-		
-		// Appel de la vue 
-		$this->load->view('layout', 'notfound'); // TODO
+		/* Load the view */
+		$this->load->view('page', 'home', $array);
 	
 	}
 
 	/**
-	 * Page static INDEX
-	 */
-	public function cgu(){
+     * cgu.php
+     *
+     */
+	private function cgu(){
 
-		// Définition des constante
-		define("PAGE_TITLE", SITE_NAME . " home");
-		define("PAGE_DESCR", SITE_NAME . " - ERROR"); // TODO
-		define("PAGE_KW", SITE_NAME); // TODO
-		define("PAGE_ID", "notfound");
+		/* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+		define("PAGE_TITLE", SITE_NAME . " GUC");
+		define("PAGE_DESCR", SITE_NAME . "");
+		define("PAGE_ID", "cgu");
 		
-		// Appel de la vue 
-		$this->load->view('page', 'cgu'); // TODO
+		/* Load the view */
+		$this->load->view('page', 'cgu');
 	
 	}
 	

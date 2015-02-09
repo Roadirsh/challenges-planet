@@ -3,18 +3,16 @@
 /**
  * CoreModel
  *
- * Requetes prédéfinies et globales du model
+ * Predefined and global query of a Model
  *
- * @package 		Framework_L&G
+ * @package 	Framework_L&G
  * @copyright 	L&G
  */
 
-
-
 class CoreModel{
 	/**
-	 * Variable gestionnaire de vue et chargement du model
-	 * @var 	object $connexion
+	 * Variable manager of sight and loading of the model
+	 * @var object $connexion
 	 */
 	protected $connexion;
 	protected $logger;
@@ -28,35 +26,28 @@ class CoreModel{
 
 		include_once(ROOT . 'conf/mysql.php');
 		try {
-			// on tente une connexion
-			//$this->pdo = new PDO($dns, $PARAM_utilisateur, $PARAM_mot_passe, $options);
+			/* Let's try to connect ! */
 			$this->connexion = new PDO($dns, $PARAM_utilisateur, $PARAM_mot_passe, $option);
-			
 		} catch (Exception $e){
-			// on renvoi au message d'erreur de la connexion
 			$this->CoreBdError($e);
 		}
 		include_once(LOGGER);
 		
+		/* Creat a LOGGER object */
+		$this->logger = new Logger('../logs/');
 		
+		if(isset($_GET['module']) && isset($_SESSION['user'])){
+			$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Model loaded " . $_GET['module'] . "Model.php", Logger::GRAN_MONTH);
+		} else{
+			$this->logger->log('Include', 'loadapp', "loading of the LogModel.php", Logger::GRAN_MONTH);
 
-	 
-	// Création d'un objet Logger
-	$this->logger = new Logger('../logs/');
-	
-	if(isset($_GET['module']) && isset($_SESSION['user'])){
-		$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Chargement du modèle " . $_GET['module'] . "Model.php", Logger::GRAN_MONTH);
-	}
-	else
-	{
-		$this->logger->log('Include', 'loadapp', "Chargement du modèle LogModel.php", Logger::GRAN_MONTH);
-
-	}
+		}
 	}
 
 
 	/**
-	 * Message erreur pdo
+	 * PDO ERROR MESSAGES
+	 * 
 	 * @param exception $e
 	 */
 	private function coreBdError($e){
@@ -67,9 +58,9 @@ class CoreModel{
 	
 
 	/**
-	 * Lecture table, retourne fetchAll
-	 * @param String $table 		nom de la table du select
-	 * @param array $options 	tableau des options
+	 * Read tables, return fetchAll
+	 * @param String $table 	name of the select table
+	 * @param array $options 	option array
 	 */
 	protected function coreTableAll($table, $options = null){
 		try{
@@ -103,10 +94,10 @@ class CoreModel{
 	
 
 	/**
-	 * Surpression d'un enregistrement par l'id
-	 * @param String $table 		nom de la table du select
-	 * @param String $colonne 	nom de la colonne à tester
-	 * @param int $valeur 		valeur à tester
+	 * Delete by ID
+	 * @param String $table 	name of the select table
+	 * @param String $colonne 	name of the column
+	 * @param int $valeur 		value
 	 */
 	public function coreDeleteById($table, $colonne, $valeur){
 		try{

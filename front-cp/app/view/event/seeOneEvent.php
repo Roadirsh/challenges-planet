@@ -4,7 +4,6 @@
 <?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; }else{ $done = null; } ?>
 <?php if(isset($data['groups']) && !empty($data['groups']) ){ $groups = $data['groups']; }else{ $groups = null; } ?>
 
-
         <div class="list-events clearfix">
             <div class="head clearfix">
                 <div class="medium-4 large-3 columns">

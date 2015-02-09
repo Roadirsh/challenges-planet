@@ -1,9 +1,11 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
+
 <?php if(isset($data['events']) && !empty($data['events']) ){ $events = $data['events']; } ?>
 <?php if(isset($data['type']) && !empty($data['type']) ){ $tpe = $data['type']; } ?>
 <?php if(isset($data['nb_team']) && !empty($data['nb_team']) ){ $nbteam = $data['nb_team']; } ?>
 <?php if(isset($data['search']) && !empty($data['search']) ){ $search = $data['search']; } ?>
 <?php if(isset($data['begin']) && !empty($data['begin']) ){ $begin = $data['begin']; } ?>
+
 <div class="list-events clearfix">
 	<div class="head clearfix">
 		<h1>Dynamics and charity challenges</h1>

@@ -9,132 +9,164 @@
  * @copyright   L&G
  */
 
-
+/**
+ * SEE EVENTS
+ * SEE PROJECTS
+ * SEE SPONSORS
+ * SEE GCU
+ */
 class PageModel extends CoreModel{
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * */
+
     /**
-     * Les 4 derniers events de projets ajoutés
+     * Constructor
      */
-    public function SeeFourEvents(){
+    function __construct(){
+        parent::__construct();
+    }
+
+/////////////////////////////////////////////////////
+/* HOME * * * * * * * * * * * * * * * * * * * * * * */
+
+    /**
+     * home.php
+     * 
+     * 4 events last added
+     */
+    public function SeeFourEvents() {
 
         try {
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * Get 4 events, last added and valid
+            */
             $select = $this->connexion->prepare("SELECT event_id, event_name, event_decr, event_img, event_valid 
                                             FROM " . PREFIX . "event
                                             where event_valid = 1
                                             LIMIT 4");
-                    
-            //var_dump($select);
-            $select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $retour = $select -> fetchAll();
+            
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select->fetchAll();
+            $select->closeCursor();
 
-            $select -> closeCursor(); 
-            //var_dump($retour);
-
+            //$this->setSeeFourEvents($retour);
             return $retour;
         }
 
         catch (Exception $e)
         {
-            echo 'Message:' . $e -> getMessage();
+            echo 'Message:' . $e->getMessage();
         }
     }
     
     /**
-     * Les 8 derniers groupes de projets ajoutés
+     * home.php
+     * 
+     * 7 last added teams
      */
-    public function SeeLastGroups(){
+    public function SeeLastGroups() {
 
         try {
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * Get 7 teams, last added, where the event is not finished
+            */
             $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
                                             WHERE A.group_valid = 1
-                                            AND B.event_end > '" . date("Y-m-d") . "'
+                                            AND B.event_end > '" . date("Y-m-d H:i:s") . "'
                                             AND A.group_id = C.group_group_id
                                             AND B.event_id = C.event_event_id
                                             GROUP BY A.group_id
                                             LIMIT 7");
-
-            //var_dump($select);
-            $select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $retour = $select -> fetchAll();
-
-            $select -> closeCursor(); 
+            
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select->fetchAll();
+            $select->closeCursor(); 
 
             return $retour;
         }
 
         catch (Exception $e)
         {
-            echo 'Message:' . $e -> getMessage();
+            echo 'Message:' . $e->getMessage();
         }
     }
     
     /**
-     * Les 8 derniers COUNT SUPPORTERS de groupes de projets ajoutés
+     * home.php
+     * 
+     * COUNT SPONSORS of added teams
+     * 
+     * @param Array = id of last added groups
      */
-    public function CountLastGroups($groupID){
+    public function CountLastGroups($groupID) {
     
         try {
-            $select2 = $this->connexion->prepare("SELECT COUNT(donate_id) as count, group_money
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * Get count of donation per group
+            */
+            $select = $this->connexion->prepare("SELECT COUNT(donate_id) as count, group_money
                                             FROM " . PREFIX . "donate A, " . PREFIX . "group B 
                                             WHERE B.group_id = A.group_group_id 
-                                            AND B.group_id = " . $groupID . "");
-
-            //var_dump($select2);
-            $select2 -> execute();
-            $select2 -> setFetchMode(PDO::FETCH_ASSOC);
-            $retour2 = $select2 -> fetchAll();
-            //var_dump($retour2);
-            $return = $retour2;
-            $select2 -> closeCursor(); 
+                                            AND B.group_id = :groupID");
             
-            return $return;
+            $select->bindValue(':groupID', $groupID, PDO::PARAM_INT);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select->fetchAll();
+            $select->closeCursor(); 
+            
+            return $retour;
         
         }
 
         catch (Exception $e)
         {
-            echo 'Message:' . $e -> getMessage();
-        }
-        
+            echo 'Message:' . $e->getMessage();
+        }    
     }
     
     /**
+     * home.php
      * 
+     * COUNT DONATE of added teams
+     * 
+     * @param Array = id of last added groups
      */
-    public function CountDonut($groupID){
+    public function CountDonut($groupID) {
     
         try {
             $select = $this->connexion->prepare("SELECT sum(donate_amount) as needed
                                                 FROM cp_donate 
-                                                WHERE group_group_id = " . $groupID . "");
+                                                WHERE group_group_id = :groupID");
 
-            //var_dump($select);
-            $select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $retour = $select -> fetchAll();
-            //var_dump($retour);
-            $return = $retour;
-            $select -> closeCursor(); 
-            
-            return $return;
+            $select->bindValue(':groupID', $groupID, PDO::PARAM_INT);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select->fetchAll();
+            $select->closeCursor(); 
+
+            return $retour;
         
         }
 
         catch (Exception $e)
         {
-            echo 'Message:' . $e -> getMessage();
-        }
-        
+            echo 'Message:' . $e->getMessage();
+        }  
     }
     
     
     /**
-     * Les 8 derniers sponsors
+     * home.php
+     * 
+     * Get 8 last sponsors
      */
-    public function SeeLastSponsors(){
+    public function SeeLastSponsors() {
 
         try {
             $select = $this->connexion->prepare("SELECT * 
@@ -143,28 +175,27 @@ class PageModel extends CoreModel{
                                             AND A.user_donut > 0
                                             ORDER BY B.donate_date ASC
                                             LIMIT 8");
-                    
-            //var_dump($select);
-            $select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $retour = $select -> fetchAll();
-
-            $select -> closeCursor(); 
-            // var_dump($retour);
+            
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select->fetchAll();
+            $select->closeCursor(); 
 
             return $retour;
         }
 
         catch (Exception $e)
         {
-            echo 'Message:' . $e -> getMessage();
+            echo 'Message:' . $e->getMessage();
         }
     }
     
     /**
-     * Les 8 derniers sponsors
+     * home.php
+     * 
+     * One group wich event is finished
      */
-    public function SeeDoneGroup(){
+    public function SeeDoneGroup() {
         
         try {
             $select = $this->connexion->prepare("SELECT *
@@ -175,21 +206,18 @@ class PageModel extends CoreModel{
                                             AND C.event_end < '" . date("Y-m-d H:i:s") . "'
                                             GROUP BY A.group_id
                                             LIMIT 1");
-                    
-            //var_dump($select);
-            $select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $retour = $select -> fetchAll();
-
-            $select -> closeCursor(); 
-            // var_dump($retour);
-
+            
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select->fetchAll();
+            $select->closeCursor(); 
+            
             return $retour;
         }
 
         catch (Exception $e)
         {
-            echo 'Message:' . $e -> getMessage();
+            echo 'Message:' . $e->getMessage();
         }
     }
     

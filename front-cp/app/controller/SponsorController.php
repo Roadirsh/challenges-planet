@@ -3,12 +3,15 @@
 /**
  * SponsorController
  *
- * Affichage des sponsors
+ * Everything who is relative to a SPONSOR
  *
- * @package 	Framework_L&G
- * @copyright 	L&G
+ * @package     Framework_L&G
+ * @copyright   L&G
  */
 
+/**
+ * SEE SPONSOR
+ */
 class SponsorController extends CoreController {
 
 	/**
@@ -18,17 +21,17 @@ class SponsorController extends CoreController {
 		parent::__construct();
 		
 		if(isset($_GET['action'])){
-			//ucfirt = Met le premier caractère en majuscule
+			//ucfirt = put the first letter in Uppercase
 			$action = ucfirst($_GET['action']);
 			
 			if(method_exists($this, $action)){
                 $this->$action();
             } else{
-                $this->coreRedirect('notfound', 'notfound');
+                $this->corePage404();
             }
 
 		} else {
-			// on test voir s'il y a une sesison ou non
+			// is their a session or not?
 			if(isset($_SESSION['user']) != ''){
 				$this->Seesponsor();
 			} else {
@@ -39,25 +42,29 @@ class SponsorController extends CoreController {
 
 
 	/**
-	 * Page
-	 */
-	public function Seesponsor(){
+     * seeSponsor.php
+     *
+     */
+	private function Seesponsor(){
 
-		// Définition des constante
-		define("PAGE_TITLE", SITE_NAME . " home");
-		define("PAGE_DESCR", SITE_NAME . " est un site génial"); // TODO
-		define("PAGE_KW", SITE_NAME); // TODO
-		define("PAGE_ID", "seeProject");
+		/* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+		define("PAGE_TITLE", SITE_NAME . " sponsors");
+		define("PAGE_DESCR", SITE_NAME . " All our sponsors");
+		define("PAGE_ID", "seeSponsor");
 		
 		
 		$AllSponsors = $this->model = new SponsorModel();
+		/* All sponsors who gave */
         $AllSponsor = $AllSponsors-> Seesponsor();
-        //var_dump($AllGroup);
 
-        echo '<h1>VAR_DUMP: l\'ensemble sponsors ayant déjà fait un don</h1>';
-		var_dump($AllSponsor);
-		// Appel de la vue 
-		$this->load->view('sponsor', 'seeSponsor', $AllSponsor); // TODO
+		/* Construct the array to pass */
+		$array = array();
+		$array['sponsors'] = $AllSponsor;
+
+		/* Load the view */
+		$this->load->view('sponsor', 'seeSponsor', $array);
 	
 	}
 	

@@ -1,9 +1,10 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
+
 <?php if(isset($data['slider']) && !empty($data['slider']) ){ $slider = $data['slider']; } ?>
 <?php if(isset($data['group']) && !empty($data['group']) ){ $team = $data['group']; } ?>
 <?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; } ?>
 <?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ $sponsor = $data['sponsor']; } ?>
-<?php //var_dump($done); ?>
+
     <div class="slider">
         <?php $i = 0; ?>
         <?php if(isset($data['slider']) && !empty($data['slider']) ){ ?>
@@ -41,7 +42,7 @@
     		    <?php //var_dump($team); ?>
                 <?php if(isset($data['group']) && !empty($data['group']) ){ ?>
         		    <?php foreach($team as $k => $t){ ?>
-                    <div class="columns large-3 medium-4">
+                    <div class="columns large-3 medium-4 team-wrapper">
         				<div class="wrapper">
         					<div class="img">
         						<img src="img/group/<?php echo $t['group_img']; ?>" alt="">
@@ -70,7 +71,7 @@
                                     </div>
         						</div>
                                 <?php $percent = number_format(($t[1]['needed'] / $t[0]['group_money']) *100, 0);?>
-        						<div id="progressteam<?php echo $i; ?>" class="notyet" data="<?php echo $percent; ?>"></div>
+        						<div class="progress-team notyet" data-percent="<?php echo $percent; ?>"></div>
         					</div>
         				</div>
         			</div>
@@ -78,7 +79,7 @@
         			<?php } ?>
                 <?php } ?>
                 <?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ ?>
-    			<div class="columns large-3 medium-4">
+    			<div class="columns large-3 medium-4 team-wrapper">
     				<div class="wrapper done">
     					<div class="img">
     						<img src="img/group/<?php echo $done['group_img']; ?>" alt="">
@@ -89,7 +90,7 @@
     					<div class="progressteam">
     						<span class="validate"></span>
     						<div class="number"><span>100 %</span><br>goal reached !</div>
-    						<div id="progressteam1" class="good"></div>
+    						<div class="progress-team-done good"></div>
     					</div>
     				</div>
     			</div>
@@ -107,7 +108,7 @@
     		    <?php //var_dump($sponsor); ?>
     		    <?php foreach($sponsor as $k => $s){ ?>
     			<a href="<?php echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">
-                    <div class="medium-4 large-3 columns">
+                    <div class="medium-4 large-3 columns sponsor-wrapper">
         				<div class="wrapper">
                             <div class="img">
                                 <img src="img/avatar/<?php echo $s['user_profil_pic']; ?>" alt="">

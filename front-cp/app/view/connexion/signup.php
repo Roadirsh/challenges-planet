@@ -1,4 +1,5 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
+
 <div class="contain">
     <div class="signup">
 		<form id="form-signup" action="" method="post" class="clearfix">

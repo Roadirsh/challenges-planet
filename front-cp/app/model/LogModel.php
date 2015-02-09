@@ -17,6 +17,10 @@
  
 class LogModel extends CoreModel{
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * */
+    
+    /* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 	/**
 	 * Constructor
 	 */
@@ -25,17 +29,17 @@ class LogModel extends CoreModel{
 
 	}
 
+/////////////////////////////////////////////////////
+/* HOME * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
 	 * home.php 
+     * 
 	 * Check if is user || user exist
 	 *
 	 * @param array $_POST
 	 */
 	public function Login($post){
-
-		$mail = $post['email'];
-		$pwd = md5($post['pwd']);
 
 		try {
 			/* * * * * * * * * * * * * * * * * * * * * * * *
@@ -44,12 +48,14 @@ class LogModel extends CoreModel{
             */
 			$select = $this->connexion->prepare("SELECT * 
 											FROM " . PREFIX . "user
-											WHERE user_mail = '" . $mail . "'
-											AND user_password = '" . $pwd . "'");
+											WHERE user_mail = ':mail'
+											AND user_password = ':pwd'");
 
-			$select -> execute();
-			$select -> setFetchMode(PDO::FETCH_ASSOC);
-			$retour = $select -> fetchAll();
+            $select->bindParam(':mail', $post['email']);
+            $select->bindParam(':pwd', md5($post['pwd']));
+			$select->execute();
+			$select->setFetchMode(PDO::FETCH_ASSOC);
+			$retour = $select->fetchAll();
 			
 			/* * * * * * * * * * * * * * * * * * * * * * * *
             * Let'smake some cookies !
@@ -81,10 +87,13 @@ class LogModel extends CoreModel{
 
 		catch (Exception $e)
 		{
-			echo 'Message:' . $e -> getMessage();
+			echo 'Message:' . $e->getMessage();
 		}
 	}
-	
+
+/////////////////////////////////////////////////////
+/* SIGN UP * * * * * * * * * * * * * * * * * * * * */
+
 	/**
      * signup.php 
      * Insert into the database
@@ -103,12 +112,14 @@ class LogModel extends CoreModel{
             */
 			$check = $this->connexion->prepare("SELECT * 
     											FROM " . PREFIX . "user
-    											WHERE user_mail = '" . $mail . "'
-    											AND user_password = '" . $pwd . "'");
+    											WHERE user_mail = ':mail'
+    											AND user_password = ':pwd'");
             
-            $check -> execute();
-			$check -> setFetchMode(PDO::FETCH_ASSOC);
-			$user_check = $check -> rowCount();
+            $check->bindParam(':mail', $post['email']);
+            $check->bindParam(':pwd', md5($post['pwd']));
+            $check->execute();
+			$check->setFetchMode(PDO::FETCH_ASSOC);
+			$user_check = $check->rowCount();
 
 
     		if($user_check == 0){
@@ -119,9 +130,9 @@ class LogModel extends CoreModel{
 			                                    (`user_mail`, `user_password`) 
 			                                    VALUES (:mail, :password)");
 
-    		 	$insert->bindParam(':mail', $mail);
-    		 	$insert->bindParam(':password', $pwd);
-                $wellInsert = $insert -> execute();
+    		 	$insert->bindParam(':mail', $post['email']);
+    		 	$insert->bindParam(':password', md5($post['pwd']);
+                $wellInsert = $insert->execute();
                 
                 $userID = $this->connexion->lastInsertId(); 
                 
@@ -147,11 +158,9 @@ class LogModel extends CoreModel{
 
 		catch (Exception $e)
 		{
-			echo 'Message:' . $e -> getMessage();
+			echo 'Message:' . $e->getMessage();
 		}
 	}
-
-		
 		
 }
 

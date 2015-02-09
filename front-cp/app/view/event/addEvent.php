@@ -1,13 +1,13 @@
-<? include(ROOT . "view/layout/header.inc.php"); ?>
-<? if(isset($data['topevent']) && !empty($data['topevent']) ){ $topev = $data['topevent']; } ?>
-<? //var_dump($data); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
+
+<?php if(isset($data['topevent']) && !empty($data['topevent']) ){ $topev = $data['topevent']; } ?>
+
 		<div class="form-join-create clearfix">
 
 			<div class="head-join-create clearfix">
 				<div class="join-event columns medium-9">
 					<div class="clearfix">
-						<h1><? echo JOIN; ?></h1>
-			
+						<h1><? echo JOIN; /* DEFINED IN conf_define */ ?></h1>
 						<form class="search-bar" method="post" action="">
 							<input type="text" size="21" name="search">
 							<!-- icon -->

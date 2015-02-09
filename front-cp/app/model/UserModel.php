@@ -3,17 +3,20 @@
 /**
  * UserModel
  *
- * Requêtes relatifs a la connexion
+ * Everything who is relative to a USER
  *
- * @package 	Framework_L&G
- * @copyright 	L&G
+ * @package     Framework_L&G
+ * @copyright   L&G
  */
 
 /**
- * choix de l'action
- * instanciation de la class
- */
+ * SEE ONE USER
+ */ 
 class UserModel extends CoreModel{
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
 	 * Constructor
@@ -23,76 +26,86 @@ class UserModel extends CoreModel{
 
 	}
 	
-	public function SeeOneUser(){
+/////////////////////////////////////////////////////
+/* USER * * * * * * * * * * * * * * * * * * * * * * */
+
+    /**
+     * seeOneUser.php
+     * 
+     * All information about one user
+     * 
+     * @param $id $_GET ID
+     */
+	public function SeeOneUser() {
 
         $id = $_GET['id'];
 
         try {
-            // USER INFORMATION
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * Get All the informations about the user from the ID
+            */
             $select = $this->connexion->prepare("SELECT *
                                                 FROM " . PREFIX . "user
                                                 WHERE user_type != 'admin'
-                                                AND user_id = " . $id);
+                                                AND user_id = :userID");
            
-            $select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $user = $select -> FetchAll();
+            $select->bindValue(':userID', $id, PDO::PARAM_INT);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $user = $select->FetchAll();
+            $select->closeCursor(); 
 
             if(!empty($user)){
 
-                $select = $this->connexion->prepare("SELECT *
+                $select2 = $this->connexion->prepare("SELECT *
                                                 FROM " . PREFIX . "phone
-                                                WHERE user_user_id = " . $id);
+                                                WHERE user_user_id = :userID");
            
-                $select -> execute();
-                $select -> setFetchMode(PDO::FETCH_ASSOC);
-                $phone = $select -> FetchAll();
+                $select2->bindValue(':userID', $id, PDO::PARAM_INT);
+                $select2->execute();
+                $select2->setFetchMode(PDO::FETCH_ASSOC);
+                $phone = $select2->FetchAll();
+                $select2->closeCursor(); 
 
                 if(!empty($phone)){
 
-                    $select = $this->connexion->prepare("SELECT *
+                    $select3 = $this->connexion->prepare("SELECT *
                                                     FROM " . PREFIX . "adress
-                                                    WHERE user_user_id = " . $id);
+                                                    WHERE user_user_id = :userID");
                
-                    $select -> execute();
-                    $select -> setFetchMode(PDO::FETCH_ASSOC);
-                    $adress = $select -> FetchAll();
+                    $select3->bindValue(':userID', $id, PDO::PARAM_INT);
+                    $select3->execute();
+                    $select3->setFetchMode(PDO::FETCH_ASSOC);
+                    $adress = $select3->FetchAll();
+                    $select3->closeCursor(); 
 
                     
                     if(!empty($adress)){
 
-                        $select = $this->connexion->prepare("SELECT *
+                        $select4 = $this->connexion->prepare("SELECT *
                                                         FROM " . PREFIX . "bank_details
-                                                        WHERE user_user_id = " . $id);
-                   
-                        $select -> execute();
-                        $select -> setFetchMode(PDO::FETCH_ASSOC);
-                        $adress = $select -> FetchAll();
-
+                                                        WHERE user_user_id = :userID");
+                        
+                        $select4->bindValue(':userID', $id, PDO::PARAM_INT);
+                        $select4->execute();
+                        $select4->setFetchMode(PDO::FETCH_ASSOC);
+                        $adress = $select4->FetchAll();
+                        $select4->closeCursor(); 
                     
                     }
 
                 }
 
             }
-            
-            
 
             return $retour;
             
             
         } catch (Exception $e) {
-            echo 'Message:' . $e -> getMessage();
+            echo 'Message:' . $e->getMessage();
         }
-
     }
 
    
 }
-
-
-            // echo '<pre>';
-            // var_dump($retour);
-            // echo '</pre>';
-            // exit();
 ?>
