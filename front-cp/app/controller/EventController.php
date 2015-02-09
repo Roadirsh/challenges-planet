@@ -240,7 +240,10 @@ class EventController extends CoreController {
     }
     
     
-	// Pour l'aplication mobile
+	/**
+     * mobile application
+     *
+     */
 	public function Eventjson()
 	{
 		header('Content-Type: application/json');
