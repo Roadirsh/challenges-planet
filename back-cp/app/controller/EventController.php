@@ -123,16 +123,7 @@ class EventController extends CoreController {
 		
 		$this->coreRedirect('event', 'seeEvent', $message);
 	
-	}
-	// Pour l'aplication mobile
-	public function Eventjson()
-	{
-		header('Content-Type: application/json');
-		$event = $this->model = new EventModel();
-		$json = $event->getEventJSON();
-		echo $json;
-	}
-	
+	}	
 }
 
 ?>
