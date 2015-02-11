@@ -37,3 +37,6 @@
         <![endif]-->
     </head>
     <body class="skin-blue">
+	    
+	    <script type="text/javascript"> $('.datepicker').datepicker({
+});</script>

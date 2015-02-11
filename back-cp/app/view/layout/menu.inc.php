@@ -58,6 +58,14 @@
                                 <i class="fa fa-cogs"></i> <span>Team</span>
                             </a>
                         </li>
+                        <li >
+                            <a href="../doc/challengesPlanet/">
+                                <i class="fa fa-user"></i>
+                                <span>Phpdoc</span>
+                            </a>
+                         
+                        </li>
+
                     </ul>
                 </section>
                 <!-- /.sidebar -->

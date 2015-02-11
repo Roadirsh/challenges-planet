@@ -545,6 +545,7 @@ class EventModel extends CoreModel{
 /////////////////////////////////////////////////////
 /* SEE ONE EVENT * * * * * * * * * * * * * * * * * */
     
+<<<<<<< HEAD
     /**
      * seeEvent.php
      * 
@@ -762,6 +763,13 @@ class EventModel extends CoreModel{
                                                 WHERE event_valid = 1");
                     
             $select -> execute();
+=======
+    public function getEventJSON() {
+		try {		
+	        $select = $this->connexion->prepare("SELECT event_id, event_name, event_location FROM cp_event where event_valid = 1;");
+	       			
+			$select -> execute();
+>>>>>>> img
             $select -> setFetchMode(PDO::FETCH_ASSOC);
             $event = $select -> FetchAll(); 
             
@@ -774,6 +782,7 @@ class EventModel extends CoreModel{
             echo 'Message:' . $e -> getMessage();
         }
 
+<<<<<<< HEAD
     }
 
     /**
@@ -796,6 +805,11 @@ class EventModel extends CoreModel{
 //             $date = new DateTime();
 //             $date = $date->sub(new DateInterval($periode['max']));
 //             echo $datemax = $date->format('Y-m-d') . "\n";
+=======
+	}
+	
+	
+>>>>>>> img
 
 //             $data .= " AND event_begin <= " . $datemax;
 //         }

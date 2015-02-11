@@ -44,13 +44,14 @@
 							<div class="control-group">
 							  <label class="control-label" for="imageEvent">Image</label>
 							  <div class="controls">
+								<p style="color: red">Information: L'image doit faire 1280px de largeur minimum.</p>
 								<input class="input-file uniform_on" id="imageEvent" name="imageEvent" type="file">
 							  </div>
 							</div>      
 							<div class="control-group">
 								<label class="control-label" for="dateBegin">Date de début</label>
 								<div class="controls">
-								  <input class="input-xlarge focused" id="dateBegin" name="dateBegin" type="date" value="" required>
+								  <input class="input-xlarge focused" id="dateBegin" name="dateBegin" type="text"  value="" required>
 								</div>
 							</div> 
 							<div class="control-group">
