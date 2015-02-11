@@ -145,8 +145,8 @@
 		<?php foreach($events as $k => $e){ ?>
 				<div class="event medium-6 columns">
 					<div class="wrapper clearfix">
-						<div class="img large-6 medium-12 columns">
-							<img src="img/event/<?php echo $e['event_img']; ?>">
+						<div style="background:url('img/event/<?php echo $e['event_img']; ?>');" class="img large-6 medium-12 columns">
+							<!-- <img src="img/event/<?php echo $e['event_img']; ?>"> -->
 						</div>
 						<div class="infos large-6 medium-12 columns">
 							<h2><?php echo $e['event_name']; ?></h2>
@@ -181,8 +181,7 @@
             <?php } ?>
 			<div class="event medium-6 columns">
 				<div class="wrapper clearfix">
-					<div class="img large-6 medium-12 columns">
-						<img src="img/ready.png" alt="">
+					<div class="ready img large-6 medium-12 columns">
 					</div>
 					<div class="medium-12 large-6 columns adventure">
 						<a href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>" class="button-join join">Ready for your adventure ?</a>

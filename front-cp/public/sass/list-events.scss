@@ -146,6 +146,17 @@ $bg-color:		#f2efec;
 				position: relative;
 				padding: 5px;
 
+				.ready {
+					padding: 0;
+					background-repeat: no-repeat;
+					background-size: cover;
+					background: url('../img/ready.png');
+					-webkit-background-size: cover;
+	    			-moz-background-size: cover;
+	    			background-position: center;
+	    			height: 200px; 
+				}
+
 				.adventure {
 				padding: 5px;
 
@@ -200,6 +211,13 @@ $bg-color:		#f2efec;
 
 			.img {
 				padding: 0;
+				background-repeat: no-repeat;
+				background-size: cover;
+				-webkit-background-size: cover;
+    			-moz-background-size: cover;
+    			background-position: center;
+    			height: 200px; 
+
 
 				img {
 					width: 100%;
