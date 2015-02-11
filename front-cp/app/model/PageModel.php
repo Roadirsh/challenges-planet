@@ -66,40 +66,6 @@ class PageModel extends CoreModel{
     /**
      * home.php
      * 
-     * 7 last added teams
-     */
-    public function SeeLastGroups() {
-
-        try {
-            /* * * * * * * * * * * * * * * * * * * * * * * *
-            * Get 7 teams, last added, where the event is not finished
-            */
-            $select = $this->connexion->prepare("SELECT *
-                                            FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
-                                            WHERE A.group_valid = 1
-                                            AND B.event_end > '" . date("Y-m-d H:i:s") . "'
-                                            AND A.group_id = C.group_group_id
-                                            AND B.event_id = C.event_event_id
-                                            GROUP BY A.group_id
-                                            LIMIT 7");
-            
-            $select->execute();
-            $select->setFetchMode(PDO::FETCH_ASSOC);
-            $retour = $select->fetchAll();
-            $select->closeCursor(); 
-
-            return $retour;
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e->getMessage();
-        }
-    }
-    
-    /**
-     * home.php
-     * 
      * COUNT SPONSORS of added teams
      * 
      * @param Array = id of last added groups
@@ -191,35 +157,156 @@ class PageModel extends CoreModel{
         }
     }
     
+
     /**
      * home.php
      * 
-     * One group wich event is finished
+     * All groups ID
      */
-    public function SeeDoneGroup() {
-        
+    public function SeeGroupID() {
         try {
-            $select = $this->connexion->prepare("SELECT *
-                                            FROM " . PREFIX . "group A, " . PREFIX . "event_has_group B, " . PREFIX . "event C 
+
+            $select = $this->connexion->prepare("SELECT A.group_id 
+                                            FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
                                             WHERE A.group_valid = 1
-                                            AND A.group_id = B.group_group_id
-                                            AND C.event_id = B.event_event_id
-                                            AND C.event_end < '" . date("Y-m-d H:i:s") . "'
-                                            GROUP BY A.group_id
-                                            LIMIT 1");
-            
+                                            AND B.event_end > '" . date("Y-m-d H:i:s") . "'
+                                            AND A.group_id = C.group_group_id
+                                            AND B.event_id = C.event_event_id
+                                            GROUP BY A.group_id");
+
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
-            $retour = $select->fetchAll();
+            $gID = $select->FetchAll();
             $select->closeCursor(); 
-            
-            return $retour;
-        }
 
-        catch (Exception $e)
-        {
+            $array = '';
+            $i = 0;
+            foreach ($gID as $key => $value) {
+
+                $select2 = $this->connexion->prepare("SELECT sum(donate_amount) as group_needed
+                                                    FROM " . PREFIX . "donate 
+                                                    WHERE group_group_id = :groupID");
+
+                $select2->bindValue(':groupID', $value['group_id'], PDO::PARAM_INT);
+                $select2->execute();
+                $select2->setFetchMode(PDO::FETCH_ASSOC);
+                $Needed = $select2->FetchAll();
+                $select2->closeCursor();
+
+                if($Needed[0]['group_needed'] == null){
+                    $Needed[0]['group_needed'] = '0';
+                }
+
+                $array[$i] = array_merge($gID[$i], $Needed[0]);
+
+            $i ++;
+            }
+
+            return $array;
+
+        } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
-        }
+        } 
+    }
+
+    /**
+     * home.php
+     * 
+     * @param Array Groups ID  
+     */
+    public function SeeGroups($gID) {
+
+        try {
+            $array = '';
+            $i = 0;
+            $b = 0; // TODO
+
+            while($i < count($gID)){
+
+                $select = $this->connexion->prepare("SELECT *
+                                                    FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
+                                                    WHERE A.group_valid = 1
+                                                    AND A.group_id = :groupID
+                                                    AND B.event_end > '" . date("Y-m-d H:i:s") . "'
+                                                    AND A.group_id = C.group_group_id
+                                                    AND B.event_id = C.event_event_id
+                                                    AND A.group_money > :needed
+                                                    GROUP BY A.group_id
+                                                    ORDER BY A.group_date ASC
+                                                    LIMIT 7");
+
+                $select->bindValue(':groupID', $gID[$i]['group_id'], PDO::PARAM_INT);
+                $select->bindValue(':needed', $gID[$i]['group_needed'], PDO::PARAM_INT);
+                $select->execute();
+                $select->setFetchMode(PDO::FETCH_ASSOC);
+                $group = $select->FetchAll();
+                $select->closeCursor();
+
+                //echo $i . '-c-';
+                //echo $b . '-z-';
+                if(!empty($group[0]['group_id']) && !empty($group[0]['group_id'])){
+                    $array[$b] = array_merge($group[0], $gID[$i]);// TODO
+                    //echo $i . '-a-<br>';
+
+                } else {
+                    $array[$b] = '';
+                }
+
+            $i ++;  
+            $b ++; // TODO  
+            }
+
+
+            return $array;
+
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        } 
+    }
+
+    /**
+     * seeEvent.php
+     * 
+     * 
+     * @param Array Groups ID  
+     */
+    public function SeeDoneGroup($gID) {
+
+        try {
+            $array = '';
+            $i = 0;
+            while($i < count($gID)){
+
+                $select = $this->connexion->prepare("SELECT *
+                                                    FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
+                                                    WHERE A.group_valid = 1
+                                                    AND A.group_id = :groupID
+                                                    AND B.event_end > '" . date("Y-m-d H:i:s") . "'
+                                                    AND A.group_id = C.group_group_id
+                                                    AND B.event_id = C.event_event_id
+                                                    AND A.group_money <= :needed
+                                                    GROUP BY A.group_id
+                                                    LIMIT 1");
+
+                $select->bindValue(':groupID', $gID[$i]['group_id'], PDO::PARAM_INT);
+                $select->bindValue(':needed', $gID[$i]['group_needed'], PDO::PARAM_INT);
+                $select->execute();
+                $select->setFetchMode(PDO::FETCH_ASSOC);
+                $group = $select->FetchAll();
+                $select->closeCursor();
+
+                if(isset($group[0])){
+                    $array = array_merge($gID[$i], $group[0]);
+                }
+
+            $i ++;   
+            }
+
+            return $array;
+
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        } 
     }
     
 }

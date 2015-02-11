@@ -7,7 +7,7 @@
 <?php if(isset($_SESSION['message']) && !empty($_SESSION['message'])){ $message = $_SESSION['message']; }?>
 <?php if(isset($data['slider']) && !empty($data['slider']) ){ $slider = $data['slider']; } ?>
 <?php if(isset($data['group']) && !empty($data['group']) ){ $team = $data['group']; } ?>
-<?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; } ?>
+<?php if(isset($data['done']) && !empty($data['done']) ){ $done = $data['done']; } ?>
 <?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ $sponsor = $data['sponsor']; } ?>
 
     <div class="slider">
@@ -45,45 +45,48 @@
 		    <h2>Our teams</h2>
     		<section class="first clearfix">
     		    <?php //var_dump($team); ?>
-                <?php if(isset($data['group']) && !empty($data['group']) ){ ?>
+                <?php if(isset($team) && !empty($team) ){ ?>
         		    <?php foreach($team as $k => $t){ ?>
-                    <div class="columns large-3 medium-4 team-wrapper">
-        				<div class="wrapper">
-        					<div class="img">
-        						<img src="<?php echo PROJECT . $t['group_img']; ?>" alt="">
-        						<div class="hover"><span>They need you<br>help them</span></div>
-        					</div>
-        					<div class="title-team"><a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title=""><?php echo $t['group_name']; ?></a></div>
-        					<div class="date"><?php echo $t['event_name']; ?></div>
-        					<div class="progressteam">
-        						<div class="clearfix">
-                                    <div class="columns medium-4 small-4 numbers">
-                                        <span><?php echo $t[0]['group_money']; ?> €</span>
-                                        <br>goals
-                                    </div>
-                                    <div class="columns medium-4 small-4 funded">
-
-                                        <span><?php  echo number_format(($t[1]['needed'] / $t[0]['group_money']) *100, 0); ?>  %</span>
-                                        </br>funded
-                                    </div>
-        							<div class="columns medium-4 small-4 daysleft">
-        							    <span>
-                                            <?php $diff = (new DateTime('now'))->diff(new DateTime($t['event_end'])); ?>
-                                            <?php echo $diff->format('%a'); //%a take the lot Y-m-d ?>
-        							    </span>
-                                        <br>  <!-- Days left -->
-                                            DAYS LEFT
-                                    </div>
-        						</div>
-                                <?php $percent = number_format(($t[1]['needed'] / $t[0]['group_money']) *100, 0);?>
-        						<div class="progress-team notyet" data-percent="<?php echo $percent; ?>"></div>
-        					</div>
-        				</div>
-        			</div>
-        			<?php $i ++; ?>
-        			<?php } ?>
+                        <?php if(isset($t['group_name']) && !empty($t['group_name'])){ ?>
+                        <div class="columns large-3 medium-4 team-wrapper">
+            				<div class="wrapper">
+                                <a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title="">
+                					<div class="img">
+                						<img src="<?php echo PROJECT . $t['group_img']; ?>" alt="">
+                						<div class="hover"><span>They need you<br>help them</span></div>
+                					</div>
+                                </a>
+            					<div class="title-team"><a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title=""><?php echo $t['group_name']; ?></a></div>
+            					<div class="date"><?php echo $t['event_name']; ?></div>
+            					<div class="progressteam">
+            						<div class="clearfix">
+                                        <div class="columns medium-4 small-4 numbers">
+                                            <span><?php echo $t['group_money']; ?> €</span>
+                                            <br>goals
+                                        </div>
+                                        <div class="columns medium-4 small-4 funded">
+                                            <span><?php  echo number_format(($t['group_needed'] / $t['group_money']) *100, 0); ?>  %</span>
+                                            </br>funded
+                                        </div>
+            							<div class="columns medium-4 small-4 daysleft">
+            							    <span>
+                                                <?php $diff = (new DateTime('now'))->diff(new DateTime($t['event_end'])); ?>
+                                                <?php echo $diff->format('%a'); //%a take the lot Y-m-d ?>
+            							    </span>
+                                            <br>
+                                                DAYS LEFT
+                                        </div>
+            						</div>
+                                    <?php $percent = number_format(($t['group_needed'] / $t['group_money']) *100, 0);?>
+            						<div class="progress-team notyet" data-percent="<?php echo $percent; ?>"></div>
+            					</div>
+            				</div>
+            			</div>
+            			<?php } ?>
+                    <?php $i ++; ?>
+                    <?php } ?>
                 <?php } ?>
-                <?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ ?>
+                <?php if(isset($done) && !empty($done) ){ ?>
     			<div class="columns large-3 medium-4 team-wrapper">
     				<div class="wrapper done">
     					<div class="img">

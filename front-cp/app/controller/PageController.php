@@ -54,11 +54,13 @@ class PageController extends CoreController {
 		$Group = $this->model = new PageModel();
 		/* Get 4 events for the slider */
 		$AllfourEvents = $Group->SeeFourEvents();
-		// var_dump($AllfourEvents);
 		/* Get 7 last added teams */
-		$AllLastGroups = $Group->SeeLastGroups();
+		$gID = $Group->SeeGroupID();
+		$AllLastGroups = $Group->SeeGroups($gID);
+		//var_dump($AllLastGroups);
 		/* Get 1 teams from a finish event */
-		$DoneGroup = $Group->SeeDoneGroup();
+		$DoneGroup = $Group->SeeDoneGroup($gID);
+		// var_dump($DoneGroup); 
 		/* Get 7 sponsors */
 		$AllLastSponsors = $Group->SeeLastSponsors();
 		
@@ -68,15 +70,6 @@ class PageController extends CoreController {
 		$array['group'] = $AllLastGroups;
 		$array['sponsor'] = $AllLastSponsors;
 		$array['done'] = $DoneGroup;
-
-        $i = 0;
-		foreach($array['group'] as $k => $t){
-		    $CountLastGroups = $Group->CountLastGroups($t['group_id']);
-		    $CountDonut = $Group->CountDonut($t['group_id']);
-		    // var_dump($CountDonut);
-		    $array['group'][$i] = array_merge($t, $CountLastGroups, $CountDonut);
-		    $i ++;
-		}
 		
 		/* Load the view */
 		$this->load->view('page', 'home', $array);
