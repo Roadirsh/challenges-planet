@@ -276,14 +276,26 @@ class EventModel extends CoreModel{
     public function SeeFiltreEventBeginning($post) {
     
         var_dump($post); 
-        if($post == '-1 week'){ $date = '';} // date actuel - 1semaine
-        exit();
-        
+
+        $date = "";
+        if($post == '-1 week'){
+            $date = 'AND event_begin >= ' . date('Y-m-d');
+            $date .= 'AND event_begin <= ' . date('Y-m-d');
+
+        } elseif($post == '2-3 week'){
+            
+        }
+
+        echo $date;
+        exit;
+
         try {
             $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "event
-                                            WHERE event_begin '" . $date . "'");
+                                            WHERE event_valid = 1
+                                            " . $date);
            
+            var_dump( $select); exit;
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $ByBe = $select->FetchAll();
@@ -538,16 +550,16 @@ class EventModel extends CoreModel{
 
 /////////////////////////////////////////////////////
 /* SEE ONE EVENT * * * * * * * * * * * * * * * * * */
-
+    
     /**
-     * See one Event
-     *
-     * Linked to the `public function SeeOneDoneEvent()`
+     * seeEvent.php
      * 
-     * @param INT event ID $eID
+     * Filter Kind of race
+     * Linked to the `public function SeeOneEvent()`
+     * 
+     * @param INT event ID  
      */
     public function SeeOneEvent($eID) {
-        
         try {
 
             $select = $this->connexion->prepare("SELECT *, 
@@ -563,9 +575,25 @@ class EventModel extends CoreModel{
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $oneEvent = $select->FetchAll();
-            $select->closeCursor(); 
+            $select->closeCursor();
 
-            // var_dump($oneEvent); exit;
+            //var_dump($oneEvent); exit;
+            return $oneEvent;
+
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        } 
+    }
+
+    /**
+     * seeEvent.php
+     * 
+     * 
+     * @param INT event ID  
+     */
+    public function SeeGroupID($eID) {
+        try {
+
             $select1 = $this->connexion->prepare("SELECT group_group_id
                                                 FROM " . PREFIX . "event_has_group 
                                                 WHERE event_event_id = :eventID");
@@ -576,148 +604,155 @@ class EventModel extends CoreModel{
             $AllGroupsID = $select1->FetchAll();
             $select1->closeCursor();
 
-            //var_dump($AllGroupsID); exit;
+            $array = "";
+            if(isset($AllGroupsID[0]['group_group_id']) && !empty($AllGroupsID[0]['group_group_id'])){
+                $i = 0;
+                foreach ($AllGroupsID as $key => $id) {
 
-            $i = 0;
-            foreach ($AllGroupsID as $key => $e) {
+                    $select = $this->connexion->prepare("SELECT sum(donate_amount) as group_needed
+                                                            FROM cp_donate 
+                                                            WHERE group_group_id = :groupID");
 
-                $select2 = $this->connexion->prepare("SELECT *
-                                                    FROM " . PREFIX . "group 
-                                                    WHERE group_id = :groupID
-                                                    AND group_valid = 1");
+                    $select->bindValue(':groupID', $id['group_group_id'], PDO::PARAM_INT);
+                    $select->execute();
+                    $select->setFetchMode(PDO::FETCH_ASSOC);
+                    $n = $select->FetchAll();
+                    $select->closeCursor(); 
 
-                $select2->bindValue(':groupID', $e['group_group_id'], PDO::PARAM_INT);
-                $select2->execute();
-                $select2->setFetchMode(PDO::FETCH_ASSOC);
-                $AllGroups = $select2->FetchAll();
-                $select2->closeCursor(); 
+                    if($n[0]['group_needed'] == null){
+                        $n[0]['group_needed'] = '0';
+                    }
+                    $array[$i] = array_merge($AllGroupsID[$i], $n[0]);
 
-                if(!empty($AllGroups[0]['group_id'])){
-
-                    $select3 = $this->connexion->prepare("SELECT sum(donate_amount) AS needed
-                                                        FROM cp_donate 
-                                                        WHERE group_group_id = :groupID");
-
-                    $select3->bindValue(':groupID', $AllGroups[0]['group_id'], PDO::PARAM_INT);
-                    $select3->execute();
-                    $select3->setFetchMode(PDO::FETCH_ASSOC);
-                    $needed = $select3->fetchAll();
-                    $select3->closeCursor(); 
-                    
-
-                    if($needed[0]['needed'] >= $AllGroups[0]['group_money']){
-                        $d[$i] = array_merge($AllGroups[0], $needed[0]);
-                    } 
-                    // else {
-                    //     $gr[$i] = array_merge($AllGroups[0], $needed[0]);
-                    // }
-                    
+                $i ++;
                 }
-
-            $i ++;   
             }
-            
-            // var_dump($array); exit;
-            // var_dump($aEvent); exit;
-
-            $array['event'] = $oneEvent;
-
-            if(!empty($gr)){
-                $array['groups'] = $gr;
-            }
-            if(!empty($d)){
-                $array['done'] = $d;
-            }
-            //var_dump($array); exit;
 
             return $array;
 
-            
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         } 
     }
-    
+
     /**
      * seeEvent.php
      * 
-     * Filter Kind of race
-     * Linked to the `public function SeeOneEvent()`
      * 
-     * @param INT group ID  
+     * @param Array Groups ID  
      */
-    public function SeeOneDoneEvent($gID) {
-    }
+    public function SeeGroupEvent($gID, $money = null) {
 
-    /**
-     * seeOneEvent.php
-     * 
-     * Filter Help
-     * 
-     * @param Array $post // Help needed
-     */
-    public function SeeFiltreGroupMoney($money, $eID) {
-
-        echo $money;
-        if($money == 2000){
-            $where = '<= 2000';
-        } elseif($money == 6000){
-            $where = '> 2000 AND A.group_money <= 6000';
-        } elseif($money == 10000){
-            $where = '> 6000 AND A.group_money <= 10000';
+        if(isset($money)){
+            if($money == 2000){
+                $where = 'AND group_money <= 2000';
+            } elseif($money == 6000){
+                $where = 'AND group_money > 2000 AND group_money <= 6000';
+            } elseif($money == 10000){
+                $where = 'AND group_money > 6000 AND group_money <= 10000';
+            } 
+        } else{
+            $where = '';
         }
 
         try {
 
-                $select1 = $this->connexion->prepare("SELECT group_group_id
-                                                    FROM " . PREFIX . "event_has_group 
-                                                    WHERE event_event_id = :eventID");
+            $array = '';
+            $i = 0;
+            foreach ($gID as $key => $g) {
 
-                $select1->bindValue(':eventID', $eID, PDO::PARAM_INT);
-                $select1->execute();
-                $select1->setFetchMode(PDO::FETCH_ASSOC);
-                $AllGroupsID = $select1->FetchAll();
-                $select1->closeCursor();
+                //var_dump($g); exit;
+                $select = $this->connexion->prepare("SELECT *
+                                                    FROM " . PREFIX . "group 
+                                                    WHERE group_id = :groupID
+                                                    AND group_valid = 1
+                                                    " . $where . "
+                                                    AND group_money > :needed");
 
-                $retour = ''; 
-                $i = 0;
-                foreach ($AllGroupsID as $key => $m) {
-                    $select = $this->connexion->prepare("SELECT *
-                                                FROM " . PREFIX . "group A, " . PREFIX . "event B 
-                                                WHERE A.group_money " . $where . "
-                                                AND A.group_valid = 1
-                                                AND A.group_id = " . $m['group_group_id'] . "
-                                                GROUP BY A.group_id");
+                //var_dump($select); exit;
+                $select->bindValue(':groupID', $g['group_group_id'], PDO::PARAM_INT);
+                $select->bindValue(':needed', $g['group_needed'], PDO::PARAM_INT);
+                $select->execute();
+                $select->setFetchMode(PDO::FETCH_ASSOC);
+                $SeeGroupEvent = $select->FetchAll();
+                $select->closeCursor(); 
 
-                    $select->execute();
-                    $select->setFetchMode(PDO::FETCH_ASSOC);
-                    $Money = $select->FetchAll();
-                    $select->closeCursor(); 
-
-                    var_dump($Money);
-                    $select3 = $this->connexion->prepare("SELECT sum(donate_amount) AS needed
+                
+                if(!empty($SeeGroupEvent)){
+                    $select2 = $this->connexion->prepare('SELECT sum(donate_amount) as group_needed
                                                         FROM cp_donate 
-                                                        WHERE group_group_id = :groupID");
+                                                        WHERE group_group_id = :groupID');
 
-                    $select3->bindValue(':groupID', $m['group_group_id'], PDO::PARAM_INT);
-                    $select3->execute();
-                    $select3->setFetchMode(PDO::FETCH_ASSOC);
-                    $needed = $select3->fetchAll();
-                    $select3->closeCursor(); 
-
-                    var_dump($Money);
-                    $retour['groups'] = array_merge($Money[$i], $needed);
-                    // TODO
-                $i ++;
+                    $select2->bindValue(':groupID', $SeeGroupEvent[0]['group_id'], PDO::PARAM_INT);
+                    $select2->execute();
+                    $select2->setFetchMode(PDO::FETCH_ASSOC);
+                    $Needed = $select2->FetchAll();
+                    $select2->closeCursor();
+                    // var_dump($Needed);
                 }
 
-                //var_dump($retour);
-                return $retour;
+                if(!empty($Needed[$i]['group_needed'])){
+                    $array[$i] = array_merge($SeeGroupEvent[$i], $Needed[$i]);
+                } elseif(!empty($SeeGroupEvent[$i])){
+                    if(!isset($array[$i]['group_needed'])){
+                        $array[$i] = $SeeGroupEvent[$i];
+                        $array[$i]['group_needed'] = '0';  
+                    }
+                } 
 
-            } catch (Exception $e) {
-                echo 'Message:' . $e->getMessage();
+            $i ++;   
             }
-        }
+
+            // var_dump($array); exit;
+
+            return $array;
+
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        } 
+    }
+
+    /**
+     * seeEvent.php
+     * 
+     * 
+     * @param Array Groups ID  
+     */
+    public function SeeDoneGroup($gID) {
+        // var_dump($gID); // exit;
+        try {
+            $array = '';
+            $i = 0;
+            foreach ($gID as $key => $g) {
+
+                $select = $this->connexion->prepare("SELECT *
+                                                    FROM " . PREFIX . "group 
+                                                    WHERE group_id = :groupID
+                                                    AND group_valid = 1
+                                                    AND group_money < :needed");
+
+                //var_dump($select); exit;
+                $select->bindValue(':groupID', $g['group_group_id'], PDO::PARAM_INT);
+                $select->bindValue(':needed', $g['group_needed'], PDO::PARAM_INT);
+                $select->execute();
+                $select->setFetchMode(PDO::FETCH_ASSOC);
+                $SeeDoneGroup = $select->FetchAll();
+                $select->closeCursor(); 
+                
+                //var_dump($SeeDoneGroup[0]['group_id']); exit;
+                if(!empty($SeeDoneGroup[0]['group_id'])){
+                    $array = $SeeDoneGroup;
+                }
+                
+            $i ++;   
+            }
+            // var_dump($array); exit;
+
+            return $array;
+
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        } 
     }
 
 
@@ -746,4 +781,28 @@ class EventModel extends CoreModel{
         }
 
     }
+
+    /**
+     * mobile application
+     *
+     */
+
+
+
+
+// if(isset($periode['min'])){
+//             $date = new DateTime();
+//             $date = $date->sub(new DateInterval($periode['min']));
+//             echo $datemin = $date->format('Y-m-d') . "\n";
+
+//             $data .= "AND event_begin >= " . $datemin;
+//         } 
+
+//         if(isset($periode['max'])){
+//             $date = new DateTime();
+//             $date = $date->sub(new DateInterval($periode['max']));
+//             echo $datemax = $date->format('Y-m-d') . "\n";
+
+//             $data .= " AND event_begin <= " . $datemax;
+//         }
 }

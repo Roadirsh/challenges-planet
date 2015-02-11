@@ -186,53 +186,61 @@ class EventController extends CoreController {
         * WHITHOUT FILTER
         */
         $SeeEvent = $event->SeeOneEvent($eID);
+        $gID = $event->SeeGroupID($eID);
+
+        if(!empty($gID)){
+            $SeeGroups = $event->SeeGroupEvent($gID);
+            $SeeDoneGroups = $event->SeeDoneGroup($gID);
+            /* Construct the array to pass */
+            $array['groups'] = $SeeGroups;
+            $array['done'] = $SeeDoneGroups;
+        }
 
         /* Construct the array to pass */
-        $array['event'] = $SeeEvent['event'];;
-        
+        $array['event'] = $SeeEvent[0];
+
         /* * * * * * * * * * * * * * * * * * * * * * * * *
         * WHITH FILTER
         */
         /* DEGRE OF HELP NEEDED */ 
         if(isset($_POST['help']) && !empty($_POST['help'])){
-            $SeeEvent = $event->SeeFiltreGroupHelp($_POST['begin']);
-            $SeeEvent = $event->EventTeamNB($SeeEvent);
-            $array['help'] = $_POST['help'];
+            $SeeGroups = $event->SeeFiltreGroupHelp($_POST['begin']);
+            $SeeGroups = $event->EventTeamNB($SeeEvent);
+            $array['search'] = $_POST['help'];
             $_POST = null;
+            $array['groups'] = $SeeGroups;
 
         /* GOAL FOR MONEY */
         } elseif(isset($_POST['budget']) && !empty($_POST['budget'])){
-            $SeeEvent = $event->SeeFiltreGroupMoney($_POST['budget'], $eID);
-            $array['budget'] = $_POST['budget'];
+            $gID = $event->SeeGroupID($eID);
+            $SeeGroups = $event->SeeGroupEvent($gID, $_POST['budget']);
+            $array['search'] = $_POST['budget'];
             $_POST = null;
+            $array['groups'] = $SeeGroups;
         
         /* GLOBAL SEARCH */
         } elseif(isset($_POST['search']) && !empty($_POST['search'])){
-            $SeeEvent = $event->SearchByProject($_POST['search'], $eID);
+            $SeeGroups = $event->SearchByProject($_POST['search'], $eID);
             $array['search'] = $_POST['search'];
             $_POST = '';
+            $array['groups'] = $SeeGroups;
 
-        }
-
-        if(empty($SeeEvent)){
-            $SeeEvent = $event->SeeOneEvent($eID);
-            
         }
 
         /* Construct the array to pass */
 
-        if(!empty($SeeEvent['groups'])){
-            $array['groups'] = $SeeEvent['groups'];
-        } elseif(!empty($SeeEvent['done'])){
-            $array['done'] = $SeeEvent['done'];
-        }
+        // if(!empty($SeeEvent['groups'])){
+        //     $array['groups'] = $SeeEvent['groups'];
+        // } elseif(!empty($SeeEvent['done'])){
+        //     $array['done'] = $SeeEvent['done'];
+        // }
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-        define("PAGE_TITLE", SITE_NAME . " - " . $array['event'][0]['event_name']);
-        define("PAGE_DESCR", SITE_NAME . " - " . substr($array['event'][0]['event_decr'], 0, 100));
-        define("PAGE_ID", $array['event'][0]['event_name']);
+        define("PAGE_TITLE", SITE_NAME . " - " . $array['event']['event_name']); 
+        define("PAGE_DESCR", SITE_NAME . " - " . substr($array['event']['event_decr'], 0, 100)); 
+        define("PAGE_ID", $array['event']['event_name']);
 
         /* Load the view */
         $this->load->view('event', 'seeOneEvent', $array);
@@ -244,8 +252,7 @@ class EventController extends CoreController {
      * mobile application
      *
      */
-	public function Eventjson()
-	{
+	public function Eventjson(){
 		header('Content-Type: application/json');
 		$event = $this->model = new EventModel();
 		$json = $event->getEventJSON();

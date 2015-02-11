@@ -1,4 +1,4 @@
-$this->corePage404();<?php 
+<?php 
 
 /**
  * UserController

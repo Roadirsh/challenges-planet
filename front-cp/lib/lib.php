@@ -95,7 +95,7 @@ function formDate($date, $mode) {
 }
 
 
-function titleCP($count = null, $array = null, $str = null){
+function titleEvent($count = null, $array = null, $str = null){
 
   $title = '';
 
@@ -132,6 +132,33 @@ function titleCP($count = null, $array = null, $str = null){
   
 }
 
+function titleOneEvent($count = null, $str = null){
+
+  $title = '';
+
+  // Number 
+  if(isset($count) && !empty($count[0])){
+    $title .= count($count) . ' ';
+  } else{
+    $title .= "Sorry, they are no teams to sponsor";
+    return $title;
+    exit;
+  }
+  
+  // Subject
+  if(isset($str)){
+    $title .= $str;
+  }
+  // Plural
+  if(isset($count) && count($count) > 1){
+    $title .= 's '; // s
+  }
+  
+  $title .= ' to sponsor'; // s
+
+  return $title;
+  
+}
 
 
 

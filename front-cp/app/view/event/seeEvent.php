@@ -11,7 +11,7 @@
 		<p class="medium-8">Find any best sports events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating your !</p>
 		<span class="medium-12 number-events">
 			    <?php if(isset($events) && !empty($events)){ 
-			        	echo titleCP($events, $search, 'event'); // count || array search || title;
+			        	echo titleEvent($events, $search, 'event'); // count || array search || title;
 			        } else { echo "Sorry, we don't have any projects for <span class='active'>'" . $search[1] . "'</span>";  } ?>
                 <?php if(isset($tpe) && !empty($tpe)){ ?>
                     <span class="active"><?php echo ucfirst($tpe); ?></span>

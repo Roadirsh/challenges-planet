@@ -1,9 +1,9 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
-<?php if(isset($data['event'][0]) && !empty($data['event'][0]) ){ $event = $data['event'][0]; }else{ $event = null; } ?>
-<?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; }else{ $done = null; } ?>
+<?php if(isset($data['event']) && !empty($data['event']) ){ $event = $data['event']; }else{ $event = null; } ?>
 <?php if(isset($data['groups']) && !empty($data['groups']) ){ $groups = $data['groups']; }else{ $groups = null; } ?>
-<?php //var_dump($groups); ?>
+<?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; }else{ $done = null; } ?>
+
         <div class="list-events clearfix">
             <div class="head clearfix">
                 <div class="medium-4 large-3 columns">
@@ -17,7 +17,9 @@
                         <div class="medium-4 columns date-begin"><span>Date from : </span><?php echo formDate($event['event_begin'], 2); ?></div>
                         <div class="medium-4 columns date-finish"><span>Date to : </span><?php echo formDate($event['event_end'], 2); ?></div>
                     </div>
-                    <span class="medium-12 number-teams-event"><? echo count($groups); ?> teams needs you</span>
+                    <span class="medium-12 number-teams-event">
+                        <?php echo titleOneEvent($groups, 'team'); ?>
+                    </span>
                 </div>
             </div>
 
@@ -124,7 +126,7 @@
                                     <div class="progressteam">
                                         <div class="clearfix">
                                             <div class="columns medium-4 small-4 numbers"><span><?php echo $g['group_money']; ?> €</span><br>goals</div>
-                                            <div class="columns medium-4 small-4 funded"><span><?php  echo number_format(($g['needed'] / $g['group_money']) *100, 0); ?>  %</span><br>funded</div>
+                                            <div class="columns medium-4 small-4 funded"><span><?php  echo number_format(($g['group_needed'] / $g['group_money']) *100, 0); ?>  %</span><br>funded</div>
                                             <div class="columns medium-4 small-4 daysleft">
                                                 <span>
                                                     <?php $diff = (new DateTime('now'))->diff(new DateTime($event['event_end'])); ?>
@@ -132,7 +134,6 @@
                                                 </span>
                                                 <br>days left</div>
                                         </div>
-                                        <?php echo $i; ?>
                                         <div id="progressteam<?php echo $i; ?>" class="notyet"></div>
                                     </div>
                                 </div>
