@@ -16,6 +16,7 @@
  */
 class LogController extends CoreController{
 
+
 	/**
 	 * Constructor
 	 */
@@ -46,6 +47,8 @@ class LogController extends CoreController{
      */
 	public function Login(){
 		
+		include(ROOT . "conf/messages.php");
+
 		if(isset($_POST['email']) && !empty($_POST['email'])){
 
 			/* * * * * * * * * * * * * * * * * * * * * * * *
@@ -65,9 +68,16 @@ class LogController extends CoreController{
 	        // testing connexion is true
 			if($User != 0){
 				$_POST = array();
+				// initialization of the messages
+				$_SESSION['message'] = $messageInfo['USER_LOGIN_OK'];
+				$_SESSION['messtype'] = 'success';
+				
 				$this->coreRedirect('page', 'home');
 			} else{
-				
+				$_POST = array();
+				// initialization of the messages
+				$_SESSION['message'] = $messageErreur['USER_LOGIN_NOK'];
+				$_SESSION['messtype'] = 'danger';	
 				$this->coreRedirect('page', 'home');
 			}
 		} else {
@@ -94,6 +104,8 @@ class LogController extends CoreController{
      */
 	public function Signup(){
 
+		include(ROOT . "conf/messages.php");
+
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
@@ -107,9 +119,25 @@ class LogController extends CoreController{
         * WHITH FORM $_POST testing email and password
         */
 		if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['pwd']) && !empty($_POST['pwd'])){
-			$addUser = $user->Signup($_POST);
-			if($addUser){
-    			$this->coreRedirect('page', 'home');
+
+			if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+				$addUser = $user->Signup($_POST);
+				if($addUser){
+					// initialization of the messages
+					$_SESSION['message'] = $messageInfo['USER_SIGN_OK'];
+					$_SESSION['messtype'] = 'success';	
+	    			$this->coreRedirect('page', 'home');
+				} else{
+					// initialization of the messages
+					$_SESSION['message'] = $messageErreur['USER_SIGN_NOK'];
+					$_SESSION['messtype'] = 'danger';
+					$this->load->view('connexion', 'signup');
+				}
+			} else{
+				// initialization of the messages
+				$_SESSION['message'] = $messageErreur['USER_SIGN_NOK'];
+				$_SESSION['messtype'] = 'danger';
+				$this->load->view('connexion', 'signup');
 			}
 		}
 		

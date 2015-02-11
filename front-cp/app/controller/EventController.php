@@ -69,10 +69,24 @@ class EventController extends CoreController {
         /* * * * * * * * * * * * * * * * * * * * * * * * 
         * FORM CREATE && SEARCH 
         */
+        include(ROOT . "conf/messages.php");
+
         if(isset($_POST['name']) and !empty($_POST['name'])){
-			$event->insertNewEvent($_POST);
-			$_POST = null;
-			$this->coreRedirect('page', 'home'); // TODO
+
+            if($event->insertNewEvent($_POST)){   
+                $_POST = null;
+                // initialization of the messages
+                $_SESSION['message'] = $messageInfo['EVENT_ADD_OK'];
+                $_SESSION['messtype'] = 'info';
+            } else{
+                $_POST = null;
+                // initialization of the messages
+                $_SESSION['message'] = $messageErreur['EVENT_ADD_NOK'];
+                $_SESSION['messtype'] = 'danger';
+                $this->coreRedirect('event', 'addEvent');
+            }
+
+			$this->coreRedirect('page', 'home');
 
 		} elseif(isset($_POST['search']) and !empty($_POST['search'])){
             $SeeEvent = $event->SearchByEvent($_POST['search']);

@@ -45,6 +45,7 @@ class PageModel extends CoreModel{
             $select = $this->connexion->prepare("SELECT event_id, event_name, event_decr, event_img, event_valid 
                                             FROM " . PREFIX . "event
                                             where event_valid = 1
+                                            ORDER BY event_id DESC
                                             LIMIT 4");
             
             $select->execute();

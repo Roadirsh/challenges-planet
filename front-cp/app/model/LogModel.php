@@ -98,10 +98,10 @@ class LogModel extends CoreModel{
      *
      * @param array $_POST
      */
-	public function Signup($var){
+	public function Signup($post){
 
-		$mail = $var['email'];
-		$pwd = md5($var['pwd']);
+		$mail = $post['email'];
+		$pwd = md5($post['pwd']);
 		
 
 		try {
@@ -124,7 +124,7 @@ class LogModel extends CoreModel{
                 */
         	    $insert = $this->connexion->prepare("INSERT INTO " . PREFIX . "user
 			                                    (`user_mail`, `user_password`) 
-			                                    VALUES (`" . $post['email'] . "`, `" . md5($post['pwd']) . "`)");
+			                                    VALUES ('" . $post['email'] . "', '" . md5($post['pwd']) . "')");
 
                 $wellInsert = $insert->execute();
                 

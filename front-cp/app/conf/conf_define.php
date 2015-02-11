@@ -30,6 +30,16 @@
 // URL de la racine du serveur
 	define('BASE_DIR', "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));
 // Slogan du site
+<<<<<<< HEAD
 	define("JOIN", "<span>Join </span>the best caritative student challenges");
+=======
+	define("JOIN", "<span>Join </span>the best caritatives student challenges");
+>>>>>>> d52600b17d91551ed34e19b9abdffc22f095de9e
 // Slogan du site
 	define("LOGGER", "../lib/Logger.class.php");
+// lien vers le dossier avatar img
+    define("AVATAR", '../../front-cp/public/img/avatar/');
+// lien vers le dossier event img
+    define("EVENT", '../../front-cp/public/img/event/');
+// lien vers le dossier project img
+    define("PROJECT", '../../front-cp/public/img/group/');

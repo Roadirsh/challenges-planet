@@ -140,7 +140,7 @@ function titleOneEvent($count = null, $str = null){
   if(isset($count) && !empty($count[0])){
     $title .= count($count) . ' ';
   } else{
-    $title .= "Sorry, they are no teams to sponsor";
+    $title .= "Sorry, they are no teams to sponsorize";
     return $title;
     exit;
   }

@@ -39,7 +39,9 @@
     include_once '../core/CoreModel.php';
     /* Global Library */
     include("../lib/lib.php");
-
+    /* Global Messages */
+    include(ROOT . "conf/messages.php");
+    
     
 /* APPLICATION GO!! */
     include_once(ROOT . 'app.php');

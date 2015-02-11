@@ -1,5 +1,10 @@
+<?php if(isset($_SESSION['message']) && !empty($_SESSION['message'])){ ?>
+    <div class="message <?php echo $_SESSION['messtype']; ?>"><?php echo $_SESSION['message']; ?></div>
+<?php } $_SESSION['message'] = null; ?>
+
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
+<?php if(isset($_SESSION['message']) && !empty($_SESSION['message'])){ $message = $_SESSION['message']; }?>
 <?php if(isset($data['slider']) && !empty($data['slider']) ){ $slider = $data['slider']; } ?>
 <?php if(isset($data['group']) && !empty($data['group']) ){ $team = $data['group']; } ?>
 <?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; } ?>
@@ -11,7 +16,7 @@
             <?php foreach($slider as $k => $s){ ?>
             <a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
             	<div class="img-slider " index='<?php echo $i; ?>'>
-            		<img src="img/event/<?php echo $s['event_img']; ?>" alt="">
+            		<img src="<?php echo EVENT . 'slider/' . $s['event_img']; ?>" alt="">
             		<div class="show-for-small-only caption clearfix">
             			<span><?php echo $s['event_name']; ?></span>
             		</div>
@@ -98,7 +103,7 @@
             </section>
 
         </div>
-    </a>
+    <!-- </a> -->
 
 	<a href="<?php echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>" onClick="ga('send', 'event', 'link','clic', 'sponsorsv3');">
 		<div class="sponsors clearfix">

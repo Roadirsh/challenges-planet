@@ -34,4 +34,5 @@
 	define("EVENT", '../../front-cp/public/img/event/');
 // lien vers le dossier project img
 	define("PROJECT", '../../front-cp/public/img/group/');
+// lien vers le dossier project img
 	define("LOGGER", '../lib/Logger.class.php');

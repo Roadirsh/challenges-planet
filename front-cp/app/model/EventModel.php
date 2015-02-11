@@ -78,9 +78,9 @@ class EventModel extends CoreModel{
      * 
      * @param Array = $_POST as $post
      */
-    private function insertNewEvent($post) {
+    public function insertNewEvent($post) {
         $location = $post['place'] . ', ' . $post['country'];
-        //var_dump($_FILES); exit();
+        // var_dump($post); exit();
         $img = $_FILES['cover']['name'];
         $tmp = $_FILES['cover']['tmp_name'];
         try 
@@ -90,16 +90,15 @@ class EventModel extends CoreModel{
             */
             $insert = $this->connexion->prepare("INSERT INTO " . PREFIX . "event
                                                 (`event_name`, `event_decr`, `event_begin`, `event_end`, `event_valid`, `event_location`, `event_img`) 
-                                                VALUES (:name, :descr, :begin, :end, 0, :location, :img)");
-                    
-            $insert->bindValue(':name', $post['name'], PDO::PARAM_STR);
-            $insert->bindValue(':descr', $post['descr'], PDO::PARAM_STR);
-            $insert->bindValue(':begin', $post['from'], PDO::PARAM_INT);
-            $insert->bindValue(':end', $post['end'], PDO::PARAM_INT);
-            $insert->bindValue(':location', $location, PDO::PARAM_STR);
+                                                VALUES (:name, :descr, '" .$post['from']. "', '" .$post['from']. "', 0, :location, :img)");
+            
+            $insert->bindParam(':name', $post['name']);
+            $insert->bindParam(':descr', $post['descr']);
+            $insert->bindParam(':location', $location);
             $insert->bindParam(':img', $img);
             $insert->execute();
             
+            return true;
             
         }
         catch (Exception $e)
@@ -279,21 +278,16 @@ class EventModel extends CoreModel{
 
         $date = "";
         if($post == '-1 week'){
-            $date = 'AND event_begin >= ' . date('Y-m-d');
-            $date .= 'AND event_begin <= ' . date('Y-m-d');
-
+            
         } elseif($post == '2-3 week'){
             
         }
-
-        echo $date;
-        exit;
 
         try {
             $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "event
                                             WHERE event_valid = 1
-                                            " . $date);
+                                            AND " . DATEDIFF(day,current_date,'2008-06-05'));
            
             var_dump( $select); exit;
             $select->execute();

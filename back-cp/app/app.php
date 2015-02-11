@@ -60,5 +60,5 @@
 	}
 	
 		
-
+	
 	$index = new $controller();
