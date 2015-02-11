@@ -14,20 +14,26 @@
 							<input class="icon-search" type="submit" value="" >
 						</form>
 					</div>
-                    <? foreach($topev as $k => $topev){ ?>
-					<div class="sticker columns large-3 medium-4">
-						<div class="wrapper">
-							<div class="img">
-								<img src="img/event/<? echo $topev['event_img']; ?>">
-								<div class="hover">
-									<span>Join this event !</span>
+					<?php if(isset($topdev) && !empty($topdev) ){ ?>
+	                    <?php foreach($topev as $k => $topev){ ?>
+						<div class="sticker columns large-3 medium-4">
+							<div class="wrapper">
+								<div class="img">
+									<img src="img/event/<? echo $topev['event_img']; ?>">
+									<div class="hover">
+										<span>Join this event !</span>
+									</div>
 								</div>
+								<h2><? echo $topev['event_name']; ?></h2>
+								<span class="info-event"><? echo $topev['event_location']; ?> - EDITION <? echo substr($topev['event_date'], 0, 4); ?></span>
 							</div>
-							<h2><? echo $topev['event_name']; ?></h2>
-							<span class="info-event"><? echo $topev['event_location']; ?> - EDITION <? echo substr($topev['event_date'], 0, 4); ?></span>
 						</div>
-					</div>
-					<? } ?>
+						<?php } ?>
+					<?php } else { ?>
+						<div class="tabs">
+							<p>Sorry, we don't have any events to join</p>
+						</div>
+					<?php } ?>
 				</div>
 				<div class="create-event columns medium-3">
 					<div class="create-box">
@@ -46,7 +52,7 @@
 			        <li><a href="#tab2">Preview</a></li>
 			    </ul>
 
-			    <p>Hi, do you have an idea of sports event which could help the planet ?</br>Let's create !</p>
+			    <p>Hi, do you have an idea of sportive event which could help the planet ?</br>Let's create it !</p>
 			 
 			    <div class="tab-content">
 			        <div id="tab1" class="tab active">
