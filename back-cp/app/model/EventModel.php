@@ -21,6 +21,7 @@ class EventModel extends CoreModel{
 	private $EventOnline;
 	private $EventEmplacementTmpImg; // STRING (Emplacement temporaire de l'image)
 	private $EventLocation; 
+	private $EventType;
 	
 	/**
 	 * Constructor
@@ -31,6 +32,7 @@ class EventModel extends CoreModel{
 		if(isset($_POST) && !empty($_POST)){
             
             $post = $_POST;
+            
             $this->setEventName($post['nameEvent']);
             $this->setEventLocation($post['locationEvent']);
             $this->setEventDescr($post['descrEvent']);
@@ -44,6 +46,7 @@ class EventModel extends CoreModel{
     		}
     		$this->setEventBegin($post['dateBegin']);
     		$this->setEventEnd($post['dateEnd']);
+    		$this->setEventType($post['type']);
     		if(isset($post['check']))
             {
     			$this->setEventOnline(true);
@@ -183,6 +186,22 @@ class EventModel extends CoreModel{
 	}
 	
 	/**
+	 * SETTERS & GETTERS le type de l'événement
+	 */
+	public function setEventType($type)
+	{
+		$element = array("earth", "sea", "air", "car", "boat", "surf", "bike");
+		if(in_array($type, $element))
+		{
+			$this->EventType = $type;
+		}
+	}
+	public function getEventType()
+	{
+		return $this->EventType;
+	}
+	
+	/**
 	 * SETTERS & GETTERS voir la description d'un évenement
 	 */
 	public function setEventDescr($descr)
@@ -283,7 +302,15 @@ class EventModel extends CoreModel{
     public function setEventBegin($begin)
     {
 	    $begin = str_replace("/", "-", $begin);
-		$this->EventBegin = $begin;
+		$data_inverter = explode("-",$begin);
+		if(strlen($data_inverter[2]) == 4){
+			$begin = $data_inverter[2].'-'. $data_inverter[1].'-'. $data_inverter[0];
+			$this->EventBegin = $begin;
+		}else
+		{
+			$this->EventBegin = $begin;
+		}
+
     }
 	public function getEventBegin()
 	{
@@ -296,7 +323,14 @@ class EventModel extends CoreModel{
     public function setEventEnd($end)
 	{
 		$end = str_replace("/", "-", $end);
-		$this->EventEnd = $end;
+		$data_inverter = explode("-",$end);
+		if(strlen($data_inverter[2]) == 4){
+			$end = $data_inverter[2].'-'. $data_inverter[1].'-'. $data_inverter[0];
+			$this->EventEnd = $end;
+		}else
+		{
+			$this->EventEnd = $end;
+		}
 	}
 	public function getEventEnd()
 	{
@@ -315,12 +349,13 @@ class EventModel extends CoreModel{
 		$begin = $this->getEventBegin();
 		$end = $this->getEventEnd();
 		$location = $this->getEventLocation();
+		$type = $this->getEventType();
 		
 		
 		
 		try 
 		{		
-	        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_event` (`event_id`, `event_date`, `event_name`, `event_decr`, `event_img`, `event_begin`, `event_end`, `event_valid`, `event_location`) VALUES (NULL, now(), :name, :descr, :img, :begin, :end, :valid, :location)");
+	        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_event` (`event_id`, `event_date`, `event_name`, `event_decr`, `event_img`, `event_begin`, `event_end`, `event_valid`, `event_location`, `event_type`) VALUES (NULL, now(), :name, :descr, :img, :begin, :end, :valid, :location, :type)");
 	            	
 	        $insert->bindParam(':name', $name);
 	        $insert->bindParam(':descr', $descr);
@@ -329,6 +364,7 @@ class EventModel extends CoreModel{
             $insert->bindParam(':begin', $begin);
             $insert->bindParam(':end', $end);
             $insert->bindParam(':location', $location);
+            $insert->bindParam(':type', $type);
 	        
 				
 			if(!empty($img))
@@ -374,7 +410,7 @@ class EventModel extends CoreModel{
 		$newheight=($height/$width)*$newwidth;
 		$tmp=imagecreatetruecolor($newwidth,$newheight);
 		
-		$newwidth1=268;
+		$newwidth1=523;
 		$newheight1=($height/$width)*$newwidth1;
 		$tmp1=imagecreatetruecolor($newwidth1,$newheight1);
 		
@@ -385,7 +421,7 @@ class EventModel extends CoreModel{
 		$width,$height);
 		
 		$filename = $destination;
-		$filename1 = '../../front-cp/public/img/event/mini/'.$img;
+		$filename1 = EVENT . 'mini/'.$img;
 		
 		imagejpeg($tmp,$filename,100);
 		imagejpeg($tmp1,$filename1,100);

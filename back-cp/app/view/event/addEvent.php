@@ -49,17 +49,31 @@
 							  </div>
 							</div>      
 							<div class="control-group">
-								<label class="control-label" for="dateBegin">Date de début</label>
+								<label class="control-label" for="dateBegin">Date de début (Format: jj/mm/aaaa)</label>
 								<div class="controls">
-								  <input class="input-xlarge focused" id="dateBegin" name="dateBegin" type="text"  value="" required>
+								  <input class="input-xlarge focused" id="dateBegin" name="dateBegin" type="date"  value="" required>
 								</div>
 							</div> 
 							<div class="control-group">
-								<label class="control-label" for="dateEnd">Date de fin</label>
+								<label class="control-label" for="dateEnd">Date de fin (Format: jj/mm/aaaa)</label>
 								<div class="controls">
 								  <input class="input-xlarge focused" id="dateEnd" name="dateEnd" type="date" value="" required>
 								</div>
 							</div> 
+							<div class="control-group">
+									<label class="control-label" for="event">Type:</label>
+									<div class="controls">
+									  <select name="type" required>
+											<option value="earth">Land</option>
+											<option value="sea">Sea</option>
+											<option value="air">Air</option>
+											<option value="car">Car</option>
+											<option value="boat">Boat</option>
+											<option value="surf">Surf</option>
+											<option value="bike">Bike</option>
+										</select>
+									</div>
+								</div>
 							<div class="control-group">
 							    <label class="checkbox" for="check">
 								    <input type="checkbox" id="check" name="check" value="oui">

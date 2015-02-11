@@ -19,6 +19,9 @@
     <!-- Main content -->
     <section class="content">
 	    <div id="content" class="span10">
+		     <?if(!empty($_SESSION['message'])){ ?>
+                <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
+            <? $_SESSION['message'] = ''; } ?>
 	        <div class="row-fluid sortable">
 					<div class="box-content">
 	                    <div class="box box-info">
@@ -59,7 +62,7 @@
 								<div class="control-group">
 									<label class="control-label" for="money">Montant recherché</label>
 									<div class="controls">
-									  <input class="input-xlarge focused" id="money" name="money" type="number" value="" required>
+									  <input class="input-xlarge focused" id="money" name="money" type="number" min="1" max="10000" value="" required>
 									</div>
 								</div>
 	                            <div class="control-group">

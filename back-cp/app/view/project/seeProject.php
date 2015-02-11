@@ -42,7 +42,7 @@
         			<?php foreach($data as $k => $AllGroup){ ?>
         				<li class="allgroup">
         					<a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . '&amp;id=' . $AllGroup['group_id']; ?>">
-        						<img class="projet" alt="Dennis Ji" src="images/group/<? echo $AllGroup['group_img']; ?>">
+        						<img class="projet" alt="Dennis Ji" src="<? echo PROJECT . $AllGroup['group_img']; ?>">
         					</a>
         					<strong>Name:</strong> <a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . '&amp;id=' . $AllGroup['group_id']; ?>"><? echo $AllGroup['group_name']; ?></a><br>
         					<span class="admin_status">

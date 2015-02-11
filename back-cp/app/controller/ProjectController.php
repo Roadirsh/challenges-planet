@@ -105,6 +105,11 @@ class ProjectController extends CoreController {
 			
 			$projectAdd = $project->insertNewProject($_POST);
 		}
+		if(isset($projectAdd) && $projectAdd == true){
+			$SESSION['message'] = "The new project as been added.";
+		}elseif(isset($projectAdd) && $projectAdd == false){
+			$SESSION['message'] = "User is already in this event.";
+		}
         $data = $project->getDataAdd();
 		
 		// Appel de la vue 
@@ -120,7 +125,7 @@ class ProjectController extends CoreController {
         $deleteProject = $this->model = new ProjectModel();
 		$DeleProject = $deleteProject->Delproject();
 		$_SESSION['message'] = "The project group has been well deleted";
-		$this->coreRedirect('project', 'seeProject', $message);
+		$this->coreRedirect('project', 'seeProject');
 	
 	}
 	

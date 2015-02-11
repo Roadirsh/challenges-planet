@@ -303,6 +303,38 @@ class ProjectModel extends CoreModel{
 	
 	
 	/**
+	 * Vérification si l'utilisateur participe à l'événement
+	 */
+	public function isUserExistInEvent($student, $event)
+	{
+		try {
+			
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                            FROM " . PREFIX . "event_has_user WHERE event_event_id = :event AND user_user_id = :student");
+            			
+            $select->bindParam(':student', $student);
+            $select->bindParam(':event', $event);
+            $select->execute();
+			$select->setFetchMode(PDO::FETCH_ASSOC);
+			$select = $select -> FetchAll();
+			
+			if($select[0]['exist'] == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
+	/**
 	 * Ajout d'un nouveau projet dans la base de données
 	 */
 	public function insertNewProject()
@@ -316,47 +348,59 @@ class ProjectModel extends CoreModel{
 		$student = $this->getGroupStudent();
 		$money = $this->getGroupMoney();
 		
+		$userExist = $this->isUserExistInEvent($student, $event);
 		
 		
-		try 
-		{		
-	        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_group` (`group_id`, `group_date`, `group_name`, `group_descr`, `group_img`, `group_money`, `group_valid`) VALUES (NULL, now(), :name, :descr, :img, :money, :valid)");
-	            	
-	        $insert->bindParam(':name', $name);
-	        $insert->bindParam(':descr', $descr);
-	        $insert->bindParam(':img', $img);
-			$insert->bindParam(':money', $money);
-            $insert->bindParam(':valid', $check);
-	        
-			$insert->execute();
-			$idGroup = $this->connexion->lastInsertId();
-			if(!empty($img))
-			{
-				$string= PROJECT.$img;
-				$this->upload($tmp, $string);
+		if(!$userExist){
+			try 
+			{		
+				
+				$this->connexion->beginTransaction();
+		        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_group` (`group_id`, `group_date`, `group_name`, `group_descr`, `group_img`, `group_money`, `group_valid`) VALUES (NULL, now(), :name, :descr, :img, :money, :valid)");
+		            	
+		        $insert->bindParam(':name', $name);
+		        $insert->bindParam(':descr', $descr);
+		        $insert->bindParam(':img', $img);
+				$insert->bindParam(':money', $money);
+	            $insert->bindParam(':valid', $check);
+		        
+				$insert->execute();
+				$idGroup = $this->connexion->lastInsertId();
+				if(!empty($img))
+				{
+					$string= PROJECT.$img;
+					$this->upload($tmp, $string);
+				}
+				
+				
+				$insertEventHasGroup = $this->connexion->prepare("INSERT INTO `cp_event_has_group` (`event_event_id`, `group_group_id`) VALUES (:event, :group)");
+				$insertEventHasGroup->bindParam(':event', $event);
+				$insertEventHasGroup->bindParam(':group', $idGroup);
+				$insertEventHasGroup->execute();
+				
+				
+				$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
+				$insertEventHasUser->bindParam(':event', $event);
+				$insertEventHasUser->bindParam(':user', $student);
+				$insertEventHasUser->execute();
+				
+				$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
+				$insertUserHasGroup->bindParam(':user', $student);
+				$insertUserHasGroup->bindParam(':group', $idGroup);
+				$insertUserHasGroup->execute();
+				$this->connexion->commit();
+				return true;
 			}
-			
-			
-			$insertEventHasGroup = $this->connexion->prepare("INSERT INTO `cp_event_has_group` (`event_event_id`, `group_group_id`) VALUES (:event, :group)");
-			$insertEventHasGroup->bindParam(':event', $event);
-			$insertEventHasGroup->bindParam(':group', $idGroup);
-			$insertEventHasGroup->execute();
-			
-			
-			$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
-			$insertEventHasUser->bindParam(':event', $event);
-			$insertEventHasUser->bindParam(':user', $student);
-			$insertEventHasUser->execute();
-			
-			$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
-			$insertUserHasGroup->bindParam(':user', $student);
-			$insertUserHasGroup->bindParam(':group', $idGroup);
-			$insertUserHasGroup->execute();
+	        catch (Exception $e)
+	        {
+		        $this->connexion->rollback();
+	            echo 'Message:' . $e -> getMessage();
+	        }
+
+		}else{
+			return false;
 		}
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }
+		
     }
     
     /**
@@ -470,7 +514,27 @@ class ProjectModel extends CoreModel{
 		return $retour;
     }
     
-	
+	public function getUsersByGroup($group){
+		
+		try {
+			
+            $select = $this->connexion->prepare("select `user_user_id` from cp_user_has_group where `group_group_id` = :group");
+            			
+            $select->bindParam(':group', $group);
+            $select->execute();
+			$select->setFetchMode(PDO::FETCH_ASSOC);
+			$select = $select -> FetchAll();
+			
+			return $select;
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+
+	}
 	/**
      * Supprimer un groupe
      */
@@ -478,20 +542,74 @@ class ProjectModel extends CoreModel{
     	//var_dump($GLOBALS);
     	$delgroupID = $_GET['id'];
     	
+    	
+    	
     	try {
+	    	
+	    	$this->connexion->beginTransaction();
+	    	
+	    	$select  = $this->connexion->prepare("Select group_img FROM " . PREFIX . "group where group_id = '" . $delgroupID . "'" );
+	    	$select->execute();
+	    	$select -> setFetchMode(PDO::FETCH_ASSOC);
+			$retour = $select -> fetch();
+
+			$retour = $retour['group_img'];
+			$file = PROJECT . $retour;
+			
+			
+			if(file_exists($file) && $file != PROJECT)
+			{
+	    		unlink($file);
+			}
+	    	
+	    	$users = $this->getUsersByGroup($delgroupID);
+	    	
+	    	foreach ($users as $key => $value)
+	    	{
+				$select = $this->connexion->prepare("DELETE
+                                            FROM " . PREFIX . "event_has_user
+                                            where user_user_id = '" . $value["user_user_id"] . "'");
+                                          
+				$select -> execute();
+
+			}
+
     	    // rajouer un trigger corbeille
         	$select = $this->connexion->prepare("DELETE
                                             FROM " . PREFIX . "group
                                             where group_id = '" . $delgroupID . "'");
+                                            
+                                          
            
-            //var_dump($select); exit();
+            $select -> execute();
+           
+            
+            $select = $this->connexion->prepare("DELETE
+                                            FROM " . PREFIX . "user_has_group
+                                            where group_group_id = '" . $delgroupID . "'");
+                                            
+                                          
+           
+            $select -> execute();
+
+            
+            $select = $this->connexion->prepare("DELETE
+                                            FROM " . PREFIX . "event_has_group
+                                            where group_group_id = '" . $delgroupID . "'");
+                                            
+                                          
+           
             $select -> execute();
             
+            
+
+            $this->connexion->commit();
             //var_dump($AllUser);
             return true;
             
             
     	} catch (Exception $e) {
+	    	$this->connexion->rollback();
             echo 'Message:' . $e -> getMessage();
         }
     	
