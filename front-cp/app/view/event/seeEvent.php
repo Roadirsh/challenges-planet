@@ -182,10 +182,10 @@
 			<div class="event medium-6 columns">
 				<div class="wrapper clearfix">
 					<div class="img large-6 medium-12 columns">
-						<img src="img/ready.jpg" alt="">
+						<img src="img/ready.png" alt="">
 					</div>
 					<div class="medium-12 large-6 columns adventure">
-						<a href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>" class="button-submit">Ready for your adventure ?</a>
+						<a href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>" class="button-join join">Ready for your adventure ?</a>
 					</div>
 				</div>
 			</div>

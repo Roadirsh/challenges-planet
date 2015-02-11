@@ -19,7 +19,6 @@
 	    			<h1>Or sign up with your favorite social media !</h1>
 	    			<div class="social-sign-up">
 	    				<a href="#"><img src="img/fb-login.png">Sign up with Facebook</a>
-	    				<a href="#"><img src="img/google+_login.png">Sign up with Google +</a>
 	    			</div>
 	    		</fieldset>
 	    		<fieldset>

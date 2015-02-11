@@ -76,7 +76,6 @@
 	    			<h1>Or log in with your favorite social media !</h1>
 	    			<div class="social-sign-up">
 	    				<a href="#"><img src="img/fb-login.png">Log in with Facebook</a>
-	    				<a href="#"><img src="img/google+_login.png">Log in with Google +</a>
 	    				<a href="<?php echo MODULE . 'log' . ACTION . 'signup'; ?>">No account? ? Sign up with your email !</a>
 	    			</div>
 	    		</fieldset>

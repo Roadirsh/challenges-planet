@@ -88,8 +88,12 @@
 								<div class="medium-4 columns second">
 									<div class="fileupload clearfix">
 										<img src="img/camera.png">
-										<span>Add a cover, it's better !</span>
-										<input  type="file" name="cover"/>
+										<span class="desc">Add a cover, it's better !</span>
+										<div class="custom-file-upload">
+										    <!--<label for="file">File: </label>--> 
+										    <input type="file" id="file" name="myfiles[]" multiple />
+										</div>
+										<span class="info">(size : 1280px * 490px)</span>
 									</div>
 								</div>
 				       		</div>

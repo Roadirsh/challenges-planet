@@ -30,6 +30,6 @@
 // URL de la racine du serveur
 	define('BASE_DIR', "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));
 // Slogan du site
-	define("JOIN", "<span>Join </span>the best caritives student challenges");
+	define("JOIN", "<span>Join </span>the best caritative student challenges");
 // Slogan du site
 	define("LOGGER", "../lib/Logger.class.php");

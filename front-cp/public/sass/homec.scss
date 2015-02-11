@@ -110,25 +110,11 @@ body {
 					}
 				}
 
-				&:nth-child(2) {
-					background-color: #d51f1f;
-					-webkit-transition: all 0.5s ease;
-					-moz-transition: all 0.5s ease;
-					-ms-transition: all 0.5s ease;
-
-					&:hover {
-						background-color: #bd1c1c;
-						-webkit-transition: all 0.5s ease;
-						-moz-transition: all 0.5s ease;
-						-ms-transition: all 0.5s ease;
-					}
-				}
-
 				&:last-child {
 					color: $color-blue;
 					text-transform: inherit;
 					padding: 0;
-					margin-top: 23px;
+					margin-top: 35px;
 					text-align: center;
 					display: block;
 				}
@@ -176,6 +162,23 @@ body {
 	}
 }
 
+.button-join {
+   	display: block;
+	margin: auto;
+	color: white;
+	padding: 10px;
+	text-transform: uppercase;
+	border: none;
+	font-family: $font-caption;
+	width: 50%;
+	font-size: 18px;
+	cursor: pointer;
+
+	@media #{$medium-up} {
+		font-size: 20px;
+	}
+}
+
 .container {
 	background-color: $bg-color;
 
@@ -196,7 +199,6 @@ body {
 			-webkit-transition: all 0.5s ease;
 			-moz-transition: all 0.5s ease;
 			-ms-transition: all 0.5s ease;
-
 		}
 	}
 
@@ -736,6 +738,10 @@ body {
 					text-align: center;
 					margin: 10px 0px;
 					text-transform: uppercase;
+
+					a {
+						color: $color-blue;
+					}
 				}
 
 				.chief-team, .date {
@@ -832,7 +838,7 @@ body {
 
 					.notyet {
 						.ui-widget-header {
-							background-color: $color-grey;
+							background-color: $color-blue;
 						}
 					}
 

@@ -147,18 +147,19 @@ $bg-color:		#f2efec;
 				padding: 5px;
 
 				.adventure {
-					position: absolute;
-					top: 69%;
-					right: 0;
+				padding: 5px;
 
 					@media #{$large-up} {
+						position: absolute;
 						top: 50%;
+						right: 0;
+						padding: 15px;
 						-webkit-transform: translateY(-50%);
 						-moz-transform: translateY(-50%);
 						-ms-transform: translateY(-50%);
 					}
 
-					.button-submit {
+					.button-submit, .button-join {
 						text-align: center;
 						color: #fff;
 						font-size: 14px;
@@ -188,7 +189,7 @@ $bg-color:		#f2efec;
 						}
 					}
 
-					.button-submit {
+					.button-submit, .button-join {
 						font-size: 14px;
 						width: 100%;
 						color: #fff;

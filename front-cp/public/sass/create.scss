@@ -18,7 +18,6 @@ $color-blue:	#478bb2;
 $color-green:	#88a83b;
 $bg-color:		#f2efec;
 
-
 /*----- Tabs -----*/
 
 .form-join-create {
@@ -26,7 +25,7 @@ $bg-color:		#f2efec;
     display:inline-block;
     background-color: #e5ded8;
 
-    input[type="text"], select {
+    input[type="text"], select, input[type="date"] {
         background-color: #fff !important;
     }
 
@@ -251,6 +250,7 @@ $bg-color:		#f2efec;
         margin-bottom: 16px;
         position: relative;
         height: 240px;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 
         @media #{$medium-up} {
             top: 20px;
@@ -270,16 +270,84 @@ $bg-color:		#f2efec;
                 color: $color-green;
                 text-align: center;
                 display: block;
+            }
+
+            .info {
+                font-size: 10px;
+            }
+
+            .desc {
                 margin: 15px 0px;
             }
 
-            input[type="file"] {
-                margin: 0;
 
-                @media #{$medium-up} {
-                    width: auto;
-                }
-            }
+/*----- Button Upload -----*/
+
+.custom-file-upload-hidden {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+}
+.custom-file-upload {
+    display: block;
+    width: auto;
+    font-size: 16px;
+    margin-top: 15px;
+    //border: 1px solid #ccc;
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+.file-upload-wrapper {
+    position: relative; 
+    margin-bottom: 5px;
+    //border: 1px solid #ccc;
+}
+.file-upload-input {
+    width: 300px;
+    color: $color-dark;
+    font-size: 16px;
+    padding: 11px 17px; 
+    border: none;
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: $color-green; 
+    transition : all 0.2s ease-in; 
+    float: left; /* IE 9 Fix */
+
+    &:hover, &:focus { 
+        background-color: #67802d;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        outline: none; 
+    }
+}
+.file-upload-button {
+    cursor: pointer; 
+    display: inline-block; 
+    color: #fff;
+    font-size: 14px;
+    width: 300px;
+    text-transform: uppercase;
+    padding: 11px 20px; 
+    border: none;
+    margin-bottom: 10px;
+    margin-left: -1px;  
+    background-color: $color-green; 
+    float: left; /* IE 9 Fix */
+    transition : all 0.2s ease-in;
+
+    &:hover {
+        background-color: #67802d;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+    }
+}
         }
     }
 
