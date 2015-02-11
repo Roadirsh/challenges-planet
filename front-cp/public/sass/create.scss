@@ -309,22 +309,15 @@ $bg-color:		#f2efec;
 .file-upload-input {
     width: 300px;
     color: $color-dark;
+    cursor: context-menu;
     font-size: 16px;
     padding: 11px 17px; 
     border: none;
     height: 30px;
     margin-bottom: 10px;
-    background-color: $color-green; 
     transition : all 0.2s ease-in; 
     float: left; /* IE 9 Fix */
 
-    &:hover, &:focus { 
-        background-color: #67802d;
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -ms-transition: all 0.5s ease;
-        outline: none; 
-    }
 }
 .file-upload-button {
     cursor: pointer; 
