@@ -50,10 +50,10 @@
                     <div class="columns large-3 medium-4 team-wrapper">
         				<div class="wrapper">
         					<div class="img">
-        						<img src="img/group/<?php echo $t['group_img']; ?>" alt="">
+        						<img src="<?php echo PROJECT . $t['group_img']; ?>" alt="">
         						<div class="hover"><span>They need you<br>help them</span></div>
         					</div>
-        					<div class="title-team"><a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $t['group_id']; ?>" alt="" title=""><?php echo $t['group_name']; ?></a></div>
+        					<div class="title-team"><a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title=""><?php echo $t['group_name']; ?></a></div>
         					<div class="date"><?php echo $t['event_name']; ?></div>
         					<div class="progressteam">
         						<div class="clearfix">

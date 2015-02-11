@@ -77,7 +77,7 @@ class EventController extends CoreController {
                 $_POST = null;
                 // initialization of the messages
                 $_SESSION['message'] = $messageInfo['EVENT_ADD_OK'];
-                $_SESSION['messtype'] = 'info';
+                $_SESSION['messtype'] = 'default';
             } else{
                 $_POST = null;
                 // initialization of the messages

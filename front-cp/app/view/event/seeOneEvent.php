@@ -7,7 +7,7 @@
         <div class="list-events clearfix">
             <div class="head clearfix">
                 <div class="medium-4 large-3 columns">
-                    <img src="img/event/<?php echo $event['event_img']; ?>" alt="">
+                    <img src="<?php echo EVENT . "mini/" .$event['event_img']; ?>" alt="">
                 </div>
                 <div class="medium-8 large-9 columns">
                     <h1><?php echo $event['event_name']; ?></h1>
