@@ -48,11 +48,9 @@ class LogModel extends CoreModel{
             */
 			$select = $this->connexion->prepare("SELECT * 
 											FROM " . PREFIX . "user
-											WHERE user_mail = ':mail'
-											AND user_password = ':pwd'");
+											WHERE user_mail = '" . $post['email'] . "'
+											AND user_password = '" . md5($post['pwd']) . "'");
 
-            $select->bindParam(':mail', $post['email']);
-            $select->bindParam(':pwd', md5($post['pwd']));
 			$select->execute();
 			$select->setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select->fetchAll();
@@ -112,11 +110,9 @@ class LogModel extends CoreModel{
             */
 			$check = $this->connexion->prepare("SELECT * 
     											FROM " . PREFIX . "user
-    											WHERE user_mail = ':mail'
-    											AND user_password = ':pwd'");
+    											WHERE user_mail = '" . $post['email'] . "'
+                                                AND user_password = '" . md5($post['pwd']) . "'");
             
-            $check->bindParam(':mail', $post['email']);
-            $check->bindParam(':pwd', md5($post['pwd']));
             $check->execute();
 			$check->setFetchMode(PDO::FETCH_ASSOC);
 			$user_check = $check->rowCount();
@@ -128,10 +124,8 @@ class LogModel extends CoreModel{
                 */
         	    $insert = $this->connexion->prepare("INSERT INTO " . PREFIX . "user
 			                                    (`user_mail`, `user_password`) 
-			                                    VALUES (:mail, :password)");
+			                                    VALUES (`" . $post['email'] . "`, `" . md5($post['pwd']) . "`)");
 
-    		 	$insert->bindParam(':mail', $post['email']);
-    		 	$insert->bindParam(':password', md5($post['pwd']);
                 $wellInsert = $insert->execute();
                 
                 $userID = $this->connexion->lastInsertId(); 
