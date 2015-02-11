@@ -125,11 +125,22 @@
   padding: 5px;
 }
 /* line 149, ../sass/list-events.scss */
+.list-events .main-contain .event .wrapper .ready {
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: url("../img/ready.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-position: center;
+  height: 200px;
+}
+/* line 160, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .adventure {
   padding: 5px;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 149, ../sass/list-events.scss */
+  /* line 160, ../sass/list-events.scss */
   .list-events .main-contain .event .wrapper .adventure {
     position: absolute;
     top: 50%;
@@ -140,19 +151,19 @@
     -ms-transform: translateY(-50%);
   }
 }
-/* line 162, ../sass/list-events.scss */
+/* line 173, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .adventure .button-submit, .list-events .main-contain .event .wrapper .adventure .button-join {
   text-align: center;
   color: #fff;
   font-size: 14px;
   width: 100%;
 }
-/* line 170, ../sass/list-events.scss */
+/* line 181, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .teams {
   background-color: #fff;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 170, ../sass/list-events.scss */
+  /* line 181, ../sass/list-events.scss */
   .list-events .main-contain .event .wrapper .teams {
     position: absolute;
     bottom: 0;
@@ -160,7 +171,7 @@
     padding-bottom: 5px;
   }
 }
-/* line 180, ../sass/list-events.scss */
+/* line 191, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .teams h3 {
   color: #478bb2;
   font-family: "roboto_slabbold";
@@ -169,51 +180,57 @@
   text-align: center;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 180, ../sass/list-events.scss */
+  /* line 191, ../sass/list-events.scss */
   .list-events .main-contain .event .wrapper .teams h3 {
     font-size: 15px;
   }
 }
-/* line 192, ../sass/list-events.scss */
+/* line 203, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .teams .button-submit, .list-events .main-contain .event .wrapper .teams .button-join {
   font-size: 14px;
   width: 100%;
   color: #fff;
   text-align: center;
 }
-/* line 201, ../sass/list-events.scss */
+/* line 212, ../sass/list-events.scss */
 .list-events .main-contain .event .img {
   padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-position: center;
+  height: 200px;
 }
-/* line 204, ../sass/list-events.scss */
+/* line 222, ../sass/list-events.scss */
 .list-events .main-contain .event .img img {
   width: 100%;
 }
-/* line 209, ../sass/list-events.scss */
+/* line 227, ../sass/list-events.scss */
 .list-events .main-contain .event .infos {
   text-transform: uppercase;
   text-align: center;
 }
-/* line 213, ../sass/list-events.scss */
+/* line 231, ../sass/list-events.scss */
 .list-events .main-contain .event .infos h2 {
   font-size: 19px;
   margin-bottom: 0px;
   margin-top: 5px;
 }
-/* line 219, ../sass/list-events.scss */
+/* line 237, ../sass/list-events.scss */
 .list-events .main-contain .event .infos span {
   display: block;
   font-size: 13px;
   margin-top: 5px;
   color: #88a83b;
 }
-/* line 226, ../sass/list-events.scss */
+/* line 244, ../sass/list-events.scss */
 .list-events .main-contain .event .infos .date {
   font-size: 12px;
   color: #adadad;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 226, ../sass/list-events.scss */
+  /* line 244, ../sass/list-events.scss */
   .list-events .main-contain .event .infos .date {
     font-size: 10px;
   }

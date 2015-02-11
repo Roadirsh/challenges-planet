@@ -90,7 +90,7 @@ $(document).ready(function(){
 
           var $file = $(this).addClass('custom-file-upload-hidden'), // the original file input
               $wrap = $('<div class="file-upload-wrapper">'),
-              $input = $('<input type="text" class="file-upload-input" />'),
+              $input = $('<input class="file-upload-input"/>'),
               // Button that will be used in non-IE browsers
               $button = $('<button type="button" class="file-upload-button">Select a File</button>'),
               // Hack for IE
