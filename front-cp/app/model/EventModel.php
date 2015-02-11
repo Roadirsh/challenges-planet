@@ -545,6 +545,7 @@ class EventModel extends CoreModel{
 /////////////////////////////////////////////////////
 /* SEE ONE EVENT * * * * * * * * * * * * * * * * * */
     
+
     /**
      * seeEvent.php
      * 
@@ -776,27 +777,4 @@ class EventModel extends CoreModel{
 
     }
 
-    /**
-     * mobile application
-     *
-     */
-
-
-
-
-// if(isset($periode['min'])){
-//             $date = new DateTime();
-//             $date = $date->sub(new DateInterval($periode['min']));
-//             echo $datemin = $date->format('Y-m-d') . "\n";
-
-//             $data .= "AND event_begin >= " . $datemin;
-//         } 
-
-//         if(isset($periode['max'])){
-//             $date = new DateTime();
-//             $date = $date->sub(new DateInterval($periode['max']));
-//             echo $datemax = $date->format('Y-m-d') . "\n";
-
-//             $data .= " AND event_begin <= " . $datemax;
-//         }
 }

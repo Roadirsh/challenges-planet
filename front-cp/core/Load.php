@@ -27,7 +27,15 @@ class Load{
 			include(ROOT . 'view/' . $module . '/' . $vue . '.php');
 		}else{
 			/* if not */
-			include(ROOT . 'view/layout/404.php');
+
+			/* * * * * * * * * * * * * * * * * * * * * * * *
+	        * <head> STUFF </head>
+	        */
+			define("PAGE_TITLE", SITE_NAME . " 404 - not found");
+			define("PAGE_DESCR", SITE_NAME . " ");
+			define("PAGE_ID", "404");
+
+			include(ROOT . 'view/layout/notfound.php');
 		}
 	}
 

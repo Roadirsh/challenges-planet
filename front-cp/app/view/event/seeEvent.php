@@ -146,7 +146,7 @@
 				<div class="event medium-6 columns">
 					<div class="wrapper clearfix">
 						<div class="img large-6 medium-12 columns">
-							<img src="img/event/<?php echo $e['event_img']; ?>">
+							<img src="<?php echo EVENT . "mini/" . $e['event_img']; ?>">
 						</div>
 						<div class="infos large-6 medium-12 columns">
 							<h2><?php echo $e['event_name']; ?></h2>

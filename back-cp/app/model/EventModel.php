@@ -282,6 +282,7 @@ class EventModel extends CoreModel{
 	 */
     public function setEventBegin($begin)
     {
+	    $begin = str_replace("/", "-", $begin);
 		$this->EventBegin = $begin;
     }
 	public function getEventBegin()
@@ -294,6 +295,7 @@ class EventModel extends CoreModel{
 	 */
     public function setEventEnd($end)
 	{
+		$end = str_replace("/", "-", $end);
 		$this->EventEnd = $end;
 	}
 	public function getEventEnd()
@@ -314,6 +316,8 @@ class EventModel extends CoreModel{
 		$end = $this->getEventEnd();
 		$location = $this->getEventLocation();
 		
+		
+		
 		try 
 		{		
 	        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_event` (`event_id`, `event_date`, `event_name`, `event_decr`, `event_img`, `event_begin`, `event_end`, `event_valid`, `event_location`) VALUES (NULL, now(), :name, :descr, :img, :begin, :end, :valid, :location)");
@@ -329,7 +333,7 @@ class EventModel extends CoreModel{
 				
 			if(!empty($img))
 			{
-				$string= '../../front-cp/public/img/event/slider/'.$img;
+				$string= EVENT.'slider/'.$img;
 				
 				$this->upload($tmp, $string, $img);
 			}

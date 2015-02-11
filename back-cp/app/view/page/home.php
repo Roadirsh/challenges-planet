@@ -28,7 +28,7 @@
                                     <h3>
                                         <?php echo $data['user'];?>
                                     </h3>
-                                    <p>User's number</p>
+                                    <p>Users number</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
@@ -45,7 +45,7 @@
                                     <h3>
                                         <?php echo $data['group'];?>
                                     </h3>
-                                    <p>Project's number</p>
+                                    <p>Projects number</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
@@ -62,7 +62,7 @@
                                     <h3>
                                         <?php echo $data['event'];?>
                                     </h3>
-                                    <p>Event's number</p>
+                                    <p>Events number</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>

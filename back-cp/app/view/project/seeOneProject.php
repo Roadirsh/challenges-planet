@@ -25,7 +25,7 @@
             <div class="row-fluid">		
                 <div class="user user_profil">
                     <? if(!empty($group['group_img'])){ ?>
-                        <img src="images/group/<? echo $group['group_img']; ?>" alt="..." class="img-thumbnail">
+                        <img src="<? echo PROJECT.$group['group_img']; ?>" alt="..." class="img-thumbnail">
                     <? } ?>
                 </div>
                 <div class="user user_info">
