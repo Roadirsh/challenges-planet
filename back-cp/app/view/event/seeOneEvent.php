@@ -24,7 +24,7 @@
             <div class="row-fluid">		
                 <div class="user user_profil">
                     <? if(!empty($event['event_img'])){ ?>
-                        <img src="images/event/<? echo $event['event_img']; ?>" alt="..." class="img-thumbnail">
+                        <img src="<? echo EVENT.'slider/'.$event['event_img']; ?>" alt="..." class="img-thumbnail">
                     <? } ?>
                 </div>
                 <div class="user user_info">

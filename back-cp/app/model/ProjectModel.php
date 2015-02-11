@@ -316,6 +316,8 @@ class ProjectModel extends CoreModel{
 		$student = $this->getGroupStudent();
 		$money = $this->getGroupMoney();
 		
+		
+		
 		try 
 		{		
 	        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_group` (`group_id`, `group_date`, `group_name`, `group_descr`, `group_img`, `group_money`, `group_valid`) VALUES (NULL, now(), :name, :descr, :img, :money, :valid)");
@@ -330,7 +332,7 @@ class ProjectModel extends CoreModel{
 			$idGroup = $this->connexion->lastInsertId();
 			if(!empty($img))
 			{
-				$string= '../../front-cp/public/img/group/'.$img;
+				$string= PROJECT.$img;
 				$this->upload($tmp, $string);
 			}
 			
