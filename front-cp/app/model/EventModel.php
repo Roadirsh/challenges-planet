@@ -178,20 +178,22 @@ class EventModel extends CoreModel{
             */
             $select = $this->connexion->prepare("SELECT COUNT(*) as event_nb_team
                                             FROM " . PREFIX . "event_has_group
-                                            WHERE event_event_id = :eventID
-                                            LIMIT 7");
+                                            WHERE event_event_id = :eventID");
+
+
             $select->bindValue(':eventID', $str[$i]['event_id'], PDO::PARAM_INT);
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $retour = $select->FetchAll();
             $select->closeCursor(); 
+
             /* * * * * * * * * * * * * * * * * * * * * * * *
             * Create one uniq array whith all informations
             */
-            $array[$i]= array_merge($str[$i], $retour['0']);
+            $array[$i]= array_merge($str[$i], $retour[0]);
         $i ++;
         }
-        //var_dump($array);
+        // var_dump($array);
         return $array;
     }
     /**
@@ -252,25 +254,32 @@ class EventModel extends CoreModel{
      * @param Array $post // Beginning of race
      */
     public function SeeFiltreEventBeginning($post) {
-    
-        var_dump($post); 
-        $date = "";
-        if($post == '-1 week'){
-            
-        } elseif($post == '2-3 week'){
-            
+
+        $datenow = date("Y-m-d");
+
+        if($post == "1week"){
+            $date = date('Y-m-d', strtotime("+1 week"));
+        } elseif($post == "2-3week"){
+            $date = date('Y-m-d', strtotime("+3 week"));
+        } elseif($post == "1month"){
+            $time = strtotime("now");
+            $date = date("Y-m-d", strtotime("+1 month", $time));
+        } elseif($post == "6month"){
+            $time = strtotime("now");
+            $date = date("Y-m-d", strtotime("+6 month", $time));
         }
+
         try {
             $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "event
                                             WHERE event_valid = 1
-                                            AND " . DATEDIFF(day,current_date,'2008-06-05'));
+                                            AND event_begin >= '" . $date . "'" );
            
-            var_dump( $select); exit;
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $ByBe = $select->FetchAll();
             $select->closeCursor(); 
+
             return $ByBe;
             
             
@@ -558,6 +567,8 @@ class EventModel extends CoreModel{
      * @param Array Groups ID  
      */
     public function SeeGroupEvent($gID, $money = null) {
+
+        
         if(isset($money)){
             if($money == 2000){
                 $where = 'AND group_money <= 2000';
@@ -611,6 +622,8 @@ class EventModel extends CoreModel{
             }
             // var_dump($array); exit;
             return $array;
+
+
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         } 

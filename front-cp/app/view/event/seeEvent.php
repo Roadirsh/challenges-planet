@@ -42,16 +42,16 @@
 				<div class="begin-race">
 					<span>Beginning of the race</span>
 					<div>
-						<input type="checkbox" name="begin" value="-1 week" onclick='submit();'> Less of one week
+						<input type="checkbox" name="begin" value="1week" onclick='submit();'> Less of one week
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="2-3 week" onclick='submit();'> 2-3 weeks
+						<input type="checkbox" name="begin" value="2-3week" onclick='submit();'> 2-3 weeks
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="+1month" onclick='submit();'> More than one month
+						<input type="checkbox" name="begin" value="1month" onclick='submit();'> More than one month
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="+6month" onclick='submit();'> More than 6 months
+						<input type="checkbox" name="begin" value="6month" onclick='submit();'> More than 6 months
 					</div>
 				</div>
 
@@ -101,16 +101,16 @@
 				<div class="begin-race">
 					<span>Beginning of the race</span>
 					<div>
-						<input type="checkbox" name="begin" value="-1 week" onclick='submit();'> Less of one week
+						<input type="checkbox" name="begin" value="1week" onclick='submit();'> Less of one week
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="2-3 week" onclick='submit();'> 2-3 weeks
+						<input type="checkbox" name="begin" value="2-3week" onclick='submit();'> 2-3 weeks
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="+1month" onclick='submit();'> More than one month
+						<input type="checkbox" name="begin" value="1month" onclick='submit();'> More than one month
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="+6month" onclick='submit();'> More than 6 months
+						<input type="checkbox" name="begin" value="6month" onclick='submit();'> More than 6 months
 					</div>
 				</div>
 
@@ -145,9 +145,7 @@
 		<?php foreach($events as $k => $e){ ?>
 				<div class="event medium-6 columns">
 					<div class="wrapper clearfix">
-						<div style="background:url('img/event/<?php echo $e['event_img']; ?>');" class="img large-6 medium-12 columns">
-							<!-- <img src="img/event/<?php echo $e['event_img']; ?>"> -->
-
+						<div style="background:url('<?php echo EVENT . 'mini/' . $e['event_img']; ?>');" class="img large-6 medium-12 columns">
 						</div>
 						<div class="infos large-6 medium-12 columns">
 							<h2><?php echo $e['event_name']; ?></h2>

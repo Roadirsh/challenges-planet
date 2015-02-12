@@ -51,8 +51,9 @@ class CoreModel{
 	 * @param exception $e
 	 */
 	private function coreBdError($e){
-		echo SITE_NAME." : Désolé, une erreur est survenue !";
-		var_dump($e);
+		// echo SITE_NAME." : Désolé, une erreur est survenue !";
+		// var_dump($e);
+		include(ROOT . 'view/layout/notfound.php');
 		exit;
 	}
 	
