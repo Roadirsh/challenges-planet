@@ -131,9 +131,10 @@ class UserController extends CoreController {
 	
 	    $upOneUser = $this->model = new UserModel();
 		$upUser = $upOneUser->Uponeuser();
+				
 		
 		$_SESSION['message'] = "You've succeed in updating your profil";
-		$this->coreRedirect('user', 'seeOneUser');
+		$this->coreRedirect('user', 'seeoneuser', $upUser);
 	
 	}
 	/**

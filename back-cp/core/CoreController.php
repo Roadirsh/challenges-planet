@@ -47,8 +47,13 @@ class CoreController{
 	 * @param String $module
 	 * @param String $action
 	 */
-	protected function coreRedirect($module, $action){
-		header('location:index.php?module='.$module.'&action='.$action);
+	protected function coreRedirect($module, $action, $id = null){
+		if($id != null){
+			header('location:index.php?module='.$module.'&action='.$action.'&id='.$id);
+		}else{
+			header('location:index.php?module='.$module.'&action='.$action);
+		}
+		
 		exit;
 	}
 	protected function corePage404(){
