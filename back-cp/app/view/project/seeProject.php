@@ -46,7 +46,7 @@
         					</a>
         					<strong>Name:</strong> <a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . '&amp;id=' . $AllGroup['group_id']; ?>"><? echo $AllGroup['group_name']; ?></a><br>
         					<span class="admin_status">
-        					    <a class="btn btn-danger del" href="<? echo MODULE . 'project' . ACTION . 'delproject' . ID . $AllGroup['group_id']; ?>">
+        					    <a class="btn btn-danger del" onclick="return(confirm('Etes-vous sûr de vouloir supprimer cette entrée?'));" href="<? echo MODULE . 'project' . ACTION . 'delproject' . ID . $AllGroup['group_id']; ?>">
         							<i class="fa fa-trash-o"></i> 
         						</a>
             					<strong>Status:</strong> 

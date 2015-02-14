@@ -141,20 +141,26 @@ class ProjectModel extends CoreModel{
 	/**
 	 * SETTERS & GETTERS étudiant
 	 */
-	public function setGroupStudent($student)
+	public function setGroupStudent($students)
 	{
 		try 
 		{
-			$selectUser = $this->connexion->prepare("SELECT count(*) as exist FROM " . PREFIX . "user where user_id = :student");
-			$selectUser->bindParam(':student', $student);
-
-			$selectUser->execute();
+			$this->GroupStudent = array();
+			foreach($students as $student){
+				
 			
-            $selectUser -> setFetchMode(PDO::FETCH_ASSOC);
-			$user = $selectUser->FetchAll();
-			if($user[0]['exist'] == 1)
-			{
-				$this->GroupStudent = $student;
+				$selectUser = $this->connexion->prepare("SELECT count(*) as exist FROM " . PREFIX . "user where user_id = :student");
+				$selectUser->bindParam(':student', $student);
+	
+				$selectUser->execute();
+				
+	            $selectUser -> setFetchMode(PDO::FETCH_ASSOC);
+				$user = $selectUser->FetchAll();
+				if($user[0]['exist'] == 1)
+				{
+					
+					array_push($this->GroupStudent, $student);
+				}
 			}
 
 		}
@@ -309,23 +315,26 @@ class ProjectModel extends CoreModel{
 	{
 		try {
 			
-            $select = $this->connexion->prepare("SELECT count(*) as exist
-                                            FROM " . PREFIX . "event_has_user WHERE event_event_id = :event AND user_user_id = :student");
-            			
-            $select->bindParam(':student', $student);
-            $select->bindParam(':event', $event);
-            $select->execute();
-			$select->setFetchMode(PDO::FETCH_ASSOC);
-			$select = $select -> FetchAll();
+				
 			
-			if($select[0]['exist'] == 1)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+	            $select = $this->connexion->prepare("SELECT count(*) as exist
+	                                            FROM " . PREFIX . "event_has_user WHERE event_event_id = :event AND user_user_id = :student");
+	            			
+	            $select->bindParam(':student', $student);
+	            $select->bindParam(':event', $event);
+	            $select->execute();
+				$select->setFetchMode(PDO::FETCH_ASSOC);
+				$select = $select -> FetchAll();
+				if($select[0]['exist'] == 1)
+				{
+					return true;
+				}else{
+					return false;
+				}
+			
+			
+			
+							
         }
 
         catch (Exception $e)
@@ -345,13 +354,13 @@ class ProjectModel extends CoreModel{
 		$img = $this->getGroupImg();
 		$tmp = $this->getEmplacementTmp();
 		$event = $this->getGroupEvent();
-		$student = $this->getGroupStudent();
+		$students = $this->getGroupStudent();
 		$money = $this->getGroupMoney();
 		
-		$userExist = $this->isUserExistInEvent($student, $event);
 		
 		
-		if(!$userExist){
+		
+		
 			try 
 			{		
 				
@@ -378,16 +387,26 @@ class ProjectModel extends CoreModel{
 				$insertEventHasGroup->bindParam(':group', $idGroup);
 				$insertEventHasGroup->execute();
 				
+				foreach($students as $student){
+					$userExist = $this->isUserExistInEvent($student, $event);
+					if(!$userExist){
+			
+						
+					$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
+					$insertEventHasUser->bindParam(':event', $event);
+					$insertEventHasUser->bindParam(':user', $student);
+					$insertEventHasUser->execute();
+					
+					$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
+					$insertUserHasGroup->bindParam(':user', $student);
+					$insertUserHasGroup->bindParam(':group', $idGroup);
+					$insertUserHasGroup->execute();
+					}else{
+						return false;
+					}
+					
+				}
 				
-				$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
-				$insertEventHasUser->bindParam(':event', $event);
-				$insertEventHasUser->bindParam(':user', $student);
-				$insertEventHasUser->execute();
-				
-				$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
-				$insertUserHasGroup->bindParam(':user', $student);
-				$insertUserHasGroup->bindParam(':group', $idGroup);
-				$insertUserHasGroup->execute();
 				$this->connexion->commit();
 				return true;
 			}
@@ -397,9 +416,7 @@ class ProjectModel extends CoreModel{
 	            echo 'Message:' . $e -> getMessage();
 	        }
 
-		}else{
-			return false;
-		}
+		
 		
     }
     

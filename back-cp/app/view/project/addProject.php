@@ -31,7 +31,7 @@
 								<div class="control-group">
 									<label class="control-label" for="student">Ajouter un étudiant</label>
 									<div class="controls">
-										<select class="combobox" name="student" required>
+										<select class="users" name="student[]" multiple="multiple" style="width:100%;" required>
 										  <option></option>
 										  <?php foreach($data[1] as $student) {
 											  echo '<option value="'.$student["user_id"].'">'.$student["user_pseudo"]. " - ".$student["user_mail"].'</option>';
@@ -95,8 +95,12 @@
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 <script type="text/javascript">
-  $(document).ready(function(){
+  /*
+$(document).ready(function(){
     $('.combobox').combobox();
   });
+*/
+  $('.users').select2();
+
 </script>
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

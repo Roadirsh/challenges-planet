@@ -1,5 +1,5 @@
-<? if(!empty($data['user'])){ $user = $data['user'][0]; } ?>
-<? if(!empty($data['info'])){
+<? if(!empty($data['user'])){ $user = $data['user'][0]; } 
+ if(!empty($data['info'])){
 	if($data['info'][0]['ad_type'] == "Home" || $data['info'][1]['ad_type'] == "Home")
 	{
 		if($data['info'][0]['ad_type'] == "Home")
@@ -23,11 +23,10 @@
 	}
 	
 	}
+	if(!empty($data['action'])){ $actions = $data['action']; } 
 	
-	/*
-var_dump($adressInvoice);
-	exit(0);
-*/ ?>
+
+	 ?>
 <? if(!empty($data['phone'])){ $infoplusplus = $data['phone'][0]['phone_num']; } ?>
 
 
@@ -202,14 +201,17 @@ var_dump($adressInvoice);
                 </form>
 
                 <div style="clear:both"></div>
-                <? if(!empty($actions)){ ?>
+                <? if(!empty($actions)){ 
+	                
+	                
+                ?>
                 <table class="table table-hover user_event">
                     <tr>
                         <th>Date</th>
                         <th>Event</th>
                         <th>Groups name</th>
                     </tr>
-                    <? foreach($actions as $k => $tab){ ?>
+                    <? foreach($actions as $tab){ ?>
                     <tr>
                         <td><? if(!empty($tab['event_date'])){ echo $tab['event_date']; } ?></td>
                         <td><? if(!empty($tab['event_name'])){ echo $tab['event_name']; } ?></td>
