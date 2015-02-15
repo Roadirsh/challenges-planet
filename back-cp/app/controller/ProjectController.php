@@ -129,6 +129,22 @@ class ProjectController extends CoreController {
 	
 	}
 	
+	
+	
+	/**
+	 * Modifier UN group
+	 */
+	public function Uponeproject(){
+		
+	    $upOneProject = $this->model = new ProjectModel();
+		$upProject = $upOneProject->Uponeproject();
+				
+		
+		$_SESSION['message'] = "You've succeed in updating your profil";
+		$this->coreRedirect('project', 'seeoneproject', $upProject);
+	
+	}
+	
 }
 
 ?>

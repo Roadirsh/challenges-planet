@@ -29,6 +29,7 @@
 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-beta.3/js/select2.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
 
 		<script src="js/plugins/bootstrap-combobox.js" type="text/javascript"></script>
 

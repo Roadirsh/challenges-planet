@@ -39,26 +39,28 @@ class ProjectModel extends CoreModel{
             
     
             $post = $_POST;
-            $this->setGroupStudent($post['student']);
-            $this->setGroupEvent($post['event']);
-            $this->setGroupName($post['name']);
-            $this->setGroupDescr($post['descr']);
-            $this->setGroupMoney($post['money']);
-            if(isset($post['check']))
-            {
-    			$this->setGroupOnline(true);
-    		}
-    		else
-    		{
-	    		$this->setGroupOnline(false);
-    		}
-            if(isset($_FILES['image']))
-            {
-    			$this->setGroupImg($_FILES['image']);
-    		}
-    		else
-    		{
-    			$this->setGroupImg('');
+            if(!isset($post['update']) ){ 
+	            $this->setGroupStudent($post['student']);
+	            $this->setGroupEvent($post['event']);
+	            $this->setGroupName($post['name']);
+	            $this->setGroupDescr($post['descr']);
+	            $this->setGroupMoney($post['money']);
+	            if(isset($post['check']))
+	            {
+	    			$this->setGroupOnline(true);
+	    		}
+	    		else
+	    		{
+		    		$this->setGroupOnline(false);
+	    		}
+	            if(isset($_FILES['image']))
+	            {
+	    			$this->setGroupImg($_FILES['image']);
+	    		}
+	    		else
+	    		{
+	    			$this->setGroupImg('');
+	    		}
     		}
     		
     		
@@ -343,6 +345,36 @@ class ProjectModel extends CoreModel{
         }
 
 	}
+	public function isUserInGroup($student, $group){
+		try {
+			
+				
+			
+	            $select = $this->connexion->prepare("SELECT count(*) as exist
+	                                            FROM " . PREFIX . "user_has_group WHERE group_group_id = :group AND user_user_id = :student");
+	            			
+	            $select->bindParam(':student', $student);
+	            $select->bindParam(':group', $group);
+	            $select->execute();
+				$select->setFetchMode(PDO::FETCH_ASSOC);
+				$select = $select -> FetchAll();
+				if($select[0]['exist'] == 1)
+				{
+					return true;
+				}else{
+					return false;
+				}
+			
+			
+			
+							
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+	}
 	/**
 	 * Ajout d'un nouveau projet dans la base de données
 	 */
@@ -449,7 +481,7 @@ class ProjectModel extends CoreModel{
             $select -> setFetchMode(PDO::FETCH_ASSOC);
             $OneGroup = $select -> FetchAll();
             
-            $select1 = $this->connexion->prepare("SELECT * 
+            $select1 = $this->connexion->prepare("SELECT user_id, user_mail, user_pseudo 
                                                 FROM " . PREFIX . "user_has_group A, " . PREFIX . "user B 
                                                 WHERE A.group_group_id = " . $groupID . "
                                                 AND A.user_user_id = B.user_id");
@@ -458,11 +490,16 @@ class ProjectModel extends CoreModel{
             $select1 -> setFetchMode(PDO::FETCH_ASSOC);
             $OneGroupMember = $select1 -> FetchAll();
             
+            $select2 = $this->connexion->prepare("SELECT user_id, user_mail, user_pseudo FROM cp_user where user_type='student'");
+            $select2 -> execute();
+            $select2 -> setFetchMode(PDO::FETCH_ASSOC);
+            $users = $select2->FetchAll();
             //var_dump($OneGroup); exit();
 
             $array = "";
             $array['group'] = $OneGroup;
             $array['group_user'] = $OneGroupMember;
+            $array['listeuser'] = $users;
             
             return $array;
             
@@ -630,6 +667,112 @@ class ProjectModel extends CoreModel{
             echo 'Message:' . $e -> getMessage();
         }
     	
+	}
+	
+	/**
+	 * Update un utilisateur
+	 */
+	public function UponeProject(){
+	    $groupId = $_GET['id'];
+	    
+
+
+    	try {
+    	    // UPDATE DANS LA TABLE USER 
+			$this->connexion->beginTransaction();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			$requete = "UPDATE " . PREFIX . "group SET `group_name` = :name, `group_descr` = :description, `group_img` = :img, `group_money` = :money, group_valid = :valid WHERE group_id = :id";
+    	    
+    	    $update = $this->connexion->prepare($requete); 
+
+            $update->bindParam(':name', $_POST['group_name']);
+            $update->bindParam(':description', $_POST['mce_0']);
+            $update->bindParam(':money', $_POST['group_money']);
+            $update->bindParam(':id', $groupId);
+            $update->bindParam(':valid', $_POST['valid']);
+            
+            
+            if(isset($_FILES) && !empty($_FILES['group_img']['name']))
+            {
+	            $select  = $this->connexion->prepare("Select group_img FROM " . PREFIX . "group where group_id = '" . $groupId . "'" );
+				$select->execute();
+				$select -> setFetchMode(PDO::FETCH_ASSOC);
+				$retour = $select -> fetch();
+
+				$retour = $retour['group_img'];
+				$file = PROJECT . $retour;
+			
+				if(file_exists($file) && $file != PROJECT)
+				{
+	    			unlink($file);
+				}
+	            $imgpic = uniqid().$_FILES['group_img']['name'];
+	            $update->bindParam(':img', $imgpic);
+				$string= PROJECT . $imgpic;
+				move_uploaded_file($_FILES['group_img']['tmp_name'], $string);
+				
+				
+
+            }
+            else
+            {
+	        	$update->bindParam(':img', $_POST['grouppic']);
+
+            }
+            
+			$update->execute();
+			
+			
+			foreach($_POST['members'] as $userID){
+				
+				if(!$this->isUserExistInEvent($userID, $_POST['event_id']) && !$this->isUserInGroup($userID, $groupId))
+				{
+				// UPDATE DANS LA TABLE ADRESS HOME
+				
+				$insert = $this->connexion->prepare("INSERT INTO cp_event_has_user (event_event_id, user_user_id) VALUES (:eventid, :userid)");
+				$insert->bindParam(':eventid', $_POST['event_id']);
+				$insert->bindParam('userid', $userID);
+				$insert->execute();
+				
+				$insert = $this->connexion->prepare("INSERT INTO cp_user_has_group (group_group_id, user_user_id) VALUES (:groupid, :userid)");
+				$insert->bindParam(':groupid', $groupId);
+				$insert->bindParam('userid', $userID);
+				$insert->execute();
+				}
+			}
+			
+			$membresActuels = $this->getUsersByGroup($groupId);
+			foreach($membresActuels as $membre){
+				
+				if(!in_array($membre['user_user_id'], $_POST['members'])){
+		
+				$delete = $this->connexion->prepare("DELETE
+	                                        FROM " . PREFIX . "user_has_group
+	                                        where user_user_id = '" . $membre['user_user_id'] . "'");
+					$delete -> execute();
+					$delete = $this->connexion->prepare("DELETE
+	                                        FROM " . PREFIX . "event_has_user
+	                                        where user_user_id = '" . $membre['user_user_id'] . "'");
+					$delete -> execute();
+					}
+			}
+			$this->connexion->commit();
+
+			return $groupId;
+	
+        } catch (Exception $e) {
+	        $this->connexion->rollBack();
+            echo 'Message:' . $e -> getMessage();
+        }
+
 	}
 
 }
