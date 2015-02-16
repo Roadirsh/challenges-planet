@@ -195,6 +195,7 @@ class EventModel extends CoreModel{
      */
     public function SeeEvent($page = null) {
 
+        
         $debut = LIMIT * ($page-1);
         $limit = $debut + LIMIT;
 

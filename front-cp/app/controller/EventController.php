@@ -171,6 +171,9 @@ class EventController extends CoreController {
 		} else{
     		$count = $events->CountEvent();
 
+            if(!isset($_GET['page'])){
+                $_GET['page'] = 1;
+            }
             $SeeEvent = $events->SeeEvent($_GET['page']);
             $SeeEvent = $events->SeeEventTeamNB($SeeEvent, $_GET['page']);
 
