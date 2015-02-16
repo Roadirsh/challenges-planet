@@ -25,6 +25,8 @@
     define("ACTION", '&amp;action=');
 // ID
     define("ID", '&amp;id=');
+// PAGE
+    define("PAGE", '&amp;page=');
 // MESSAGES
     define("MESS", '&amp;m=');
 // URL de la racine du serveur
@@ -39,3 +41,7 @@
     define("EVENT", '../../front-cp/public/img/event/');
 // lien vers le dossier project img
     define("PROJECT", '../../front-cp/public/img/group/');
+
+
+// LIMIT EVENT
+    define("LIMIT", 7);

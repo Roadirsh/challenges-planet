@@ -4,6 +4,7 @@
 <?php if(isset($data['nb_team']) && !empty($data['nb_team']) ){ $nbteam = $data['nb_team']; } ?>
 <?php if(isset($data['search'])){ $search = $data['search']; } ?>
 <?php if(isset($data['begin']) && !empty($data['begin']) ){ $begin = $data['begin']; } ?>
+<?php if(isset($data['count']) && !empty($data['count']) ){ $count = $data['count'][0]['COUNT(*)']; } ?>
 
 <div class="list-events clearfix">
 	<div class="head clearfix">
@@ -190,15 +191,20 @@
 			
 		</div>
 	</div>
-	
 	<div class="medium-12 pagination">
-		<a class="previous-link" href="">&lt;</a>
-		<a class="select">1 </a>
-		<a>2</a>
-		<a>3</a>
-		<a class="next-link" href="">&gt;</a>
+		<?php 
+			/* * * * * * * * * * * * * * * * * * * * * * * * *
+		    * PAGINATION
+		    */
+			$limit = ceil($count / LIMIT);
+			for ($i=1; $i <= $limit; $i++) { 
+				if($_GET['page'] == $i){ ?>
+			    <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+			<?php } else { ?>
+				<a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+			<?php } ?>
+		<?php } ?>
 	</div>
-
 </div>
 
 

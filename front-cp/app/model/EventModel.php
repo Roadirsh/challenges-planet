@@ -34,7 +34,7 @@ class EventModel extends CoreModel{
      * 
      * 4 events that a user can join
      */
-    private function SeeTopEvent(){
+    public function SeeTopEvent(){
         
         try {
             /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -162,54 +162,50 @@ class EventModel extends CoreModel{
     }
 /////////////////////////////////////////////////////
 /* SEE EVENT * * * * * * * * * * * * * * * * * * * */
-    /**
-     * seeEvent.php
-     * 
-     * Get the number of teams for each events
-     * @param Array $str // Event array
-     */
-    public function EventTeamNB($str) {
-        $array = '';
-        $i = 0;
-        while($i < count($str)){
-            /* * * * * * * * * * * * * * * * * * * * * * * *
-            * Count the number of teams who are related to a event
-            * Event Array, passed into $str
-            */
-            $select = $this->connexion->prepare("SELECT COUNT(*) as event_nb_team
-                                            FROM " . PREFIX . "event_has_group
-                                            WHERE event_event_id = :eventID");
 
-
-            $select->bindValue(':eventID', $str[$i]['event_id'], PDO::PARAM_INT);
-            $select->execute();
-            $select->setFetchMode(PDO::FETCH_ASSOC);
-            $retour = $select->FetchAll();
-            $select->closeCursor(); 
-
-            /* * * * * * * * * * * * * * * * * * * * * * * *
-            * Create one uniq array whith all informations
-            */
-            $array[$i]= array_merge($str[$i], $retour[0]);
-        $i ++;
-        }
-        // var_dump($array);
-        return $array;
-    }
     /**
      * seeEvent.php
      * 
      * Show all the event (7 per page)
      * Linked to the `public function EventTeamNB($str)`
      */
-    public function SeeEvent() {
+    public function CountEvent() {
         
+        try {
+            $select = $this->connexion->prepare("SELECT COUNT(*)
+                                            FROM " . PREFIX . "event
+                                            WHERE event_valid = 1");
+           
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $CountEvent = $select->FetchAll();
+            $select->closeCursor(); 
+            
+            return $CountEvent;
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }   
+    }
+
+    /**
+     * seeEvent.php
+     * 
+     * Show all the event (7 per page)
+     * Linked to the `public function EventTeamNB($str)`
+     */
+    public function SeeEvent($page = null) {
+
+        $debut = LIMIT * ($page-1);
+        $limit = $debut + LIMIT;
+
         try {
             $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "event
                                             WHERE event_valid = 1
-                                            LIMIT 7");
+                                            LIMIT :debut, :limit");
            
+            $select -> bindValue(':debut', $debut, PDO::PARAM_INT);
+            $select -> bindValue(':limit', $limit, PDO::PARAM_INT);
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $AllEvent = $select->FetchAll();
@@ -220,6 +216,50 @@ class EventModel extends CoreModel{
             echo 'Message:' . $e->getMessage();
         }   
     }
+
+    /**
+     * seeEvent.php
+     * 
+     * Show all the event (7 per page)
+     * Linked to the `public function EventTeamNB($str)`
+     */
+    public function SeeEventTeamNB($eID) {
+        
+        try {
+            /* * * * * * * * * * * * * * * * * * * * * * * * *
+            * GET GROUPS ID
+            */
+            $array = array();
+            $i = 0;
+            foreach ($eID as $key => $eID) {
+                $select = $this->connexion->prepare("SELECT A.group_id, A.group_money , SUM(B.donate_amount) as total, C.group_group_id, C.event_event_id
+                                                    FROM cp_group A, cp_donate B, cp_event_has_group C
+                                                    WHERE A.group_id = C.group_group_id 
+                                                    AND B.group_group_id = A.group_id 
+                                                    AND A.group_valid = 1
+                                                    AND C.event_event_id = :id
+                                                    GROUP BY B.group_group_id 
+                                                    HAVING total <= A.group_money");
+
+                $select->bindValue(':id', $eID['event_id'], PDO::PARAM_INT);
+                $select->execute();
+                $select->setFetchMode(PDO::FETCH_ASSOC); 
+                $group = $select->fetchAll();
+                $select->closeCursor();
+
+                $eID['event_nb_team'] = count($group);
+                $array[$i] = $eID;
+
+            $i ++;
+            }
+
+            return $array;
+
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }   
+    }
+
     /**
      * seeEvent.php
      * 
@@ -520,55 +560,16 @@ class EventModel extends CoreModel{
             echo 'Message:' . $e->getMessage();
         } 
     }
-    /**
-     * seeEvent.php
-     * 
-     * 
-     * @param INT event ID  
-     */
-    public function SeeGroupID($eID) {
-        try {
-            $select1 = $this->connexion->prepare("SELECT group_group_id
-                                                FROM " . PREFIX . "event_has_group 
-                                                WHERE event_event_id = :eventID");
-            $select1->bindValue(':eventID', $eID, PDO::PARAM_INT);
-            $select1->execute();
-            $select1->setFetchMode(PDO::FETCH_ASSOC);
-            $AllGroupsID = $select1->FetchAll();
-            $select1->closeCursor();
-            $array = "";
-            if(isset($AllGroupsID[0]['group_group_id']) && !empty($AllGroupsID[0]['group_group_id'])){
-                $i = 0;
-                foreach ($AllGroupsID as $key => $id) {
-                    $select = $this->connexion->prepare("SELECT sum(donate_amount) as group_needed
-                                                            FROM cp_donate 
-                                                            WHERE group_group_id = :groupID");
-                    $select->bindValue(':groupID', $id['group_group_id'], PDO::PARAM_INT);
-                    $select->execute();
-                    $select->setFetchMode(PDO::FETCH_ASSOC);
-                    $n = $select->FetchAll();
-                    $select->closeCursor(); 
-                    if($n[0]['group_needed'] == null){
-                        $n[0]['group_needed'] = '0';
-                    }
-                    $array[$i] = array_merge($AllGroupsID[$i], $n[0]);
-                $i ++;
-                }
-            }
-            return $array;
-        } catch (Exception $e) {
-            echo 'Message:' . $e->getMessage();
-        } 
-    }
+
     /**
      * seeEvent.php
      * 
      * 
      * @param Array Groups ID  
      */
-    public function SeeGroupEvent($gID, $money = null) {
+    public function SeeGroupEvent($eID, $money = null) {
 
-        
+        //var_dump($gID);
         if(isset($money)){
             if($money == 2000){
                 $where = 'AND group_money <= 2000';
@@ -580,47 +581,39 @@ class EventModel extends CoreModel{
         } else{
             $where = '';
         }
+
+
         try {
-            $array = '';
+            /* * * * * * * * * * * * * * * * * * * * * * * * *
+            * GET GROUPS ID
+            */
+            $array = array();
             $i = 0;
-            foreach ($gID as $key => $g) {
-                //var_dump($g); exit;
-                $select = $this->connexion->prepare("SELECT *
-                                                    FROM " . PREFIX . "group 
-                                                    WHERE group_id = :groupID
-                                                    AND group_valid = 1
+            foreach ($eID as $key => $eID) {
+                $select = $this->connexion->prepare("SELECT A.*, SUM(B.donate_amount) as total, C.group_group_id, C.event_event_id
+                                                    FROM cp_group A, cp_donate B, cp_event_has_group C
+                                                    WHERE A.group_id = C.group_group_id 
+                                                    AND B.group_group_id = A.group_id 
+                                                    AND A.group_valid = 1
+                                                    AND C.event_event_id = :id
                                                     " . $where . "
-                                                    AND group_money > :needed");
-                //var_dump($select); exit;
-                $select->bindValue(':groupID', $g['group_group_id'], PDO::PARAM_INT);
-                $select->bindValue(':needed', $g['group_needed'], PDO::PARAM_INT);
-                $select->execute();
-                $select->setFetchMode(PDO::FETCH_ASSOC);
-                $SeeGroupEvent = $select->FetchAll();
-                $select->closeCursor(); 
+                                                    GROUP BY B.group_group_id 
+                                                    HAVING total <= A.group_money");
+
                 
-                if(!empty($SeeGroupEvent)){
-                    $select2 = $this->connexion->prepare('SELECT sum(donate_amount) as group_needed
-                                                        FROM cp_donate 
-                                                        WHERE group_group_id = :groupID');
-                    $select2->bindValue(':groupID', $SeeGroupEvent[0]['group_id'], PDO::PARAM_INT);
-                    $select2->execute();
-                    $select2->setFetchMode(PDO::FETCH_ASSOC);
-                    $Needed = $select2->FetchAll();
-                    $select2->closeCursor();
-                    // var_dump($Needed);
-                }
-                if(!empty($Needed[$i]['group_needed'])){
-                    $array[$i] = array_merge($SeeGroupEvent[$i], $Needed[$i]);
-                } elseif(!empty($SeeGroupEvent[$i])){
-                    if(!isset($array[$i]['group_needed'])){
-                        $array[$i] = $SeeGroupEvent[$i];
-                        $array[$i]['group_needed'] = '0';  
-                    }
-                } 
-            $i ++;   
+                $select->bindValue(':id', $eID['event_id'], PDO::PARAM_INT);
+                $select->execute();
+                $select->setFetchMode(PDO::FETCH_ASSOC); 
+                $group = $select->fetchAll();
+                $select->closeCursor();
+
+                var_dump($group);
+                $eID['event_nb_team'] = count($group);
+                $array[$i] = $eID;
+
+            $i ++;
             }
-            // var_dump($array); exit;
+
             return $array;
 
 
@@ -634,33 +627,36 @@ class EventModel extends CoreModel{
      * 
      * @param Array Groups ID  
      */
-    public function SeeDoneGroup($gID) {
-        // var_dump($gID); // exit;
+    public function SeeDoneGroup($eID) {
+
         try {
-            $array = '';
+            /* * * * * * * * * * * * * * * * * * * * * * * * *
+            * GET GROUPS ID
+            */
+            $array = array();
             $i = 0;
-            foreach ($gID as $key => $g) {
-                $select = $this->connexion->prepare("SELECT *
-                                                    FROM " . PREFIX . "group 
-                                                    WHERE group_id = :groupID
-                                                    AND group_valid = 1
-                                                    AND group_money < :needed");
-                //var_dump($select); exit;
-                $select->bindValue(':groupID', $g['group_group_id'], PDO::PARAM_INT);
-                $select->bindValue(':needed', $g['group_needed'], PDO::PARAM_INT);
+            foreach ($eID as $key => $eID) {
+                $select = $this->connexion->prepare("SELECT A.*, SUM(B.donate_amount) as total, C.group_group_id, C.event_event_id
+                                                    FROM cp_group A, cp_donate B, cp_event_has_group C
+                                                    WHERE A.group_id = C.group_group_id 
+                                                    AND B.group_group_id = A.group_id 
+                                                    AND A.group_valid = 1
+                                                    AND C.event_event_id = :id
+                                                    GROUP BY B.group_group_id 
+                                                    HAVING total >= A.group_money");
+
+                $select->bindValue(':id', $eID['event_id'], PDO::PARAM_INT);
                 $select->execute();
-                $select->setFetchMode(PDO::FETCH_ASSOC);
-                $SeeDoneGroup = $select->FetchAll();
-                $select->closeCursor(); 
+                $select->setFetchMode(PDO::FETCH_ASSOC); 
+                $group = $select->fetchAll();
+                $select->closeCursor();
+
+                $eID['event_nb_team'] = count($group);
+                $array[$i] = $eID;
                 
-                //var_dump($SeeDoneGroup[0]['group_id']); exit;
-                if(!empty($SeeDoneGroup[0]['group_id'])){
-                    $array = $SeeDoneGroup;
-                }
-                
-            $i ++;   
+            $i ++;
             }
-            // var_dump($array); exit;
+
             return $array;
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();

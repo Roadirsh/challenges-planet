@@ -2,20 +2,6 @@
     //pagination([requete globale], [requete avec limit], [limit]);  
     function pagination($requete1, $limit)
     {
-    
-    //var_dump($requete1);
-    ///////////////////////////////////////////////////////////////
-    // ETAPE petit beurre: RECUPERER LES CHAMPS DE L'URL POUR REECRITURE DE L'URL
-    $azerty = "frontoffice/".$_GET['a']; // à changé, voir htacess
-
-    if(isset($_GET['b']))
-    {
-        $azerty = "frontoffice/".$_GET['a']. "/". $_GET['b'];
-    }
-    if(isset($_GET['c']))
-    {
-        $azerty = "frontoffice/".$_GET['a']. "/". $_GET['b']. "/". $_GET['c'];
-    }
 
     ///////////////////////////////////////////////////////////////
     // ETAPE 1: RECUPERER LE NBRE TOTAL 
@@ -56,15 +42,6 @@
             $b = $page+1;
             $i = $page;
             
-            /*if($a<1)
-            {
-                echo '<a><span class="pagina_prec_stop">&laquo;'. _('précédent') . '</span></a>';
-            }
-            else
-            {
-                echo '<a href="' . url_mmv($azerty, $a) .'"><span class="pagina_prec">&laquo; '. _('précédent') . ' </span></a>';
-            }*/
-            
     
             // 1ere partie  
             $c = $page-4;
@@ -96,15 +73,6 @@
                 $i++;
             }
             
-            /*if($b>$nb_pages)
-            {
-                echo '<a><span class="pagina_stop">'. _('suivant') . ' &raquo </span></a>';
-            }
-            else
-            {
-                echo '<a href="' . url_mmv($azerty, $b) .'" class="pagina_suiv">'. _('suivant') . '&raquo </a>';
-            }*/
-
             return $debut;  
 
         }

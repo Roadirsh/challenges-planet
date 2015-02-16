@@ -78,11 +78,15 @@ class CoreModel{
 			if(isset($options["sort"])){
 				$query .= " ".$options["sort"];	
 			}
+			if(isset($options["groupBy"])){
+				$query .= " GROUP BY ".$options["groupBy"];	
+			}
 			if(isset($options["limit"]) && isset($options["offset"])){
 				$query .= " LIMIT ".$options["offset"].",".$options["limit"];	
 			}
 			
-			$curseur = $this->pdo->prepare($query);
+			$curseur = $this->connexion->prepare($query);
+			// var_dump($curseur); 
 			$curseur->execute();
 			$records = $curseur->fetchAll();
 			$curseur->closeCursor();
