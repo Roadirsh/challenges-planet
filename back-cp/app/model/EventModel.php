@@ -29,7 +29,7 @@ class EventModel extends CoreModel{
 	function __construct(){
 		parent::__construct();
 
-		if(isset($_POST) && !empty($_POST)){
+		if(isset($_POST) && !empty($_POST) && !isset($_POST['search'])){
             
             $post = $_POST;
             
@@ -58,6 +58,65 @@ class EventModel extends CoreModel{
     		
         }
 	}
+	
+	
+	
+	
+	
+	public function SearchEvent($post){
+	
+	    include('../lib/blacklist.inc.php');
+        $search = addslashes($post['search']);
+        
+        $expSearch = explode(" ", $search);
+        
+
+	    $i = 0;
+	    $nbArraySearch = count($expSearch);
+   	    foreach($expSearch as $phrase)
+	    {
+			$r = "WHERE ";
+	        if(!empty($phrase))
+	        {
+				//$adv -> blacklist
+	            if(!in_array(strtolower($phrase), $adv))
+	            { 
+                    // USER TABLE BDD
+                    $r .= "( event_name LIKE '%".addslashes($phrase)."%' ";
+                    if($i < $nbArraySearch){
+    	                $r .= "OR ";
+                    }
+                    $r .= "event_decr LIKE '%".addslashes($phrase)."%' ";
+					if($i < $nbArraySearch){
+                        $r .= "OR ";
+                    }
+                    
+	            }
+				$r = substr($r, 0, -3);
+				$r .= "  ) ";
+				$i ++; 
+	    	}
+	    	if(!empty($r))
+			{
+		   		$ajout = $r;
+	       	}
+			else 
+			{
+				$ajout = "";
+        	}
+	    }
+			$query = "SELECT * FROM " . PREFIX . "event " . $ajout . "  GROUP BY event_id";
+		    $select = $this->connexion->prepare($query);
+        //var_dump($select);
+		$select -> execute();
+		$select -> setFetchMode(PDO::FETCH_ASSOC);
+		$retour = $select -> fetchAll();
+		
+		return $retour;
+    }
+	
+	
+	
 	
 	/**
 	 * Voir l'ensemble des évenements

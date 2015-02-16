@@ -519,52 +519,52 @@ class ProjectModel extends CoreModel{
 	public function SearchProject($post){
 	
 	    include('../lib/blacklist.inc.php');
-        $post = $_POST['search'];
-        $exp = explode(" ", $post);
+        $search = addslashes($post['search']);
+        
+        $expSearch = explode(" ", $search);
+        
 
 	    $i = 0;
-	    $count = count($exp);
-        
-	    foreach($exp as $k => $e)
+	    $nbArraySearch = count($expSearch);
+   	    foreach($expSearch as $phrase)
 	    {
-	        if(!empty($e))
+			$r = "WHERE ";
+	        if(!empty($phrase))
 	        {
-	            if(strlen($e) > 3)
-	            {
-	                if(!in_array(strtolower($e), $adv))
-	                { 
-	                    $r = '';
-                        // GROUP TABLE BDD
-                        $r .= "group_name LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-                        $r .= "group_descr LIKE '%".addslashes($e)."%' ";
-                        if($i < $count){
-                            $r .= "OR ";
-                        }
-	                }
+				//$adv -> blacklist
+	            if(!in_array(strtolower($phrase), $adv))
+	            { 
+                    // USER TABLE BDD
+                    $r .= "( group_name LIKE '%".addslashes($phrase)."%' ";
+                    if($i < $nbArraySearch){
+    	                $r .= "OR ";
+                    }
+                    $r .= "group_descr LIKE '%".addslashes($phrase)."%' ";
+					if($i < $nbArraySearch){
+                        $r .= "OR ";
+                    }
+                    
 	            }
-	        }
-	        $i ++; 
+				$r = substr($r, 0, -3);
+				$r .= "  ) ";
+				$i ++; 
+	    	}
+	    	if(!empty($r))
+			{
+		   		$ajout = $r;
+	       	}
+			else 
+			{
+				$ajout = "";
+        	}
 	    }
-
-	    $r = substr($r, 0, -4);
-	    if(!empty($r)): $ajout = $r; endif;
-	    
-	    
-	    
-	    $select = $this->connexion->prepare("SELECT *
-		                                FROM 
-    		                                " . PREFIX . "group
-		                                WHERE " . $ajout . "
-		                                GROUP BY group_id");
+			$query = "SELECT * FROM " . PREFIX . "group " . $ajout . "  GROUP BY group_id";
+		    $select = $this->connexion->prepare($query);
         //var_dump($select);
 		$select -> execute();
 		$select -> setFetchMode(PDO::FETCH_ASSOC);
 		$retour = $select -> fetchAll();
 		
-		//var_dump($retour); exit();
 		return $retour;
     }
     

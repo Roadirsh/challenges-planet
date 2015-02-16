@@ -20,7 +20,6 @@ class EventController extends CoreController {
 		parent::__construct();
 
 		if(isset($_GET['action'])){
-			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
 			if(method_exists($this, $action)){
     			$this->$action();
