@@ -123,6 +123,9 @@ class EventController extends CoreController {
 		$events = $this->model = new EventModel();
 		
 		$array = array();
+        if(!isset($_GET['page'])){
+            $_GET['page'] = 1;
+        }
 
 		/* * * * * * * * * * * * * * * * * * * * * * * * *
         * WHITH FILTER
@@ -130,36 +133,44 @@ class EventController extends CoreController {
 		if(isset($_POST) && !empty($_POST)){
 		    /* KIND OF RACE */
     		if(isset($_POST['type']) && !empty($_POST['type'])){
-    		    $SeeEvent = $events->SeeFiltreEventType($_POST['type']);
+    		    $SeeEvent = $events->SeeFiltreEventType($_POST['type'], $_GET['page']);
                 if(!empty($SeeEvent)){
-                    $SeeEvent = $events->SeeEventTeamNB($SeeEvent);
+                    $SeeEvent = $events->SeeEventTeamNB($SeeEvent, $_GET['page']);
                 }
+                $count = count($SeeEvent);
     		    $array['search'][1] = $_POST['type'];
                 $array['search'][2] = 'Type ';
                 $_POST = null;
 
             /* BEGIN OF RACE */ 
     		} elseif(isset($_POST['begin']) && !empty($_POST['begin'])){
-    		    $SeeEvent = $events->SeeFiltreEventBeginning($_POST['begin']);
+    		    $SeeEvent = $events->SeeFiltreEventBeginning($_POST['begin'], $_GET['page']);
                 if(!empty($SeeEvent)){
-                    $SeeEvent = $events->SeeEventTeamNB($SeeEvent);
+                    $SeeEvent = $events->SeeEventTeamNB($SeeEvent, $_GET['page']);
                 }
+                $count = count($SeeEvent);
     		    $array['search'][1] = $_POST['begin'];
                 $array['search'][2] = 'Begin date ';
                 $_POST = null;
 
             /* NUMBER OF TEAMS */
     		} elseif(isset($_POST['nb_team']) && !empty($_POST['nb_team'])){
-    		    $SeeEvent = $events->SeeFiltreEventNbTeam($_POST['nb_team']);
-                $SeeEvent = $events->SeeEventTeamNB($SeeEvent);
+    		    $SeeEvent = $events->SeeFiltreEventNbTeam($_POST['nb_team'], $_GET['page']);
+                if(!empty($SeeEvent[0])){
+                    $SeeEvent = $events->SeeEventTeamNB($SeeEvent, $_GET['page']);
+                }
+                $count = count($SeeEvent);
     		    $array['search'][1] = $_POST['nb_team'];
                 $array['search'][2] = 'Ending date ';
                 $_POST = null;
             
             /* GLOBAL SEARCH */
             } elseif(isset($_POST['search']) && !empty($_POST['search'])){
-                $SeeEvent = $events->SearchByEvent($_POST['search']);
-                $SeeEvent = $events->SeeEventTeamNB($SeeEvent);
+                $SeeEvent = $events->SearchByEvent($_POST['search'], $_GET['page']);
+                if(!empty($SeeEvent)){
+                    $SeeEvent = $events->SeeEventTeamNB($SeeEvent, $_GET['page']);
+                }
+                $count = count($SeeEvent);
                 $array['search'][1] = $_POST['search'];
                 $array['search'][2] = '';
                 $_POST = null;
@@ -169,13 +180,11 @@ class EventController extends CoreController {
         * WHITHOUT FILTER
         */
 		} else{
-    		$count = $events->CountEvent();
-
-            if(!isset($_GET['page'])){
-                $_GET['page'] = 1;
-            }
+            $count = $events->CountEvent();
             $SeeEvent = $events->SeeEvent($_GET['page']);
-            $SeeEvent = $events->SeeEventTeamNB($SeeEvent, $_GET['page']);
+            if(!empty($SeeEvent)){
+                $SeeEvent = $events->SeeEventTeamNB($SeeEvent, $_GET['page']);
+            }
 
             $array['search'] = '';
 		}
@@ -183,6 +192,7 @@ class EventController extends CoreController {
         /* Construct the array to pass */
         $array['count'] = $count;
 		$array['events'] = $SeeEvent;
+
 		/* Load the view */
 		$this->load->view('event', 'seeEvent', $array); // TODO
 	
@@ -212,7 +222,7 @@ class EventController extends CoreController {
         /* Construct the array to pass */
         $array['groups'] = $SeeGroups;
         $array['done'] = $SeeDoneGroups;
-
+        $array['count'] = count($SeeGroups)+count($SeeDoneGroups);
 
         /* Construct the array to pass */
         $array['event'] = $SeeEvent[0];
@@ -241,17 +251,12 @@ class EventController extends CoreController {
             $SeeGroups = $event->SearchByProject($_POST['search'], $eID);
             $array['search'] = $_POST['search'];
             $_POST = '';
-            $array['groups'] = $SeeGroups;
 
+            $array['groups'] = $SeeGroups;
         }
 
         /* Construct the array to pass */
-
-        // if(!empty($SeeEvent['groups'])){
-        //     $array['groups'] = $SeeEvent['groups'];
-        // } elseif(!empty($SeeEvent['done'])){
-        //     $array['done'] = $SeeEvent['done'];
-        // }
+        // var_dump($array);
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>

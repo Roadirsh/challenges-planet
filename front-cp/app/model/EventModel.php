@@ -166,8 +166,6 @@ class EventModel extends CoreModel{
     /**
      * seeEvent.php
      * 
-     * Show all the event (7 per page)
-     * Linked to the `public function EventTeamNB($str)`
      */
     public function CountEvent() {
         
@@ -182,6 +180,7 @@ class EventModel extends CoreModel{
             $select->closeCursor(); 
             
             return $CountEvent;
+
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         }   
@@ -195,7 +194,9 @@ class EventModel extends CoreModel{
      */
     public function SeeEvent($page = null) {
 
-        
+        if($page <= 0){
+            $page = 2;
+        }
         $debut = LIMIT * ($page-1);
         $limit = $debut + LIMIT;
 
@@ -205,14 +206,15 @@ class EventModel extends CoreModel{
                                             WHERE event_valid = 1
                                             LIMIT :debut, :limit");
            
-            $select -> bindValue(':debut', $debut, PDO::PARAM_INT);
-            $select -> bindValue(':limit', $limit, PDO::PARAM_INT);
+            $select->bindValue(':debut', $debut, PDO::PARAM_INT);
+            $select->bindValue(':limit', $limit, PDO::PARAM_INT);
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $AllEvent = $select->FetchAll();
             $select->closeCursor(); 
             
             return $AllEvent;
+
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         }   
@@ -224,8 +226,14 @@ class EventModel extends CoreModel{
      * Show all the event (7 per page)
      * Linked to the `public function EventTeamNB($str)`
      */
-    public function SeeEventTeamNB($eID) {
+    public function SeeEventTeamNB($eID, $page = null) {
         
+        if($page <= 0){
+            $page = 2;
+        }
+        $debut = LIMIT * ($page-1);
+        $limit = $debut + LIMIT;
+
         try {
             /* * * * * * * * * * * * * * * * * * * * * * * * *
             * GET GROUPS ID
@@ -234,14 +242,17 @@ class EventModel extends CoreModel{
             $i = 0;
             foreach ($eID as $key => $eID) {
                 $select = $this->connexion->prepare("SELECT A.group_id, A.group_money , SUM(B.donate_amount) as total, C.group_group_id, C.event_event_id
-                                                    FROM cp_group A, cp_donate B, cp_event_has_group C
+                                                    FROM " . PREFIX . "group A, " . PREFIX . "donate B, " . PREFIX . "event_has_group C
                                                     WHERE A.group_id = C.group_group_id 
                                                     AND B.group_group_id = A.group_id 
                                                     AND A.group_valid = 1
                                                     AND C.event_event_id = :id
                                                     GROUP BY B.group_group_id 
-                                                    HAVING total <= A.group_money");
+                                                    HAVING total <= A.group_money
+                                                    LIMIT :debut, :limit");
 
+                $select->bindValue(':debut', $debut, PDO::PARAM_INT);
+                $select->bindValue(':limit', $limit, PDO::PARAM_INT);
                 $select->bindValue(':id', $eID['event_id'], PDO::PARAM_INT);
                 $select->execute();
                 $select->setFetchMode(PDO::FETCH_ASSOC); 
@@ -269,18 +280,31 @@ class EventModel extends CoreModel{
      * 
      * @param Array $post // Type of race
      */
-    public function SeeFiltreEventType($post){
+    public function SeeFiltreEventType($post, $page = null){
+
+        if($page <= 0){
+            $page = 2;
+        }
+        $debut = LIMIT * ($page-1);
+        $limit = $debut + LIMIT;
+
         try {
             $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "event
-                                            WHERE event_type = :type");
-           
+                                            WHERE event_type = :type
+                                            AND event_valid = 1
+                                            LIMIT :debut, :limit");
+
+            $select->bindValue(':debut', $debut, PDO::PARAM_INT);
+            $select->bindValue(':limit', $limit, PDO::PARAM_INT);
             $select->bindValue(':type', $post, PDO::PARAM_STR);
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $ByNb = $select->FetchAll();
             $select->closeCursor(); 
+
             return $ByNb;
+
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         }
@@ -294,7 +318,13 @@ class EventModel extends CoreModel{
      * 
      * @param Array $post // Beginning of race
      */
-    public function SeeFiltreEventBeginning($post) {
+    public function SeeFiltreEventBeginning($post, $page = null) {
+
+        if($page <= 0){
+            $page = 2;
+        }
+        $debut = LIMIT * ($page-1);
+        $limit = $debut + LIMIT;
 
         $datenow = date("Y-m-d");
 
@@ -314,8 +344,11 @@ class EventModel extends CoreModel{
             $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "event
                                             WHERE event_valid = 1
-                                            AND event_begin >= '" . $date . "'" );
-           
+                                            AND event_begin >= '" . $date . "'
+                                            LIMIT :debut, :limit");
+
+            $select->bindValue(':debut', $debut, PDO::PARAM_INT);
+            $select->bindValue(':limit', $limit, PDO::PARAM_INT);
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $ByBe = $select->FetchAll();
@@ -337,51 +370,69 @@ class EventModel extends CoreModel{
      * 
      * @param Array $post // Number of teams for all the events
      */
-    public function SeeFiltreEventNbTeam($post) {
+    public function SeeFiltreEventNbTeam($post, $page = null) {
     
+        if($page <= 0){
+            $page = 2;
+        }
+        $debut = LIMIT * ($page-1);
+        $limit = $debut + LIMIT;
+
         try {
+
             $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "event
-                                            WHERE event_valid = 1");
+                                            WHERE event_valid = 1
+                                            LIMIT :debut, :limit");
+            
+            $select->bindValue(':debut', $debut, PDO::PARAM_INT);
+            $select->bindValue(':limit', $limit, PDO::PARAM_INT);
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $AllEvent = $select->FetchAll();
             $select->closeCursor(); 
             $array = array('');
+
             $i = 0;
             while($i < count($AllEvent)){
-                
+
                 $select2 = $this->connexion->prepare("SELECT COUNT(*) as event_nb_team
                                                 FROM " . PREFIX . "event_has_group
                                                 WHERE event_event_id = :eventID");
+                
                 $select2->bindValue(':eventID', $AllEvent[$i]['event_id'], PDO::PARAM_INT);
                 $select2->execute();
                 $select2->setFetchMode(PDO::FETCH_ASSOC);
                 $CountGroupEvent = $select2->FetchAll();
-                $select2->closeCursor(); 
-                //var_dump($post);
+                $select2->closeCursor();
+
                 $nb_team = $CountGroupEvent['0']['event_nb_team'];
-                
+
+                //var_dump($nb_team);
                 /* * * * * * * * * * * * * * * * * * * * * * * *
                 * Construction of the array 
                 * Dispatching in the severals arrays
                 */
+                
                 if($post == '1-15'){
                     if($nb_team != 0 && $nb_team < 15){
                         $array[$i] = array_merge($AllEvent[$i], $CountGroupEvent['0']);
                     }
                 } elseif($post == '15-50'){
                     if($nb_team != 0 && $nb_team > 15 && $nb_team < 50){
-                        $array[$i] = array_merge($AllEvent[$i], $CountGroupEvent['0']);
+                       $array[$i] = array_merge($AllEvent[$i], $CountGroupEvent['0']);
                     }
                 } elseif($post == '+50'){
                     if($nb_team != 0 && $nb_team > 50){
+                        var_dump($AllEvent[$i]);
                         $array[$i] = array_merge($AllEvent[$i], $CountGroupEvent['0']);
                     }
                 }    
                 
+                
             $i ++;
             }
+
             return $array;
             
             
@@ -396,7 +447,14 @@ class EventModel extends CoreModel{
      *
      * @param Array $_POST
      */
-    public function SearchByEvent($post) {
+    public function SearchByEvent($post, $page = null) {
+
+        if($page <= 0){
+            $page = 2;
+        }
+        $debut = LIMIT * ($page-1);
+        $limit = $debut + LIMIT;
+
         include('../lib/blacklist.inc.php');
         $search = addslashes($post);
         $search = preg_replace("/'/", "", $search);
@@ -440,7 +498,10 @@ class EventModel extends CoreModel{
                                                 FROM " . PREFIX . "event 
                                                 WHERE event_valid = 1 
                                                 AND event_id = :eventID
-                                                LIMIT 7");
+                                                LIMIT :debut, :limit");
+
+            $select2->bindValue(':debut', $debut, PDO::PARAM_INT);
+            $select2->bindValue(':limit', $limit, PDO::PARAM_INT);
             $select2->bindValue(':eventID', $e['event_id'], PDO::PARAM_INT);
             $select2->execute();
             $select2->setFetchMode(PDO::FETCH_ASSOC);
@@ -454,7 +515,8 @@ class EventModel extends CoreModel{
      *
      * @param array $_POST
      */
-    public function SearchByProject($post, $eID) {
+    public function SearchByProject($post, $eID, $page = null) {
+
         include('../lib/blacklist.inc.php');
         $search = addslashes($post);
         
@@ -475,20 +537,22 @@ class EventModel extends CoreModel{
         if (count($sql) > 0) {
             $ajout = ' WHERE ' . $reqSQL;
         }
-        
+
         $select = $this->connexion->prepare("SELECT group_id
                                             FROM " . PREFIX . "group
                                             " . $ajout . " 
                                             AND group_valid = 1
                                             GROUP BY group_id");
+
         $select->execute();
         $select->setFetchMode(PDO::FETCH_ASSOC); 
         $group = $select->fetchAll();
         $select->closeCursor(); 
         $array = ''; 
         $i = 0;
+
         foreach ($group as $key => $e) {
-            // var_dump($e);
+
             $select2 = $this->connexion->prepare("SELECT *
                                                 FROM " . PREFIX . "group 
                                                 WHERE group_id = :eventID
@@ -497,19 +561,20 @@ class EventModel extends CoreModel{
             $select2->execute();
             $select2->setFetchMode(PDO::FETCH_ASSOC);
             $AllGroups = $select2->FetchAll();
-            // var_dump($AllGroups);
             $select2->closeCursor(); 
+
             if(!empty($AllGroups[0]['group_id'])){
-                $select3 = $this->connexion->prepare("SELECT sum(donate_amount) AS needed
+                $select3 = $this->connexion->prepare("SELECT sum(donate_amount) AS group_needed
                                                     FROM cp_donate 
                                                     WHERE group_group_id = :groupID");
+
                 $select3->bindValue(':groupID', $AllGroups[0]['group_id'], PDO::PARAM_INT);
                 $select3->execute();
                 $select3->setFetchMode(PDO::FETCH_ASSOC);
                 $needed = $select3->fetchAll();
                 $select3->closeCursor(); 
                 
-                if($needed[0]['needed'] >= $AllGroups[0]['group_money']){
+                if($needed[0]['group_needed'] >= $AllGroups[0]['group_money']){
                     $d[$i] = array_merge($AllGroups[0], $needed[0]);
                 } else {
                     $gr[$i] = array_merge($AllGroups[0], $needed[0]);
@@ -525,7 +590,7 @@ class EventModel extends CoreModel{
         if(!empty($d)){
             $array['done'] = $d;
         }
-        // var_dump($array); exit;
+        //var_dump($array); exit;
         return $array;    
     }
 /////////////////////////////////////////////////////
@@ -570,7 +635,7 @@ class EventModel extends CoreModel{
      */
     public function SeeGroupEvent($eID, $money = null) {
 
-        //var_dump($gID);
+        // var_dump($eID);
         if(isset($money)){
             if($money == 2000){
                 $where = 'AND group_money <= 2000';
@@ -591,7 +656,7 @@ class EventModel extends CoreModel{
             $array = array();
             $i = 0;
             foreach ($eID as $key => $eID) {
-                $select = $this->connexion->prepare("SELECT A.*, SUM(B.donate_amount) as total, C.group_group_id, C.event_event_id
+                $select = $this->connexion->prepare("SELECT *, SUM(B.donate_amount) as group_needed, C.group_group_id, C.event_event_id
                                                     FROM cp_group A, cp_donate B, cp_event_has_group C
                                                     WHERE A.group_id = C.group_group_id 
                                                     AND B.group_group_id = A.group_id 
@@ -599,29 +664,25 @@ class EventModel extends CoreModel{
                                                     AND C.event_event_id = :id
                                                     " . $where . "
                                                     GROUP BY B.group_group_id 
-                                                    HAVING total <= A.group_money");
+                                                    HAVING group_needed <= A.group_money");
 
-                
                 $select->bindValue(':id', $eID['event_id'], PDO::PARAM_INT);
                 $select->execute();
                 $select->setFetchMode(PDO::FETCH_ASSOC); 
                 $group = $select->fetchAll();
                 $select->closeCursor();
 
-                var_dump($group);
-                $eID['event_nb_team'] = count($group);
-                $array[$i] = $eID;
-
             $i ++;
             }
 
-            return $array;
+            return $group;
 
 
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         } 
     }
+
     /**
      * seeEvent.php
      * 
@@ -658,11 +719,12 @@ class EventModel extends CoreModel{
             $i ++;
             }
 
-            return $array;
+            return $group;
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         } 
     }
+
     /**
      * mobile application
      *
@@ -674,16 +736,16 @@ class EventModel extends CoreModel{
                                                 FROM " . PREFIX . "event 
                                                 WHERE event_valid = 1");
                     
-            $select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $event = $select -> FetchAll(); 
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $event = $select->FetchAll(); 
             
             $json = json_encode($event);
             return $json;
         }
         catch (Exception $e)
         {
-            echo 'Message:' . $e -> getMessage();
+            echo 'Message:' . $e->getMessage();
         }
     }
 }
