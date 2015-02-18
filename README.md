@@ -6,14 +6,14 @@
 
 #### **== Introduction ==**
 
-In this project, you will find two subject.
+In this project, you will find two subjects.
 - Home made framework
 - App for Challenges Planet
 
 > Challenges Planet is a platform of comparison of students and companies to find partnerships within sporting great events. 
-It allow u to find some sponsor for yours events or find student to sponsorise.
+It allows you to find some sponsor for yours events or find student to sponsorize.
 
-Functionality:
+Functionalities:
 * CoreController/ redirection
 * CoreController/ page 404 loading
 * CoreModel/ coreTableAll
@@ -22,25 +22,25 @@ Functionality:
 
 #### **== Requirements ==**
 
-Developped with :  PHP Version 5.6.2<br>
+Developed with :  PHP Version 5.6.2<br>
 Browser : Chrome & Firefox<br>
 Permissions : 777 on all your files for logs<br>
 
 #### **== Tests ==**
 
-For testing the web site, please read the documentation.senario_tests.
+For testing the web site, please read the documentation.scenario_tests.
 
 #### **== Known bugs ==**
 
-None for the moment.
+None at the moment.
 
 #### **== Authors ==**
 
-**Backend developpers of Challenges Planet**<br>
+**Backend developers of Challenges Planet**<br>
 LEDON Bastien<br>
 GIRAUD Saskia<br>
 
-**Frontend developpers of Challenges Planet**<br>
+**Frontend developers of Challenges Planet**<br>
 D’AGUANNO Aurélie<br>
 CAMBOUR Jeremy<br>
 
@@ -54,6 +54,6 @@ Title    		| Links
 -------------	|------
 Facebook 		| [Challengesplanet](https://www.facebook.com/challengesplanet)
 Website  		| [challengespla.net](https://www.challengespla.net)
-Documentation	| [PhpDoc]()
-Doc PDF		| [Technical file]()
+Documentation	| ... 
+Doc PDF		    | [challengespla.net](http://ns366377.ovh.net/giraudsa/perso/ChallengesPlanet/technical_file.pdf)
 Github			| [Github/challengesplanet](https://github.com/Roadirsh/challenges-planet)
