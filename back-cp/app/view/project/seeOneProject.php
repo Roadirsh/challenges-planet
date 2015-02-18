@@ -43,7 +43,6 @@
 		                <input type="hidden" name="update" value="true" />
 	                    
 	        			    <select name="valid"  style="width:20%;" required>
-							<?php if($group['group_valid'] == 1){ echo 'selected'; }?>
 								
 								
 								<option value="1" <?php if($group['group_valid'] == 1){ echo 'selected'; }?>> Online </option>

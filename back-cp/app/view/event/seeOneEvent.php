@@ -22,36 +22,69 @@
     <section class="content">
         <div id="content" class="span10">
             <div class="row-fluid">		
-                <div class="user user_profil">
-                    <? if(!empty($event['event_img'])){ ?>
-                        <img src="<? echo EVENT.'slider/'.$event['event_img']; ?>" alt="..." class="img-thumbnail">
-                    <? } ?>
-                </div>
-                <div class="user user_info">
-                    <?php if($event['event_valid'] == 1){ ?>
-        			    <strong>Status:</strong> <span class="label label-success">Approved</span><br>   
-        		    <? } else { ?>
-        		        <strong>Status:</strong> <span class="label label-warning">Waiting</span><br>  
-                    <? } ?>
-                    <br><br>
-                    <strong>Begin:</strong> <? echo $event['event_begin']; ?><br>
-                    <strong>End:</strong> <? echo $event['event_end']; ?><br><br>
-                    <strong>Groups:</strong><br>
-                    <ul>
-                        <? foreach($group as $k => $g){ ?>
-                            <li><em><a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $g['group_id']; ?>"><? echo $g['group_name']; ?></a></em></li>
-                        <? } ?>
-                        
-                    </ul>
-                </div>
-                <div style="clear:both"></div>
-                <div class="user user_info">
-                    <h2><? echo $event['event_name']; ?> <small>- <em><? echo $event['event_location']; ?></em></small></h2>
-                    <p><small><em>sign up date : <? echo $event['event_date']; ?> </em></small></p>
-                    <p><? echo ($event['event_decr']); ?></p>
-                </div>
+	        	<form class="form-horizontal" enctype="multipart/form-data" action="<? echo MODULE . 'event' . ACTION . 'Uponeevent&id='.$event['event_id']; ?>" method="post">	
+					<input type="hidden" name="update" value="true" />
+	                <div class="user user_profil">
+	                    <? if(!empty($event['event_img'])){ ?>
+	                     <img class="avatar" alt="" src="<? echo EVENT.'slider/'.$event['event_img']; ?>">
+					        
+					        <input  type="hidden" name="event_img" value="<? echo $event['event_img']; ?>"/>
+	                    <? } ?>
+	                    <input type="file" name="event_img" />
+	                </div>
+	                <div class="user user_info">
+	                   <select name="valid"  style="width:20%;" required>								
+								
+								<option value="1" <?php if($event['event_valid'] == 1){ echo 'selected'; }?>> Online </option>
+								<option value="0" <?php if($event['event_valid'] != 1){ echo 'selected'; }?>> Offline </option>
+								
+							
+							</select>
+	                    
+	                    <div class="controls">
+							<select name="event_type" required>
+								<option value="earth" <? if ($event['event_type'] == "earth") { echo "selected" ; } ?> >Land</option>
+								<option value="sea" <? if ($event['event_type'] == "sea") { echo "selected" ; } ?>>Sea</option>
+								<option value="air" <? if ($event['event_type'] == "air") { echo "selected" ; } ?>>Air</option>
+								<option value="car" <? if ($event['event_type'] == "car") { echo "selected" ; } ?>>Car</option>
+								<option value="boat" <? if ($event['event_type'] == "boat") { echo "selected" ; } ?>>Boat</option>
+								<option value="surf" <? if ($event['event_type'] == "surf") { echo "selected" ; } ?>>Surf</option>
+								<option value="bike" <? if ($event['event_type'] == "bike") { echo "selected" ; } ?>>Bike</option>
+							</select>
+						</div>
+	                    <strong>Begin:</strong> <input type="date" name="event_begin" value="<? echo $event['event_begin']; ?>"  /><br>
+	                    <strong>End:</strong> <input type="date" name="event_end" value="<? echo $event['event_end']; ?>"  /><br><br>
+	                    <strong>Groups:</strong><br>
+	                    <ul>
+	                        <? foreach($group as $k => $g){ ?>
+	                            <li><em><a href="<? echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $g['group_id']; ?>"><? echo $g['group_name']; ?></a></em></li>
+	                        <? } ?>
+	                        
+	                    </ul>
+	                </div>
+	                <div style="clear:both"></div>
+	                <div class="user user_info">
+	                    <h2><input type="text" value="<? echo $event['event_name']; ?>" name="event_name" /> <small>- <em><input type="text" value="<? echo $event['event_location']; ?>" name="event_location" /></em></small></h2>
+	                    <p><small><em>sign up date : <? echo $event['event_date']; ?> </em></small></p>
+	                    <div class="editable" name="group_description"><? echo $event['event_decr']; ?></div>
+	                </div>	                
+	                <div style="clear:both"></div>
+					<input type="submit" class="btn btn-success">
+                </form>
         	</div><!--/row-->
         </div>
+        <script type="text/javascript">
+	    tinymce.init({
+				selector: "div.editable",
+				inline: true,
+				plugins: [
+				"advlist autolink lists link image charmap print preview anchor",
+				"searchreplace visualblocks code fullscreen",
+       			"insertdatetime media table contextmenu paste"
+	   			],
+	   			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+			});
+ </script>
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

@@ -67,7 +67,7 @@
         									<a class="btn btn-info" href="#">
         										<i class="fa fa-pencil-square-o"></i>  
         									</a>
-        									<a class="btn btn-danger" href="<? echo MODULE . 'event' . ACTION . 'delevent' . ID . $AllEvent['event_id']; ?>">
+        									<a class="btn btn-danger" onclick="return(confirm('Etes-vous sûr de vouloir supprimer cette entrée?'));" href="<? echo MODULE . 'event' . ACTION . 'delevent' . ID . $AllEvent['event_id']; ?>">
         										<i class="fa fa-trash-o"></i>  
         									</a>
         								</td>
