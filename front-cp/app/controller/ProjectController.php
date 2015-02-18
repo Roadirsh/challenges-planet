@@ -46,13 +46,6 @@ class ProjectController extends CoreController {
      */
     public function SeeOneProject() {
 
-        /* * * * * * * * * * * * * * * * * * * * * * * *
-        * <head> STUFF </head>
-        */
-        define("PAGE_TITLE", SITE_NAME . " - ");
-        define("PAGE_DESCR", SITE_NAME . " ");
-        define("PAGE_ID", "seeProject");
-
         $project = $this->model = new ProjectModel();
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -61,6 +54,13 @@ class ProjectController extends CoreController {
         $SeeOneProject = $project->SeeOneGroup($_GET['id']);
 
         $array['project'] = $SeeOneProject;
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME . " - " . $array['project']['group_name']);
+        define("PAGE_DESCR", SITE_NAME . " " . $array['project']['group_descr']);
+        define("PAGE_ID", "seeProject");
 
         /* Load the view */
         $this->load->view('project', 'seeOneProject', $array); 
