@@ -58,6 +58,7 @@
                                 </a>
             					<div class="title-team"><a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title=""><?php echo $t['group_name']; ?></a></div>
             					<div class="date"><?php echo $t['event_name']; ?></div>
+                                <span class="date"><?php echo formDate($t['event_begin'], 0); ?> - <?php echo formDate($t['event_end'], 0); ?></span>
             					<div class="progressteam">
             						<div class="clearfix">
                                         <div class="columns medium-4 small-4 numbers">

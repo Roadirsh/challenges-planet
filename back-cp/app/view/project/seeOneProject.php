@@ -1,5 +1,7 @@
 <? if(!empty($data)){ $group = $data['group'][0]; } ?>
 <? if(!empty($data)){ $member = $data['group_user']; } ?>
+
+
 <? include(ROOT . "view/layout/header.inc.php"); ?>
 <? include(ROOT . "view/layout/menutop.inc.php"); ?>
 <? include(ROOT . "view/layout/menu.inc.php"); ?>
@@ -22,37 +24,76 @@
     <section class="content">
     
         <div id="content" class="span10">
-            <div class="row-fluid">		
-                <div class="user user_profil">
-                    <? if(!empty($group['group_img'])){ ?>
-                        <img src="<? echo PROJECT.$group['group_img']; ?>" alt="..." class="img-thumbnail">
-                    <? } ?>
-                </div>
-                <div class="user user_info">
-                    <?php if($group['group_valid'] == 1){ ?>
-        			    <strong>Status:</strong> <span class="label label-success">Approved</span><br>   
-        		    <? } else { ?>
-        		        <strong>Status:</strong> <span class="label label-warning">Waiting</span><br>  
-                    <? } ?>
-                    <strong>Event:</strong> <? echo $group['event_name']; ?><br><br>
-                    <strong>Group members:</strong><br>
-                    <ul>
-                        <? foreach($member as $k => $m){ ?>
-                            <li><em><a href="<? echo MODULE . 'user' . ACTION . 'seeoneuser' . ID . $m['user_id']; ?>"><? echo $m['user_pseudo']; ?></a></em></li>
-                        <? } ?>
-                    </ul>
-                </div>
-                <div style="clear:both"></div>
-                <div class="user user_info">
-                    <h2><? echo $group['group_name']; ?></h2>
-                    <p><small><em>sign up date : <? echo $group['group_date']; ?> </em></small></p>
-                    <p><? echo $group['group_descr']; ?></p>
-                </div>
-                
+            <div class="row-fluid">	
+	            <form class="form-horizontal" enctype="multipart/form-data" action="<? echo MODULE . 'project' . ACTION . 'Uponeproject&id='.$group['group_id']; ?>" method="post">	
+	                <div class="user user_profil">
+	                    
+	                    
+	                    <?php if(!empty($group['group_img'])){ ?>
+					        <img class="avatar" alt="" src="<? echo PROJECT . $group['group_img']; ?>">
+					        
+					        <input  type="hidden" name="grouppic" value="<? echo $group['group_img']; ?>"/>
+	                    <? } else { ?>
+					        <img class="avatar" alt="Dennis Ji" src="images/avatar/default.png"> 
+	                    <? } ?> 
+	                    
+	                    <input type="file" name="group_img" />
+	                </div>
+	                <div class="user user_info">
+		                <input type="hidden" name="update" value="true" />
+	                    
+	        			    <select name="valid"  style="width:20%;" required>
+								
+								
+								<option value="1" <?php if($group['group_valid'] == 1){ echo 'selected'; }?>> Online </option>
+								<option value="0" <?php if($group['group_valid'] != 1){ echo 'selected'; }?>> Offline </option>
+								
+							
+							</select>	<br>                    <strong>Event:</strong> <? echo $group['event_name']; ?><br><br>
+	                    <input type="hidden" value="<? echo $group['event_id']; ?>" name="event_id" >
+	                    <strong>Group members:</strong><br>
+	                    
+	                    <select class="members" name="members[]" multiple="multiple" style="width:100%;" required>
+							<?php foreach($data['listeuser'] as $student) {
+										if(in_array($student, $member)){
+											$selected = 'selected';
+										}
+										else{
+											$selected = '';
+										}
+										echo '<option value="'.$student["user_id"].'" '. $selected.'>'.$student["user_pseudo"]. " - ".$student["user_mail"].'</option>';
+									}
+							?>
+						</select>
+	                    
+	                </div>
+	                <div style="clear:both"></div>
+	                <div class="user user_info">
+	                    <h2><input type="text" name='group_name' value="<? echo $group['group_name']; ?>"></h2>
+	                    <input type="number" name="group_money" value="<? echo $group['group_money']; ?>" />
+	                    <p><small><em>sign up date : <? echo $group['group_date']; ?> </em></small></p>
+	                    <div class="editable" name="group_description"><? echo $group['group_descr']; ?></div>
+	                </div>
+	                <div style="clear:both"></div>
+					<input type="submit" class="btn btn-success">
+                </form>
         
         	</div><!--/row-->
         </div>
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
+    <script type="text/javascript">
+	    tinymce.init({
+				selector: "div.editable",
+				inline: true,
+				plugins: [
+				"advlist autolink lists link image charmap print preview anchor",
+				"searchreplace visualblocks code fullscreen",
+       			"insertdatetime media table contextmenu paste"
+	   			],
+	   			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+			});
+			$('.members').select2();
+ </script>
 
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>

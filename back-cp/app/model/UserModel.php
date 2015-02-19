@@ -523,19 +523,34 @@ class UserModel extends CoreModel{
             $OneUser = $select -> FetchAll();
 
             $oneuserID = $OneUser[0]['user_id'];
+            
             $select1 = $this->connexion->prepare("SELECT *
-                                            FROM " . PREFIX . "adress A, " . PREFIX . "phone B  
-                                            WHERE  A.user_user_id = " . $oneuserID . "
-                                            AND B.user_user_id = " . $oneuserID . "");
-           
+                                            FROM " . PREFIX . "adress A  
+                                            WHERE   A.user_user_id = " . $oneuserID . "");
+
             $select1 -> execute();
             $select1 -> setFetchMode(PDO::FETCH_ASSOC);
             $OneUser1 = $select1 -> FetchAll();
-
             
-    	    if(!empty($OneUser)){
+            $select2 = $this->connexion->prepare("SELECT * FROM " . PREFIX . "phone B WHERE B.user_user_id = " . $oneuserID . "");
+            $select2->execute();
+            $select2 -> setFetchMode(PDO::FETCH_ASSOC);
+            $OneUser2 = $select2 -> FetchAll();
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            if(!empty($OneUser1)){
                 $userID = $_GET['id'];
-                $select = $this->connexion->prepare("SELECT *
+                $select = $this->connexion->prepare("SELECT event_date, event_name, group_name
                                                 FROM " . PREFIX . "user A, " . PREFIX . "group B, " . PREFIX . "user_has_group C, " . PREFIX . "event_has_group D, " . PREFIX . "event E, " . PREFIX . "event_has_user F
                                                 WHERE A.user_id = " . $userID . "
                                                 AND A.user_id = C.user_user_id 
@@ -548,32 +563,42 @@ class UserModel extends CoreModel{
                 $select -> execute();
                 $select -> setFetchMode(PDO::FETCH_ASSOC);
                 $Usercomplement = $select -> FetchAll();
-                
-                //var_dump($OneUser);
-                //var_dump($Usercomplement);
-                if(!empty($Usercomplement)){
-                    $array = "";
-                    $array['user'] = $OneUser;
-                    $array['plususer'] = $OneUser1;
-                    $array['action'] = $Usercomplement;
-                    
-                    return $array;
-                    
-                } else{
-                    $array = "";
-                    $array['user'] = $OneUser;
-                    $array['plususer'] = $OneUser1;
-                    
-                    return $array;
-                }
-    	    }
-    	    
-        	//var_dump($OneUser);
+           
+    	    }            
+            
+            
+            
+            
+         
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             $array = "";
-                    $array['user'] = $OneUser;
-                    $array['plususer'] = $OneUser1;
+            $array['user'] = $OneUser;
+            $array['info'] = $OneUser1;
+            $array['phone'] = $OneUser2;    	
+               
+            if(!empty($Usercomplement)){
                     
-                    return $array;
+                    $array['action'] = $Usercomplement;
+
+                    
+            }    
+            
+        	
+                    
+            return $array;
             
     	} catch (Exception $e) {
             echo 'Message:' . $e -> getMessage();
@@ -663,7 +688,8 @@ echo '<pre>';
             $update->bindParam(':id', $userID);
 			if(isset($_POST['user_password']) && !empty($_POST['user_password']))
 			{
-            	$update->bindParam(':password', md5($_POST['user_password']));
+				$password =  md5($_POST['user_password']);
+            	$update->bindParam(':password', $password);
             }
             if(isset($_FILES) && !empty($_FILES['user_img']['name']))
             {
@@ -1019,7 +1045,7 @@ echo '<pre>';
 	 * Update un utilisateur
 	 */
 	public function Uponeuser(){
-	    $userID = $_SESSION['userID'];
+	    $userID = $_GET['id'];
 	    
 
 
@@ -1045,16 +1071,29 @@ echo '<pre>';
             $update->bindParam(':id', $userID);
 			if(isset($_POST['user_password']) && !empty($_POST['user_password']))
 			{
-            	$update->bindParam(':password', md5($_POST['user_password']));
+				$password = md5($_POST['user_password']);
+            	$update->bindParam(':password', $password);
             }
+            
+            
             if(isset($_FILES) && !empty($_FILES['user_img']['name']))
             {
-	            
+	            $select  = $this->connexion->prepare("Select user_profil_pic FROM " . PREFIX . "user where user_id = '" . $userID . "'" );
+				$select->execute();
+				$select -> setFetchMode(PDO::FETCH_ASSOC);
+				$retour = $select -> fetch();
+
+				$retour = $retour['user_profil_pic'];
+				$file = AVATAR . $retour;
+			
+				if(file_exists($file) && $file != AVATAR)
+				{
+	    			unlink($file);
+				}
 	            $profpic = uniqid().$_FILES['user_img']['name'];
 	            $update->bindParam(':profpic', $profpic);
 				$string= AVATAR . $profpic;
 				$this->upload($_FILES['user_img']['tmp_name'], $string);
-				$_SESSION['userPic'] = $profpic;
 				
 				
 
@@ -1160,7 +1199,7 @@ echo '<pre>';
 			}
 			$this->connexion->commit();
 
-			return false;
+			return $userID;
 	
         } catch (Exception $e) {
 	        $this->connexion->rollBack();

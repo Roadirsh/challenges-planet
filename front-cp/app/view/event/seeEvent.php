@@ -4,6 +4,7 @@
 <?php if(isset($data['nb_team']) && !empty($data['nb_team']) ){ $nbteam = $data['nb_team']; } ?>
 <?php if(isset($data['search'])){ $search = $data['search']; } ?>
 <?php if(isset($data['begin']) && !empty($data['begin']) ){ $begin = $data['begin']; } ?>
+<?php if(isset($data['count']) && !empty($data['count']) ){ $count = $data['count'][0]['COUNT(*)']; } ?>
 
 <div class="list-events clearfix">
 	<div class="head clearfix">
@@ -42,16 +43,16 @@
 				<div class="begin-race">
 					<span>Beginning of the race</span>
 					<div>
-						<input type="checkbox" name="begin" value="-1 week" onclick='submit();'> Less of one week
+						<input type="checkbox" name="begin" value="1week" onclick='submit();'> Less of one week
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="2-3 week" onclick='submit();'> 2-3 weeks
+						<input type="checkbox" name="begin" value="2-3week" onclick='submit();'> 2-3 weeks
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="+1month" onclick='submit();'> More than one month
+						<input type="checkbox" name="begin" value="1month" onclick='submit();'> More than one month
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="+6month" onclick='submit();'> More than 6 months
+						<input type="checkbox" name="begin" value="6month" onclick='submit();'> More than 6 months
 					</div>
 				</div>
 
@@ -101,16 +102,16 @@
 				<div class="begin-race">
 					<span>Beginning of the race</span>
 					<div>
-						<input type="checkbox" name="begin" value="-1 week" onclick='submit();'> Less of one week
+						<input type="checkbox" name="begin" value="1week" onclick='submit();'> Less of one week
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="2-3 week" onclick='submit();'> 2-3 weeks
+						<input type="checkbox" name="begin" value="2-3week" onclick='submit();'> 2-3 weeks
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="+1month" onclick='submit();'> More than one month
+						<input type="checkbox" name="begin" value="1month" onclick='submit();'> More than one month
 					</div>
 					<div>
-						<input type="checkbox" name="begin" value="+6month" onclick='submit();'> More than 6 months
+						<input type="checkbox" name="begin" value="6month" onclick='submit();'> More than 6 months
 					</div>
 				</div>
 
@@ -145,9 +146,7 @@
 		<?php foreach($events as $k => $e){ ?>
 				<div class="event medium-6 columns">
 					<div class="wrapper clearfix">
-						<div style="background:url('img/event/<?php echo $e['event_img']; ?>');" class="img large-6 medium-12 columns">
-							<!-- <img src="img/event/<?php echo $e['event_img']; ?>"> -->
-
+						<div style="background:url('<?php echo EVENT . 'mini/' . $e['event_img']; ?>');" class="img large-6 medium-12 columns">
 						</div>
 						<div class="infos large-6 medium-12 columns">
 							<h2><?php echo $e['event_name']; ?></h2>
@@ -192,15 +191,20 @@
 			
 		</div>
 	</div>
-	
 	<div class="medium-12 pagination">
-		<a class="previous-link" href="">&lt;</a>
-		<a class="select">1 </a>
-		<a>2</a>
-		<a>3</a>
-		<a class="next-link" href="">&gt;</a>
+		<?php 
+			/* * * * * * * * * * * * * * * * * * * * * * * * *
+		    * PAGINATION
+		    */
+			$limit = ceil($count / LIMIT);
+			for ($i=1; $i <= $limit; $i++) { 
+				if($_GET['page'] == $i){ ?>
+			    <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+			<?php } else { ?>
+				<a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+			<?php } ?>
+		<?php } ?>
 	</div>
-
 </div>
 
 

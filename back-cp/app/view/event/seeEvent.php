@@ -22,7 +22,7 @@
                 <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
             <? $_SESSION['message'] = ''; } ?>
             <!-- search on all the dashboard -->
-            <form action="?module=project&action=seeevent" method="post" class="sidebar-form">
+            <form action="?module=event&action=seeevent" method="post" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="search" id="search" value="" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
@@ -67,7 +67,7 @@
         									<a class="btn btn-info" href="#">
         										<i class="fa fa-pencil-square-o"></i>  
         									</a>
-        									<a class="btn btn-danger" href="<? echo MODULE . 'event' . ACTION . 'delevent' . ID . $AllEvent['event_id']; ?>">
+        									<a class="btn btn-danger" onclick="return(confirm('Etes-vous sûr de vouloir supprimer cette entrée?'));" href="<? echo MODULE . 'event' . ACTION . 'delevent' . ID . $AllEvent['event_id']; ?>">
         										<i class="fa fa-trash-o"></i>  
         									</a>
         								</td>

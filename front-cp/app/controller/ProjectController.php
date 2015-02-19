@@ -33,11 +33,38 @@ class ProjectController extends CoreController {
         } else {
             // is their a session or not?
             if(isset($_SESSION['user']) != ''){
-                $this->Projectjson();
+                $this->SeeOneProject();
             } else {
                 $this->coreRedirect('user', 'login');
             }
         }
+    }
+
+    /**
+     * seeproject.php
+     *
+     */
+    public function SeeOneProject() {
+
+        $project = $this->model = new ProjectModel();
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * Get All projects
+        */
+        $SeeOneProject = $project->SeeOneGroup($_GET['id']);
+
+        $array['project'] = $SeeOneProject;
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME . " - " . $array['project']['group_name']);
+        define("PAGE_DESCR", SITE_NAME . " " . $array['project']['group_descr']);
+        define("PAGE_ID", "seeProject");
+
+        /* Load the view */
+        $this->load->view('project', 'seeOneProject', $array); 
+
     }
 
     /**

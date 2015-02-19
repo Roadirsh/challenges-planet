@@ -1,8 +1,10 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
-<?php if(isset($data['event']) && !empty($data['event']) ){ $event = $data['event']; }else{ $event = null; } ?>
-<?php if(isset($data['groups']) && !empty($data['groups']) ){ $groups = $data['groups']; }else{ $groups = null; } ?>
-<?php if(isset($data['done'][0]) && !empty($data['done'][0]) ){ $done = $data['done'][0]; }else{ $done = null; } ?>
+<?php if(isset($data['event']) && !empty($data['event']) ){ $event = $data['event']; } ?>
+<?php if(isset($data['groups']) && !empty($data['groups']) ){ $groups = $data['groups']; } else { $groups = 0; }?>
+<?php if(isset($data['groups']['groups']) && !empty($data['groups']['groups']) ){ $groups = $data['groups']['groups']; } ?>
+<?php if(isset($data['done']) && !empty($data['done']) ){ $done = $data['done']; } ?>
+<?php if(isset($data['count']) && !empty($data['count']) ){ $count = $data['count'][0]['COUNT(*)']; } ?>
 
         <div class="list-events clearfix">
             <div class="head clearfix">
@@ -89,7 +91,9 @@
                     </form>
                 </div>
                 <div class="teams large-9 medium-12 clearfix columns">
-                    <?php if(isset($data['done'][0]['group_id']) && !empty($data['done'][0]['group_id']) ){ ?>
+                    <?php if(isset($done[0]['group_id']) && !empty($data['done'][0]['group_id']) ){ ?>
+                        <?php $i = 1;
+                        foreach ($done as $key => $done) { ?>
                         <div class="team-wrapper columns medium-4">
 	                        <div class="wrapper done">
 	                            <div class="img">
@@ -107,6 +111,7 @@
 	                            </div>
 	                        </div>
 	                    </div>
+                        <?php $i ++; } ?>
                     <?php } ?>
                     <?php if(!empty($groups[0]['group_id'])){ ?>
                         <?php $i = 1;
@@ -143,13 +148,20 @@
                 </div>
             </div>
             
-            <div class="medium-12 pagination">
-                <a class="previous-link" href="">&lt;</a>
-                <a class="select">1 </a>
-                <a>2</a>
-                <a>3</a>
-                <a class="next-link" href="">&gt;</a>
-            </div>
+                <div class="medium-12 pagination">
+                    <?php 
+                        /* * * * * * * * * * * * * * * * * * * * * * * * *
+                        * PAGINATION
+                        */
+                        $limit = ceil($count / LIMIT);
+                        for ($i=1; $i <= $limit; $i++) { 
+                            if($_GET['page'] == $i){ ?>
+                            <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+                        <?php } else { ?>
+                            <a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
 
         </div>
 

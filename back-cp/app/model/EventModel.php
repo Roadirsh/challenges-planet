@@ -29,35 +29,95 @@ class EventModel extends CoreModel{
 	function __construct(){
 		parent::__construct();
 
-		if(isset($_POST) && !empty($_POST)){
+		if(isset($_POST) && !empty($_POST) && !isset($_POST['search'])){
             
             $post = $_POST;
-            
-            $this->setEventName($post['nameEvent']);
-            $this->setEventLocation($post['locationEvent']);
-            $this->setEventDescr($post['descrEvent']);
-            if(isset($_FILES['imageEvent']))
-            {
-    			$this->setEventImg($_FILES['imageEvent']);
-    		}
-    		else
-    		{
-    			$this->setEventImg('');
-    		}
-    		$this->setEventBegin($post['dateBegin']);
-    		$this->setEventEnd($post['dateEnd']);
-    		$this->setEventType($post['type']);
-    		if(isset($post['check']))
-            {
-    			$this->setEventOnline(true);
-    		}
-    		else
-    		{
-	    		$this->setEventOnline(false);
+            if(!isset($post['update']) ){ 
+	            $this->setEventName($post['nameEvent']);
+	            $this->setEventLocation($post['locationEvent']);
+	            $this->setEventDescr($post['descrEvent']);
+	            if(isset($_FILES['imageEvent']))
+	            {
+	    			$this->setEventImg($_FILES['imageEvent']);
+	    		}
+	    		else
+	    		{
+	    			$this->setEventImg('');
+	    		}
+	    		$this->setEventBegin($post['dateBegin']);
+	    		$this->setEventEnd($post['dateEnd']);
+	    		$this->setEventType($post['type']);
+	    		if(isset($post['check']))
+	            {
+	    			$this->setEventOnline(true);
+	    		}
+	    		else
+	    		{
+		    		$this->setEventOnline(false);
+	    		}
     		}
     		
         }
 	}
+	
+	
+	
+	
+	
+	public function SearchEvent($post){
+	
+	    include('../lib/blacklist.inc.php');
+        $search = addslashes($post['search']);
+        
+        $expSearch = explode(" ", $search);
+        
+
+	    $i = 0;
+	    $nbArraySearch = count($expSearch);
+   	    foreach($expSearch as $phrase)
+	    {
+			$r = "WHERE ";
+	        if(!empty($phrase))
+	        {
+				//$adv -> blacklist
+	            if(!in_array(strtolower($phrase), $adv))
+	            { 
+                    // USER TABLE BDD
+                    $r .= "( event_name LIKE '%".addslashes($phrase)."%' ";
+                    if($i < $nbArraySearch){
+    	                $r .= "OR ";
+                    }
+                    $r .= "event_decr LIKE '%".addslashes($phrase)."%' ";
+					if($i < $nbArraySearch){
+                        $r .= "OR ";
+                    }
+                    
+	            }
+				$r = substr($r, 0, -3);
+				$r .= "  ) ";
+				$i ++; 
+	    	}
+	    	if(!empty($r))
+			{
+		   		$ajout = $r;
+	       	}
+			else 
+			{
+				$ajout = "";
+        	}
+	    }
+			$query = "SELECT * FROM " . PREFIX . "event " . $ajout . "  GROUP BY event_id";
+		    $select = $this->connexion->prepare($query);
+        //var_dump($select);
+		$select -> execute();
+		$select -> setFetchMode(PDO::FETCH_ASSOC);
+		$retour = $select -> fetchAll();
+		
+		return $retour;
+    }
+	
+	
+	
 	
 	/**
 	 * Voir l'ensemble des évenements
@@ -153,13 +213,34 @@ class EventModel extends CoreModel{
     	
     	try {
     	    // rajouer un trigger corbeille
+    	    $select  = $this->connexion->prepare("Select event_img FROM " . PREFIX . "event where event_id = '" . $deleventID . "'" );
+	    	$select->execute();
+	    	$select -> setFetchMode(PDO::FETCH_ASSOC);
+			$retour = $select -> fetch();
+
+			
         	$select = $this->connexion->prepare("DELETE
                                             FROM " . PREFIX . "event
                                             where event_id = '" . $deleventID . "'");
+            //declenche le trigger pour les tables cp_event_has_user et cp_event_has_group
+           
+           
            
             //var_dump($select); exit();
             $select -> execute();
-            
+            $retour = $retour['event_img'];
+			$fileslider = EVENT . 'slider/' .  $retour;
+			$filemini = EVENT . 'mini/' .  $retour;
+
+			
+			if(file_exists($fileslider) && $fileslider != EVENT.'slider/')
+			{
+	    		unlink($fileslider);
+			}
+			if(file_exists($filemini) && $filemini != EVENT.'mini/')
+			{
+	    		unlink($filemini);
+			}
             //var_dump($AllUser);
             return true;
             
@@ -430,17 +511,96 @@ class EventModel extends CoreModel{
 		imagedestroy($tmp);
 		imagedestroy($tmp1);
 		
-		
-
-	    //Test1: fichier correctement uploadé
-	    if (!isset($_FILES["imageEvent"]) OR $_FILES["imageEvent"]['error'] > 0){
-		    return FALSE;
-		}
 	   	
 		   
 	   return true;
 	}
 	
 	
+	/**
+	 * Update un utilisateur
+	 */
+	public function UponeEvent(){
+	    $eventID = $_GET['id'];
+	    
+
+
+    	try {
+    	    // UPDATE DANS LA TABLE USER 
+			$this->connexion->beginTransaction();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			$requete = "UPDATE " . PREFIX . "event SET `event_name` = :name, `event_decr` = :description, `event_img` = :img, `event_begin` = :begin, event_end = :end, event_valid = :valid, event_location = :location, event_type = :type WHERE event_id = :id";
+    	    
+    	    $update = $this->connexion->prepare($requete); 
+
+            $update->bindParam(':name', $_POST['event_name']);
+            $update->bindParam(':description', $_POST['mce_0']);
+            $update->bindParam(':begin', $_POST['event_begin']);
+            $update->bindParam(':end', $_POST['event_end']);
+            $update->bindParam(':valid', $_POST['event_valid']);
+            $update->bindParam(':location' , $_POST['event_location']);
+            $update->bindParam(':type', $_POST['event_type']);
+            $update->bindParam(':id', $eventID);
+            
+            
+            
+            if(isset($_FILES) && !empty($_FILES['event_img']['name']))
+            {
+	            
+	            $select  = $this->connexion->prepare("Select event_img FROM " . PREFIX . "event where event_id = '" . $eventID . "'" );
+				$select->execute();
+				$select -> setFetchMode(PDO::FETCH_ASSOC);
+				$retour = $select -> fetch();
+
+				$retour = $retour['event_img'];
+				$fileslider = EVENT . 'slider/' .  $retour;
+				$filemini = EVENT . 'mini/' .  $retour;
+	
+				
+				if(file_exists($fileslider) && $fileslider != EVENT.'slider/')
+				{
+		    		unlink($fileslider);
+				}
+				if(file_exists($filemini) && $filemini != EVENT.'mini/')
+				{
+		    		unlink($filemini);
+				}
+	            $imgpic = uniqid().$_FILES['event_img']['name'];
+	            
+	            $update->bindParam(':img', $imgpic);
+				$string= EVENT . 'slider/' . $imgpic;
+				$this->upload($_FILES['event_img']['tmp_name'], $string, $imgpic);
+				
+				
+
+            }
+            else
+            {
+	        	$update->bindParam(':img', $_POST['event_img']);
+
+            }
+            
+			$update->execute();
+			
+			
+			$this->connexion->commit();
+
+			return $eventID;
+	
+        } catch (Exception $e) {
+	        $this->connexion->rollBack();
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
+
 	
 }

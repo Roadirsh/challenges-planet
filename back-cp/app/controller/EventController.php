@@ -20,7 +20,6 @@ class EventController extends CoreController {
 		parent::__construct();
 
 		if(isset($_GET['action'])){
-			//ucfirt = Met le premier caractère en majuscule
 			$action = ucfirst($_GET['action']);
 			if(method_exists($this, $action)){
     			$this->$action();
@@ -121,9 +120,23 @@ class EventController extends CoreController {
 		$DeleEvent = $deleteEvent->Delevent();
 		$_SESSION['message'] = "The event has been well deleted";
 		
-		$this->coreRedirect('event', 'seeEvent', $message);
+		$this->coreRedirect('event', 'seeEvent');
 	
 	}	
+	
+	/**
+	 * Modifier UN group
+	 */
+	public function Uponeevent(){
+		
+	    $upOneEvent = $this->model = new EventModel();
+		$upEvent = $upOneEvent->UponeEvent();
+				
+		
+		$_SESSION['message'] = "You've succeed in updating this event";
+		$this->coreRedirect('event', 'seeoneevent', $upEvent);
+	
+	}
 }
 
 ?>

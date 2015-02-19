@@ -1,11 +1,14 @@
 <? include(ROOT . "view/layout/header.inc.php"); ?>
 
+<?php if(isset($data['project']) && !empty($data['project']) ){ $project = $data['project']; } ?>
+<?php var_dump($project); ?>
+
 	<div class="see-team clearfix">
 		<div class="clearfix contain-team">
 
 				<div class="medium-8 columns team-info">
 						<div class="cover"></div>
-						<h2 class="team-title">Flower Power</h2>
+						<h2 class="team-title"><?php echo $project['group_name']; ?></h2>
 						<div>
 							<span class="icon-event"></span>
 							<span class="title-event"></span>
@@ -19,7 +22,7 @@
 				<div class="show-for-small-only team-sponsor">
 					<h1>Team progress</h1>
 					<div class="clearfix">
-						<span class="small-4 columns goal">2 500 €</span>
+						<span class="small-4 columns goal"><?php echo $project['group_money']; ?></span>
 						<span class="small-4 columns funded">43 %</span>
 						<span class="small-4 columns number-sponsor">8 compagnies</span>
 						<span class="small-4 columns days-left">58 days left</span>
