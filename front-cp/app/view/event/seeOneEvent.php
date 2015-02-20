@@ -16,8 +16,8 @@
                     <p><?php echo $event['event_decr']; ?></p>
                     <div class="clearfix">
                         <div class="medium-4 columns location"><span>Location : </span><?php echo $event['event_location']; ?></div>
-                        <div class="medium-4 columns date-begin"><span>Date from : </span><?php echo formDate($event['event_begin'], 2); ?></div>
-                        <div class="medium-4 columns date-finish"><span>Date to : </span><?php echo formDate($event['event_end'], 2); ?></div>
+                        <div class="medium-4 columns date-begin"><span>Beginning date : </span><?php echo formDate($event['event_begin'], 2); ?></div>
+                        <div class="medium-4 columns date-finish"><span>Ending date : </span><?php echo formDate($event['event_end'], 2); ?></div>
                     </div>
                     <span class="medium-12 number-teams-event">
                         <?php echo titleOneEvent($groups, 'team'); ?>

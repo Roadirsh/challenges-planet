@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="css/homec.css">
 	<link rel="stylesheet" href="css/create.css">
   <link rel="stylesheet" href="css/join.css">
+  <link rel="stylesheet" href="css/preview.css">
 	<link rel="stylesheet" href="css/register.css">
 	<link rel="stylesheet" href="css/foundation.css">
 	<link rel="stylesheet" href="css/fonts.css">

@@ -1,0 +1,19 @@
+/* line 23, ../sass/preview.scss */
+.preview-create .name-event {
+  color: #478bb2;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+/* line 29, ../sass/preview.scss */
+.preview-create p {
+  font-size: 16px !important;
+}
+/* line 33, ../sass/preview.scss */
+.preview-create span {
+  color: #88a83b;
+  font-weight: 800;
+}
+/* line 38, ../sass/preview.scss */
+.preview-create .clearfix {
+  margin: 15px 0px;
+}
