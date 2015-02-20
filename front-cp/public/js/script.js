@@ -65,7 +65,10 @@ $(document).ready(function(){
   });
 
   $( ".create-box" ).click(function() {
-
+    $( ".wrapper-info-caritative" ).hide( 1000, function() {
+      $( ".form-create-event" ).fadeIn( 1000 );
+      });
+      return false;
   });
 
 
