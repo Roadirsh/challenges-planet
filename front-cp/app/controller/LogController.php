@@ -8,6 +8,8 @@
  * @package     Framework_L&G
  * @copyright   L&G
  */
+use Lib\Facebook\FacebookConnect;
+
 
 /**
  * LOGIN
@@ -22,21 +24,25 @@ class LogController extends CoreController{
 	 */
 	function __construct(){
 		parent::__construct();
-		if(isset($_GET['action'])){
-			//ucfirt = put the first letter in Uppercase
-			$action = ucfirst($_GET['action']);
-			
-			$this->$action();
+        if(isset($_GET['action'])){
+            //ucfirt = put the first letter in Uppercase
+            $action = ucfirst($_GET['action']);
 
-		} else {
-			// is their a session or not?
-			if(isset($_SESSION['']) != ''){
-				$this->coreRedirect('', 'login');
-			} else {
-				$this->Login();
+            if(method_exists($this, $action)){
+                $this->$action();
+            } else{
+                $this->corePage404();
+            }
 
-			}
-		}
+
+        } else {
+            // is their a session or not?
+            if (isset($_SESSION['user']) != '') {
+                $this->Login();
+            } else {
+                $this->coreRedirect('', 'login');
+            }
+        }
 
 	}
 	
@@ -68,6 +74,7 @@ class LogController extends CoreController{
 	        // testing connexion is true
 			if($User != 0){
 				$_POST = array();
+                $messageInfo = '';
 				// initialization of the messages
 				$_SESSION['message'] = $messageInfo['USER_LOGIN_OK'];
 				$_SESSION['messtype'] = 'success';
@@ -75,6 +82,7 @@ class LogController extends CoreController{
 				$this->coreRedirect('page', 'home');
 			} else{
 				$_POST = array();
+                $messageErreur = '';
 				// initialization of the messages
 				$_SESSION['message'] = $messageErreur['USER_LOGIN_NOK'];
 				$_SESSION['messtype'] = 'danger';	
@@ -123,17 +131,20 @@ class LogController extends CoreController{
 			if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 				$addUser = $user->Signup($_POST);
 				if($addUser){
+                    $messageInfo = '';
 					// initialization of the messages
 					$_SESSION['message'] = $messageInfo['USER_SIGN_OK'];
 					$_SESSION['messtype'] = 'success';	
 	    			$this->coreRedirect('page', 'home');
 				} else{
+                    $messageErreur = '';
 					// initialization of the messages
 					$_SESSION['message'] = $messageErreur['USER_SIGN_NOK'];
 					$_SESSION['messtype'] = 'danger';
 					$this->load->view('connexion', 'signup');
 				}
 			} else{
+                $messageErreur = '';
 				// initialization of the messages
 				$_SESSION['message'] = $messageErreur['USER_SIGN_NOK'];
 				$_SESSION['messtype'] = 'danger';
@@ -146,5 +157,18 @@ class LogController extends CoreController{
 
 	}
 
-		
+    public function FacebookLogin(){
+
+
+        $appID = '1032282680121355';
+        $appSecret = 'd23586cd9525f8fcdfc8b96bf6eb2985';
+
+        $connect = new FacebookConnect($appID, $appSecret);
+
+        $user = $connect->connect('http://localhost:8888/challenges-planet/front-cp/public/index.php');
+
+        var_dump($user);
+    }
+
+
 }

@@ -56,7 +56,7 @@
 			</ul>
 		</nav>
 
-	    <form id="form-login" class="clearfix mfp-hide white-popup-block" method="post" action="?module=log&action=login">
+	    <form id="form-login" class="clearfix mfp-hide white-popup-block" method="post" action="<?php echo MODULE . 'log' . ACTION . 'login'; ?>">
 	    	<div class="classic-login medium-6 columns">
 	    		<fieldset>
 	    			<h1>Start your challenge here !</h1>
@@ -75,7 +75,7 @@
 	    		<fieldset>
 	    			<h1>Or log in with your favorite social media !</h1>
 	    			<div class="social-sign-up">
-	    				<a href="#"><img src="img/fb-login.png">Log in with Facebook</a>
+	    				<a href="<?php echo MODULE . 'log' . ACTION . 'facebookLogin'; ?>"><img src="img/fb-login.png">Log in with Facebook</a>
 	    				<a href="<?php echo MODULE . 'log' . ACTION . 'signup'; ?>">No account? ? Sign up with your email !</a>
 	    			</div>
 	    		</fieldset>

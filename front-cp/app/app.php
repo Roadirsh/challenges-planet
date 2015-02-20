@@ -13,6 +13,7 @@
  * @param array $_GET
  */
 
+
     if(isset($_GET['module'])){
 		/* ucfirt = put the first letter in Uppercase */
 		$module = ucfirst($_GET['module']);
@@ -40,11 +41,10 @@
 
 	/* Start model called by the module */
 	$urlModel = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'model/' . $module . 'Model.php';
-	// echo $urlController;
+
 
 	if(file_exists($urlModel)){
         include_once('model/' . $module . 'Model.php');
 	}
-		
 
 	$index = new $controller();
