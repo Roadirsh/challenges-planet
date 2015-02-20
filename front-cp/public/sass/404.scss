@@ -1,0 +1,68 @@
+$screen: "only screen";
+
+$small-up: $screen;
+$small-only: "#{$screen} and (max-width: 40em)";
+
+$medium-up: "#{$screen} and (min-width: 56.813em)";
+$medium-only: "#{$screen} and (min-width: 56.813emss) and (max-width: 64em)";
+
+$large-up: "#{$screen} and (min-width: 64.063em)";
+$large-only: "#{$screen} and (min-width: 64.063em) and (max-width: 90em)";
+
+$font-normal:   Helvetica, sans-serif;
+$font-title:    'franklin_gothic_fsdemi';
+$font-caption:	'roboto_slabbold';
+$color-dark:	#1a2129;
+$color-grey:	#818181;
+$color-blue:	#478bb2;
+$color-green:	#88a83b;
+$bg-color:		#f2efec;
+
+#notfound {
+	
+	height:500px;
+	padding-top:50px;
+	font-family:$font-title;
+	
+	img {
+		opacity:0.2;
+		position:absolute;
+		width:450px;
+		top:30%;
+		left:50%;
+	}
+	
+	.blue {
+		color:$color-blue;
+	}
+
+	.green {
+		color:$color-green;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+
+		&:hover {
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-ms-transition: all 0.5s ease;
+			color: #67802d;
+
+		}
+	}
+
+	h2 {
+		text-transform:uppercase;
+		font-size:60px;
+		font-weight:800;
+		margin-bottom:30px;
+		letter-spacing:-2px;
+	}
+	
+	h3{
+		text-transform:uppercase;
+		font-size:28px;
+		font-weight:800;
+		margin-bottom:-5px;
+	}
+}

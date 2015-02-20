@@ -49,20 +49,22 @@
 .list-events .head {
   text-align: center;
   padding: 10px 0px;
+  border-bottom: solid 1px #d6d6d6;
+  margin: 0px 15px 10px 15px;
 }
-/* line 72, ../sass/list-events.scss */
+/* line 74, ../sass/list-events.scss */
 .list-events .head h1 {
   font-family: "franklin_gothic_fsdemi";
   text-transform: uppercase;
   font-size: 29px;
 }
-/* line 78, ../sass/list-events.scss */
+/* line 80, ../sass/list-events.scss */
 .list-events .head p {
   margin: auto;
   font-size: 17px;
   margin-bottom: 30px;
 }
-/* line 84, ../sass/list-events.scss */
+/* line 86, ../sass/list-events.scss */
 .list-events .head .number-events {
   display: block;
   color: #575765;
@@ -71,11 +73,11 @@
   text-transform: uppercase;
   font-weight: 800;
 }
-/* line 95, ../sass/list-events.scss */
+/* line 97, ../sass/list-events.scss */
 .list-events .main-contain {
   padding-bottom: 15px;
 }
-/* line 98, ../sass/list-events.scss */
+/* line 100, ../sass/list-events.scss */
 .list-events .main-contain .sidebar-sort-mobile {
   display: block;
   text-transform: uppercase;
@@ -87,14 +89,14 @@
   cursor: pointer;
   color: #1a2129;
 }
-/* line 113, ../sass/list-events.scss */
+/* line 115, ../sass/list-events.scss */
 .list-events .main-contain .sidebar-sort h2 {
   margin-top: 0px;
   font-size: 21px;
   text-transform: uppercase;
   font-family: "franklin_gothic_fsdemi";
 }
-/* line 120, ../sass/list-events.scss */
+/* line 122, ../sass/list-events.scss */
 .list-events .main-contain .sidebar-sort span {
   text-transform: uppercase;
   font-size: 14px;
@@ -102,29 +104,34 @@
   display: block;
   margin-bottom: 20px;
 }
-/* line 128, ../sass/list-events.scss */
+/* line 130, ../sass/list-events.scss */
 .list-events .main-contain .sidebar-sort .number-teams, .list-events .main-contain .sidebar-sort .kind-race, .list-events .main-contain .sidebar-sort .team-progress {
   border-top: 1px solid #d6d6d6;
   border-bottom: 1px solid #d6d6d6;
   padding: 10px 0px;
 }
-/* line 134, ../sass/list-events.scss */
+/* line 136, ../sass/list-events.scss */
 .list-events .main-contain .sidebar-sort .begin-race, .list-events .main-contain .sidebar-sort .team-budget {
   padding: 10px 0px;
 }
-/* line 139, ../sass/list-events.scss */
+/* line 141, ../sass/list-events.scss */
+.list-events .main-contain .events {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 146, ../sass/list-events.scss */
 .list-events .main-contain .event {
   margin-bottom: 15px;
   margin-top: 15px;
 }
-/* line 143, ../sass/list-events.scss */
+/* line 150, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper {
   background-color: #fff;
   border: 1px solid #d6d6d6;
   position: relative;
   padding: 5px;
 }
-/* line 149, ../sass/list-events.scss */
+/* line 156, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .ready {
   padding: 0;
   background-repeat: no-repeat;
@@ -135,12 +142,12 @@
   background-position: center;
   height: 200px;
 }
-/* line 160, ../sass/list-events.scss */
+/* line 167, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .adventure {
   padding: 5px;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 160, ../sass/list-events.scss */
+  /* line 167, ../sass/list-events.scss */
   .list-events .main-contain .event .wrapper .adventure {
     position: absolute;
     top: 50%;
@@ -151,19 +158,19 @@
     -ms-transform: translateY(-50%);
   }
 }
-/* line 173, ../sass/list-events.scss */
+/* line 180, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .adventure .button-submit, .list-events .main-contain .event .wrapper .adventure .button-join {
   text-align: center;
   color: #fff;
   font-size: 14px;
   width: 100%;
 }
-/* line 181, ../sass/list-events.scss */
+/* line 188, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .teams {
   background-color: #fff;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 181, ../sass/list-events.scss */
+  /* line 188, ../sass/list-events.scss */
   .list-events .main-contain .event .wrapper .teams {
     position: absolute;
     bottom: 0;
@@ -171,7 +178,7 @@
     padding-bottom: 5px;
   }
 }
-/* line 191, ../sass/list-events.scss */
+/* line 198, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .teams h3 {
   color: #478bb2;
   font-family: "roboto_slabbold";
@@ -180,19 +187,19 @@
   text-align: center;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 191, ../sass/list-events.scss */
+  /* line 198, ../sass/list-events.scss */
   .list-events .main-contain .event .wrapper .teams h3 {
     font-size: 15px;
   }
 }
-/* line 203, ../sass/list-events.scss */
+/* line 210, ../sass/list-events.scss */
 .list-events .main-contain .event .wrapper .teams .button-submit, .list-events .main-contain .event .wrapper .teams .button-join {
   font-size: 14px;
   width: 100%;
   color: #fff;
   text-align: center;
 }
-/* line 212, ../sass/list-events.scss */
+/* line 219, ../sass/list-events.scss */
 .list-events .main-contain .event .img {
   padding: 0;
   background-repeat: no-repeat;
@@ -202,35 +209,35 @@
   background-position: center;
   height: 200px;
 }
-/* line 222, ../sass/list-events.scss */
+/* line 229, ../sass/list-events.scss */
 .list-events .main-contain .event .img img {
   width: 100%;
 }
-/* line 227, ../sass/list-events.scss */
+/* line 234, ../sass/list-events.scss */
 .list-events .main-contain .event .infos {
   text-transform: uppercase;
   text-align: center;
 }
-/* line 231, ../sass/list-events.scss */
+/* line 238, ../sass/list-events.scss */
 .list-events .main-contain .event .infos h2 {
   font-size: 19px;
   margin-bottom: 0px;
   margin-top: 5px;
 }
-/* line 237, ../sass/list-events.scss */
+/* line 244, ../sass/list-events.scss */
 .list-events .main-contain .event .infos span {
   display: block;
   font-size: 13px;
   margin-top: 5px;
   color: #88a83b;
 }
-/* line 244, ../sass/list-events.scss */
+/* line 251, ../sass/list-events.scss */
 .list-events .main-contain .event .infos .date {
   font-size: 12px;
   color: #adadad;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 244, ../sass/list-events.scss */
+  /* line 251, ../sass/list-events.scss */
   .list-events .main-contain .event .infos .date {
     font-size: 10px;
   }

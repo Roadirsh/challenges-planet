@@ -19,23 +19,24 @@
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/slick.css">
 	<link rel="stylesheet" href="css/magnific-popup.css">
-   	<link rel="stylesheet" href="css/jquery-ui.css">
-   	<link rel="stylesheet" href="css/list-events.css">
-   	<link rel="stylesheet" href="css/event.css">
-   	<link rel="stylesheet" href="css/styledev.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/list-events.css">
+  <link rel="stylesheet" href="css/event.css">
+  <link rel="stylesheet" href="css/profil.css">
+  <link rel="stylesheet" href="css/404.css">
+  <link rel="stylesheet" href="css/styledev.css">
 
-    <script async="" src="//www.google-analytics.com/analytics.js"></script>
-    <script src="js/vendor/modernizr.js"></script>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/jquery-1.10.2.js"></script>
-  	<script src="js/jquery-ui.js"></script>
+  <script async="" src="//www.google-analytics.com/analytics.js"></script>
+  <script src="js/vendor/modernizr.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui.js"></script>
 
-    <script src="js/script.js"></script>
-   	<script src="js/slick/slick.js"></script>
-   	<script src="js/magnific-popup/jquery.magnific-popup.js"></script>
-   	<script src="js/happy/happy.js"></script>
-   	<script src="js/waypoints/jquery.waypoints.js"></script>
-
-
+  <script src="js/script.js"></script>
+  <script src="js/slick/slick.js"></script>
+  <script src="js/magnific-popup/jquery.magnific-popup.js"></script>
+  <script src="js/happy/happy.js"></script>
+  <script src="js/waypoints/jquery.waypoints.js"></script>
 </head>
+
 <?php include("menutop.inc.php"); ?>

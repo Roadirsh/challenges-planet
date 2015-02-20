@@ -744,13 +744,19 @@ body {
 					}
 				}
 
-				.chief-team, .date {
+				.name, .date {
 					font-size: 13px;
 					color: #adadad;
+					margin-bottom: 5px;
 				}
 
 				.date {
 					margin-bottom: 10px;
+				}
+
+				.name {
+					text-transform: uppercase;
+					font-weight: 600;
 				}
 
 				.progressteam {

@@ -1,0 +1,47 @@
+/* line 21, ../sass/404.scss */
+#notfound {
+  height: 500px;
+  padding-top: 50px;
+  font-family: "franklin_gothic_fsdemi";
+}
+/* line 27, ../sass/404.scss */
+#notfound img {
+  opacity: 0.2;
+  position: absolute;
+  width: 450px;
+  top: 30%;
+  left: 50%;
+}
+/* line 35, ../sass/404.scss */
+#notfound .blue {
+  color: #478bb2;
+}
+/* line 39, ../sass/404.scss */
+#notfound .green {
+  color: #88a83b;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+/* line 45, ../sass/404.scss */
+#notfound .green:hover {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  color: #67802d;
+}
+/* line 54, ../sass/404.scss */
+#notfound h2 {
+  text-transform: uppercase;
+  font-size: 60px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  letter-spacing: -2px;
+}
+/* line 62, ../sass/404.scss */
+#notfound h3 {
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: -5px;
+}
