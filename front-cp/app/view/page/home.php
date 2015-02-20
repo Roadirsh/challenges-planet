@@ -57,8 +57,8 @@
                 					</div>
                                 </a>
             					<div class="title-team"><a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title=""><?php echo $t['group_name']; ?></a></div>
-            					<div class="date"><?php echo $t['event_name']; ?></div>
-                                <span class="date"><?php echo formDate($t['event_begin'], 0); ?> - <?php echo formDate($t['event_end'], 0); ?></span>
+            					<div class="name"><?php echo $t['event_name']; ?></div>
+                                <div class="date"><?php echo formDate($t['event_begin'], 0); ?> - <?php echo formDate($t['event_end'], 0); ?></div>
             					<div class="progressteam">
             						<div class="clearfix">
                                         <div class="columns medium-4 small-4 numbers">
@@ -95,7 +95,7 @@
     						<div class="hover done"><span>It's done thank you !</span></div>
     					</div>
     					<div class="title-team"><?php echo $done['group_name']; ?></div>
-    					<div class="date"><?php echo $done['event_name']; ?></div>
+    					<div class="name"><?php echo $done['event_name']; ?></div>
     					<div class="progressteam">
     						<span class="validate"></span>
     						<div class="number"><span>100 %</span><br>goal reached !</div>

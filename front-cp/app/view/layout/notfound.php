@@ -1,10 +1,13 @@
 <?php include("header.inc.php"); ?>
 
-<div class="notfound jumbotron">
-        <h1>404 NOT FOUND</h1>
-        <p class="lead">The page you are trying to looking for doesn't exist... sorry! </p>
-        <p><a class="btn btn-lg btn-warning" href="<?php echo MODULE . 'page' . ACTION . 'home'; ?>" role="button">Go home</a></p>
-    </div>
-</div>
+    <div class="container row">
+        <div class="medium-12 center">
+			<div id="notfound">
+				<img src="img/logo404.png" alt="logo" title="logo"/>
+				<h2><span class="blue">404</span> PAGE NOT FOUND... <br/><span class="green">TOO BAD</span> :'(</h2>
+				<h3>you can <a href="<?php echo MODULE . 'page' . ACTION . 'home'; ?>" class="green">return to the home page</a></h3>
+			</div>
+        </div>
+	</div>
 
 <?php include("footer.inc.php"); ?>

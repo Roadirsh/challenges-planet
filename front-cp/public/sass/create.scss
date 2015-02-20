@@ -18,6 +18,77 @@ $color-blue:	#478bb2;
 $color-green:	#88a83b;
 $bg-color:		#f2efec;
 
+
+/*----- Before Toggle Img -----*/
+
+.info-caritative {
+    color: #fff;
+    text-align: center;
+    padding-top: 15px;
+
+    p {
+        width: 70%;
+        margin-bottom: 0;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .img {
+       padding-left: 0;
+       padding-right: 0;
+    }
+
+    .clearfix {
+        position: relative;
+
+        .help {
+            @media #{$large-up} {
+                position: absolute;
+                top: 0;
+                height: 100%;
+            }
+        }
+
+        .help-right {
+            @media #{$large-up} {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+
+    .raid, .adventure {
+        margin-bottom: 25px;
+
+        @media #{$large-up} {
+            margin-bottom: 0;
+        }
+    }
+
+    .img-trophy {
+        position: relative;
+
+        span {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+        }
+    }
+
+}
+
+
 /*----- Tabs -----*/
 
 .form-join-create {
@@ -215,6 +286,7 @@ $bg-color:		#f2efec;
 .tabs {
     padding: 10px;
     position: relative;
+    display: none;
 
     .button-submit {
         @media #{$medium-up} {
@@ -261,6 +333,8 @@ $bg-color:		#f2efec;
 
         position: absolute;
         top: 50%;
+        width: 100%;
+        padding: 30px;
         left: 50%;
         -webkit-transform: translateY(-50%) translateX(-50%);
         -moz-transform: translateY(-50%) translateX(-50%);
@@ -309,7 +383,7 @@ $bg-color:		#f2efec;
     //border: 1px solid #ccc;
 }
 .file-upload-input {
-    width: 300px;
+    width: 100%;
     color: $color-dark;
     cursor: context-menu;
     font-size: 16px;
@@ -330,7 +404,7 @@ $bg-color:		#f2efec;
     display: inline-block; 
     color: #fff;
     font-size: 14px;
-    width: 300px;
+    width: 100%;
     text-transform: uppercase;
     padding: 11px 20px; 
     border: none;

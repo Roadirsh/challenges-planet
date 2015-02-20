@@ -68,6 +68,8 @@ $bg-color:		#f2efec;
 	.head {
 		text-align: center;
 		padding: 10px 0px;
+		border-bottom: solid 1px #d6d6d6;
+		margin: 0px 15px 10px 15px;
 
 		h1 {
 			font-family: $font-title;
@@ -134,6 +136,11 @@ $bg-color:		#f2efec;
 			.begin-race, .team-budget {
 				padding: 10px 0px;
 			}
+		}
+
+		.events {
+			padding-left: 0;
+			padding-right: 0;
 		}
 
 		.event {

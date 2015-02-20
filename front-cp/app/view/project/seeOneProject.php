@@ -1,4 +1,4 @@
-<? include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
 
 <?php if(isset($data['project']) && !empty($data['project']) ){ $project = $data['project']; } ?>
 <?php var_dump($project); ?>
@@ -7,7 +7,9 @@
 		<div class="clearfix contain-team">
 
 				<div class="medium-8 columns team-info">
-						<div class="cover"></div>
+						<div class="cover">
+							<img src="" alt="">
+						</div>
 						<h2 class="team-title"><?php echo $project['group_name']; ?></h2>
 						<div>
 							<span class="icon-event"></span>
@@ -33,16 +35,16 @@
 
 				<div class="medium-4 show-for-large-up columns list-sponsor">
 					<h1 class="">They helped them</h1>
-					<div class="column small-3">
+					<div class="columns small-3">
 						<img src="" alt="">
 					</div>
-					<div class="column small-3">
+					<div class="columns small-3">
 						<img src="" alt="">
 					</div>
-					<div class="column small-3">
+					<div class="columns small-3">
 						<img src="" alt="">
 					</div>
-					<div class="column small-3"></div>
+					<div class="columns small-3"></div>
 				</div>
 
 				<div class="medium-4 show-for-large-up columns team-sponsor">

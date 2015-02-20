@@ -4,7 +4,7 @@
 
 		<div class="form-join-create clearfix">
 
-			<div class="head-join-create clearfix">
+			<div id="basic-waypoint" class="head-join-create clearfix">
 				<div class="join-event columns medium-9">
 					<div class="clearfix">
 						<h1><? echo JOIN; /* DEFINED IN conf_define */ ?></h1>
@@ -30,7 +30,7 @@
 						</div>
 						<?php } ?>
 					<?php } else { ?>
-						<div class="tabs">
+						<div>
 							<p>Sorry, we don't have any events to join</p>
 						</div>
 					<?php } ?>
@@ -40,6 +40,35 @@
 						<div class="wrapper">
 							<img src="img/add_icon.svg">
 							<span>Create your own event !</span>							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrapper-info-caritative">
+				<div class="info-caritative medium-12 clearfix show-for-large-up">
+					<div class="medium-6 columns">
+						<div class="clearfix">
+							<div class="help medium-12 large-6 columns">
+								<p>You have a project which means a lot to you, a sports challenge student and humanitarian ?</p>
+							</div>
+							<div class="img raid medium-12 large-6 columns">
+								<img src="img/img-raid-gesture.png" alt="">
+							</div>
+						</div>
+						<div class="clearfix">
+							<div class="img medium-12 large-6 columns">
+								<img src="img/img-share-adventure-gesture.png" alt="">
+							</div>
+							<div class="help help-right adventure medium-12 large-6 columns">
+								<p>With your friends, come to live the most beautiful human and united adventure</p>
+							</div>
+						</div>
+					</div>
+					<div class="medium-6 columns">
+						<div class="img-trophy">
+							<img src="img/img-4l-trophy-gesture.png" alt="">
+							<span class="help caption">A gesture which you will not be ready to forget...</span>
 						</div>
 					</div>
 				</div>
@@ -114,9 +143,7 @@
 			       	</div>
 			 
 			        <div id="tab2" class="tab">
-						<p>This service is currently unavailable.
-
-I hope that will not last too long :)</p>
+						<p>This service is currently unavailable. I hope that will not last too long :)</p>
 			        </div>
 			    </div>
 			</div>

@@ -64,6 +64,10 @@ $(document).ready(function(){
     });
   });
 
+  $( ".create-box" ).click(function() {
+
+  });
+
 
 
   $('.tabs .tab-links a').on('click', function(e)  {
