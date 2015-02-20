@@ -50,7 +50,7 @@
                         <?php if(isset($t['group_name']) && !empty($t['group_name'])){ ?>
                         <div class="columns large-3 medium-4 team-wrapper">
             				<div class="wrapper">
-                                <a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title="">
+                                <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title="">
                 					<div class="img">
                 						<img src="<?php echo PROJECT . $t['group_img']; ?>" alt="">
                 						<div class="hover"><span>They need you<br>help them</span></div>

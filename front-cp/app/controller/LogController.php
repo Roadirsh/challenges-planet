@@ -8,7 +8,6 @@
  * @package     Framework_L&G
  * @copyright   L&G
  */
-use Lib\Facebook\FacebookConnect;
 
 
 /**

@@ -1,17 +1,11 @@
 {
-    "name": "challengesplanet/fbconnect",
+    "name": "saskiagiraud/front-cp",
     "authors": [
         {
-            "name": "Challenges Planet",
-            "email": "challenges@planet.com"
+            "name": "Saskiagi",
+            "email": "saskia.giraud@gmail.com"
         }
     ],
-
-    "autoload":{
-        "psr-4": {
-            "Lib\\" : "lib/"
-        }
-    },
 
     "require" : {
         "facebook/php-sdk-v4" : "4.0.*"

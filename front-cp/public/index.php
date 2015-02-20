@@ -43,9 +43,6 @@
     include("../lib/pagination.php");
     /* Global Messages */
     include(ROOT . "conf/messages.php");
-    /* Facebook */
-    require('../vendor/autoload.php');
-    include("../lib/Facebook/FacebookConnect.php");
 
     
     

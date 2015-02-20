@@ -74,7 +74,7 @@
 				</div>
 			</div>
 
-			<div class="tabs">
+			<div class="tabs form-create-event">
 				<h1><span>Create </span>your own event !</h1>
 			    <ul class="tab-links">
 			        <li class="active"><a href="#tab1">Edit</a></li>
@@ -92,12 +92,13 @@
 			            		<div class="medium-8 columns first">
 			            			<label class="" for="name" >Name (required)</label>
 									<div>
-										<input id="" name="name" class="" type="text" maxlength="45" value="" required autofocus /> 
+										<input id="" name="name" class="" type="text" maxlength="45" value="" required /> 
 									</div> 
 									<label class="" for="place">City (required)</label>
 									<div>
 										<input id="place" name="place" class="" type="text" maxlength="170" value="" required /> 
-									</div> 
+									</div>
+									<label for="">Location (required)</label> 
 									<select name="country" required>
 										<!-- Include avec l'ensemble des pays -->
 										<?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
@@ -133,12 +134,93 @@
 								</div>
 				       		</div>
 								 
-								<label class="" for="description">Tell us more about your idea ! </label>
+								<label class="" for="description">Your idea</label>
 									<div>
-										<textarea id="description" name="descr"  required></textarea> 
+										<textarea id="description" name="descr" onfocus="javascript: this.value=''" onblur="this.value=''">Tell us more about your idea, which goal ? Which caritative challenge ? Which sport ?</textarea>
 									</div> 
 			    
-								<a href="arrivee.html" onClick="ga('send', 'event', 'link','clic', 'validate-createv3');"><input id="saveForm" class="button-submit" type="submit" name="submit" value="Validate" /></a>
+								<a href="arrivee.html" onClick="ga('send', 'event', 'link','clic', 'validate-createv3');"><input id="saveForm" class="button-submit" type="submit" name="submit" value="Ready for your adventure !" /></a>
+						</form>
+			       	</div>
+			 
+			        <div id="tab2" class="tab">
+						<p>This service is currently unavailable. I hope that will not last too long :)</p>
+			        </div>
+			    </div>
+			</div>
+
+			<div class="tabs form-join-event">
+				<h1><span>Join </span>the <span class="blue">name event</span></h1>
+			    <ul class="tab-links">
+			        <li class="active"><a href="#tab1">Edit</a></li>
+			        <li><a href="#tab2">Preview</a></li>
+			    </ul>
+
+			    <p>Hi, build your own team and get ready !</p>
+			 
+			    <div class="tab-content">
+			        <div id="tab1" class="tab active">
+			        
+			            <form id="form_join" class="" name="form_join" enctype="multipart/form-data" action="?module=event&action=" method="post" >
+
+			            	<div class="clearfix">
+			            		<div class="medium-4 columns event-info">
+				            		<label class="team-name" for="name">Name of your team (required)</label>
+				            		<input class="name-team" type="text">
+				            		<label for="">Event informations</label>
+				            		<div class="info-event">
+				            			<span>Location : </span>
+					            		<span>Beginning date : </span>
+					            		<span>Ending date : </span>
+				            		</div>
+			            		</div>
+			            		<div>
+			            			<label for="">Add the picture of your team </label>
+			            		</div>
+			            		<div class="medium-8 columns upload">
+			            			
+			            				<div class="fileupload clearfix">
+											<img src="img/camera.png">
+											<span class="desc">Add a cover, it's better !</span>
+											<div class="custom-file-upload">
+											    <!--<label for="file">File: </label>--> 
+											    <input type="file" id="file" name="myfiles[]" multiple />
+											</div>
+											<span class="info">(size : px * px)</span>
+									</div>
+			            		</div>
+			            	</div>
+
+			            	<div class="clearfix">
+			            		<div class="medium-6 columns add-mates">
+			            			<label for="">Add your mates ! (required)</label>
+			            			<div class="mates">
+			            				<input onfocus="javascript: this.value=''" onblur="this.value='Email of your mate'" value="Email of your mate" type="email">
+			            				<input onfocus="javascript: this.value=''" onblur="this.value='Email of your mate'" value="Email of your mate" type="email">
+			            				<input onfocus="javascript: this.value=''" onblur="this.value='Email of your mate'" value="Email of your mate" type="email">
+			            				<input onfocus="javascript: this.value=''" onblur="this.value='Email of your mate'" value="Email of your mate" type="email">
+			            			</div>
+			            		</div>
+			            		<div class="medium-6 columns">
+			            			<label for="">Your team</label>
+			            			<textarea name="" id="" cols="30" rows="10" onfocus="javascript: this.value=''" onblur="this.value=''">Tell us more about your team !</textarea>
+			            		</div>
+			            	</div>
+
+			            	<div class="clearfix">
+			            		<div class="medium-6 columns team-goal">
+			            			<label for="">Your goal</label>
+			            			<textarea name="" id="" cols="30" rows="10" onfocus="javascript: this.value=''" onblur="this.value=''">Why this event ? Explain your motivation here !</textarea>
+			            		</div>
+			            		<div class="medium-6 columns">
+			            			<label for="">Your budget</label>
+			            			<textarea name="" id="" cols="30" rows="10" onfocus="javascript: this.value=''" onblur="this.value=''">Detail your buget and explain it !</textarea>
+			            		</div>
+			            	</div>
+			
+			    			
+
+							<a href="arrivee.html" onClick="ga('send', 'event', 'link','clic', 'validate-createv3');"><input id="saveForm" class="button-submit" type="submit" name="submit" value="ready for your adventure !" /></a>
 						</form>
 			       	</div>
 			 
