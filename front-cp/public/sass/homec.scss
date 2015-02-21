@@ -3,8 +3,8 @@ $screen: "only screen";
 $small-up: $screen;
 $small-only: "#{$screen} and (max-width: 40em)";
 
-$medium-up: "#{$screen} and (min-width: 56.813em)";
-$medium-only: "#{$screen} and (min-width: 56.813emss) and (max-width: 64em)";
+$medium-up: "#{$screen} and (min-width: 40.063em)";
+$medium-only: "#{$screen} and (min-width: 40.063em) and (max-width: 64em)";
 
 $large-up: "#{$screen} and (min-width: 64.063em)";
 $large-only: "#{$screen} and (min-width: 64.063em) and (max-width: 90em)";
@@ -26,6 +26,36 @@ body {
 
 	.row {
 		max-width: 1280px;
+	}
+
+	.join {
+		background-color: $color-green;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #67802d;
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-ms-transition: all 0.5s ease;
+		}
+	}
+
+	.help, .button-submit {
+		background-color: $color-blue;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #376b8a;
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-ms-transition: all 0.5s ease;
+		}
 	}
 
 	#form-login {
@@ -187,35 +217,7 @@ body {
 		margin-bottom: 0;
 	}
 
-	.join {
-		background-color: $color-green;
-		-webkit-transition: all 0.5s ease;
-		-moz-transition: all 0.5s ease;
-		-ms-transition: all 0.5s ease;
-		cursor: pointer;
-
-		&:hover {
-			background-color: #67802d;
-			-webkit-transition: all 0.5s ease;
-			-moz-transition: all 0.5s ease;
-			-ms-transition: all 0.5s ease;
-		}
-	}
-
-	.help, .button-submit {
-		background-color: $color-blue;
-		-webkit-transition: all 0.5s ease;
-		-moz-transition: all 0.5s ease;
-		-ms-transition: all 0.5s ease;
-		cursor: pointer;
-
-		&:hover {
-			background-color: #376b8a;
-			-webkit-transition: all 0.5s ease;
-			-moz-transition: all 0.5s ease;
-			-ms-transition: all 0.5s ease;
-		}
-	}
+	
 
 	.connect {
 		color: #cf651a !important;

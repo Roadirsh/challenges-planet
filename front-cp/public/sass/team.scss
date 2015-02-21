@@ -3,8 +3,8 @@ $screen: "only screen";
 $small-up: $screen;
 $small-only: "#{$screen} and (max-width: 40em)";
 
-$medium-up: "#{$screen} and (min-width: 56.813em)";
-$medium-only: "#{$screen} and (min-width: 56.813emss) and (max-width: 64em)";
+$medium-up: "#{$screen} and (min-width: 40.063em)";
+$medium-only: "#{$screen} and (min-width: 40.063em) and (max-width: 64em)";
 
 $large-up: "#{$screen} and (min-width: 64.063em)";
 $large-only: "#{$screen} and (min-width: 64.063em) and (max-width: 90em)";
@@ -19,6 +19,364 @@ $color-blue:	#478bb2;
 $color-green:	#88a83b;
 $bg-color:		#f2efec;
 
+#list-compagnies, #choose {
+	background: #FFF;
+	text-align: left;
+	max-width: 450px;
+	margin: 40px auto;
+	position: relative;
+	padding: 30px;
+	color: #989987;
+	font-weight: 600;
+
+	h2 {
+		font-size: 20px;
+		text-transform: uppercase;
+		text-align: center;
+		color: $color-blue;
+	}
+
+	a {
+		color: #fff;
+		padding: 8px 10px;
+		display: block;
+		margin: auto;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		width: 90%;
+
+		@media #{$large-up} {
+			width: 50%;
+		}
+	}
+}
+
 .see-team {
-	
+	background-color: #f8f8f8;
+	border: 1px solid #d6d6d6;
+	padding: 15px 0px;
+
+	.wrapper {
+		padding: 0;
+		background-color: #fff;
+		border: 1px solid #d6d6d6;
+	}
+
+	.good {
+
+		.ui-widget-header {
+			background-color: $color-green;
+		}
+	}
+
+	.notyet {
+		.ui-widget-header {
+			background-color: $color-blue;
+		}
+	}
+
+	.ui-progressbar {
+		height: 12px;
+	}
+
+	.ui-progressbar .ui-progressbar-value {
+		margin: 0px;
+	}
+
+	.ui-widget-header {
+		border: none;
+	}
+
+	.button {
+		display: block;
+		width: 50%;
+		padding: 8px 0px;
+		text-transform: uppercase;
+		margin: 10px auto 11px auto;
+		border-radius: 5px;
+		border: 1px solid #457383;
+		font-weight: 700;
+		letter-spacing: 0.5px;
+
+		@media #{$large-up} {
+			width: 90%;
+		}
+
+	}
+
+	.bold {
+		font-weight: 800;
+	}
+
+	.team-info {
+
+
+		h1 {
+			background-color: $color-blue;
+			color: #fff;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 24px;
+			font-family: 'Open Sans';
+			padding: 5px 0px;
+			margin: 0;
+		}
+
+		.cover {
+			padding: 0;
+		}
+
+		.team-title{
+			padding: 0px 15px;
+			text-align: center;
+		}
+
+
+		h2 {
+			font-size: 20px;
+			margin-top: 15px;
+		}
+
+		span {
+			margin-right: 5px;
+			margin-bottom: 8px;
+			display: inline-block;
+		}
+
+		.icon-event, .icon-calendar, .icon-location {
+			padding-left: 15px;
+		}
+
+		.date-event, .country {
+			margin-left: 15px;
+		}
+	}
+
+	.show-for-small-only, .team-sponsor {
+		margin-top: 15px;
+
+		@media #{$large-up} {
+			margin-top: 0;
+		}
+
+		h1 {
+			background-color: $color-blue;
+			color: #fff;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 25px;
+			font-family: 'Open Sans';
+			padding: 5px 0px;
+			margin: 0;
+		}
+
+		.progress-team {
+			margin: 0px 15px;
+		}
+
+		span {
+			font-size: 14px;
+			text-align: center;
+			padding: 10px 0px;
+
+			@media #{$large-up} {
+				font-size: 20px;
+				padding: 10px 15px;
+				
+			}
+		}
+
+	}
+
+	.list-sponsor {
+		margin-top: 15px;
+
+		@media #{$medium-up} {
+			margin-top: 0;
+		}
+
+		h1 {
+			background-color: $color-blue;
+			color: #fff;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 25px;
+			font-family: 'Open Sans';
+			padding: 5px 0px;
+			margin: 0;
+		}
+
+		.medium-6 {
+			padding: 15px;
+			border-bottom: 1px solid #d6d6d6;
+			cursor: pointer;
+
+			@media #{$medium-up} {
+				border-bottom: none;
+				padding: 0;
+			}
+
+			&:last-child {
+				border-bottom: none;
+				background-color: #dcebf2;
+				text-align: center;
+
+				@media #{$medium-up} {
+					padding: 8.4%;
+				}
+			}
+
+			span {
+				text-transform: uppercase;
+			}
+		}
+
+		img {
+			width: auto;
+			display: block;
+			margin: auto;
+
+			@media #{$medium-up} {
+				padding: 23px;
+			}
+		}
+	}
+
+	.global-desc-team {
+		padding: 0;
+
+		h1 {
+			text-align: center;
+			color: $color-blue;
+			text-transform: uppercase;
+			font-family: $font-head;
+			font-weight: 600;
+			margin-bottom: 0;
+			margin-top: 15px;
+			font-size: 25px;
+		}
+
+		.medium-12 {
+			margin-top: 30px;
+
+			.wrapper {
+				border-top: 8px solid $color-blue;
+				position: relative;
+
+				&:before {
+					top: 0;
+					left: 23px;
+					border: solid transparent;
+					content: " ";
+					height: 0;
+					width: 0;
+					position: absolute;
+					pointer-events: none;
+					border-color: rgba(71, 139, 178, 0);
+					border-top-color: #478bb2;
+					border-width: 8px;
+					margin-left: -8px;
+				}
+			}
+
+			img {
+				width: 100%;
+				padding-bottom: 15px;
+			}
+
+			.desc {
+				padding: 15px;
+			}
+
+			.name-user {
+				text-align: center;
+				font-weight: 600;
+				display: block;
+				margin: auto;
+				padding-bottom: 15px;
+			}
+		}
+	}
+
+	.place-sponsor {
+		margin-top: 30px;
+
+		.wrapper {
+			border-top: 8px solid $color-blue;
+			position: relative;
+
+			&:before {
+				top: 0;
+				left: 23px;
+				border: solid transparent;
+				content: " ";
+				height: 0;
+				width: 0;
+				position: absolute;
+				pointer-events: none;
+				border-color: rgba(71, 139, 178, 0);
+				border-top-color: #478bb2;
+				border-width: 8px;
+				margin-left: -8px;
+			}
+		}
+
+		h1 {
+			text-align: center;
+			color: $color-blue;
+			text-transform: uppercase;
+			font-family: $font-head;
+			font-weight: 600;
+			margin-bottom: 0;
+			margin-top: 15px;
+			font-size: 25px;
+			margin-bottom: 15px;
+		}
+
+		.money, .contribution {
+			background-color: #dcebf2;
+			color: #67802d;
+			font-size: 11px;
+			padding: 15px;
+			text-align: center;
+
+			p {
+				font-size: 11px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.contribution {
+			margin-top: 15px;
+		}
+
+		h2 {
+			color: #989987;
+			font-weight: 600;
+			margin-left: 15px;
+			padding-top: 10px;
+			margin-top: 0;
+
+			@media #{$medium-up} {
+				font-size: 20px;
+			}
+
+
+		}
+		span {
+			padding: 0px 15px 10px 15px;
+			display: block;
+		}
+
+		div {
+			&:nth-child(4), &:nth-child(6) {
+				background-color: #f5f5f5;
+			}
+		}	
+
+	}
 }

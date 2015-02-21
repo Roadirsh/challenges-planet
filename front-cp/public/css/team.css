@@ -1,0 +1,364 @@
+/* line 22, ../sass/team.scss */
+#list-compagnies, #choose {
+  background: #FFF;
+  text-align: left;
+  max-width: 450px;
+  margin: 40px auto;
+  position: relative;
+  padding: 30px;
+  color: #989987;
+  font-weight: 600;
+}
+/* line 32, ../sass/team.scss */
+#list-compagnies h2, #choose h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #478bb2;
+}
+/* line 39, ../sass/team.scss */
+#list-compagnies a, #choose a {
+  color: #fff;
+  padding: 8px 10px;
+  display: block;
+  margin: auto;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  width: 90%;
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 39, ../sass/team.scss */
+  #list-compagnies a, #choose a {
+    width: 50%;
+  }
+}
+
+/* line 55, ../sass/team.scss */
+.see-team {
+  background-color: #f8f8f8;
+  border: 1px solid #d6d6d6;
+  padding: 15px 0px;
+}
+/* line 60, ../sass/team.scss */
+.see-team .wrapper {
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #d6d6d6;
+}
+/* line 68, ../sass/team.scss */
+.see-team .good .ui-widget-header {
+  background-color: #88a83b;
+}
+/* line 74, ../sass/team.scss */
+.see-team .notyet .ui-widget-header {
+  background-color: #478bb2;
+}
+/* line 79, ../sass/team.scss */
+.see-team .ui-progressbar {
+  height: 12px;
+}
+/* line 83, ../sass/team.scss */
+.see-team .ui-progressbar .ui-progressbar-value {
+  margin: 0px;
+}
+/* line 87, ../sass/team.scss */
+.see-team .ui-widget-header {
+  border: none;
+}
+/* line 91, ../sass/team.scss */
+.see-team .button {
+  display: block;
+  width: 50%;
+  padding: 8px 0px;
+  text-transform: uppercase;
+  margin: 10px auto 11px auto;
+  border-radius: 5px;
+  border: 1px solid #457383;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 91, ../sass/team.scss */
+  .see-team .button {
+    width: 90%;
+  }
+}
+/* line 108, ../sass/team.scss */
+.see-team .bold {
+  font-weight: 800;
+}
+/* line 115, ../sass/team.scss */
+.see-team .team-info h1 {
+  background-color: #478bb2;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Open Sans';
+  padding: 5px 0px;
+  margin: 0;
+}
+/* line 126, ../sass/team.scss */
+.see-team .team-info .cover {
+  padding: 0;
+}
+/* line 130, ../sass/team.scss */
+.see-team .team-info .team-title {
+  padding: 0px 15px;
+  text-align: center;
+}
+/* line 136, ../sass/team.scss */
+.see-team .team-info h2 {
+  font-size: 20px;
+  margin-top: 15px;
+}
+/* line 141, ../sass/team.scss */
+.see-team .team-info span {
+  margin-right: 5px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+/* line 147, ../sass/team.scss */
+.see-team .team-info .icon-event, .see-team .team-info .icon-calendar, .see-team .team-info .icon-location {
+  padding-left: 15px;
+}
+/* line 151, ../sass/team.scss */
+.see-team .team-info .date-event, .see-team .team-info .country {
+  margin-left: 15px;
+}
+/* line 156, ../sass/team.scss */
+.see-team .show-for-small-only, .see-team .team-sponsor {
+  margin-top: 15px;
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 156, ../sass/team.scss */
+  .see-team .show-for-small-only, .see-team .team-sponsor {
+    margin-top: 0;
+  }
+}
+/* line 163, ../sass/team.scss */
+.see-team .show-for-small-only h1, .see-team .team-sponsor h1 {
+  background-color: #478bb2;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Open Sans';
+  padding: 5px 0px;
+  margin: 0;
+}
+/* line 174, ../sass/team.scss */
+.see-team .show-for-small-only .progress-team, .see-team .team-sponsor .progress-team {
+  margin: 0px 15px;
+}
+/* line 178, ../sass/team.scss */
+.see-team .show-for-small-only span, .see-team .team-sponsor span {
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 0px;
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 178, ../sass/team.scss */
+  .see-team .show-for-small-only span, .see-team .team-sponsor span {
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+}
+/* line 192, ../sass/team.scss */
+.see-team .list-sponsor {
+  margin-top: 15px;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 192, ../sass/team.scss */
+  .see-team .list-sponsor {
+    margin-top: 0;
+  }
+}
+/* line 199, ../sass/team.scss */
+.see-team .list-sponsor h1 {
+  background-color: #478bb2;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Open Sans';
+  padding: 5px 0px;
+  margin: 0;
+}
+/* line 210, ../sass/team.scss */
+.see-team .list-sponsor .medium-6 {
+  padding: 15px;
+  border-bottom: 1px solid #d6d6d6;
+  cursor: pointer;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 210, ../sass/team.scss */
+  .see-team .list-sponsor .medium-6 {
+    border-bottom: none;
+    padding: 0;
+  }
+}
+/* line 220, ../sass/team.scss */
+.see-team .list-sponsor .medium-6:last-child {
+  border-bottom: none;
+  background-color: #dcebf2;
+  text-align: center;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 220, ../sass/team.scss */
+  .see-team .list-sponsor .medium-6:last-child {
+    padding: 8.4%;
+  }
+}
+/* line 230, ../sass/team.scss */
+.see-team .list-sponsor .medium-6 span {
+  text-transform: uppercase;
+}
+/* line 235, ../sass/team.scss */
+.see-team .list-sponsor img {
+  width: auto;
+  display: block;
+  margin: auto;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 235, ../sass/team.scss */
+  .see-team .list-sponsor img {
+    padding: 23px;
+  }
+}
+/* line 246, ../sass/team.scss */
+.see-team .global-desc-team {
+  padding: 0;
+}
+/* line 249, ../sass/team.scss */
+.see-team .global-desc-team h1 {
+  text-align: center;
+  color: #478bb2;
+  text-transform: uppercase;
+  font-family: "Open Sans";
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 15px;
+  font-size: 25px;
+}
+/* line 260, ../sass/team.scss */
+.see-team .global-desc-team .medium-12 {
+  margin-top: 30px;
+}
+/* line 263, ../sass/team.scss */
+.see-team .global-desc-team .medium-12 .wrapper {
+  border-top: 8px solid #478bb2;
+  position: relative;
+}
+/* line 267, ../sass/team.scss */
+.see-team .global-desc-team .medium-12 .wrapper:before {
+  top: 0;
+  left: 23px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(71, 139, 178, 0);
+  border-top-color: #478bb2;
+  border-width: 8px;
+  margin-left: -8px;
+}
+/* line 283, ../sass/team.scss */
+.see-team .global-desc-team .medium-12 img {
+  width: 100%;
+  padding-bottom: 15px;
+}
+/* line 288, ../sass/team.scss */
+.see-team .global-desc-team .medium-12 .desc {
+  padding: 15px;
+}
+/* line 292, ../sass/team.scss */
+.see-team .global-desc-team .medium-12 .name-user {
+  text-align: center;
+  font-weight: 600;
+  display: block;
+  margin: auto;
+  padding-bottom: 15px;
+}
+/* line 302, ../sass/team.scss */
+.see-team .place-sponsor {
+  margin-top: 30px;
+}
+/* line 305, ../sass/team.scss */
+.see-team .place-sponsor .wrapper {
+  border-top: 8px solid #478bb2;
+  position: relative;
+}
+/* line 309, ../sass/team.scss */
+.see-team .place-sponsor .wrapper:before {
+  top: 0;
+  left: 23px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(71, 139, 178, 0);
+  border-top-color: #478bb2;
+  border-width: 8px;
+  margin-left: -8px;
+}
+/* line 325, ../sass/team.scss */
+.see-team .place-sponsor h1 {
+  text-align: center;
+  color: #478bb2;
+  text-transform: uppercase;
+  font-family: "Open Sans";
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 15px;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+/* line 337, ../sass/team.scss */
+.see-team .place-sponsor .money, .see-team .place-sponsor .contribution {
+  background-color: #dcebf2;
+  color: #67802d;
+  font-size: 11px;
+  padding: 15px;
+  text-align: center;
+}
+/* line 344, ../sass/team.scss */
+.see-team .place-sponsor .money p, .see-team .place-sponsor .contribution p {
+  font-size: 11px;
+}
+/* line 347, ../sass/team.scss */
+.see-team .place-sponsor .money p:last-child, .see-team .place-sponsor .contribution p:last-child {
+  margin-bottom: 0;
+}
+/* line 353, ../sass/team.scss */
+.see-team .place-sponsor .contribution {
+  margin-top: 15px;
+}
+/* line 357, ../sass/team.scss */
+.see-team .place-sponsor h2 {
+  color: #989987;
+  font-weight: 600;
+  margin-left: 15px;
+  padding-top: 10px;
+  margin-top: 0;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 357, ../sass/team.scss */
+  .see-team .place-sponsor h2 {
+    font-size: 20px;
+  }
+}
+/* line 370, ../sass/team.scss */
+.see-team .place-sponsor span {
+  padding: 0px 15px 10px 15px;
+  display: block;
+}
+/* line 376, ../sass/team.scss */
+.see-team .place-sponsor div:nth-child(4), .see-team .place-sponsor div:nth-child(6) {
+  background-color: #f5f5f5;
+}
