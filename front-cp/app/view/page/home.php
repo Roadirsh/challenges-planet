@@ -96,6 +96,7 @@
     					</div>
     					<div class="title-team"><?php echo $done['group_name']; ?></div>
     					<div class="name"><?php echo $done['event_name']; ?></div>
+                        <div class="date"><?php echo formDate($done['event_begin'], 0); ?> - <?php echo formDate($done['event_end'], 0); ?></div>
     					<div class="progressteam">
     						<span class="validate"></span>
     						<div class="number"><span>100 %</span><br>goal reached !</div>

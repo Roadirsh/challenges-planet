@@ -50,19 +50,13 @@ class EventModel extends CoreModel{
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $retour = $select->FetchAll();
             $select->closeCursor(); 
-            $this->setTopEvent($retour);
+
+            return $retour;
+
             
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         }   
-    }
-    public function getTopEvent(){
-        return $this->Allevents;
-    }
-    private function setTopEvent($retour){
-        if(is_array($retour)){
-            $this->Allevents = $retour;
-        }
     }
     
     /**
@@ -100,6 +94,7 @@ class EventModel extends CoreModel{
             echo 'Message:' . $e->getMessage();
         }
     }
+
     /**
      * addEvent.php
      * 
@@ -160,6 +155,7 @@ class EventModel extends CoreModel{
         }
        return true;
     }
+
 /////////////////////////////////////////////////////
 /* SEE EVENT * * * * * * * * * * * * * * * * * * * */
 

@@ -1,6 +1,6 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
-<?php if(isset($data['topevent']) && !empty($data['topevent']) ){ $topev = $data['topevent']; } ?>
+<?php if(isset($data['topevent']) && !empty($data['topevent']) ){ $topdev = $data['topevent']; } ?>
 
 		<div class="form-join-create clearfix">
 
@@ -15,17 +15,19 @@
 						</form>
 					</div>
 					<?php if(isset($topdev) && !empty($topdev) ){ ?>
-	                    <?php foreach($topev as $k => $topev){ ?>
+	                    <?php foreach($topdev as $k => $topev){ ?>
 						<div class="sticker columns large-3 medium-4">
 							<div class="wrapper">
 								<div class="img">
-									<img src="img/event/<? echo $topev['event_img']; ?>">
+									<img src="<? echo EVENT . 'mini/' . $topev['event_img']; ?>">
 									<div class="hover">
 										<span>Join this event !</span>
 									</div>
 								</div>
-								<h2><? echo $topev['event_name']; ?></h2>
-								<span class="info-event"><? echo $topev['event_location']; ?> - EDITION <? echo substr($topev['event_date'], 0, 4); ?></span>
+								<h2><? echo substr($topev['event_name'], 0, 15); ?> <small> ...</small></h2>
+								<span class="info-event"><?php echo mb_strimwidth($topev['event_location'], 0, 20, "..."); ?><small> ...</small> 
+								<br> <div class="date"><?php echo formDate($topev['event_begin'], 0); ?> - <?php echo formDate($topev['event_end'], 0); ?></div></span>
+
 							</div>
 						</div>
 						<?php } ?>

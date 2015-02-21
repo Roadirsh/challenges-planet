@@ -65,6 +65,7 @@ class EventController extends CoreController {
         * Get 4 events, randomly, to join as a user
         */
         $SeeEvent = $event->SeeTopEvent();
+        //var_dump($SeeEvent);
         
         /* * * * * * * * * * * * * * * * * * * * * * * * 
         * FORM CREATE && SEARCH 
