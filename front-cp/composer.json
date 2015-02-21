@@ -1,12 +1,13 @@
 {
-    "name": "saskiagiraud/back-cp",
+    "name": "saskiagiraud/front-cp",
     "authors": [
         {
             "name": "Saskiagi",
             "email": "saskia.giraud@gmail.com"
         }
     ],
-    "require": {
-        "phpdocumentor/phpdocumentor": "2.*"
+
+    "require" : {
+        "facebook/php-sdk-v4" : "4.0.*"
     }
 }

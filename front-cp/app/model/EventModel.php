@@ -50,19 +50,13 @@ class EventModel extends CoreModel{
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $retour = $select->FetchAll();
             $select->closeCursor(); 
-            $this->setTopEvent($retour);
+
+            return $retour;
+
             
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         }   
-    }
-    public function getTopEvent(){
-        return $this->Allevents;
-    }
-    private function setTopEvent($retour){
-        if(is_array($retour)){
-            $this->Allevents = $retour;
-        }
     }
     
     /**
@@ -74,24 +68,36 @@ class EventModel extends CoreModel{
      */
     public function insertNewEvent($post) {
         $location = $post['place'] . ', ' . $post['country'];
-        // var_dump($post); exit();
-        $img = $_FILES['cover']['name'];
-        $tmp = $_FILES['cover']['tmp_name'];
+
+        $img = '';
+        if(isset($_FILES['myfiles']['name'][0]) && !empty($_FILES['myfiles']['name'][0])){
+            $img = $_FILES['myfiles']['name'][0];
+            $tmp = $_FILES['myfiles']['tmp_name'][0];
+        }
+
         try 
         {   
             /* * * * * * * * * * * * * * * * * * * * * * * *
             * Insert into the database EVENT
             */
             $insert = $this->connexion->prepare("INSERT INTO " . PREFIX . "event
-                                                (`event_name`, `event_decr`, `event_begin`, `event_end`, `event_valid`, `event_location`, `event_img`) 
-                                                VALUES (:name, :descr, '" .$post['from']. "', '" .$post['from']. "', 0, :location, :img)");
+                                                (`event_name`, `event_decr`, `event_begin`, `event_end`, `event_valid`, `event_location`, `event_img`, `event_type`) 
+                                                VALUES (:name, :descr, '" .$post['from']. "', '" .$post['end']. "', 0, :location, :img, :type)");
             
             $insert->bindParam(':name', $post['name']);
             $insert->bindParam(':descr', $post['descr']);
+            $insert->bindParam(':type', $post['type']);
             $insert->bindParam(':location', $location);
             $insert->bindParam(':img', $img);
             $insert->execute();
             
+            if(!empty($img))
+            {
+                $string = EVENT.'slider/'.$img;
+                
+                $this->upload($tmp, $string, $img);
+            }
+
             return true;
             
         }
@@ -100,6 +106,7 @@ class EventModel extends CoreModel{
             echo 'Message:' . $e->getMessage();
         }
     }
+
     /**
      * addEvent.php
      * 
@@ -110,10 +117,14 @@ class EventModel extends CoreModel{
      * @param String $destination
      * @param String $img
      */
-    private function upload($index, $destination, $img) {
-    
-        $extension = $_FILES['cover']['type'];
-        // Move
+    public function getExtension($fichier){
+        $extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
+        return $extension_upload;
+    }
+    public function upload($index, $destination, $img){
+        
+        $extension = $this->getExtension($destination);
+        //Déplacement
         move_uploaded_file($index,$destination);
         if($extension=="jpg" || $extension=="jpeg" )
         {
@@ -134,7 +145,7 @@ class EventModel extends CoreModel{
         $newheight=($height/$width)*$newwidth;
         $tmp=imagecreatetruecolor($newwidth,$newheight);
         
-        $newwidth1=268;
+        $newwidth1=523;
         $newheight1=($height/$width)*$newwidth1;
         $tmp1=imagecreatetruecolor($newwidth1,$newheight1);
         
@@ -145,7 +156,7 @@ class EventModel extends CoreModel{
         $width,$height);
         
         $filename = $destination;
-        $filename1 = 'public/img/event/mini/'.$img;
+        $filename1 = EVENT . 'mini/'.$img;
         
         imagejpeg($tmp,$filename,100);
         imagejpeg($tmp1,$filename1,100);
@@ -153,13 +164,13 @@ class EventModel extends CoreModel{
         imagedestroy($src);
         imagedestroy($tmp);
         imagedestroy($tmp1);
-    
-        //Test1: fichier correctement uploadé
-        if (!isset($_FILES["imageEvent"]) OR $_FILES["imageEvent"]['error'] > 0){
-            return FALSE;
-        }
+        
+        
+           
        return true;
     }
+
+
 /////////////////////////////////////////////////////
 /* SEE EVENT * * * * * * * * * * * * * * * * * * * */
 
@@ -449,21 +460,29 @@ class EventModel extends CoreModel{
      */
     public function SearchByEvent($post, $page = null) {
 
-        if($page <= 0){
-            $page = 2;
+        if(!empty($page)){
+            if($page <= 0){
+                $page = 2;
+            }
+            $debut = LIMIT * ($page-1);
+            $limit = $debut + LIMIT;
+        } else{
+            $debut = 0;
+            $limit = LIMIT;
         }
-        $debut = LIMIT * ($page-1);
-        $limit = $debut + LIMIT;
+        
 
         include('../lib/blacklist.inc.php');
         $search = addslashes($post);
         $search = preg_replace("/'/", "", $search);
+        $search = preg_replace("/=/", "", $search);
+        
         $expSearch = explode(" ", $search);
         $i = 0;
         $nbArraySearch = count($expSearch);
         $sql = array();
-        foreach($expSearch as $phrase)
-        {
+        foreach($expSearch as $phrase) {
+            // var_dump($phrase); exit;
             //$adv->blacklist
             if(!in_array(strtolower($phrase), $adv)) { 
                 // EVENT TABLE BDD
@@ -476,7 +495,7 @@ class EventModel extends CoreModel{
         if (count($sql) > 0) {
             $ajout = ' WHERE ' . $reqSQL;
         }
-        
+
         $select = $this->connexion->prepare("SELECT event_id
                                             FROM " . PREFIX . "event
                                             " . $ajout . " 
@@ -488,6 +507,7 @@ class EventModel extends CoreModel{
         $select->closeCursor(); 
         // * * * * * * * * * * * * * * * * * * * * * * * * *  //
         $AllEvent = ''; 
+
         
         foreach ($eventID as $key => $e) {
             $select2 = $this->connexion->prepare("SELECT *, 
@@ -508,7 +528,9 @@ class EventModel extends CoreModel{
             $AllEvent = $select2->FetchAll();
             $select2->closeCursor(); 
         }
+        
         return $AllEvent;
+
     }
     /**
      * Search Project

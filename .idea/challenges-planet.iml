@@ -7,19 +7,16 @@
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar://$MODULE_DIR$/front-cp/vendor/phpdocumentor/fileset/tests/data/test.phar" />
           <root url="phar://$MODULE_DIR$/back-cp/vendor/phpdocumentor/phpdocumentor/tests/data/test.phar" />
-          <root url="phar://$MODULE_DIR$/front-cp/vendor/phpdocumentor/phpdocumentor/tests/data/test.phar" />
           <root url="phar://$MODULE_DIR$/back-cp/vendor/phpdocumentor/fileset/tests/data/test.phar" />
         </CLASSES>
         <SOURCES>
-          <root url="phar://$MODULE_DIR$/front-cp/vendor/phpdocumentor/fileset/tests/data/test.phar" />
           <root url="phar://$MODULE_DIR$/back-cp/vendor/phpdocumentor/phpdocumentor/tests/data/test.phar" />
-          <root url="phar://$MODULE_DIR$/front-cp/vendor/phpdocumentor/phpdocumentor/tests/data/test.phar" />
           <root url="phar://$MODULE_DIR$/back-cp/vendor/phpdocumentor/fileset/tests/data/test.phar" />
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="sass-stdlib" level="application" />
   </component>
 </module>
 

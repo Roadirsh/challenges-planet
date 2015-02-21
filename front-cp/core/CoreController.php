@@ -72,8 +72,12 @@ class CoreController{
 		if(isset($_SESSION["coreMessage"])){
 			include_once(ROOT . 'conf/messages.php');
 			$coreMessage = $_SESSION["coreMessage"];
+            $message = '';
 			if($coreMessage['typeMessage'] === 0){
-			}else{
+                $message = '';
+
+            }else{
+                $message = '';
 			}
 			unset($_SESSION["coreMessage"]);
 			return $message;
@@ -103,28 +107,5 @@ class CoreController{
 			$this->coreRedirect($module, $action);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

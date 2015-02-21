@@ -50,7 +50,7 @@
                         <?php if(isset($t['group_name']) && !empty($t['group_name'])){ ?>
                         <div class="columns large-3 medium-4 team-wrapper">
             				<div class="wrapper">
-                                <a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title="">
+                                <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title="">
                 					<div class="img">
                 						<img src="<?php echo PROJECT . $t['group_img']; ?>" alt="">
                 						<div class="hover"><span>They need you<br>help them</span></div>
@@ -96,6 +96,7 @@
     					</div>
     					<div class="title-team"><?php echo $done['group_name']; ?></div>
     					<div class="name"><?php echo $done['event_name']; ?></div>
+                        <div class="date"><?php echo formDate($done['event_begin'], 0); ?> - <?php echo formDate($done['event_end'], 0); ?></div>
     					<div class="progressteam">
     						<span class="validate"></span>
     						<div class="number"><span>100 %</span><br>goal reached !</div>

@@ -1,6 +1,10 @@
+<?php if(isset($_SESSION['message']) && !empty($_SESSION['message'])){ ?>
+    <div class="message <?php echo $_SESSION['messtype']; ?>"><?php echo $_SESSION['message']; ?></div>
+<?php }$_SESSION['message'] = null; ?>
+
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
-<?php if(isset($data['topevent']) && !empty($data['topevent']) ){ $topev = $data['topevent']; } ?>
+<?php if(isset($data['topevent']) && !empty($data['topevent']) ){ $topdev = $data['topevent']; } ?>
 
 		<div class="form-join-create clearfix">
 
@@ -15,17 +19,19 @@
 						</form>
 					</div>
 					<?php if(isset($topdev) && !empty($topdev) ){ ?>
-	                    <?php foreach($topev as $k => $topev){ ?>
+	                    <?php foreach($topdev as $k => $topev){ ?>
 						<div class="sticker columns large-3 medium-4">
 							<div class="wrapper">
 								<div class="img">
-									<img src="img/event/<? echo $topev['event_img']; ?>">
+									<img src="<? echo EVENT . 'mini/' . $topev['event_img']; ?>">
 									<div class="hover">
 										<span>Join this event !</span>
 									</div>
 								</div>
-								<h2><? echo $topev['event_name']; ?></h2>
-								<span class="info-event"><? echo $topev['event_location']; ?> - EDITION <? echo substr($topev['event_date'], 0, 4); ?></span>
+								<h2><? echo substr($topev['event_name'], 0, 15); ?> <small> ...</small></h2>
+								<span class="info-event"><?php echo mb_strimwidth($topev['event_location'], 0, 20, "..."); ?><small> ...</small> 
+								<br> <div class="date"><?php echo formDate($topev['event_begin'], 0); ?> - <?php echo formDate($topev['event_end'], 0); ?></div></span>
+
 							</div>
 						</div>
 						<?php } ?>
@@ -87,12 +93,12 @@
 			        <div id="tab1" class="tab active">
 			        
 			            <form id="form_create" class="" name="form_create" enctype="multipart/form-data" action="?module=event&action=addevent" method="post" >
-
+							
 			            	<div class="clearfix">
 			            		<div class="medium-8 columns first">
-			            			<label class="" for="name" >Name (required)</label>
+			            			<label class="name-event" for="name" >Name (required)</label>
 									<div>
-										<input id="" name="name" class="" type="text" maxlength="45" value="" required /> 
+										<input class="name-event" id="" name="name" class="" type="text" maxlength="45" value="" required /> 
 									</div> 
 									<label class="" for="place">City (required)</label>
 									<div>
@@ -105,17 +111,30 @@
 									</select>
 
 									<div class="clearfix date">
-										<div class="medium-6 from columns">
-										
-										<label for="date-from">Beginning date (required)</label>
-										<div>
-											<input class="input-xlarge focused" id="dateBegin" name="from" type="date" value="" required>
+										<div class="medium-4 from columns">
+											<label for="date-from">Beginning date (required)</label>
+											<div>
+												<input class="input-xlarge focused" id="dateBegin" name="from" type="date" value="" required>
+											</div>
 										</div>
-									</div>
-										<div class="medium-6 to columns">
+										<div class="medium-4 to columns">
 											<label for="date-to">Ending date (required)</label>
 											<div>
 												<input class="input-xlarge focused" id="dateEnd" name="end" type="date" value="" required>
+											</div>
+										</div>
+										<div class="medium-4 to columns">
+											<label for="type">Type (required)</label>
+											<div>
+												<select id="type" name="type">
+													<option value="Earth">Earth</option>
+													<option value="Sea">Sea</option>
+													<option value="Air">Air</option>
+													<option value="Car">Car</option>
+													<option value="Boat">Boat</option>
+													<option value="Surf">Surf</option>
+													<option value="Bike">Bike</option>
+												</select>
 											</div>
 										</div>
 									</div>
@@ -126,27 +145,25 @@
 										<img src="img/camera.png">
 										<span class="desc">Add a cover, it's better !</span>
 										<div class="custom-file-upload">
-										    <!--<label for="file">File: </label>--> 
 										    <input type="file" id="file" name="myfiles[]" multiple />
 										</div>
 										<span class="info">(size : 1280px * 490px)</span>
 									</div>
 								</div>
 				       		</div>
-								 
-								<label class="" for="description">Your idea</label>
-									<div>
-										<textarea id="description" name="descr" onfocus="javascript: this.value=''" onblur="this.value=''">Tell us more about your idea, which goal ? Which caritative challenge ? Which sport ?</textarea>
-									</div> 
-			    
-								<a href="arrivee.html" onClick="ga('send', 'event', 'link','clic', 'validate-createv3');"><input id="saveForm" class="button-submit" type="submit" name="submit" value="Ready for your adventure !" /></a>
+							<label class="" for="description">Your idea</label> <!-- onblur="this.value=''" -->
+							<div>
+								<textarea onblur="this.value=''" onfocus="javascript: this.value=''" id="description" name="descr">Tell us more about your idea, which goal ? Which caritative challenge ? Which sport ?</textarea>
+							</div>
+
+							<a href="" onClick="ga('send', 'event', 'link','clic', 'validate-createv3');"><input id="saveForm" class="button-submit" type="submit" name="submit" value="Ready for your adventure !" /></a>
 						</form>
 			       	</div>
 			 
 			        <div id="tab2" class="tab">
 						<div class="preview-create">
 							<div class="clearfix">
-								<h2 class="name-event">Name event</h2>
+								<h2 class="name-event"></h2>
 								<div class="medium-5 columns">
 									<img src="img/event/slider3.jpg" alt="cover event">
 								</div>
@@ -233,8 +250,6 @@
 			            		</div>
 			            	</div>
 			
-			    			
-
 							<a href="arrivee.html" onClick="ga('send', 'event', 'link','clic', 'validate-createv3');"><input id="saveForm" class="button-submit" type="submit" name="submit" value="ready for your adventure !" /></a>
 						</form>
 			       	</div>
