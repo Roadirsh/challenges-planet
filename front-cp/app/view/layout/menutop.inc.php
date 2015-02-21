@@ -38,7 +38,7 @@
 			<ul class="second-nav clearfix">
 			    <?php if(isset($_SESSION['user']) && !empty($_SESSION['user']) || isset($_SESSION['userMail']) && !empty($_SESSION['userMail']) ) {?>
 			    <!-- DESIGN TEMPORAIRE -->
-				<li><a class="connect popup-with-form" href="<?php echo MODULE . 'user' . ACTION . 'seeOneUser' . ID . $_SESSION['userID']; ?>">Mon compte</a></li>
+				<li><a class="connect popup-with-form" href="<?php echo MODULE . 'user' . ACTION . 'seeOneUser' . ID . $_SESSION['userID']; ?>"><img src="img/user.png" alt=""></a></li>
 				<li><a class="register" href="<?php echo MODULE . 'log' . ACTION . 'logout'; ?>"><img src="img/logout.png" width="20px;"/></a></li>
 				<!-- /DESIGN TEMPORAIRE -->
 				<?php } else { ?>

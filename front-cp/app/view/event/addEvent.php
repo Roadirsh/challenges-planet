@@ -144,7 +144,22 @@
 			       	</div>
 			 
 			        <div id="tab2" class="tab">
-						<p>This service is currently unavailable. I hope that will not last too long :)</p>
+						<div class="preview-create">
+							<div class="clearfix">
+								<h2 class="name-event">Name event</h2>
+								<div class="medium-5 columns">
+									<img src="img/event/slider3.jpg" alt="cover event">
+								</div>
+								<div class="medium-7 columns">
+									<p>Description</p>
+								</div>
+							</div>
+							<div class="clearfix">
+		                        <div class="medium-4 columns location"><span>Location : </span> Country, city</div>
+		                        <div class="medium-4 columns date-begin"><span>Beginning date : </span></div>
+		                        <div class="medium-4 columns date-finish"><span>Ending date : </span></div>
+                    		</div>
+						</div>
 			        </div>
 			    </div>
 			</div>
