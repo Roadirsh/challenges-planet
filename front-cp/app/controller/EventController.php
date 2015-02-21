@@ -79,23 +79,28 @@ class EventController extends CoreController {
                 // initialization of the messages
                 $_SESSION['message'] = $messageInfo['EVENT_ADD_OK'];
                 $_SESSION['messtype'] = 'default';
+
+                $addOk = 'ok';
+                //$this->coreRedirect('page', 'home');
             } else{
                 $_POST = null;
                 // initialization of the messages
                 $_SESSION['message'] = $messageErreur['EVENT_ADD_NOK'];
                 $_SESSION['messtype'] = 'danger';
-                $this->coreRedirect('event', 'addEvent');
-            }
 
-			$this->coreRedirect('page', 'home');
+                $addOk = 'nok';
+            }
 
 		} elseif(isset($_POST['search']) and !empty($_POST['search'])){
             $SeeEvent = $event->SearchByEvent($_POST['search']);
-            $_POST = null;
             if(empty($SeeEvent)){
+                // initialization of the messages
+                $_SESSION['message'] = 'their are no event for " ' . $_POST['search'] . ' "';
+                $_SESSION['messtype'] = 'danger';
                 $_POST = null;
-                $SeeEvent = $event->getTopEvent();
+                $SeeEvent = $event->SeeTopEvent();
             }
+            $_POST = null;
         }
 		
         /* Construct the array to pass */
@@ -103,7 +108,9 @@ class EventController extends CoreController {
 		$array['topevent'] = $SeeEvent;
 
         /* Load the view */
-		$this->load->view('event', 'addEvent', $array); // TODO
+
+        $this->load->view('event', 'addEvent', $array); // TODO
+
 	
 	}
 

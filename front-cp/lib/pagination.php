@@ -1,7 +1,6 @@
  <?php
     //pagination([requete globale], [requete avec limit], [limit]);  
-    function pagination($requete1, $limit)
-    {
+    function pagination($requete1, $limit) {
 
     ///////////////////////////////////////////////////////////////
     // ETAPE 1: RECUPERER LE NBRE TOTAL 
