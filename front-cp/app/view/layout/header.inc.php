@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/list-events.css">
   <link rel="stylesheet" href="css/event.css">
+  <link rel="stylesheet" href="css/cart.css">
   <link rel="stylesheet" href="css/profil.css">
   <link rel="stylesheet" href="css/404.css">
   <link rel="stylesheet" href="css/styledev.css">
@@ -39,7 +40,6 @@
   <script src="js/slick/slick.js"></script>
   <script src="js/magnific-popup/jquery.magnific-popup.js"></script>
   <script src="js/happy/happy.js"></script>
-  <script src="js/waypoints/jquery.waypoints.js"></script>
 </head>
 
 <?php include("menutop.inc.php"); ?>
