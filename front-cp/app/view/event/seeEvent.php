@@ -13,7 +13,11 @@
 		<span class="medium-12 number-events">
 			    <?php if(isset($events) && !empty($events)){ 
 			        	echo titleEvent($events, $search, 'event'); // count || array search || title;
-			        } else { echo "Sorry, we don't have any projects for <span class='active'>'" . $search[1] . "'</span>";  } ?>
+			        } elseif(!empty($search[1] )){ 
+			        	echo "Sorry, we don't have any projects for <span class='active'>'" . $search[1] . "'</span>";  
+			        } else {
+			        	echo "Sorry, we don't have any events at all</span>";
+			    	} ?>
                 <?php if(isset($tpe) && !empty($tpe)){ ?>
                     <span class="active"><?php echo ucfirst($tpe); ?></span>
                 <?php } elseif(isset($nbteam) && !empty($nbteam)){ ?>
@@ -167,7 +171,7 @@
 			    <div class="event medium-6 columns">
 					<div class="wrapper clearfix">
 						<div class="img large-6 medium-12 columns">
-							<img src="img/gogo.gif">
+							<img src="http://sd.keepcalm-o-matic.co.uk/i/keep-calm-and-carry-your-team-32.png">
 						</div>
 						<div class="infos large-6 medium-12 columns">
 							<h2>Sorry</h2>

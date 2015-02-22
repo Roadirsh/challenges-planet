@@ -52,8 +52,8 @@ class LogController extends CoreController{
      */
 	public function Login(){
 		
-		include(ROOT . "conf/messages.php");
-
+		
+        require(ROOT . 'conf/messages.php');
 		if(isset($_POST['email']) && !empty($_POST['email'])){
 
 			/* * * * * * * * * * * * * * * * * * * * * * * *
@@ -73,7 +73,6 @@ class LogController extends CoreController{
 	        // testing connexion is true
 			if($User != 0){
 				$_POST = array();
-                $messageInfo = '';
 				// initialization of the messages
 				$_SESSION['message'] = $messageInfo['USER_LOGIN_OK'];
 				$_SESSION['messtype'] = 'success';

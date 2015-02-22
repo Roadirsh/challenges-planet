@@ -52,15 +52,22 @@ class PageController extends CoreController {
 		define("PAGE_ID", "home");
 
 		$Group = $this->model = new PageModel();
+
 		/* Get 4 events for the slider */
 		$AllfourEvents = $Group->SeeFourEvents();
+
 		/* Get 7 last added teams */
 		$gID = $Group->SeeGroupID();
-		$AllLastGroups = $Group->SeeGroups($gID);
-		//var_dump($AllLastGroups);
-		/* Get 1 teams from a finish event */
-		$DoneGroup = $Group->SeeDoneGroup($gID);
-		// var_dump($DoneGroup); 
+
+			$AllLastGroups = '';
+			$DoneGroup = '';
+
+			if(!empty($gID)){
+				$AllLastGroups = $Group->SeeGroups($gID);
+				/* Get 1 teams from a finish event */
+				$DoneGroup = $Group->SeeDoneGroup($gID);
+			}
+
 		/* Get 7 sponsors */
 		$AllLastSponsors = $Group->SeeLastSponsors();
 		

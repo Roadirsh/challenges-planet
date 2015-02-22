@@ -21,3 +21,5 @@
 		"USER_SIGN_OK"		=> "Thanks for joing us, you are now logged in !",
 		"EVENT_ADD_OK"		=> "Thanks for this new event, this will be checked and approved by our team",
 	);		
+
+	$lala = 'lala';
