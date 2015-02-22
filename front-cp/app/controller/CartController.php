@@ -30,7 +30,7 @@ class CartController extends CoreController {
 		} else {
 			// on test voir s'il y a une sesison ou non
 			if(isset($_SESSION['user']) != ''){
-				$this->Seecart();
+				$this->Seeonecart();
 			} else {
 				$this->coreRedirect('user', 'login');
 			}
@@ -62,21 +62,78 @@ class CartController extends CoreController {
 	    }
 	    
 	}
-	
-	/**
-	 * 
-	 */
-	public function ModifyCart(){
-        // SI CHANGEMENT DE QUANTITE
-    }
-    
-    /**
-	 * 
-	 */
-	public function ValidateCart(){
-	    // INSCRIPTION 
-	    // DONATION ++
-    }
 
+
+
+    public function Seeonecart(){
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME);
+        define("PAGE_DESCR", SITE_NAME);
+        define("PAGE_ID", "SeeOneCart");
+
+        $array = '';
+        /* Load the view */
+        $this->load->view('cart', 'SeeOneCart', $array); 
+
+    }
+    public function Seeinfocart(){
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME);
+        define("PAGE_DESCR", SITE_NAME);
+        define("PAGE_ID", "seeinfocart");
+
+        $array = '';
+        /* Load the view */
+        $this->load->view('cart', 'seeinfocart', $array); 
+
+    }
+    public function Paiement(){
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME);
+        define("PAGE_DESCR", SITE_NAME);
+        define("PAGE_ID", "paiement");
+
+        $array = '';
+        /* Load the view */
+        $this->load->view('cart', 'paiement', $array); 
+
+    }
+    public function Confirmation(){
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME);
+        define("PAGE_DESCR", SITE_NAME);
+        define("PAGE_ID", "confirmation");
+
+        $array = '';
+        /* Load the view */
+        $this->load->view('cart', 'confirmation', $array); 
+
+    }
+    public function Seesummary(){
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME);
+        define("PAGE_DESCR", SITE_NAME);
+        define("PAGE_ID", "seeSummary");
+
+        $array = '';
+        /* Load the view */
+        $this->load->view('cart', 'seeSummary', $array); 
+
+    }
 
 }

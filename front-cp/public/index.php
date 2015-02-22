@@ -44,6 +44,9 @@
     /* Global Messages */
     include(ROOT . "conf/messages.php");
 
+    /* Facebook */
+    require_once('../lib/fb/Facebook/FacebookConnect.php');
+    
     
     
 /* APPLICATION GO!! */

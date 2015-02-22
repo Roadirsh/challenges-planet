@@ -9,6 +9,7 @@
  * @copyright 	L&G
  */
 
+
 class CoreController{
 	/**
 	 * Variable manager of sight and loading of the model

@@ -7,6 +7,12 @@
         }
     ],
 
+    "autoload":{
+        "psr-4":{
+            "FB\\" : "../lib/fb/"
+        }
+    },
+
     "require" : {
         "facebook/php-sdk-v4" : "4.0.*"
     }
