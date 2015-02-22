@@ -5,10 +5,10 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
 <?php if(isset($_SESSION['message']) && !empty($_SESSION['message'])){ $message = $_SESSION['message']; }?>
-<?php if(isset($data['slider']) && !empty($data['slider']) ){ $slider = $data['slider']; } ?>
+<?php if(isset($data['slider']) && !empty($data['slider']) ){ $slider = $data['slider']; }?>
 <?php if(isset($data['group']) && !empty($data['group']) ){ $team = $data['group']; } ?>
 <?php if(isset($data['done']) && !empty($data['done']) ){ $done = $data['done']; } ?>
-<?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ $sponsor = $data['sponsor']; } ?>
+<?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ $sponsor = $data['sponsor']; }?>
 
     <div class="slider">
         <?php $i = 0; ?>
@@ -31,7 +31,20 @@
         	<?php $i ++; ?>
             </a>
         	<?php } ?> 
-        <?php } ?> 	
+        <?php } else { ?> 
+                <div class="img-slider " index='<?php echo $i; ?>'>
+                    <img src="https://paulinevetuna.files.wordpress.com/2013/08/keep-calm-go-with-the-flow-desktop.jpg" alt="">
+                    <div class="show-for-small-only caption clearfix">
+                        <span>SORRY</span>
+                    </div>
+                    <div class="show-for-medium-up slogan-title-event">
+                        <h1 class="slogan"><?php echo JOIN ?></h1>
+                        <h3>SORRY</h3>
+                        <p>We don't have any events for the moment. The admin team is going to manage it ASAP </p>
+                        
+                    </div>
+                </div>
+        <?php } ?>
     </div>
 
 
@@ -86,6 +99,19 @@
             			<?php } ?>
                     <?php $i ++; ?>
                     <?php } ?>
+                <?php } else { ?>
+                    <div class="columns large-3 medium-4 team-wrapper">
+                            <div class="wrapper">
+                                <div class="img">
+                                    <img src="http://sd.keepcalm-o-matic.co.uk/i/keep-calm-and-love-sports-40.png"
+                                </div>
+                                <div class="title-team"><p>We have no teams yet</p></div>
+                                <div class="progressteam">
+                                    The admins are doing their own ASAP ! 
+                                    <br>Let's challenge 
+                                </div>
+                            </div>
+                        </div>
                 <?php } ?>
                 <?php if(isset($done) && !empty($done) ){ ?>
     			<div class="columns large-3 medium-4 team-wrapper">
@@ -131,7 +157,19 @@
         				</div>
     			    </div>
     			<?php } ?>
-            <?php } ?>
+            <?php } else { ?>
+                    <a href="">
+                    <div class="medium-4 large-3 columns sponsor-wrapper">
+                        <div class="wrapper">
+                            <div class="img">
+                                <img src="http://www.keepcalmandposters.com/posters/1522053.png" alt="">
+                                <div class="hover">
+                                    <span>Help us</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
 		</section>
 		</div>
 	</a>		
