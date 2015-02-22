@@ -129,7 +129,7 @@
 
 			</div>
 
-				<div class="clearfix">
+			<div class="clearfix">
 					<div class="global-desc-team medium-9 columns clearfix">
 
 						<div class="clearfix">
@@ -223,7 +223,7 @@
 							</div>							
 						</div>
 					</div>
-				</div>
+			</div>
 		</div>
 	</div>
 
