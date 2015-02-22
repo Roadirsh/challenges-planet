@@ -141,6 +141,58 @@ class ProjectModel extends CoreModel{
 	}
 	
 	/**
+	 * Déplacement du fichier de l'emplacement tmp 'public function getEmplacementTmp()' vers le bon emplacement serveur
+	 */
+    public function upload($index, $destination)
+	{
+		
+		$extension = $this->getExtension($destination);
+		//Déplacement
+	   move_uploaded_file($index,$destination);
+		if($extension=="jpg" || $extension=="jpeg" )
+		{
+			$src = imagecreatefromjpeg($destination);
+		}
+		else if($extension=="png")
+		{
+			$src = imagecreatefrompng($destination);
+		}
+		else 
+		{
+			$src = imagecreatefromgif($destination);
+		}
+		
+		list($width,$height)=getimagesize($destination);
+		
+		$newwidth=378;
+		$newheight=($height/$width)*$newwidth;
+		$tmp=imagecreatetruecolor($newwidth,$newheight);
+		
+		
+		
+		imagecopyresampled($tmp,$src,0,0,0,0,$newwidth,$newheight,
+		 $width,$height);
+		
+		
+		
+		$filename = $destination;
+		
+		imagejpeg($tmp,$filename,100);
+		
+		imagedestroy($src);
+		imagedestroy($tmp);
+		
+	   	
+		   
+	   return true;
+	}
+	
+	public function getExtension($fichier){
+		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
+		return $extension_upload;
+	}
+	
+	/**
 	 * SETTERS & GETTERS étudiant
 	 */
 	public function setGroupStudent($students)
@@ -452,18 +504,6 @@ class ProjectModel extends CoreModel{
 		
     }
     
-    /**
-	 * Déplacement du fichier de l'emplacement tmp 'public function getEmplacementTmp()' vers le bon emplacement serveur
-	 */
-    public function upload($index, $destination)
-	{
-	   //Test1: fichier correctement uploadé
-	    if (!isset($_FILES["image"]) OR $_FILES["image"]['error'] > 0){
-		    return FALSE;
-		}
-	   	//Déplacement
-	    return move_uploaded_file($index,$destination);
-	}
 	
 	/**
 	 * Voir UN group
@@ -717,7 +757,7 @@ class ProjectModel extends CoreModel{
 	            $imgpic = uniqid().$_FILES['group_img']['name'];
 	            $update->bindParam(':img', $imgpic);
 				$string= PROJECT . $imgpic;
-				move_uploaded_file($_FILES['group_img']['tmp_name'], $string);
+				$this->upload($_FILES['group_img']['tmp_name'], $string);
 				
 				
 

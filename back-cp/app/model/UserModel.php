@@ -91,20 +91,6 @@ class UserModel extends CoreModel{
         }
 	}
 	
-	/**
-	 * Déplacement du fichier de l'emplacement tmp 'public function $userProfPicTmp()' vers le bon emplacement serveur
-	 */
-	public function upload($index, $destination)
-	{
-	   //Test1: fichier correctement uploadé
-	   /*
-		if (!isset($_FILES["profil"]) OR $_FILES["profil"]['error'] > 0){
-				    return FALSE;
-				}
-		*/
-	   	//Déplacement
-	    return move_uploaded_file($index,$destination);
-	}
 	
 	/**
 	 * Vérification de l'existence d'un user, pour éviter les doublons
@@ -443,6 +429,58 @@ class UserModel extends CoreModel{
 		if($this->isValidMd5($password)){
 			$this->userPassword = $password;
 		}
+	}
+	
+	public function getExtension($fichier){
+		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
+		return $extension_upload;
+	}
+	
+	/**
+	 * Déplacement du fichier de l'emplacement tmp 'public function getEmplacementTmp()' vers le bon emplacement serveur
+	 */
+    public function upload($index, $destination)
+	{
+		
+		$extension = $this->getExtension($destination);
+		//Déplacement
+	   move_uploaded_file($index,$destination);
+		if($extension=="jpg" || $extension=="jpeg" )
+		{
+			$src = imagecreatefromjpeg($destination);
+		}
+		else if($extension=="png")
+		{
+			$src = imagecreatefrompng($destination);
+		}
+		else 
+		{
+			$src = imagecreatefromgif($destination);
+		}
+		
+		list($width,$height)=getimagesize($destination);
+		
+		$newwidth=250;
+		$newheight=($height/$width)*$newwidth;
+		$tmp=imagecreatetruecolor($newwidth,$newheight);
+		
+		
+		
+		imagecopyresampled($tmp,$src,0,0,0,0,$newwidth,$newheight,
+		 $width,$height);
+		
+		
+		
+		$filename = $destination;
+		
+		imagejpeg($tmp,$filename,100);
+		
+		imagedestroy($src);
+		imagedestroy($tmp);
+		
+	   	
+		   
+	   return true;
 	}
 	
 	/**
