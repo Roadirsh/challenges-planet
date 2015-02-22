@@ -12,6 +12,8 @@
 /**
  * SEE SPONSOR
  */
+/* Global Library */
+include("../lib/pagination.php");
 class SponsorController extends CoreController {
 
 	/**

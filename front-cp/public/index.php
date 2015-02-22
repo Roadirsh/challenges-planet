@@ -39,8 +39,7 @@
     include_once '../core/CoreModel.php';
     /* Global Library */
     include("../lib/lib.php");
-    /* Global Library */
-    include("../lib/pagination.php");
+    
     /* Global Messages */
     include(ROOT . "conf/messages.php");
 

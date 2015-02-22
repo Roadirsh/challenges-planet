@@ -15,6 +15,9 @@
  * FILTER EVENTS
  * SEE ONE EVENT
  */
+/* Global Library */
+include("../lib/pagination.php");
+
 class EventController extends CoreController {
 
 	/**

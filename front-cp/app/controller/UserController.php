@@ -11,7 +11,9 @@
 
 /**
  * SEE ONE USER
- */			
+ */
+/* Global Library */
+include("../lib/pagination.php");
 class UserController extends CoreController {
 
 	/**
@@ -62,12 +64,21 @@ class UserController extends CoreController {
 		define("PAGE_DESCR", SITE_NAME . " user name"); // TODO
 		define("PAGE_ID", "seeOneUser");
 
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * Age telling
+        */
+        $date = new DateTime($oneUser['user_birthday']);
+        $now = new DateTime();
+        $interval = $now->diff($date);
+        $age = $interval->y;
+
+
 		/* Construct the array to pass */
 		$array = array();
 		$array['user'] = $oneUser;
-
+        $array['user']['age'] = $age;
         /* Load the view */
-		$this->load->view('user', 'seeUser', $array);
+		$this->load->view('user', 'seeOneUser', $array);
 	
 	}
 }

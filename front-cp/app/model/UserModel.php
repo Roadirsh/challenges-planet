@@ -38,7 +38,8 @@ class UserModel extends CoreModel{
      */
 	public function SeeOneUser() {
 
-        $id = $_GET['id'];
+        // $id = $_SESSION['userID'];
+        $id = '163';
 
         try {
             /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -55,6 +56,8 @@ class UserModel extends CoreModel{
             $user = $select->FetchAll();
             $select->closeCursor(); 
 
+            $retour = $user[0];
+
             if(!empty($user)){
 
                 $select2 = $this->connexion->prepare("SELECT *
@@ -66,6 +69,8 @@ class UserModel extends CoreModel{
                 $select2->setFetchMode(PDO::FETCH_ASSOC);
                 $phone = $select2->FetchAll();
                 $select2->closeCursor(); 
+
+                $retour = array_merge($retour, $phone);
 
                 if(!empty($phone)){
 
@@ -79,6 +84,8 @@ class UserModel extends CoreModel{
                     $adress = $select3->FetchAll();
                     $select3->closeCursor(); 
 
+                    $retour = array_merge($retour, $adress);
+
                     
                     if(!empty($adress)){
 
@@ -89,15 +96,17 @@ class UserModel extends CoreModel{
                         $select4->bindValue(':userID', $id, PDO::PARAM_INT);
                         $select4->execute();
                         $select4->setFetchMode(PDO::FETCH_ASSOC);
-                        $adress = $select4->FetchAll();
+                        $adress2 = $select4->FetchAll();
                         $select4->closeCursor(); 
+
+                        $retour = array_merge($retour, $adress2);
                     
                     }
 
                 }
 
             }
-
+            var_dump($retour);
             return $retour;
             
             
