@@ -528,7 +528,7 @@ class UserModel extends CoreModel{
     	try {
         	$select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "user
-                                            where user_type != 'admin'");
+                                            where user_type != 'admin' AND user_type != 'delete'");
            
             $select -> execute();
             $select -> setFetchMode(PDO::FETCH_ASSOC);
@@ -924,7 +924,16 @@ echo '<pre>';
     	$deluserID = $_GET['id'];
     	
     	try {
-	    	$select  = $this->connexion->prepare("Select user_profil_pic FROM " . PREFIX . "user where user_id = '" . $deluserID . "'" );
+	    	$select  = $this->connexion->prepare("Select user_donut FROM " . PREFIX . "user where user_id = '" . $deluserID . "'" );
+	    	$select->execute();
+	    	$select -> setFetchMode(PDO::FETCH_ASSOC);
+			$retour = $select -> fetch();
+			
+			$retour = $retour['user_donut'];
+			
+			if($retour == 0){
+				
+				$select  = $this->connexion->prepare("Select user_profil_pic FROM " . PREFIX . "user where user_id = '" . $deluserID . "'" );
 	    	$select->execute();
 	    	$select -> setFetchMode(PDO::FETCH_ASSOC);
 			$retour = $select -> fetch();
@@ -943,6 +952,19 @@ echo '<pre>';
                                             where user_id = '" . $deluserID . "'");
            
             $delete -> execute();
+				
+			}
+			else{
+				$requete = "UPDATE " . PREFIX . "user SET `user_type` = 'delete' WHERE user_id = :id";
+			
+    	    
+    	    $update = $this->connexion->prepare($requete);      
+    	    $update->bindParam(':id' , $deluserID);       
+			$update->execute();
+			}
+			
+			
+	    	
             
 
             //var_dump($AllUser);
