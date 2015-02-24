@@ -1,4 +1,4 @@
-<? 
+<?php
 
 /**
  * Configuration des DEFINE

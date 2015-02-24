@@ -1,5 +1,5 @@
-<? if(!empty($data['user'])){ $user = $data['user'][0]; } ?>
-<? if(!empty($data['info'])){
+<?php if(!empty($data['user'])){ $user = $data['user'][0]; } ?>
+<?php if(!empty($data['info'])){
 	if($data['info'][0]['ad_type'] == "Home" || $data['info'][1]['ad_type'] == "Home")
 	{
 		if($data['info'][0]['ad_type'] == "Home")
@@ -28,12 +28,12 @@
 var_dump($adressInvoice);
 	exit(0);
 */ ?>
-<? if(!empty($data['phone'])){ $infoplusplus = $data['phone'][0]; } ?>
+<?php if(!empty($data['phone'])){ $infoplusplus = $data['phone'][0]; } ?>
 
 
-<? include(ROOT . "view/layout/header.inc.php"); ?>
-<? include(ROOT . "view/layout/menutop.inc.php"); ?>
-<? include(ROOT . "view/layout/menu.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/menutop.inc.php"); ?>
+<?php include(ROOT . "view/layout/menu.inc.php"); ?>
 
 
 <!-- Right side column. Contains the navbar and content of the page -->
@@ -41,12 +41,12 @@ var_dump($adressInvoice);
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <? echo strtoupper($user['user_lastname']); ?> <? echo ($user['user_firstname']); ?> <small>- <em><? echo $user['user_pseudo']; ?></em></small>
+            <?php echo strtoupper($user['user_lastname']); ?> <?php echo ($user['user_firstname']); ?> <small>- <em><?php echo $user['user_pseudo']; ?></em></small>
         </h1>
         
         <ol class="breadcrumb">
-            <li><a href="<? echo MODULE . 'page' . ACTION . 'home'; ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active"><? echo $user['user_pseudo']; ?></li>
+            <li><a href="<?php echo MODULE . 'page' . ACTION . 'home'; ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active"><?php echo $user['user_pseudo']; ?></li>
         </ol>
     </section>
 
@@ -54,19 +54,19 @@ var_dump($adressInvoice);
     <section class="content">
         <div id="content" class="span10">
             <?if(!empty($_SESSION['message'])){ ?>
-                <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
-            <? $_SESSION['message'] = ''; } ?>
+                <div class="alert alert-success" role="alert"><?php echo $_SESSION['message']; ?></div>
+            <?php $_SESSION['message'] = ''; } ?>
             <div class="row-fluid">		
-	        	<form class="form-horizontal" enctype="multipart/form-data" action="<? echo MODULE . 'user' . ACTION . 'uponeadmin'; ?>" method="post">
+	        	<form class="form-horizontal" enctype="multipart/form-data" action="<?php echo MODULE . 'user' . ACTION . 'uponeadmin'; ?>" method="post">
 
                 <div class="user user_profil">
                     <?php if(!empty($user['user_profil_pic'])){ ?>
-				        <img class="avatar" alt="Dennis Ji" src="<? echo AVATAR . $user['user_profil_pic']; ?>">
+				        <img class="avatar" alt="Dennis Ji" src="<?php echo AVATAR . $user['user_profil_pic']; ?>">
 				        
-				        <input  type="hidden" name="profpic" value="<? echo $user['user_profil_pic']; ?>"/>
-                    <? } else { ?>
+				        <input  type="hidden" name="profpic" value="<?php echo $user['user_profil_pic']; ?>"/>
+                    <?php } else { ?>
 				        <img class="avatar" alt="Dennis Ji" src="images/avatar/default.png"> 
-                    <? } ?> 
+                    <?php } ?> 
                     
                     <input type="file" name="user_img" />
                 </div>	
@@ -74,37 +74,37 @@ var_dump($adressInvoice);
                 
                     
                         <h3>
-                            <input type='text' name="user_lastname" value="<? echo strtoupper($user['user_lastname']); ?>" /> 
+                            <input type='text' name="user_lastname" value="<?php echo strtoupper($user['user_lastname']); ?>" /> 
                             <small>
                                 <em>
-                                    <input type='text' name="user_pseudo" value="<? echo $user['user_pseudo']; ?>"/>
+                                    <input type='text' name="user_pseudo" value="<?php echo $user['user_pseudo']; ?>"/>
                                 </em>
                             </small>
-                            <input type='text' name="user_firstname" value="<? echo $user['user_firstname']; ?> " /> 
+                            <input type='text' name="user_firstname" value="<?php echo $user['user_firstname']; ?> " /> 
                             <small>
                                 <em>
                                     <input type='password' name="user_password" value="" placeholder="password"/>
                                 </em>
                             </small>
                         </h3>
-                        <p><small><em>sign up date : <? echo $user['user_date']; ?> </em></small></p>
+                        <p><small><em>sign up date : <?php echo $user['user_date']; ?> </em></small></p>
                         <ul class="admin_info">
                             <li>
-                                <span><b>Type</b>: <? echo $user['user_type']; ?></span>
+                                <span><b>Type</b>: <?php echo $user['user_type']; ?></span>
                             </li>
                             <li>
-                                <span><b>E-mail</b>: <br></span><input type='email' name="user_mail" value="<? echo $user['user_mail']; ?>" />
+                                <span><b>E-mail</b>: <br></span><input type='email' name="user_mail" value="<?php echo $user['user_mail']; ?>" />
                             </li>
                             
                             <li>
                                 <span><b> Phone</b>: <br>
                                 </span>
-                                <? if(!empty($infoplusplus['phone_num'])){ ?>
-                                    <input class="input-large focused" name="phone_num" id="phone_num" type="text" title='The phone number must be between 6 and 14 numbers and begin with a "+".' pattern="^\+(?:[0-9]?){6,14}[0-9]$" value="<? echo $infoplusplus['phone_num']; ?>">
+                                <?php if(!empty($infoplusplus['phone_num'])){ ?>
+                                    <input class="input-large focused" name="phone_num" id="phone_num" type="text" title='The phone number must be between 6 and 14 numbers and begin with a "+".' pattern="^\+(?:[0-9]?){6,14}[0-9]$" value="<?php echo $infoplusplus['phone_num']; ?>">
 
-                                <? } else { ?>
+                                <?php } else { ?>
         									<input class="input-large focused" name="phone_num" id="phone_num" type="text" title='The phone number must be between 6 and 14 numbers and begin with a "+".' pattern="^\+(?:[0-9]?){6,14}[0-9]$" placeholder="+33xxxxxxx">
-                                <? } ?> 
+                                <?php } ?> 
                             </li>
                             
                         </ul>
@@ -116,39 +116,39 @@ var_dump($adressInvoice);
                             <li>
                              Home adress:<br/>
                              	Num:
-                                <? if(!empty($adressHome['ad_num'])){ ?>
-                                    <input type="text" name="ad_numHome" value="<? echo $adressHome['ad_num']; ?>" />
-                                <? } else { ?> 
+                                <?php if(!empty($adressHome['ad_num'])){ ?>
+                                    <input type="text" name="ad_numHome" value="<?php echo $adressHome['ad_num']; ?>" />
+                                <?php } else { ?> 
                                     <input type="text" name="ad_numHome" />
-                                <? } ?> 
+                                <?php } ?> 
                                 Street:
-                                <? if(!empty($adressHome['ad_street'])){ ?>
-                                    <input type="text" name="ad_streetHome" value="<? echo $adressHome['ad_street']; ?>" />
-                                <? } else { ?>
+                                <?php if(!empty($adressHome['ad_street'])){ ?>
+                                    <input type="text" name="ad_streetHome" value="<?php echo $adressHome['ad_street']; ?>" />
+                                <?php } else { ?>
                                     <input type="text" name="ad_streetHome" />
-                                <? } ?>
+                                <?php } ?>
                             </li>
                             <li>
                             Zipcode
-                                <? if(!empty($adressHome['ad_zipcode'])){ ?>
-                                    <input type="text" name="ad_zipcodeHome" value="<? echo $adressHome['ad_zipcode']; ?>" />
-                                <? } else { ?>
+                                <?php if(!empty($adressHome['ad_zipcode'])){ ?>
+                                    <input type="text" name="ad_zipcodeHome" value="<?php echo $adressHome['ad_zipcode']; ?>" />
+                                <?php } else { ?>
                                     <input type="text" name="ad_zipcodeHome" />
-                                <? } ?>
+                                <?php } ?>
                                 City:
-                                <? if(!empty($adressHome['ad_city'])){ ?>
-                                    <input type="text" name="ad_cityHome" value="<? echo $adressHome['ad_city']; ?>" />
-                                <? } else { ?>
+                                <?php if(!empty($adressHome['ad_city'])){ ?>
+                                    <input type="text" name="ad_cityHome" value="<?php echo $adressHome['ad_city']; ?>" />
+                                <?php } else { ?>
                                     <input type="text" name="ad_cityHome" />
-                                <? } ?>
+                                <?php } ?>
                             </li>
                             <li>   
 							Country:
-                                <? if(!empty($adressHome['ad_country'])){ ?>
-                                    <input type="text" name="ad_countryHome" value="<? echo strtoupper($adressHome['ad_country']); ?>" />
-                                <? } else { ?>
+                                <?php if(!empty($adressHome['ad_country'])){ ?>
+                                    <input type="text" name="ad_countryHome" value="<?php echo strtoupper($adressHome['ad_country']); ?>" />
+                                <?php } else { ?>
                                     <input type="text" name="ad_countryHome" />
-                                <? } ?>
+                                <?php } ?>
                             </li>
                         </ul>
                         
@@ -157,39 +157,39 @@ var_dump($adressInvoice);
                             <li>
                              Invoice adress:<br/>
                              	Num:
-                                <? if(!empty($adressInvoice['ad_num'])){ ?>
-                                    <input type="text" name="ad_numInvoice" value="<? echo $adressInvoice['ad_num']; ?>" />
-                                <? } else { ?> 
+                                <?php if(!empty($adressInvoice['ad_num'])){ ?>
+                                    <input type="text" name="ad_numInvoice" value="<?php echo $adressInvoice['ad_num']; ?>" />
+                                <?php } else { ?> 
                                     <input type="text" name="ad_numInvoice" />
-                                <? } ?> 
+                                <?php } ?> 
                                 Street:
-                                <? if(!empty($adressInvoice['ad_street'])){ ?>
-                                    <input type="text" name="ad_streetInvoice" value="<? echo $adressInvoice['ad_street']; ?>" />
-                                <? } else { ?>
+                                <?php if(!empty($adressInvoice['ad_street'])){ ?>
+                                    <input type="text" name="ad_streetInvoice" value="<?php echo $adressInvoice['ad_street']; ?>" />
+                                <?php } else { ?>
                                     <input type="text" name="ad_streetInvoice" />
-                                <? } ?>
+                                <?php } ?>
                             </li>
                             <li>
                             Zipcode
-                                <? if(!empty($adressInvoice['ad_zipcode'])){ ?>
-                                    <input type="text" name="ad_zipcodeInvoice" value="<? echo $adressInvoice['ad_zipcode']; ?>" />
-                                <? } else { ?>
+                                <?php if(!empty($adressInvoice['ad_zipcode'])){ ?>
+                                    <input type="text" name="ad_zipcodeInvoice" value="<?php echo $adressInvoice['ad_zipcode']; ?>" />
+                                <?php } else { ?>
                                     <input type="text" name="ad_zipcodeInvoice" />
-                                <? } ?>
+                                <?php } ?>
                                 City:
-                                <? if(!empty($adressInvoice['ad_city'])){ ?>
-                                    <input type="text" name="ad_cityInvoice" value="<? echo $adressInvoice['ad_city']; ?>" />
-                                <? } else { ?>
+                                <?php if(!empty($adressInvoice['ad_city'])){ ?>
+                                    <input type="text" name="ad_cityInvoice" value="<?php echo $adressInvoice['ad_city']; ?>" />
+                                <?php } else { ?>
                                     <input type="text" name="ad_cityInvoice" />
-                                <? } ?>
+                                <?php } ?>
                             </li>
                             <li>   
 							Country:
-                                <? if(!empty($adressInvoice['ad_country'])){ ?>
-                                    <input type="text" name="ad_countryInvoice" value="<? echo strtoupper($adressInvoice['ad_country']); ?>" />
-                                <? } else { ?>
+                                <?php if(!empty($adressInvoice['ad_country'])){ ?>
+                                    <input type="text" name="ad_countryInvoice" value="<?php echo strtoupper($adressInvoice['ad_country']); ?>" />
+                                <?php } else { ?>
                                     <input type="text" name="ad_countryInvoice" />
-                                <? } ?>
+                                <?php } ?>
                             </li>
                         </ul>
                         

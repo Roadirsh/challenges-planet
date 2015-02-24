@@ -1,4 +1,4 @@
-<?
+<?php
 function lang_url()
 {
    $ret = "";

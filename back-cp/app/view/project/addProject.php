@@ -1,7 +1,7 @@
 <?php // $logger->log('test', 'loadapp', "Chargement de la vue home.php", Logger::GRAN_MONTH); ?>
-<? include(ROOT . "view/layout/header.inc.php"); ?>
-<? include(ROOT . "view/layout/menutop.inc.php"); ?>
-<? include(ROOT . "view/layout/menu.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/menutop.inc.php"); ?>
+<?php include(ROOT . "view/layout/menu.inc.php"); ?>
 
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -11,7 +11,7 @@
             Add a Project Team
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<? echo MODULE . 'page' . ACTION . 'home'; ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo MODULE . 'page' . ACTION . 'home'; ?>"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Add Project</li>
         </ol>
     </section>
@@ -20,8 +20,8 @@
     <section class="content">
 	    <div id="content" class="span10">
 		     <?if(!empty($_SESSION['message'])){ ?>
-                <div class="alert alert-success" role="alert"><? echo $_SESSION['message']; ?></div>
-            <? $_SESSION['message'] = ''; } ?>
+                <div class="alert alert-success" role="alert"><?php echo $_SESSION['message']; ?></div>
+            <?php $_SESSION['message'] = ''; } ?>
 	        <div class="row-fluid sortable">
 					<div class="box-content">
 	                    <div class="box box-info">

@@ -1,6 +1,6 @@
-<? include(ROOT . "view/layout/header.inc.php"); ?>
-<? include(ROOT . "view/layout/menutop.inc.php"); ?>
-<? include(ROOT . "view/layout/menu.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/menutop.inc.php"); ?>
+<?php include(ROOT . "view/layout/menu.inc.php"); ?>
 
 
             <!-- Right side column. Contains the navbar and content of the page -->
@@ -23,4 +23,4 @@
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
-<? include(ROOT . "view/layout/footer.inc.php"); ?>
+<?php include(ROOT . "view/layout/footer.inc.php"); ?>

@@ -8,9 +8,7 @@
  * @copyright   L&G
  */
 
-/**
- * GET PROJECT JSON 
- */
+
 class ProjectModel extends CoreModel{
 
     
@@ -105,4 +103,50 @@ class ProjectModel extends CoreModel{
             echo 'Message:' . $e->getMessage();
         }
     }
+    
+    
+    //Retourne l'extension d'un fichier
+    public function getExtension($fichier){
+		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
+		return $extension_upload;
+	}
+
+    //Déplacement de l'emplacement temporaire vers la desitnation finale sur le serveur
+    public function upload($index, $destination)
+	{
+		
+		$extension = $this->getExtension($destination);
+		//Déplacement
+	   move_uploaded_file($index,$destination);
+		if($extension=="jpg" || $extension=="jpeg" )
+		{
+			$src = imagecreatefromjpeg($destination);
+		}
+		else if($extension=="png")
+		{
+			$src = imagecreatefrompng($destination);
+		}
+		else 
+		{
+			$src = imagecreatefromgif($destination);
+		}
+		
+		list($width,$height)=getimagesize($destination);
+		// Resize de l'image et compression
+		$newwidth=378;
+		$newheight=($height/$width)*$newwidth;
+		$tmp=imagecreatetruecolor($newwidth,$newheight);
+
+		imagecopyresampled($tmp,$src,0,0,0,0,$newwidth,$newheight,
+		 $width,$height);
+
+		$filename = $destination;
+		
+		imagejpeg($tmp,$filename,100);
+		
+		imagedestroy($src);
+		imagedestroy($tmp);
+
+	   return true;
+	}
 }

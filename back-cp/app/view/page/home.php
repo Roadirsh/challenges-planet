@@ -1,6 +1,6 @@
-<? include(ROOT . "view/layout/header.inc.php"); ?>
-<? include(ROOT . "view/layout/menutop.inc.php"); ?>
-<? include(ROOT . "view/layout/menu.inc.php"); ?>
+<?phpinclude(ROOT . "view/layout/header.inc.php"); ?>
+<?phpinclude(ROOT . "view/layout/menutop.inc.php"); ?>
+<?phpinclude(ROOT . "view/layout/menu.inc.php"); ?>
 
 
             <!-- Right side column. Contains the navbar and content of the page -->
@@ -33,7 +33,7 @@
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="<? echo MODULE . 'user' . ACTION . 'seeuser'; ?>" class="small-box-footer">
+                                <a href="<?php echo MODULE . 'user' . ACTION . 'seeuser'; ?>" class="small-box-footer">
                                     More info <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="<? echo MODULE . 'project' . ACTION . 'seeproject'; ?>" class="small-box-footer">
+                                <a href="<?php echo MODULE . 'project' . ACTION . 'seeproject'; ?>" class="small-box-footer">
                                     More info <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -67,7 +67,7 @@
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
                                 </div>
-                                <a href="<? echo MODULE . 'event' . ACTION . 'seeevent'; ?>" class="small-box-footer">
+                                <a href="<?php echo MODULE . 'event' . ACTION . 'seeevent'; ?>" class="small-box-footer">
                                     More info <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -93,4 +93,4 @@
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
-<? include(ROOT . "view/layout/footer.inc.php"); ?>
+<?php include(ROOT . "view/layout/footer.inc.php"); ?>

@@ -6,9 +6,9 @@
             </div>
             <form action="" method="post">
                 <div class="body bg-gray">
-                    <?if(!empty($_SESSION['message'])){ ?>
+                    <?php if(!empty($_SESSION['message'])){ ?>
                         <div class="alert alert-warning" role="alert"><? echo $_SESSION['message']; ?></div>
-                    <? $_SESSION['message'] = ''; } ?>
+                    <?php $_SESSION['message'] = ''; } ?>
                     
                     <div class="form-group">
                         <input type="text" name="login" id="username" class="form-control" placeholder="Login"/>

@@ -6,17 +6,17 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="<? echo AVATAR . $_SESSION['userPic']; ?>" class="img-circle" alt="User Image" />
+                            <img src="<?php  echo AVATAR . $_SESSION['userPic']; ?>" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, <? echo $_SESSION['userPseudo']; ?> !</p>
+                            <p>Hello, <?php  echo $_SESSION['userPseudo']; ?> !</p>
                         </div>
                     </div>
                    
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="<? echo MODULE . 'page' . ACTION . 'home'; ?>">
+                            <a href="<?php  echo MODULE . 'page' . ACTION . 'home'; ?>">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
@@ -27,8 +27,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<? echo MODULE . 'user' . ACTION . 'seeuser'; ?>"><i class="fa fa-angle-double-right"></i> See users</a></li>
-                                <li><a href="<? echo MODULE . 'user' . ACTION . 'adduser'; ?>"><i class="fa fa-angle-double-right"></i> Add user</a></li>
+                                <li><a href="<?php  echo MODULE . 'user' . ACTION . 'seeuser'; ?>"><i class="fa fa-angle-double-right"></i> See users</a></li>
+                                <li><a href="<?php  echo MODULE . 'user' . ACTION . 'adduser'; ?>"><i class="fa fa-angle-double-right"></i> Add user</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -38,8 +38,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<? echo MODULE . 'project' . ACTION . 'seeproject'; ?>"><i class="fa fa-angle-double-right"></i> See projects</a></li>
-                                <li><a href="<? echo MODULE . 'project' . ACTION . 'addproject'; ?>"><i class="fa fa-angle-double-right"></i> Add project</a></li>
+                                <li><a href="<?php  echo MODULE . 'project' . ACTION . 'seeproject'; ?>"><i class="fa fa-angle-double-right"></i> See projects</a></li>
+                                <li><a href="<?php  echo MODULE . 'project' . ACTION . 'addproject'; ?>"><i class="fa fa-angle-double-right"></i> Add project</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -49,12 +49,12 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<? echo MODULE . 'event' . ACTION . 'seeevent'; ?>"><i class="fa fa-angle-double-right"></i> See events</a></li>
-                                <li><a href="<? echo MODULE . 'event' . ACTION . 'addevent'; ?>"><i class="fa fa-angle-double-right"></i> Add event</a></li>
+                                <li><a href="<?php  echo MODULE . 'event' . ACTION . 'seeevent'; ?>"><i class="fa fa-angle-double-right"></i> See events</a></li>
+                                <li><a href="<?php  echo MODULE . 'event' . ACTION . 'addevent'; ?>"><i class="fa fa-angle-double-right"></i> Add event</a></li>
                             </ul>
                         </li>
                         <li class="">
-                            <a href="<? echo MODULE . 'page' . ACTION . 'team'; ?>">
+                            <a href="<?php  echo MODULE . 'page' . ACTION . 'team'; ?>">
                                 <i class="fa fa-cogs"></i> <span>Team</span>
                             </a>
                         </li>

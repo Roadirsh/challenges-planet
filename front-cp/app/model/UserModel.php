@@ -115,6 +115,51 @@ class UserModel extends CoreModel{
         }
     }
 
+	//Retourne l'extension d'un fichier
+	public function getExtension($fichier){
+		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
+		return $extension_upload;
+	}
+	
+	/**
+	 * Déplacement du fichier de l'emplacement tmp  vers le bon emplacement serveur
+	 */
+    public function upload($index, $destination)
+	{
+		
+		$extension = $this->getExtension($destination);
+		//Déplacement
+	   move_uploaded_file($index,$destination);
+		if($extension=="jpg" || $extension=="jpeg" )
+		{
+			$src = imagecreatefromjpeg($destination);
+		}
+		else if($extension=="png")
+		{
+			$src = imagecreatefrompng($destination);
+		}
+		else 
+		{
+			$src = imagecreatefromgif($destination);
+		}
+		
+		list($width,$height)=getimagesize($destination);
+		//Resize à 250px
+		$newwidth=250;
+		$newheight=($height/$width)*$newwidth;
+		$tmp=imagecreatetruecolor($newwidth,$newheight);
+
+		imagecopyresampled($tmp,$src,0,0,0,0,$newwidth,$newheight, $width,$height);
+
+		$filename = $destination;
+		
+		imagejpeg($tmp,$filename,100);
+		
+		imagedestroy($src);
+		imagedestroy($tmp);
+
+	   return true;
+	}
    
 }
 ?>

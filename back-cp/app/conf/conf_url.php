@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * Tableau des URL en dur 

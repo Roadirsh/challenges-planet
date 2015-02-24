@@ -1,6 +1,6 @@
-<? include(ROOT . "view/layout/header.inc.php"); ?>
-<? include(ROOT . "view/layout/menutop.inc.php"); ?>
-<? include(ROOT . "view/layout/menu.inc.php"); ?>
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
+<?php include(ROOT . "view/layout/menutop.inc.php"); ?>
+<?php include(ROOT . "view/layout/menu.inc.php"); ?>
 
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -28,7 +28,7 @@
         						<h3 class="box-title">Users Basic Information</h3>
         							<?php if($data) { ?>
         								    <div class="alert alert-danger"  role="alert">This pseudo has already been taken !</div>
-        							<? } ?>
+        							<?php } ?>
         							<div class="control-group">
         								<label class="control-label">Type:</label>
         								<div class="">
