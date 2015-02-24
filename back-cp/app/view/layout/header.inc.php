@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title><?php php echo PAGE_TITLE; ?></title>
-        <meta name="description" content="<?php php echo PAGE_DESCR; ?>">
+        <title><?php echo PAGE_TITLE; ?></title>
+        <meta name="description" content="<?php echo PAGE_DESCR; ?>">
         <meta name="author" content="3ADev">
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
