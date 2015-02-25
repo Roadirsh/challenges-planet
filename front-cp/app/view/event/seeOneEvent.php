@@ -119,7 +119,7 @@
                                 <div class="wrapper">
                                     <div class="img" style="background:url('<?php echo PROJECT . $t['group_img']; ?>');">
                                         <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $g['group_id']; ?>" alt="" title="" >
-<!--                                             <img src="img/group/<?php echo $g['group_img']; ?>" alt=""> -->
+                                            <!-- <img src="img/group/<?php echo $g['group_img']; ?>" alt=""> -->
                                             <div class="hover">
                                                 <span>They need you<br>help them</span>
                                             </div>
@@ -152,14 +152,18 @@
                         /* * * * * * * * * * * * * * * * * * * * * * * * *
                         * PAGINATION
                         */
-                        $limit = ceil($count / LIMIT);
-                        for ($i=1; $i <= $limit; $i++) { 
-                            if($_GET['page'] == $i){ ?>
-                            <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
-                        <?php } else { ?>
-                            <a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
-                        <?php } ?>
-                    <?php } ?>
+                        if(!empty($count)){
+                            $limit = ceil($count / LIMIT);
+                            for ($i=1; $i <= $limit; $i++) { 
+                                if($_GET['page'] == $i){ ?>
+                                <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+                            <?php } else { ?>
+                                <a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+                            <?php }
+
+                            }
+                        } 
+                    ?>
                 </div>
 
         </div>
