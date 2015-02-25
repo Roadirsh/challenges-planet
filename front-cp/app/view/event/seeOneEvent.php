@@ -91,6 +91,7 @@
                     </form>
                 </div>
                 <div class="teams large-9 medium-12 clearfix columns">
+
                     <?php if(isset($done[0]['group_id']) && !empty($data['done'][0]['group_id']) ){ ?>
                         <?php $i = 1;
                         foreach ($done as $key => $done) { ?>
@@ -102,7 +103,7 @@
 	                                </div>
 	                            </div>
 	                            <div class="title-team"><?php echo $done['group_name']; ?></div>
-	                            <div class="date"><?php echo formDate($done['group_date'], 2); ?></div>
+	                            <div class="date">Created on <?php echo formDate($done['group_date'], 2); ?></div>
 	                            <div class="progressteam">
 	                                <span class="validate"></span>
 	                                <div class="number"><span>100 %</span><br>goal reached !</div>
@@ -127,7 +128,7 @@
                                     </div>
 
                                     <div class="title-team"><?php echo $g['group_name']; ?></div>
-                                    <div class="date"><?php echo formDate($g['group_date'], 2); ?></div>
+                                    <div class="date">Created on <?php echo formDate($g['group_date'], 2); ?></div>
                                     <div class="progressteam">
                                         <div class="clearfix">
                                             <div class="columns medium-4 small-4 numbers"><span><?php echo $g['group_money']; ?> €</span><br>goals</div>
@@ -139,7 +140,8 @@
                                                 </span>
                                                 <br>days left</div>
                                         </div>
-                                        <div id="progressteam<?php echo $i; ?>" class="notyet"></div>
+                                        <?php  $percent = number_format(($g['group_needed'] / $g['group_money']) *100, 0); ?>
+                                        <div id="progressteam<?php echo $i; ?>" data="<?php echo $percent; ?>" class="notyet"></div>
                                     </div>
                                 </div>
                             </div>
