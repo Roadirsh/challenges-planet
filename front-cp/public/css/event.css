@@ -49,12 +49,13 @@
 .list-events .teams .wrapper .img {
   position: relative;
   cursor: pointer;
+  height: 240px;
 }
-/* line 77, ../sass/event.scss */
+/* line 78, ../sass/event.scss */
 .list-events .teams .wrapper .img .done {
   background-color: rgba(136, 168, 59, 0.7) !important;
 }
-/* line 81, ../sass/event.scss */
+/* line 82, ../sass/event.scss */
 .list-events .teams .wrapper .img .hover {
   position: absolute;
   top: 0;
@@ -68,7 +69,7 @@
   height: 100%;
   width: 100%;
 }
-/* line 94, ../sass/event.scss */
+/* line 95, ../sass/event.scss */
 .list-events .teams .wrapper .img .hover span {
   font-weight: bold;
   text-align: center;
@@ -83,35 +84,35 @@
   -moz-transform: translatey(-50%) translatex(-50%);
   -ms-transform: translatey(-50%) translatex(-50%);
 }
-/* line 110, ../sass/event.scss */
+/* line 111, ../sass/event.scss */
 .list-events .teams .wrapper .img img {
   width: 100%;
   max-height: 328px;
 }
-/* line 116, ../sass/event.scss */
+/* line 117, ../sass/event.scss */
 .list-events .teams .wrapper .title-team {
   font-family: "roboto_slabbold";
   text-align: center;
   margin: 10px 0px;
   text-transform: uppercase;
 }
-/* line 123, ../sass/event.scss */
+/* line 124, ../sass/event.scss */
 .list-events .teams .wrapper .chief-team, .list-events .teams .wrapper .date {
   font-size: 13px;
   color: #adadad;
 }
-/* line 128, ../sass/event.scss */
+/* line 129, ../sass/event.scss */
 .list-events .teams .wrapper .date {
   margin-bottom: 10px;
 }
-/* line 132, ../sass/event.scss */
+/* line 133, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam {
   text-align: center;
   position: relative;
   padding-top: 10px;
   text-transform: uppercase;
 }
-/* line 138, ../sass/event.scss */
+/* line 139, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam:before {
   position: absolute;
   top: 0;
@@ -121,32 +122,32 @@
   height: 1px;
   background-color: #d6d6d6;
 }
-/* line 148, ../sass/event.scss */
+/* line 149, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .validate {
   background-image: url(../img/checked.png);
   height: 22px;
   width: 22px;
   display: inline-block;
 }
-/* line 155, ../sass/event.scss */
+/* line 156, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .daysleft {
   display: inline-block;
   color: #1a2129;
   line-height: 16px;
   font-size: 10px;
 }
-/* line 161, ../sass/event.scss */
+/* line 162, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .daysleft span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 161, ../sass/event.scss */
+  /* line 162, ../sass/event.scss */
   .list-events .teams .wrapper .progressteam .daysleft span {
     font-size: 15px;
   }
 }
-/* line 171, ../sass/event.scss */
+/* line 172, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .number {
   display: inline-block;
   line-height: 16px;
@@ -155,13 +156,13 @@
   font-size: 15px;
   margin-bottom: 10px;
 }
-/* line 179, ../sass/event.scss */
+/* line 180, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .number span {
   font-weight: bold;
   font-size: 20px;
   text-align: center;
 }
-/* line 186, ../sass/event.scss */
+/* line 187, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .numbers, .list-events .teams .wrapper .progressteam .funded {
   display: inline-block;
   line-height: 16px;
@@ -170,38 +171,38 @@
   font-size: 11px;
   margin-bottom: 10px;
 }
-/* line 194, ../sass/event.scss */
+/* line 195, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .numbers span, .list-events .teams .wrapper .progressteam .funded span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 194, ../sass/event.scss */
+  /* line 195, ../sass/event.scss */
   .list-events .teams .wrapper .progressteam .numbers span, .list-events .teams .wrapper .progressteam .funded span {
     font-size: 15px;
   }
 }
-/* line 204, ../sass/event.scss */
+/* line 205, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .funded {
   color: #478bb2;
 }
-/* line 210, ../sass/event.scss */
+/* line 211, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .good .ui-widget-header {
   background-color: #88a83b;
 }
-/* line 216, ../sass/event.scss */
+/* line 217, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .notyet .ui-widget-header {
   background-color: #818181;
 }
-/* line 221, ../sass/event.scss */
+/* line 222, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .ui-progressbar {
   height: 12px;
 }
-/* line 225, ../sass/event.scss */
+/* line 226, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .ui-progressbar .ui-progressbar-value {
   margin: 0px;
 }
-/* line 229, ../sass/event.scss */
+/* line 230, ../sass/event.scss */
 .list-events .teams .wrapper .progressteam .ui-widget-header {
   border: none;
 }

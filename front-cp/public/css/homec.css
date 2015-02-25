@@ -693,18 +693,13 @@ body #form-login .button-submit:hover {
 .container .global-content .teams .wrapper .img {
   position: relative;
   cursor: pointer;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-position: center;
   height: 240px;
 }
-/* line 705, ../sass/homec.scss */
+/* line 700, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .done {
   background-color: rgba(136, 168, 59, 0.7) !important;
 }
-/* line 709, ../sass/homec.scss */
+/* line 704, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .hover {
   position: absolute;
   top: 0;
@@ -718,7 +713,7 @@ body #form-login .button-submit:hover {
   height: 100%;
   width: 100%;
 }
-/* line 722, ../sass/homec.scss */
+/* line 717, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .hover span {
   font-weight: bold;
   text-align: center;
@@ -733,45 +728,45 @@ body #form-login .button-submit:hover {
   -moz-transform: translatey(-50%) translatex(-50%);
   -ms-transform: translatey(-50%) translatex(-50%);
 }
-/* line 738, ../sass/homec.scss */
+/* line 733, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img img {
   width: 100%;
   max-height: 328px;
 }
-/* line 744, ../sass/homec.scss */
+/* line 739, ../sass/homec.scss */
 .container .global-content .teams .wrapper .title-team {
   font-family: "roboto_slabbold";
   text-align: center;
   margin: 10px 0px;
   text-transform: uppercase;
 }
-/* line 750, ../sass/homec.scss */
+/* line 745, ../sass/homec.scss */
 .container .global-content .teams .wrapper .title-team a {
   color: #478bb2;
 }
-/* line 755, ../sass/homec.scss */
+/* line 750, ../sass/homec.scss */
 .container .global-content .teams .wrapper .name, .container .global-content .teams .wrapper .date {
   font-size: 13px;
   color: #adadad;
   margin-bottom: 5px;
 }
-/* line 761, ../sass/homec.scss */
+/* line 756, ../sass/homec.scss */
 .container .global-content .teams .wrapper .date {
   margin-bottom: 10px;
 }
-/* line 765, ../sass/homec.scss */
+/* line 760, ../sass/homec.scss */
 .container .global-content .teams .wrapper .name {
   text-transform: uppercase;
   font-weight: 600;
 }
-/* line 770, ../sass/homec.scss */
+/* line 765, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam {
   text-align: center;
   position: relative;
   padding-top: 10px;
   text-transform: uppercase;
 }
-/* line 776, ../sass/homec.scss */
+/* line 771, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam:before {
   position: absolute;
   top: 0;
@@ -781,32 +776,32 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #d6d6d6;
 }
-/* line 786, ../sass/homec.scss */
+/* line 781, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .validate {
   background-image: url(../img/checked.png);
   height: 22px;
   width: 22px;
   display: inline-block;
 }
-/* line 793, ../sass/homec.scss */
+/* line 788, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .daysleft {
   display: inline-block;
   color: #1a2129;
   line-height: 16px;
   font-size: 11px;
 }
-/* line 799, ../sass/homec.scss */
+/* line 794, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .daysleft span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 799, ../sass/homec.scss */
+  /* line 794, ../sass/homec.scss */
   .container .global-content .teams .wrapper .progressteam .daysleft span {
     font-size: 15px;
   }
 }
-/* line 809, ../sass/homec.scss */
+/* line 804, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .number {
   display: inline-block;
   line-height: 16px;
@@ -815,13 +810,13 @@ body #form-login .button-submit:hover {
   font-size: 15px;
   margin-bottom: 10px;
 }
-/* line 817, ../sass/homec.scss */
+/* line 812, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .number span {
   font-weight: bold;
   font-size: 20px;
   text-align: center;
 }
-/* line 824, ../sass/homec.scss */
+/* line 819, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .numbers, .container .global-content .teams .wrapper .progressteam .funded {
   display: inline-block;
   line-height: 16px;
@@ -830,64 +825,64 @@ body #form-login .button-submit:hover {
   font-size: 11px;
   margin-bottom: 10px;
 }
-/* line 832, ../sass/homec.scss */
+/* line 827, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .numbers span, .container .global-content .teams .wrapper .progressteam .funded span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 832, ../sass/homec.scss */
+  /* line 827, ../sass/homec.scss */
   .container .global-content .teams .wrapper .progressteam .numbers span, .container .global-content .teams .wrapper .progressteam .funded span {
     font-size: 15px;
   }
 }
-/* line 842, ../sass/homec.scss */
+/* line 837, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .funded {
   color: #478bb2;
 }
-/* line 848, ../sass/homec.scss */
+/* line 843, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .good .ui-widget-header {
   background-color: #88a83b;
 }
-/* line 854, ../sass/homec.scss */
+/* line 849, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .notyet .ui-widget-header {
   background-color: #478bb2;
 }
-/* line 859, ../sass/homec.scss */
+/* line 854, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-progressbar {
   height: 12px;
 }
-/* line 863, ../sass/homec.scss */
+/* line 858, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-progressbar .ui-progressbar-value {
   margin: 0px;
 }
-/* line 867, ../sass/homec.scss */
+/* line 862, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-widget-header {
   border: none;
 }
-/* line 877, ../sass/homec.scss */
+/* line 872, ../sass/homec.scss */
 .container .global-content .sponsors .first .sponsor-wrapper:nth-child(4), .container .global-content .sponsors .first .sponsor-wrapper:nth-child(7) {
   display: none;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 877, ../sass/homec.scss */
+  /* line 872, ../sass/homec.scss */
   .container .global-content .sponsors .first .sponsor-wrapper:nth-child(4), .container .global-content .sponsors .first .sponsor-wrapper:nth-child(7) {
     display: block;
   }
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 874, ../sass/homec.scss */
+  /* line 869, ../sass/homec.scss */
   .container .global-content .sponsors {
     margin-top: 15px;
     background-color: #e5ded8;
     padding-top: 15px;
   }
 }
-/* line 893, ../sass/homec.scss */
+/* line 888, ../sass/homec.scss */
 .container .global-content .sponsors h2 {
   margin-bottom: 35px;
 }
-/* line 896, ../sass/homec.scss */
+/* line 891, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper {
   background: #fff;
   border: 1px solid #d6d6d6;
@@ -895,12 +890,12 @@ body #form-login .button-submit:hover {
   padding: 10px;
   margin-bottom: 15px;
 }
-/* line 903, ../sass/homec.scss */
+/* line 898, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .img {
   position: relative;
   cursor: pointer;
 }
-/* line 908, ../sass/homec.scss */
+/* line 903, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .hover {
   position: absolute;
   top: 0;
@@ -914,7 +909,7 @@ body #form-login .button-submit:hover {
   height: 100%;
   width: 100%;
 }
-/* line 921, ../sass/homec.scss */
+/* line 916, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .hover span {
   font-weight: bold;
   text-align: center;
@@ -929,12 +924,12 @@ body #form-login .button-submit:hover {
   -moz-transform: translatey(-50%) translatex(-50%);
   -ms-transform: translatey(-50%) translatex(-50%);
 }
-/* line 937, ../sass/homec.scss */
+/* line 932, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper img {
   width: 100%;
   max-height: 328px;
 }
-/* line 942, ../sass/homec.scss */
+/* line 937, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper a {
   width: 100%;
   display: inline-block;
@@ -944,7 +939,7 @@ body #form-login .button-submit:hover {
   text-transform: uppercase;
   text-align: center;
 }
-/* line 955, ../sass/homec.scss */
+/* line 950, ../sass/homec.scss */
 .container .footer {
   background-color: #1a2129;
   text-align: center;
@@ -954,7 +949,7 @@ body #form-login .button-submit:hover {
 }
 
 /* ANIMATIONS POP UP */
-/* line 967, ../sass/homec.scss */
+/* line 962, ../sass/homec.scss */
 .mfp-fade.mfp-bg {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -963,19 +958,19 @@ body #form-login .button-submit:hover {
 }
 
 /* overlay animate in */
-/* line 975, ../sass/homec.scss */
+/* line 970, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-ready {
   opacity: 0.8;
 }
 
 /* overlay animate out */
-/* line 979, ../sass/homec.scss */
+/* line 974, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-removing {
   opacity: 0;
 }
 
 /* content at start */
-/* line 984, ../sass/homec.scss */
+/* line 979, ../sass/homec.scss */
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -984,13 +979,13 @@ body #form-login .button-submit:hover {
 }
 
 /* content animate it */
-/* line 992, ../sass/homec.scss */
+/* line 987, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
   opacity: 1;
 }
 
 /* content animate out */
-/* line 996, ../sass/homec.scss */
+/* line 991, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
 }

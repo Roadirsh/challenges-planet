@@ -22,8 +22,7 @@
 	                    <?php foreach($topdev as $k => $topev){ ?>
 						<div class="sticker columns large-3 medium-4">
 							<div class="wrapper">
-								<div class="img">
-									<img src="<? echo EVENT . 'mini/' . $topev['event_img']; ?>">
+								<div class="img" style="background:url('<?php echo EVENT . 'mini/' . $topev['event_img']; ?>'); background-position: right;background-size: cover;">
 									<div class="hover">
 										<span>Join this event !</span>
 									</div>
