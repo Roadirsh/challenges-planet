@@ -1,6 +1,7 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
 <?php if(isset($data['project']) && !empty($data['project']) ){ $project = $data['project']; } ?>
+<? var_dump($project); ?>
 
 
 <form id="choose" class="mfp-hide white-popup-block">

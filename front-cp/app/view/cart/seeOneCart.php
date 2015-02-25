@@ -12,7 +12,7 @@
 			<a href="">Sponsorise</a>
 		</li>
 		<li>
-			<a class="active" href="">Informations</a>
+			<a class="active" href="#">Informations</a>
 		</li>
 		<li>
 			<a href="">Payment</a>
@@ -42,13 +42,13 @@
 			<div class="bg">
 				<div>
 					<span>Total amount :</span>
-					<span class="price">price €</span>					
+					<span class="price">price €</span>	
 				</div>
 			</div>
 		</div>
 		<div class="clearfix">
-			<a class="before" href="">Precedent</a>
-			<a class="help" href="">Continue</a>
+			<a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject'; ?>" class="before" >Precedent</a>
+			<a href="<?php echo MODULE . 'cart' . ACTION . 'paiement'; ?>" class="help"> Continue</a>
 		</div>
 	</div>
 </div>

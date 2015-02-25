@@ -117,15 +117,11 @@ class EventModel extends CoreModel{
      * @param String $destination
      * @param String $img
      */
-    public function getExtension($fichier){
-        $extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
-        return $extension_upload;
-    }
-    public function upload($index, $destination, $img){
+    public function upload($index, $destination, $img) {
         
         $extension = $this->getExtension($destination);
         //Déplacement
-        move_uploaded_file($index,$destination);
+       move_uploaded_file($index,$destination);
         if($extension=="jpg" || $extension=="jpeg" )
         {
             $src = imagecreatefromjpeg($destination);
@@ -140,11 +136,11 @@ class EventModel extends CoreModel{
         }
         
         list($width,$height)=getimagesize($destination);
-        
+        //resize et compression
         $newwidth=1280;
         $newheight=($height/$width)*$newwidth;
         $tmp=imagecreatetruecolor($newwidth,$newheight);
-        
+        // Duplication et resize
         $newwidth1=523;
         $newheight1=($height/$width)*$newwidth1;
         $tmp1=imagecreatetruecolor($newwidth1,$newheight1);
@@ -780,55 +776,7 @@ class EventModel extends CoreModel{
 	/**
 	 * Déplacement du fichier de l'emplacement tmp vers le bon emplacement serveur 
 	 * $index = tmp
-	 $img = emplacement serveur pour le slider. ("EVENT . 'slider/' . $img" par exemple)
+     * $img = emplacement serveur pour le slider. ("EVENT . 'slider/' . $img" par exemple)
 	 */
-    public function upload($index, $destination, $img)
-	{
-		
-		$extension = $this->getExtension($destination);
-		//Déplacement
-	   move_uploaded_file($index,$destination);
-		if($extension=="jpg" || $extension=="jpeg" )
-		{
-			$src = imagecreatefromjpeg($destination);
-		}
-		else if($extension=="png")
-		{
-			$src = imagecreatefrompng($destination);
-		}
-		else 
-		{
-			$src = imagecreatefromgif($destination);
-		}
-		
-		list($width,$height)=getimagesize($destination);
-		//resize et compression
-		$newwidth=1280;
-		$newheight=($height/$width)*$newwidth;
-		$tmp=imagecreatetruecolor($newwidth,$newheight);
-		// Duplication et resize
-		$newwidth1=523;
-		$newheight1=($height/$width)*$newwidth1;
-		$tmp1=imagecreatetruecolor($newwidth1,$newheight1);
-		
-		imagecopyresampled($tmp,$src,0,0,0,0,$newwidth,$newheight,
-		 $width,$height);
-		
-		imagecopyresampled($tmp1,$src,0,0,0,0,$newwidth1,$newheight1, 
-		$width,$height);
-		
-		$filename = $destination;
-		$filename1 = EVENT . 'mini/'.$img;
-		
-		imagejpeg($tmp,$filename,100);
-		imagejpeg($tmp1,$filename1,100);
-		
-		imagedestroy($src);
-		imagedestroy($tmp);
-		imagedestroy($tmp1);
-		
-	   	
-		   
-	   return true;
-	}
+    
 }
