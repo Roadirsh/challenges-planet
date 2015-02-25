@@ -16,8 +16,8 @@
                     <p><?php echo $event['event_decr']; ?></p>
                     <div class="clearfix">
                         <div class="medium-4 columns location"><span>Location : </span><?php echo $event['event_location']; ?></div>
-                        <div class="medium-4 columns date-begin"><span>Beginning date : </span><?php echo formDate($event['event_begin'], 2); ?></div>
-                        <div class="medium-4 columns date-finish"><span>Ending date : </span><?php echo formDate($event['event_end'], 2); ?></div>
+                        <div class="medium-4 columns date-begin"><span>Beginning date : </span><?php echo formDate($event['event_begin'], 0); ?></div>
+                        <div class="medium-4 columns date-finish"><span>Ending date : </span><?php echo formDate($event['event_end'], 0); ?></div>
                     </div>
                     <span class="medium-12 number-teams-event">
                         <?php echo titleOneEvent($groups, 'team'); ?>
@@ -125,6 +125,7 @@
                                             </div>
                                         </a>
                                     </div>
+
                                     <div class="title-team"><?php echo $g['group_name']; ?></div>
                                     <div class="date"><?php echo formDate($g['group_date'], 2); ?></div>
                                     <div class="progressteam">
@@ -160,7 +161,6 @@
                             <?php } else { ?>
                                 <a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
                             <?php }
-
                             }
                         } 
                     ?>
