@@ -64,8 +64,7 @@
                         <div class="columns large-3 medium-4 team-wrapper">
             				<div class="wrapper">
                                 <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title="">
-                					<div class="img">
-                						<img src="<?php echo PROJECT . $t['group_img']; ?>" alt="">
+                					<div class="img" style="background:url('<?php echo PROJECT . $t['group_img']; ?>');">
                 						<div class="hover"><span>They need you<br>help them</span></div>
                 					</div>
                                 </a>
@@ -116,8 +115,7 @@
                 <?php if(isset($done) && !empty($done) ){ ?>
     			<div class="columns large-3 medium-4 team-wrapper">
     				<div class="wrapper done">
-    					<div class="img">
-    						<img src="img/group/<?php echo $done['group_img']; ?>" alt="">
+    					<div class="img" style="background:url('<?php echo PROJECT . $done['group_img']; ?>');">
     						<div class="hover done"><span>It's done thank you !</span></div>
     					</div>
     					<div class="title-team"><?php echo $done['group_name']; ?></div>
