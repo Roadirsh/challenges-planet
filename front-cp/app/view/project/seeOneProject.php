@@ -1,28 +1,35 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
 <?php if(isset($data['project']) && !empty($data['project']) ){ $project = $data['project']; } ?>
-<? var_dump($project); ?>
+<?php if(isset($data['sponsors'][0]) && !empty($data['sponsors'][0]) ){ $sponsors = $data['sponsors']; } ?>
+<?php /** Funded % maganement **/ ?>
+<?php $percent = number_format(($project['group_given'] / $project['group_money']) *100, 0); ?>
+<?php /** If they have more then asked **/ ?>
+<?php if($percent > 100){ $percent = 100;} ?>
+<?php $nbSponsor = count($data); ?>
+<?php /** Pural management **/ ?>
+<?php if($nbSponsor < 2){ $Cie = "Compagnie" ; } else { $Cie = "Compagnies"; } ?>
 
 
-<form id="choose" class="mfp-hide white-popup-block">
+<form id="choose" class="mfp-hide white-popup-block" method="post" action="">
 	<h2>Choose your amount to sponsorise the team !</h2>
 	<div>
-		<input type="radio" name="for 100" value="For 100 €"> 100 €
+		<input type="radio" name="donut" value="100" > 100 €
 	</div>
 	<div>
-		<input type="radio" name="for 300" value="For 300 €"> 300 €
+		<input type="radio" name="donut" value="300"> 300 €
 	</div>
 	<div>
-		<input type="radio" name="for 600" value="For 600 €"> 600 €
+		<input type="radio" name="donut" value="600"> 600 €
 	</div>
 	<div>
-		<input type="radio" name="for 1200" value="For 1200 €"> 1200 €
+		<input type="radio" name="donut" value="1200"> 1200 €
 	</div>
 	<div>
-		<input type="radio" name="other" value="other"> Other Donation
-		<input type="number">
+		<input type="radio" name="donut" value="Other"> Other Donation
+		<input type="number" name="donut-plus" value="">
 	</div>
-	<a class="join" href="">Help this team !</a>
+	<input type="submit" class="join" value="Help this team !" />
 </form>
 
 
@@ -33,27 +40,27 @@
 				<div class="large-5 medium-6 columns team-info">
 					<div class="wrapper">
 						<div class="cover">
-							<img src="img/girlz.jpg" alt="">
+							<img src="<?php echo PROJECT . $project['group_img']; ?>" alt="">
 						</div>
 						<h2 class="team-title"><?php echo $project['group_name']; ?></h2>
 						<div>
 							<span class="icon-event">
 								<img src="img/icon-car.png" alt="">
 							</span>
-							<span class="title-event">4L Trophy</span>
+							<span class="title-event"><?php echo $project['event_name']; ?></span>
 						</div>
 						<div>
 							<span class="icon-calendar">
 								<img src="img/icon-calendar.png" alt="">
 							</span>
-							<span class="date-event">date beginning - date ending</span>
+							<span class="date-event"><?php echo formDate($project['event_begin'], 0); ?> - <?php echo formDate($project['event_end'], 0); ?></span>
 						</div>
 						<div>
 							<span class="location">
 								<span class="icon-location">
 									<img src="img/icon-location.png" alt="">
 								</span>
-								<span class="country">France, tamersurville</span>
+								<span class="country"><?php echo ucfirst($project['event_location']); ?></span>
 							</span>
 						</div>						
 					</div>
@@ -65,8 +72,8 @@
 						<h1>Team progress</h1>
 						<div class="clearfix">
 							<span class="small-3 columns goal"><span class="bold"><?php echo $project['group_money']; ?> €</span> Goal</span>
-							<span class="small-3 columns funded"><span class="bold">43 %</span> Funded</span>
-							<span class="small-3 columns number-sponsor"><span class="bold">8</span> Compagnies</span>
+							<span class="small-3 columns funded"><span class="bold"><?php echo $percent; ?> %</span> Funded</span>
+							<span class="small-3 columns number-sponsor"><span class="bold"><?php echo $nbSponsor; ?></span> <?php echo $Cie; ?></span>
 							<span class="small-3 columns days-left"><span class="bold">58</span> <br/>Days</span>
 						</div>
 						<div class="progress-team"></div>
@@ -77,15 +84,16 @@
 				<div class="large-4 medium-6 columns list-sponsor">
 					<div class="wrapper clearfix">
 						<h1 class="">They helped them</h1>
-						<a class="columns medium-6" href="">
-							<img src="img/organism/marque1.jpg" alt="">
-						</a>
-						<a class="columns medium-6" href="">
-							<img src="img/organism/marque2.jpg" alt="">
-						</a>
-						<a class="columns medium-6" href="">
-							<img src="img/organism/marque3.jpg" alt="">
-						</a>
+						<?php if(!empty($sponsors[0])){ ?>
+							<?php $i = 0; ?>
+							<?php if($i < 3){
+								foreach ($sponsors as $key => $spon) { ?>
+									<a class="columns medium-6" href="">
+										<img src="<?php echo AVATAR . $spon['user_profil_pic']; ?>" alt="">
+									</a>
+								<?php $i ++; } ?>
+							<?php } ?>
+						<?php } ?>
 						<a class="popup-with-form columns medium-6" href="#list-compagnies">
 							<span class="bold">+ 3</span>
 							<span>others compagnies</span>
@@ -94,24 +102,12 @@
 				</div>
 
 				<div id="list-compagnies" class="mfp-hide white-popup-block clearfix">
-					<div class="medium-4 columns">
-						<img src="img/organism/marque1.jpg" alt="">
-					</div>
-					<div class="medium-4 columns">
-						<img src="img/organism/marque2.jpg" alt="">
-					</div>
-					<div class="medium-4 columns">
-						<img src="img/organism/marque3.jpg" alt="">
-					</div>
-					<div class="medium-4 columns">
-						<img src="img/organism/marque4.jpg" alt="">
-					</div>
-					<div class="medium-4 columns">
-						<img src="img/organism/marque5.jpg" alt="">
-					</div>
-					<div class="medium-4 columns">
-						<img src="img/organism/marque6.jpg" alt="">
-					</div>
+					<?php $i = 0; ?>
+					<?php foreach ($sponsors as $key => $spon) { ?>
+						<div class="medium-4 columns">
+							<img src="<?php echo AVATAR . $spon['user_profil_pic']; ?>" alt="">
+						</div>
+					<?php $i ++; } ?>
 				</div>
 
 				<div class="large-3 medium-12 show-for-medium-up columns team-sponsor">
@@ -119,11 +115,16 @@
 						<h1>Team progress</h1>
 						<div class="clearfix">
 							<span class="large-6 medium-3 columns goal"><span class="bold"><?php echo $project['group_money']; ?> €</span> Goal</span>
-							<span class="large-6 medium-3 columns funded"><span class="bold">43 %</span> Funded</span>
-							<span class="large-6 medium-3 columns number-sponsor"><span class="bold">8</span> Compagnies</span>
-							<span class="large-6 medium-3 columns days-left"><span class="bold">58</span> <br/>Days</span>
+							<span class="large-6 medium-3 columns funded"><span class="bold"><?php echo $percent; ?> %</span> Funded</span>
+							<span class="large-6 medium-3 columns number-sponsor"><span class="bold"><?php echo $nbSponsor; ?></span> <?php echo $Cie; ?></span>
+							<span class="large-6 medium-3 columns days-left">
+								<span class="bold">
+									<?php $diff = (new DateTime('now'))->diff(new DateTime($project['event_end'])); ?>
+                                    <?php echo $diff->format('%a'); //%a take the lot Y-m-d ?>
+								</span><br/>Days
+							</span>
 						</div>
-						<div class="progress-team"></div>
+						<div class="progress-team" data="<?php echo $percent; ?>"></div>
 						<a href="#choose" class="popup-with-form button help">Help them !</a>
 					</div>
 				</div>
@@ -138,7 +139,7 @@
 								<div class="wrapper">
 									<h1>Our team</h1>
 									<p class="desc">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius justo vitae est sagittis, luctus semper nunc elementum. Mauris fringilla ipsum ut quam malesuada gravida. 
+										<?php echo $project['group_descr']; ?>
 									</p>
 
 									<div class="clearfix">
@@ -162,7 +163,7 @@
 								<div class="wrapper">
 									<h1>Our project</h1>
 									<p class="desc">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius justo vitae est sagittis, luctus semper nunc elementum. Mauris fringilla ipsum ut quam malesuada gravida. Proin quis tempus justo. Suspendisse sit amet blandit arcu. Nam faucibus augue lorem. Integer in sapien quis velit sagittis euismod. Nulla sollicitudin ornare orci vitae vestibulum. Aliquam imperdiet felis vel urna euismod, eget tempus lacus scelerisque. Morbi a auctor est. Integer vel facilisis tellus. Pellentesque sed nisi lacus. Phasellus euismod imperdiet augue nec placerat.
+										<?php //echo $project['group_project']; ?>
 									</p>								
 								</div>
 							</div>
@@ -173,7 +174,7 @@
 								<div class="wrapper">
 									<h1>Our goal</h1>
 									<p class="desc">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius justo vitae est sagittis, luctus semper nunc elementum. Mauris fringilla ipsum ut quam malesuada gravida. Proin quis tempus justo. Suspendisse sit amet blandit arcu. Nam faucibus augue lorem. Integer in sapien quis velit sagittis euismod. Nulla sollicitudin ornare orci vitae vestibulum. Aliquam imperdiet felis vel urna euismod, eget tempus lacus scelerisque. Morbi a auctor est. Integer vel facilisis tellus. Pellentesque sed nisi lacus. Phasellus euismod imperdiet augue nec placerat.
+										<?php //echo $project['group_goal']; ?>
 									</p>								
 								</div>
 							</div>
@@ -182,7 +183,7 @@
 								<div class="wrapper">
 									<h1>Our budget</h1>
 									<p class="desc">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius justo vitae est sagittis, luctus semper nunc elementum. Mauris fringilla ipsum ut quam malesuada gravida. Proin quis tempus justo. Suspendisse sit amet blandit arcu. Nam faucibus augue lorem. Integer in sapien quis velit sagittis euismod. Nulla sollicitudin ornare orci vitae vestibulum. Aliquam imperdiet felis vel urna euismod, eget tempus lacus scelerisque. Morbi a auctor est. Integer vel facilisis tellus. Pellentesque sed nisi lacus. Phasellus euismod imperdiet augue nec placerat.
+										<?php //echo $project['group_budget']; ?>
 									</p>								
 								</div>
 							</div>							

@@ -19,6 +19,9 @@ class ProjectModel extends CoreModel{
         parent::__construct();
     }
     
+/////////////////////////////////////////////////////
+/* SEE ONE PROJECT * * * * * * * * * * * * * * * * */
+
     /**
      * seeOneProject.php
      * 
@@ -26,33 +29,46 @@ class ProjectModel extends CoreModel{
     public function SeeOneGroup($id) {
 
         try {
-            $select = $this->connexion->prepare("SELECT A.*, B.*, SUM(donate_amount) as group_needed, D.*
+            $select = $this->connexion->prepare("SELECT A.*, B.*, SUM(C.donate_amount) as group_given, D.*
                                                 FROM cp_group A, cp_event_has_group B, cp_donate C, cp_event D
-                                                WHERE B.group_group_id = A.group_id
-                                                AND C.group_group_id = A.group_id
-                                                AND D.event_id = B.event_event_id
+                                                WHERE D.event_id = B.event_event_id
                                                 AND A.group_valid = 1
                                                 AND A.group_id = :id");
 
             $select->bindValue(':id', $id, PDO::PARAM_INT);
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
-            $group = $select->FetchAll();
+            $array = $select->FetchAll();
             $select->closeCursor();
+            
+            return $array[0];
 
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }   
+    }
+
+
+    /**
+     * seeOneProject.php
+     * 
+     */
+    public function SeeOneGroupSponsors($id) {
+
+        try {
             $select2 = $this->connexion->prepare("SELECT A.cp_user_user_id, B.*
                                                 FROM cp_donate A
                                                 JOIN cp_user B
                                                 ON A.cp_user_user_id = B.user_id
-                                                WHERE group_group_id = 4");
+                                                WHERE group_group_id = :id
+                                                LIMIT 6");
 
             $select2->bindValue(':id', $id, PDO::PARAM_INT);
             $select2->execute();
             $select2->setFetchMode(PDO::FETCH_ASSOC);
-            $sponsor = $select2->FetchAll();
+            $array = $select2->FetchAll();
             $select2->closeCursor(); 
-
-            $array = array_merge($group[0], $sponsor);
+            
             return $array;
 
         } catch (Exception $e) {
@@ -60,6 +76,8 @@ class ProjectModel extends CoreModel{
         }   
     }
 
+/////////////////////////////////////////////////////
+/* MOBILE APP * * * * * * * * * * * * * * * * * * */
 
     /**
      * mobile application
@@ -103,7 +121,9 @@ class ProjectModel extends CoreModel{
             echo 'Message:' . $e->getMessage();
         }
     }
-    
+
+/////////////////////////////////////////////////////
+/* ADD PROJECT * * * * * * * * * * * * * * * * * * */
     
     //Retourne l'extension d'un fichier
     public function getExtension($fichier){
@@ -112,8 +132,7 @@ class ProjectModel extends CoreModel{
 	}
 
     //Déplacement de l'emplacement temporaire vers la desitnation finale sur le serveur
-    public function upload($index, $destination)
-	{
+    public function upload($index, $destination){
 		
 		$extension = $this->getExtension($destination);
 		//Déplacement
@@ -149,4 +168,6 @@ class ProjectModel extends CoreModel{
 
 	   return true;
 	}
+
+
 }

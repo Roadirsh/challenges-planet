@@ -27,22 +27,22 @@
 		<div class="cart-contain">
 			<div class="bg"></div>
 			<h2 class="sponsorise-team">
-				You would to help name-team for name-event
+				You would to help <?php echo $_SESSION["donation_team"]; ?> for <?php echo $_SESSION["donation_event"]; ?>
 			</h2>
 			<div class="info-team clearfix">
 				<div class="img-team medium-2 columns">
-					<img src="img/avatar/jeremie.jpg" alt="">
+					<img src="<?php echo AVATAR . $_SESSION["donation_team_img"]; ?>" alt="">
 				</div>
 				<div class="medium-10 columns desc-team">
 					<span>Thank you to sponsorise this team !</span>
 					<span>Guaranteed on 1 year on the vehicle</span>
-					<span class="price">Amount : price €</span>
+					<span class="price">Amount : <?php echo $_SESSION["donation_amount"]; ?> €</span>
 				</div>
 			</div>
 			<div class="bg">
 				<div>
 					<span>Total amount :</span>
-					<span class="price">price €</span>					
+					<span class="price"><?php echo $_SESSION["donation_amount"]; ?> €</span>					
 				</div>
 			</div>
 		</div>

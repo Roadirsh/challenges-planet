@@ -46,14 +46,28 @@ class ProjectController extends CoreController {
      */
     public function SeeOneProject() {
 
+        var_dump($_POST); 
+
         $project = $this->model = new ProjectModel();
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * Get All projects
         */
         $SeeOneProject = $project->SeeOneGroup($_GET['id']);
+        $SeeSponsors = $project->SeeOneGroupSponsors($_GET['id']);
 
         $array['project'] = $SeeOneProject;
+        $array['sponsors'] = $SeeSponsors;
+
+        if(isset($_POST['donut']) and !empty($_POST['donut'])){
+            $_SESSION["donation_amount"] = $_POST['donut'];
+            $_SESSION["donation_team"] = $SeeOneProject['group_name'];
+            $_SESSION["donation_event"] = $SeeOneProject['event_name'];
+            $_SESSION["donation_team_img"] = $SeeOneProject['group_img'];
+
+            
+            $this->coreRedirect('cart', 'seeOneCart'); 
+        }
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
@@ -67,6 +81,7 @@ class ProjectController extends CoreController {
 
     }
 
+
     /**
      * mobile application
      *
@@ -79,7 +94,4 @@ class ProjectController extends CoreController {
         echo $json;
 
     }
-    
-    
-
 }

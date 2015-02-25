@@ -28,7 +28,7 @@
 
 	<div class="main-contain clearfix">
 		<a href="#form-search" class="hide-for-large-up show-for-small-up popup-with-form sidebar-sort-mobile">Search and sort</a>
-		<form id="form-search" class="search-bar mfp-hide white-popup-block" method="posst" action="">
+		<form id="form-search" class="search-bar mfp-hide white-popup-block" method="post" action="">
 			<input type="text" size="21">
 				
 				<div class="number-teams">

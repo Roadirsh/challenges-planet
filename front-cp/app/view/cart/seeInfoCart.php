@@ -8,10 +8,10 @@
 <div class="cart">
 	<ul class="actions">
 		<li>
-			<a class="active" href="">Informations</a>
+			<a  href="">Sponsorise</a>
 		</li>
 		<li>
-			<a href="">Informations</a>
+			<a class="active" href="">Informations</a>
 		</li>
 		<li>
 			<a href="">Payment</a>
@@ -97,7 +97,7 @@
 			<div class="bg">
 				<div>
 					<span>Total amount :</span>
-					<span class="price">price €</span>					
+					<span class="price"><?php echo $_SESSION["donation_amount"]; ?> €</span>					
 				</div>
 			</div>
 		</div>
