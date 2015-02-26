@@ -149,11 +149,13 @@
 								<div class="wrapper">
 									<h1>Our members</h1>
 									<p class="desc">
-										<ul class="list-members">
+										<ul class="list-members clearfix">
 										<?php foreach ($users as $key => $user) { ?>
-											<li>
-												<img src="<?php echo AVATAR . $user['user_profil_pic']; ?>" alt="">
-												<span class="name-user"><?php echo $user['user_pseudo']; ?></span>
+											<li class="medium-4 columns">
+												<a href="">
+													<img src="<?php echo AVATAR . $user['user_profil_pic']; ?>" alt="">
+													<span class="name-user"><?php echo $user['user_pseudo']; ?></span>
+												</a>
 											</li>
 										<?php } ?>
 											

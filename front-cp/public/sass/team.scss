@@ -251,10 +251,9 @@ $bg-color:		#f2efec;
 			.list-members {
 				li {
 					list-style: none;
-					padding-bottom: 15px;
 
-					&:last-child {
-						padding-bottom: 0px !important;
+					a {
+						color: $color-dark;
 					}
 				}
 			}
@@ -298,13 +297,12 @@ $bg-color:		#f2efec;
 
 			img {
 				width: auto;
-				height: 150px;
 			}
 
 			.name-user {
 				text-align: center;
 				font-weight: 600;
-				margin-left: 15px;
+				display: block;
 			}
 		}
 	}
@@ -338,10 +336,8 @@ $bg-color:		#f2efec;
 			text-transform: uppercase;
 			font-family: $font-head;
 			font-weight: 600;
-			margin-bottom: 0;
-			margin-top: 15px;
+			margin: 15px;
 			font-size: 25px;
-			margin-bottom: 15px;
 		}
 
 		.money, .contribution {
