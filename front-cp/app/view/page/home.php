@@ -116,7 +116,9 @@
     			<div class="columns large-3 medium-4 team-wrapper">
     				<div class="wrapper done">
     					<div class="img" style="background:url('<?php echo PROJECT . $done['group_img']; ?>'); background-position: left;background-size: cover;">
-    						<div class="hover done"><span>It's done thank you !</span></div>
+    						<a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $done['group_id']; ?>" alt="" title="">
+                                <div class="hover done"><span>It's done thank you !</span></div>
+                            </a>
     					</div>
     					<div class="title-team"><?php echo $done['group_name']; ?></div>
     					<div class="name"><?php echo $done['event_name']; ?></div>

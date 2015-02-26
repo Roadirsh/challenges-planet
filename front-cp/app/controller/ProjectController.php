@@ -54,7 +54,6 @@ class ProjectController extends CoreController {
         $SeeOneProject = $project->SeeOneGroup($_GET['id']);
         $SeeSponsors = $project->SeeOneGroupSponsors($_GET['id']);
         $SeeUsers = $project->SeeOneGroupUsers($_GET['id']);
-        var_dump($SeeUsers);
 
         $array['project'] = $SeeOneProject;
         $array['sponsors'] = $SeeSponsors;

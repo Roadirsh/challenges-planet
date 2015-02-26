@@ -197,16 +197,18 @@
 			            	<div class="clearfix">
 			            		<div class="medium-4 columns event-info">
 				            		<label class="team-name" for="name">Name of your team (required)</label>
-				            		<input class="name-team" type="text">
+				            		<input class="name" type="text" id="name">
+
 				            		<label for="">Event informations</label>
 				            		<div class="info-event">
+				            			<input type="hidden" value="#id" />
 				            			<span>Location : </span>
 					            		<span>Beginning date : </span>
 					            		<span>Ending date : </span>
 				            		</div>
 			            		</div>
 			            		<div>
-			            			<label for="">Add the picture of your team </label>
+			            			<label for="file">Add the picture of your team </label>
 			            		</div>
 			            		<div class="medium-8 columns upload">
 			            			
@@ -215,7 +217,7 @@
 											<span class="desc">Add a cover, it's better !</span>
 											<div class="custom-file-upload">
 											    <!--<label for="file">File: </label>--> 
-											    <input type="file" id="file" name="myfiles[]" multiple />
+											    <input type="file" id="file" name="myfiles" multiple />
 											</div>
 											<span class="info">(size : px * px)</span>
 									</div>
