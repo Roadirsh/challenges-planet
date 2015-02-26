@@ -8,8 +8,7 @@
 
         <div class="list-events clearfix">
             <div class="head clearfix">
-                <div class="medium-4 large-3 columns">
-                    <img src="<?php echo EVENT . "mini/" .$event['event_img']; ?>" alt="">
+                <div class="img medium-4 large-3 columns" style="background:url('<?php echo EVENT . "mini/" .$event['event_img']; ?>'); background-position: center;background-size: cover;">
                 </div>
                 <div class="medium-8 large-9 columns">
                     <h1><?php echo $event['event_name']; ?></h1>
@@ -107,7 +106,7 @@
 	                            <div class="progressteam">
 	                                <span class="validate"></span>
 	                                <div class="number"><span>100 %</span><br>goal reached !</div>
-	                                <div id="progressteam1" class="good"></div>
+	                                <div class="progress-team-done good"></div>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -141,7 +140,7 @@
                                                 <br>days left</div>
                                         </div>
                                         <?php  $percent = number_format(($g['group_needed'] / $g['group_money']) *100, 0); ?>
-                                        <div id="progressteam<?php echo $i; ?>" data="<?php echo $percent; ?>" class="notyet"></div>
+                                        <div <?php echo $i; ?>" data="<?php echo $percent; ?>" class="progress-team notyet"></div>
                                     </div>
                                 </div>
                             </div>

@@ -258,4 +258,6 @@
 			        </div>
 			    </div>
 			</div>
-<?php include(ROOT . "view/layout/footer.inc.php"); ?>
+		</div>
+
+		<?php include(ROOT . "view/layout/footer.inc.php"); ?>

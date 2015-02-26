@@ -124,7 +124,7 @@
 								</span><br/>Days
 							</span>
 						</div>
-						<div class="progress-team" data="<?php echo $percent; ?>"></div>
+						<div class="progress-team notyet" data="<?php echo $percent; ?>"></div>
 						<a href="#choose" class="popup-with-form button help">Help them !</a>
 					</div>
 				</div>
@@ -142,7 +142,7 @@
 										<?php echo $project['group_descr']; ?>
 									</p>
 
-									<div class="clearfix">
+<!-- 									<div class="clearfix">
 										<div class="small-4 columns">
 											<img src="img/avatar.png" alt="">
 											<span class="name-user">Fabrice</span>
@@ -155,15 +155,20 @@
 											<img src="img/avatar3.png" alt="">
 											<span class="name-user">Sophie</span>
 										</div>
-									</div>							
+									</div>	 -->						
 								</div>
 							</div>
 
 							<div class="project-team medium-12 large-6 columns">
 								<div class="wrapper">
-									<h1>Our project</h1>
+									<h1>Our members</h1>
 									<p class="desc">
-										<?php //echo $project['group_project']; ?>
+										<ul class="list-members">
+											<li>
+												<img src="img/avatar2.png" alt="">
+												<span class="name-user">Clothide</span>
+											</li>
+										</ul>
 									</p>								
 								</div>
 							</div>

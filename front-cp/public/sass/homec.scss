@@ -23,6 +23,7 @@ $bg-color:		#f2efec;
 
 body {
 	background-color: $bg-color !important;
+	height: 100%;
 
 	.row {
 		max-width: 1280px;
@@ -211,6 +212,7 @@ body {
 
 .container {
 	background-color: $bg-color;
+	min-height: 100%;
 
 	ul {
 		margin-left: 0;
@@ -946,15 +948,18 @@ body {
 			}
 		}
 	}
+}
 
 	.footer {
 		background-color: $color-dark;
 		text-align: center;
 		padding: 8px;
+		position: relative;
+		height: 40px;
+		margin-top: -40px;
 		color: #fff;
-		margin-top: 15px;
+		clear: both;
 	}
-}
 
 
 /* ANIMATIONS POP UP */

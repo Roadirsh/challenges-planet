@@ -71,6 +71,13 @@ $(document).ready(function(){
       return false;
   });
 
+    $( ".sticker" ).click(function() {
+    $( ".wrapper-info-caritative" ).hide( 1000, function() {
+      $( ".form-join-event" ).fadeIn( 1000 );
+      });
+      return false;
+  });
+
 
 
   $('.tabs .tab-links a').on('click', function(e)  {
