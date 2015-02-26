@@ -48,7 +48,7 @@
 		</div>
 		<div class="clearfix">
 			<a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject'; ?>" class="before" >Precedent</a>
-			<a href="<?php echo MODULE . 'cart' . ACTION . 'paiement'; ?>" class="help"> Continue</a>
+			<a href="<?php echo MODULE . 'cart' . ACTION . 'seeinfocart'; ?>" class="help"> Continue</a>
 		</div>
 	</div>
 </div>

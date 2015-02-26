@@ -102,8 +102,8 @@
 			</div>
 		</div>
 		<div class="clearfix">
-			<a class="before" href="">Precedent</a>
-			<a class="help" href="">Continue</a>
+			<a href="<?php echo MODULE . 'cart' . ACTION . 'seeonecart'; ?>" class="before" >Precedent</a>
+			<a href="<?php echo MODULE . 'cart' . ACTION . 'paiement'; ?>" class="help"> Continue</a>
 		</div>
 	</div>
 </div>

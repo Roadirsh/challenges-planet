@@ -72,7 +72,7 @@
 			</div>
 
 			<div class="bg">
-				<a class="before" href="">Precedent</a>
+				<a class="before" href="<?php echo MODULE . 'cart' . ACTION . 'paiement'; ?>">Precedent</a>
 			</div>
 		</div>
 	</div>
