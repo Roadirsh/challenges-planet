@@ -26,6 +26,8 @@ class ProjectModel extends CoreModel{
 	private $GroupStudent;
 	private $GroupEvent;
 	private $GroupMoney;
+	private $GroupBudget;
+	private $GroupProject;
 	
 	/**
 	 * Constructor
@@ -45,6 +47,8 @@ class ProjectModel extends CoreModel{
 	            $this->setGroupName($post['name']);
 	            $this->setGroupDescr($post['descr']);
 	            $this->setGroupMoney($post['money']);
+	            $this->setGroupBudget($post['budget']);
+	            $this->setGroupProject($post['project']);
 	            if(isset($post['check']))
 	            {
 	    			$this->setGroupOnline(true);
@@ -361,6 +365,33 @@ class ProjectModel extends CoreModel{
 		return $this->GroupOnline;
 	}
 	
+	/**
+	 * SETTERS & GETTERS 
+	 */
+	public function setGroupProject($project)
+	{
+		
+		$this->GroupProject = htmlentities($project);
+		
+	}
+	public function getGroupProject()
+	{
+		return $this->GroupProject;
+	}
+	
+	/**
+	 * SETTERS & GETTERS 
+	 */
+	public function setGroupBudget($budget)
+	{
+		
+		$this->GroupBudget = htmlentities($budget);
+		
+	}
+	public function getGroupBudget()
+	{
+		return $this->GroupBudget;
+	}
 	
 	/**
 	 * Vérification si l'utilisateur participe à l'événement
@@ -441,6 +472,9 @@ class ProjectModel extends CoreModel{
 		$students = $this->getGroupStudent();
 		$money = $this->getGroupMoney();
 		
+		$project = $this->getGroupProject();
+		$budget = $this->getGroupBudget();
+		
 		
 		
 		
@@ -449,13 +483,15 @@ class ProjectModel extends CoreModel{
 			{		
 				
 				$this->connexion->beginTransaction();
-		        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_group` (`group_id`, `group_date`, `group_name`, `group_descr`, `group_img`, `group_money`, `group_valid`) VALUES (NULL, now(), :name, :descr, :img, :money, :valid)");
+		        $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_group` (`group_id`, `group_date`, `group_name`, `group_descr`, `group_img`, `group_money`, `group_valid`, `group_project`, `group_budget`) VALUES (NULL, now(), :name, :descr, :img, :money, :valid, :project, :budget)");
 		            	
 		        $insert->bindParam(':name', $name);
 		        $insert->bindParam(':descr', $descr);
 		        $insert->bindParam(':img', $img);
 				$insert->bindParam(':money', $money);
 	            $insert->bindParam(':valid', $check);
+	            $insert->bindParam(':project', $project);
+	            $insert->bindParam(':budget', $budget);
 		        
 				$insert->execute();
 				$idGroup = $this->connexion->lastInsertId();
@@ -721,15 +757,11 @@ class ProjectModel extends CoreModel{
     	    // UPDATE DANS LA TABLE USER 
 			$this->connexion->beginTransaction();
 			
+
 			
 			
 			
-			
-			
-			
-			
-			
-			$requete = "UPDATE " . PREFIX . "group SET `group_name` = :name, `group_descr` = :description, `group_img` = :img, `group_money` = :money, group_valid = :valid WHERE group_id = :id";
+			$requete = "UPDATE " . PREFIX . "group SET `group_name` = :name, `group_descr` = :description, `group_img` = :img, `group_money` = :money, group_valid = :valid, group_project = :project, group_budget = :budget WHERE group_id = :id";
     	    
     	    $update = $this->connexion->prepare($requete); 
 
@@ -738,6 +770,8 @@ class ProjectModel extends CoreModel{
             $update->bindParam(':money', $_POST['group_money']);
             $update->bindParam(':id', $groupId);
             $update->bindParam(':valid', $_POST['valid']);
+            $update->bindParam(':project', $_POST['mce_1']);
+            $update->bindParam(':budget', $_POST['mce_2']);
             
             
             if(isset($_FILES) && !empty($_FILES['group_img']['name']))

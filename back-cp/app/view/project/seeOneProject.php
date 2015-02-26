@@ -73,6 +73,8 @@
 	                    <input type="number" name="group_money" value="<?php echo $group['group_money']; ?>" />
 	                    <p><small><em>sign up date : <?php echo $group['group_date']; ?> </em></small></p>
 	                    <div class="editable" name="group_description"><?php echo $group['group_descr']; ?></div>
+	                    <div class="editable" name="group_project"><?php echo $group['group_project']; ?></div>
+	                    <div class="editable" name="group_budget"><?php echo $group['group_budget']; ?></div>
 	                </div>
 	                <div style="clear:both"></div>
 					<input type="submit" class="btn btn-success">

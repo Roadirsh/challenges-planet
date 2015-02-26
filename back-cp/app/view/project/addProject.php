@@ -69,6 +69,14 @@
 	                                <label>Description</label>
 	                                <textarea class="form-control" rows="5" placeholder="Enter ..." name="descr"></textarea>
 	                            </div>   
+	                            <div class="control-group">
+	                                <label>Description du projet</label>
+	                                <textarea class="form-control" rows="5" placeholder="Enter ..." name="project"></textarea>
+	                            </div>  
+	                            <div class="control-group">
+	                                <label>Description du budget</label>
+	                                <textarea class="form-control" rows="5" placeholder="Enter ..." name="budget"></textarea>
+	                            </div>  
 								<div class="control-group">
 								  <label class="control-label" for="image">Image</label>
 								  <div class="controls">

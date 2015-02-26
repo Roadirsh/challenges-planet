@@ -536,7 +536,6 @@ class EventModel extends CoreModel{
 			
 			
 			
-			
 			$requete = "UPDATE " . PREFIX . "event SET `event_name` = :name, `event_decr` = :description, `event_img` = :img, `event_begin` = :begin, event_end = :end, event_valid = :valid, event_location = :location, event_type = :type WHERE event_id = :id";
     	    
     	    $update = $this->connexion->prepare($requete); 
@@ -545,7 +544,7 @@ class EventModel extends CoreModel{
             $update->bindParam(':description', $_POST['mce_0']);
             $update->bindParam(':begin', $_POST['event_begin']);
             $update->bindParam(':end', $_POST['event_end']);
-            $update->bindParam(':valid', $_POST['event_valid']);
+            $update->bindParam(':valid', $_POST['valid']);
             $update->bindParam(':location' , $_POST['event_location']);
             $update->bindParam(':type', $_POST['event_type']);
             $update->bindParam(':id', $eventID);
