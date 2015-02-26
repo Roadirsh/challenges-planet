@@ -3,7 +3,7 @@
 <?php if(isset($data['project']) && !empty($data['project']) ){ $project = $data['project']; } ?>
 <?php if(isset($data['sponsors'][0]) && !empty($data['sponsors'][0]) ){ $sponsors = $data['sponsors']; } ?>
 <?php /** Funded % maganement **/ ?>
-<?php $percent = number_format(($project['group_given'] / $project['group_money']) *100, 0); ?>
+<?php $percent = number_format(($project['group_given'] / 1) *100, 0); // $project['group_money']?> 
 <?php /** If they have more then asked **/ ?>
 <?php if($percent > 100){ $percent = 100;} ?>
 <?php $nbSponsor = count($data); ?>

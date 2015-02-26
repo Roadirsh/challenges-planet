@@ -46,8 +46,6 @@ class ProjectController extends CoreController {
      */
     public function SeeOneProject() {
 
-        var_dump($_POST); 
-
         $project = $this->model = new ProjectModel();
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -58,6 +56,7 @@ class ProjectController extends CoreController {
 
         $array['project'] = $SeeOneProject;
         $array['sponsors'] = $SeeSponsors;
+        
 
         if(isset($_POST['donut']) and !empty($_POST['donut'])){
             $_SESSION["donation_amount"] = $_POST['donut'];
@@ -69,15 +68,23 @@ class ProjectController extends CoreController {
             $this->coreRedirect('cart', 'seeOneCart'); 
         }
 
-        /* * * * * * * * * * * * * * * * * * * * * * * *
-        * <head> STUFF </head>
-        */
-        define("PAGE_TITLE", SITE_NAME . " - " . $array['project']['group_name']);
-        define("PAGE_DESCR", SITE_NAME . " " . $array['project']['group_descr']);
-        define("PAGE_ID", "seeProject");
 
         /* Load the view */
-        $this->load->view('project', 'seeOneProject', $array); 
+        if(empty($SeeOneProject['group_name'])){
+            $this->corePage404();
+
+        } else{
+
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * <head> STUFF </head>
+            */
+            define("PAGE_TITLE", SITE_NAME . " - " . $array['project']['group_name']);
+            define("PAGE_DESCR", SITE_NAME . " " . $array['project']['group_descr']);
+            define("PAGE_ID", "seeProject");
+
+            $this->load->view('project', 'seeOneProject', $array); 
+        }
+        
 
     }
 

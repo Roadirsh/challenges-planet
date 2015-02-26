@@ -30,7 +30,7 @@ class ProjectModel extends CoreModel{
 
         try {
             $select = $this->connexion->prepare("SELECT A.*, B.*, SUM(C.donate_amount) as group_given, D.*
-                                                FROM cp_group A, cp_event_has_group B, cp_donate C, cp_event D
+                                                FROM " . PREFIX . "group A, " . PREFIX . "event_has_group B, " . PREFIX . "donate C, " . PREFIX . "event D
                                                 WHERE D.event_id = B.event_event_id
                                                 AND A.group_valid = 1
                                                 AND A.group_id = :id");
@@ -57,8 +57,35 @@ class ProjectModel extends CoreModel{
 
         try {
             $select2 = $this->connexion->prepare("SELECT A.cp_user_user_id, B.*
-                                                FROM cp_donate A
-                                                JOIN cp_user B
+                                                FROM " . PREFIX . "donate A
+                                                JOIN " . PREFIX . "user B
+                                                ON A." . PREFIX . "user_user_id = B.user_id
+                                                WHERE group_group_id = :id
+                                                LIMIT 6");
+
+            $select2->bindValue(':id', $id, PDO::PARAM_INT);
+            $select2->execute();
+            $select2->setFetchMode(PDO::FETCH_ASSOC);
+            $array = $select2->FetchAll();
+            $select2->closeCursor(); 
+            
+            return $array;
+
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }   
+    }
+
+    /**
+     * seeOneProject.php
+     * 
+     */
+    public function SeeOneGroupUsers($id) {
+
+        try {
+            $select2 = $this->connexion->prepare("SELECT A.cp_user_user_id, B.*
+                                                FROM " . PREFIX . "users A
+                                                JOIN " . PREFIX . "user B
                                                 ON A.cp_user_user_id = B.user_id
                                                 WHERE group_group_id = :id
                                                 LIMIT 6");
@@ -76,6 +103,7 @@ class ProjectModel extends CoreModel{
         }   
     }
 
+
 /////////////////////////////////////////////////////
 /* MOBILE APP * * * * * * * * * * * * * * * * * * */
 
@@ -87,11 +115,11 @@ class ProjectModel extends CoreModel{
 
         try {
 				$selectfrom = "SELECT group_name, group_descr, group_id 
-                                                    FROM  `cp_group` ";
+                                                    FROM  `" . PREFIX . "group` ";
                 if(isset($_GET['id'])){
-	                $projetparevent = "`cp_event_has_group`.`event_event_id` = :id AND ";
-					$jointure = "LEFT JOIN cp_event_has_group 
-                             ON cp_group.group_id = cp_event_has_group.group_group_id ";
+	                $projetparevent = "`" . PREFIX . "event_has_group`.`event_event_id` = :id AND ";
+					$jointure = "LEFT JOIN " . PREFIX . "event_has_group 
+                             ON " . PREFIX . "group.group_id = " . PREFIX . "event_has_group.group_group_id ";
 							 
                 }
                 else{
