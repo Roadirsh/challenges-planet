@@ -232,8 +232,13 @@
 /* line 252, ../sass/team.scss */
 .see-team .global-desc-team .project-team .list-members li {
   list-style: none;
+  padding-bottom: 15px;
 }
-/* line 259, ../sass/team.scss */
+/* line 256, ../sass/team.scss */
+.see-team .global-desc-team .project-team .list-members li:last-child {
+  padding-bottom: 0px !important;
+}
+/* line 264, ../sass/team.scss */
 .see-team .global-desc-team h1 {
   text-align: center;
   color: #478bb2;
@@ -244,17 +249,17 @@
   margin-top: 15px;
   font-size: 25px;
 }
-/* line 270, ../sass/team.scss */
+/* line 275, ../sass/team.scss */
 .see-team .global-desc-team .medium-12 {
   margin-top: 30px;
 }
-/* line 273, ../sass/team.scss */
+/* line 278, ../sass/team.scss */
 .see-team .global-desc-team .medium-12 .wrapper {
   border-top: 8px solid #478bb2;
   position: relative;
   padding: 0px 15px 15px 15px;
 }
-/* line 278, ../sass/team.scss */
+/* line 283, ../sass/team.scss */
 .see-team .global-desc-team .medium-12 .wrapper:before {
   top: 0;
   left: 23px;
@@ -269,26 +274,27 @@
   border-width: 8px;
   margin-left: -8px;
 }
-/* line 294, ../sass/team.scss */
+/* line 299, ../sass/team.scss */
 .see-team .global-desc-team .medium-12 img {
   width: auto;
+  height: 150px;
 }
-/* line 298, ../sass/team.scss */
+/* line 304, ../sass/team.scss */
 .see-team .global-desc-team .medium-12 .name-user {
   text-align: center;
   font-weight: 600;
   margin-left: 15px;
 }
-/* line 306, ../sass/team.scss */
+/* line 312, ../sass/team.scss */
 .see-team .place-sponsor {
   margin-top: 30px;
 }
-/* line 309, ../sass/team.scss */
+/* line 315, ../sass/team.scss */
 .see-team .place-sponsor .wrapper {
   border-top: 8px solid #478bb2;
   position: relative;
 }
-/* line 313, ../sass/team.scss */
+/* line 319, ../sass/team.scss */
 .see-team .place-sponsor .wrapper:before {
   top: 0;
   left: 23px;
@@ -303,7 +309,7 @@
   border-width: 8px;
   margin-left: -8px;
 }
-/* line 329, ../sass/team.scss */
+/* line 335, ../sass/team.scss */
 .see-team .place-sponsor h1 {
   text-align: center;
   color: #478bb2;
@@ -315,7 +321,7 @@
   font-size: 25px;
   margin-bottom: 15px;
 }
-/* line 341, ../sass/team.scss */
+/* line 347, ../sass/team.scss */
 .see-team .place-sponsor .money, .see-team .place-sponsor .contribution {
   background-color: #dcebf2;
   color: #67802d;
@@ -323,19 +329,19 @@
   padding: 15px;
   text-align: center;
 }
-/* line 348, ../sass/team.scss */
+/* line 354, ../sass/team.scss */
 .see-team .place-sponsor .money p, .see-team .place-sponsor .contribution p {
   font-size: 11px;
 }
-/* line 351, ../sass/team.scss */
+/* line 357, ../sass/team.scss */
 .see-team .place-sponsor .money p:last-child, .see-team .place-sponsor .contribution p:last-child {
   margin-bottom: 0;
 }
-/* line 357, ../sass/team.scss */
+/* line 363, ../sass/team.scss */
 .see-team .place-sponsor .contribution {
   margin-top: 15px;
 }
-/* line 361, ../sass/team.scss */
+/* line 367, ../sass/team.scss */
 .see-team .place-sponsor h2 {
   color: #989987;
   font-weight: 600;
@@ -344,17 +350,17 @@
   margin-top: 0;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 361, ../sass/team.scss */
+  /* line 367, ../sass/team.scss */
   .see-team .place-sponsor h2 {
     font-size: 20px;
   }
 }
-/* line 374, ../sass/team.scss */
+/* line 380, ../sass/team.scss */
 .see-team .place-sponsor span {
   padding: 0px 15px 10px 15px;
   display: block;
 }
-/* line 380, ../sass/team.scss */
+/* line 386, ../sass/team.scss */
 .see-team .place-sponsor div:nth-child(4), .see-team .place-sponsor div:nth-child(6) {
   background-color: #f5f5f5;
 }

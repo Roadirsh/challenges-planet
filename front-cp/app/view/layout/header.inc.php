@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="css/cart.css">
   <link rel="stylesheet" href="css/profil.css">
   <link rel="stylesheet" href="css/404.css">
+  <link rel="stylesheet" href="css/list-sponsors.css">
   <link rel="stylesheet" href="css/styledev.css">
 
   <script async="" src="//www.google-analytics.com/analytics.js"></script>

@@ -251,6 +251,11 @@ $bg-color:		#f2efec;
 			.list-members {
 				li {
 					list-style: none;
+					padding-bottom: 15px;
+
+					&:last-child {
+						padding-bottom: 0px !important;
+					}
 				}
 			}
 
@@ -293,6 +298,7 @@ $bg-color:		#f2efec;
 
 			img {
 				width: auto;
+				height: 150px;
 			}
 
 			.name-user {
