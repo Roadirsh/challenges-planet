@@ -53,9 +53,12 @@ class ProjectController extends CoreController {
         */
         $SeeOneProject = $project->SeeOneGroup($_GET['id']);
         $SeeSponsors = $project->SeeOneGroupSponsors($_GET['id']);
+        $SeeUsers = $project->SeeOneGroupUsers($_GET['id']);
+        var_dump($SeeUsers);
 
         $array['project'] = $SeeOneProject;
         $array['sponsors'] = $SeeSponsors;
+        $array['users'] = $SeeUsers;
         
 
         if(isset($_POST['donut']) and !empty($_POST['donut'])){

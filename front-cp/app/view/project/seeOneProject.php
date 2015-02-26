@@ -2,8 +2,9 @@
 
 <?php if(isset($data['project']) && !empty($data['project']) ){ $project = $data['project']; } ?>
 <?php if(isset($data['sponsors'][0]) && !empty($data['sponsors'][0]) ){ $sponsors = $data['sponsors']; } ?>
+<?php if(isset($data['users'][0]) && !empty($data['users'][0]) ){ $users = $data['users']; } ?>
 <?php /** Funded % maganement **/ ?>
-<?php $percent = number_format(($project['group_given'] / 1) *100, 0); // $project['group_money']?> 
+<?php $percent = number_format(($project['group_given'] / $project['group_money']) *100, 0); ?> 
 <?php /** If they have more then asked **/ ?>
 <?php if($percent > 100){ $percent = 100;} ?>
 <?php $nbSponsor = count($data); ?>
@@ -141,21 +142,6 @@
 									<p class="desc">
 										<?php echo $project['group_descr']; ?>
 									</p>
-
-<!-- 									<div class="clearfix">
-										<div class="small-4 columns">
-											<img src="img/avatar.png" alt="">
-											<span class="name-user">Fabrice</span>
-										</div>
-										<div class="small-4 columns">
-											<img src="img/avatar2.png" alt="">
-											<span class="name-user">Clothide</span>
-										</div>
-										<div class="small-4 columns">
-											<img src="img/avatar3.png" alt="">
-											<span class="name-user">Sophie</span>
-										</div>
-									</div>	 -->						
 								</div>
 							</div>
 
@@ -164,10 +150,13 @@
 									<h1>Our members</h1>
 									<p class="desc">
 										<ul class="list-members">
+										<?php foreach ($users as $key => $user) { ?>
 											<li>
-												<img src="img/avatar2.png" alt="">
-												<span class="name-user">Clothide</span>
+												<img src="<?php echo AVATAR . $user['user_profil_pic']; ?>" alt="">
+												<span class="name-user"><?php echo $user['user_pseudo']; ?></span>
 											</li>
+										<?php } ?>
+											
 										</ul>
 									</p>								
 								</div>

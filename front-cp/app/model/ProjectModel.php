@@ -83,12 +83,12 @@ class ProjectModel extends CoreModel{
     public function SeeOneGroupUsers($id) {
 
         try {
-            $select2 = $this->connexion->prepare("SELECT A.cp_user_user_id, B.*
-                                                FROM " . PREFIX . "users A
-                                                JOIN " . PREFIX . "user B
-                                                ON A.cp_user_user_id = B.user_id
-                                                WHERE group_group_id = :id
-                                                LIMIT 6");
+            $select2 = $this->connexion->prepare("SELECT A.user_id, A.user_pseudo, A.user_profil_pic, B.*, C.group_id
+                                                FROM " . PREFIX . "user A, " . PREFIX . "user_has_group B, " . PREFIX . "group C
+                                                WHERE B.user_user_id = A.user_id
+                                                AND B.group_group_id = C.group_id
+                                                AND C.group_id = :id
+                                                LIMIT 3");
 
             $select2->bindValue(':id', $id, PDO::PARAM_INT);
             $select2->execute();
@@ -102,7 +102,6 @@ class ProjectModel extends CoreModel{
             echo 'Message:' . $e->getMessage();
         }   
     }
-
 
 /////////////////////////////////////////////////////
 /* MOBILE APP * * * * * * * * * * * * * * * * * * */
