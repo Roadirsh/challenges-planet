@@ -65,19 +65,35 @@ $(document).ready(function(){
   });
 
   $( ".create-box" ).click(function() {
-    $( ".wrapper-info-caritative" ).hide( 1000, function() {
-      $( ".form-create-event" ).fadeIn( 1000 );
-      });
-      return false;
-  });
+    $( ".form-join-event" ).fadeOut()
+    $( ".wrapper-info-caritative" ).fadeOut({
+      complete: function(){
 
-    $( ".sticker" ).click(function() {
-    $( ".wrapper-info-caritative" ).hide( 1000, function() {
-      $( ".form-join-event" ).fadeIn( 1000 );
-      });
-      return false;
-  });
+        $(".form-create-event").fadeIn({
+                    complete: function(){
+                        $("html, body").animate({
+                            scrollTop: $(".form-create-event").offset().top
+                        }, 800);
+                    }
+                });
+            }
+        });
+    });
 
+  $( ".sticker" ).click(function() {
+    $( ".form-create-event" ).fadeOut()
+    $( ".wrapper-info-caritative" ).fadeOut({
+      complete: function(){
+        $(".form-join-event").fadeIn({
+                    complete: function(){
+                        $("html, body").animate({
+                            scrollTop: $(".form-join-event").offset().top
+                        }, 800);
+                    }
+                });
+            }
+        });
+    });
 
 
   $('.tabs .tab-links a').on('click', function(e)  {
