@@ -13,29 +13,30 @@
 /* line 34, ../sass/cart.scss */
 .cart .file-upload-button {
   padding: 10px;
+  background: #478bb2;
 }
-/* line 38, ../sass/cart.scss */
+/* line 39, ../sass/cart.scss */
 .cart .actions {
   border-bottom: 2px solid #818181;
   padding-bottom: 15px;
 }
-/* line 42, ../sass/cart.scss */
+/* line 43, ../sass/cart.scss */
 .cart .actions li {
   display: inline-block;
   list-style: none;
   margin-right: 50px;
 }
-/* line 47, ../sass/cart.scss */
+/* line 48, ../sass/cart.scss */
 .cart .actions li a {
   color: #cbcdce;
 }
-/* line 52, ../sass/cart.scss */
+/* line 53, ../sass/cart.scss */
 .cart .actions li .active {
   color: #478bb2;
   font-weight: 700;
   position: relative;
 }
-/* line 57, ../sass/cart.scss */
+/* line 58, ../sass/cart.scss */
 .cart .actions li .active:after {
   bottom: -19px;
   left: 15px;
@@ -50,7 +51,7 @@
   border-width: 8px;
   margin-left: -8px;
 }
-/* line 76, ../sass/cart.scss */
+/* line 77, ../sass/cart.scss */
 .cart .title-action {
   margin-top: 30px;
   margin-bottom: 0;
@@ -59,25 +60,25 @@
   padding: 15px;
   font-size: 25px;
 }
-/* line 85, ../sass/cart.scss */
+/* line 86, ../sass/cart.scss */
 .cart .summary {
   margin-top: 0;
 }
-/* line 89, ../sass/cart.scss */
+/* line 90, ../sass/cart.scss */
 .cart .price {
   color: #478bb2;
 }
-/* line 93, ../sass/cart.scss */
+/* line 94, ../sass/cart.scss */
 .cart .info-payment {
   margin-top: 15px;
 }
-/* line 97, ../sass/cart.scss */
+/* line 98, ../sass/cart.scss */
 .cart .wrapper {
   background: #fff;
   padding: 15px;
   border: 1px solid #d6d6d6;
 }
-/* line 102, ../sass/cart.scss */
+/* line 103, ../sass/cart.scss */
 .cart .wrapper .before {
   float: left;
   color: #000;
@@ -89,14 +90,14 @@
   -webkit-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 113, ../sass/cart.scss */
+/* line 114, ../sass/cart.scss */
 .cart .wrapper .before:hover {
   background: #bdbcbb;
   -moz-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 121, ../sass/cart.scss */
+/* line 122, ../sass/cart.scss */
 .cart .wrapper .help {
   float: right;
   color: #fff;
@@ -105,69 +106,69 @@
   border: 1px solid #457383;
   font-weight: 600;
 }
-/* line 130, ../sass/cart.scss */
+/* line 131, ../sass/cart.scss */
 .cart .wrapper .join {
   color: #fff;
   padding: 5px 50px;
   border-radius: 5px;
   font-weight: 600;
 }
-/* line 137, ../sass/cart.scss */
+/* line 138, ../sass/cart.scss */
 .cart .wrapper .bg {
   background: #f0efee;
   border-radius: 5px;
   height: 70px;
 }
-/* line 142, ../sass/cart.scss */
+/* line 143, ../sass/cart.scss */
 .cart .wrapper .bg h2 {
   line-height: 70px;
   color: #1a2129;
   margin: 0px 15px;
 }
-/* line 149, ../sass/cart.scss */
+/* line 150, ../sass/cart.scss */
 .cart .wrapper h2 {
   color: #88a83b;
   font-size: 18px;
   margin: 15px;
 }
-/* line 155, ../sass/cart.scss */
+/* line 156, ../sass/cart.scss */
 .cart .wrapper label {
   color: #1a2129;
   font-weight: 600;
 }
-/* line 161, ../sass/cart.scss */
+/* line 162, ../sass/cart.scss */
 .cart .wrapper .desc-team span {
   display: block;
 }
-/* line 166, ../sass/cart.scss */
+/* line 167, ../sass/cart.scss */
 .cart .wrapper .clearfix {
   margin-top: 15px;
 }
-/* line 170, ../sass/cart.scss */
+/* line 171, ../sass/cart.scss */
 .cart .wrapper .info-team {
   margin-bottom: 15px;
 }
-/* line 174, ../sass/cart.scss */
+/* line 175, ../sass/cart.scss */
 .cart .wrapper .bg {
   position: relative;
 }
-/* line 177, ../sass/cart.scss */
+/* line 178, ../sass/cart.scss */
 .cart .wrapper .bg div {
   font-size: 20px;
   text-align: right;
   line-height: 70px;
 }
-/* line 182, ../sass/cart.scss */
+/* line 183, ../sass/cart.scss */
 .cart .wrapper .bg div .price {
   margin-left: 10px;
   margin-right: 15px;
 }
-/* line 187, ../sass/cart.scss */
+/* line 188, ../sass/cart.scss */
 .cart .wrapper .bg div span {
   display: block;
   text-align: center;
 }
-/* line 193, ../sass/cart.scss */
+/* line 194, ../sass/cart.scss */
 .cart .wrapper .bg .before {
   position: absolute;
   top: 50%;
@@ -176,31 +177,31 @@
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
 }
-/* line 204, ../sass/cart.scss */
+/* line 205, ../sass/cart.scss */
 .cart .wrapper .confirmation .choose {
   text-align: left;
 }
-/* line 208, ../sass/cart.scss */
+/* line 209, ../sass/cart.scss */
 .cart .wrapper .confirmation .validate {
   text-align: right;
 }
-/* line 213, ../sass/cart.scss */
+/* line 214, ../sass/cart.scss */
 .cart .wrapper .means-payment {
   padding: 15px;
 }
-/* line 216, ../sass/cart.scss */
+/* line 217, ../sass/cart.scss */
 .cart .wrapper .means-payment div {
   display: inline-block;
   margin-right: 30px;
 }
-/* line 223, ../sass/cart.scss */
+/* line 224, ../sass/cart.scss */
 .cart .wrapper .plus-info span {
   font-weight: 600;
   color: #1a2129;
   margin-bottom: 15px;
   display: inline-block;
 }
-/* line 230, ../sass/cart.scss */
+/* line 231, ../sass/cart.scss */
 .cart .wrapper .plus-info p {
   font-size: 13px;
 }
