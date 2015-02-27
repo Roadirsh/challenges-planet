@@ -87,7 +87,6 @@ class LogController extends CoreController{
 				$this->coreRedirect('page', 'home');
 			}
 		} else {
-			
 			$this->coreRedirect('page', 'home');
 		}
 	}
