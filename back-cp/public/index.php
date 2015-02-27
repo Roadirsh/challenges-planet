@@ -11,11 +11,8 @@
 
 // Demmarage de la session
     session_start();
-
-// Nommage de la session
-    session_name('ChallengesPlanet_DASHBOARD');
-    $_SESSION['name'] = "CPdashboard";
-
+    session_name('Dashboard');
+    $_SESSION['name'] = "Dashboard";
 // Fichier de configuration principal
     require_once('../app/conf/conf_define.php');
     

@@ -88,20 +88,15 @@ class LogController extends CoreController{
 		}
 	}
 
-	public function Jexisteconnard(){
-		echo "fdp";
-	}
+
 	/**
 	 * Logout
 	 */
 	public function Logout(){
 
-		
-		session_unset();
-		session_destroy();
+		$_SESSION['connect_compte_BACK'] = false;
+		//session_unset('Dashboard');
 		$this->coreRedirect('user', 'login');
-		// $this->model = new LogoutModel();
-		// redirection dans le fichier Model
 
 	}
 

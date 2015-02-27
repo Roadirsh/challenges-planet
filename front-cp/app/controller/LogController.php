@@ -98,8 +98,8 @@ class LogController extends CoreController{
      *
      */
 	public function Logout(){
-		session_unset();
-		session_destroy();
+        $_SESSION['connect_compte_FRONT'] = false;
+		//session_unset('ChallengesPlanet');
 		$this->coreRedirect('page', 'home');
 	}
 	
