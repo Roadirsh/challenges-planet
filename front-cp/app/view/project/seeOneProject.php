@@ -95,20 +95,24 @@
 								<?php $i ++; } ?>
 							<?php } ?>
 						<?php } ?>
-						<a class="popup-with-form columns medium-6" href="#list-compagnies">
-							<span class="bold">+ 3</span>
-							<span>others compagnies</span>
-						</a>
+						<?php if(!empty($sponsors[0])){ ?>
+							<a class="popup-with-form columns medium-6" href="#list-compagnies">
+								<span class="bold">+ 3</span>
+								<span>others compagnies</span>
+							</a>
+						<?php } ?>
 					</div>
 				</div>
 
 				<div id="list-compagnies" class="mfp-hide white-popup-block clearfix">
+				<?php if(!empty($sponsors[0])){ ?>
 					<?php $i = 0; ?>
 					<?php foreach ($sponsors as $key => $spon) { ?>
 						<div class="medium-4 columns">
 							<img src="<?php echo AVATAR . $spon['user_profil_pic']; ?>" alt="">
 						</div>
 					<?php $i ++; } ?>
+				<?php } ?>
 				</div>
 
 				<div class="large-3 medium-12 show-for-medium-up columns team-sponsor">
@@ -168,7 +172,7 @@
 								<div class="wrapper">
 									<h1>Our goal</h1>
 									<p class="desc">
-										<?php //echo $project['group_goal']; ?>
+										<?php echo $project['group_project']; ?>
 									</p>								
 								</div>
 							</div>
@@ -177,7 +181,7 @@
 								<div class="wrapper">
 									<h1>Our budget</h1>
 									<p class="desc">
-										<?php //echo $project['group_budget']; ?>
+										<?php echo $project['group_budget']; ?>
 									</p>								
 								</div>
 							</div>							

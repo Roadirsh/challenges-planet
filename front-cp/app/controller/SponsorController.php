@@ -59,7 +59,7 @@ class SponsorController extends CoreController {
 		
 		$AllSponsors = $this->model = new SponsorModel();
 		/* All sponsors who gave */
-        $AllSponsor = $AllSponsors-> Seesponsor();
+        $AllSponsor = $AllSponsors->Seesponsor();
 
 		/* Construct the array to pass */
 		$array = array();

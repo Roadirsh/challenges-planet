@@ -1,24 +1,31 @@
-<?php include(ROOT . "view/layout/header.inc.php"); ?>
-        <? echo '<h1>VAR_DUMP: All sponsors who allready gave a bit</h1>';
-        var_dump($data['sponsors']); ?>
+<?php if(isset($_SESSION['message']) && !empty($_SESSION['message'])){ ?>
+    <div class="message <?php echo $_SESSION['messtype']; ?>"><?php echo $_SESSION['message']; ?></div>
+<?php } $_SESSION['message'] = null; ?>
 
+<?php include(ROOT . "view/layout/header.inc.php"); ?>
+
+<?php if(isset($data['sponsors']) && !empty($data['sponsors']) ){ $sponsors = $data['sponsors']; }?>
         <div class="list-sponsors">
         	<div class="medium-8 clearfix">
         		<h1>They helped them</h1>
-        		<p></p>
-	        	<a href="">
-	        		<div class="medium-4 columns" >
-	        			<div class="wrapper">
-	        				<div class="img" style="background:url('img/img-4l-trophy-gesture.png'); background-position: center;background-size: cover;">
-	        					<div class="hover">
-	        						<span>See this sponsor</span>
-	        					</div>
-	        				</div>
-	        				<span class="name-user">TAMER</span>
-	        				<span class="number-team">Helped <span>6</span> teams</span>
-	        		</div>
-	        	</div>
-	        	</a>
+        		<?php foreach ($sponsors as $key => $sponsor) { ?>
+    	        	<a href="">
+    	        		<div class="medium-4 columns" >
+    	        			<div class="wrapper">
+    	        				<div class="img" style="background:url('<?php echo AVATAR . $sponsor['user_profil_pic']; ?>'); background-position: center;background-size: cover;">
+    	        					<div class="hover">
+    	        						<span>See this sponsor</span>
+    	        					</div>
+    	        				</div>
+                                <span class="name-user"><?php echo $sponsor['user_lastname'] . ' ' . $sponsor['user_firstname']; ?></span>
+    	        				
+                                <?php /** Pural management **/ ?>
+                                <?php if($sponsor['helped'] < 2){ $team = "team" ; } else { $team = "teams"; } ?>
+                                <span class="number-team">They helped <span><?php echo $sponsor['helped']; ?></span> <?php echo $team; ?></span>
+        	        		</div>
+        	        	</div>
+    	        	</a>
+                <?php } ?>
         	</div>
         </div>
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>
