@@ -13,7 +13,6 @@
 /* Start the session */
     session_start();
     $_SESSION['name'] = "ChallengesPlanet";
-    
 
 /* Get the define file */
     require_once('../app/conf/conf_define.php');

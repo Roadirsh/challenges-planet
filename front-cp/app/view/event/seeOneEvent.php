@@ -117,7 +117,7 @@
                         foreach ($groups as $key => $g) { ?>
                             <div class="team-wrapper columns medium-4">
                                 <div class="wrapper">
-                                    <div class="img" style="background:url('<?php echo PROJECT . $t['group_img']; ?>');">
+                                    <div class="img" style="background:url('<?php echo PROJECT . $g['group_img']; ?>');">
                                         <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $g['group_id']; ?>" alt="" title="" >
                                             <!-- <img src="img/group/<?php echo $g['group_img']; ?>" alt=""> -->
                                             <div class="hover">
@@ -140,7 +140,7 @@
                                                 <br>days left</div>
                                         </div>
                                         <?php  $percent = number_format(($g['group_needed'] / $g['group_money']) *100, 0); ?>
-                                        <div <?php echo $i; ?>" data="<?php echo $percent; ?>" class="progress-team notyet"></div>
+                                        <div <?php echo $i; ?> data="<?php echo $percent; ?>" class="progress-team notyet"></div>
                                     </div>
                                 </div>
                             </div>

@@ -252,20 +252,19 @@ class EventModel extends CoreModel{
                                                     FROM " . PREFIX . "group A, " . PREFIX . "donate B, " . PREFIX . "event_has_group C
                                                     WHERE A.group_id = C.group_group_id 
                                                     AND B.group_group_id = A.group_id 
-                                                    AND A.group_valid = 1
+                                                    AND A.group_valid = 1 
                                                     AND C.event_event_id = :id
                                                     GROUP BY B.group_group_id 
                                                     HAVING total <= A.group_money
-                                                    LIMIT :debut, :limit");
+                                                    ");
 
-                $select->bindValue(':debut', $debut, PDO::PARAM_INT);
-                $select->bindValue(':limit', $limit, PDO::PARAM_INT);
+                // $select->bindValue(':debut', $debut, PDO::PARAM_INT);
+                // $select->bindValue(':limit', $limit, PDO::PARAM_INT);
                 $select->bindValue(':id', $eID['event_id'], PDO::PARAM_INT);
                 $select->execute();
                 $select->setFetchMode(PDO::FETCH_ASSOC); 
                 $group = $select->fetchAll();
                 $select->closeCursor();
-
                 $eID['event_nb_team'] = count($group);
                 $array[$i] = $eID;
 

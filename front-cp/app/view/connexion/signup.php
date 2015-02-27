@@ -15,7 +15,8 @@
 		            <label for="password">Password</label>
 		            <input id="sign-up-password" name="pwd" type="password" placeholder="" required>
 		            <input type="submit" class="button-submit" value="sign up" alt="sign up">
-		            <input type="checkbox" value="subscribe" name="subscribe"> <span>Don't miss nothing of our news events and their progress ! With our newsletter</span>
+		            <?php // FOR THE V2, WE WILL MAKE A NL ?>
+		            <?php //<input type="checkbox" value="subscribe" name="subscribe"> <span>Don't miss nothing of our news events and their progress ! With our newsletter</span>?>
 		        </fieldset>
 	    	</div>
 	    	<div class="">

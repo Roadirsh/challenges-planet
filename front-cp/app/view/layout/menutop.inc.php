@@ -45,8 +45,8 @@
 				<!-- /DESIGN TEMPORAIRE -->
 					<?php }
 					} else { ?>
-				<li><a class="connect popup-with-form" href="#form-login" onClick="ga('send', 'event', 'link','clic', 'connect3');">Login</a></li>
-				<li><a class="register" href="<?php echo MODULE . 'log' . ACTION . 'signup'; ?>" onClick="ga('send', 'event', 'link','clic', 'registerv3');">Sign up</a></li>
+						<li><a class="connect popup-with-form" href="#form-login" onClick="ga('send', 'event', 'link','clic', 'connect3');">Login</a></li>
+						<li><a class="register" href="<?php echo MODULE . 'log' . ACTION . 'signup'; ?>" onClick="ga('send', 'event', 'link','clic', 'registerv3');">Sign up</a></li>
                 <?php } ?>
 				<ul class="social-media clearfix">
 					<li><a target="_blank" href="https://www.facebook.com/challengesplanet?fref=ts">

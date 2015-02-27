@@ -196,7 +196,6 @@ class EventController extends CoreController {
             if(!empty($SeeEvent)){
                 $SeeEvent = $events->SeeEventTeamNB($SeeEvent, $_GET['page']);
             }
-
             $array['search'] = '';
 		}
 
