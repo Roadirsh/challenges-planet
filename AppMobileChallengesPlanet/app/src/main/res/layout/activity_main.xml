@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                tools:context="com.eemi.challengesplanet.MainActivity"
+                android:background="#ffe5ded8">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="See Events"
+        android:id="@+id/button"
+        android:onClick="launchApp"
+        android:layout_below="@+id/button2"
+        android:layout_alignParentStart="true"/>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/voiturelogo"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="See Teams"
+        android:id="@+id/button2"
+        android:onClick="launchTeams"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
