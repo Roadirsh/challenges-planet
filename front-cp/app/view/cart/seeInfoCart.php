@@ -49,6 +49,12 @@
 							<input type="text">
 						</div>
 					</div>
+					<div class="medium-6 columns">
+						<label for="">Logo (width 250px)</label>
+						<div>
+							<input type="file">
+						</div>
+					</div>
 				</div>
 				<div class="clearfix">
 					<div class="medium-6 columns">

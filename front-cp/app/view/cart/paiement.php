@@ -55,27 +55,27 @@
 
 			<form action="" class="means-payment">
 				<div>
-					<input type="radio" id="master-card">
+					<input type="radio" name="payment" id="master-card">
 					<img src="img/credit/mastercard.png" alt="">
 				</div>
 				<div>
-					<input type="radio" id="visa">
+					<input type="radio" name="payment" id="visa">
 					<img src="img/credit/visa.png" alt="">
 				</div>
 				<div>
-					<input type="radio" id="cirrus">
+					<input type="radio" name="payment" id="cirrus">
 					<img src="img/credit/cirrus.png" alt="">
 				</div>
 				<div>
-					<input type="radio" id="american-express">
+					<input type="radio" name="payment" id="american-express">
 					<img src="img/credit/american-express.png" alt="">
 				</div>
 				<div>
-					<input type="radio" id="mestro">
+					<input type="radio" name="payment" id="mestro">
 					<img src="img/credit/mestro.png" alt="">
 				</div>
 				<div>
-					<input type="radio" id="american-express">
+					<input type="radio" name="payment" id="american-express">
 					<img src="img/credit/paypal2.png" alt="">
 				</div>				
 		
