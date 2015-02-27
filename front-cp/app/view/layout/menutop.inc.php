@@ -64,9 +64,9 @@
 	    		<fieldset>
 	    			<h1>Start your challenge here !</h1>
 		            <label for="name">Email</label>
-		            <input id="email" name="email" type="text" placeholder="" required>
+		            <input id="login-email" name="email" type="text" placeholder="">
 		            <label for="password">Password</label>
-		            <input id="password" name="pwd" type="password" placeholder="" required>
+		            <input id="login-password" name="pwd" type="password" placeholder="">
 		            
 		            <a href="#" class="columns medium-6">forgot password ?</a>
 		            <a href="#" class="columns medium-6">forgot email ?</a>

@@ -99,14 +99,14 @@
 				            		<div class="medium-8 columns first">
 				            			<label class="name-event" for="name" >Name (required)</label>
 										<div>
-											<input class="name-event" id="" name="name" class="" type="text" maxlength="45" value="" required /> 
+											<input class="form-error name-event" id="name" name="name" class="" type="text" maxlength="45" value=""  /> 
 										</div> 
-										<label class="" for="place">City (required)</label>
+										<label class="" for="place error">City (required)</label>
 										<div>
-											<input id="place" name="place" class="" type="text" maxlength="170" value="" required /> 
+											<input id="place" name="place" class="" type="text" maxlength="170" value=""  /> 
 										</div>
 										<label for="">Location (required)</label> 
-										<select name="country" required>
+										<select class="form-error" id="country" name="country">
 											<!-- Include avec l'ensemble des pays -->
 											<?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
 										</select>
@@ -115,19 +115,19 @@
 											<div class="medium-4 from columns">
 												<label for="date-from">Beginning date (required)</label>
 												<div>
-													<input class="input-xlarge focused" id="dateBegin" name="from" type="date" value="" required>
+													<input class=" input-xlarge focused" id="dateBegin" name="from" type="date" value="" >
 												</div>
 											</div>
 											<div class="medium-4 to columns">
 												<label for="date-to">Ending date (required)</label>
 												<div>
-													<input class="input-xlarge focused" id="dateEnd" name="end" type="date" value="" required>
+													<input class="form-error input-xlarge focused" id="dateEnd" name="end" type="date" value="" >
 												</div>
 											</div>
 											<div class="medium-4 to columns">
 												<label for="type">Type (required)</label>
-												<div>
-													<select id="type" name="type">
+													<select id="type-race" name="type">
+														<option value="">Type of your race</option>
 														<option value="Earth">Earth</option>
 														<option value="Sea">Sea</option>
 														<option value="Air">Air</option>
@@ -136,7 +136,6 @@
 														<option value="Surf">Surf</option>
 														<option value="Bike">Bike</option>
 													</select>
-												</div>
 											</div>
 										</div>
 				            		</div>					
@@ -154,7 +153,7 @@
 					       		</div>
 								<label class="" for="description">Your idea</label> <!-- onblur="this.value=''" -->
 								<div>
-									<textarea onblur="this.value=''" onfocus="javascript: this.value=''" id="description" name="descr">Tell us more about your idea, which goal ? Which caritative challenge ? Which sport ?</textarea>
+									<textarea onblur="this.value=''" onfocus="javascript: this.value=''" id="description" placeholder="Tell us more about your idea, which goal ? Which caritative challenge ? Which sport ?" name="descr"></textarea>
 								</div>
 
 								<a href="" onClick="ga('send', 'event', 'link','clic', 'validate-createv3');"><input id="saveForm" class="button-submit" type="submit" name="submit" value="Ready for your adventure !" /></a>
@@ -199,7 +198,7 @@
 				            	<div class="clearfix">
 				            		<div class="medium-4 columns event-info">
 					            		<label class="team-name" for="name">Name of your team (required)</label>
-					            		<input class="name" type="text" id="name">
+					            		<input class="name" type="text" id="name-team">
 
 					            		<label for="">Event informations</label>
 					            		<div class="info-event">
@@ -230,10 +229,10 @@
 				            		<div class="medium-6 columns add-mates">
 				            			<label for="">Add your mates ! (required)</label>
 				            			<div class="mates">
-				            				<input onfocus="javascript: this.value=''" onblur="this.value='Email of your mate'" value="Email of your mate" type="email">
-				            				<input onfocus="javascript: this.value=''" onblur="this.value='Email of your mate'" value="Email of your mate" type="email">
-				            				<input onfocus="javascript: this.value=''" onblur="this.value='Email of your mate'" value="Email of your mate" type="email">
-				            				<input onfocus="javascript: this.value=''" onblur="this.value='Email of your mate'" value="Email of your mate" type="email">
+				            				<input id="mail-team" placeholder="Email of your mate" type="email">
+				            				<input placeholder="Email of your mate" type="email">
+				            				<input placeholder="Email of your mate" type="email">
+				            				<input placeholder="Email of your mate" type="email">
 				            			</div>
 				            		</div>
 				            		<div class="medium-6 columns">

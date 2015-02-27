@@ -39,6 +39,9 @@ $bg-color:		#f2efec;
 
 	.unhappyMessage {
 		color: red;
+		font-size: 12px;
+		display: block;
+		margin-bottom: 10px;
 	}
 
 	.unhappy {
@@ -54,6 +57,10 @@ $bg-color:		#f2efec;
 			border: none;
 			position: relative;
 			padding: 10px 0px;
+
+			input {
+				margin: 0;
+			}
 
 			h1 {
 				text-align: center;

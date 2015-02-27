@@ -328,6 +328,19 @@ $bg-color:		#f2efec;
 
     form {
     	padding: 0px 15px;
+
+        .unhappyMessage {
+            color: red;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: normal !important;
+        }
+
+        .unhappy {
+            box-shadow: 0 0 5px red;
+            border: red;
+        }
     }
 
     .second {

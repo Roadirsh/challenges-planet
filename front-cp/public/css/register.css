@@ -21,23 +21,30 @@
 /* line 40, ../sass/register.scss */
 .contain .signup .unhappyMessage {
   color: red;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 10px;
 }
-/* line 44, ../sass/register.scss */
+/* line 47, ../sass/register.scss */
 .contain .signup .unhappy {
   box-shadow: 0 0 5px red;
   border: red;
 }
-/* line 49, ../sass/register.scss */
+/* line 52, ../sass/register.scss */
 .contain .signup .connect {
   float: none;
 }
-/* line 53, ../sass/register.scss */
+/* line 56, ../sass/register.scss */
 .contain .signup fieldset {
   border: none;
   position: relative;
   padding: 10px 0px;
 }
-/* line 58, ../sass/register.scss */
+/* line 61, ../sass/register.scss */
+.contain .signup fieldset input {
+  margin: 0;
+}
+/* line 65, ../sass/register.scss */
 .contain .signup fieldset h1 {
   text-align: center;
   font-family: "franklin_gothic_fsdemi";
@@ -45,12 +52,12 @@
   color: #1a2129;
   font-size: 29px;
 }
-/* line 67, ../sass/register.scss */
+/* line 74, ../sass/register.scss */
 .contain .signup .classic-login {
   position: relative;
   text-transform: uppercase;
 }
-/* line 71, ../sass/register.scss */
+/* line 78, ../sass/register.scss */
 .contain .signup .classic-login:after {
   content: "";
   position: absolute;
@@ -60,37 +67,37 @@
   bottom: -14px;
   left: 0;
 }
-/* line 81, ../sass/register.scss */
+/* line 88, ../sass/register.scss */
 .contain .signup .classic-login a {
   color: #478bb2;
   margin-bottom: 15px;
   display: block;
   text-align: center;
 }
-/* line 88, ../sass/register.scss */
+/* line 95, ../sass/register.scss */
 .contain .signup .classic-login .button-submit {
   width: 100%;
   margin-bottom: 20px;
   margin-top: 10px;
 }
-/* line 94, ../sass/register.scss */
+/* line 101, ../sass/register.scss */
 .contain .signup .classic-login span {
   font-size: 12px;
 }
-/* line 98, ../sass/register.scss */
+/* line 105, ../sass/register.scss */
 .contain .signup .classic-login #email, .contain .signup .classic-login #password {
   margin: 0;
 }
-/* line 102, ../sass/register.scss */
+/* line 109, ../sass/register.scss */
 .contain .signup .classic-login label[for="password"] {
   margin-top: 10px;
 }
-/* line 107, ../sass/register.scss */
+/* line 114, ../sass/register.scss */
 .contain .signup .social-sign-up {
   position: relative;
   top: 19px;
 }
-/* line 112, ../sass/register.scss */
+/* line 119, ../sass/register.scss */
 .contain .signup .social-sign-up a {
   text-transform: uppercase;
   width: 100%;
@@ -98,12 +105,12 @@
   padding: 10px;
   display: block;
 }
-/* line 119, ../sass/register.scss */
+/* line 126, ../sass/register.scss */
 .contain .signup .social-sign-up a img {
   margin-right: 15px;
   width: 25px;
 }
-/* line 124, ../sass/register.scss */
+/* line 131, ../sass/register.scss */
 .contain .signup .social-sign-up a:first-child {
   background-color: #0c6ba9;
   margin-bottom: 10px;
@@ -111,28 +118,28 @@
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 131, ../sass/register.scss */
+/* line 138, ../sass/register.scss */
 .contain .signup .social-sign-up a:first-child:hover {
   background-color: #0a5a8f;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 139, ../sass/register.scss */
+/* line 146, ../sass/register.scss */
 .contain .signup .social-sign-up a:nth-child(2) {
   background-color: #d51f1f;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 145, ../sass/register.scss */
+/* line 152, ../sass/register.scss */
 .contain .signup .social-sign-up a:nth-child(2):hover {
   background-color: #bd1c1c;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 154, ../sass/register.scss */
+/* line 161, ../sass/register.scss */
 .contain .signup .social-sign-up .connect {
   float: none;
 }

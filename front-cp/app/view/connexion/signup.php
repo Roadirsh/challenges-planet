@@ -11,9 +11,9 @@
 	    		<fieldset>
 	    			<h1>Increase your challenge and your help for the planet</h1>
 		            <label for="email">Email</label>
-		            <input id="sign-up-email" name="email" type="text" placeholder="" required>
+		            <input id="sign-up-email" name="email" type="text" placeholder="">
 		            <label for="password">Password</label>
-		            <input id="sign-up-password" name="pwd" type="password" placeholder="" required>
+		            <input id="sign-up-password" name="pwd" type="password" placeholder="">
 		            <input type="submit" class="button-submit" value="sign up" alt="sign up">
 		            <?php // FOR THE V2, WE WILL MAKE A NL ?>
 		            <?php //<input type="checkbox" value="subscribe" name="subscribe"> <span>Don't miss nothing of our news events and their progress ! With our newsletter</span>?>

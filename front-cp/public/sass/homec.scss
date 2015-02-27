@@ -66,6 +66,19 @@ body {
 		margin: 40px auto;
 		position: relative;
 
+		.unhappyMessage {
+			color: red;
+			font-size: 12px;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.unhappy {
+			box-shadow: 0 0 5px red;
+			border: red;
+		}
+
+
 		@media #{$medium-up} {
 			padding: 15px;
 		}
@@ -74,6 +87,10 @@ body {
 			border: none;
 			position: relative;
 			padding: 10px 0px;
+
+			input {
+				margin: 0;
+			}
 
 			h1 {
 				text-align: center;

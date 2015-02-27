@@ -44,6 +44,71 @@ $(document).ready(function(){
     happy: function () { }
   });
 
+    $('#form-login').isHappy({
+    fields: {
+      // reference the field you're talking about, probably by `id`
+      // but you could certainly do $('[name=name]') as well.
+      '#login-email': {
+        required: true,
+        message: 'Without an email, how can we identify you ?'
+      },
+      '#login-password': {
+        required: true,
+        message: 'Affraid to put a password ? For sure it will be our secret'
+      },
+    },
+    happy: function () { }
+  });
+
+
+    $('#form_join').isHappy({
+    fields: {
+      // reference the field you're talking about, probably by `id`
+      // but you could certainly do $('[name=name]') as well.
+      '#name-team': {
+        required: true,
+        message: 'We really need this information !'
+      },
+      '#mail-team': {
+        required: true,
+        message: 'Just one mate is enough !'
+      },
+    },
+    happy: function () { }
+  });
+
+  $('#form_create').isHappy({
+    fields: {
+      // reference the field you're talking about, probably by `id`
+      // but you could certainly do $('[name=name]') as well.
+       '#name': {
+        required: true,
+        message: 'We really need this information !'
+      },
+      '#place': {
+        required: true,
+        message: 'We really need this information !'
+      },
+      '#country': {
+        required: true,
+        message: 'We really need this information !'
+      },
+      '#dateEnd': {
+        required: true,
+        message: 'We really need this information !'
+      },
+      '#dateBegin': {
+        required: true,
+        message: 'We really need this information !'
+      },
+      '#type-race': {
+        required: true,
+        message: 'We really need this information !'
+      },
+    },
+    happy: function () { }
+  });
+
   $( ".wrapper" ).hover(
     function() {
       $(this).find(".hover").toggleClass( "active" );

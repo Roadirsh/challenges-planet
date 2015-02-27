@@ -328,7 +328,20 @@
 .tabs form {
   padding: 0px 15px;
 }
-/* line 333, ../sass/create.scss */
+/* line 332, ../sass/create.scss */
+.tabs form .unhappyMessage {
+  color: red;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: normal !important;
+}
+/* line 340, ../sass/create.scss */
+.tabs form .unhappy {
+  box-shadow: 0 0 5px red;
+  border: red;
+}
+/* line 346, ../sass/create.scss */
 .tabs .second {
   background-color: #fff;
   border: 1px solid #cccccc;
@@ -340,12 +353,12 @@
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 333, ../sass/create.scss */
+  /* line 346, ../sass/create.scss */
   .tabs .second {
     top: 20px;
   }
 }
-/* line 347, ../sass/create.scss */
+/* line 360, ../sass/create.scss */
 .tabs .second .fileupload {
   position: absolute;
   top: 50%;
@@ -357,47 +370,47 @@
   -ms-transform: translateY(-50%) translateX(-50%);
   /*----- Button Upload -----*/
 }
-/* line 358, ../sass/create.scss */
+/* line 371, ../sass/create.scss */
 .tabs .second .fileupload span {
   color: #88a83b;
   text-align: center;
   display: block;
 }
-/* line 364, ../sass/create.scss */
+/* line 377, ../sass/create.scss */
 .tabs .second .fileupload .info {
   font-size: 10px;
   border: none;
   background: none;
 }
-/* line 370, ../sass/create.scss */
+/* line 383, ../sass/create.scss */
 .tabs .second .fileupload .desc {
   margin: 15px 0px;
 }
-/* line 377, ../sass/create.scss */
+/* line 390, ../sass/create.scss */
 .tabs .second .fileupload .custom-file-upload-hidden {
   display: none;
   visibility: hidden;
   position: absolute;
   left: -9999px;
 }
-/* line 383, ../sass/create.scss */
+/* line 396, ../sass/create.scss */
 .tabs .second .fileupload .custom-file-upload {
   display: block;
   width: auto;
   font-size: 16px;
   margin-top: 15px;
 }
-/* line 389, ../sass/create.scss */
+/* line 402, ../sass/create.scss */
 .tabs .second .fileupload .custom-file-upload label {
   display: block;
   margin-bottom: 5px;
 }
-/* line 395, ../sass/create.scss */
+/* line 408, ../sass/create.scss */
 .tabs .second .fileupload .file-upload-wrapper {
   position: relative;
   margin-bottom: 5px;
 }
-/* line 400, ../sass/create.scss */
+/* line 413, ../sass/create.scss */
 .tabs .second .fileupload .file-upload-input {
   width: 100%;
   color: #1a2129;
@@ -411,11 +424,11 @@
   float: left;
   /* IE 9 Fix */
 }
-/* line 412, ../sass/create.scss */
+/* line 425, ../sass/create.scss */
 .tabs .second .fileupload .file-upload-input:focus {
   outline: none;
 }
-/* line 417, ../sass/create.scss */
+/* line 430, ../sass/create.scss */
 .tabs .second .fileupload .file-upload-button {
   cursor: pointer;
   display: inline-block;
@@ -432,67 +445,67 @@
   /* IE 9 Fix */
   transition: all 0.2s ease-in;
 }
-/* line 432, ../sass/create.scss */
+/* line 445, ../sass/create.scss */
 .tabs .second .fileupload .file-upload-button:hover {
   background-color: #67802d;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 442, ../sass/create.scss */
+/* line 455, ../sass/create.scss */
 .tabs #tab2 {
   text-align: center;
 }
-/* line 445, ../sass/create.scss */
+/* line 458, ../sass/create.scss */
 .tabs #tab2 p {
   font-size: 25px;
 }
-/* line 451, ../sass/create.scss */
+/* line 464, ../sass/create.scss */
 .tabs .date .columns {
   padding-right: 0;
   padding-left: 0;
 }
-/* line 457, ../sass/create.scss */
+/* line 470, ../sass/create.scss */
 .tabs .first {
   padding-left: 0;
   padding-right: 0;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 457, ../sass/create.scss */
+  /* line 470, ../sass/create.scss */
   .tabs .first {
     padding-right: 15px;
   }
 }
-/* line 466, ../sass/create.scss */
+/* line 479, ../sass/create.scss */
 .tabs .second {
   padding-right: 0;
   padding-left: 0;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 466, ../sass/create.scss */
+  /* line 479, ../sass/create.scss */
   .tabs .second {
     padding-left: 15px;
   }
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 475, ../sass/create.scss */
+  /* line 488, ../sass/create.scss */
   .tabs .from {
     padding-right: 15px !important;
   }
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 481, ../sass/create.scss */
+  /* line 494, ../sass/create.scss */
   .tabs .to {
     padding-left: 15px !important;
   }
 }
-/* line 487, ../sass/create.scss */
+/* line 500, ../sass/create.scss */
 .tabs .tab-links {
   width: 230px;
   margin: auto;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 487, ../sass/create.scss */
+  /* line 500, ../sass/create.scss */
   .tabs .tab-links {
     margin-right: 15px;
     position: absolute;
@@ -500,20 +513,20 @@
     top: 20px;
   }
 }
-/* line 499, ../sass/create.scss */
+/* line 512, ../sass/create.scss */
 .tabs p {
   text-align: center;
   display: block;
   margin: 15px 0px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 499, ../sass/create.scss */
+  /* line 512, ../sass/create.scss */
   .tabs p {
     text-align: left;
     padding-left: 15px;
   }
 }
-/* line 510, ../sass/create.scss */
+/* line 523, ../sass/create.scss */
 .tabs #description {
   height: 250px;
   background-color: #fff;
@@ -521,14 +534,14 @@
 
 /*----- Tab Links -----*/
 /* Clearfix */
-/* line 518, ../sass/create.scss */
+/* line 531, ../sass/create.scss */
 .tab-links:after {
   display: block;
   clear: both;
   content: '';
 }
 
-/* line 524, ../sass/create.scss */
+/* line 537, ../sass/create.scss */
 .tab-links li {
   margin: 0px 5px;
   float: left;
@@ -536,7 +549,7 @@
   text-align: center;
 }
 
-/* line 531, ../sass/create.scss */
+/* line 544, ../sass/create.scss */
 .tab-links a {
   padding: 9px 15px;
   display: inline-block;
@@ -551,25 +564,25 @@
   width: 105px;
 }
 
-/* line 545, ../sass/create.scss */
+/* line 558, ../sass/create.scss */
 .tab-links a:hover {
   background: #a7cce5;
   text-decoration: none;
 }
 
-/* line 550, ../sass/create.scss */
+/* line 563, ../sass/create.scss */
 li.active a, li.active a:hover {
   background: #1a2129;
   color: #fff;
 }
 
 /*----- Content of Tabs -----*/
-/* line 560, ../sass/create.scss */
+/* line 573, ../sass/create.scss */
 .tab {
   display: none;
 }
 
-/* line 564, ../sass/create.scss */
+/* line 577, ../sass/create.scss */
 .tab.active {
   display: block;
 }
