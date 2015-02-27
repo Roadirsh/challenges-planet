@@ -57,7 +57,6 @@
         <div class="teams clearfix">
 		    <h2>Our teams</h2>
     		<section class="first clearfix">
-    		    <?php //var_dump($team); ?>
                 <?php if(isset($team) && !empty($team) ){ ?>
         		    <?php foreach($team as $k => $t){ ?>
                         <?php if(isset($t['group_name']) && !empty($t['group_name'])){ ?>
@@ -141,7 +140,7 @@
 		<h2>Our sponsors</h2>
 		<section class="first clearfix">
 		    <?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ ?>
-    		    <?php //var_dump($sponsor); ?>
+    		    
     		    <?php foreach($sponsor as $k => $s){ ?>
     			<a href="<?php echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">
                     <div class="medium-4 large-3 columns sponsor-wrapper">

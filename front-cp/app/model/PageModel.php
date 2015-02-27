@@ -140,6 +140,7 @@ class PageModel extends CoreModel{
                                             FROM " . PREFIX . "user A, " . PREFIX . "donate B 
                                             WHERE A.user_type = 'organisme'
                                             AND A.user_donut > 0
+                                            GROUP BY A.user_id 
                                             ORDER BY B.donate_date ASC
                                             LIMIT 8");
             
