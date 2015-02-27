@@ -22,7 +22,7 @@
         <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap-combobox.css" rel="stylesheet" type="text/css" />
-		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 		<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-beta.3/css/select2.min.css" rel="stylesheet" />
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
