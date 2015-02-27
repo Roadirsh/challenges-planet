@@ -31,7 +31,7 @@
                                     <p>Users number</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-bag"></i>
+                                    <i class="ion ion-person"></i>
                                 </div>
                                 <a href="<?php echo MODULE . 'user' . ACTION . 'seeuser'; ?>" class="small-box-footer">
                                     More info <i class="fa fa-arrow-circle-right"></i>
@@ -48,7 +48,7 @@
                                     <p>Projects number</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="ion ion-map"></i>
                                 </div>
                                 <a href="<?php echo MODULE . 'project' . ACTION . 'seeproject'; ?>" class="small-box-footer">
                                     More info <i class="fa fa-arrow-circle-right"></i>
@@ -65,7 +65,7 @@
                                     <p>Events number</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="ion ion-trophy"></i>
                                 </div>
                                 <a href="<?php echo MODULE . 'event' . ACTION . 'seeevent'; ?>" class="small-box-footer">
                                     More info <i class="fa fa-arrow-circle-right"></i>
@@ -82,11 +82,39 @@
                                     <p>Donations </p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
+                                    <i class="ion ion-cash"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">
-                                    More info <i class="fa fa-arrow-circle-right"></i>
-                                </a>
+                                <a href="#" class="small-box-footer">...     </a>
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-orange">
+                                <div class="inner">
+                                    <h3>
+                                        <?php echo $data['projetrestant'];?> 
+                                    </h3>
+                                    <p>Project to validate </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-paperclip"></i>
+                                </div>
+                           <a href="#" class="small-box-footer">...     </a>
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-blue">
+                                <div class="inner">
+                                    <h3>
+                                        <?php echo $data['eventrestant'];?> 
+                                    </h3>
+                                    <p>Event to validate </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-paper-airplane"></i>
+                                </div>
+                                 <a href="#" class="small-box-footer">...     </a>
                             </div>
                         </div><!-- ./col -->
                     </div><!-- /.row -->

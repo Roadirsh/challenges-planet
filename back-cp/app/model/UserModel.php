@@ -906,7 +906,7 @@ echo '<pre>';
 				$ajout = "";
         	}
 	    }
-			$query = "SELECT * FROM " . PREFIX . "user " . $ajout . " user_type != 'admin'  GROUP BY user_id";
+			$query = "SELECT * FROM " . PREFIX . "user " . $ajout . " user_type != 'admin' AND user_type != 'delete' GROUP BY user_id";
 		    $select = $this->connexion->prepare($query);
         //var_dump($select);
 		$select -> execute();

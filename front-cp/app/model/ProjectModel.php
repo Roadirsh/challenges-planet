@@ -38,7 +38,8 @@ class ProjectModel extends CoreModel{
                                                 AND C.group_group_id = A.group_id
                                                 AND B.event_event_id = D.event_id
                                                 AND A.group_valid = 1
-                                                AND A.group_id = :id");
+                                                AND A.group_id = :id
+                                                AND B.group_group_id = :id");
 
             $select->bindValue(':id', $id, PDO::PARAM_INT);
             $select->execute();

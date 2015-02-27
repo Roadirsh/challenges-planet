@@ -19,7 +19,52 @@ class PageModel extends CoreModel{
 
         try {
             $select = $this->connexion->prepare("SELECT user_id 
-                                            FROM " . PREFIX . "user");
+                                            FROM " . PREFIX . "user WHERE user_type != 'admin' AND user_type!= 'delete'");
+                    
+            //var_dump($select);
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select -> rowCount();
+
+            // $select -> closeCursor();
+
+            //var_dump($retour);
+
+            return $retour;
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }/**
+     * Compte du nombre de projets restant à valider
+     */
+    public function NbProjetRestant(){
+
+        try {
+            $select = $this->connexion->prepare("SELECT group_id 
+                                            FROM " . PREFIX . "group WHERE group_valid = 0");
+                    
+            //var_dump($select);
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select -> rowCount();
+            return $retour;
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }/**
+     * Compte du nombre d'évenements restant à valider
+     */
+    public function NbEventRestant(){
+
+        try {
+            $select = $this->connexion->prepare("SELECT event_id 
+                                            FROM " . PREFIX . "event WHERE event_valid = 0");
                     
             //var_dump($select);
             $select -> execute();
