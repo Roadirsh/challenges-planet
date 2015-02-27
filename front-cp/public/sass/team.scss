@@ -36,7 +36,7 @@ $bg-color:		#f2efec;
 		color: $color-blue;
 	}
 
-	a {
+	.join {
 		color: #fff;
 		padding: 8px 10px;
 		display: block;
@@ -45,6 +45,7 @@ $bg-color:		#f2efec;
 		font-weight: 600;
 		text-align: center;
 		width: 90%;
+		border: none;
 
 		@media #{$large-up} {
 			width: 50%;

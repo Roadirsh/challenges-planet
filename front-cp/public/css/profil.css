@@ -1,42 +1,95 @@
 /* line 22, ../sass/profil.scss */
+.see-user {
+  padding: 15px;
+  background-color: #e5ded8;
+  height: 100%;
+  /*----- Tabs -----*/
+  /*----- Tab Links -----*/
+  /* Clearfix */
+  /*----- Content of Tabs -----*/
+}
+/* line 28, ../sass/profil.scss */
+.see-user .tabs {
+  border: none;
+}
+/* line 34, ../sass/profil.scss */
+.see-user .tab-links:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+/* line 40, ../sass/profil.scss */
+.see-user .tab-links li {
+  text-align: left;
+}
+/* line 44, ../sass/profil.scss */
+.see-user .tab-links a {
+  background: transparent;
+  display: block;
+  width: auto;
+}
+/* line 50, ../sass/profil.scss */
+.see-user .tab-links a:hover {
+  background: transparent;
+}
+/* line 55, ../sass/profil.scss */
+.see-user li.active a, .see-user li.active a:hover {
+  color: #4c4c4c;
+}
+/* line 60, ../sass/profil.scss */
+.see-user .tab-content {
+  padding: 15px;
+  background: #f1f1f1;
+  height: 100%;
+}
+/* line 66, ../sass/profil.scss */
+.see-user .tab {
+  display: none;
+}
+/* line 70, ../sass/profil.scss */
+.see-user .tab.active {
+  display: block;
+}
+
+/* line 81, ../sass/profil.scss */
 .menu-profil ul {
   list-style: none;
   margin-top: 80px;
   margin-left: 10px;
   width: 100%;
 }
-/* line 28, ../sass/profil.scss */
+/* line 87, ../sass/profil.scss */
 .menu-profil ul .selected {
   border-left: 1px solid #818181;
 }
-/* line 30, ../sass/profil.scss */
+/* line 89, ../sass/profil.scss */
 .menu-profil ul .selected a {
   color: #818181;
 }
-/* line 35, ../sass/profil.scss */
+/* line 94, ../sass/profil.scss */
 .menu-profil ul li {
   margin-top: 15px;
   padding-left: 10px;
   width: 100%;
   border-left: 1px solid #478bb2;
 }
-/* line 41, ../sass/profil.scss */
+/* line 100, ../sass/profil.scss */
 .menu-profil ul li a {
   text-transform: uppercase;
   font-size: 16px;
 }
 
-/* line 49, ../sass/profil.scss */
+/* line 108, ../sass/profil.scss */
 .content-profil {
   position: relative;
 }
-/* line 52, ../sass/profil.scss */
+/* line 111, ../sass/profil.scss */
 .content-profil h1 {
   color: #88a83b;
   text-transform: uppercase;
   text-align: center;
 }
-/* line 58, ../sass/profil.scss */
+/* line 117, ../sass/profil.scss */
 .content-profil #circle {
   border-radius: 100%;
   background-color: transparent;
@@ -45,70 +98,69 @@
   overflow: hidden;
   display: inline-block;
 }
-/* line 67, ../sass/profil.scss */
+/* line 126, ../sass/profil.scss */
 .content-profil #circle img {
   height: 100%;
 }
-/* line 72, ../sass/profil.scss */
+/* line 131, ../sass/profil.scss */
 .content-profil h3 {
   color: #494949;
   margin-bottom: 0px;
 }
-/* line 77, ../sass/profil.scss */
+/* line 136, ../sass/profil.scss */
 .content-profil p {
   color: #818181;
+  margin-bottom: 0;
 }
-/* line 81, ../sass/profil.scss */
+/* line 141, ../sass/profil.scss */
 .content-profil .school-profil {
   text-align: right;
 }
-/* line 85, ../sass/profil.scss */
+/* line 145, ../sass/profil.scss */
 .content-profil #location {
-  position: absolute;
-  bottom: 0;
-  left: 260px;
+  margin-left: 15px;
 }
-/* line 90, ../sass/profil.scss */
+/* line 148, ../sass/profil.scss */
 .content-profil #location img {
-  width: 25px;
+  width: 10px;
 }
 
-/* line 96, ../sass/profil.scss */
-.general-profil {
+/* line 154, ../sass/profil.scss */
+.general-profil, #account {
   margin-top: 15px;
 }
-/* line 98, ../sass/profil.scss */
-.general-profil .modif {
+/* line 157, ../sass/profil.scss */
+.general-profil .modif, #account .modif {
   text-decoration: underline;
   position: relative;
   float: left;
 }
-/* line 104, ../sass/profil.scss */
-.general-profil .first-info p {
+/* line 164, ../sass/profil.scss */
+.general-profil .first-info p, #account .first-info p {
   font-weight: bold;
 }
-/* line 109, ../sass/profil.scss */
-.general-profil .event-profil {
+/* line 169, ../sass/profil.scss */
+.general-profil .event-profil, #account .event-profil {
   padding: 5px;
   background-color: white;
 }
-/* line 113, ../sass/profil.scss */
-.general-profil .event-profil img {
+/* line 173, ../sass/profil.scss */
+.general-profil .event-profil img, #account .event-profil img {
   width: 100%;
 }
-/* line 117, ../sass/profil.scss */
-.general-profil .event-profil div {
+/* line 177, ../sass/profil.scss */
+.general-profil .event-profil div, #account .event-profil div {
   padding: 0;
   text-align: center;
 }
-/* line 121, ../sass/profil.scss */
-.general-profil .event-profil span {
+/* line 181, ../sass/profil.scss */
+.general-profil .event-profil span, #account .event-profil span {
   display: block;
   font-size: 13px;
   color: #adadad;
 }
-/* line 126, ../sass/profil.scss */
-.general-profil .event-profil .button-submit {
+/* line 186, ../sass/profil.scss */
+.general-profil .event-profil .button-submit, #account .event-profil .button-submit {
   font-size: 14px;
   width: 95%;
   color: #fff;

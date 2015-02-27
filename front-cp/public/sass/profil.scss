@@ -18,6 +18,65 @@ $color-blue:	#478bb2;
 $color-green:	#88a83b;
 $bg-color:		#f2efec;
 
+
+.see-user {
+    padding: 15px;
+    background-color: #e5ded8;
+    height: 100%;
+
+/*----- Tabs -----*/
+.tabs {
+    border: none;
+}
+ 
+    /*----- Tab Links -----*/
+    /* Clearfix */
+    .tab-links:after {
+        display:block;
+        clear:both;
+        content:'';
+    }
+ 
+    .tab-links li {
+        text-align: left;
+    }
+ 
+        .tab-links a {
+            background: transparent;
+            display: block;
+            width: auto;
+        }
+ 
+        .tab-links a:hover {
+            background: transparent;
+
+        }
+ 
+    li.active a, li.active a:hover {
+        color:#4c4c4c;
+    }
+ 
+    /*----- Content of Tabs -----*/
+    .tab-content {
+        padding:15px;
+        background: #f1f1f1;
+        height: 100%;
+    }
+ 
+        .tab {
+            display:none;
+        }
+ 
+        .tab.active {
+            display:block;
+        }
+
+
+
+
+
+}
+
 .menu-profil {
     ul {
         list-style:none;
@@ -69,13 +128,14 @@ $bg-color:		#f2efec;
         }
     }
 
-    h3{
+    h3 {
         color:#494949;
         margin-bottom:0px;
     }
 
-    p{
+    p {
         color:$color-grey;
+        margin-bottom: 0;
     }
     
     .school-profil {
@@ -83,23 +143,23 @@ $bg-color:		#f2efec;
     }
 
     #location{
-        position:absolute;
-        bottom:0;
-        left:260px;
+        margin-left: 15px; 
         
         img {
-            width:25px;
+            width:10px;
         }
     }
 }
 
-.general-profil {
+.general-profil, #account {
     margin-top:15px;
+
     .modif{
         text-decoration:underline;
         position:relative;
         float:left;
     }
+
     .first-info {
         p {
             font-weight:bold;

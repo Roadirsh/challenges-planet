@@ -90,6 +90,17 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
+  $('.tabs-user .tab-links a').on('click', function(e)  {
+    console.log('coucou');
+    var currentAttrValue = $(this).attr('href');
+   
+    $('.tabs-user ' + currentAttrValue).show().fadeIn(400).siblings().hide();
+
+    $(this).parent('li').addClass('active').siblings().removeClass('active');
+
+    e.preventDefault();
+  });
+
 //Reference: 
 //http://www.onextrapixel.com/2012/12/10/how-to-create-a-custom-file-input-with-jquery-css3-and-php/
 ;(function($) {
