@@ -27,7 +27,16 @@ class UserController extends CoreController {
 			$action = ucfirst($_GET['action']);
             
             if(method_exists($this, $action)){
-                $this->$action();
+                if($action == 'SeeMyPage'){
+                    if(isset($_SESSION['userID']) != ''){
+                        $this->SeeMyPage();
+                    } else {
+                        $this->coreRedirect('page', 'home');
+                    }
+                } else {
+                    $this->$action();
+                }
+                
             } else{
                 $this->corePage404();
             }
@@ -35,8 +44,8 @@ class UserController extends CoreController {
 
 		} else {
 			// is their a session or not?
-			if(isset($_SESSION['user']) != ''){
-				$this->Seeuser();
+			if(isset($_SESSION['userID']) != ''){
+				$this->SeeMyPage();
 			} else {
 				$this->coreRedirect('user', 'login');
 			}
@@ -48,21 +57,23 @@ class UserController extends CoreController {
      *
      * @param INT $_GET ID
      */
-	private function SeeOneUser(){
+	private function SeeMyPage(){
 		
         $showUser = $this->model = new UserModel();
 
         /* * * * * * * * * * * * * * * * * * * * * * * * *
         * Information about one user only
         */
-		$oneUser = $showUser->SeeOneUser();
+
+		$oneUser = $showUser->SeeMyPage();
+        $oneUserEvents = $showUser->SeeMyPageEvents($_SESSION['userID']);
 
 		/* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
 		define("PAGE_TITLE", SITE_NAME . " User name"); // TODO
 		define("PAGE_DESCR", SITE_NAME . " user name"); // TODO
-		define("PAGE_ID", "seeOneUser");
+		define("PAGE_ID", "seeMyPage");
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * Age telling
@@ -77,8 +88,9 @@ class UserController extends CoreController {
 		$array = array();
 		$array['user'] = $oneUser;
         $array['user']['age'] = $age;
+        $array['events'] = $oneUserEvents;
         /* Load the view */
-		$this->load->view('user', 'seeOneUser', $array);
+		$this->load->view('user', 'seeMyPage', $array);
 	
 	}
 }
