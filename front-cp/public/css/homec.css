@@ -270,21 +270,20 @@ body #form-login .button-submit:hover {
 .container .header .menu {
   position: relative;
   background-color: #1a2129;
-  margin-bottom: 15px;
 }
-/* line 283, ../sass/homec.scss */
+/* line 282, ../sass/homec.scss */
 .container .header .menu .social-media {
   list-style: none;
   margin-left: 0;
   margin-bottom: 0;
 }
-/* line 288, ../sass/homec.scss */
+/* line 287, ../sass/homec.scss */
 .container .header .menu .social-media li {
   text-align: center;
   display: inline-block;
   margin-right: 7px;
 }
-/* line 295, ../sass/homec.scss */
+/* line 294, ../sass/homec.scss */
 .container .header .menu .second-nav {
   list-style: none;
   margin-left: 0;
@@ -299,16 +298,16 @@ body #form-login .button-submit:hover {
   -ms-transform: translatey(-50%);
   padding-right: 15px;
 }
-/* line 309, ../sass/homec.scss */
+/* line 308, ../sass/homec.scss */
 .container .header .menu .second-nav li {
   text-align: center;
   display: inline-block;
 }
-/* line 313, ../sass/homec.scss */
+/* line 312, ../sass/homec.scss */
 .container .header .menu .second-nav li a {
   font-size: 15px;
 }
-/* line 319, ../sass/homec.scss */
+/* line 318, ../sass/homec.scss */
 .container .header .menu .first-nav {
   list-style: none;
   margin-left: 0;
@@ -323,57 +322,57 @@ body #form-login .button-submit:hover {
   -ms-transform: translatey(-50%) translatex(-50%);
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 319, ../sass/homec.scss */
+  /* line 318, ../sass/homec.scss */
   .container .header .menu .first-nav {
     width: auto;
   }
 }
-/* line 336, ../sass/homec.scss */
+/* line 335, ../sass/homec.scss */
 .container .header .menu .first-nav .helped {
   padding: 0px 15px;
 }
-/* line 340, ../sass/homec.scss */
+/* line 339, ../sass/homec.scss */
 .container .header .menu .first-nav .join {
   padding: 5px 15px;
   font-weight: 800;
   border-radius: 5px;
   color: #fff;
 }
-/* line 347, ../sass/homec.scss */
+/* line 346, ../sass/homec.scss */
 .container .header .menu .first-nav li {
   display: inline-block;
   position: relative;
   text-align: center;
 }
-/* line 352, ../sass/homec.scss */
+/* line 351, ../sass/homec.scss */
 .container .header .menu .first-nav li a:nth-child(-n+2) {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 358, ../sass/homec.scss */
+/* line 357, ../sass/homec.scss */
 .container .header .menu .first-nav li a:nth-child(-n+2):hover {
   color: #5cb3e5;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
 }
-/* line 366, ../sass/homec.scss */
+/* line 365, ../sass/homec.scss */
 .container .header .menu .first-nav li a {
   color: #fff;
   position: relative;
   font-size: 15px;
 }
-/* line 376, ../sass/homec.scss */
+/* line 375, ../sass/homec.scss */
 .container .slider {
   max-height: 490px;
 }
-/* line 379, ../sass/homec.scss */
+/* line 378, ../sass/homec.scss */
 .container .slider .slick-dots {
   display: none !important;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 379, ../sass/homec.scss */
+  /* line 378, ../sass/homec.scss */
   .container .slider .slick-dots {
     margin-bottom: 25px;
     left: inherit;
@@ -381,36 +380,36 @@ body #form-login .button-submit:hover {
     display: block !important;
   }
 }
-/* line 390, ../sass/homec.scss */
+/* line 389, ../sass/homec.scss */
 .container .slider .slick-dots li button:before {
   font-size: 20px;
   line-height: 20px;
 }
-/* line 395, ../sass/homec.scss */
+/* line 394, ../sass/homec.scss */
 .container .slider .slick-prev, .container .slider .slick-next {
   background-color: rgba(0, 0, 0, 0.7);
   width: auto;
   height: auto;
   padding: 10px;
 }
-/* line 402, ../sass/homec.scss */
+/* line 401, ../sass/homec.scss */
 .container .slider .slick-prev {
   left: 0;
 }
-/* line 405, ../sass/homec.scss */
+/* line 404, ../sass/homec.scss */
 .container .slider .slick-next {
   right: 0;
 }
-/* line 409, ../sass/homec.scss */
+/* line 408, ../sass/homec.scss */
 .container .slider a {
   color: #fff;
 }
-/* line 413, ../sass/homec.scss */
+/* line 412, ../sass/homec.scss */
 .container .slider .img-slider {
   position: relative;
   max-height: 490px;
 }
-/* line 417, ../sass/homec.scss */
+/* line 416, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event {
   font-family: "franklin_gothic_fsdemi";
   padding: 15px;
@@ -429,23 +428,23 @@ body #form-login .button-submit:hover {
   width: 55%;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 417, ../sass/homec.scss */
+  /* line 416, ../sass/homec.scss */
   .container .slider .img-slider .slogan-title-event {
     width: 30%;
   }
 }
-/* line 438, ../sass/homec.scss */
+/* line 437, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event span {
   color: #88a83b;
 }
-/* line 442, ../sass/homec.scss */
+/* line 441, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event h3 {
   color: #fff;
   font-size: 1.4rem;
   position: relative;
   padding-bottom: 10px;
 }
-/* line 448, ../sass/homec.scss */
+/* line 447, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event h3:after {
   content: "";
   position: absolute;
@@ -455,7 +454,7 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #d6d6d6;
 }
-/* line 459, ../sass/homec.scss */
+/* line 458, ../sass/homec.scss */
 .container .slider .img-slider .slogan-title-event h1 {
   font-size: 30px;
   color: #fff;
@@ -465,12 +464,12 @@ body #form-login .button-submit:hover {
   width: 100%;
   line-height: 35px;
 }
-/* line 473, ../sass/homec.scss */
+/* line 472, ../sass/homec.scss */
 .container .slider .img-slider img {
   width: 100%;
   max-height: 490px;
 }
-/* line 478, ../sass/homec.scss */
+/* line 477, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
@@ -479,27 +478,27 @@ body #form-login .button-submit:hover {
   bottom: 0;
   padding: 15px;
 }
-/* line 486, ../sass/homec.scss */
+/* line 485, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider .clearfix {
   width: 50%;
   margin: auto;
 }
-/* line 491, ../sass/homec.scss */
+/* line 490, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider button {
   width: 48%;
   margin: 0;
   text-transform: uppercase;
   background-color: #818181;
 }
-/* line 498, ../sass/homec.scss */
+/* line 497, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider .join {
   float: left;
 }
-/* line 502, ../sass/homec.scss */
+/* line 501, ../sass/homec.scss */
 .container .slider .img-slider .caption-slider .help {
   float: right;
 }
-/* line 507, ../sass/homec.scss */
+/* line 506, ../sass/homec.scss */
 .container .slider .img-slider .caption {
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
@@ -508,42 +507,42 @@ body #form-login .button-submit:hover {
   left: 0;
   bottom: 0;
 }
-/* line 515, ../sass/homec.scss */
+/* line 514, ../sass/homec.scss */
 .container .slider .img-slider .caption span {
   color: #1a2129;
   font-family: "roboto_slabbold";
   float: right;
 }
-/* line 524, ../sass/homec.scss */
+/* line 523, ../sass/homec.scss */
 .container .menu-mobile {
   background-color: #1a2129;
   text-transform: uppercase;
 }
-/* line 528, ../sass/homec.scss */
+/* line 527, ../sass/homec.scss */
 .container .menu-mobile a {
   color: #fff;
 }
-/* line 532, ../sass/homec.scss */
+/* line 531, ../sass/homec.scss */
 .container .menu-mobile ul {
   list-style: none;
   margin-left: 0;
   margin-bottom: 0;
 }
-/* line 537, ../sass/homec.scss */
+/* line 536, ../sass/homec.scss */
 .container .menu-mobile ul li {
   padding: 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 541, ../sass/homec.scss */
+/* line 540, ../sass/homec.scss */
 .container .menu-mobile ul li img {
   width: 30px;
 }
-/* line 545, ../sass/homec.scss */
+/* line 544, ../sass/homec.scss */
 .container .menu-mobile ul li a {
   color: #fff;
   margin-left: 15px;
 }
-/* line 555, ../sass/homec.scss */
+/* line 554, ../sass/homec.scss */
 .container .slogan {
   font-family: "franklin_gothic_fsdemi";
   text-align: center;
@@ -556,20 +555,20 @@ body #form-login .button-submit:hover {
   text-transform: uppercase;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 555, ../sass/homec.scss */
+  /* line 554, ../sass/homec.scss */
   .container .slogan {
     background-color: transparent;
   }
 }
-/* line 570, ../sass/homec.scss */
+/* line 569, ../sass/homec.scss */
 .container .slogan span {
   color: #88a83b;
 }
-/* line 575, ../sass/homec.scss */
+/* line 574, ../sass/homec.scss */
 .container .see-event {
   position: relative;
 }
-/* line 578, ../sass/homec.scss */
+/* line 577, ../sass/homec.scss */
 .container .see-event:after {
   position: absolute;
   content: "";
@@ -579,7 +578,7 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #88a83b;
 }
-/* line 590, ../sass/homec.scss */
+/* line 589, ../sass/homec.scss */
 .container .global-content h2 {
   position: relative;
   width: 310px;
@@ -587,7 +586,7 @@ body #form-login .button-submit:hover {
   text-align: center;
   font-size: 28px;
 }
-/* line 597, ../sass/homec.scss */
+/* line 596, ../sass/homec.scss */
 .container .global-content h2:after {
   content: "";
   position: absolute;
@@ -601,7 +600,7 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #1a2129;
 }
-/* line 612, ../sass/homec.scss */
+/* line 611, ../sass/homec.scss */
 .container .global-content h2:before {
   content: "";
   position: absolute;
@@ -615,75 +614,75 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #1a2129;
 }
-/* line 628, ../sass/homec.scss */
+/* line 627, ../sass/homec.scss */
 .container .global-content .services {
   text-align: center;
   margin-top: 35px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 628, ../sass/homec.scss */
+  /* line 627, ../sass/homec.scss */
   .container .global-content .services {
     margin-top: 15px;
     background-color: #e5ded8;
     padding: 15px 0px;
   }
 }
-/* line 638, ../sass/homec.scss */
+/* line 637, ../sass/homec.scss */
 .container .global-content .services img {
   margin: 35px 0px;
   text-align: center;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 643, ../sass/homec.scss */
+  /* line 642, ../sass/homec.scss */
   .container .global-content .services p {
     margin-bottom: 0;
   }
 }
-/* line 649, ../sass/homec.scss */
+/* line 648, ../sass/homec.scss */
 .container .global-content .services h3 {
   margin-top: 15px;
 }
-/* line 653, ../sass/homec.scss */
+/* line 652, ../sass/homec.scss */
 .container .global-content .services .subscribe-bar {
   margin: 10px auto;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 653, ../sass/homec.scss */
+  /* line 652, ../sass/homec.scss */
   .container .global-content .services .subscribe-bar {
     width: 50%;
   }
 }
-/* line 662, ../sass/homec.scss */
+/* line 661, ../sass/homec.scss */
 .container .global-content .teams {
   margin-top: 35px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 662, ../sass/homec.scss */
+  /* line 661, ../sass/homec.scss */
   .container .global-content .teams {
     background-color: #e5ded8;
     padding-top: 15px;
     margin-top: 15px;
   }
 }
-/* line 673, ../sass/homec.scss */
+/* line 672, ../sass/homec.scss */
 .container .global-content .teams .first .team-wrapper:nth-child(4), .container .global-content .teams .first .team-wrapper:nth-child(7) {
   display: none;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 673, ../sass/homec.scss */
+  /* line 672, ../sass/homec.scss */
   .container .global-content .teams .first .team-wrapper:nth-child(4), .container .global-content .teams .first .team-wrapper:nth-child(7) {
     display: block;
   }
 }
-/* line 682, ../sass/homec.scss */
+/* line 681, ../sass/homec.scss */
 .container .global-content .teams h2 {
   margin-bottom: 35px;
 }
-/* line 686, ../sass/homec.scss */
+/* line 685, ../sass/homec.scss */
 .container .global-content .teams .done {
   background-color: transparent !important;
 }
-/* line 690, ../sass/homec.scss */
+/* line 689, ../sass/homec.scss */
 .container .global-content .teams .wrapper {
   border: 1px solid #d6d6d6;
   position: relative;
@@ -691,17 +690,17 @@ body #form-login .button-submit:hover {
   margin-bottom: 15px;
   background-color: #fff;
 }
-/* line 697, ../sass/homec.scss */
+/* line 696, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img {
   position: relative;
   cursor: pointer;
   height: 240px;
 }
-/* line 702, ../sass/homec.scss */
+/* line 701, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .done {
   background-color: rgba(136, 168, 59, 0.7) !important;
 }
-/* line 706, ../sass/homec.scss */
+/* line 705, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .hover {
   position: absolute;
   top: 0;
@@ -715,7 +714,7 @@ body #form-login .button-submit:hover {
   height: 100%;
   width: 100%;
 }
-/* line 719, ../sass/homec.scss */
+/* line 718, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img .hover span {
   font-weight: bold;
   text-align: center;
@@ -730,45 +729,45 @@ body #form-login .button-submit:hover {
   -moz-transform: translatey(-50%) translatex(-50%);
   -ms-transform: translatey(-50%) translatex(-50%);
 }
-/* line 735, ../sass/homec.scss */
+/* line 734, ../sass/homec.scss */
 .container .global-content .teams .wrapper .img img {
   width: 100%;
   max-height: 328px;
 }
-/* line 741, ../sass/homec.scss */
+/* line 740, ../sass/homec.scss */
 .container .global-content .teams .wrapper .title-team {
   font-family: "roboto_slabbold";
   text-align: center;
   margin: 10px 0px;
   text-transform: uppercase;
 }
-/* line 747, ../sass/homec.scss */
+/* line 746, ../sass/homec.scss */
 .container .global-content .teams .wrapper .title-team a {
   color: #478bb2;
 }
-/* line 752, ../sass/homec.scss */
+/* line 751, ../sass/homec.scss */
 .container .global-content .teams .wrapper .name, .container .global-content .teams .wrapper .date {
   font-size: 13px;
   color: #adadad;
   margin-bottom: 5px;
 }
-/* line 758, ../sass/homec.scss */
+/* line 757, ../sass/homec.scss */
 .container .global-content .teams .wrapper .date {
   margin-bottom: 10px;
 }
-/* line 762, ../sass/homec.scss */
+/* line 761, ../sass/homec.scss */
 .container .global-content .teams .wrapper .name {
   text-transform: uppercase;
   font-weight: 600;
 }
-/* line 767, ../sass/homec.scss */
+/* line 766, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam {
   text-align: center;
   position: relative;
   padding-top: 10px;
   text-transform: uppercase;
 }
-/* line 773, ../sass/homec.scss */
+/* line 772, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam:before {
   position: absolute;
   top: 0;
@@ -778,32 +777,32 @@ body #form-login .button-submit:hover {
   height: 1px;
   background-color: #d6d6d6;
 }
-/* line 783, ../sass/homec.scss */
+/* line 782, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .validate {
   background-image: url(../img/checked.png);
   height: 22px;
   width: 22px;
   display: inline-block;
 }
-/* line 790, ../sass/homec.scss */
+/* line 789, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .daysleft {
   display: inline-block;
   color: #1a2129;
   line-height: 16px;
   font-size: 11px;
 }
-/* line 796, ../sass/homec.scss */
+/* line 795, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .daysleft span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 796, ../sass/homec.scss */
+  /* line 795, ../sass/homec.scss */
   .container .global-content .teams .wrapper .progressteam .daysleft span {
     font-size: 15px;
   }
 }
-/* line 806, ../sass/homec.scss */
+/* line 805, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .number {
   display: inline-block;
   line-height: 16px;
@@ -812,13 +811,13 @@ body #form-login .button-submit:hover {
   font-size: 15px;
   margin-bottom: 10px;
 }
-/* line 814, ../sass/homec.scss */
+/* line 813, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .number span {
   font-weight: bold;
   font-size: 20px;
   text-align: center;
 }
-/* line 821, ../sass/homec.scss */
+/* line 820, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .numbers, .container .global-content .teams .wrapper .progressteam .funded {
   display: inline-block;
   line-height: 16px;
@@ -827,64 +826,64 @@ body #form-login .button-submit:hover {
   font-size: 11px;
   margin-bottom: 10px;
 }
-/* line 829, ../sass/homec.scss */
+/* line 828, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .numbers span, .container .global-content .teams .wrapper .progressteam .funded span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 829, ../sass/homec.scss */
+  /* line 828, ../sass/homec.scss */
   .container .global-content .teams .wrapper .progressteam .numbers span, .container .global-content .teams .wrapper .progressteam .funded span {
     font-size: 15px;
   }
 }
-/* line 839, ../sass/homec.scss */
+/* line 838, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .funded {
   color: #478bb2;
 }
-/* line 845, ../sass/homec.scss */
+/* line 844, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .good .ui-widget-header {
   background-color: #88a83b;
 }
-/* line 851, ../sass/homec.scss */
+/* line 850, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .notyet .ui-widget-header {
   background-color: #478bb2;
 }
-/* line 856, ../sass/homec.scss */
+/* line 855, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-progressbar {
   height: 12px;
 }
-/* line 860, ../sass/homec.scss */
+/* line 859, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-progressbar .ui-progressbar-value {
   margin: 0px;
 }
-/* line 864, ../sass/homec.scss */
+/* line 863, ../sass/homec.scss */
 .container .global-content .teams .wrapper .progressteam .ui-widget-header {
   border: none;
 }
-/* line 874, ../sass/homec.scss */
+/* line 873, ../sass/homec.scss */
 .container .global-content .sponsors .first .sponsor-wrapper:nth-child(4), .container .global-content .sponsors .first .sponsor-wrapper:nth-child(7) {
   display: none;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 874, ../sass/homec.scss */
+  /* line 873, ../sass/homec.scss */
   .container .global-content .sponsors .first .sponsor-wrapper:nth-child(4), .container .global-content .sponsors .first .sponsor-wrapper:nth-child(7) {
     display: block;
   }
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 871, ../sass/homec.scss */
+  /* line 870, ../sass/homec.scss */
   .container .global-content .sponsors {
     margin-top: 15px;
     background-color: #e5ded8;
     padding-top: 15px;
   }
 }
-/* line 890, ../sass/homec.scss */
+/* line 889, ../sass/homec.scss */
 .container .global-content .sponsors h2 {
   margin-bottom: 35px;
 }
-/* line 893, ../sass/homec.scss */
+/* line 892, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper {
   background: #fff;
   border: 1px solid #d6d6d6;
@@ -892,12 +891,12 @@ body #form-login .button-submit:hover {
   padding: 10px;
   margin-bottom: 15px;
 }
-/* line 900, ../sass/homec.scss */
+/* line 899, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .img {
   position: relative;
   cursor: pointer;
 }
-/* line 905, ../sass/homec.scss */
+/* line 904, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .hover {
   position: absolute;
   top: 0;
@@ -911,7 +910,7 @@ body #form-login .button-submit:hover {
   height: 100%;
   width: 100%;
 }
-/* line 918, ../sass/homec.scss */
+/* line 917, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper .hover span {
   font-weight: bold;
   text-align: center;
@@ -926,12 +925,12 @@ body #form-login .button-submit:hover {
   -moz-transform: translatey(-50%) translatex(-50%);
   -ms-transform: translatey(-50%) translatex(-50%);
 }
-/* line 934, ../sass/homec.scss */
+/* line 933, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper img {
   width: 100%;
   max-height: 328px;
 }
-/* line 939, ../sass/homec.scss */
+/* line 938, ../sass/homec.scss */
 .container .global-content .sponsors .wrapper a {
   width: 100%;
   display: inline-block;
@@ -942,7 +941,7 @@ body #form-login .button-submit:hover {
   text-align: center;
 }
 
-/* line 953, ../sass/homec.scss */
+/* line 952, ../sass/homec.scss */
 .footer {
   background-color: #1a2129;
   text-align: center;
@@ -955,7 +954,7 @@ body #form-login .button-submit:hover {
 }
 
 /* ANIMATIONS POP UP */
-/* line 967, ../sass/homec.scss */
+/* line 966, ../sass/homec.scss */
 .mfp-fade.mfp-bg {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -964,19 +963,19 @@ body #form-login .button-submit:hover {
 }
 
 /* overlay animate in */
-/* line 975, ../sass/homec.scss */
+/* line 974, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-ready {
   opacity: 0.8;
 }
 
 /* overlay animate out */
-/* line 979, ../sass/homec.scss */
+/* line 978, ../sass/homec.scss */
 .mfp-fade.mfp-bg.mfp-removing {
   opacity: 0;
 }
 
 /* content at start */
-/* line 984, ../sass/homec.scss */
+/* line 983, ../sass/homec.scss */
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
@@ -985,13 +984,13 @@ body #form-login .button-submit:hover {
 }
 
 /* content animate it */
-/* line 992, ../sass/homec.scss */
+/* line 991, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
   opacity: 1;
 }
 
 /* content animate out */
-/* line 996, ../sass/homec.scss */
+/* line 995, ../sass/homec.scss */
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
 }
