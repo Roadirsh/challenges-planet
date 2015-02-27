@@ -70,7 +70,7 @@ class LogModel extends CoreModel{
 			
             // création des cookies
 			if(count($retour) != 0){
-				$_SESSION['connect_compte'] = true;
+				$_SESSION['connect_compte_BACK'] = true;
 				$_SESSION['user'] = $retour[0]['user_lastname'];
 				$_SESSION['userF'] = $retour[0]['user_firstname'];
 				$_SESSION['userID'] = $retour[0]['user_id'];

@@ -7,7 +7,7 @@
 <?php $percent = number_format(($project['group_given'] / $project['group_money']) *100, 0); ?> 
 <?php /** If they have more then asked **/ ?>
 <?php if($percent > 100){ $percent = 100;} ?>
-<?php $nbSponsor = count($data); ?>
+<?php $nbSponsor = count($data['sponsors']); ?>
 <?php /** Pural management **/ ?>
 <?php if($nbSponsor < 2){ $Cie = "Compagnie" ; } else { $Cie = "Compagnies"; } ?>
 
@@ -78,7 +78,11 @@
 							<span class="small-3 columns days-left"><span class="bold">58</span> <br/>Days</span>
 						</div>
 						<div class="progress-team"></div>
-						<a href="#choose" class="popup-with-form button help">Help them !</a>
+						<?php if($percent != 100){ ?>
+							<a href="#choose" class="popup-with-form button help">Help them !</a>
+						<?php } else { ?>
+							<a href="" class="popup-with-form button help">Thank you !</a>
+						<?php } ?>
 					</div>
 				</div>
 
@@ -130,7 +134,11 @@
 							</span>
 						</div>
 						<div class="progress-team notyet" data="<?php echo $percent; ?>"></div>
-						<a href="#choose" class="popup-with-form button help">Help them !</a>
+						<?php if($percent != 100){ ?>
+							<a href="#choose" class="popup-with-form button help">Help them !</a>
+						<?php } else { ?>
+							<a href="" class="popup-with-form button help">Thank you !</a>
+						<?php } ?>
 					</div>
 				</div>
 

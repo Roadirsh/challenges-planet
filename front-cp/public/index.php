@@ -12,6 +12,7 @@
 
 /* Start the session */
     session_start();
+    session_name('ChallengesPlanet');
     $_SESSION['name'] = "ChallengesPlanet";
 
 /* Get the define file */

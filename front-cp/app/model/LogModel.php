@@ -62,11 +62,11 @@ class LogModel extends CoreModel{
                 /* * * * * * * * * * * * * * * * * * * * * * * *
                 * Make a USER _ SESSION array
                 */
-				$_SESSION['connect_compte'] = true;
-				$_SESSION['user'] = $retour[0]['user_lastname'];
-				$_SESSION['userPseudo'] = $retour[0]['user_pseudo'];
-				$_SESSION['userID'] = $retour[0]['user_id'];
-				$_SESSION['spyID'] = rand();
+				$_SESSION['connect_compte_FRONT'] = true;
+				$_SESSION[PREFIX . 'user'] = $retour[0]['user_lastname'];
+				$_SESSION[PREFIX . 'userPseudo'] = $retour[0]['user_pseudo'];
+				$_SESSION[PREFIX . 'userID'] = $retour[0]['user_id'];
+				$_SESSION[PREFIX . 'spyID'] = rand();
 
 				if (isset($post['reco'])){
 					if(!setcookie("Login",$login,time()+3600*24*31))

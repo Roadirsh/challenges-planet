@@ -30,8 +30,13 @@ class ProjectModel extends CoreModel{
 
         try {
             $select = $this->connexion->prepare("SELECT A.*, B.*, SUM(C.donate_amount) as group_given, D.*
-                                                FROM " . PREFIX . "group A, " . PREFIX . "event_has_group B, " . PREFIX . "donate C, " . PREFIX . "event D
-                                                WHERE D.event_id = B.event_event_id
+                                                FROM cp_group A, 
+                                                    cp_event_has_group B,  
+                                                    cp_donate C, 
+                                                    cp_event D
+                                                WHERE A.group_id = B.group_group_id
+                                                AND C.group_group_id = A.group_id
+                                                AND B.event_event_id = D.event_id
                                                 AND A.group_valid = 1
                                                 AND A.group_id = :id");
 
