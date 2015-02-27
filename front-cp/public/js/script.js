@@ -80,7 +80,20 @@ $(document).ready(function(){
         });
     });
 
-
+  $( ".sticker" ).click(function() {
+    $( ".form-create-event" ).fadeOut()
+    $( ".wrapper-info-caritative" ).fadeOut({
+      complete: function(){
+        $(".form-join-event").fadeIn({
+                    complete: function(){
+                        $("html, body").animate({
+                            scrollTop: $(".form-join-event").offset().top
+                        }, 800);
+                    }
+                });
+            }
+        });
+    });
 
 
   $('.tabs .tab-links a').on('click', function(e)  {
