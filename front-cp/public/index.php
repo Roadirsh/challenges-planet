@@ -12,10 +12,8 @@
 
 /* Start the session */
     session_start();
-
-/* Give the new born session a name */
-    session_name('ChallengesPlanet');
-    $_SESSION['name'] = "CP";
+    $_SESSION['name'] = "ChallengesPlanet";
+    
 
 /* Get the define file */
     require_once('../app/conf/conf_define.php');

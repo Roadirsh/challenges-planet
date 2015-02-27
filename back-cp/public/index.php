@@ -14,7 +14,7 @@
 
 // Nommage de la session
     session_name('ChallengesPlanet_DASHBOARD');
-    $_SESSION['name'] = "CPD";
+    $_SESSION['name'] = "CPdashboard";
 
 // Fichier de configuration principal
     require_once('../app/conf/conf_define.php');
