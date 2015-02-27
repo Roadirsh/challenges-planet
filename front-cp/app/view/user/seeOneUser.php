@@ -45,10 +45,16 @@
             <div class="medium-9 columns right general-profil">
                 <h2>My information</h2>
                 <p>
-                    Phones:<br>
-                    Adress<br>
+                    Phones: <?php echo $user['phone_num']; ?><br>
+                    Adress : <?php echo $user['ad_type']; ?><br>
+                    <?php echo $user['ad_num']; ?> <?php echo $user['ad_street']; ?><br>
+                    <?php echo $user['ad_zipcode']; ?> <?php echo $user['ad_city']; ?><br>
+                    <?php echo $user['ad_country']; ?>
                 </p>
-                <a class="modif" href="#">Edit information</a>
+                <!-- A mettre en commentaire si tu veux bosser sur le edit -->
+                <?php if(isset($_SESSION['userID']) && $_SESSION['userID'] == $user['user_id']){ ?>
+                    <a class="modif" href="#">Edit information</a>
+                <?php } ?>
             </div>
         </div>
 
@@ -60,13 +66,23 @@
             <div class="medium-9 columns right general-profil">
                 <div class="medium-3 columns first-info"><p>Mail adress<p></div>
                 <div class="medium-5 columns second-info"><p><?php echo $user['user_mail']; ?></p></div>
-                <div class="medium-4 columns third-info"><a class="modif" href="#">Edit</a></div>
+                <div class="medium-4 columns third-info">
+                    <!-- A mettre en commentaire si tu veux bosser sur le edit -->
+                    <?php if(isset($_SESSION['userID']) && $_SESSION['userID'] == $user['user_id']){ ?>
+                        <a class="modif" href="#">Edit</a>
+                    <?php } ?>
+                </div>
             </div>
 
             <div class="medium-9 columns right general-profil">
                 <div class="medium-3 columns first-info"><p>Password<p></div>
-                <div class="medium-5 columns second-info"><input type="password" value="<?php echo $user['user_password']; ?>" /></div>
-                <div class="medium-4 columns third-info"><a class="modif" href="#">Edit</a></div>
+                <!-- A mettre en commentaire si tu veux bosser sur le edit -->
+                <?php if(isset($_SESSION['userID']) && $_SESSION['userID'] == $user['user_id']){ ?>
+                    <div class="medium-5 columns second-info"><input type="password" value="<?php echo $user['user_password']; ?>" /></div>
+                    <div class="medium-4 columns third-info"><a class="modif" href="#">Edit</a></div>
+                <?php } else { ?>
+                    <p>Please log in to modify your password</p>
+                <?php } ?>
             </div>
         </div>
 

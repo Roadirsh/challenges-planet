@@ -70,39 +70,36 @@ class UserModel extends CoreModel{
                 $phone = $select2->FetchAll();
                 $select2->closeCursor(); 
 
-                $retour = array_merge($retour, $phone);
+                if(!empty($phone[0])){
+                    $retour = array_merge($retour, $phone[0]);
+                }
+  
+                $select3 = $this->connexion->prepare("SELECT *
+                                                FROM " . PREFIX . "adress
+                                                WHERE user_user_id = :userID");
+           
+                $select3->bindValue(':userID', $id, PDO::PARAM_INT);
+                $select3->execute();
+                $select3->setFetchMode(PDO::FETCH_ASSOC);
+                $adress = $select3->FetchAll();
+                $select3->closeCursor(); 
 
-                if(!empty($phone)){
+                if(!empty($adress[0])){
+                    $retour = array_merge($retour, $adress[0]);
+                }
+     
+                $select4 = $this->connexion->prepare("SELECT *
+                                                FROM " . PREFIX . "bank_details
+                                                WHERE user_user_id = :userID");
+                
+                $select4->bindValue(':userID', $id, PDO::PARAM_INT);
+                $select4->execute();
+                $select4->setFetchMode(PDO::FETCH_ASSOC);
+                $adress2 = $select4->FetchAll();
+                $select4->closeCursor(); 
 
-                    $select3 = $this->connexion->prepare("SELECT *
-                                                    FROM " . PREFIX . "adress
-                                                    WHERE user_user_id = :userID");
-               
-                    $select3->bindValue(':userID', $id, PDO::PARAM_INT);
-                    $select3->execute();
-                    $select3->setFetchMode(PDO::FETCH_ASSOC);
-                    $adress = $select3->FetchAll();
-                    $select3->closeCursor(); 
-
-                    $retour = array_merge($retour, $adress);
-
-                    
-                    if(!empty($adress)){
-
-                        $select4 = $this->connexion->prepare("SELECT *
-                                                        FROM " . PREFIX . "bank_details
-                                                        WHERE user_user_id = :userID");
-                        
-                        $select4->bindValue(':userID', $id, PDO::PARAM_INT);
-                        $select4->execute();
-                        $select4->setFetchMode(PDO::FETCH_ASSOC);
-                        $adress2 = $select4->FetchAll();
-                        $select4->closeCursor(); 
-
-                        $retour = array_merge($retour, $adress2);
-                    
-                    }
-
+                if(!empty($adress2)){
+                    $retour = array_merge($retour, $adress2[0]);
                 }
 
             }
