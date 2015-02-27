@@ -36,7 +36,7 @@ class UserModel extends CoreModel{
      * 
      * @param $id $_GET ID
      */
-	public function SeeOneUser() {
+	public function SeeMyPage() {
 
         // $id = $_SESSION['userID'];
         $id = '163';
@@ -103,13 +103,43 @@ class UserModel extends CoreModel{
                 }
 
             }
-            var_dump($retour);
             return $retour;
             
             
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         }
+    }
+
+    /**
+     * seeOneUser.php
+     * 
+     * All information about one user
+     * 
+     * @param $id $_GET ID
+     */
+    public function SeeMyPageEvents($id) {
+
+        try{
+            $select5 = $this->connexion->prepare("SELECT * 
+                                                FROM cp_user_has_group A, cp_event_has_group B
+                                                JOIN cp_event C 
+                                                ON C.event_id = B.event_event_id 
+                                                WHERE A.user_user_id = :userID
+                                                AND A.group_group_id = B.group_group_id ");
+                    
+            $select5->bindValue(':userID', $id, PDO::PARAM_INT);
+            $select5->execute();
+            $select5->setFetchMode(PDO::FETCH_ASSOC);
+            $array = $select5->FetchAll();
+            $select5->closeCursor(); 
+
+
+            return $array;
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }
+
     }
 
 	//Retourne l'extension d'un fichier

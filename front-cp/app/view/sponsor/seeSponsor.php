@@ -6,7 +6,7 @@
 
 <?php if(isset($data['sponsors']) && !empty($data['sponsors']) ){ $sponsors = $data['sponsors']; }?>
         <div class="list-sponsors">
-        	<div class="medium-8 clearfix">
+        	<div class="medium-10 clearfix">
         		<h1>They helped them</h1>
         		<?php foreach ($sponsors as $key => $sponsor) { ?>
     	        	<a href="">

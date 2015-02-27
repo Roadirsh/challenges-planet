@@ -23,7 +23,7 @@
             		<div class="show-for-medium-up slogan-title-event">
             			<h1 class="slogan"><?php echo JOIN ?></h1>
             			<h3><?php echo $s['event_name']; ?></h3>
-            			<p><?php echo mb_strimwidth($s['event_decr'], 0, 300, "..."); ?></p>
+            			<p><?php echo mb_strimwidth($s['event_decr'], 0, 150, "..."); ?></p>
             			<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
             			    <span class="see-event">Let's see the event !</span>
             		</div>
