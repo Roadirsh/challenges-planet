@@ -35,16 +35,14 @@ class ProjectModel extends CoreModel{
     public function SeeOneGroup($id) {
 
         try {
-            $select = $this->connexion->prepare("SELECT A.*, B.*, SUM(C.donate_amount) as group_given, D.*
+            $select = $this->connexion->prepare("SELECT A.*, SUM(C.donate_amount) as group_given, D.*
                                                 FROM " . PREFIX . "group A, 
-                                                    " . PREFIX . "event_has_group B,  
                                                     " . PREFIX . "donate C, 
                                                     " . PREFIX . "event D
                                                 WHERE 
-                                                B.event_event_id = D.event_id
-                                                AND A.group_valid = 1
-                                                AND A.group_id = :id
-                                                AND B.group_group_id = :id");
+                                                 A.group_id = :id
+                                                AND C.group_group_id = :id
+                                                AND D.event_id = (SELECT event_event_id FROM cp_event_has_group where group_group_id = :id)");
 
             $select->bindValue(':id', $id, PDO::PARAM_INT);
             $select->execute();
