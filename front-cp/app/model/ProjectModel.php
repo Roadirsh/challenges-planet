@@ -40,9 +40,8 @@ class ProjectModel extends CoreModel{
                                                     " . PREFIX . "event_has_group B,  
                                                     " . PREFIX . "donate C, 
                                                     " . PREFIX . "event D
-                                                WHERE A.group_id = B.group_group_id
-                                                AND C.group_group_id = A.group_id
-                                                AND B.event_event_id = D.event_id
+                                                WHERE 
+                                                B.event_event_id = D.event_id
                                                 AND A.group_valid = 1
                                                 AND A.group_id = :id
                                                 AND B.group_group_id = :id");
