@@ -17,23 +17,20 @@
  
 class LogModel extends CoreModel{
 
-    /* * * * * * * * * * * * * * * * * * * * * * * * * */
-    
-    /* * * * * * * * * * * * * * * * * * * * * * * * * */
-
-	/**
+    /**
 	 * Constructor
 	 */
 	function __construct(){
 		parent::__construct($_POST);
-
 	}
 
 /////////////////////////////////////////////////////
 /* HOME * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
-	 * home.php 
+	 * Linked to : 
+     * controller/LogController.php
+     * view/home.php => lightbox
      * 
 	 * Check if is user || user exist
 	 *
@@ -93,7 +90,10 @@ class LogModel extends CoreModel{
 /* SIGN UP * * * * * * * * * * * * * * * * * * * * */
 
 	/**
-     * signup.php 
+     * Linked to : 
+     * controller/LogController.php
+     * view/signup.php
+     * 
      * Insert into the database
      *
      * @param array $_POST

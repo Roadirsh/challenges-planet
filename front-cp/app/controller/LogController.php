@@ -43,6 +43,8 @@ class LogController extends CoreController{
      * Linked to : 
      * model/LogModel.php
      * view/home.php => lightbox
+     * 
+     * Make connexion and SESSION
      *
      * @param Array $_POST
      */
@@ -91,6 +93,8 @@ class LogController extends CoreController{
 	/**
      * Linked to :
      * view/home.php
+     * 
+     * LOGOUT
      *
      * @param Array $_POST
      */
@@ -102,8 +106,12 @@ class LogController extends CoreController{
 	}
 	
 	/**
-     * signup.php 
+     * Linked to : 
+     * model/LogModel.php
+     * view/signup.php
      *
+     * Insert a new user
+     * 
      * @param Array $_POST
      */
 	public function Signup(){
@@ -153,9 +161,10 @@ class LogController extends CoreController{
 
 	}
 
+    /**
+     * TODO
+     */
     public function FacebookLogin(){
-
-
         $appID = '1032282680121355';
         $appSecret = 'd23586cd9525f8fcdfc8b96bf6eb2985';
 
