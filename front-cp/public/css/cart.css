@@ -165,10 +165,9 @@
 }
 /* line 188, ../sass/cart.scss */
 .cart .wrapper .bg div span {
-  display: block;
   text-align: center;
 }
-/* line 194, ../sass/cart.scss */
+/* line 193, ../sass/cart.scss */
 .cart .wrapper .bg .before {
   position: absolute;
   top: 50%;
@@ -177,31 +176,31 @@
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
 }
-/* line 205, ../sass/cart.scss */
+/* line 204, ../sass/cart.scss */
 .cart .wrapper .confirmation .choose {
   text-align: left;
 }
-/* line 209, ../sass/cart.scss */
+/* line 208, ../sass/cart.scss */
 .cart .wrapper .confirmation .validate {
   text-align: right;
 }
-/* line 214, ../sass/cart.scss */
+/* line 213, ../sass/cart.scss */
 .cart .wrapper .means-payment {
   padding: 15px;
 }
-/* line 217, ../sass/cart.scss */
+/* line 216, ../sass/cart.scss */
 .cart .wrapper .means-payment div {
   display: inline-block;
   margin-right: 30px;
 }
-/* line 224, ../sass/cart.scss */
+/* line 223, ../sass/cart.scss */
 .cart .wrapper .plus-info span {
   font-weight: 600;
   color: #1a2129;
   margin-bottom: 15px;
   display: inline-block;
 }
-/* line 231, ../sass/cart.scss */
+/* line 230, ../sass/cart.scss */
 .cart .wrapper .plus-info p {
   font-size: 13px;
 }

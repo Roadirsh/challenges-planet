@@ -187,6 +187,8 @@ class UserModel extends CoreModel{
 
 	   return true;
 	}
+	
+	
    
 }
 ?>

@@ -87,8 +87,16 @@ class CartController extends CoreController {
         define("PAGE_TITLE", SITE_NAME);
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "seeinfocart");
-
-        $array = '';
+        
+        $user = $this->model = new CartModel();
+        
+		if(isset($_SESSION['cp_userID']))
+		{
+        	$array = $user->getInfoUser($_SESSION['cp_userID']);
+        }
+        else{
+	        $array = "";
+        }
         /* Load the view */
         $this->load->view('cart', 'seeinfocart', $array); 
 
@@ -101,6 +109,26 @@ class CartController extends CoreController {
         define("PAGE_TITLE", SITE_NAME);
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "paiement");
+
+        $user = $this->model = new CartModel();
+        //Inscription + connexion
+        if(isset($_POST['user_password'])){
+	        $userExist = $user->insertNewUser();
+	        if($userExist){
+		        //$_SESSION['message'] = "L'utilisateur existe déjà !";
+		        //$this->Seeinfocart();
+	        }
+	        else{
+		        $array = "";
+		        $this->load->view('cart', 'paiement', $array);
+	        }
+	         
+        }
+        // Update
+        else if (isset($_POST['user_mail']))
+        {
+	    	$user->Uponeuser();
+        }
 
         $array = '';
         /* Load the view */
@@ -115,10 +143,18 @@ class CartController extends CoreController {
         define("PAGE_TITLE", SITE_NAME);
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "confirmation");
+        
+        
+        if($_POST['payment'] == "visa"){
+	        $array = '';
+	        $this->load->view('cart', 'confirmation', $array); 
 
-        $array = '';
+        }
+        else if($_POST['payment'] == "paypal"){
+	        
+        }
+
         /* Load the view */
-        $this->load->view('cart', 'confirmation', $array); 
 
     }
     public function Seesummary(){
@@ -129,6 +165,9 @@ class CartController extends CoreController {
         define("PAGE_TITLE", SITE_NAME);
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "seeSummary");
+        
+        $cart = $this->model = new CartModel();
+        $cart->donate();
 
         $array = '';
         /* Load the view */

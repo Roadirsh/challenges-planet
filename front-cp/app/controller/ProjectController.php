@@ -65,6 +65,7 @@ class ProjectController extends CoreController {
             $_SESSION["donation_team"] = $SeeOneProject['group_name'];
             $_SESSION["donation_event"] = $SeeOneProject['event_name'];
             $_SESSION["donation_team_img"] = $SeeOneProject['group_img'];
+            $_SESSION["donation_team_id"] = $SeeOneProject['group_id'];
 
             
             $this->coreRedirect('cart', 'seeOneCart'); 
