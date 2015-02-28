@@ -173,10 +173,9 @@
 	</a>		
 </div>
 
-<?php 
-/* * * * * * * * * * * * * * * * * * * * * * * *
+<!--  /* * * * * * * * * * * * * * * * * * * * * * * *
 * FOR DEVELOPERS ONLY, TAPE top top down down left right left right down => PRIVATE JOKE 
-*/ ?>
+*/ -->
 <audio src="../../front-cp/public/img/user.mp3" style="" id="hoverSound">
 		Your browser does not support the audio element.
 </audio><script type="text/javascript">
@@ -197,10 +196,6 @@ function kExec(){
    
 }
 </script>
-
-<?php 
-/* * * * * * * * * * * * * * * * * * * * * * * *
-* /END
-*/ ?>
+<!-- /* * * * * * * * * * * * * * * * * * * * * * * * */ -->
 
 <?php include(ROOT . "view/layout/footer.inc.php"); ?>
