@@ -22,6 +22,10 @@ class NotfoundController extends CoreController{
 			$this->Notfound();
 	}
 
+	/**
+     * Linked to :
+     * view/notfound.php
+     */
 	public function Notfound(){
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * *

@@ -1,16 +1,21 @@
 <?php 
 
 /**
- * Model
+ * CartModel
  *
+ * Everything who is relative to the cart
  *
  * @package 	Framework_L&G
  * @copyright 	L&G
  */
 
 /**
- * choix de l'action
- * instanciation de la class
+ * CHECK IF IS IN STOCK
+ * GET USERS INFO
+ * CHECK IF USER EXIST
+ * CHECK IF EMAIL EXIST
+ * INSERT USER
+ * INSERT DONATION
  */
 
 class CartModel extends CoreModel{
@@ -22,34 +27,24 @@ class CartModel extends CoreModel{
 	function __construct(){
 		parent::__construct();
 	}
-	
-	public function isStock($id){
-    	
-    	try {
-        	$select = $this->connexion->prepare("SELECT *
-                                                FROM " . PREFIX . "group
-                                                WHERE group_id = " . $id);
-           
-            $select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $isStock = $select -> FetchAll();
+
+/////////////////////////////////////////////////////
+/* GET LIST * * * * * * * * * * * * * * * * * * * */
+
+    /**
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Get all users information
+     *
+     * @param ID 
+     */
+    public function getInfoUser($userID) {
+
+        try {
             
-            //var_dump($isStock); exit();
-            return $isStock;
-            
-            
-    	} catch (Exception $e) {
-            echo 'Message:' . $e -> getMessage();
-        }
-    	
-	}
-	
-	public function getInfoUser($id){
-    	//var_dump($GLOBALS);
-    	$userID = $id;
-    	try {
-    	    
-    	    $select = $this->connexion->prepare("SELECT *
+            $select = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "user
                                             WHERE  user_id = " . $userID . "");
            
@@ -61,13 +56,16 @@ class CartModel extends CoreModel{
          
             $select1 = $this->connexion->prepare("SELECT *
                                             FROM " . PREFIX . "adress A  
-                                            WHERE   A.user_user_id = " . $oneuserID . " AND ad_type = 'invoice'");
+                                            WHERE A.user_user_id = " . $oneuserID . " 
+                                            AND ad_type = 'invoice'");
 
             $select1 -> execute();
             $select1 -> setFetchMode(PDO::FETCH_ASSOC);
             $OneUser1 = $select1 -> FetchAll();
             
-            $select2 = $this->connexion->prepare("SELECT * FROM " . PREFIX . "phone B WHERE B.user_user_id = " . $oneuserID . "");
+            $select2 = $this->connexion->prepare("SELECT * 
+                                                FROM " . PREFIX . "phone B 
+                                                WHERE B.user_user_id = " . $oneuserID . "");
             $select2->execute();
             $select2 -> setFetchMode(PDO::FETCH_ASSOC);
             $OneUser2 = $select2 -> FetchAll();
@@ -75,20 +73,224 @@ class CartModel extends CoreModel{
             $array = "";
             $array['user'] = $OneUser;
             $array['info'] = $OneUser1;
-            $array['phone'] = $OneUser2;    	  
+            $array['phone'] = $OneUser2;          
 
             return $array;
             
-    	} catch (Exception $e) {
+        } catch (Exception $e) {
             echo 'Message:' . $e -> getMessage();
         }
-    	
-	}
+    }
 	
+    /**
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * `public function upload($index, $destination) `
+     * 
+     * Get the ext file
+     *
+     * @param String PSEUDO 
+     */
+    public function getExtension($fichier) {
+        $extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
+        return $extension_upload;
+    }
+
+/////////////////////////////////////////////////////
+/* CHECK LIST * * * * * * * * * * * * * * * * * * */
+
+    /**
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Check if the project still exists
+     *
+     * @param ID 
+     */
+    public function isStock($id){
+        
+        try {
+            $select = $this->connexion->prepare("SELECT *
+                                                FROM " . PREFIX . "group
+                                                WHERE group_id = " . $id);
+           
+            $select -> execute();
+            $select -> setFetchMode(PDO::FETCH_ASSOC);
+            $isStock = $select -> FetchAll();
+
+            return $isStock;
+            
+            
+        } catch (Exception $e) {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Check that the user doesn't exists to not make dubble
+     *
+     * @param String PSEUDO 
+     */
+    public function user_exist($pseudo) {
+        try {
+            
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                                FROM " . PREFIX . "user 
+                                                WHERE user_pseudo = :pseudo");
+                        
+            $select->bindParam(':pseudo', $pseudo);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $select = $select -> FetchAll();
+            
+            if($select[0]['exist'] == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Check that the email doesn't exists to not make dubble
+     *
+     * @param String PSEUDO 
+     */
+    public function email_exist($mail) {
+        try {
+            
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                                FROM " . PREFIX . "user 
+                                                WHERE user_mail = :mail");
+                        
+            $select->bindParam(':mail', $mail);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $select = $select -> FetchAll();
+            
+            if($select[0]['exist'] == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+    } 
+
+    /**
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Check that the phone doesn't exists to not make dubble
+     *
+     * @param String PSEUDO 
+     */
+    public function numeroUserExist($id) {
+        try {
+            
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                                FROM " . PREFIX . "phone 
+                                                WHERE user_user_id = :id");
+                        
+            $select->bindParam(':id', $id);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $select = $select -> FetchAll();
+            
+            if($select[0]['exist'] == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }
+    
+    /**
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Check that the adress doesn't exists to not make dubble
+     *
+     * @param String PSEUDO 
+     */
+    public function adressUserExist($id, $type) {
+        try {
+            
+            $select = $this->connexion->prepare("SELECT count(*) as exist
+                                                FROM " . PREFIX . "adress 
+                                                WHERE user_user_id = :id 
+                                                AND ad_type = :type");
+                        
+            $select->bindParam(':id', $id);
+            $select->bindParam(':type', $type);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $select = $select -> FetchAll();
+            
+            if($select[0]['exist'] >= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+    }
+    
+/////////////////////////////////////////////////////
+/* ADD  * * * * * * * * * * * * * * * * * * * * * * */
+
 	/**
-	 * Ajout d'un utilisateur si il n'existe pas déjà
-	 */
-	public function insertNewUser(){
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Add a user is not exists
+     *
+     * @param ID 
+     */
+	public function insertNewUser() {
 		$user_exist = $this->user_exist($_POST['user_pseudo']);
 		$email_exist = $this->email_exist($_POST['user_mail']);
 		
@@ -103,7 +305,10 @@ class CartModel extends CoreModel{
 				
 				$this->connexion->beginTransaction();
 				
-	            $insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_user` (`user_id`, `user_date`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`, `user_type`, `user_site`) VALUES (NULL, now(), :lastname, :firstname, :mail, :pseudo, :password, :profpic, 'organisme', :site)");
+	            $insert = $this->connexion->prepare("INSERT INTO " . PREFIX . "user
+                                                    (`user_id`, `user_date`, `user_lastname`, `user_firstname`, `user_mail`, `user_pseudo`, `user_password`, `user_profil_pic`, `user_type`, `user_site`) 
+                                                    VALUES 
+                                                    (NULL, now(), :lastname, :firstname, :mail, :pseudo, :password, :profpic, 'organisme', :site)");
 	            
 				
 	            $insert->bindParam(':lastname', $_POST['user_lastname']);
@@ -127,7 +332,10 @@ class CartModel extends CoreModel{
 				
 				
 				// Insert invoice adress
-				$insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'invoice', :user_id)");
+				$insert = $this->connexion->prepare("INSERT INTO `" . PREFIX . "adress` 
+                                                    (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) 
+                                                    VALUES 
+                                                    (NULL, now(), :num, :street, :zipcode, :city, :country, 'invoice', :user_id)");
 	            
 				
 				
@@ -140,7 +348,10 @@ class CartModel extends CoreModel{
 	            
 				$insert->execute();
 
-				$insert = $this->connexion->prepare("INSERT INTO `giraudsa`.`cp_phone` (`phone_id`, `phone_date`, `phone_num`, `user_user_id`) VALUES (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
+				$insert = $this->connexion->prepare("INSERT INTO `" . PREFIX . "phone` 
+                                                    (`phone_id`, `phone_date`, `phone_num`, `user_user_id`) 
+                                                    VALUES 
+                                                    (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
 					
 				$insert->bindParam(':phone', $_POST['phone_number']);
 				$insert->bindParam(':id', $id);
@@ -163,85 +374,23 @@ class CartModel extends CoreModel{
 	            echo 'Message:' . $e -> getMessage();
 	        }
         }
-
 	}
-	
-	/**
-	 * Vérification de l'existence d'un user, pour éviter les doublons
-	 */
-	public function user_exist($pseudo)
-	{
-		try {
-			
-            $select = $this->connexion->prepare("SELECT count(*) as exist
-                                            FROM " . PREFIX . "user WHERE user_pseudo = :pseudo");
-            			
-            $select->bindParam(':pseudo', $pseudo);
-            $select->execute();
-			$select->setFetchMode(PDO::FETCH_ASSOC);
-			$select = $select -> FetchAll();
-			
-			if($select[0]['exist'] == 1)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-        }
 
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }
-
-	}
-	
-	/**
-	 * Vérification d'un email, pour éviter les doublons
-	 */
-	public function email_exist($mail)
-	{
-		try {
-			
-            $select = $this->connexion->prepare("SELECT count(*) as exist
-                                            FROM " . PREFIX . "user WHERE user_mail = :mail");
-            			
-            $select->bindParam(':mail', $mail);
-            $select->execute();
-			$select->setFetchMode(PDO::FETCH_ASSOC);
-			$select = $select -> FetchAll();
-			
-			if($select[0]['exist'] == 1)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }
-
-	}
-	public function getExtension($fichier){
-		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
-		return $extension_upload;
-	}
-	/**
-	 * Déplacement du fichier de l'emplacement tmp 'public function getEmplacementTmp()' vers le bon emplacement serveur
-	 */
-    public function upload($index, $destination)
-	{
+    /**
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Move the file from 'public function getEmplacementTmp()' to good on server
+     *
+     * @param String PSEUDO 
+     */
+    public function upload($index, $destination) {
 		
 		$extension = $this->getExtension($destination);
-		//Déplacement
-	   move_uploaded_file($index,$destination);
+
+		//MOVE
+        move_uploaded_file($index,$destination);
 		if($extension=="jpg" || $extension=="jpeg" )
 		{
 			$src = imagecreatefromjpeg($destination);
@@ -281,18 +430,31 @@ class CartModel extends CoreModel{
 	}
 	
 	/**
-	 * Update un utilisateur
-	 */
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Update a user informations
+     *
+     * @param String PSEUDO 
+     */
 	public function Uponeuser(){
-	    $userID = $_SESSION['cp_userID'];
+	    $userID = $_SESSION[PREFIX .'userID'];
 	    
 
 
     	try {
-    	    // UPDATE DANS LA TABLE USER 
+    	    // UPDATE IN USER 
 			$this->connexion->beginTransaction();
 
-			$requete = "UPDATE " . PREFIX . "user SET `user_lastname` = :lastname, `user_firstname` = :firstname, `user_mail` = :mail, `user_pseudo` = :pseudo, `user_profil_pic` = :profpic, user_site = :site WHERE user_id = :id";
+			$requete = "UPDATE " . PREFIX . "user 
+                        SET `user_lastname` = :lastname, 
+                        `user_firstname` = :firstname, 
+                        `user_mail` = :mail, 
+                        `user_pseudo` = :pseudo, 
+                        `user_profil_pic` = :profpic, 
+                        `user_site` = :site 
+                        WHERE user_id = :id";
     	    
     	    $update = $this->connexion->prepare($requete); 
 
@@ -306,7 +468,9 @@ class CartModel extends CoreModel{
             
             if(isset($_FILES) && !empty($_FILES['user_pic']['name']))
             {
-	            $select  = $this->connexion->prepare("Select user_profil_pic FROM " . PREFIX . "user where user_id = '" . $userID . "'" );
+	            $select  = $this->connexion->prepare("SELECT user_profil_pic 
+                                                    FROM " . PREFIX . "user 
+                                                    WHERE user_id = '" . $userID . "'" );
 				$select->execute();
 				$select -> setFetchMode(PDO::FETCH_ASSOC);
 				$retour = $select -> fetch();
@@ -336,7 +500,7 @@ class CartModel extends CoreModel{
 
 			if($this->numeroUserExist($userID))
 			{
-				// UPDATE DANS LA TABLE PHONE
+				// UPDATE IN PHONE
 				
 			$update1 = $this->connexion->prepare("UPDATE " . PREFIX . "phone
     	                                        SET phone_num = :phone
@@ -347,7 +511,10 @@ class CartModel extends CoreModel{
 			}
 			else
 			{
-				$insert = $this->connexion->prepare("INSERT INTO `cp_phone` (`phone_id`, `phone_date`, `phone_num`, `user_user_id`) VALUES (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
+				$insert = $this->connexion->prepare("INSERT INTO `" . PREFIX . "phone` 
+                                                    (`phone_id`, `phone_date`, `phone_num`, `user_user_id`) 
+                                                    VALUES 
+                                                    (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
 					
 					$insert->bindParam(':phone', $_POST['phone_number']);
 					$insert->bindParam(':id', $userID);
@@ -357,7 +524,7 @@ class CartModel extends CoreModel{
 			
 			if($this->adressUserExist($userID, 'Invoice'))
 			{
-				// UPDATE DANS LA TABLE ADRESS HOME
+				// UPDATE IN ADRESS
 				
 			$update3 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
     	                                        SET
@@ -378,7 +545,10 @@ class CartModel extends CoreModel{
 			}
 			else
 			{
-				$insert3 = $this->connexion->prepare("INSERT INTO `cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'Invoice', :user_id)");
+				$insert3 = $this->connexion->prepare("INSERT INTO `" . PREFIX . "adress` 
+                                                    (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) 
+                                                    VALUES 
+                                                    (NULL, now(), :num, :street, :zipcode, :city, :country, 'Invoice', :user_id)");
 	            
 	            $insert3->bindParam(':num', $_POST['invoice_ad_num']);
 	            $insert3->bindParam(':street', $_POST['invoice_ad_street']);
@@ -401,77 +571,24 @@ class CartModel extends CoreModel{
 
 	}
 	
-	/**
-	 * Vérification de l'existence d'un numero de téléphone d'un user
-	*/
-	public function numeroUserExist($id)
-	{
-		try {
-			
-            $select = $this->connexion->prepare("SELECT count(*) as exist
-                                            FROM " . PREFIX . "phone WHERE user_user_id = :id");
-            			
-            $select->bindParam(':id', $id);
-            $select->execute();
-			$select->setFetchMode(PDO::FETCH_ASSOC);
-			$select = $select -> FetchAll();
-			
-			if($select[0]['exist'] == 1)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }
-
-	}
-	
-	/**
-	 * Vérification de l'existence d'une adresse d'un user
-	*/
-	public function adressUserExist($id, $type)
-	{
-		try {
-			
-            $select = $this->connexion->prepare("SELECT count(*) as exist
-                                            FROM " . PREFIX . "adress WHERE user_user_id = :id and ad_type = :type");
-            			
-            $select->bindParam(':id', $id);
-            $select->bindParam(':type', $type);
-            $select->execute();
-			$select->setFetchMode(PDO::FETCH_ASSOC);
-			$select = $select -> FetchAll();
-			
-			if($select[0]['exist'] >= 1)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e -> getMessage();
-        }
-
-	}
-	
+    /**
+     * Linked to : 
+     * controller/CartController.php
+     * view/cart/*.php
+     * 
+     * Insert the donation into the DB
+     *
+     * @param String PSEUDO 
+     */
 	public function donate(){
 		try{
-			$userID = $_SESSION['cp_userID'];
+			$userID = $_SESSION[PREFIX . 'userID'];
 			$this->connexion->beginTransaction();
 			
-			$insert = $this->connexion->prepare("INSERT INTO `cp_bank_details` (`num_card`, `name_card`, `crypto_card`, `expiration_card`, `user_user_id`) VALUES (:num, :name, :crypto, :expiration, :user_id)");
+			$insert = $this->connexion->prepare("INSERT INTO `" . PREFIX . "bank_details` 
+                                                (`num_card`, `name_card`, `crypto_card`, `expiration_card`, `user_user_id`) 
+                                                VALUES 
+                                                (:num, :name, :crypto, :expiration, :user_id)");
 	            
 	        $insert->bindParam(':num', $_POST['num_card']);
 	        $insert->bindParam(':name', $_POST['name_card']);
@@ -481,7 +598,10 @@ class CartModel extends CoreModel{
 	            
 			$insert->execute();
 			
-			$insert2 = $this->connexion->prepare("INSERT INTO `cp_donate` (`donate_date`, `donate_amount`, `donate_tva`, `group_group_id`, `cp_user_user_id`) VALUES (now(), :amount, 20, :group_id, :user_id)");
+			$insert2 = $this->connexion->prepare("INSERT INTO `" . PREFIX . "donate` 
+                                                (`donate_date`, `donate_amount`, `donate_tva`, `group_group_id`, `cp_user_user_id`) 
+                                                VALUES 
+                                                (now(), :amount, 20, :group_id, :user_id)");
 	            
 	        $insert2->bindParam(':amount', $_SESSION['donation_amount']);
 	        $insert2->bindParam(':group_id', $_SESSION['donation_team_id']);
@@ -490,14 +610,11 @@ class CartModel extends CoreModel{
 	        $insert2->execute();
 	        
 	        $update = $this->connexion->prepare("UPDATE " . PREFIX . "user
-    	                                        SET user_donut = user_donut + 1       WHERE user_id = " . $userID); 
+    	                                        SET user_donut = user_donut + 1
+                                                WHERE user_id = " . $userID); 
 
 			$update->execute();
 	        
-	        
-
-			
-			
 			$this->connexion->commit();
 
 		}

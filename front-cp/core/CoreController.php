@@ -31,8 +31,9 @@ class CoreController{
 		/* Creat a LOGGER object */
 		$this->logger = new Logger('../logs/');
 
-		if(isset($_GET['module']) && $_GET["action"] !='login' && isset($_SESSION['user'])){
-			$this->logger->log('Include', 'loadapp', "" . $_SESSION['user'] . " Controller loaded " . $_GET['module'] . "Controller.php", Logger::GRAN_MONTH);
+
+		if(isset($_GET['module']) && isset($_SESSION[PREFIX . 'user'])){
+			$this->logger->log('Include', 'loadapp', "" . $_SESSION[PREFIX . 'user'] . " Controller loaded " . $_GET['module'] . "Controller.php", Logger::GRAN_MONTH);
 		}
 		else
 		{

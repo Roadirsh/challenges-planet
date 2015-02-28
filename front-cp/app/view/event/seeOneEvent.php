@@ -1,5 +1,6 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
+
 <?php if(isset($data['event']) && !empty($data['event']) ){ $event = $data['event']; } ?>
 <?php if(isset($data['groups']) && !empty($data['groups']) ){ $groups = $data['groups']; } else { $groups = 0; }?>
 <?php if(isset($data['groups']['groups']) && !empty($data['groups']['groups']) ){ $groups = $data['groups']['groups']; } ?>
@@ -100,6 +101,7 @@
 	                                <div class="hover done">
 	                                    <span>It's done thank you !</span>
 	                                </div>
+
 	                            </div>
 	                            <div class="title-team"><?php echo $done['group_name']; ?></div>
 	                            <div class="date">Created on <?php echo formDate($done['group_date'], 2); ?></div>

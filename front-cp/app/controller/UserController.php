@@ -11,9 +11,12 @@
 
 /**
  * SEE ONE USER
+ * MY PAGE
  */
+
 /* Global Library */
 include("../lib/pagination.php");
+
 class UserController extends CoreController {
 
 	/**
@@ -43,19 +46,19 @@ class UserController extends CoreController {
             
 
 		} else {
-			// is their a session or not?
-			if(isset($_SESSION['userID']) != ''){
-				$this->SeeMyPage();
-			} else {
-				$this->coreRedirect('user', 'login');
-			}
+			$this->SeeOneUser();
 		}
 	}
 	
 	/**
-     * addEvent.php
+     * Linked to : 
+     * model/UserModel.php
+     * view/seemypage.php
      *
-     * @param INT $_GET ID
+     * Here you will find all information about the user in session 
+     * You also can update it here. 
+     * 
+     * @param $_SESSION
      */
 	private function SeeMyPage(){
 		
@@ -96,8 +99,12 @@ class UserController extends CoreController {
 	}
 
     /**
-     * addEvent.php
+     * Linked to : 
+     * model/UserModel.php
+     * view/seeoneuser.php
      *
+     * Here you will find all information about the user 
+     * 
      * @param INT $_GET ID
      */
     private function SeeOneUser(){

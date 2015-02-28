@@ -8,7 +8,10 @@
  * @copyright   L&G
  */
 
-
+/**
+ * PROJECT JSON
+ * SEE ONE PROJECT 
+ */
 class ProjectModel extends CoreModel{
 
     
@@ -23,17 +26,20 @@ class ProjectModel extends CoreModel{
 /* SEE ONE PROJECT * * * * * * * * * * * * * * * * */
 
     /**
-     * seeOneProject.php
+     * Linked to : 
+     * Controller/ProjectController.php
+     * view/seeOneProject.php
      * 
+     * @param INT id
      */
     public function SeeOneGroup($id) {
 
         try {
             $select = $this->connexion->prepare("SELECT A.*, B.*, SUM(C.donate_amount) as group_given, D.*
-                                                FROM cp_group A, 
-                                                    cp_event_has_group B,  
-                                                    cp_donate C, 
-                                                    cp_event D
+                                                FROM " . PREFIX . "group A, 
+                                                    " . PREFIX . "event_has_group B,  
+                                                    " . PREFIX . "donate C, 
+                                                    " . PREFIX . "event D
                                                 WHERE A.group_id = B.group_group_id
                                                 AND C.group_group_id = A.group_id
                                                 AND B.event_event_id = D.event_id
@@ -56,8 +62,11 @@ class ProjectModel extends CoreModel{
 
 
     /**
-     * seeOneProject.php
+     * Linked to : 
+     * Controller/ProjectController.php
+     * view/seeOneProject.php
      * 
+     * @param INT id
      */
     public function SeeOneGroupSponsors($id) {
 
@@ -83,8 +92,11 @@ class ProjectModel extends CoreModel{
     }
 
     /**
-     * seeOneProject.php
+     * Linked to : 
+     * Controller/ProjectController.php
+     * view/seeOneProject.php
      * 
+     * @param INT id
      */
     public function SeeOneGroupUsers($id) {
 
@@ -113,14 +125,16 @@ class ProjectModel extends CoreModel{
 /* MOBILE APP * * * * * * * * * * * * * * * * * * */
 
     /**
-     * mobile application
+     * Linked to : 
+     * Controller/ProjectController.php
+     * MOBILE APPLICATION
      *
      */
     public function getProjectJSON() {
 
         try {
 				$selectfrom = "SELECT group_name, group_descr, group_id 
-                                                    FROM  `" . PREFIX . "group` ";
+                               FROM  `" . PREFIX . "group` ";
                 if(isset($_GET['id'])){
 	                $projetparevent = "`" . PREFIX . "event_has_group`.`event_event_id` = :id AND ";
 					$jointure = "LEFT JOIN " . PREFIX . "event_has_group 
@@ -158,17 +172,27 @@ class ProjectModel extends CoreModel{
 /////////////////////////////////////////////////////
 /* ADD PROJECT * * * * * * * * * * * * * * * * * * */
     
-    //Retourne l'extension d'un fichier
+    // Return the file ext
     public function getExtension($fichier){
 		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
 		return $extension_upload;
 	}
 
-    //Déplacement de l'emplacement temporaire vers la desitnation finale sur le serveur
+    /**
+     * Linked to : 
+     * controller/ProjectController.php
+     * view/addProject.php
+     * `public function addProject($post)`
+     * 
+     * Add the image into the Database
+     * 
+     * @param String $destination
+     * @param String $img
+     */
     public function upload($index, $destination){
 		
 		$extension = $this->getExtension($destination);
-		//Déplacement
+		//Move
 	   move_uploaded_file($index,$destination);
 		if($extension=="jpg" || $extension=="jpeg" )
 		{
@@ -184,7 +208,7 @@ class ProjectModel extends CoreModel{
 		}
 		
 		list($width,$height)=getimagesize($destination);
-		// Resize de l'image et compression
+		// Resize img and compression
 		$newwidth=378;
 		$newheight=($height/$width)*$newwidth;
 		$tmp=imagecreatetruecolor($newwidth,$newheight);

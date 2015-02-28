@@ -153,39 +153,7 @@ class ProjectModel extends CoreModel{
 		$extension = $this->getExtension($destination);
 		//Déplacement
 	   move_uploaded_file($index,$destination);
-		if($extension=="jpg" || $extension=="jpeg" )
-		{
-			$src = imagecreatefromjpeg($destination);
-		}
-		else if($extension=="png")
-		{
-			$src = imagecreatefrompng($destination);
-		}
-		else 
-		{
-			$src = imagecreatefromgif($destination);
-		}
-		
-		list($width,$height)=getimagesize($destination);
-		
-		$newwidth=378;
-		$newheight=($height/$width)*$newwidth;
-		$tmp=imagecreatetruecolor($newwidth,$newheight);
-		
-		
-		
-		imagecopyresampled($tmp,$src,0,0,0,0,$newwidth,$newheight,
-		 $width,$height);
-		
-		
-		
-		$filename = $destination;
-		
-		imagejpeg($tmp,$filename,100);
-		
-		imagedestroy($src);
-		imagedestroy($tmp);
-		
+				
 	   	
 		   
 	   return true;

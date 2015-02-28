@@ -93,7 +93,7 @@
 							<?php $i = 0; ?>
 							<?php if($i < 3){
 								foreach ($sponsors as $key => $spon) { ?>
-									<a class="columns medium-6" href="">
+									<a class="columns medium-6" href="<?php echo MODULE . 'sponsor' . ACTION . 'seeonesponsor' . ID . $spon['user_id']; ?>">
 										<img src="<?php echo AVATAR . $spon['user_profil_pic']; ?>" alt="">
 									</a>
 								<?php $i ++; } ?>

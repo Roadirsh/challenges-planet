@@ -33,20 +33,18 @@ class LogController extends CoreController{
                 $this->corePage404();
             }
 
-
         } else {
-            // is their a session or not?
-            if (isset($_SESSION['user']) != '') {
-                $this->Login();
-            } else {
-                $this->coreRedirect('', 'login');
-            }
+            $this->Login();
         }
 
 	}
 	
 	/**
-     * home.php => fancybox
+     * Linked to : 
+     * model/LogModel.php
+     * view/home.php => lightbox
+     * 
+     * Make connexion and SESSION
      *
      * @param Array $_POST
      */
@@ -93,8 +91,12 @@ class LogController extends CoreController{
 
 
 	/**
-     * home.php 
+     * Linked to :
+     * view/home.php
+     * 
+     * LOGOUT
      *
+     * @param Array $_POST
      */
 	public function Logout(){
         $_SESSION['connect_compte_FRONT'] = false;
@@ -104,8 +106,12 @@ class LogController extends CoreController{
 	}
 	
 	/**
-     * signup.php 
+     * Linked to : 
+     * model/LogModel.php
+     * view/signup.php
      *
+     * Insert a new user
+     * 
      * @param Array $_POST
      */
 	public function Signup(){
@@ -155,18 +161,19 @@ class LogController extends CoreController{
 
 	}
 
-    public function FacebookLogin(){
+    /**
+     * TODO
+     */
+    // public function FacebookLogin(){
+    //     $appID = '1032282680121355';
+    //     $appSecret = 'd23586cd9525f8fcdfc8b96bf6eb2985';
 
+    //     $connect = new FacebookConnect($appID, $appSecret);
 
-        $appID = '1032282680121355';
-        $appSecret = 'd23586cd9525f8fcdfc8b96bf6eb2985';
+    //     $user = $connect->connect('http://localhost:8888/challenges-planet/front-cp/public/index.php');
 
-        $connect = new FacebookConnect($appID, $appSecret);
-
-        $user = $connect->connect('http://localhost:8888/challenges-planet/front-cp/public/index.php');
-
-        var_dump($user);
-    }
+    //     var_dump($user);
+    // }
 
 
 }

@@ -39,7 +39,7 @@
 
 			    <?php if(isset($_SESSION['connect_compte_FRONT']) && $_SESSION['connect_compte_FRONT'] == true) { ?>
 			    <!-- DESIGN TEMPORAIRE -->
-					<li><a class="connect popup-with-form" href="<?php echo MODULE . 'user' . ACTION . 'seeOneUser' . ID . $_SESSION[PREFIX . 'userID']; ?>"><img src="img/user.png" alt=""></a></li>
+					<li><a class="connect" href="<?php echo MODULE . 'user' . ACTION . 'seemypage'; ?>"><img src="img/user.png" alt=""></a></li>
 					<li><a class="register" href="<?php echo MODULE . 'log' . ACTION . 'logout'; ?>"><img src="img/logout.png" width="20px;"/></a></li>
 				<!-- /DESIGN TEMPORAIRE -->
 					<?php } else { ?>

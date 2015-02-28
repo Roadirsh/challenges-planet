@@ -9,7 +9,8 @@
  */
 
 /**
- * PROJECT JSON 
+ * PROJECT JSON
+ * SEE ONE PROJECT 
  */
 class ProjectController extends CoreController {
     
@@ -29,20 +30,17 @@ class ProjectController extends CoreController {
                 $this->corePage404();  
             }
             
-
         } else {
-            // is their a session or not?
-            if(isset($_SESSION['user']) != ''){
-                $this->SeeOneProject();
-            } else {
-                $this->coreRedirect('user', 'login');
-            }
+            $this->SeeOneProject();
         }
     }
 
     /**
-     * seeproject.php
-     *
+     * Linked to : 
+     * controller/ProjectController.php
+     * view/seeOneProject.php
+     * 
+     * @param GET id
      */
     public function SeeOneProject() {
 
@@ -60,14 +58,18 @@ class ProjectController extends CoreController {
         $array['users'] = $SeeUsers;
         
 
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * IF WANNA MAKE A DONUT
+        */
         if(isset($_POST['donut']) and !empty($_POST['donut'])){
+
             $_SESSION["donation_amount"] = $_POST['donut'];
             $_SESSION["donation_team"] = $SeeOneProject['group_name'];
             $_SESSION["donation_event"] = $SeeOneProject['event_name'];
             $_SESSION["donation_team_img"] = $SeeOneProject['group_img'];
             $_SESSION["donation_team_id"] = $SeeOneProject['group_id'];
 
-            
+            /* Load the view */
             $this->coreRedirect('cart', 'seeOneCart'); 
         }
 
@@ -93,7 +95,9 @@ class ProjectController extends CoreController {
 
 
     /**
-     * mobile application
+     * Linked to : 
+     * model/ProjectModel.php
+     * MOBILE APPLICATION
      *
      */
     public function Projectjson() {
