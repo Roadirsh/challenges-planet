@@ -74,7 +74,7 @@ class SponsorController extends CoreController {
      * seeSponsor.php
      *
      */
-    private function Seesonesponsor(){
+    private function Seesoneponsor(){
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
@@ -85,8 +85,8 @@ class SponsorController extends CoreController {
         
         
         $sponsors = $this->model = new SponsorModel();
-        $OneSponsors = $sponsors->SeeOneSponsor(220);
-        $OneSponsors = $sponsors->SeeOneSponsorGroup(220);
+        $OneSponsors = $sponsors->SeeOneSponsor($_GET['id']);
+        $OneSponsors = $sponsors->SeeOneSponsorGroup($_GET['id']);
 
         /* Construct the array to pass */
         $array = array();

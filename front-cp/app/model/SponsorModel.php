@@ -33,32 +33,40 @@ class SponsorModel extends CoreModel{
             /* * * * * * * * * * * * * * * * * * * * * * * *
             * Get all sponsors who have make a donation
             */
-        	$select = $this->connexion->prepare("SELECT *
-                                                FROM " . PREFIX . "user
-                                                where user_type = 'organisme'
-                                                and user_donut != 0");
+        	$select = $this->connexion->prepare("SELECT *, 
+                                                    (SELECT COUNT(B.donate_amount)
+                                                    FROM " . PREFIX . "donate B
+                                                    WHERE B." . PREFIX . "user_user_id = A.user_id)
+                                                    AS helped
+                                                FROM " . PREFIX . "user A
+                                                WHERE user_type = 'organisme'
+                                                AND user_donut != 0
+                                                GROUP BY A.user_id");
            
+            // $select->bindValue(':id', $id, PDO::PARAM_INT);
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $array = $select->FetchAll();
+     
 
-            $i = 0;
-            foreach ($array as $key => $id) {
+
+            // $i = 0;
+            // foreach ($array as $key => $id) {
                 
-                $select = $this->connexion->prepare("SELECT COUNT(donate_id) as helped
-                                                FROM " . PREFIX . "donate
-                                                WHERE " . PREFIX . "user_user_id = :id");
+            //     $select = $this->connexion->prepare("SELECT COUNT(donate_id) as helped
+            //                                     FROM " . PREFIX . "donate
+            //                                     WHERE " . PREFIX . "user_user_id = :id");
            
-                $select->bindValue(':id', $id['user_id'], PDO::PARAM_INT);
-                $select->execute();
-                $select->setFetchMode(PDO::FETCH_ASSOC);
-                $countDonate = $select->FetchAll();
+            //     $select->bindValue(':id', $id['user_id'], PDO::PARAM_INT);
+            //     $select->execute();
+            //     $select->setFetchMode(PDO::FETCH_ASSOC);
+            //     $countDonate = $select->FetchAll();
 
 
-                $array[$i] = array_merge($array[0], $countDonate[0]);
+            //     $array[$i] = array_merge($array[0], $countDonate[0]);
             
-            $i ++;
-            }
+            // $i ++;
+            // }
 
             return $array;
             
