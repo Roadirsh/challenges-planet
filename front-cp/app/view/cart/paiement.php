@@ -48,31 +48,32 @@
 		</div>
 	</div>
 	<div class="wrapper info-payment">
-		<div class="cart-contain">
-			<div class="bg">
-				<h2>Select your means of payment</h2>
-			</div>
+		<form action="index.php?module=cart&action=confirmation" method="post" class="means-payment">
 
-			<form action="" class="means-payment">
-				
-				<div>
-					<input type="radio" name="payment" value="visa" id="visa">
-					<img src="img/credit/visa.png" alt="">
+			<div class="cart-contain">
+				<div class="bg">
+					<h2>Select your means of payment</h2>
 				</div>
-				<div>
-					<input type="radio" name="payment" value="paypal" id="american-express">
-					<img src="img/credit/paypal2.png" alt="">
-				</div>				
-		
-			</form>
-
-			<div class="bg">
+	
+					
+					<div>
+						<input type="radio" name="payment" value="visa" id="visa" checked>
+						<img src="img/credit/visa.png" alt="">
+					</div>
+					<div>
+						<input type="radio" name="payment" value="paypal" id="american-express">
+						<img src="img/credit/paypal2.png" alt="">
+					</div>				
+			
+	
+				<div class="bg">
+				</div>
+			</div><br/>
+			<div class="clearfix">
+				<a href="<?php echo MODULE . 'cart' . ACTION . 'seeinfocart'; ?>" class="before" >Precedent</a>
+				<input type="submit" value="Continue">
 			</div>
-		</div>
-		<div class="clearfix">
-			<a href="<?php echo MODULE . 'cart' . ACTION . 'seeinfocart'; ?>" class="before" >Precedent</a>
-			<a href="<?php echo MODULE . 'cart' . ACTION . 'confirmation'; ?>" class="help"> Continue</a>
-		</div>
+		</form>
 	</div>
 </div>
 

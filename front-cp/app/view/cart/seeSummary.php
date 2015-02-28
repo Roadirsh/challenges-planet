@@ -3,7 +3,6 @@
 <?php } $_SESSION['message'] = null; ?>
 
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
-<a href="<?php echo MODULE . 'cart' . ACTION . 'seeonecart'; ?>" >seeonecart.php</a>
 
 <div class="cart">
 
@@ -14,16 +13,16 @@
 				<h2>Summary of your sponsoring</h2>
 			</div>
 			<h2 class="sponsorise-team">
-				You helped name-team for name-event
+				You helped <?php echo $_SESSION['donation_team']; ?> for <?php echo $_SESSION['donation_event']; ?>
 			</h2>
 			<div class="info-team clearfix">
 				<div class="img-team medium-2 columns">
-					<img src="img/avatar/jeremie.jpg" alt="">
+					<img src="<?php echo PROJECT . $_SESSION['donation_team_img']; ?>" alt="">
 				</div>
 				<div class="medium-10 columns desc-team">
 					<span>Thank you to sponsorise this team !</span>
 					<span>Guaranteed on 1 year on the vehicle</span>
-					<span class="price">Amount : price €</span>
+					<span class="price">Amount : <?php echo $_SESSION['donation_amount']; ?> €</span>
 				</div>
 			</div>
 			<div class="bg">

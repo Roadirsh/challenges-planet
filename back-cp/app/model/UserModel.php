@@ -1210,7 +1210,7 @@ echo '<pre>';
 			}
 			else
 			{
-				$insert = $this->connexion->prepare("INSERT INTO `cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'Home', :user_id)");
+				$insert2 = $this->connexion->prepare("INSERT INTO `cp_adress` (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) VALUES (NULL, now(), :num, :street, :zipcode, :city, :country, 'Home', :user_id)");
 	            
 	            $insert2->bindParam(':num', $_POST['ad_numHome']);
 	            $insert2->bindParam(':street', $_POST['ad_streetHome']);

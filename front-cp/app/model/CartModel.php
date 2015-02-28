@@ -465,4 +465,45 @@ class CartModel extends CoreModel{
         }
 
 	}
+	
+	public function donate(){
+		try{
+			$userID = $_SESSION['cp_userID'];
+			$this->connexion->beginTransaction();
+			
+			$insert = $this->connexion->prepare("INSERT INTO `cp_bank_details` (`num_card`, `name_card`, `crypto_card`, `expiration_card`, `user_user_id`) VALUES (:num, :name, :crypto, :expiration, :user_id)");
+	            
+	        $insert->bindParam(':num', $_POST['num_card']);
+	        $insert->bindParam(':name', $_POST['name_card']);
+	        $insert->bindParam(':crypto', $_POST['crypto_card']);
+	        $insert->bindParam(':expiration', $_POST['expiration_card']);
+	        $insert->bindParam(':user_id', $userID);
+	            
+			$insert->execute();
+			
+			$insert2 = $this->connexion->prepare("INSERT INTO `cp_donate` (`donate_date`, `donate_amount`, `donate_tva`, `group_group_id`, `cp_user_user_id`) VALUES (now(), :amount, 20, :group_id, :user_id)");
+	            
+	        $insert2->bindParam(':amount', $_SESSION['donation_amount']);
+	        $insert2->bindParam(':group_id', $_SESSION['donation_team_id']);
+	        $insert2->bindParam(':user_id', $userID);
+	        
+	        $insert2->execute();
+	        
+	        $update = $this->connexion->prepare("UPDATE " . PREFIX . "user
+    	                                        SET user_donut = user_donut + 1       WHERE user_id = " . $userID); 
+
+			$update->execute();
+	        
+	        
+
+			
+			
+			$this->connexion->commit();
+
+		}
+		catch (Exception $e){
+			$this->connexion->rollBack();
+			echo 'Message:' . $e -> getMessage();
+		}
+	}
 }

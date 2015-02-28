@@ -143,10 +143,18 @@ class CartController extends CoreController {
         define("PAGE_TITLE", SITE_NAME);
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "confirmation");
+        
+        
+        if($_POST['payment'] == "visa"){
+	        $array = '';
+	        $this->load->view('cart', 'confirmation', $array); 
 
-        $array = '';
+        }
+        else if($_POST['payment'] == "paypal"){
+	        
+        }
+
         /* Load the view */
-        $this->load->view('cart', 'confirmation', $array); 
 
     }
     public function Seesummary(){
@@ -157,6 +165,9 @@ class CartController extends CoreController {
         define("PAGE_TITLE", SITE_NAME);
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "seeSummary");
+        
+        $cart = $this->model = new CartModel();
+        $cart->donate();
 
         $array = '';
         /* Load the view */
