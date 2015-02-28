@@ -140,6 +140,7 @@
                                 <?php /** If they have more then asked **/ ?>
                                 <?php if($percent > 100){ $percent = 100;} ?>
                                 data ="<?php echo $percent; ?>"<br>
+                                <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $group['group_id']; ?>"> >> link << </a>
                             <?php } ?>
                         <?php } else { ?>
                             Sorry, nothing to show ! 
