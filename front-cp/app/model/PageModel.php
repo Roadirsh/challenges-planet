@@ -13,13 +13,8 @@
  * SEE EVENTS
  * SEE PROJECTS
  * SEE SPONSORS
- * SEE GCU
  */
 class PageModel extends CoreModel{
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * */
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
     /**
      * Constructor
@@ -32,7 +27,9 @@ class PageModel extends CoreModel{
 /* HOME * * * * * * * * * * * * * * * * * * * * * * */
 
     /**
-     * home.php
+     * Linked to : 
+     * controller/PageController.php
+     * view/home.php
      * 
      * 4 events last added
      */
@@ -53,7 +50,6 @@ class PageModel extends CoreModel{
             $retour = $select->fetchAll();
             $select->closeCursor();
 
-            //$this->setSeeFourEvents($retour);
             return $retour;
         }
 
@@ -64,7 +60,9 @@ class PageModel extends CoreModel{
     }
     
     /**
-     * home.php
+     * Linked to : 
+     * controller/PageController.php
+     * view/home.php
      * 
      * COUNT SPONSORS of added teams
      * 
@@ -98,7 +96,9 @@ class PageModel extends CoreModel{
     }
     
     /**
-     * home.php
+     * Linked to : 
+     * controller/PageController.php
+     * view/home.php
      * 
      * COUNT DONATE of added teams
      * 
@@ -129,7 +129,9 @@ class PageModel extends CoreModel{
     
     
     /**
-     * home.php
+     * Linked to : 
+     * controller/PageController.php
+     * view/home.php
      * 
      * Get 8 last sponsors
      */
@@ -160,7 +162,9 @@ class PageModel extends CoreModel{
     
 
     /**
-     * home.php
+     * Linked to : 
+     * controller/PageController.php
+     * view/home.php
      * 
      * All groups ID
      */
@@ -211,7 +215,9 @@ class PageModel extends CoreModel{
     }
 
     /**
-     * home.php
+     * Linked to : 
+     * controller/PageController.php
+     * view/home.php
      * 
      * @param Array Groups ID  
      */
@@ -243,18 +249,14 @@ class PageModel extends CoreModel{
                 $group = $select->FetchAll();
                 $select->closeCursor();
 
-                //echo $i . '-c-';
-                //echo $b . '-z-';
                 if(!empty($group[0]['group_id']) && !empty($group[0]['group_id'])){
-                    $array[$b] = array_merge($group[0], $gID[$i]);// TODO
-                    //echo $i . '-a-<br>';
-
+                    $array[$b] = array_merge($group[0], $gID[$i]);
                 } else {
                     $array[$b] = '';
                 }
 
             $i ++;  
-            $b ++; // TODO  
+            $b ++;
             }
 
 
@@ -266,8 +268,9 @@ class PageModel extends CoreModel{
     }
 
     /**
-     * seeEvent.php
-     * 
+     * Linked to : 
+     * controller/PageController.php
+     * view/home.php
      * 
      * @param Array Groups ID  
      */

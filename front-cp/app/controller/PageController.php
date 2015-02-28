@@ -39,8 +39,15 @@ class PageController extends CoreController {
 
 
 	/**
-     * home.php
-     *
+     * Linked to : 
+     * model/PageModel.php
+     * view/home.php
+     * 
+     * Here you will have 3 differents functions. 
+     * The first one is to get the sliders events. The four 4 last one 
+     * The second one is to get the 7 last teams
+     * + one extra to get one done group (event time passed)
+     * The third on is to get 8 sponsors
      */
 	private function Home(){
 
@@ -84,8 +91,8 @@ class PageController extends CoreController {
 	}
 
 	/**
-     * cgu.php
-     *
+     * Linked to :
+     * view/cgu.php
      */
 	private function cgu(){
 
