@@ -3,9 +3,19 @@
 /**
  * CartController
  *
- *
+ * Everything who is relative to the cart
+ * 
  * @package 	Framework_L&G
  * @copyright 	L&G
+ */
+
+/**
+ * CHECK IF IS IN STOCK
+ * GET USERS INFO
+ * CHECK IF USER EXIST
+ * CHECK IF EMAIL EXIST
+ * INSERT USER
+ * INSERT DONATION
  */
 
 class CartController extends CoreController {
@@ -17,7 +27,7 @@ class CartController extends CoreController {
 		parent::__construct();
 		
 		if(isset($_GET['action'])){
-			//ucfirt = Met le premier caractère en majuscule
+			//ucfirt = put the first letter in Uppercase
 			$action = ucfirst($_GET['action']);
 			
             if(method_exists($this, $action)){
@@ -28,18 +38,20 @@ class CartController extends CoreController {
             
 
 		} else {
-			// on test voir s'il y a une sesison ou non
-			if(isset($_SESSION['user']) != ''){
-				$this->Seeonecart();
-			} else {
-				$this->coreRedirect('user', 'login');
-			}
+            $this->Seeonecart();
 		}
 	}
     
     /**
-	 * Page static INDEX
-	 */
+     * Linked to : 
+     * model/CartModel.php
+     * view/cart/*.php
+     * 
+     * Here, you will have all informations needed to show up the last page of the cart
+     * VALIDATION
+     * 
+     * @param GET ID
+     */
 	public function Seecart(){
 	    
 	    $stockID = $_GET['id'];
@@ -47,24 +59,37 @@ class CartController extends CoreController {
 	    // if stock product
         $isStock = $this->model = new CartModel();
 		$Stock = $isStock->isStock($stockID);
-		var_dump($Stock);
+
 	    if(!empty($Stock)){
-    	    // Appel de la vue 
-    	   // Définition des constante
+    	    
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * <head> STUFF </head>
+            */
     		define("PAGE_TITLE", SITE_NAME . " home");
     		define("PAGE_DESCR", ""); // TODO
     		define("PAGE_ID", "home");
+
+            /* Put information into SESSION */
             $this->coreSession('CART', '1', array(''));
-            $this->load->view('cart', 'validation'); // TODO
+
+            /* Load the view */
+            $this->load->view('cart', 'validation');
+
 	    } else {
-	        echo 'ba non....';
-    	    //$this->coreRedirect('notfound', 'notfound');
+	        $this->coreRedirect('notfound', 'notfound');
 	    }
 	    
 	}
 
 
-
+    /**
+     * Linked to : 
+     * model/CartModel.php
+     * view/cart/*.php
+     * 
+     * Here, you will have all informations needed to show up the first page of the cart
+     * SEE THE CART
+     */
     public function Seeonecart(){
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -74,11 +99,22 @@ class CartController extends CoreController {
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "SeeOneCart");
 
+        /* Construct the array to pass */
         $array = '';
+
         /* Load the view */
         $this->load->view('cart', 'SeeOneCart', $array); 
 
     }
+
+    /**
+     * Linked to : 
+     * model/CartModel.php
+     * view/cart/*.php
+     * 
+     * Here, you will have all informations needed to show up the second page of the cart
+     * SEE THE INFORMATIONS
+     */
     public function Seeinfocart(){
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -90,17 +126,27 @@ class CartController extends CoreController {
         
         $user = $this->model = new CartModel();
         
-		if(isset($_SESSION['cp_userID']))
+		if(isset($_SESSION[PREFIX . 'userID']))
 		{
-        	$array = $user->getInfoUser($_SESSION['cp_userID']);
+        	$array = $user->getInfoUser($_SESSION[PREFIX . 'userID']);
         }
         else{
 	        $array = "";
         }
+
         /* Load the view */
         $this->load->view('cart', 'seeinfocart', $array); 
 
     }
+
+    /**
+     * Linked to : 
+     * model/CartModel.php
+     * view/cart/*.php
+     * 
+     * Here, you will have all informations needed to show up the third page of the cart
+     * LET'S PAY
+     */
     public function Paiement(){
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -111,7 +157,10 @@ class CartController extends CoreController {
         define("PAGE_ID", "paiement");
 
         $user = $this->model = new CartModel();
-        //Inscription + connexion
+        
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * INSERT USER + CONNEXION
+        */
         if(isset($_POST['user_password'])){
 	        $userExist = $user->insertNewUser();
 	        if($userExist){
@@ -124,17 +173,30 @@ class CartController extends CoreController {
 	        }
 	         
         }
-        // Update
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * UPDATE USER
+        */
         else if (isset($_POST['user_mail']))
         {
 	    	$user->Uponeuser();
         }
 
         $array = '';
+
         /* Load the view */
         $this->load->view('cart', 'paiement', $array); 
 
     }
+
+    /**
+     * Linked to : 
+     * model/CartModel.php
+     * view/cart/*.php
+     * 
+     * Here, you will have all informations needed to show up the fourth page of the cart
+     * Show the user a confirmation of what he did 
+     * ASK FOR VALIDATION
+     */
     public function Confirmation(){
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -144,19 +206,26 @@ class CartController extends CoreController {
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "confirmation");
         
-        
+        /* Load the view */
+        // In a V2 project, we will implement the real paiement via visa card
         if($_POST['payment'] == "visa"){
 	        $array = '';
 	        $this->load->view('cart', 'confirmation', $array); 
 
         }
         else if($_POST['payment'] == "paypal"){
-	        
+	        // TODO API PAYPAL
         }
-
-        /* Load the view */
-
     }
+
+    /**
+     * Linked to : 
+     * model/CartModel.php
+     * view/addEvent.php
+     * 
+     * Here, you will have all informations needed to show up the third page of the cart
+     * Give the user a summury
+     */
     public function Seesummary(){
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -170,6 +239,7 @@ class CartController extends CoreController {
         $cart->donate();
 
         $array = '';
+        
         /* Load the view */
         $this->load->view('cart', 'seeSummary', $array); 
 

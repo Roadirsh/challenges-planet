@@ -610,7 +610,7 @@ class EventModel extends CoreModel{
 
             if(!empty($AllGroups[0]['group_id'])){
                 $select3 = $this->connexion->prepare("SELECT sum(donate_amount) AS group_needed
-                                                    FROM cp_donate 
+                                                    FROM " . PREFIX . "donate 
                                                     WHERE group_group_id = :groupID");
 
                 $select3->bindValue(':groupID', $AllGroups[0]['group_id'], PDO::PARAM_INT);
@@ -705,7 +705,7 @@ class EventModel extends CoreModel{
             $i = 0;
             foreach ($eID as $key => $eID) {
                 $select = $this->connexion->prepare("SELECT *, SUM(B.donate_amount) as group_needed, C.group_group_id, C.event_event_id
-                                                    FROM cp_group A, cp_donate B, cp_event_has_group C
+                                                    FROM " . PREFIX . "group A, " . PREFIX . "donate B, " . PREFIX . "event_has_group C
                                                     WHERE A.group_id = C.group_group_id 
                                                     AND B.group_group_id = A.group_id 
                                                     AND A.group_valid = 1
@@ -749,7 +749,7 @@ class EventModel extends CoreModel{
             $i = 0;
             foreach ($eID as $key => $eID) {
                 $select = $this->connexion->prepare("SELECT A.*, SUM(B.donate_amount) as total, C.group_group_id, C.event_event_id
-                                                    FROM cp_group A, cp_donate B, cp_event_has_group C
+                                                    FROM " . PREFIX . "group A, " . PREFIX . "donate B, " . PREFIX . "event_has_group C
                                                     WHERE A.group_id = C.group_group_id 
                                                     AND B.group_group_id = A.group_id 
                                                     AND A.group_valid = 1
