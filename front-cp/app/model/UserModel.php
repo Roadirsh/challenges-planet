@@ -27,7 +27,7 @@ class UserModel extends CoreModel{
 	}
 	
 /////////////////////////////////////////////////////
-/* USER * * * * * * * * * * * * * * * * * * * * * * */
+/* MY PROFILE * * * * * * * * * * * * * * * * * * */
 
     /**
      * seeOneUser.php
@@ -39,7 +39,7 @@ class UserModel extends CoreModel{
 	public function SeeMyPage() {
 
         // $id = $_SESSION['userID'];
-        $id = '163';
+        $id = $_SESSION[PREFIX . 'userID'];
 
         try {
             /* * * * * * * * * * * * * * * * * * * * * * * *
@@ -141,6 +141,184 @@ class UserModel extends CoreModel{
         }
 
     }
+
+    /**
+     * seeOneUser.php
+     * 
+     * All information about one user
+     * 
+     * @param $id $_GET ID
+     */
+    public function SeeMyPageGroups($id) {
+
+        try{
+            $select5 = $this->connexion->prepare("SELECT *, 
+                                                    (SELECT SUM(donate_amount) 
+                                                    FROM cp_donate E 
+                                                    WHERE E.group_group_id = A.group_id) 
+                                                    AS helped
+                                                FROM cp_group A, cp_event B, cp_event_has_group C, cp_user_has_group D
+                                                WHERE C.group_group_id = A.group_id
+                                                AND D.group_group_id = A.group_id
+                                                AND C.event_event_id = B.event_id
+                                                AND D.user_user_id = :userID");
+                    
+            $select5->bindValue(':userID', $id, PDO::PARAM_INT);
+            $select5->execute();
+            $select5->setFetchMode(PDO::FETCH_ASSOC);
+            $array = $select5->FetchAll();
+            $select5->closeCursor(); 
+
+
+            return $array;
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }
+
+    }
+
+
+/////////////////////////////////////////////////////
+/* MY PROFILE * * * * * * * * * * * * * * * * * * */
+
+    /**
+     * seeOneUser.php
+     * 
+     * All information about one user
+     * 
+     * @param $id $_GET ID
+     */
+    public function SeeOneUser($id) {
+
+        try {
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * Get All the informations about the user from the ID
+            */
+            $select = $this->connexion->prepare("SELECT user_id, user_date, user_birthday, user_mail, user_pseudo, user_profil_pic, user_type, user_site
+                                                FROM " . PREFIX . "user
+                                                WHERE user_type = 'student'
+                                                AND user_id = :userID");
+           
+            $select->bindValue(':userID', $id, PDO::PARAM_INT);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $user = $select->FetchAll();
+            $select->closeCursor(); 
+
+            if(isset($user[0]['user_id'])){
+                $retour = $user[0];
+            } else {
+                $retour = $user;
+            }
+            
+
+            if(!empty($user)){
+
+                $select2 = $this->connexion->prepare("SELECT *
+                                                FROM " . PREFIX . "phone
+                                                WHERE user_user_id = :userID");
+           
+                $select2->bindValue(':userID', $id, PDO::PARAM_INT);
+                $select2->execute();
+                $select2->setFetchMode(PDO::FETCH_ASSOC);
+                $phone = $select2->FetchAll();
+                $select2->closeCursor(); 
+
+                if(!empty($phone[0])){
+                    $retour = array_merge($retour, $phone[0]);
+                }
+  
+                $select3 = $this->connexion->prepare("SELECT *
+                                                FROM " . PREFIX . "adress
+                                                WHERE user_user_id = :userID");
+           
+                $select3->bindValue(':userID', $id, PDO::PARAM_INT);
+                $select3->execute();
+                $select3->setFetchMode(PDO::FETCH_ASSOC);
+                $adress = $select3->FetchAll();
+                $select3->closeCursor(); 
+
+                if(!empty($adress[0])){
+                    $retour = array_merge($retour, $adress[0]);
+                }
+
+            }
+            return $retour;
+            
+            
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * seeOneUser.php
+     * 
+     * All information about one user
+     * 
+     * @param $id $_GET ID
+     */
+    public function SeeOneUserEvents($id) {
+
+        try{
+            $select5 = $this->connexion->prepare("SELECT * 
+                                                FROM cp_user_has_group A, cp_event_has_group B
+                                                JOIN cp_event C 
+                                                ON C.event_id = B.event_event_id 
+                                                WHERE A.user_user_id = :userID
+                                                AND A.group_group_id = B.group_group_id ");
+                    
+            $select5->bindValue(':userID', $id, PDO::PARAM_INT);
+            $select5->execute();
+            $select5->setFetchMode(PDO::FETCH_ASSOC);
+            $array = $select5->FetchAll();
+            $select5->closeCursor(); 
+
+
+            return $array;
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }
+
+    }
+
+    /**
+     * seeOneUser.php
+     * 
+     * All information about one user
+     * 
+     * @param $id $_GET ID
+     */
+    public function SeeOneUserGroups($id) {
+
+        try{
+            $select5 = $this->connexion->prepare("SELECT *, 
+                                                    (SELECT SUM(donate_amount) 
+                                                    FROM cp_donate E 
+                                                    WHERE E.group_group_id = A.group_id) 
+                                                    AS helped
+                                                FROM cp_group A, cp_event B, cp_event_has_group C, cp_user_has_group D
+                                                WHERE C.group_group_id = A.group_id
+                                                AND D.group_group_id = A.group_id
+                                                AND C.event_event_id = B.event_id
+                                                AND D.user_user_id = :userID");
+                    
+            $select5->bindValue(':userID', $id, PDO::PARAM_INT);
+            $select5->execute();
+            $select5->setFetchMode(PDO::FETCH_ASSOC);
+            $array = $select5->FetchAll();
+            $select5->closeCursor(); 
+
+
+            return $array;
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }
+
+    }
+
+/////////////////////////////////////////////////////
+/* ADD USER * * * * * * * * * * * * * * * * * * */
 
 	//Retourne l'extension d'un fichier
 	public function getExtension($fichier){
