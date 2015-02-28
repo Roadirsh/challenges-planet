@@ -83,8 +83,7 @@ class CartController extends CoreController {
 
 
     /**
-     * Linked to : 
-     * model/CartModel.php
+     * Linked to :
      * view/cart/*.php
      * 
      * Here, you will have all informations needed to show up the first page of the cart
@@ -189,8 +188,7 @@ class CartController extends CoreController {
     }
 
     /**
-     * Linked to : 
-     * model/CartModel.php
+     * Linked to :
      * view/cart/*.php
      * 
      * Here, you will have all informations needed to show up the fourth page of the cart
@@ -219,8 +217,7 @@ class CartController extends CoreController {
     }
 
     /**
-     * Linked to : 
-     * model/CartModel.php
+     * Linked to :
      * view/addEvent.php
      * 
      * Here, you will have all informations needed to show up the third page of the cart

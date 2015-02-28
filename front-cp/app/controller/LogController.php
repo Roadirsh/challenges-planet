@@ -33,20 +33,16 @@ class LogController extends CoreController{
                 $this->corePage404();
             }
 
-
         } else {
-            // is their a session or not?
-            if (isset($_SESSION['user']) != '') {
-                $this->Login();
-            } else {
-                $this->coreRedirect('', 'login');
-            }
+            $this->Login();
         }
 
 	}
 	
 	/**
-     * home.php => fancybox
+     * Linked to : 
+     * model/LogModel.php
+     * view/home.php => lightbox
      *
      * @param Array $_POST
      */
@@ -93,8 +89,10 @@ class LogController extends CoreController{
 
 
 	/**
-     * home.php 
+     * Linked to :
+     * view/home.php
      *
+     * @param Array $_POST
      */
 	public function Logout(){
         $_SESSION['connect_compte_FRONT'] = false;
