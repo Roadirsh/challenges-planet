@@ -86,11 +86,12 @@ class SponsorController extends CoreController {
         
         $sponsors = $this->model = new SponsorModel();
         $OneSponsors = $sponsors->SeeOneSponsor($_GET['id']);
-        $OneSponsors = $sponsors->SeeOneSponsorGroup($_GET['id']);
+        $OneSponsorGroup = $sponsors->SeeOneSponsorGroup($_GET['id']);
 
         /* Construct the array to pass */
         $array = array();
         $array['sponsor'] = $OneSponsors;
+        $array['group'] = $OneSponsorGroup;
 
         /* Load the view */
         $this->load->view('sponsor', 'seeOneSponsor', $array);
