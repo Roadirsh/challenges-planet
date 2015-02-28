@@ -110,6 +110,26 @@ class CartController extends CoreController {
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "paiement");
 
+        $user = $this->model = new CartModel();
+        //Inscription + connexion
+        if(isset($_POST['user_password'])){
+	        $userExist = $user->insertNewUser();
+	        if($userExist){
+		        //$_SESSION['message'] = "L'utilisateur existe déjà !";
+		        //$this->Seeinfocart();
+	        }
+	        else{
+		        $array = "";
+		        $this->load->view('cart', 'paiement', $array);
+	        }
+	         
+        }
+        // Update
+        else if (isset($_POST['user_mail']))
+        {
+	    	$user->Uponeuser();
+        }
+
         $array = '';
         /* Load the view */
         $this->load->view('cart', 'paiement', $array); 

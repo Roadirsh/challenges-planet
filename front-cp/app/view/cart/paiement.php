@@ -31,7 +31,7 @@
 			</h2>
 			<div class="info-team clearfix">
 				<div class="img-team medium-2 columns">
-					<img src="<?php echo AVATAR . $_SESSION["donation_team_img"]; ?>" alt="">
+					<img src="<?php echo PROJECT . $_SESSION["donation_team_img"]; ?>" alt="">
 				</div>
 				<div class="medium-10 columns desc-team">
 					<span>Thank you to sponsorise this team !</span>
@@ -54,28 +54,13 @@
 			</div>
 
 			<form action="" class="means-payment">
+				
 				<div>
-					<input type="radio" name="payment" id="master-card">
-					<img src="img/credit/mastercard.png" alt="">
-				</div>
-				<div>
-					<input type="radio" name="payment" id="visa">
+					<input type="radio" name="payment" value="visa" id="visa">
 					<img src="img/credit/visa.png" alt="">
 				</div>
 				<div>
-					<input type="radio" name="payment" id="cirrus">
-					<img src="img/credit/cirrus.png" alt="">
-				</div>
-				<div>
-					<input type="radio" name="payment" id="american-express">
-					<img src="img/credit/american-express.png" alt="">
-				</div>
-				<div>
-					<input type="radio" name="payment" id="mestro">
-					<img src="img/credit/mestro.png" alt="">
-				</div>
-				<div>
-					<input type="radio" name="payment" id="american-express">
+					<input type="radio" name="payment" value="paypal" id="american-express">
 					<img src="img/credit/paypal2.png" alt="">
 				</div>				
 		
