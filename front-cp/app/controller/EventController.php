@@ -84,7 +84,7 @@ class EventController extends CoreController {
                 $_SESSION['messtype'] = 'default';
 
                 $addOk = 'ok';
-                //$this->coreRedirect('page', 'home');
+                $this->coreRedirect('connexion', 'signup');
             } else{
                 $_POST = null;
                 // initialization of the messages

@@ -38,9 +38,9 @@ class SponsorModel extends CoreModel{
                                                 where user_type = 'organisme'
                                                 and user_donut != 0");
            
-            $select -> execute();
-            $select -> setFetchMode(PDO::FETCH_ASSOC);
-            $array = $select -> FetchAll();
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $array = $select->FetchAll();
 
             $i = 0;
             foreach ($array as $key => $id) {
@@ -64,30 +64,68 @@ class SponsorModel extends CoreModel{
             
             
     	} catch (Exception $e) {
-            echo 'Message:' . $e -> getMessage();
+            echo 'Message:' . $e->getMessage();
         }
 	}
 
-    // public function SeeSponsorCountDonate() {
-        
-    //     try {
-    //         $select = $this->connexion->prepare("SELECT COUNT(donate_id) 
-    //                                             FROM " . PREFIX . "donate
-    //                                             WHERE " . PREFIX . "user_user_id = 220
-    //                                             ");
+/////////////////////////////////////////////////////
+/* SEE ONE SPONSORS * * * * * * * * * * * * * * * */
+
+    /**
+     * seeOneProject.php
+     * 
+     */
+    public function SeeOneSponsor($id) {
+
+        try {
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * 
+            */
+            $select = $this->connexion->prepare("SELECT *
+                                                FROM " . PREFIX . "user
+                                                WHERE user_type = 'organisme'
+                                                AND user_donut != 0
+                                                AND user_id = :id");
            
-    //         $select->bindValue(':id', $id, PDO::PARAM_INT);
-    //         $select->execute();
-    //         $select->setFetchMode(PDO::FETCH_ASSOC);
-    //         $Allsponsor = $select->FetchAll();
+            $select->bindValue(':id', $id, PDO::PARAM_INT);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $array = $select->FetchAll();
+
+            return $array[0];
             
-    //         //var_dump($Allsponsor);
-    //         return $Allsponsor;
-            
-            
-    //     } catch (Exception $e) {
-    //         echo 'Message:' . $e -> getMessage();
-    //     }
-    // }
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
     
+
+    /**
+     * seeOneProject.php
+     * 
+     */
+    public function SeeOneSponsorGroup($id) {
+
+        try {
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * 
+            */
+            $select = $this->connexion->prepare("SELECT *
+                                                FROM " . PREFIX . "donate A,
+                                                " . PREFIX . "group B
+                                                WHERE B.group_valid = 1
+                                                AND B.group_id = A.group_group_id
+                                                AND A.cp_user_user_id = :id ");
+           
+            $select->bindValue(':id', $id, PDO::PARAM_INT);
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $array = $select->FetchAll();
+
+            return $array;
+            
+        } catch (Exception $e) {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
 }

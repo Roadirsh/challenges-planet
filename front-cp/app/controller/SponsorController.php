@@ -69,6 +69,33 @@ class SponsorController extends CoreController {
 		$this->load->view('sponsor', 'seeSponsor', $array);
 	
 	}
+
+    /**
+     * seeSponsor.php
+     *
+     */
+    private function Seesonesponsor(){
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME . " sponsors");
+        define("PAGE_DESCR", SITE_NAME . " All our sponsors");
+        define("PAGE_ID", "seeSponsor");
+        
+        
+        $sponsors = $this->model = new SponsorModel();
+        $OneSponsors = $sponsors->SeeOneSponsor(220);
+        $OneSponsors = $sponsors->SeeOneSponsorGroup(220);
+
+        /* Construct the array to pass */
+        $array = array();
+        $array['sponsor'] = $OneSponsors;
+
+        /* Load the view */
+        $this->load->view('sponsor', 'seeOneSponsor', $array);
+    
+    }
 	
 	
 }
