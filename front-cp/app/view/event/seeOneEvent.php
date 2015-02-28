@@ -96,7 +96,7 @@
                         foreach ($done as $key => $done) { ?>
                         <div class="team-wrapper columns medium-4">
 	                        <div class="wrapper done">
-	                            <div class="img" style="background:url('<?php echo PROJECT . $done['group_img']; ?>'); background-position: left;background-size: cover;">
+	                            <div class="img" style="background:url('<?php echo PROJECT . $done['group_img']; ?>'); background-position: top left;background-size: cover;">
 	                                <div class="hover done">
 	                                    <span>It's done thank you !</span>
 	                                </div>
@@ -117,7 +117,7 @@
                         foreach ($groups as $key => $g) { ?>
                             <div class="team-wrapper columns medium-4">
                                 <div class="wrapper">
-                                    <div class="img" style="background:url('<?php echo PROJECT . $g['group_img']; ?>');">
+                                    <div class="img" style="background:url('<?php echo PROJECT . $g['group_img']; ?>'); background-position: top left;background-size: cover;">
                                         <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $g['group_id']; ?>" alt="" title="" >
                                             <!-- <img src="img/group/<?php echo $g['group_img']; ?>" alt=""> -->
                                             <div class="hover">

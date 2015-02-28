@@ -105,69 +105,80 @@
   border-radius: 5px;
   border: 1px solid #457383;
   font-weight: 600;
+  line-height: inherit;
+  font-size: 100%;
 }
-/* line 131, ../sass/cart.scss */
+/* line 133, ../sass/cart.scss */
 .cart .wrapper .join {
   color: #fff;
   padding: 5px 50px;
   border-radius: 5px;
   font-weight: 600;
+  line-height: inherit;
+  border: none;
+  font-size: 100%;
+  display: block;
+  margin: auto;
 }
-/* line 138, ../sass/cart.scss */
+/* line 145, ../sass/cart.scss */
 .cart .wrapper .bg {
   background: #f0efee;
   border-radius: 5px;
   height: 70px;
 }
-/* line 143, ../sass/cart.scss */
+/* line 150, ../sass/cart.scss */
 .cart .wrapper .bg h2 {
   line-height: 70px;
   color: #1a2129;
   margin: 0px 15px;
 }
-/* line 150, ../sass/cart.scss */
+/* line 157, ../sass/cart.scss */
 .cart .wrapper h2 {
   color: #88a83b;
   font-size: 18px;
   margin: 15px;
 }
-/* line 156, ../sass/cart.scss */
+/* line 163, ../sass/cart.scss */
 .cart .wrapper label {
   color: #1a2129;
   font-weight: 600;
 }
-/* line 162, ../sass/cart.scss */
+/* line 169, ../sass/cart.scss */
 .cart .wrapper .desc-team span {
   display: block;
 }
-/* line 167, ../sass/cart.scss */
+/* line 174, ../sass/cart.scss */
 .cart .wrapper .clearfix {
   margin-top: 15px;
 }
-/* line 171, ../sass/cart.scss */
+/* line 178, ../sass/cart.scss */
 .cart .wrapper .info-team {
   margin-bottom: 15px;
 }
-/* line 175, ../sass/cart.scss */
+/* line 184, ../sass/cart.scss */
+.cart .wrapper .mess span {
+  display: block;
+}
+/* line 189, ../sass/cart.scss */
 .cart .wrapper .bg {
   position: relative;
 }
-/* line 178, ../sass/cart.scss */
+/* line 192, ../sass/cart.scss */
 .cart .wrapper .bg div {
   font-size: 20px;
   text-align: right;
   line-height: 70px;
 }
-/* line 183, ../sass/cart.scss */
+/* line 197, ../sass/cart.scss */
 .cart .wrapper .bg div .price {
   margin-left: 10px;
   margin-right: 15px;
 }
-/* line 188, ../sass/cart.scss */
+/* line 202, ../sass/cart.scss */
 .cart .wrapper .bg div span {
   text-align: center;
 }
-/* line 193, ../sass/cart.scss */
+/* line 207, ../sass/cart.scss */
 .cart .wrapper .bg .before {
   position: absolute;
   top: 50%;
@@ -176,31 +187,26 @@
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
 }
-/* line 204, ../sass/cart.scss */
+/* line 218, ../sass/cart.scss */
 .cart .wrapper .confirmation .choose {
   text-align: left;
 }
-/* line 208, ../sass/cart.scss */
+/* line 222, ../sass/cart.scss */
 .cart .wrapper .confirmation .validate {
   text-align: right;
 }
-/* line 213, ../sass/cart.scss */
+/* line 227, ../sass/cart.scss */
 .cart .wrapper .means-payment {
   padding: 15px;
 }
-/* line 216, ../sass/cart.scss */
-.cart .wrapper .means-payment div {
-  display: inline-block;
-  margin-right: 30px;
-}
-/* line 223, ../sass/cart.scss */
+/* line 233, ../sass/cart.scss */
 .cart .wrapper .plus-info span {
   font-weight: 600;
   color: #1a2129;
   margin-bottom: 15px;
   display: inline-block;
 }
-/* line 230, ../sass/cart.scss */
+/* line 240, ../sass/cart.scss */
 .cart .wrapper .plus-info p {
   font-size: 13px;
 }

@@ -24,7 +24,7 @@
 	<h1 class="title-action">Confirmation</h1>
 	<div class="wrapper">
 		<div class="cart-contain">
-			<form action="index.php?module=cart&action=seesummary"  method="post" class="confirmation">
+			<form action="index.php?module=cart&action=seesummary"  method="post" class="confirmation clearfix">
 				<div class="bg"></div>
 				<h2 class="sponsorise-team">
 					You would to help <?php echo $_SESSION["donation_team"]; ?> for <?php echo $_SESSION["donation_event"]; ?>
@@ -74,8 +74,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="medium-6 columns validate">
-					<input type="submit" value="Validate" />
+				<div class="validate">
+					<input class="join" type="submit" value="Validate" />
 				</div>
 			</form>
 		</div>

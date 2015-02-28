@@ -103,28 +103,30 @@
 						</div>
 					</div><div class="clearfix">
 						<div class="medium-6 columns">
-							<label for="">Website</label>
-							<div>
-								<input type="text" name="user_site" value="<?php if(isset($data['user'][0]['user_site'])){ echo $data['user'][0]['user_site']; } ?>"  required >
-							</div>
-						</div>
-						<div class="medium-6 columns">
 							<label for="">Email</label>
 							<div>
 								<input type="text" name="user_mail" value="<?php if(isset($data['user'][0]['user_mail'])){ echo $data['user'][0]['user_mail']; } ?>" required >
 							</div>
 						</div>
-					</div>
-					<?php if(!isset($_SESSION['connect_compte_FRONT']) || $_SESSION['connect_compte_FRONT'] == false) {?>
-					<div class="clearfix">
-						<div class="medium-3 columns">
+						<?php if(!isset($_SESSION['connect_compte_FRONT']) || $_SESSION['connect_compte_FRONT'] == false) {?>
+						<div class="medium-6 columns">
 							<label for="">Password</label>
 							<div>
 								<input type="password" name="user_password">
 							</div>
 						</div>
+						<?php } ?>
 					</div>
-					<?php } ?>
+					
+					<div class="clearfix">
+						<div class="medium-6 columns">
+							<label for="">Website</label>
+							<div>
+								<input type="text" name="user_site" value="<?php if(isset($data['user'][0]['user_site'])){ echo $data['user'][0]['user_site']; } ?>"  required >
+							</div>
+						</div>
+					</div>
+					
 				<div class="bg">
 					<div>
 						<span>Total amount :</span>
@@ -134,7 +136,7 @@
 			</div>
 			<div class="clearfix">
 				<a href="<?php echo MODULE . 'cart' . ACTION . 'seeonecart'; ?>" class="before" >Precedent</a>
-				<input type="submit" value="Continue">
+				<input class="help" type="submit" value="Continue">
 			</div>
 		</form>
 	</div>

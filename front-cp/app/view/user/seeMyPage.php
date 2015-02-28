@@ -97,7 +97,7 @@
                             <?php foreach ($events as $key => $event) { ?>
                             <div class="medium-6 columns">
                                 <div class="wrapper clearfix event-profil">
-                                    <div class="medium-6 columns img" style="background:url('<?php echo EVENT . 'mini/' . $event['event_img']; ?>'); background-size: cover;" >
+                                    <div class="medium-6 columns img" style="background:url('<?php echo EVENT . 'mini/' . $event['event_img']; ?>'); background-size: cover; background-position: top right;" >
                                     </div>
 
                                     <div class="medium-6 columns">
@@ -117,7 +117,7 @@
                                     </div>
 
                                     <div class="medium-6 columns">
-                                        NOTHING BITCH
+                                        You haven't created an event yet !
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +125,36 @@
                     </div>
                 </div>
 
-                <div id="teams" class="tab clearfix">
+                <div id="teams" class=" tab clearfix">
+
+                    <div class="team-wrapper columns medium-4">
+                        <div class="wrapper">
+                            <div class="img" style="background:url(''); background-position: top left;background-size: cover;">
+                                <a href="" alt="" title="" >
+                                    <div class="hover">
+                                        <span>They need you<br>help them</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="title-team">LOL</div>
+                            <div class="date">Created on</div>
+                            <div class="progressteam">
+                                <div class="clearfix">
+                                    <div class="columns medium-4 small-4 numbers"><span> €</span><br>goals</div>
+                                    <div class="columns medium-4 small-4 funded"><span>  %</span><br>funded</div>
+                                    <div class="columns medium-4 small-4 daysleft">
+                                        <span>
+
+                                        </span>
+                                        <br>days left
+                                    </div>
+                                </div>
+                           
+                            <div data-percent="80" class="progress-team notyet"></div>
+                            </div>
+                        </div>
+                    </div>
                         
                         <?php if(isset($groups)){ ?>
                             <?php foreach ($groups as $key => $group) { ?>
@@ -143,7 +172,7 @@
                                 <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $group['group_id']; ?>"> >> link << </a>
                             <?php } ?>
                         <?php } else { ?>
-                            Sorry, nothing to show ! 
+                            You don't have a team yet ! 
                         <?php } ?>
 
                 </div>

@@ -252,9 +252,16 @@ $bg-color:		#f2efec;
 			.list-members {
 				li {
 					list-style: none;
+					margin-bottom: 10px;
 
 					a {
 						color: $color-dark;
+
+						img {
+							display: block;
+							margin:auto;
+							height: 109px;
+						}
 					}
 				}
 			}
@@ -304,6 +311,7 @@ $bg-color:		#f2efec;
 				text-align: center;
 				font-weight: 600;
 				display: block;
+				margin-top: 5px;
 			}
 		}
 	}

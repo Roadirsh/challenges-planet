@@ -48,30 +48,24 @@
 		</div>
 	</div>
 	<div class="wrapper info-payment">
-		<form action="index.php?module=cart&action=confirmation" method="post" class="means-payment">
+		<form action="index.php?module=cart&action=confirmation" method="post">
 
 			<div class="cart-contain">
 				<div class="bg">
 					<h2>Select your means of payment</h2>
-				</div>
-	
+				</div>	
 					
-					<div>
-						<input type="radio" name="payment" value="visa" id="visa" checked>
+					<div class="means-payment">
+						<input type="checkbox" name="payment" value="visa" id="visa" checked>
 						<img src="img/credit/visa.png" alt="">
-					</div>
-					<div>
-						<input type="radio" name="payment" value="paypal" id="american-express">
-						<img src="img/credit/paypal2.png" alt="">
-					</div>				
+					</div>			
 			
-	
 				<div class="bg">
 				</div>
-			</div><br/>
+			</div>
 			<div class="clearfix">
 				<a href="<?php echo MODULE . 'cart' . ACTION . 'seeinfocart'; ?>" class="before" >Precedent</a>
-				<input type="submit" value="Continue">
+				<input class="help" type="submit" value="Continue">
 			</div>
 		</form>
 	</div>

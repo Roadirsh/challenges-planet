@@ -1,4 +1,4 @@
-/* line 22, ../sass/profil.scss */
+/* line 21, ../sass/profil.scss */
 .see-user {
   padding: 15px;
   background-color: #e5ded8;
@@ -8,88 +8,88 @@
   /* Clearfix */
   /*----- Content of Tabs -----*/
 }
-/* line 28, ../sass/profil.scss */
+/* line 27, ../sass/profil.scss */
 .see-user .tabs {
   border: none;
 }
-/* line 34, ../sass/profil.scss */
+/* line 33, ../sass/profil.scss */
 .see-user .tab-links:after {
   display: block;
   clear: both;
   content: '';
 }
-/* line 40, ../sass/profil.scss */
+/* line 39, ../sass/profil.scss */
 .see-user .tab-links li {
   text-align: left;
 }
-/* line 44, ../sass/profil.scss */
+/* line 43, ../sass/profil.scss */
 .see-user .tab-links a {
   background: transparent;
   display: block;
   width: auto;
 }
-/* line 50, ../sass/profil.scss */
+/* line 49, ../sass/profil.scss */
 .see-user .tab-links a:hover {
   background: transparent;
 }
-/* line 55, ../sass/profil.scss */
+/* line 54, ../sass/profil.scss */
 .see-user li.active a, .see-user li.active a:hover {
   color: #4c4c4c;
 }
-/* line 60, ../sass/profil.scss */
+/* line 59, ../sass/profil.scss */
 .see-user .tab-content {
   padding: 15px;
   background: #f1f1f1;
   height: 100%;
 }
-/* line 66, ../sass/profil.scss */
+/* line 65, ../sass/profil.scss */
 .see-user .tab {
   display: none;
 }
-/* line 70, ../sass/profil.scss */
+/* line 69, ../sass/profil.scss */
 .see-user .tab.active {
   display: block;
 }
 
-/* line 81, ../sass/profil.scss */
+/* line 80, ../sass/profil.scss */
 .menu-profil ul {
   list-style: none;
   margin-top: 80px;
   margin-left: 10px;
   width: 100%;
 }
-/* line 87, ../sass/profil.scss */
+/* line 86, ../sass/profil.scss */
 .menu-profil ul .selected {
   border-left: 1px solid #818181;
 }
-/* line 89, ../sass/profil.scss */
+/* line 88, ../sass/profil.scss */
 .menu-profil ul .selected a {
   color: #818181;
 }
-/* line 94, ../sass/profil.scss */
+/* line 93, ../sass/profil.scss */
 .menu-profil ul li {
   margin-top: 15px;
   padding-left: 10px;
   width: 100%;
   border-left: 1px solid #478bb2;
 }
-/* line 100, ../sass/profil.scss */
+/* line 99, ../sass/profil.scss */
 .menu-profil ul li a {
   text-transform: uppercase;
   font-size: 16px;
 }
 
-/* line 108, ../sass/profil.scss */
+/* line 107, ../sass/profil.scss */
 .content-profil {
   position: relative;
 }
-/* line 111, ../sass/profil.scss */
+/* line 110, ../sass/profil.scss */
 .content-profil h1 {
   color: #88a83b;
   text-transform: uppercase;
   text-align: center;
 }
-/* line 117, ../sass/profil.scss */
+/* line 116, ../sass/profil.scss */
 .content-profil #circle {
   border-radius: 100%;
   background-color: transparent;
@@ -98,68 +98,68 @@
   overflow: hidden;
   display: inline-block;
 }
-/* line 126, ../sass/profil.scss */
+/* line 125, ../sass/profil.scss */
 .content-profil #circle img {
   height: 100%;
 }
-/* line 131, ../sass/profil.scss */
+/* line 130, ../sass/profil.scss */
 .content-profil h3 {
   color: #494949;
   margin-bottom: 0px;
 }
-/* line 136, ../sass/profil.scss */
+/* line 135, ../sass/profil.scss */
 .content-profil p {
   color: #818181;
   margin-bottom: 0;
 }
-/* line 141, ../sass/profil.scss */
+/* line 140, ../sass/profil.scss */
 .content-profil .school-profil {
   text-align: right;
 }
-/* line 145, ../sass/profil.scss */
+/* line 144, ../sass/profil.scss */
 .content-profil #location {
   margin-left: 15px;
 }
-/* line 148, ../sass/profil.scss */
+/* line 147, ../sass/profil.scss */
 .content-profil #location img {
   width: 10px;
 }
 
-/* line 154, ../sass/profil.scss */
+/* line 153, ../sass/profil.scss */
 .general-profil, #account {
   margin-top: 15px;
 }
-/* line 157, ../sass/profil.scss */
+/* line 156, ../sass/profil.scss */
 .general-profil .modif, #account .modif {
   text-decoration: underline;
   position: relative;
   float: left;
 }
-/* line 164, ../sass/profil.scss */
+/* line 163, ../sass/profil.scss */
 .general-profil .first-info p, #account .first-info p {
   font-weight: bold;
 }
-/* line 169, ../sass/profil.scss */
+/* line 168, ../sass/profil.scss */
 .general-profil .event-profil, #account .event-profil {
   padding: 5px;
   background-color: white;
 }
-/* line 173, ../sass/profil.scss */
+/* line 172, ../sass/profil.scss */
 .general-profil .event-profil img, #account .event-profil img {
   width: 100%;
 }
-/* line 177, ../sass/profil.scss */
+/* line 176, ../sass/profil.scss */
 .general-profil .event-profil div, #account .event-profil div {
   padding: 0;
   text-align: center;
 }
-/* line 181, ../sass/profil.scss */
+/* line 180, ../sass/profil.scss */
 .general-profil .event-profil span, #account .event-profil span {
   display: block;
   font-size: 13px;
   color: #adadad;
 }
-/* line 186, ../sass/profil.scss */
+/* line 185, ../sass/profil.scss */
 .general-profil .event-profil .button-submit, #account .event-profil .button-submit {
   font-size: 14px;
   width: 95%;
@@ -167,4 +167,194 @@
   background-color: #478bb2;
   margin-left: 8px;
   margin-top: 5px;
+}
+
+/* line 196, ../sass/profil.scss */
+#teams {
+  margin-top: 35px;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 196, ../sass/profil.scss */
+  #teams {
+    background-color: #e5ded8;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+}
+/* line 206, ../sass/profil.scss */
+#teams h2 {
+  margin-bottom: 35px;
+}
+/* line 210, ../sass/profil.scss */
+#teams .done {
+  background-color: transparent !important;
+}
+/* line 214, ../sass/profil.scss */
+#teams .wrapper {
+  border: 1px solid #d6d6d6;
+  position: relative;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+/* line 221, ../sass/profil.scss */
+#teams .wrapper .img {
+  position: relative;
+  cursor: pointer;
+  height: 240px;
+}
+/* line 226, ../sass/profil.scss */
+#teams .wrapper .img .done {
+  background-color: rgba(136, 168, 59, 0.7) !important;
+}
+/* line 230, ../sass/profil.scss */
+#teams .wrapper .img .hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(71, 139, 178, 0.7);
+  opacity: 0;
+  color: #fff;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  height: 100%;
+  width: 100%;
+}
+/* line 243, ../sass/profil.scss */
+#teams .wrapper .img .hover span {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 15px;
+  transform: translatey(-50%) translatex(-50%);
+  -webkit-transform: translatey(-50%) translatex(-50%);
+  -moz-transform: translatey(-50%) translatex(-50%);
+  -ms-transform: translatey(-50%) translatex(-50%);
+}
+/* line 259, ../sass/profil.scss */
+#teams .wrapper .img img {
+  width: 100%;
+  max-height: 328px;
+}
+/* line 265, ../sass/profil.scss */
+#teams .wrapper .title-team {
+  font-family: "roboto_slabbold";
+  text-align: center;
+  margin: 10px 0px;
+  text-transform: uppercase;
+}
+/* line 272, ../sass/profil.scss */
+#teams .wrapper .chief-team, #teams .wrapper .date {
+  font-size: 13px;
+  color: #adadad;
+}
+/* line 277, ../sass/profil.scss */
+#teams .wrapper .date {
+  margin-bottom: 10px;
+}
+/* line 281, ../sass/profil.scss */
+#teams .wrapper .progressteam {
+  text-align: center;
+  position: relative;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+/* line 287, ../sass/profil.scss */
+#teams .wrapper .progressteam:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #d6d6d6;
+}
+/* line 297, ../sass/profil.scss */
+#teams .wrapper .progressteam .validate {
+  background-image: url(../img/checked.png);
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+}
+/* line 304, ../sass/profil.scss */
+#teams .wrapper .progressteam .daysleft {
+  display: inline-block;
+  color: #1a2129;
+  line-height: 16px;
+  font-size: 10px;
+}
+/* line 310, ../sass/profil.scss */
+#teams .wrapper .progressteam .daysleft span {
+  font-weight: bold;
+  font-size: 20px;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 310, ../sass/profil.scss */
+  #teams .wrapper .progressteam .daysleft span {
+    font-size: 15px;
+  }
+}
+/* line 320, ../sass/profil.scss */
+#teams .wrapper .progressteam .number {
+  display: inline-block;
+  line-height: 16px;
+  text-align: left;
+  color: #88a83b;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+/* line 328, ../sass/profil.scss */
+#teams .wrapper .progressteam .number span {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+/* line 335, ../sass/profil.scss */
+#teams .wrapper .progressteam .numbers, #teams .wrapper .progressteam .funded {
+  display: inline-block;
+  line-height: 16px;
+  text-align: center;
+  color: #88a83b;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+/* line 343, ../sass/profil.scss */
+#teams .wrapper .progressteam .numbers span, #teams .wrapper .progressteam .funded span {
+  font-weight: bold;
+  font-size: 20px;
+}
+@media only screen and (min-width: 56.813em) {
+  /* line 343, ../sass/profil.scss */
+  #teams .wrapper .progressteam .numbers span, #teams .wrapper .progressteam .funded span {
+    font-size: 15px;
+  }
+}
+/* line 353, ../sass/profil.scss */
+#teams .wrapper .progressteam .funded {
+  color: #478bb2;
+}
+/* line 359, ../sass/profil.scss */
+#teams .wrapper .progressteam .good .ui-widget-header {
+  background-color: #88a83b;
+}
+/* line 365, ../sass/profil.scss */
+#teams .wrapper .progressteam .notyet .ui-widget-header {
+  background-color: #818181;
+}
+/* line 370, ../sass/profil.scss */
+#teams .wrapper .progressteam .ui-progressbar {
+  height: 12px;
+}
+/* line 374, ../sass/profil.scss */
+#teams .wrapper .progressteam .ui-progressbar .ui-progressbar-value {
+  margin: 0px;
+}
+/* line 378, ../sass/profil.scss */
+#teams .wrapper .progressteam .ui-widget-header {
+  border: none;
 }

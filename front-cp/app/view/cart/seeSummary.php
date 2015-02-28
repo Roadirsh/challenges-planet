@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			<div class="bg">
-				<div>
+				<div class="mess">
 					<span>You will receive a mail of your payment soon !</span>
 				</div>
 			</div>

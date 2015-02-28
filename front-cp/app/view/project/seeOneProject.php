@@ -133,11 +133,11 @@
 								</span><br/>Days
 							</span>
 						</div>
-						<div class="progress-team notyet" data="<?php echo $percent; ?>"></div>
+						<div class="progress-team notyet" data-percent="<?php echo $percent; ?>"></div>
 						<?php if($percent != 100){ ?>
 							<a href="#choose" class="popup-with-form button help">Help them !</a>
 						<?php } else { ?>
-							<a href="" class="popup-with-form button help">Thank you !</a>
+							<a href="" class="popup-with-form button join">Thank you !</a>
 						<?php } ?>
 					</div>
 				</div>
@@ -163,7 +163,7 @@
 									<p class="desc">
 										<ul class="list-members clearfix">
 										<?php foreach ($users as $key => $user) { ?>
-											<li class="medium-4 columns">
+											<li class="medium-4 small-6 columns">
 												<a href="">
 													<img src="<?php echo AVATAR . $user['user_profil_pic']; ?>" alt="">
 													<span class="name-user"><?php echo $user['user_pseudo']; ?></span>

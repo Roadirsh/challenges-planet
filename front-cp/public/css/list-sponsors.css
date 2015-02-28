@@ -9,6 +9,10 @@
   margin: auto;
 }
 /* line 31, ../sass/list-sponsors.scss */
+.list-sponsors .wrapper-list {
+  margin-top: 30px;
+}
+/* line 35, ../sass/list-sponsors.scss */
 .list-sponsors h1 {
   color: #1a2129;
   text-transform: uppercase;
@@ -16,19 +20,19 @@
   font-size: 29px;
   font-family: "franklin_gothic_fsdemi";
 }
-/* line 39, ../sass/list-sponsors.scss */
+/* line 43, ../sass/list-sponsors.scss */
 .list-sponsors .wrapper {
   background: #fff;
   border: 1px solid #d6d6d6;
   margin-bottom: 15px;
   padding: 10px;
 }
-/* line 45, ../sass/list-sponsors.scss */
+/* line 49, ../sass/list-sponsors.scss */
 .list-sponsors .wrapper .img {
   height: 240px;
   position: relative;
 }
-/* line 49, ../sass/list-sponsors.scss */
+/* line 53, ../sass/list-sponsors.scss */
 .list-sponsors .wrapper .img .hover {
   position: absolute;
   top: 0;
@@ -42,7 +46,7 @@
   height: 100%;
   width: 100%;
 }
-/* line 62, ../sass/list-sponsors.scss */
+/* line 66, ../sass/list-sponsors.scss */
 .list-sponsors .wrapper .img .hover span {
   font-weight: bold;
   text-align: center;
@@ -57,7 +61,7 @@
   -moz-transform: translatey(-50%) translatex(-50%);
   -ms-transform: translatey(-50%) translatex(-50%);
 }
-/* line 79, ../sass/list-sponsors.scss */
+/* line 83, ../sass/list-sponsors.scss */
 .list-sponsors .wrapper .name-user {
   color: #1a2129;
   font-weight: 600;
@@ -65,14 +69,14 @@
   text-align: center;
   margin-top: 10px;
 }
-/* line 87, ../sass/list-sponsors.scss */
+/* line 91, ../sass/list-sponsors.scss */
 .list-sponsors .wrapper .number-team {
   text-align: center;
   display: block;
   color: #adadad;
   font-size: 15px;
 }
-/* line 93, ../sass/list-sponsors.scss */
+/* line 97, ../sass/list-sponsors.scss */
 .list-sponsors .wrapper .number-team span {
   font-weight: 600;
 }
