@@ -81,7 +81,12 @@ class SponsorModel extends CoreModel{
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $sponsor = $select->FetchAll();
 
-            $retour = $sponsor[0];
+            if(isset($sponsor[0])){
+                $retour = $sponsor[0];
+            } else{
+                $retour = $sponsor;
+            }
+            
 
             if(!empty($sponsor)){
 

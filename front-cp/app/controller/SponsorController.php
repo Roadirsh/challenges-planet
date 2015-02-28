@@ -80,7 +80,7 @@ class SponsorController extends CoreController {
      * 
      * @param INT GET ID
      */
-    private function Seesoneponsor(){
+    private function Seeonesponsor(){
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>

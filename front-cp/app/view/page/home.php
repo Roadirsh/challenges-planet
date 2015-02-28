@@ -141,7 +141,7 @@
 		    <?php if(isset($data['sponsor']) && !empty($data['sponsor']) ){ ?>
     		    
     		    <?php foreach($sponsor as $k => $s){ ?>
-    			<a href="<?php echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">
+    			<a href="<?php echo MODULE . 'sponsor' . ACTION . 'seeonesponsor' . ID . $s['user_id']; ?>">
                     <div class="medium-4 large-3 columns sponsor-wrapper">
         				<div class="wrapper">
                             <div class="img">
@@ -151,7 +151,7 @@
                                 </div>
                             </div>
         					<!-- <a class="website" href="<?php echo $s['user_site']; ?>" target="blank">Go their website</a>
-        					<a class="help sponsored" href="<?php echo MODULE . 'sponsor' . ACTION . 'sponsoredevent' . ID . $s['user_id']; ?>">View events sponsored</a> -->
+        					<a class="help sponsored" href="<?php echo MODULE . 'sponsor' . ACTION . 'seeonesponsor' . ID . $s['user_id']; ?>">View events sponsored</a> -->
         				</div>
     			    </div>
     			<?php } ?>
@@ -174,7 +174,7 @@
 </div>
 
 <!--  /* * * * * * * * * * * * * * * * * * * * * * * *
-* FOR DEVELOPERS ONLY, TAPE top top down down left right left right down => PRIVATE JOKE 
+* FOR DEVELOPERS ONLY, TAPE top top down down left right left right down b a=> PRIVATE JOKE 
 */ -->
 <audio src="../../front-cp/public/img/user.mp3" style="" id="hoverSound">
 		Your browser does not support the audio element.

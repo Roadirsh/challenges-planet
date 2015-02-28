@@ -93,7 +93,7 @@
 							<?php $i = 0; ?>
 							<?php if($i < 3){
 								foreach ($sponsors as $key => $spon) { ?>
-									<a class="columns medium-6" href="">
+									<a class="columns medium-6" href="<?php echo MODULE . 'sponsor' . ACTION . 'seeonesponsor' . ID . $spon['user_id']; ?>">
 										<img src="<?php echo AVATAR . $spon['user_profil_pic']; ?>" alt="">
 									</a>
 								<?php $i ++; } ?>
@@ -164,7 +164,7 @@
 										<ul class="list-members clearfix">
 										<?php foreach ($users as $key => $user) { ?>
 											<li class="medium-4 columns">
-												<a href="">
+												<a href="<?php echo MODULE . 'user' . ACTION . 'seeoneuser' . ID . $user['user_id']; ?>">
 													<img src="<?php echo AVATAR . $user['user_profil_pic']; ?>" alt="">
 													<span class="name-user"><?php echo $user['user_pseudo']; ?></span>
 												</a>

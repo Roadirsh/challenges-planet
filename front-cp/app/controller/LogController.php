@@ -164,16 +164,16 @@ class LogController extends CoreController{
     /**
      * TODO
      */
-    public function FacebookLogin(){
-        $appID = '1032282680121355';
-        $appSecret = 'd23586cd9525f8fcdfc8b96bf6eb2985';
+    // public function FacebookLogin(){
+    //     $appID = '1032282680121355';
+    //     $appSecret = 'd23586cd9525f8fcdfc8b96bf6eb2985';
 
-        $connect = new FacebookConnect($appID, $appSecret);
+    //     $connect = new FacebookConnect($appID, $appSecret);
 
-        $user = $connect->connect('http://localhost:8888/challenges-planet/front-cp/public/index.php');
+    //     $user = $connect->connect('http://localhost:8888/challenges-planet/front-cp/public/index.php');
 
-        var_dump($user);
-    }
+    //     var_dump($user);
+    // }
 
 
 }
