@@ -11,13 +11,9 @@
 
 /**
  * SEE SPONSOR
+ * SEE ONE SPONSOR
  */
 class SponsorModel extends CoreModel{
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * */
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * */
-	
 	/**
 	 * Constructor
 	 */
@@ -27,6 +23,13 @@ class SponsorModel extends CoreModel{
 	
 /////////////////////////////////////////////////////
 /* SEE SPONSORS * * * * * * * * * * * * * * * * * * */
+
+    /**
+     * Linked to : 
+     * controller/SponsorController.php
+     * view/seeSponsor.php
+     * 
+     */
 	public function Seesponsor() {
     	
     	try {
@@ -59,15 +62,14 @@ class SponsorModel extends CoreModel{
 /* SEE ONE SPONSORS * * * * * * * * * * * * * * * */
 
     /**
-     * seeOneProject.php
+     * Linked to : 
+     * controller/SponsorController.php
+     * view/seeSOneSponsor.php
      * 
      */
     public function SeeOneSponsor($id) {
 
         try {
-            /* * * * * * * * * * * * * * * * * * * * * * * *
-            * 
-            */
             $select = $this->connexion->prepare("SELECT *
                                                 FROM " . PREFIX . "user
                                                 WHERE user_type = 'organisme'
@@ -123,15 +125,14 @@ class SponsorModel extends CoreModel{
     
 
     /**
-     * seeOneProject.php
+     * Linked to : 
+     * controller/SponsorController.php
+     * view/seeSponsor.php
      * 
      */
     public function SeeOneSponsorGroup($id) {
 
         try {
-            /* * * * * * * * * * * * * * * * * * * * * * * *
-            * 
-            */
             $select = $this->connexion->prepare("SELECT *
                                                 FROM " . PREFIX . "donate A,
                                                 " . PREFIX . "group B

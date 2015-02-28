@@ -11,7 +11,9 @@
 
 /**
  * SEE SPONSOR
+ * SEE ONE SPONSOR
  */
+
 /* Global Library */
 include("../lib/pagination.php");
 class SponsorController extends CoreController {
@@ -33,19 +35,16 @@ class SponsorController extends CoreController {
             }
 
 		} else {
-			// is their a session or not?
-			if(isset($_SESSION['user']) != ''){
-				$this->Seesponsor();
-			} else {
-				$this->coreRedirect('user', 'login');
-			}
+			$this->Seesponsor();
 		}
 	}
 
 
 	/**
-     * seeSponsor.php
-     *
+     * Linked to : 
+     * model/SponsorModel.php
+     * view/seesponsor.php
+     * 
      */
 	private function Seesponsor(){
 
@@ -71,8 +70,11 @@ class SponsorController extends CoreController {
 	}
 
     /**
-     * seeSponsor.php
-     *
+     * Linked to : 
+     * model/SponsorModel.php
+     * view/seesponsor.php
+     * 
+     * @param INT GET ID
      */
     private function Seesoneponsor(){
 
