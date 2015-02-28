@@ -45,6 +45,8 @@ class SponsorController extends CoreController {
      * model/SponsorModel.php
      * view/seesponsor.php
      * 
+     * Here you will find all the gets of sponsors
+     * 
      */
 	private function Seesponsor(){
 
@@ -73,6 +75,8 @@ class SponsorController extends CoreController {
      * Linked to : 
      * model/SponsorModel.php
      * view/seesponsor.php
+     * 
+     * Here you will finds all the informations about one sponsor
      * 
      * @param INT GET ID
      */

@@ -11,12 +11,9 @@
 
 /**
  * SEE ONE USER
+ * MY PAGE
  */ 
 class UserModel extends CoreModel{
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * */
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
 	 * Constructor
@@ -30,7 +27,9 @@ class UserModel extends CoreModel{
 /* MY PROFILE * * * * * * * * * * * * * * * * * * */
 
     /**
-     * seeOneUser.php
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
      * 
      * All information about one user
      * 
@@ -112,7 +111,9 @@ class UserModel extends CoreModel{
     }
 
     /**
-     * seeOneUser.php
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
      * 
      * All information about one user
      * 
@@ -143,7 +144,9 @@ class UserModel extends CoreModel{
     }
 
     /**
-     * seeOneUser.php
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
      * 
      * All information about one user
      * 
@@ -182,7 +185,9 @@ class UserModel extends CoreModel{
 /* MY PROFILE * * * * * * * * * * * * * * * * * * */
 
     /**
-     * seeOneUser.php
+     * Linked to : 
+     * controller/UserController.php
+     * view/seeoneuser.php
      * 
      * All information about one user
      * 
@@ -252,7 +257,9 @@ class UserModel extends CoreModel{
     }
 
     /**
-     * seeOneUser.php
+     * Linked to : 
+     * controller/UserController.php
+     * view/seeoneuser.php
      * 
      * All information about one user
      * 
@@ -283,7 +290,9 @@ class UserModel extends CoreModel{
     }
 
     /**
-     * seeOneUser.php
+     * Linked to : 
+     * controller/UserController.php
+     * view/seeoneuser.php
      * 
      * All information about one user
      * 
@@ -320,20 +329,26 @@ class UserModel extends CoreModel{
 /////////////////////////////////////////////////////
 /* ADD USER * * * * * * * * * * * * * * * * * * */
 
-	//Retourne l'extension d'un fichier
+	// Get ext files
 	public function getExtension($fichier){
 		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
 		return $extension_upload;
 	}
 	
 	/**
-	 * Déplacement du fichier de l'emplacement tmp  vers le bon emplacement serveur
-	 */
+     * Linked to : 
+     * controller/EventController.php
+     * Signup
+     * 
+     * Add a event into the Database
+     * 
+     * @param Array = $_POST as $post
+     */
     public function upload($index, $destination)
 	{
 		
 		$extension = $this->getExtension($destination);
-		//Déplacement
+		//move
 	   move_uploaded_file($index,$destination);
 		if($extension=="jpg" || $extension=="jpeg" )
 		{
