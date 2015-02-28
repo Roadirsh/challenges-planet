@@ -87,8 +87,16 @@ class CartController extends CoreController {
         define("PAGE_TITLE", SITE_NAME);
         define("PAGE_DESCR", SITE_NAME);
         define("PAGE_ID", "seeinfocart");
-
-        $array = '';
+        
+        $user = $this->model = new CartModel();
+        
+		if(isset($_SESSION['cp_userID']))
+		{
+        	$array = $user->getInfoUser($_SESSION['cp_userID']);
+        }
+        else{
+	        $array = "";
+        }
         /* Load the view */
         $this->load->view('cart', 'seeinfocart', $array); 
 

@@ -98,6 +98,7 @@ class LogController extends CoreController{
      */
 	public function Logout(){
         $_SESSION['connect_compte_FRONT'] = false;
+        unset($_SESSION['cp_userID'], $_SESSION['cp_userPseudo'], $_SESSION['cp_user']);
 		//session_unset('ChallengesPlanet');
 		$this->coreRedirect('page', 'home');
 	}

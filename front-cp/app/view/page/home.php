@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION['message']) && !empty($_SESSION['message'])){ ?>
     <div class="message <?php echo $_SESSION['messtype']; ?>"><?php echo $_SESSION['message']; ?></div>
-<?php } $_SESSION['message'] = null; ?>w
+<?php } $_SESSION['message'] = null; ?>
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
 <?php if(isset($_SESSION['message']) && !empty($_SESSION['message'])){ $message = $_SESSION['message']; }?>

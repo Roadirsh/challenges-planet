@@ -31,7 +31,7 @@
 			</h2>
 			<div class="info-team clearfix">
 				<div class="img-team medium-2 columns">
-					<img src="<?php echo AVATAR . $_SESSION["donation_team_img"]; ?>" alt="">
+					<img src="<?php echo PROJECT . $_SESSION["donation_team_img"]; ?>" alt="">
 				</div>
 				<div class="medium-10 columns desc-team">
 					<span>Thank you to sponsorise this team !</span>
