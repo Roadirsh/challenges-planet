@@ -12,13 +12,13 @@
  * SEE EVENTS
  * FILTER EVENTS
  * SEE ONE EVENT
+ * JSON FOR MOBILE APPLICATION
  */
 class EventModel extends CoreModel{
     /* * * * * * * * * * * * * * * * * * * * * * * * * */
-    /* ADD EVENT */
+        // ADD EVENT
         private $Allevents;
-    /* SEE EVENT */
-    /* SEARCH */
+
     /* * * * * * * * * * * * * * * * * * * * * * * * * */
     /**
      * Constructor
@@ -29,8 +29,11 @@ class EventModel extends CoreModel{
     
 /////////////////////////////////////////////////////
 /* ADD EVENT * * * * * * * * * * * * * * * * * * * */
+
     /**
-     * addEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/addEvent.php
      * 
      * 4 events that a user can join
      */
@@ -60,7 +63,10 @@ class EventModel extends CoreModel{
     }
     
     /**
-     * addEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/addEvent.php
+     * `public function uplaod($index, $destination, $img)`
      * 
      * Add a event into the Database
      * 
@@ -108,11 +114,12 @@ class EventModel extends CoreModel{
     }
 
     /**
-     * addEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/addEvent.php
+     * `public function insertNewEvent($post)`
      * 
      * Add the image into the Database
-     * 
-     * Linked to the `public function insertNewEvent($post)`
      * 
      * @param String $destination
      * @param String $img
@@ -171,8 +178,11 @@ class EventModel extends CoreModel{
 /* SEE EVENT * * * * * * * * * * * * * * * * * * * */
 
     /**
-     * seeEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeEvent.php
      * 
+     * Count how many event there are
      */
     public function CountEvent() {
         
@@ -194,10 +204,12 @@ class EventModel extends CoreModel{
     }
 
     /**
-     * seeEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeEvent.php
+     * `public function EventTeamNB($str)`
      * 
      * Show all the event (7 per page)
-     * Linked to the `public function EventTeamNB($str)`
      */
     public function SeeEvent($page = null) {
 
@@ -228,13 +240,16 @@ class EventModel extends CoreModel{
     }
 
     /**
-     * seeEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeEvent.php
+     * `public function EventTeamNB($str)`
      * 
      * Show all the event (7 per page)
-     * Linked to the `public function EventTeamNB($str)`
      */
     public function SeeEventTeamNB($eID, $page = null) {
         
+        // PAGINATION
         if($page <= 0){
             $page = 2;
         }
@@ -255,11 +270,8 @@ class EventModel extends CoreModel{
                                                     AND A.group_valid = 1 
                                                     AND C.event_event_id = :id
                                                     GROUP BY B.group_group_id 
-                                                    HAVING total <= A.group_money
-                                                    ");
+                                                    HAVING total <= A.group_money");
 
-                // $select->bindValue(':debut', $debut, PDO::PARAM_INT);
-                // $select->bindValue(':limit', $limit, PDO::PARAM_INT);
                 $select->bindValue(':id', $eID['event_id'], PDO::PARAM_INT);
                 $select->execute();
                 $select->setFetchMode(PDO::FETCH_ASSOC); 
@@ -279,15 +291,18 @@ class EventModel extends CoreModel{
     }
 
     /**
-     * seeEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeEvent.php
+     * `public function EventTeamNB($str)`
      * 
      * Filter Kind of race
-     * Linked to the `public function EventTeamNB($str)`
      * 
      * @param Array $post // Type of race
      */
     public function SeeFiltreEventType($post, $page = null){
 
+        // PAGINATION
         if($page <= 0){
             $page = 2;
         }
@@ -317,10 +332,12 @@ class EventModel extends CoreModel{
     }
     
     /**
-     * seeEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeEvent.php
+     * `public function EventTeamNB($str)`
      * 
-     * Filter Date of begin 
-     * Linked to the `public function EventTeamNB($str)`
+     * Filter Date of begin
      * 
      * @param Array $post // Beginning of race
      */
@@ -369,10 +386,12 @@ class EventModel extends CoreModel{
     }
     
     /**
-     * seeEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeEvent.php
+     * `public function EventTeamNB($str)`
      * 
      * Filter by number of teams
-     * Linked to the `public function EventTeamNB($str)`
      * 
      * @param Array $post // Number of teams for all the events
      */
@@ -448,9 +467,14 @@ class EventModel extends CoreModel{
     }
 /////////////////////////////////////////////////////
 /* SEARCH * * * * * * * * * * * * * * * * * * * * * */
+
     /**
-     * Search Event
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeEvent.php
      *
+     * Search for an event
+     * 
      * @param Array $_POST
      */
     public function SearchByEvent($post, $page = null) {
@@ -478,7 +502,7 @@ class EventModel extends CoreModel{
         $sql = array();
         foreach($expSearch as $phrase) {
             // var_dump($phrase); exit;
-            //$adv->blacklist
+
             if(!in_array(strtolower($phrase), $adv)) { 
                 // EVENT TABLE BDD
                 $sql[] = " event_name LIKE '%" . addslashes($phrase) . "%' ";
@@ -528,7 +552,11 @@ class EventModel extends CoreModel{
 
     }
     /**
-     * Search Project
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeEvent.php
+     *
+     * Search for a project
      *
      * @param array $_POST
      */
@@ -614,10 +642,12 @@ class EventModel extends CoreModel{
 /* SEE ONE EVENT * * * * * * * * * * * * * * * * * */
     
     /**
-     * seeEvent.php
-     * 
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeOneEvent.php
+     * `public function SeeOneEvent()`
+     *
      * Filter Kind of race
-     * Linked to the `public function SeeOneEvent()`
      * 
      * @param INT event ID  
      */
@@ -645,8 +675,9 @@ class EventModel extends CoreModel{
     }
 
     /**
-     * seeEvent.php
-     * 
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeOneEvent.php
      * 
      * @param Array Groups ID  
      */
@@ -701,7 +732,9 @@ class EventModel extends CoreModel{
     }
 
     /**
-     * seeEvent.php
+     * Linked to : 
+     * controller/EventController.php
+     * view/seeOneEvent.php
      * 
      * 
      * @param Array Groups ID  
@@ -743,7 +776,9 @@ class EventModel extends CoreModel{
     }
 
     /**
-     * mobile application
+     * Linked to : 
+     * model/EventModel.php
+     * MOBILE APPLICATION
      *
      */
     public function getEventJSON() {
@@ -766,16 +801,10 @@ class EventModel extends CoreModel{
         }
     }
     
-    //Retourne l'extension d'un fichier
+    // Return the file ext
     public function getExtension($fichier){
 		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
 		return $extension_upload;
 	}
-	
-	/**
-	 * Déplacement du fichier de l'emplacement tmp vers le bon emplacement serveur 
-	 * $index = tmp
-     * $img = emplacement serveur pour le slider. ("EVENT . 'slider/' . $img" par exemple)
-	 */
-    
+
 }

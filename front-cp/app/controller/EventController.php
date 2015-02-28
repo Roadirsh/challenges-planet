@@ -14,8 +14,10 @@
  * SEE EVENTS
  * FILTER EVENTS
  * SEE ONE EVENT
+ * JSON FOR MOBILE APPLICATION
  */
-/* Global Library */
+
+/* Global Pagination Library */
 include("../lib/pagination.php");
 
 class EventController extends CoreController {
@@ -38,20 +40,22 @@ class EventController extends CoreController {
             
 
 		} else {
-			// is their a session or not?
-			if(isset($_SESSION['user']) != ''){
-				$this->Seeevent();
-			} else {
-				$this->coreRedirect('user', 'login');
-			}
+			$this->Seeevent();
 		}
 	}
 
 	
 	/**
-     * addEvent.php
+     * Linked to : 
+     * model/EventModel.php
+     * view/addEvent.php
+     * 
+     * On this part you will manage all what's consern an add of a event. 
+     * You have two kinds of form: CREATE & JOIN
+     * The view, requires data and propose a research function. 
      *
      * @param Array $_POST
+     * @param Array Messages
      */
 	private function Addevent(){
 
@@ -68,7 +72,6 @@ class EventController extends CoreController {
         * Get 4 events, randomly, to join as a user
         */
         $SeeEvent = $event->SeeTopEvent();
-        //var_dump($SeeEvent);
         
         /* * * * * * * * * * * * * * * * * * * * * * * * 
         * FORM CREATE && SEARCH 
@@ -111,16 +114,21 @@ class EventController extends CoreController {
 		$array['topevent'] = $SeeEvent;
 
         /* Load the view */
-
         $this->load->view('event', 'addEvent', $array); // TODO
 
 	
 	}
 
 	/**
-     * seeEvent.php
+     * Linked to : 
+     * model/EventModel.php
+     * view/seeevent.php
+     * 
+     * Here you will find all what's relative to the the page who show all events. 
+     * There is also a filter option. 
      *
      * @param Array $_POST
+     * @param GET 'page'
      */
 	private function Seeevent(){
 
@@ -133,6 +141,9 @@ class EventController extends CoreController {
         
 		$events = $this->model = new EventModel();
 		
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * PAGINATION
+        */
 		$array = array();
         if(!isset($_GET['page'])){
             $_GET['page'] = 1;
@@ -209,9 +220,16 @@ class EventController extends CoreController {
 	}
 	
     /**
-     * seeOneEvent.php
+     * Linked to : 
+     * model/EventModel.php
+     * view/seeOneEvent.php
+     * 
+     * Here you will find all what's relative to ONE and only ONE event.
+     * There are also the project linked to this event. 
+     * To manage the projects, you will find a filter option
      *
      * @param Array $_POST
+     * @param GET 'id'
      */
     private function seeOneEvent(){
 
@@ -266,7 +284,7 @@ class EventController extends CoreController {
         }
 
         /* Construct the array to pass */
-        // var_dump($array);
+        // nothing else .. 
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
@@ -282,7 +300,11 @@ class EventController extends CoreController {
     
     
 	/**
-     * mobile application
+     * Linked to : 
+     * model/EventModel.php
+     * MOBILE APPLICATION
+     * 
+     * Here you will find the JSON construction for the mobile application
      *
      */
 	public function Eventjson(){
