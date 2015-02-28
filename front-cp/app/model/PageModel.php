@@ -108,7 +108,7 @@ class PageModel extends CoreModel{
     
         try {
             $select = $this->connexion->prepare("SELECT sum(donate_amount) as needed
-                                                FROM cp_donate 
+                                                FROM " . PREFIX . "donate 
                                                 WHERE group_group_id = :groupID");
 
             $select->bindValue(':groupID', $groupID, PDO::PARAM_INT);
