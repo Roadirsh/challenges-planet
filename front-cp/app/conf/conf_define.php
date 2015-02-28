@@ -7,17 +7,17 @@
  * @copyright 	L&G
  */
 
-// Vers le dossier app global
+// To the global directory
 	define("ROOT", '../app/');
-// Vers le Model principal
+// To the principal Model
 	define("MODEL", '../core/Model/');
 // Index.php
 	define("INDEX", 'index.php?');
-// Nom du site web
+// Web site's name
 	define("SITE_NAME", 'Challenges Planet');
-// PREFIXE des tables de la BDD
+// PREFIXE of DB
 	define("PREFIX", 'cp_');
-// URL de dev
+// dev URL
     define("DEV", 'ns366377.ovh.net');
 // MODULE
     define("MODULE", 'index.php?module=');
@@ -29,21 +29,21 @@
     define("PAGE", '&amp;page=');
 // MESSAGES
     define("MESS", '&amp;m=');
-// URL de la racine du serveur
+// Root server URL
 	define('BASE_DIR', "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));
-// Slogan du site
+// Web Site's slogan
 	define("JOIN", "<span>Join </span>the best caritative student challenges");
-// Slogan du site
+// LOGS
 	define("LOGGER", "../lib/Logger.class.php");
-// lien vers le dossier avatar img
+// AVATAR IMG
     define("AVATAR", '../../front-cp/public/img/avatar/');
-// lien vers le dossier event img
+// EVENT IMG
     define("EVENT", '../../front-cp/public/img/event/');
-// lien vers le dossier project img
+// PROJECTS TEAM IMG
     define("PROJECT", '../../front-cp/public/img/group/');
-// lien vers le dossier project img
+// ORGANISM IMG
     define("ORGANISM", '../../front-cp/public/img/organism/');
 
 
-// LIMIT EVENT
+// LIMIT PAGINATION EVENT
     define("LIMIT", 7);

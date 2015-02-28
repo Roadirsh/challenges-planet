@@ -1,14 +1,13 @@
 <?php
 
 /**
- * Tableau des URL en dur 
+ * URLS written by hand 
  *
  * @package     Framework_L&G
  * @copyright   L&G
  */
 
  
-// définition du tableau
+
 	$conf = array();
-// 
 	$conf[''] = '';
