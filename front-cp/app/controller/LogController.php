@@ -175,5 +175,81 @@ class LogController extends CoreController{
     //     var_dump($user);
     // }
 
+    /**
+     * Linked to :
+     * model/LogModel.php
+     * view/forgot.php
+     * 
+     * LOGOUT
+     *
+     * @param Array $_POST
+     */
+    public function Forgot(){
+
+
+        /* * * * * * * * * * * * * * * * * * * * * * * *
+        * <head> STUFF </head>
+        */
+        define("PAGE_TITLE", SITE_NAME . " PASSWORD");
+        define("PAGE_DESCR", SITE_NAME . "");
+        define("PAGE_ID", "forgot");
+        
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * WHITH FORM $_POST
+        */
+
+
+        if(isset($_POST['forgot_email']) && !empty($_POST['forgot_email'])){
+            $UpdPwd = $this->model = new LogModel();
+
+            $isUser = $UpdPwd->IsUser($_POST['forgot_email']);
+
+            // check if user exists
+            if($isUser == 1 ){
+            
+                // Generate password
+                $Password = substr(strtolower(md5(uniqid(rand()))), 0, 10);
+
+                
+                
+                // Update password
+                $NewPassword = $UpdPwd->NewPassword($_POST['forgot_email'], $Password);
+
+                if($NewPassword){
+                    /* * * * * * * * * * * * * * * * * * * * * * * * *
+                    * GENERATE AND SEND EMAIL
+                    */
+                    $messageHTML = messageHTML($_POST['forgot_email'], $Password);
+                    $subject = "[ChallengesPlanet] Please reset your password";
+                    
+                    
+                    $mail = $UpdPwd->sendMail($subject, $messageHTML, $_POST['forgot_email']);
+
+                    // initialization of the messages
+                    $_SESSION['message'] = "Please check your email, you've got mail ! ";
+                    $_SESSION['messtype'] = 'success';  
+                    $this->coreRedirect('page', 'home');
+
+                } else {
+                    // initialization of the messages
+                    $_SESSION['message'] = "Your email adress must be wrong, try again ";
+                    $_SESSION['messtype'] = 'danger';
+                    $this->load->view('connexion', 'forgot');
+                }
+
+            } else {
+                // initialization of the messages
+                $_SESSION['message'] = "Your email adress must be wrong, try again ";
+                $_SESSION['messtype'] = 'danger';
+                $this->load->view('connexion', 'forgot');
+            }
+        }
+
+
+        /* Load the view */
+        $this->load->view('connexion', 'forgot');
+        
+    }
+
 
 }

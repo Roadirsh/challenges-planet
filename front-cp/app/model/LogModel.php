@@ -14,6 +14,8 @@
  * LOGOUT
  * SIGN UP
  */
+
+
  
 class LogModel extends CoreModel{
 
@@ -155,7 +157,97 @@ class LogModel extends CoreModel{
 			echo 'Message:' . $e->getMessage();
 		}
 	}
-		
+
+
+/////////////////////////////////////////////////////
+/* NEW PASSWORD * * * * * * * * * * * * * * * * * */
+
+    /**
+     * Linked to : 
+     * controller/LogController.php
+     * view/forgot.php
+     * 
+     * Insert into the database
+     *
+     * @param array $_POST
+     */
+    public function IsUser($email){
+
+        $check = $this->connexion->prepare("SELECT * 
+                                            FROM " . PREFIX . "user
+                                            WHERE user_mail = '" . $email . "'");
+            
+        $check->execute();
+        $check->setFetchMode(PDO::FETCH_ASSOC);
+        $user_check = $check->rowCount();
+
+        return $user_check;
+    }
+
+    /**
+     * Linked to : 
+     * controller/LogController.php
+     * view/forgot.php
+     * 
+     * Insert into the database
+     *
+     * @param array $_POST
+     */
+    public function NewPassword($email, $password){
+
+        try {
+            /* * * * * * * * * * * * * * * * * * * * * * * *
+            * UPDATE PASSWORD
+            */
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_password` = '" . $password . "'
+                                                WHERE user_mail = '" . $email . "'");
+            
+            if($select->execute()){
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/LogController.php
+     * view/forgot.php
+     * 
+     * Send an email with swiftMailer
+     *
+     * @param array $_POST
+     */
+    public function sendMail($subject, $messageHTML, $email_desti){
+
+        // Create the Transport
+        $transport = Swift_SmtpTransport::newInstance('ssl://smtp.gmail.com', 465)
+          ->setUsername('challengesplanet@gmail.com') 
+          ->setPassword('EEMI2014')
+          ;
+                // Create the Mailer using your created Transport
+        $mailer = Swift_Mailer::newInstance($transport);
+        $body = $messageHTML;
+        
+        // Create a message
+        $message = Swift_Message::newInstance($subject)
+          ->setFrom(array('challengesplanet@gmail.com' => 'Challenges Planet'))
+          ->setTo(array($email_desti))
+          ->setBody($body)
+          ;
+        
+        // Send the message
+        $result = $mailer->send($message);
+    }
+
 }
 
 ?>

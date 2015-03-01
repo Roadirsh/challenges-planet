@@ -37,6 +37,7 @@
     include_once '../core/CoreModel.php';
     /* Global Library */
     include("../lib/lib.php");
+    require("../vendor/swiftmailer/lib/swift_required.php");
     
     /* Global Messages */
     include(ROOT . "conf/messages.php");

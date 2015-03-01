@@ -9,6 +9,8 @@
 
 // To the global directory
 	define("ROOT", '../app/');
+// To the front
+    define("FRONT", '../../front-cp/');
 // To the principal Model
 	define("MODEL", '../core/Model/');
 // Index.php
@@ -43,6 +45,9 @@
     define("PROJECT", '../../front-cp/public/img/group/');
 // ORGANISM IMG
     define("ORGANISM", '../../front-cp/public/img/organism/');
+// VENDOR
+    define("VENDOR", '../../front-cp/vendor/');
+
 
 
 // LIMIT PAGINATION EVENT

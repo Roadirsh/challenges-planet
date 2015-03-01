@@ -20,12 +20,13 @@
 		        </fieldset>
 	    	</div>
 	    	<div class="">
-	    		<fieldset>
-	    			<h1>Or sign up with your favorite social media !</h1>
-	    			<div class="social-sign-up">
-	    				<a href="#"><img src="img/fb-login.png">Sign up with Facebook</a>
-	    			</div>
-	    		</fieldset>
+	    		<?php // CONNEXION WITH FACEBOOK IN A V2 ?>
+	    		<?php // <fieldset>
+	    			// <h1>Or sign up with your favorite social media !</h1>
+	    			// <div class="social-sign-up">
+	    				//<a href="#"><img src="img/fb-login.png">Sign up with Facebook</a>
+	    			// </div>
+	    		// </fieldset> ?>
 	    		<fieldset>
 	    			<span>Have you already an account ? </span><a class="connect popup-with-form" href="#form-login">Log you here !</a>
 	    		</fieldset>

@@ -66,7 +66,7 @@
 		            <label for="password">Password</label>
 		            <input id="login-password" name="pwd" type="password" placeholder="">
 		            
-		            <a href="#" class="columns medium-6">forgot password ?</a>
+		            <a href="<?php echo MODULE . 'log' . ACTION . 'forgot'; ?>" class="columns medium-6">forgot password ?</a>
 		            <a href="#" class="columns medium-6">forgot email ?</a>
 		            
 		            <input type="submit" class="button-submit" value="Login"  alt="login">
