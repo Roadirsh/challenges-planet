@@ -3,7 +3,6 @@
 <?php } $_SESSION['message'] = null; ?>
 
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
-<a href="<?php echo MODULE . 'cart' . ACTION . 'seesummary'; ?>" >seesummary.php</a>
 
 <div class="cart">
 	<ul class="actions">

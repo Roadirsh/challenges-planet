@@ -98,14 +98,15 @@
 						<div class="medium-6 columns">
 							<label for="">Phone number</label>
 							<div>
-								<input type="text" name="phone_number" value="<?php if(isset($data['phone'][0]['phone_num'])){ echo $data['phone'][0]['phone_num']; } ?>"  >
+								
+								<input class="input-large focused" name="phone_number" id="phone_number" type="text" title="The phone number must be between 6 and 14 numbers and begin with a &quot;+&quot;." value="<?php if(isset($data['phone'][0]['phone_num'])){ echo $data['phone'][0]['phone_num']; } ?>" pattern="^\+(?:[0-9]?){6,14}[0-9]$" placeholder="+33xxxxxxx">
 							</div>
 						</div>
 					</div><div class="clearfix">
 						<div class="medium-6 columns">
 							<label for="">Email</label>
 							<div>
-								<input type="text" name="user_mail" value="<?php if(isset($data['user'][0]['user_mail'])){ echo $data['user'][0]['user_mail']; } ?>" required >
+								<input type="email" name="user_mail" value="<?php if(isset($data['user'][0]['user_mail'])){ echo $data['user'][0]['user_mail']; } ?>" required >
 							</div>
 						</div>
 						<?php if(!isset($_SESSION['connect_compte_FRONT']) || $_SESSION['connect_compte_FRONT'] == false) {?>

@@ -163,8 +163,8 @@ class CartController extends CoreController {
         if(isset($_POST['user_password'])){
 	        $userExist = $user->insertNewUser();
 	        if($userExist){
-		        //$_SESSION['message'] = "L'utilisateur existe déjà !";
-		        //$this->Seeinfocart();
+		        $_SESSION['message'] = "Veuillez verifier vos données !";
+		        $this->coreRedirect('cart', 'seeinfocart');
 	        }
 	        else{
 		        $array = "";
@@ -177,7 +177,16 @@ class CartController extends CoreController {
         */
         else if (isset($_POST['user_mail']))
         {
-	    	$user->Uponeuser();
+	    	
+	    	$userExist = $user->Uponeuser();
+	        if($userExist){
+		        $_SESSION['message'] = "Veuillez verifier vos données !";
+		        $this->coreRedirect('cart', 'seeinfocart');
+	        }
+	        else{
+		        $array = "";
+		        $this->load->view('cart', 'paiement', $array);
+	        }
         }
 
         $array = '';
@@ -206,14 +215,11 @@ class CartController extends CoreController {
         
         /* Load the view */
         // In a V2 project, we will implement the real paiement via visa card
-        if($_POST['payment'] == "visa"){
 	        $array = '';
 	        $this->load->view('cart', 'confirmation', $array); 
-
-        }
-        else if($_POST['payment'] == "paypal"){
-	        // TODO API PAYPAL
-        }
+			$_SESSION['doneff'] = false;
+        
+        
     }
 
     /**
@@ -233,7 +239,16 @@ class CartController extends CoreController {
         define("PAGE_ID", "seeSummary");
         
         $cart = $this->model = new CartModel();
-        $cart->donate();
+        if($_SESSION['doneff'] == false){
+	        $_SESSION['doneff'] = $cart->donate();
+	        
+	        if($_SESSION['doneff'] == false){
+		        $_SESSION['message'] = "Veuillez verifier vos données !";
+		        $this->coreRedirect('cart', 'confirmation');
+	        }
+			
+
+        }
 
         $array = '';
         

@@ -19,6 +19,14 @@
  */
 
 class CartModel extends CoreModel{
+	
+	private $userMail;
+	private $userPassword;
+	private $userSite;
+	private $phoneNum;
+	private $cardNumber; 
+	private $crypto;
+	private $expiration;
 
 	
 	/**
@@ -278,6 +286,102 @@ class CartModel extends CoreModel{
         }
     }
     
+    //Getter/setter
+    /**
+	 * SETTERS & GETTERS le mail de l'utilisateur
+	 */
+	public function getUserMail(){
+		return $this->userMail;
+	}
+	// vérification de la validité du mail
+	public function isValidEmail($email){ 
+    	return filter_var($email, FILTER_VALIDATE_EMAIL);
+	}
+	public function setUserMail($mail){
+		if($this->isValidEmail($mail)){
+			$this->userMail = $mail;
+		}
+	}
+	/**
+	 * SETTERS & GETTERS voir le mot de passe de l'utilisateur
+	 */
+	public function getUserPassword(){
+		return $this->userPassword;
+	}
+	// vérification de l'encrypte du MDP
+	public function isValidMd5($md5)
+	{
+	    return preg_match('/^[a-f0-9]{32}$/', $md5);
+	}
+	public function setUserPassword($password){
+		if($this->isValidMd5($password)){
+			$this->userPassword = $password;
+		}
+	}
+	/**
+	 * SETTERS & GETTERS voir cardNumber
+	 */
+	public function getCardNumber(){
+		return $this->cardNumber;
+	}
+	
+	public function setCardNumber($number){
+		if(preg_match('/^4[0-9]{12}(?:[0-9]{3})?$/', $number)){
+			$this->cardNumber = $number;
+		}
+	}
+	/**
+	 * SETTERS & GETTERS voir crypto
+	 */
+	public function getCrypto(){
+		return $this->crypto;
+	}
+	
+	public function setCrypto($number){
+		if(preg_match('/^\d{3}$/', $number)){
+			$this->crypto = $number;
+		}
+	}
+	/**
+	 * SETTERS & GETTERS voir expiration
+	 */
+	public function getExpirationDate(){
+		return $this->expiration;
+	}
+	
+	public function setExpirationDate($string){
+		if(preg_match('/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/', $string)){
+			$this->expiration = $string;
+		}
+	}
+	/**
+	 * SETTERS & GETTERS site de l'utilisateur
+	 */
+	public function getUserSite(){
+		return $this->userSite;
+	}
+	// vérification de la validité du mail
+	public function isValidSite($site){ 
+    	return filter_var($site, FILTER_VALIDATE_URL);
+	}
+	public function setUserSite($site){
+		if($this->isValidSite($site)){
+			$this->userSite = $site;
+		}
+	}
+	
+	public function getUserPhone()
+	{
+		return $this->phoneNum;
+	}
+	public function setUserPhone($phone){
+	
+		if(preg_match("/^\+(?:[0-9]?){6,14}[0-9]$/", $phone))
+		{
+			$this->phoneNum = $phone;
+		}
+	}
+    
 /////////////////////////////////////////////////////
 /* ADD  * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -286,16 +390,26 @@ class CartModel extends CoreModel{
      * controller/CartController.php
      * view/cart/*.php
      * 
-     * Add a user is not exists
+     * Add a user if not exists
      *
      * @param ID 
      */
 	public function insertNewUser() {
 		$user_exist = $this->user_exist($_POST['user_pseudo']);
 		$email_exist = $this->email_exist($_POST['user_mail']);
+		$password = md5($_POST['user_password']);
+		$this->setUserPassword($password);
+		$this->setUserMail($_POST['user_mail']);
+		$this->setUserSite($_POST['user_site']);
+		$this->setUserPhone($_POST['phone_number']);
 		
-
-		if($user_exist || $email_exist )
+		$password = $this->getUserPassword();
+		$mail = $this->getUserMail();
+		$site = $this->getUserSite();
+		$phone = $this->getUserPhone();
+		
+		
+		if($user_exist || $email_exist || is_null($password) || is_null($mail) || is_null($site) || is_null($phone))
 		{
 			return true;
 		}
@@ -313,13 +427,12 @@ class CartModel extends CoreModel{
 				
 	            $insert->bindParam(':lastname', $_POST['user_lastname']);
 	            $insert->bindParam(':firstname', $_POST['user_firstname']);
-	            $insert->bindParam(':mail', $_POST['user_mail']);
+	            $insert->bindParam(':mail', $mail);
 	            $insert->bindParam(':pseudo', $_POST['user_pseudo']);
-	            $password = md5($_POST['user_password']);
-	            $insert->bindParam(':password', $password);
+		        $insert->bindParam(':password', $password);
 	            $profpic = uniqid().$_FILES['user_pic']['name'];
 	            $insert->bindParam(':profpic', $profpic);
-				$insert->bindParam(':site', $_POST['user_site']);
+				$insert->bindParam(':site', $site);
 	            
 				$insert->execute();
 				
@@ -353,7 +466,7 @@ class CartModel extends CoreModel{
                                                     VALUES 
                                                     (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
 					
-				$insert->bindParam(':phone', $_POST['phone_number']);
+				$insert->bindParam(':phone', $phone);
 				$insert->bindParam(':id', $id);
 					
 				$insert->execute();
@@ -444,130 +557,148 @@ class CartModel extends CoreModel{
 
 
     	try {
-    	    // UPDATE IN USER 
-			$this->connexion->beginTransaction();
-
-			$requete = "UPDATE " . PREFIX . "user 
-                        SET `user_lastname` = :lastname, 
-                        `user_firstname` = :firstname, 
-                        `user_mail` = :mail, 
-                        `user_pseudo` = :pseudo, 
-                        `user_profil_pic` = :profpic, 
-                        `user_site` = :site 
-                        WHERE user_id = :id";
-    	    
-    	    $update = $this->connexion->prepare($requete); 
-
-            $update->bindParam(':lastname', $_POST['user_lastname']);
-            $update->bindParam(':firstname', $_POST['user_firstname']);
-            $update->bindParam(':mail', $_POST['user_mail']);
-            $update->bindParam(':pseudo', $_POST['user_pseudo']);
-            $update->bindParam(':id', $userID);
-			$update->bindParam(':site', $_POST['user_site']);
-		            
-            
-            if(isset($_FILES) && !empty($_FILES['user_pic']['name']))
-            {
-	            $select  = $this->connexion->prepare("SELECT user_profil_pic 
-                                                    FROM " . PREFIX . "user 
-                                                    WHERE user_id = '" . $userID . "'" );
-				$select->execute();
-				$select -> setFetchMode(PDO::FETCH_ASSOC);
-				$retour = $select -> fetch();
-
-				$retour = $retour['user_profil_pic'];
-				$file = AVATAR . $retour;
+		    	
+			$this->setUserMail($_POST['user_mail']);
+			$this->setUserSite($_POST['user_site']);
+			$this->setUserPhone($_POST['phone_number']);
 			
-				if(file_exists($file) && $file != AVATAR)
+			$mail = $this->getUserMail();
+			$site = $this->getUserSite();
+			$phone = $this->getUserPhone();
+			
+			
+			if( is_null($mail) || is_null($site) || is_null($phone))
+			{
+				return true;
+			}
+			else
+			{
+	    	    // UPDATE IN USER 
+				$this->connexion->beginTransaction();
+	
+				$requete = "UPDATE " . PREFIX . "user 
+	                        SET `user_lastname` = :lastname, 
+	                        `user_firstname` = :firstname, 
+	                        `user_mail` = :mail, 
+	                        `user_pseudo` = :pseudo, 
+	                        `user_profil_pic` = :profpic, 
+	                        `user_site` = :site 
+	                        WHERE user_id = :id";
+	    	    
+	    	    $update = $this->connexion->prepare($requete); 
+	
+	            $update->bindParam(':lastname', $_POST['user_lastname']);
+	            $update->bindParam(':firstname', $_POST['user_firstname']);
+	            $update->bindParam(':mail', $_POST['user_mail']);
+	            $update->bindParam(':pseudo', $_POST['user_pseudo']);
+	            $update->bindParam(':id', $userID);
+				$update->bindParam(':site', $_POST['user_site']);
+			            
+	            
+	            if(isset($_FILES) && !empty($_FILES['user_pic']['name']))
+	            {
+		            $select  = $this->connexion->prepare("SELECT user_profil_pic 
+	                                                    FROM " . PREFIX . "user 
+	                                                    WHERE user_id = '" . $userID . "'" );
+					$select->execute();
+					$select -> setFetchMode(PDO::FETCH_ASSOC);
+					$retour = $select -> fetch();
+	
+					$retour = $retour['user_profil_pic'];
+					$file = AVATAR . $retour;
+				
+					if(file_exists($file) && $file != AVATAR)
+					{
+		    			unlink($file);
+					}
+		            $profpic = uniqid().$_FILES['user_pic']['name'];
+		            $update->bindParam(':profpic', $profpic);
+					$string= AVATAR . $profpic;
+					$this->upload($_FILES['user_pic']['tmp_name'], $string);
+					
+					
+	
+	            }
+	            else
+	            {
+		        	$update->bindParam(':profpic', $_POST['hidden_user_pic']);
+	
+	            }
+	            
+				$update->execute();
+	
+				if($this->numeroUserExist($userID))
 				{
-	    			unlink($file);
+					// UPDATE IN PHONE
+					
+				$update1 = $this->connexion->prepare("UPDATE " . PREFIX . "phone
+	    	                                        SET phone_num = :phone
+	    	   	    	                            WHERE user_user_id = " . $userID); 
+	
+	            $update1->bindParam(':phone', $_POST['phone_number']);
+				$update1->execute();
 				}
-	            $profpic = uniqid().$_FILES['user_pic']['name'];
-	            $update->bindParam(':profpic', $profpic);
-				$string= AVATAR . $profpic;
-				$this->upload($_FILES['user_pic']['tmp_name'], $string);
+				else
+				{
+					$insert = $this->connexion->prepare("INSERT INTO `" . PREFIX . "phone` 
+	                                                    (`phone_id`, `phone_date`, `phone_num`, `user_user_id`) 
+	                                                    VALUES 
+	                                                    (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
+						
+						$insert->bindParam(':phone', $_POST['phone_number']);
+						$insert->bindParam(':id', $userID);
+						
+						$insert->execute();	            
+				}
 				
-				
-
-            }
-            else
-            {
-	        	$update->bindParam(':profpic', $_POST['hidden_user_pic']);
-
-            }
-            
-			$update->execute();
-
-			if($this->numeroUserExist($userID))
-			{
-				// UPDATE IN PHONE
-				
-			$update1 = $this->connexion->prepare("UPDATE " . PREFIX . "phone
-    	                                        SET phone_num = :phone
-    	   	    	                            WHERE user_user_id = " . $userID); 
-
-            $update1->bindParam(':phone', $_POST['phone_number']);
-			$update1->execute();
-			}
-			else
-			{
-				$insert = $this->connexion->prepare("INSERT INTO `" . PREFIX . "phone` 
-                                                    (`phone_id`, `phone_date`, `phone_num`, `user_user_id`) 
-                                                    VALUES 
-                                                    (NULL, CURRENT_TIMESTAMP, :phone, :id); ");
+				if($this->adressUserExist($userID, 'Invoice'))
+				{
+					// UPDATE IN ADRESS
 					
-					$insert->bindParam(':phone', $_POST['phone_number']);
-					$insert->bindParam(':id', $userID);
-					
-					$insert->execute();	            
-			}
-			
-			if($this->adressUserExist($userID, 'Invoice'))
-			{
-				// UPDATE IN ADRESS
-				
-			$update3 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
-    	                                        SET
-    	                                        `ad_num` = :num,
-    	                                        `ad_street` = :street,
-    	                                        `ad_zipcode` = :zipcode,
-    	                                        `ad_city` = :city,
-    	                                        `ad_country` = :country
-    	                                        WHERE user_user_id = " . $userID . " and ad_type = 'Invoice'"); 
-
-            $update3->bindParam(':num', $_POST['invoice_ad_num']);
-            $update3->bindParam(':street', $_POST['invoice_ad_street']);
-            $update3->bindParam(':zipcode', $_POST['invoice_ad_zipcode']);
-            $update3->bindParam(':city', $_POST['invoice_ad_city']);
-            $update3->bindParam(':country', $_POST['invoice_ad_country']);
-            
-			$update3->execute();
-			}
-			else
-			{
-				$insert3 = $this->connexion->prepare("INSERT INTO `" . PREFIX . "adress` 
-                                                    (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) 
-                                                    VALUES 
-                                                    (NULL, now(), :num, :street, :zipcode, :city, :country, 'Invoice', :user_id)");
+				$update3 = $this->connexion->prepare("UPDATE " . PREFIX . "adress
+	    	                                        SET
+	    	                                        `ad_num` = :num,
+	    	                                        `ad_street` = :street,
+	    	                                        `ad_zipcode` = :zipcode,
+	    	                                        `ad_city` = :city,
+	    	                                        `ad_country` = :country
+	    	                                        WHERE user_user_id = " . $userID . " and ad_type = 'Invoice'"); 
+	
+	            $update3->bindParam(':num', $_POST['invoice_ad_num']);
+	            $update3->bindParam(':street', $_POST['invoice_ad_street']);
+	            $update3->bindParam(':zipcode', $_POST['invoice_ad_zipcode']);
+	            $update3->bindParam(':city', $_POST['invoice_ad_city']);
+	            $update3->bindParam(':country', $_POST['invoice_ad_country']);
 	            
-	            $insert3->bindParam(':num', $_POST['invoice_ad_num']);
-	            $insert3->bindParam(':street', $_POST['invoice_ad_street']);
-	            $insert3->bindParam(':zipcode', $_POST['invoice_ad_zipcode']);
-	            $insert3->bindParam(':city', $_POST['invoice_ad_city']);
-	            $insert3->bindParam(':country', $_POST['invoice_ad_country']);
-	            $insert3->bindParam(':user_id', $userID);
-	            
-				$insert3->execute();
-
-			}
-			$this->connexion->commit();
-
-			return $userID;
+				$update3->execute();
+				}
+				else
+				{
+					$insert3 = $this->connexion->prepare("INSERT INTO `" . PREFIX . "adress` 
+	                                                    (`adress_id`, `ad_date`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`, `user_user_id`) 
+	                                                    VALUES 
+	                                                    (NULL, now(), :num, :street, :zipcode, :city, :country, 'Invoice', :user_id)");
+		            
+		            $insert3->bindParam(':num', $_POST['invoice_ad_num']);
+		            $insert3->bindParam(':street', $_POST['invoice_ad_street']);
+		            $insert3->bindParam(':zipcode', $_POST['invoice_ad_zipcode']);
+		            $insert3->bindParam(':city', $_POST['invoice_ad_city']);
+		            $insert3->bindParam(':country', $_POST['invoice_ad_country']);
+		            $insert3->bindParam(':user_id', $userID);
+		            
+					$insert3->execute();
+	
+				}
+				$this->connexion->commit();
+	
+				return false;
+				}
 	
         } catch (Exception $e) {
 	        $this->connexion->rollBack();
             echo 'Message:' . $e -> getMessage();
         }
+        
 
 	}
 	
@@ -582,45 +713,65 @@ class CartModel extends CoreModel{
      */
 	public function donate(){
 		try{
-			$userID = $_SESSION[PREFIX . 'userID'];
-			$this->connexion->beginTransaction();
+			$this->setCardNumber($_POST['num_card']);
+			$this->setCrypto($_POST['crypto_card']);
+			$this->setExpirationDate($_POST['expiration_card']);
 			
-			$insert = $this->connexion->prepare("INSERT INTO `" . PREFIX . "bank_details` 
-                                                (`num_card`, `name_card`, `crypto_card`, `expiration_card`, `user_user_id`) 
-                                                VALUES 
-                                                (:num, :name, :crypto, :expiration, :user_id)");
-	            
-	        $insert->bindParam(':num', $_POST['num_card']);
-	        $insert->bindParam(':name', $_POST['name_card']);
-	        $insert->bindParam(':crypto', $_POST['crypto_card']);
-	        $insert->bindParam(':expiration', $_POST['expiration_card']);
-	        $insert->bindParam(':user_id', $userID);
-	            
-			$insert->execute();
+			$num = $this->getCardNumber();
+			$crypto = $this->getCrypto();
+			$expiration = $this->getExpirationDate();
 			
-			$insert2 = $this->connexion->prepare("INSERT INTO `" . PREFIX . "donate` 
-                                                (`donate_date`, `donate_amount`, `donate_tva`, `group_group_id`, `cp_user_user_id`) 
-                                                VALUES 
-                                                (now(), :amount, 20, :group_id, :user_id)");
-	            
-	        $insert2->bindParam(':amount', $_SESSION['donation_amount']);
-	        $insert2->bindParam(':group_id', $_SESSION['donation_team_id']);
-	        $insert2->bindParam(':user_id', $userID);
-	        
-	        $insert2->execute();
-	        
-	        $update = $this->connexion->prepare("UPDATE " . PREFIX . "user
-    	                                        SET user_donut = user_donut + 1
-                                                WHERE user_id = " . $userID); 
-
-			$update->execute();
-	        
-			$this->connexion->commit();
+			
+			if( is_null($num) || is_null($crypto) || is_null($expiration))
+			{
+				return false;
+			}
+			else
+			{
+			
+				$userID = $_SESSION[PREFIX . 'userID'];
+				$this->connexion->beginTransaction();
+				
+				$insert = $this->connexion->prepare("INSERT INTO `" . PREFIX . "bank_details` 
+	                                                (`num_card`, `name_card`, `crypto_card`, `expiration_card`, `user_user_id`) 
+	                                                VALUES 
+	                                                (:num, :name, :crypto, :expiration, :user_id)");
+		            
+		        $insert->bindParam(':num', $num);
+		        $insert->bindParam(':name', $_POST['name_card']);
+		        $insert->bindParam(':crypto', $crypto);
+		        $insert->bindParam(':expiration', $expiration);
+		        $insert->bindParam(':user_id', $userID);
+		            
+				$insert->execute();
+				
+				$insert2 = $this->connexion->prepare("INSERT INTO `" . PREFIX . "donate` 
+	                                                (`donate_date`, `donate_amount`, `donate_tva`, `group_group_id`, `cp_user_user_id`) 
+	                                                VALUES 
+	                                                (now(), :amount, 20, :group_id, :user_id)");
+		            
+		        $insert2->bindParam(':amount', $_SESSION['donation_amount']);
+		        $insert2->bindParam(':group_id', $_SESSION['donation_team_id']);
+		        $insert2->bindParam(':user_id', $userID);
+		        
+		        $insert2->execute();
+		        
+		        $update = $this->connexion->prepare("UPDATE " . PREFIX . "user
+	    	                                        SET user_donut = user_donut + 1
+	                                                WHERE user_id = " . $userID); 
+	
+				$update->execute();
+		        
+				$this->connexion->commit();
+				return true;
+			}
 
 		}
 		catch (Exception $e){
 			$this->connexion->rollBack();
+			
 			echo 'Message:' . $e -> getMessage();
+			return false;
 		}
 	}
 }
