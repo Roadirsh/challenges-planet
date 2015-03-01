@@ -13,8 +13,8 @@
         <?php $i = 0; ?>
         <?php if(isset($data['slider']) && !empty($data['slider']) ){ ?>
             <?php foreach($slider as $k => $s){ ?>
-            <a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
-            	<div class="img-slider " index='<?php echo $i; ?>'>
+            <a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>">
+            	<div class="img-slider" index='<?php echo $i; ?>'>
             		<img src="<?php echo EVENT . 'slider/' . $s['event_img']; ?>" alt="">
             		<div class="show-for-small-only caption clearfix">
             			<span><?php echo $s['event_name']; ?></span>
@@ -23,7 +23,7 @@
             			<h1 class="slogan"><?php echo JOIN ?></h1>
             			<h3><?php echo $s['event_name']; ?></h3>
             			<p><?php echo mb_strimwidth($s['event_decr'], 0, 150, "..."); ?></p>
-            			<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>" onClick="ga('send', 'event', 'link','clic', 'see-eventv3');">
+            			<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>">
             			    <span class="see-event">Let's see the event !</span>
             		</div>
             	</div>
