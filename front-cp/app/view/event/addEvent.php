@@ -12,7 +12,7 @@
 				<div class="join-event columns medium-9">
 					<div class="clearfix">
 						<h1><?php echo JOIN; /* DEFINED IN conf_define */ ?></h1>
-						<form class="search-bar" method="post" action="post">
+						<form class="search-bar" method="post" action="">
 							<input type="text" size="21" name="search">
 							<!-- icon -->
 							<input class="icon-search" type="submit" value="" >

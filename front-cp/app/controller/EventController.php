@@ -76,10 +76,11 @@ class EventController extends CoreController {
         /* * * * * * * * * * * * * * * * * * * * * * * * 
         * FORM CREATE && SEARCH 
         */
-        include(ROOT . "conf/messages.php");
+        
 
         if(isset($_POST['name']) and !empty($_POST['name'])){
-
+            
+            
             if($event->insertNewEvent($_POST)){   
                 $_POST = null;
                 // initialization of the messages
