@@ -21,6 +21,9 @@
     <!-- Main content -->
     <section class="content">
         <div id="content" class="span10">
+	        <?if(!empty($_SESSION['message'])){ ?>
+                <div class="alert alert-success" role="alert"><?php echo $_SESSION['message']; ?></div>
+            <?php $_SESSION['message'] = ''; } ?>
             <div class="row-fluid">		
 	        	<form class="form-horizontal" enctype="multipart/form-data" action="<?php  echo MODULE . 'event' . ACTION . 'Uponeevent&id='.$event['event_id']; ?>" method="post">	
 					<input type="hidden" name="update" value="true" />

@@ -174,7 +174,7 @@
 </div>
 
 <!--  /* * * * * * * * * * * * * * * * * * * * * * * *
-* FOR DEVELOPERS ONLY, TAPE top top down down left right left right down b a=> PRIVATE JOKE 
+* FOR DEVELOPERS ONLY, TAPE up up down down left right left right b a => PRIVATE JOKE 
 */ -->
 <audio src="../../front-cp/public/img/user.mp3" style="" id="hoverSound">
 		Your browser does not support the audio element.
@@ -191,9 +191,7 @@
     jQuery(document).keydown(Kpress);
 });
 function kExec(){
-   document.getElementById('hoverSound').play();
-   
-   
+   document.getElementById('hoverSound').play(); 
 }
 </script>
 <!-- /* * * * * * * * * * * * * * * * * * * * * * * * */ -->

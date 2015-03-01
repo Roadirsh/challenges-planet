@@ -478,17 +478,16 @@ class ProjectModel extends CoreModel{
 				foreach($students as $student){
 					$userExist = $this->isUserExistInEvent($student, $event);
 					if(!$userExist){
-			
 						
-					$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
-					$insertEventHasUser->bindParam(':event', $event);
-					$insertEventHasUser->bindParam(':user', $student);
-					$insertEventHasUser->execute();
-					
-					$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
-					$insertUserHasGroup->bindParam(':user', $student);
-					$insertUserHasGroup->bindParam(':group', $idGroup);
-					$insertUserHasGroup->execute();
+						$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
+						$insertEventHasUser->bindParam(':event', $event);
+						$insertEventHasUser->bindParam(':user', $student);
+						$insertEventHasUser->execute();
+						
+						$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
+						$insertUserHasGroup->bindParam(':user', $student);
+						$insertUserHasGroup->bindParam(':group', $idGroup);
+						$insertUserHasGroup->execute();
 					}else{
 						return false;
 					}
