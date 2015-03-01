@@ -243,8 +243,11 @@ class CartController extends CoreController {
 	        $_SESSION['doneff'] = $cart->donate();
 	        
 	        if($_SESSION['doneff'] == false){
-		        $_SESSION['message'] = "Veuillez verifier vos données !";
-		        $this->coreRedirect('cart', 'confirmation');
+ 		        $_SESSION['message'] = "Veuillez verifier vos données !";		 		      
+ 		        $this->coreRedirect('cart', 'confirmation');
+ 	        }		 	        
+	        else{
+		        $cart->sendMail();
 	        }
 			
 

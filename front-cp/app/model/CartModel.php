@@ -774,4 +774,27 @@ class CartModel extends CoreModel{
 			return false;
 		}
 	}
+
+	public function sendMail(){
+		require_once '../../front-cp/vendor/swiftmailer/swiftmailer/lib/swift_required.php';
+
+		// Create the Transport
+		$transport = Swift_SmtpTransport::newInstance('ssl://smtp.gmail.com', 465)
+		  ->setUsername('challengesplanet@gmail.com') 
+		  ->setPassword('EEMI2014')
+		  ;
+				// Create the Mailer using your created Transport
+		$mailer = Swift_Mailer::newInstance($transport);
+		$body = "Thank you for sponsorize a team dear mister " . $_SESSION['cp_userPseudo'] . ". You give " . $_SESSION['donation_amount'] . " euros to " . $_SESSION['donation_team'] . " Hopefully they will be able to participe to " . $_SESSION['donation_event'] . ". See you soon !";
+		
+		// Create a message
+		$message = Swift_Message::newInstance('Wonderful Subject')
+		  ->setFrom(array('john@doe.com' => 'John Doe'))
+		  ->setTo(array('roadirsh@gmail.com', $_SESSION['cp_userMail']))
+		  ->setBody($body)
+		  ;
+		
+		// Send the message
+		$result = $mailer->send($message);
+	}
 }
