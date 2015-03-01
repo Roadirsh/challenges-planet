@@ -81,7 +81,7 @@ $(document).ready(function(){
     fields: {
       // reference the field you're talking about, probably by `id`
       // but you could certainly do $('[name=name]') as well.
-       '#name': {
+       '#name-event': {
         required: true,
         message: 'We really need this information !'
       },
@@ -144,6 +144,127 @@ $(document).ready(function(){
             }
         });
     });
+
+    $( "#progress-form-create" ).progressbar({
+      value: 0
+    });
+    $( "#progress-form-join" ).progressbar({
+      value: 0
+    });
+
+
+  $("#form_create .form-create-progress").change(function() {
+
+    var numValid = 0;
+  
+    $("#form_create .form-create-progress ").each(function() {
+      if (this.validity.valid) {
+          numValid++;
+      }
+  });
+var progress = $("#progress"),
+    progressMessage1st = $("#progress-message-first");
+    progressMessage2nd = $("#progress-message-second");
+    progressMessage3rd = $("#progress-message-third");
+    progressMessage4th = $("#progress-message-fourth");
+
+if (numValid == 0) {
+
+}
+if (numValid == 2) {
+        $( "#progress-form-create" ).progressbar({
+      value: 25
+    });
+    progressMessage1st.text("There you go, great start!");
+    $(".bg-img-first").addClass('done-form');
+    $(".run-man").addClass('anim-yolo');
+}
+if (numValid == 4) {
+    $( "#progress-form-create" ).progressbar({
+      value: 50
+    });
+    progressMessage2nd.text("Nothing can stop you now.");
+    $(".bg-img-second").addClass('done-form');
+    $('.anim-yolo').css("left", "49%");
+    $(".run-man").addClass('anim-yolo');
+}
+if (numValid == 5) {
+            $( "#progress-form-create" ).progressbar({
+      value: 75
+    });
+    progressMessage3rd.text("You're basically a hero, right?");
+    $(".bg-img-third").addClass('done-form');
+    $('.anim-yolo').css("left", "73%");
+    $(".run-man").addClass('anim-yolo');
+}
+
+if (numValid == 7) {
+    $( "#progress-form-create" ).progressbar({
+      value: 100
+    });
+    progressMessage4th.text("CONGRATS ! Your event is ready");
+    $(".bg-img-fourth").addClass('done-form');
+    $('.anim-yolo').css("left", "98%");
+    $(".run-man").addClass('anim-yolo');
+}
+});
+
+
+  $("#form_join .form-join-progress").change(function() {
+
+    var numValid = 0;
+  
+    $("#form_join .form-join-progress ").each(function() {
+      if (this.validity.valid) {
+          numValid++;
+      }
+  });
+    progressMessage1st = $("#progress-message-join-first");
+    progressMessage2nd = $("#progress-message-join-second");
+    progressMessage3rd = $("#progress-message-join-third");
+    progressMessage5th = $("#progress-message-join-fifth");
+    console.log(numValid);
+
+if (numValid == 0) {
+
+}
+if (numValid == 2) {
+        $( "#progress-form-join" ).progressbar({
+      value: 25
+    });
+    progressMessage1st.text("There you go, great start!");
+    $(".bg-img-first").addClass('done-form');
+    $(".run-man").addClass('anim-yolo');
+}
+if (numValid == 4) {
+    $( "#progress-form-join" ).progressbar({
+      value: 50
+    });
+    progressMessage2nd.text("Nothing can stop you now.");
+    $(".bg-img-second").addClass('done-form');
+    $('.anim-yolo').css("left", "49%");
+    $(".run-man").addClass('anim-yolo');
+}
+if (numValid == 5) {
+            $( "#progress-form-join" ).progressbar({
+      value: 75
+    });
+    progressMessage3rd.text("You're basically a hero, right?");
+    $(".bg-img-third").addClass('done-form');
+    $('.anim-yolo').css("left", "73%");
+    $(".run-man").addClass('anim-yolo');
+}
+
+if (numValid == 6) {
+    $( "#progress-form-join" ).progressbar({
+      value: 100
+    });
+    progressMessage5th.text("CONGRATS ! Your team is ready");
+    $(".bg-img-fourth").addClass('done-form');
+    $('.anim-yolo').css("left", "98%");
+    $(".run-man").addClass('anim-yolo');
+}
+});
 
   $( ".sticker" ).click(function() {
     $( ".form-create-event" ).fadeOut()

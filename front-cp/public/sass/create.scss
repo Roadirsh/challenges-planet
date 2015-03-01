@@ -19,6 +19,78 @@ $color-green:	#88a83b;
 $bg-color:		#f2efec;
 
 
+.ui-progressbar .ui-progressbar-value {
+    margin: 0px !important;
+}
+
+#progress-form-create, #progress-form-join {
+    .ui-widget-header {
+        background-color: $color-green;
+    }
+
+    .ui-progressbar {
+        height: 35px;
+    }
+
+    .ui-widget-header {
+        border: none;
+    }
+}
+
+.run-man {
+    background-image: url('../img/run_yolo.png');
+    height: 30px;
+    width: 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.anim-yolo {
+    left: 25%;
+    transition: left 1.5s ease;
+    -webkit-transition: left 1.5s ease;
+    -moz-transition: left 1.5s ease;
+    -ms-transition: left 1.5s ease;
+}
+
+
+.img-form {
+    position: relative;
+
+    .progress-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        font-family: $font-title;
+        font-size: 30px;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .bg-img-first, .bg-img-second, .bg-img-third, .bg-img-fourth {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        background-color: rgba(255, 255, 255, 0.7);
+        transition: all 0.5s ease;
+
+    }
+
+    .done-form {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+
 /*----- Before Toggle Img -----*/
 
 .info-caritative {
@@ -88,6 +160,12 @@ $bg-color:		#f2efec;
 
 }
 
+.ui-progressbar-value {
+  transition: width 1s;
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -ms-transition: width 1s;
+}
 
 /*----- Tabs -----*/
 
@@ -115,6 +193,14 @@ $bg-color:		#f2efec;
 
             .sticker {
                 margin-bottom: 15px;
+
+                &:last-child {
+                    display: none;
+
+                    @media #{$large-up} {
+                        display: block;
+                    }
+                }
 
                 .wrapper {
                     cursor: pointer;
@@ -302,6 +388,27 @@ $bg-color:		#f2efec;
 .tabs {
     padding: 10px 0px;
     position: relative;
+
+    .form-create-img {
+        .columns {
+            padding:0 !important;
+        }
+        .medium-3 {
+            
+            border-right: 1px solid $color-grey;
+            border-top: 1px solid $color-grey;
+            border-bottom: 1px solid $color-grey;
+            margin: 15px 0px;
+
+            &:first-child {
+                border-left: 1px solid $color-grey;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
     
 
     .button-submit {

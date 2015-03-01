@@ -27,7 +27,7 @@
 										<span>Join this event !</span>
 									</div>
 								</div>
-								<h2><? echo substr($topev['event_name'], 0, 15); ?> <small> ...</small></h2>
+								<h2><?php echo substr($topev['event_name'], 0, 15); ?> <small> ...</small></h2>
 								<span class="info-event"><?php echo mb_strimwidth($topev['event_location'], 0, 20, "..."); ?><small> ...</small> 
 								<br> <div class="date"><?php echo formDate($topev['event_begin'], 0); ?> - <?php echo formDate($topev['event_end'], 0); ?></div></span>
 
@@ -82,31 +82,63 @@
 				</div>
 
 				<div class="tabs form-create-event">
-					<h1><span>Create </span>your own event !</h1>
-				    <ul class="tab-links">
-				        <li class="active"><a href="#tab1">Edit</a></li>
-				        <li><a href="#tab2">Preview</a></li>
-				    </ul>
 
-				    <p>Hi, do you have an idea of sportive event which could help the planet ?</br>Let's create it !</p>
 				 
 				    <div class="tab-content">
 				        <div id="tab1" class="tab active">
 				        
 				            <form id="form_create" class="" name="form_create" enctype="multipart/form-data" action="?module=event&action=addevent" method="post" >
+				            	<div class="show-for-large-up run-man"></div>
+								<div class="show-for-large-up" id="progress-form-create"></div>
+								<div class="show-for-large-up form-create-img clearfix">
+									<div class="medium-3 columns">
+										<div class="img-form">
+											<div class="bg-img-first">
+												<div class="progress-message" id="progress-message-first">Get ready ?</div>
+											</div>
+											<img src="img/logo-form.png" alt="">
+										</div>
+									</div>
+									<div class="medium-3 columns">
+										<div class="img-form">
+											<div class="bg-img-second">
+												<div class="progress-message" id="progress-message-second"></div>
+											</div>
+											<img src="img/logo-form.png" alt="">
+										</div>
+									</div>
+									<div class="medium-3 columns">
+										<div class="img-form">
+											<div class="bg-img-third">
+												<div class="progress-message" id="progress-message-third"></div>
+											</div>
+											<img src="img/logo-form.png" alt="">
+										</div>
+									</div>
+									<div class="medium-3 columns">
+										<div class="img-form">
+											<div class="bg-img-fourth">
+												<div class="progress-message" id="progress-message-fourth"></div>
+											</div>
+											<img src="img/logo-form.png" alt="">
+										</div>
+									</div>
+								</div>
 								
+								<h1><span>Create </span>your own event !</h1>
+								<p>Hi, do you have an idea of sportive event which could help the planet ?</br>Let's create it !</p>
 				            	<div class="clearfix">
 				            		<div class="medium-8 columns first">
 				            			<label class="name-event" for="name" >Name (required)</label>
 										<div>
-											<input class="form-error name-event" id="name" name="name" class="" type="text" maxlength="45" value=""  /> 
+											<input class="form-create-progress name-event" id="name-event" name="name" class="" type="text" maxlength="45" value=""  required /> 
 										</div> 
 										<label class="" for="place error">City (required)</label>
 										<div>
-											<input id="place" name="place" class="" type="text" maxlength="170" value=""  /> 
+											<input id="place" name="place" class="form-create-progress" type="text" maxlength="170" value=""  required /> 
 										</div>
 										<label for="">Location (required)</label> 
-										<select class="form-error" id="country" name="country">
+										<select class="form-create-progress" id="country" name="country" required>
 											<!-- Include avec l'ensemble des pays -->
 											<?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
 										</select>
@@ -115,18 +147,18 @@
 											<div class="medium-4 from columns">
 												<label for="date-from">Beginning date (required)</label>
 												<div>
-													<input class=" input-xlarge focused" id="dateBegin" name="from" type="date" value="" >
+													<input class="form-create-progress input-xlarge focused" id="dateBegin" name="from" type="date" value=""  required>
 												</div>
 											</div>
 											<div class="medium-4 to columns">
 												<label for="date-to">Ending date (required)</label>
 												<div>
-													<input class="form-error input-xlarge focused" id="dateEnd" name="end" type="date" value="" >
+													<input class="form-create-progress form-error input-xlarge focused" id="dateEnd" name="end" type="date" value=""  required>
 												</div>
 											</div>
 											<div class="medium-4 to columns">
 												<label for="type">Type (required)</label>
-													<select id="type-race" name="type">
+													<select id="type-race" name="type" class="form-create-progress" required>
 														<option value="">Type of your race</option>
 														<option value="Earth">Earth</option>
 														<option value="Sea">Sea</option>
@@ -143,9 +175,9 @@
 									<div class="medium-4 columns second">
 										<div class="fileupload clearfix">
 											<img src="img/camera.png">
-											<span class="desc">Add a cover, it's better !</span>
+											<span class="desc">Add a cover, it's better ! (required)</span>
 											<div class="custom-file-upload">
-											    <input type="file" id="file" name="myfiles[]" multiple />
+											    <input class="form-create-progress" type="file" id="file" name="myfiles[]" multiple / required>
 											</div>
 											<span class="info">(size : 1280px * 490px)</span>
 										</div>
@@ -153,7 +185,7 @@
 					       		</div>
 								<label class="" for="description">Your idea</label> <!-- onblur="this.value=''" -->
 								<div>
-									<textarea onblur="this.value=''" onfocus="javascript: this.value=''" id="description" placeholder="Tell us more about your idea, which goal ? Which caritative challenge ? Which sport ?" name="descr"></textarea>
+									<textarea id="description" placeholder="Tell us more about your idea, which goal ? Which caritative challenge ? Which sport ?" name="descr"></textarea>
 								</div>
 
 								<a href="" onClick="ga('send', 'event', 'link','clic', 'validate-createv3');"><input id="saveForm" class="button-submit" type="submit" name="submit" value="Ready for your adventure !" /></a>
@@ -182,23 +214,53 @@
 				</div>
 
 				<div class="tabs form-join-event">
-					<h1><span>Join </span>the <span class="blue">name event</span></h1>
-				    <ul class="tab-links">
-				        <li class="active"><a href="#tab1">Edit</a></li>
-				        <li><a href="#tab2">Preview</a></li>
-				    </ul>
-
-				    <p>Hi, build your own team and get ready !</p>
 				 
 				    <div class="tab-content">
 				        <div id="tab1" class="tab active">
 				        
 				            <form id="form_join" class="" name="form_join" enctype="multipart/form-data" action="?module=event&action=" method="post" >
-
+								<div class="show-for-large-up run-man"></div>
+								<div class="show-for-large-up" id="progress-form-join"></div>
+								<div class="show-for-large-up form-create-img clearfix">
+									<div class="medium-3 columns">
+										<div class="img-form">
+											<div class="bg-img-first">
+												<div class="progress-message" id="progress-message-join-first">Get ready ?</div>
+											</div>
+											<img src="img/logo-form.png" alt="">
+										</div>
+									</div>
+									<div class="medium-3 columns">
+										<div class="img-form">
+											<div class="bg-img-second">
+												<div class="progress-message" id="progress-message-join-second"></div>
+											</div>
+											<img src="img/logo-form.png" alt="">
+										</div>
+									</div>
+									<div class="medium-3 columns">
+										<div class="img-form">
+											<div class="bg-img-third">
+												<div class="progress-message" id="progress-message-join-third"></div>
+											</div>
+											<img src="img/logo-form.png" alt="">
+										</div>
+									</div>
+									<div class="medium-3 columns">
+										<div class="img-form">
+											<div class="bg-img-fourth">
+												<div class="progress-message" id="progress-message-join-fifth"></div>
+											</div>
+											<img src="img/logo-form.png" alt="">
+										</div>
+									</div>
+								</div>
+								<h1><span>Join </span>the <span class="blue">name event</span></h1>
+				    			<p>Hi, build your own team and get ready !</p>
 				            	<div class="clearfix">
 				            		<div class="medium-4 columns event-info">
 					            		<label class="team-name" for="name">Name of your team (required)</label>
-					            		<input class="name" type="text" id="name-team">
+					            		<input required class="form-join-progress" type="text" id="name-team">
 
 					            		<label for="">Event informations</label>
 					            		<div class="info-event">
@@ -218,9 +280,9 @@
 												<span class="desc">Add a cover, it's better !</span>
 												<div class="custom-file-upload">
 												    <!--<label for="file">File: </label>--> 
-												    <input type="file" id="file" name="myfiles" multiple />
+												    <input required class="form-join-progress" type="file" id="file" name="myfiles" multiple />
 												</div>
-												<span class="info">(size : px * px)</span>
+												<span class="info">(size : 587px * 240px)</span>
 										</div>
 				            		</div>
 				            	</div>
@@ -229,26 +291,26 @@
 				            		<div class="medium-6 columns add-mates">
 				            			<label for="">Add your mates ! (required)</label>
 				            			<div class="mates">
-				            				<input id="mail-team" placeholder="Email of your mate" type="email">
+				            				<input required class="form-join-progress" id="mail-team" placeholder="Email of your mate" type="email">
 				            				<input placeholder="Email of your mate" type="email">
 				            				<input placeholder="Email of your mate" type="email">
 				            				<input placeholder="Email of your mate" type="email">
 				            			</div>
 				            		</div>
 				            		<div class="medium-6 columns">
-				            			<label for="">Your team</label>
-				            			<textarea name="" id="" cols="30" rows="10" onfocus="javascript: this.value=''" onblur="this.value=''">Tell us more about your team !</textarea>
+				            			<label for="">Your team (required)</label>
+				            			<textarea class="form-join-progress" required placeholder="Tell us more about your team !"></textarea>
 				            		</div>
 				            	</div>
 
 				            	<div class="clearfix">
 				            		<div class="medium-6 columns team-goal">
-				            			<label for="">Your goal</label>
-				            			<textarea name="" id="" cols="30" rows="10" onfocus="javascript: this.value=''" onblur="this.value=''">Why this event ? Explain your motivation here !</textarea>
+				            			<label for="">Your goal (required)</label>
+				            			<textarea class="form-join-progress" required name="" id="" placeholder="Why this event ? Explain your motivation here !"></textarea>
 				            		</div>
 				            		<div class="medium-6 columns">
-				            			<label for="">Your budget</label>
-				            			<textarea name="" id="" cols="30" rows="10" onfocus="javascript: this.value=''" onblur="this.value=''">Detail your buget and explain it !</textarea>
+				            			<label for="">Your budget (required)</label>
+				            			<textarea class="form-join-progress" required name="" id="" placeholder="Detail your buget and explain it !"></textarea>
 				            		</div>
 				            	</div>
 				
