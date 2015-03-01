@@ -1,6 +1,8 @@
 <?php if(!empty($data['user'])){ $user = $data['user'][0]; } 
- if(!empty($data['info'])){
-	if($data['info'][0]['ad_type'] == "Home" || $data['info'][1]['ad_type'] == "Home")
+ if(!empty($data['info']))
+ {
+	
+	if($data['info'][0]['ad_type'] == "Home" || isset($data['info'][1]) && $data['info'][1]['ad_type'] == "Home")
 	{
 		if($data['info'][0]['ad_type'] == "Home")
 		{
@@ -11,7 +13,8 @@
 			$adressHome = $data['info'][1];
 		}
 	}
-	if($data['info'][0]['ad_type'] == "Invoice" || $data['info'][1]['ad_type'] == "Invoice"){
+	if($data['info'][0]['ad_type'] == "Invoice" || $data['info'][1]['ad_type'] == "Invoice")
+	{
 		if($data['info'][0]['ad_type'] == "Invoice")
 		{
 			$adressInvoice = $data['info'][0]; 
@@ -22,11 +25,8 @@
 		}
 	}
 	
-	}
-	if(!empty($data['action'])){ $actions = $data['action']; } 
-	
-
-	 ?>
+}
+if(!empty($data['action'])){ $actions = $data['action']; } ?>
 <?php if(!empty($data['phone'])){ $infoplusplus = $data['phone'][0]['phone_num']; } ?>
 
 

@@ -106,9 +106,9 @@ class ProjectController extends CoreController {
 			$projectAdd = $project->insertNewProject($_POST);
 		}
 		if(isset($projectAdd) && $projectAdd == true){
-			$SESSION['message'] = "The new project as been added.";
+			$_SESSION['message'] = "The new project has been added.";
 		}elseif(isset($projectAdd) && $projectAdd == false){
-			$SESSION['message'] = "User is already in this event.";
+			$_SESSION['message'] = "User is already in this event.";
 		}
         $data = $project->getDataAdd();
 		
