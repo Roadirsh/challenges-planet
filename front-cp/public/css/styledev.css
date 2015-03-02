@@ -68,6 +68,25 @@ color: white;
 
 /* INPUT MYPAGE */
 
+.mp{
+float: left;
+margin: 2%;
+height: 42px;
+}
+.clear{
+clear: left;
+}
+.clear-b{
+clear: both;
+}
+
+.mp_type{
+height: 20px;
+}
+
+.mp_adress{
+color: black;
+}
 #mp_pseudo{
 width: 50%;
 height: 30px;
@@ -81,3 +100,33 @@ width: 26%;
 #mp_phone{
 width: 30%;
 }
+
+#mp_num{
+width: 10%;
+float: left;
+height: 37px;
+font-size: 1em;
+padding: 5px;
+}
+
+#mp_street{
+width: 90%;
+}
+
+#mp_zip{
+width: 30%;
+float: left;
+height: 37px;
+font-size: 1em;
+padding: 5px;
+}
+
+#mp_city{
+float: left; 
+width: 70%;
+}
+
+#mp_country{
+width: 140%;
+}
+

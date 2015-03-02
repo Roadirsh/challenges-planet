@@ -28,10 +28,10 @@
 
                         <div class="medium-5 columns">
                             <h3><?php echo strtoupper($user['user_firstname']) . ' ' . $user['user_lastname'] ; ?></h3>
-                            <form method="post" action="">
+                            <form method="post" action="" id="form-pseudo">
                                 <!-- id rajouté -->
-                                <input class="medium-3 columns" id="mp_pseudo" type="text" name="pseudo" value="<?php echo strtoupper($user['user_pseudo']); ?>" />
-                                <a class="modif" href="#" onclick='submit();'>Edit</a>
+                                <input class="medium-3 columns" id="mp_pseudo" type="text" name="mp_pseudo" value="<?php echo strtoupper($user['user_pseudo']); ?>" required />
+                                <input type="submit" class="modif" value="Edit"/>
                             </form>
                             <br><br>
                             <p><?php echo $user['age']; ?> years old</p>
@@ -45,29 +45,50 @@
 
                         <div id="location medium-6">
                             <img src="img/icon-location.png" alt="icon-location" title="location"/>
+                            <form method="post" action="">
                             <!-- <a href="<?php echo $user['user_site']; ?>" alt="" title=""> -->
-                                <input class="medium-6" type="email" name="text" id="mp_site" value="<?php echo $user['user_site']; ?>" />
-                                <a class="modif" href="#" onclick='submit();'>Edit</a>
+                                <input class="medium-6" type="url" name="mp_site" id="mp_site" value="<?php echo $user['user_site']; ?>" />
+                                <input type="submit" class="modif" value="Edit"/>
                             <!-- </a> -->
-                            
+                            </form>
                         </div>
 
                     </div>
 
                     <div class="clearfix">
+                    <hr>
                         <div class="medium-6 columns general-profil">
                             <h2>My information</h2>
                             <p>
-                                Phone: <input type="text" name="phone" id="mp_phone" value="<?php echo $user['phone_num']; ?>" />
-                                <a class="modif" href="#">Edit</a><br>
-                                Adress : <?php echo $user['ad_type']; ?><br>
-                                n° : <input type="text" name="type" value="<?php echo $user['ad_num']; ?>" /> 
-                                Street : <input type="text" name="type" value="<?php echo $user['ad_street']; ?>" /><br>
-                                Zipcode : <input type="text" name="type" value="<?php echo $user['ad_zipcode']; ?>" />
-                                City : <input type="text" name="type" value="<?php echo $user['ad_city']; ?>" /><br>
-                                Country : <input type="text" name="type" value="<?php echo ucfirst($user['ad_country']); ?>" />
+                                <form method="post" action="" id="form-phone">
+                                    <p class="mp clear mp_type">Phone : </p> 
+                                    <input type="tel" class="mp" name="mp_phone" id="mp_phone" value="<?php echo $user['phone_num']; ?>" required />
+                                    <input type="submit" class="modif" value="Edit"/>
+                                </form>
+                                <form method="post" action="">
+                                    <p class="mp clear mp_type mp_adress">Adress "<?php echo $user['ad_type']; ?>"</p>
+                                    <p class="mp clear-b mp_type">Street : </p>
+                                    <p class="mp clear">
+                                        <input type="num" name="mp_num" id="mp_num" value="<?php echo $user['ad_num']; ?>" required /> 
+                                        <input type="text" name="mp_street" id="mp_street" value="<?php echo $user['ad_street']; ?>" required /><br>
+                                    </p>
+                                    <p class="mp clear mp_type">Zipcode &amp; City : </p>
+                                    <p class="mp clear-b">
+                                        <input type="num" name="mp_zio" id="mp_zip" value="<?php echo $user['ad_zipcode']; ?>" required />
+                                        <input type="text" name="mp_city" id="mp_city" value="<?php echo $user['ad_city']; ?>" required />
+                                    </p>
+                                    <p class="mp clear-b mp_type">Country : </p>
+                                    <p class="mp clear">
+                                        <select class="form-create-progress" id="mp_country" name="mp_country" required>
+                                            <!-- Include avec l'ensemble des pays -->
+                                            <option><?php echo ucfirst($user['ad_country']); ?></option>
+                                            <?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
+                                        </select>
+                                        <input type="submit" class="modif" value="Edit"/>
+                                    </p>
+                                </form>
                             </p>
-                            <a class="modif" href="#">Edit</a>
+                            
                         </div>
                         <div id="account" class="medium-6 columns">
                             <div class=" content-profil clearfix">
@@ -76,16 +97,21 @@
 
                             <div class="medium-12 general-profil">
                                 <div class=" first-info"><p>Mail adress<p></div>
-                                <div class=" second-info"><input type="email" name="email" value="<?php echo $user['user_mail']; ?>"/></div>
-                                <div class=" third-info">
-                                    <a class="modif" href="#">Edit</a>
-                                </div>
+                                <form method="post" action="">
+                                    <div class=" second-info"><input type="email" name="mp_email" value="<?php echo $user['user_mail']; ?>"/></div>
+                                    
+                                    <div class=" third-info">
+                                        <input type="submit" class="modif" value="Edit"/>
+                                    </div>
+                                </form>
                             </div>
 
                             <div class="medium-12 right general-profil">
                                 <div class="medium-12 first-info"><p>Password<p></div>
-                                    <div class="second-info"><input type="password" value="<?php echo $user['user_password']; ?>" /></div>
-                                    <div class="third-info"><a class="modif" href="#">Edit</a></div>
+                                <form method="post" action="">
+                                    <div class="second-info"><input type="password" name="mp_pwd" value="<?php echo $user['user_password']; ?>" /></div>
+                                    <input type="submit" class="modif" value="Edit"/>
+                                </form>
                             </div>
                         </div>                
                     </div>

@@ -180,9 +180,168 @@ class UserModel extends CoreModel{
 
     }
 
+/////////////////////////////////////////////////////
+/* UPDATE MY PROFILE * * * * * * * * * * * * * * * */
+
+    /**
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
+     * 
+     * Update pseudo
+     * 
+     * @param $id $_GET ID
+     */
+    public function updatePseudo($data, $id) {
+        try {
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_pseudo` = '" . $data . "'
+                                                WHERE user_id = '" . $id . "'");
+            if($select->execute()){
+                $_SESSION['cp_userPseudo'] = $data;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
+     * 
+     * Update Website
+     * 
+     * @param $id $_GET ID
+     */
+    public function updateWebsite($data, $id) {
+        try {
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_site` = '" . $data . "'
+                                                WHERE user_id = '" . $id . "'");
+            if($select->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
+     * 
+     * Update phone
+     * 
+     * @param $id $_GET ID
+     */
+    public function updatePhone($data, $id) {
+        try {
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_phone` = '" . $data . "'
+                                                WHERE user_id = '" . $id . "'");
+            if($select->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
+     * 
+     * Update adress
+     * 
+     * @param $id $_GET ID
+     */
+    public function updateAdress($data, $id) {
+        try {
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_pseuso` = '" . $data . "'
+                                                WHERE user_id = '" . $id . "'");
+            if($select->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
+     * 
+     * Update mail
+     * 
+     * @param $id $_GET ID
+     */
+    public function updateMail($data, $id) {
+        try {
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_mail` = '" . $data . "'
+                                                WHERE user_id = '" . $id . "'");
+            if($select->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
+     * 
+     * Update password
+     * 
+     * @param $id $_GET ID
+     */
+    public function updatePwd($data, $id) {
+        try {
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_password` = '" . $data . "'
+                                                WHERE user_id = '" . $id . "'");
+            if($select->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
 
 /////////////////////////////////////////////////////
-/* MY PROFILE * * * * * * * * * * * * * * * * * * */
+/* ONE USER * * * * * * * * * * * * * * * * * * * * */
 
     /**
      * Linked to : 

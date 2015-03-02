@@ -62,23 +62,76 @@ class UserController extends CoreController {
      */
 	private function SeeMyPage(){
 		
+        $id = $_SESSION[PREFIX . 'userID'];
         $showUser = $this->model = new UserModel();
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * *
+        * LET'S UPDATE
+        */
+        if(isset($_POST) && !empty($_POST)){
+            if(isset($_POST['mp_pseudo']) && !empty($_POST['mp_pseudo'])){
+                /* * * * * * * * * * * * * * * * * * * * * * * * *
+                * CHANGE PSEUDO
+                */
+                $newpseudo = $showUser->updatePseudo($_POST['mp_pseudo'], $id);
+                $_POST = null;
+            }
+            elseif(isset($_POST['mp_site'])){
+                /* * * * * * * * * * * * * * * * * * * * * * * * *
+                * CHANGE URL WEB SITE
+                */
+                $newwebsite = $showUser->updateWebsite($_POST['mp_site'], $id);
+                $_POST = null;
+            }
+            elseif(isset($_POST['mp_phone']) && !empty($_POST['mp_phone'])){
+                /* * * * * * * * * * * * * * * * * * * * * * * * *
+                * CHANGE PHONE NUMBER
+                */
+                // $newphone = $showUser->updatePhone($_POST['mp_phone'], $id);
+            }
+            elseif(isset($_POST['mp_num']) && !empty($_POST['mp_num']) 
+                && isset($_POST['mp_street']) && !empty($_POST['mp_street'])
+                && isset($_POST['mp_city']) && !empty($_POST['mp_city'])
+                && isset($_POST['mp_zip']) && !empty($_POST['mp_zip'])
+                && isset($_POST['mp_country']) && !empty($_POST['mp_country'])){
+                /* * * * * * * * * * * * * * * * * * * * * * * * *
+                * CHANGE ADRESS PLACE
+                */
+                $array = array();
+                $array['mp_num'] = $_POST['mp_num'];
+                $array['mp_street'] = $_POST['mp_street'];
+                $array['mp_zip'] = $_POST['mp_zip'];
+                $array['mp_city'] = $_POST['mp_city'];
+                $array['mp_country'] = $_POST['mp_country'];
+
+                // $newadress = $showUser->updateAdress($array, $id);
+            }
+            elseif(isset($_POST['mp_email']) && !empty($_POST['mp_email'])){
+                if(filter_var($_POST['mp_email'], FILTER_VALIDATE_EMAIL)){
+                    /* * * * * * * * * * * * * * * * * * * * * * * * *
+                    * CHANGE EMAIL
+                    */
+                    $newmail = $showUser->updateMail($_POST['mp_email'], $id);
+                    $_POST = null;
+                }
+            }
+            elseif(isset($_POST['mp_pwd']) && !empty($_POST['mp_pwd'])){
+                /* * * * * * * * * * * * * * * * * * * * * * * * *
+                * CHANGE PASSWORD
+                */
+                $newpwd = $showUser->updatePwd($_POST['mp_pwd'], $id);
+                $_POST = null;
+            }
+
+        }
 
         /* * * * * * * * * * * * * * * * * * * * * * * * *
         * Information about one user only
         */
-
-		$oneUser = $showUser->SeeMyPage();
+        $oneUser = $showUser->SeeMyPage();
         $oneUserEvents = $showUser->SeeMyPageEvents($_SESSION[PREFIX . 'userID']);
         $oneUserGroups = $showUser->SeeMyPageGroups($_SESSION[PREFIX . 'userID']);
 
-        if(isset($_POST) && !empty($_POST)){
-            
-
-
-
-            
-        }
 		/* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
