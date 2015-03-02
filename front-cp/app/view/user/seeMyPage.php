@@ -28,9 +28,12 @@
 
                         <div class="medium-5 columns">
                             <h3><?php echo strtoupper($user['user_firstname']) . ' ' . $user['user_lastname'] ; ?></h3>
-                            <input class="medium-3 columns" type="text" name="pseudo" value="<?php echo strtoupper($user['user_pseudo']); ?>" />
-                            <a class="modif" href="#">Edit</a>
-
+                            <form method="post" action="">
+                                <!-- id rajouté -->
+                                <input class="medium-3 columns" id="mp_pseudo" type="text" name="pseudo" value="<?php echo strtoupper($user['user_pseudo']); ?>" />
+                                <a class="modif" href="#" onclick='submit();'>Edit</a>
+                            </form>
+                            <br><br>
                             <p><?php echo $user['age']; ?> years old</p>
                         </div>
 
@@ -42,8 +45,11 @@
 
                         <span id="location">
                             <img src="img/icon-location.png" alt="icon-location" title="location"/>
-                            <a href="<?php echo $user['user_site']; ?>" alt="" title=""><input type="email" name="email" value="<?php echo $user['user_site']; ?>" /></a><br>
-                            <a class="modif" href="#">Edit</a>
+                            <!-- <a href="<?php echo $user['user_site']; ?>" alt="" title=""> -->
+                                <input type="email" name="text" id="mp_site" value="<?php echo $user['user_site']; ?>" />
+                                <a class="modif" href="#" onclick='submit();'>Edit</a>
+                            <!-- </a> -->
+                            
                         </span>
 
                     </div>
@@ -52,9 +58,9 @@
                         <div class="medium-6 columns general-profil">
                             <h2>My information</h2>
                             <p>
-                                Phone: <input type="text" name="phone" value="<?php echo $user['phone_num']; ?>" /><br>
+                                Phone: <input type="text" name="phone" id="mp_phone" value="<?php echo $user['phone_num']; ?>" />
                                 <a class="modif" href="#">Edit</a><br>
-                                Adress : <input type="text" name="type" value="<?php echo $user['ad_type']; ?>" /><br>
+                                Adress : <?php echo $user['ad_type']; ?><br>
                                 n° : <input type="text" name="type" value="<?php echo $user['ad_num']; ?>" /> 
                                 Street : <input type="text" name="type" value="<?php echo $user['ad_street']; ?>" /><br>
                                 Zipcode : <input type="text" name="type" value="<?php echo $user['ad_zipcode']; ?>" />

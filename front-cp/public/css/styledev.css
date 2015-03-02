@@ -1,6 +1,8 @@
 /**************** A RAJOUTER ****************/
 
-
+body{
+    background-color: red;
+}
 /* SI PAS LA BONNE TAILLE D'IMAGE: PREVOIR */
 
 /* HOME */
@@ -59,4 +61,20 @@ color: white;
 border: blue;
 background: rgba(28,134,238, 0.5);
 color: white;
+}
+
+/* INPUT MYPAGE */
+
+#mp_pseudo{
+width: 50%;
+height: 30px;
+margin-right: 4%;
+}
+
+#mp_site{
+width: 26%;
+}
+
+#mp_phone{
+width: 30%;
 }
