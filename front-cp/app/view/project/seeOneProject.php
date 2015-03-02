@@ -140,10 +140,11 @@
 								</span><br/>Days
 							</span>
 						</div>
-						<div class="progress-team notyet" data-percent="<?php echo $percent; ?>"></div>
 						<?php if($percent != 100){ ?>
+							<div class="progress-team notyet" data-percent="<?php echo $percent; ?>"></div>
 							<a href="#choose" class="popup-with-form button help">Help them !</a>
 						<?php } else { ?>
+							<div class="progress-team good" data-percent="<?php echo $percent; ?>"></div>
 							<a href="" class="popup-with-form button join">Thank you !</a>
 						<?php } ?>
 					</div>
