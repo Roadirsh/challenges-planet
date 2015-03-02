@@ -49,7 +49,7 @@
 					<div class="medium-6 columns">
 						<label for="">Credit card number</label>
 						<div>
-							<input type="text" name="num_card"  required >
+							<input type="number" name="num_card" required >
 						</div>
 					</div>
 					<div class="medium-6 columns">
@@ -63,13 +63,13 @@
 					<div class="medium-6 columns">
 						<label for="">Cryto</label>
 						<div>
-							<input type="text" name="crypto_card" required >
+							<input type="number" name="crypto_card" required >
 						</div>
 					</div>
 					<div class="medium-6 columns">
 						<label for="">Expiration date</label>
 						<div>
-							<input type="text" name="expiration_card" required >
+							<input type="text" name="expiration_card" placeholder="mm/YY" required >
 						</div>
 					</div>
 				</div>

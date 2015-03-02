@@ -163,7 +163,8 @@ class CartController extends CoreController {
         if(isset($_POST['user_password'])){
 	        $userExist = $user->insertNewUser();
 	        if($userExist){
-		        $_SESSION['message'] = "Veuillez verifier vos données !";
+		        $_SESSION['message'] = "Seems to be a problem, please verify you informations !";
+                $_SESSION['messtype'] = 'danger';
 		        $this->coreRedirect('cart', 'seeinfocart');
 	        }
 	        else{
@@ -180,7 +181,8 @@ class CartController extends CoreController {
 	    	
 	    	$userExist = $user->Uponeuser();
 	        if($userExist){
-		        $_SESSION['message'] = "Veuillez verifier vos données !";
+                $_SESSION['message'] = "Seems to be a problem, please verify you informations !";
+                $_SESSION['messtype'] = 'danger';
 		        $this->coreRedirect('cart', 'seeinfocart');
 	        }
 	        else{
@@ -243,7 +245,11 @@ class CartController extends CoreController {
 	        $_SESSION['doneff'] = $cart->donate();
 	        
 	        if($_SESSION['doneff'] == false){
- 		        $_SESSION['message'] = "Veuillez verifier vos données !";		 		      
+ 		        $_SESSION['message'] = "Seems to be a problem, please verify you informations !<br>
+                                        - 13 or 16 numbers who begins with a 4 is required for your cart number<br>
+                                        - 3 numbers only for the cryptogram<br>
+                                        - date is mm/YY";
+                $_SESSION['messtype'] = 'danger long';	 		      
  		        $this->coreRedirect('cart', 'confirmation');
  	        }		 	        
 	        else{
