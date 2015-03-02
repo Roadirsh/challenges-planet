@@ -193,12 +193,18 @@ class UserModel extends CoreModel{
      * @param $id $_GET ID
      */
     public function updatePseudo($data, $id) {
+
+        $data = addslashes($data);
+        $data = preg_replace("/'/", "", $data);
+        $data = preg_replace("/=/", "", $data);
+
+
         try {
             $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
                                                 SET `user_pseudo` = '" . $data . "'
                                                 WHERE user_id = '" . $id . "'");
             if($select->execute()){
-                $_SESSION['cp_userPseudo'] = $data;
+                $_SESSION[PREFIX . 'userPseudo'] = $data;
                 return true;
             } else {
                 return false;
@@ -247,9 +253,9 @@ class UserModel extends CoreModel{
      */
     public function updatePhone($data, $id) {
         try {
-            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
-                                                SET `user_phone` = '" . $data . "'
-                                                WHERE user_id = '" . $id . "'");
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "phone 
+                                                SET `phone_num` = '" . $data . "'
+                                                WHERE user_user_id = '" . $id . "'");
             if($select->execute()){
                 return true;
             } else {
@@ -272,10 +278,17 @@ class UserModel extends CoreModel{
      * @param $id $_GET ID
      */
     public function updateAdress($data, $id) {
+
         try {
-            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
-                                                SET `user_pseuso` = '" . $data . "'
-                                                WHERE user_id = '" . $id . "'");
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "adress 
+                                                SET 
+                                                `ad_num` = '" . $data['mp_num'] . "',
+                                                `ad_street` = '" . $data['mp_street'] . "',
+                                                `ad_zipcode` = '" . $data['mp_zip'] . "',
+                                                `ad_city` = '" . $data['mp_city'] . "',
+                                                `ad_country` = '" . $data['mp_country'] . "'
+                                                WHERE user_user_id = '" . $id . "'");
+            print_r($select);
             if($select->execute()){
                 return true;
             } else {
@@ -326,7 +339,7 @@ class UserModel extends CoreModel{
     public function updatePwd($data, $id) {
         try {
             $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
-                                                SET `user_password` = '" . $data . "'
+                                                SET `user_password` = '" . md5($data) . "'
                                                 WHERE user_id = '" . $id . "'");
             if($select->execute()){
                 return true;

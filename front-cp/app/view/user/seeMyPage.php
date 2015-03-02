@@ -72,7 +72,7 @@
                                     </p>
                                     <p class="mp clear mp_type">Zipcode &amp; City : </p>
                                     <p class="mp clear-b">
-                                        <input type="num" name="mp_zio" id="mp_zip" value="<?php echo $user['ad_zipcode']; ?>" required />
+                                        <input type="num" name="mp_zip" id="mp_zip" value="<?php echo $user['ad_zipcode']; ?>" required />
                                         <input type="text" name="mp_city" id="mp_city" value="<?php echo $user['ad_city']; ?>" required />
                                     </p>
                                     <p class="mp clear-b mp_type">Country : </p>

@@ -87,7 +87,7 @@
 				    <div class="tab-content">
 				        <div id="tab1" class="tab active">
 				        
-				            <form id="form_create" class="" name="form_create" enctype="multipart/form-data" action="?module=event&action=addevent" method="post" >
+				            <form id="form_create" class="" name="form_create" enctype="multipart/form-data" action="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>" method="post" >
 				            	<div class="show-for-large-up run-man"></div>
 								<div class="show-for-large-up" id="progress-form-create"></div>
 								<div class="show-for-large-up form-create-img clearfix">

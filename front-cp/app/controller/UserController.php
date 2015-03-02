@@ -75,6 +75,9 @@ class UserController extends CoreController {
                 */
                 $newpseudo = $showUser->updatePseudo($_POST['mp_pseudo'], $id);
                 $_POST = null;
+                // initialization of the messages
+                $_SESSION['message'] = "Your pseudo has been well updated ! ";
+                $_SESSION['messtype'] = 'success';
             }
             elseif(isset($_POST['mp_site'])){
                 /* * * * * * * * * * * * * * * * * * * * * * * * *
@@ -82,12 +85,18 @@ class UserController extends CoreController {
                 */
                 $newwebsite = $showUser->updateWebsite($_POST['mp_site'], $id);
                 $_POST = null;
+                // initialization of the messages
+                $_SESSION['message'] = "Your WebSite has been well updated ! ";
+                $_SESSION['messtype'] = 'success';
             }
             elseif(isset($_POST['mp_phone']) && !empty($_POST['mp_phone'])){
                 /* * * * * * * * * * * * * * * * * * * * * * * * *
                 * CHANGE PHONE NUMBER
                 */
-                // $newphone = $showUser->updatePhone($_POST['mp_phone'], $id);
+                $newphone = $showUser->updatePhone($_POST['mp_phone'], $id);
+                // initialization of the messages
+                $_SESSION['message'] = "Your phone number has been well updated ! ";
+                $_SESSION['messtype'] = 'success';
             }
             elseif(isset($_POST['mp_num']) && !empty($_POST['mp_num']) 
                 && isset($_POST['mp_street']) && !empty($_POST['mp_street'])
@@ -104,7 +113,11 @@ class UserController extends CoreController {
                 $array['mp_city'] = $_POST['mp_city'];
                 $array['mp_country'] = $_POST['mp_country'];
 
-                // $newadress = $showUser->updateAdress($array, $id);
+                $newadress = $showUser->updateAdress($array, $id);
+                $_POST = null;
+                // initialization of the messages
+                $_SESSION['message'] = "Your Adress has been well updated ! ";
+                $_SESSION['messtype'] = 'success';
             }
             elseif(isset($_POST['mp_email']) && !empty($_POST['mp_email'])){
                 if(filter_var($_POST['mp_email'], FILTER_VALIDATE_EMAIL)){
@@ -113,6 +126,9 @@ class UserController extends CoreController {
                     */
                     $newmail = $showUser->updateMail($_POST['mp_email'], $id);
                     $_POST = null;
+                    // initialization of the messages
+                    $_SESSION['message'] = "Your email has been well updated ! ";
+                    $_SESSION['messtype'] = 'success';
                 }
             }
             elseif(isset($_POST['mp_pwd']) && !empty($_POST['mp_pwd'])){
@@ -121,6 +137,13 @@ class UserController extends CoreController {
                 */
                 $newpwd = $showUser->updatePwd($_POST['mp_pwd'], $id);
                 $_POST = null;
+                // initialization of the messages
+                $_SESSION['message'] = "Your password has been well updated ! ";
+                $_SESSION['messtype'] = 'success';
+            }else{
+                // initialization of the messages
+                $_SESSION['message'] = "Seems to be a problem during the update, please try again ! ";
+                $_SESSION['messtype'] = 'danger';
             }
 
         }
