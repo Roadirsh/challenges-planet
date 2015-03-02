@@ -31,7 +31,7 @@
                             <form method="post" action="" id="form-pseudo">
                                 <!-- id rajouté -->
                                 <input class="medium-3 columns" id="mp_pseudo" type="text" name="mp_pseudo" value="<?php echo strtoupper($user['user_pseudo']); ?>" required />
-                                <input type="submit" class="modif" value="Edit"/>
+                                <input type="submit" class="button submit edit" value="Edit"/>
                             </form>
                             <br><br>
                             <p><?php echo $user['age']; ?> years old</p>
@@ -48,7 +48,7 @@
                             <form method="post" action="">
                             <!-- <a href="<?php echo $user['user_site']; ?>" alt="" title=""> -->
                                 <input class="medium-6" type="url" name="mp_site" id="mp_site" value="<?php echo $user['user_site']; ?>" />
-                                <input type="submit" class="modif" value="Edit"/>
+                                <input type="submit" class="button submit edit" value="Edit"/>
                             <!-- </a> -->
                             </form>
                         </div>
@@ -56,14 +56,13 @@
                     </div>
 
                     <div class="clearfix">
-                    <hr>
                         <div class="medium-6 columns general-profil">
                             <h2>My information</h2>
                             <p>
                                 <form method="post" action="" id="form-phone">
                                     <p class="mp clear mp_type">Phone : </p> 
                                     <input type="tel" class="mp" name="mp_phone" id="mp_phone" value="<?php echo $user['phone_num']; ?>" required />
-                                    <input type="submit" class="modif" value="Edit"/>
+                                    <input type="submit" class="button submit edit" value="Edit"/>
                                 </form>
                                 <form method="post" action="">
                                     <p class="mp clear mp_type mp_adress">Adress "<?php echo $user['ad_type']; ?>"</p>
@@ -84,7 +83,7 @@
                                             <option><?php echo ucfirst($user['ad_country']); ?></option>
                                             <?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
                                         </select>
-                                        <input type="submit" class="modif" value="Edit"/>
+                                        <input type="submit" class="button submit edit" value="Edit"/>
                                     </p>
                                 </form>
                             </p>
@@ -101,7 +100,7 @@
                                     <div class=" second-info"><input type="email" name="mp_email" value="<?php echo $user['user_mail']; ?>"/></div>
                                     
                                     <div class=" third-info">
-                                        <input type="submit" class="modif" value="Edit"/>
+                                        <input type="submit" class="button submit edit" value="Edit"/>
                                     </div>
                                 </form>
                             </div>
@@ -110,7 +109,7 @@
                                 <div class="medium-12 first-info"><p>Password<p></div>
                                 <form method="post" action="">
                                     <div class="second-info"><input type="password" name="mp_pwd" value="<?php echo $user['user_password']; ?>" /></div>
-                                    <input type="submit" class="modif" value="Edit"/>
+                                    <input type="submit" class="button submit edit" value="Edit"/>
                                 </form>
                             </div>
                         </div>                

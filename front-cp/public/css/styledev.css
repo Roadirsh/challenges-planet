@@ -99,13 +99,14 @@ width: 26%;
 
 #mp_phone{
 width: 30%;
+margin-right: 15px;
 }
 
 #mp_num{
 width: 10%;
 float: left;
 height: 37px;
-font-size: 1em;
+font-size: 0.8em;
 padding: 5px;
 }
 
@@ -117,7 +118,7 @@ width: 90%;
 width: 30%;
 float: left;
 height: 37px;
-font-size: 1em;
+font-size: 0.8em;
 padding: 5px;
 }
 
@@ -130,3 +131,7 @@ width: 70%;
 width: 140%;
 }
 
+.edit{
+padding: 6px;
+width: 45px;
+}
