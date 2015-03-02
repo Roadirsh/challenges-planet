@@ -23,7 +23,7 @@
 	<h1 class="title-action">Sponsorise</h1>
 	<div class="wrapper">
 		<div class="cart-contain">
-			<form action="index.php?module=cart&action=paiement" enctype="multipart/form-data" method="post" class="invoicing">
+			<form action="<?php echo MODULE . 'cart' . ACTION . 'paiement'; ?>" enctype="multipart/form-data" method="post" class="invoicing">
 				<div class="bg">
 					<h2>Information of invoicing</h2>
 				</div>

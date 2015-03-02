@@ -6,7 +6,7 @@
 
 <div class="contain">
     <div class="signup">
-		<form id="form-signup" action="" method="post" class="clearfix">
+		<form id="form-signup" action="<?php echo MODULE . 'log' . ACTION . 'signup'; ?>" method="post" class="clearfix">
 	    	<div class="classic-login">
 	    		<fieldset>
 	    			<h1>Increase your challenge and your help for the planet</h1>

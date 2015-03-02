@@ -12,7 +12,7 @@
 				<div class="join-event columns medium-9">
 					<div class="clearfix">
 						<h1><?php echo JOIN; /* DEFINED IN conf_define */ ?></h1>
-						<form class="search-bar" method="post" action="">
+						<form class="search-bar" method="post" action="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>">
 							<input type="text" size="21" name="search">
 							<!-- icon -->
 							<input class="icon-search" type="submit" value="" >
@@ -218,7 +218,7 @@
 				    <div class="tab-content">
 				        <div id="tab3" class="tab active">
 				        
-				            <form id="form_join" class="" name="form_join" enctype="multipart/form-data" action="?module=event&action=" method="post" >
+				            <form id="form_join" class="" name="form_join" enctype="multipart/form-data" action="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>" method="post" >
 								<div class="show-for-large-up run-man"></div>
 								<div class="show-for-large-up" id="progress-form-join"></div>
 								<div class="show-for-large-up form-create-img clearfix">

@@ -47,7 +47,7 @@
 		</div>
 	</div>
 	<div class="wrapper info-payment">
-		<form action="index.php?module=cart&action=confirmation" method="post">
+		<form action="<?php echo MODULE . 'cart' . ACTION . 'confirmation'; ?>" method="post">
 
 			<div class="cart-contain">
 				<div class="bg">

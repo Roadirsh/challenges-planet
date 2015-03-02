@@ -44,7 +44,7 @@
 
                         <div id="location medium-6">
                             <img src="img/icon-location.png" alt="icon-location" title="location"/>
-                            <form method="post" action="">
+                            <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>">
                             <!-- <a href="<?php echo $user['user_site']; ?>" alt="" title=""> -->
                                 <input class="medium-6" type="url" name="mp_site" id="mp_site" value="<?php echo $user['user_site']; ?>" />
                                 <input type="submit" class="button submit edit" value="Edit"/>
@@ -58,12 +58,12 @@
                         <div class="medium-6 columns general-profil">
                             <h2>My information</h2>
                             <p>
-                                <form method="post" action="" id="form-phone">
+                                <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>" id="form-phone">
                                     <p class="mp clear mp_type">Phone : </p> 
                                     <input type="tel" class="mp" name="mp_phone" id="mp_phone" value="<?php echo $user['phone_num']; ?>" required />
                                     <input type="submit" class="button submit edit" value="Edit"/>
                                 </form>
-                                <form method="post" action="">
+                                <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>">
                                     <p class="mp clear mp_type mp_adress">Adress "<?php echo $user['ad_type']; ?>"</p>
                                     <p class="mp clear-b mp_type">Street : </p>
                                     <p class="mp clear">
@@ -95,7 +95,7 @@
 
                             <div class="medium-12 general-profil">
                                 <div class=" first-info"><p>Mail adress<p></div>
-                                <form method="post" action="">
+                                <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>">
                                     <div class=" second-info"><input type="email" name="mp_email" value="<?php echo $user['user_mail']; ?>"/></div>
                                     
                                     <div class=" third-info">
@@ -106,7 +106,7 @@
 
                             <div class="medium-12 right general-profil">
                                 <div class="medium-12 first-info"><p>Password<p></div>
-                                <form method="post" action="">
+                                <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>">
                                     <div class="second-info"><input type="password" name="mp_pwd" value="<?php echo $user['user_password']; ?>" /></div>
                                     <input type="submit" class="button submit edit" value="Edit"/>
                                 </form>

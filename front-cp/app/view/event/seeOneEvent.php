@@ -27,7 +27,7 @@
 
             <div class="main-contain clearfix">
                 <a href="#form-search" class="hide-for-large-up show-for-small-up popup-with-form sidebar-sort-mobile">Search and sort</a>
-                <form id="form-search" class="search-bar mfp-hide white-popup-block" method="posst" action="">
+                <form id="form-search" class="search-bar mfp-hide white-popup-block" method="post" action="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>">
                     <input type="text" size="21">
                         
                         <div class="team-progress">
@@ -59,7 +59,7 @@
                 </form>
                 <div class="show-for-large-up sidebar-sort medium-3 columns">
                     <h2>Search and sort</h2>
-                    <form class="search-bar" method="post" action="">
+                    <form class="search-bar" method="post" action="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>">
                         <input type="text" size="21" name="search">
                         
                         <div class="team-progress">

@@ -23,7 +23,7 @@
 	<h1 class="title-action">Confirmation</h1>
 	<div class="wrapper">
 		<div class="cart-contain">
-			<form action="index.php?module=cart&action=seesummary"  method="post" class="confirmation clearfix">
+			<form action="<?php echo MODULE . 'cart' . ACTION . 'seesummary'; ?>"  method="post" class="confirmation clearfix">
 				<div class="bg"></div>
 				<h2 class="sponsorise-team">
 					You would to help <?php echo $_SESSION["donation_team"]; ?> for <?php echo $_SESSION["donation_event"]; ?>
