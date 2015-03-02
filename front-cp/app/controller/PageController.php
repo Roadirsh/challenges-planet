@@ -66,14 +66,14 @@ class PageController extends CoreController {
 		/* Get 7 last added teams */
 		$gID = $Group->SeeGroupID();
 
-			$AllLastGroups = '';
-			$DoneGroup = '';
+		$AllLastGroups = '';
+		$DoneGroup = '';
 
-			if(!empty($gID)){
-				$AllLastGroups = $Group->SeeGroups($gID);
-				/* Get 1 teams from a finish event */
-				$DoneGroup = $Group->SeeDoneGroup($gID);
-			}
+		if(!empty($gID)){
+			$AllLastGroups = $Group->SeeGroups($gID);
+			/* Get 1 teams from a finish event */
+			$DoneGroup = $Group->SeeDoneGroup($gID);
+		}
 
 		/* Get 7 sponsors */
 		$AllLastSponsors = $Group->SeeLastSponsors();

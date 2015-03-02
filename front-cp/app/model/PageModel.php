@@ -172,12 +172,10 @@ class PageModel extends CoreModel{
         try {
 
             $select = $this->connexion->prepare("SELECT A.group_id 
-                                            FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
-                                            WHERE A.group_valid = 1
-                                            AND B.event_end > '" . date("Y-m-d H:i:s") . "'
-                                            AND A.group_id = C.group_group_id
-                                            AND B.event_id = C.event_event_id
-                                            GROUP BY A.group_id");
+                                                FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
+                                                WHERE A.group_valid = 1
+                                                AND B.event_end >= " . date("Y-m-d") . "
+                                                GROUP BY A.group_id");
 
             $select->execute();
             $select->setFetchMode(PDO::FETCH_ASSOC);
@@ -206,7 +204,6 @@ class PageModel extends CoreModel{
 
             $i ++;
             }
-
             return $array;
 
         } catch (Exception $e) {
@@ -234,7 +231,7 @@ class PageModel extends CoreModel{
                                                     FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
                                                     WHERE A.group_valid = 1
                                                     AND A.group_id = :groupID
-                                                    AND B.event_end > '" . date("Y-m-d H:i:s") . "'
+                                                    AND B.event_end >= '" . date("Y-m-d H:i:s") . "'
                                                     AND A.group_id = C.group_group_id
                                                     AND B.event_id = C.event_event_id
                                                     AND A.group_money > :needed
@@ -285,10 +282,9 @@ class PageModel extends CoreModel{
                                                     FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
                                                     WHERE A.group_valid = 1
                                                     AND A.group_id = :groupID
-                                                    AND B.event_end > '" . date("Y-m-d H:i:s") . "'
-                                                    AND A.group_id = C.group_group_id
-                                                    AND B.event_id = C.event_event_id
+                                                    AND B.event_end > '" . date("Y-m-d") . "'
                                                     AND A.group_money <= :needed
+                                                    AND A.group_id = C.group_group_id
                                                     GROUP BY A.group_id
                                                     LIMIT 1");
 
@@ -302,10 +298,8 @@ class PageModel extends CoreModel{
                 if(isset($group[0])){
                     $array = array_merge($gID[$i], $group[0]);
                 }
-
             $i ++;   
             }
-
             return $array;
 
         } catch (Exception $e) {
