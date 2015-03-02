@@ -144,8 +144,7 @@
     			<a href="<?php echo MODULE . 'sponsor' . ACTION . 'seeonesponsor' . ID . $s['user_id']; ?>">
                     <div class="medium-4 large-3 columns sponsor-wrapper">
         				<div class="wrapper">
-                            <div class="img">
-                                <img src="img/avatar/<?php echo $s['user_profil_pic']; ?>" alt="">
+                            <div class="img" style="background:url('img/avatar/<?php echo $s['user_profil_pic']; ?>'); background-position: left;background-size: cover;">
                                 <div class="hover">
                                     <span>They helped them !</span>
                                 </div>
