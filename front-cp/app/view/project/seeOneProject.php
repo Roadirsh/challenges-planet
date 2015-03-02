@@ -99,10 +99,18 @@
 							<?php } ?>
 						<?php } ?>
 						<?php if(!empty($sponsors[0])){ ?>
-							<a class="popup-with-form columns medium-6" href="#list-compagnies">
-								<span class="bold">+ 3</span>
-								<span>others compagnies</span>
-							</a>
+							<?php $moresponsors = '+ ' . count($sponsors)-3; 
+							if ($moresponsors <= 0){ $moresponsors = "no "; ?>
+								<a class="popup-with-form columns medium-6" href="">
+									<span class="bold"><?php echo $moresponsors; ?></span>
+									<span>others compagnies</span>
+								</a>
+							<?php } else { ?>
+								<a class="popup-with-form columns medium-6" href="#list-compagnies">
+									<span class="bold"><?php echo $moresponsors; ?></span>
+									<span>others compagnies</span>
+								</a>
+							<?php } ?>
 						<?php } ?>
 					</div>
 				</div>
