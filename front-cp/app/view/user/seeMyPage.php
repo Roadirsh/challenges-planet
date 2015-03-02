@@ -33,7 +33,6 @@
                                 <input class="medium-3 columns" id="mp_pseudo" type="text" name="mp_pseudo" value="<?php echo strtoupper($user['user_pseudo']); ?>" required />
                                 <input type="submit" class="button submit edit" value="Edit"/>
                             </form>
-                            <br><br>
                             <p><?php echo $user['age']; ?> years old</p>
                         </div>
 
