@@ -142,7 +142,6 @@ $bg-color:		#f2efec;
     }
 
     #location{
-        margin-left: 15px; 
         
         img {
             width:10px;
@@ -193,12 +192,23 @@ $bg-color:		#f2efec;
     }
 }
 
+#events {
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .img {
+        height: 200px;
+    }
+
+}
+
     #teams {
         margin-top: 35px;
 
             @media #{$medium-up} {
 
-                background-color: #e5ded8;
                 padding-top: 15px;
                 margin-top: 15px;
             }

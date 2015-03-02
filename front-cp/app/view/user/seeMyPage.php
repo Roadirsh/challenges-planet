@@ -43,14 +43,14 @@
                             <p>EEMI</p>
                         </div> -->
 
-                        <span id="location">
+                        <div id="location medium-6">
                             <img src="img/icon-location.png" alt="icon-location" title="location"/>
                             <!-- <a href="<?php echo $user['user_site']; ?>" alt="" title=""> -->
-                                <input type="email" name="text" id="mp_site" value="<?php echo $user['user_site']; ?>" />
+                                <input class="medium-6" type="email" name="text" id="mp_site" value="<?php echo $user['user_site']; ?>" />
                                 <a class="modif" href="#" onclick='submit();'>Edit</a>
                             <!-- </a> -->
                             
-                        </span>
+                        </div>
 
                     </div>
 
@@ -75,17 +75,17 @@
                             </div>
 
                             <div class="medium-12 general-profil">
-                                <div class="medium-3 first-info"><p>Mail adress<p></div>
-                                <div class="medium-5 second-info"><input type="email" name="email" value="<?php echo $user['user_mail']; ?>"/></div>
-                                <div class="medium-4 third-info">
-                                <a class="modif" href="#">Edit</a>
+                                <div class=" first-info"><p>Mail adress<p></div>
+                                <div class=" second-info"><input type="email" name="email" value="<?php echo $user['user_mail']; ?>"/></div>
+                                <div class=" third-info">
+                                    <a class="modif" href="#">Edit</a>
                                 </div>
                             </div>
 
                             <div class="medium-12 right general-profil">
-                                <div class="medium-3 first-info"><p>Password<p></div>
-                                    <div class="medium-5 second-info"><input type="password" value="<?php echo $user['user_password']; ?>" /></div>
-                                    <div class="medium-4 third-info"><a class="modif" href="#">Edit</a></div>
+                                <div class="medium-12 first-info"><p>Password<p></div>
+                                    <div class="second-info"><input type="password" value="<?php echo $user['user_password']; ?>" /></div>
+                                    <div class="third-info"><a class="modif" href="#">Edit</a></div>
                             </div>
                         </div>                
                     </div>
@@ -102,7 +102,7 @@
                                     <div class="medium-6 columns img" style="background:url('<?php echo EVENT . 'mini/' . $event['event_img']; ?>'); background-size: cover; background-position: top right;" >
                                     </div>
 
-                                    <div class="medium-6 columns">
+                                    <div class="medium-6 info-event columns">
                                         <h2><?php echo $event['event_name']; ?></h2>
                                         <span>
                                             <?php echo formDate($event['event_begin'], 0); ?> - <?php echo formDate($event['event_end'], 0); ?>

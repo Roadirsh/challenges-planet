@@ -116,50 +116,46 @@
 .content-profil .school-profil {
   text-align: right;
 }
-/* line 144, ../sass/profil.scss */
-.content-profil #location {
-  margin-left: 15px;
-}
-/* line 147, ../sass/profil.scss */
+/* line 146, ../sass/profil.scss */
 .content-profil #location img {
   width: 10px;
 }
 
-/* line 153, ../sass/profil.scss */
+/* line 152, ../sass/profil.scss */
 .general-profil, #account {
   margin-top: 15px;
 }
-/* line 156, ../sass/profil.scss */
+/* line 155, ../sass/profil.scss */
 .general-profil .modif, #account .modif {
   text-decoration: underline;
   position: relative;
   float: left;
 }
-/* line 163, ../sass/profil.scss */
+/* line 162, ../sass/profil.scss */
 .general-profil .first-info p, #account .first-info p {
   font-weight: bold;
 }
-/* line 168, ../sass/profil.scss */
+/* line 167, ../sass/profil.scss */
 .general-profil .event-profil, #account .event-profil {
   padding: 5px;
   background-color: white;
 }
-/* line 172, ../sass/profil.scss */
+/* line 171, ../sass/profil.scss */
 .general-profil .event-profil img, #account .event-profil img {
   width: 100%;
 }
-/* line 176, ../sass/profil.scss */
+/* line 175, ../sass/profil.scss */
 .general-profil .event-profil div, #account .event-profil div {
   padding: 0;
   text-align: center;
 }
-/* line 180, ../sass/profil.scss */
+/* line 179, ../sass/profil.scss */
 .general-profil .event-profil span, #account .event-profil span {
   display: block;
   font-size: 13px;
   color: #adadad;
 }
-/* line 185, ../sass/profil.scss */
+/* line 184, ../sass/profil.scss */
 .general-profil .event-profil .button-submit, #account .event-profil .button-submit {
   font-size: 14px;
   width: 95%;
@@ -169,27 +165,35 @@
   margin-top: 5px;
 }
 
-/* line 196, ../sass/profil.scss */
+/* line 197, ../sass/profil.scss */
+#events h2 {
+  font-size: 20px;
+}
+/* line 201, ../sass/profil.scss */
+#events .img {
+  height: 200px;
+}
+
+/* line 207, ../sass/profil.scss */
 #teams {
   margin-top: 35px;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 196, ../sass/profil.scss */
+  /* line 207, ../sass/profil.scss */
   #teams {
-    background-color: #e5ded8;
     padding-top: 15px;
     margin-top: 15px;
   }
 }
-/* line 206, ../sass/profil.scss */
+/* line 216, ../sass/profil.scss */
 #teams h2 {
   margin-bottom: 35px;
 }
-/* line 210, ../sass/profil.scss */
+/* line 220, ../sass/profil.scss */
 #teams .done {
   background-color: transparent !important;
 }
-/* line 214, ../sass/profil.scss */
+/* line 224, ../sass/profil.scss */
 #teams .wrapper {
   border: 1px solid #d6d6d6;
   position: relative;
@@ -197,17 +201,17 @@
   margin-bottom: 15px;
   background-color: #fff;
 }
-/* line 221, ../sass/profil.scss */
+/* line 231, ../sass/profil.scss */
 #teams .wrapper .img {
   position: relative;
   cursor: pointer;
   height: 240px;
 }
-/* line 226, ../sass/profil.scss */
+/* line 236, ../sass/profil.scss */
 #teams .wrapper .img .done {
   background-color: rgba(136, 168, 59, 0.7) !important;
 }
-/* line 230, ../sass/profil.scss */
+/* line 240, ../sass/profil.scss */
 #teams .wrapper .img .hover {
   position: absolute;
   top: 0;
@@ -221,7 +225,7 @@
   height: 100%;
   width: 100%;
 }
-/* line 243, ../sass/profil.scss */
+/* line 253, ../sass/profil.scss */
 #teams .wrapper .img .hover span {
   font-weight: bold;
   text-align: center;
@@ -236,35 +240,35 @@
   -moz-transform: translatey(-50%) translatex(-50%);
   -ms-transform: translatey(-50%) translatex(-50%);
 }
-/* line 259, ../sass/profil.scss */
+/* line 269, ../sass/profil.scss */
 #teams .wrapper .img img {
   width: 100%;
   max-height: 328px;
 }
-/* line 265, ../sass/profil.scss */
+/* line 275, ../sass/profil.scss */
 #teams .wrapper .title-team {
   font-family: "roboto_slabbold";
   text-align: center;
   margin: 10px 0px;
   text-transform: uppercase;
 }
-/* line 272, ../sass/profil.scss */
+/* line 282, ../sass/profil.scss */
 #teams .wrapper .chief-team, #teams .wrapper .date {
   font-size: 13px;
   color: #adadad;
 }
-/* line 277, ../sass/profil.scss */
+/* line 287, ../sass/profil.scss */
 #teams .wrapper .date {
   margin-bottom: 10px;
 }
-/* line 281, ../sass/profil.scss */
+/* line 291, ../sass/profil.scss */
 #teams .wrapper .progressteam {
   text-align: center;
   position: relative;
   padding-top: 10px;
   text-transform: uppercase;
 }
-/* line 287, ../sass/profil.scss */
+/* line 297, ../sass/profil.scss */
 #teams .wrapper .progressteam:before {
   position: absolute;
   top: 0;
@@ -274,32 +278,32 @@
   height: 1px;
   background-color: #d6d6d6;
 }
-/* line 297, ../sass/profil.scss */
+/* line 307, ../sass/profil.scss */
 #teams .wrapper .progressteam .validate {
   background-image: url(../img/checked.png);
   height: 22px;
   width: 22px;
   display: inline-block;
 }
-/* line 304, ../sass/profil.scss */
+/* line 314, ../sass/profil.scss */
 #teams .wrapper .progressteam .daysleft {
   display: inline-block;
   color: #1a2129;
   line-height: 16px;
   font-size: 10px;
 }
-/* line 310, ../sass/profil.scss */
+/* line 320, ../sass/profil.scss */
 #teams .wrapper .progressteam .daysleft span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 310, ../sass/profil.scss */
+  /* line 320, ../sass/profil.scss */
   #teams .wrapper .progressteam .daysleft span {
     font-size: 15px;
   }
 }
-/* line 320, ../sass/profil.scss */
+/* line 330, ../sass/profil.scss */
 #teams .wrapper .progressteam .number {
   display: inline-block;
   line-height: 16px;
@@ -308,13 +312,13 @@
   font-size: 15px;
   margin-bottom: 10px;
 }
-/* line 328, ../sass/profil.scss */
+/* line 338, ../sass/profil.scss */
 #teams .wrapper .progressteam .number span {
   font-weight: bold;
   font-size: 20px;
   text-align: center;
 }
-/* line 335, ../sass/profil.scss */
+/* line 345, ../sass/profil.scss */
 #teams .wrapper .progressteam .numbers, #teams .wrapper .progressteam .funded {
   display: inline-block;
   line-height: 16px;
@@ -323,38 +327,38 @@
   font-size: 11px;
   margin-bottom: 10px;
 }
-/* line 343, ../sass/profil.scss */
+/* line 353, ../sass/profil.scss */
 #teams .wrapper .progressteam .numbers span, #teams .wrapper .progressteam .funded span {
   font-weight: bold;
   font-size: 20px;
 }
 @media only screen and (min-width: 56.813em) {
-  /* line 343, ../sass/profil.scss */
+  /* line 353, ../sass/profil.scss */
   #teams .wrapper .progressteam .numbers span, #teams .wrapper .progressteam .funded span {
     font-size: 15px;
   }
 }
-/* line 353, ../sass/profil.scss */
+/* line 363, ../sass/profil.scss */
 #teams .wrapper .progressteam .funded {
   color: #478bb2;
 }
-/* line 359, ../sass/profil.scss */
+/* line 369, ../sass/profil.scss */
 #teams .wrapper .progressteam .good .ui-widget-header {
   background-color: #88a83b;
 }
-/* line 365, ../sass/profil.scss */
+/* line 375, ../sass/profil.scss */
 #teams .wrapper .progressteam .notyet .ui-widget-header {
   background-color: #818181;
 }
-/* line 370, ../sass/profil.scss */
+/* line 380, ../sass/profil.scss */
 #teams .wrapper .progressteam .ui-progressbar {
   height: 12px;
 }
-/* line 374, ../sass/profil.scss */
+/* line 384, ../sass/profil.scss */
 #teams .wrapper .progressteam .ui-progressbar .ui-progressbar-value {
   margin: 0px;
 }
-/* line 378, ../sass/profil.scss */
+/* line 388, ../sass/profil.scss */
 #teams .wrapper .progressteam .ui-widget-header {
   border: none;
 }
