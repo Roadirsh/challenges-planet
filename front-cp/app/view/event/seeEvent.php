@@ -4,7 +4,7 @@
 <?php if(isset($data['nb_team']) && !empty($data['nb_team']) ){ $nbteam = $data['nb_team']; } ?>
 <?php if(isset($data['search'])){ $search = $data['search']; } ?>
 <?php if(isset($data['begin']) && !empty($data['begin']) ){ $begin = $data['begin']; } ?>
-<?php if(isset($data['count']) && !empty($data['count']) ){ $count = $data['count'][0]['COUNT(*)']; } ?>
+<?php if(isset($data['count']) && !empty($data['count']) ){ $count = $data['count']; } ?>
 
 <div class="list-events clearfix">
 	<div class="head clearfix">
@@ -12,7 +12,7 @@
 		<p class="medium-8">Find any best sports events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating your !</p>
 		<span class="medium-12 number-events">
 			    <?php if(isset($events) && !empty($events)){ 
-			        	echo titleEvent($events, $search, 'event'); // count || array search || title;
+			        	echo titleEvent($count['count'], $search, 'event'); // count || array search || title;
 			        } elseif(!empty($search[1] )){ 
 			        	echo "Sorry, we don't have any projects for <span class='active'>'" . $search[1] . "'</span>";  
 			        } else {
@@ -200,7 +200,7 @@
 			/* * * * * * * * * * * * * * * * * * * * * * * * *
 		    * PAGINATION
 		    */
-			$limit = ceil($count / LIMIT);
+			$limit = ceil($count['count'] / LIMIT);
 			for ($i=1; $i <= $limit; $i++) { 
 				if($_GET['page'] == $i){ ?>
 			    <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>

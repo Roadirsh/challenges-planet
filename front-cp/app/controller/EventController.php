@@ -214,7 +214,6 @@ class EventController extends CoreController {
         /* Construct the array to pass */
         $array['count'] = $count;
 		$array['events'] = $SeeEvent;
-
 		/* Load the view */
 		$this->load->view('event', 'seeEvent', $array); // TODO
 	

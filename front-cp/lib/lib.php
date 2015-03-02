@@ -102,8 +102,8 @@ function titleEvent($count = null, $array = null, $str = null){
   $title = '';
 
   // Number 
-  if(isset($count) && !empty($count[0])){
-    $title .= count($count) . ' ';
+  if(isset($count) && !empty($count)){
+    $title .= $count. ' ';
   } else{
     $title .= "Sorry, we don't have any projects for <span class='active'>'" . $array[1] . "'</span>";
     return $title;

@@ -187,7 +187,7 @@ class EventModel extends CoreModel{
     public function CountEvent() {
         
         try {
-            $select = $this->connexion->prepare("SELECT COUNT(*)
+            $select = $this->connexion->prepare("SELECT COUNT(*) as count
                                             FROM " . PREFIX . "event
                                             WHERE event_valid = 1");
            
@@ -196,7 +196,7 @@ class EventModel extends CoreModel{
             $CountEvent = $select->FetchAll();
             $select->closeCursor(); 
             
-            return $CountEvent;
+            return $CountEvent[0];
 
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();

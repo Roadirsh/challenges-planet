@@ -173,7 +173,7 @@
 </div>
 
 <!--  /* * * * * * * * * * * * * * * * * * * * * * * *
-* FOR DEVELOPERS ONLY, TAPE up up down down left right left right b a => PRIVATE JOKE 
+* FOR DEVELOPERS ONLY, TYPE up up down down left right left right b a => PRIVATE JOKE 
 */ -->
 <audio src="../../front-cp/public/img/user.mp3" style="" id="hoverSound">
 		Your browser does not support the audio element.
