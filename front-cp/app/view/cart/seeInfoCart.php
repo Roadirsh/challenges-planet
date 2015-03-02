@@ -90,16 +90,22 @@
 					</div>
 					<div class="clearfix">
 						<div class="medium-6 columns">
-							<label for="">Country</label>
+							<!-- <label for="">Country</label>
 							<div>
 								<input type="text" name="invoice_ad_country" value="<?php if(isset($data['info'][0]['ad_country'])){ echo $data['info'][0]['ad_country']; } ?>" required >
-							</div>
+							</div> -->
+							<label for="country">Country (required)</label> 
+							<select class="form-create-progress" id="country" name="invoice_ad_country" required>
+								<!-- Include avec l'ensemble des pays -->
+								<option>-- <?php if(isset($data['info'][0]['ad_country'])){ echo $data['info'][0]['ad_country']; } ?> --</option>
+								<?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
+							</select>
 						</div>
 						<div class="medium-6 columns">
 							<label for="">Phone number</label>
 							<div>
 								
-								<input class="input-large focused" name="phone_number" id="phone_number" type="text" title="The phone number must be between 6 and 14 numbers and begin with a &quot;+&quot;." value="<?php if(isset($data['phone'][0]['phone_num'])){ echo $data['phone'][0]['phone_num']; } ?>" pattern="^\+(?:[0-9]?){6,14}[0-9]$" placeholder="+33xxxxxxx">
+								<input class="input-large focused" name="phone_number" id="phone_number" type="tel" title="The phone number must be between 6 and 14 numbers and begin with a &quot;+&quot;." value="<?php if(isset($data['phone'][0]['phone_num'])){ echo $data['phone'][0]['phone_num']; } ?>" pattern="^\+(?:[0-9]?){6,14}[0-9]$" placeholder="+33xxxxxxx">
 							</div>
 						</div>
 					</div><div class="clearfix">
@@ -123,7 +129,7 @@
 						<div class="medium-6 columns">
 							<label for="">Website</label>
 							<div>
-								<input type="text" name="user_site" value="<?php if(isset($data['user'][0]['user_site'])){ echo $data['user'][0]['user_site']; } ?>"  required >
+								<input type="url" name="user_site" value="http://<?php if(isset($data['user'][0]['user_site'])){ echo $data['user'][0]['user_site']; } ?>" >
 							</div>
 						</div>
 					</div>

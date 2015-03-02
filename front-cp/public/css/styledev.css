@@ -56,6 +56,9 @@ border: red;
 background: rgba(238,44,44, 0.5);
 color: white;
 }
+.long{
+height: 150px;
+}
 
 .default{
 border: blue;

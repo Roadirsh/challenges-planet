@@ -282,10 +282,12 @@ class PageModel extends CoreModel{
                                                     FROM " . PREFIX . "group A, " . PREFIX . "event B, " . PREFIX . "event_has_group C
                                                     WHERE A.group_valid = 1
                                                     AND A.group_id = :groupID
-                                                    AND B.event_end > '" . date("Y-m-d") . "'
-                                                    AND A.group_money <= :needed
+                                                    AND B.event_end <= '" . date("Y-m-d H:i:s") . "'
                                                     AND A.group_id = C.group_group_id
+                                                    AND B.event_id = C.event_event_id
+                                                    AND A.group_money < :needed
                                                     GROUP BY A.group_id
+                                                    ORDER BY A.group_date ASC
                                                     LIMIT 1");
 
                 $select->bindValue(':groupID', $gID[$i]['group_id'], PDO::PARAM_INT);
