@@ -73,6 +73,7 @@ class ProjectModel extends CoreModel{
                                                 JOIN " . PREFIX . "user B
                                                 ON A." . PREFIX . "user_user_id = B.user_id
                                                 WHERE group_group_id = :id
+                                                GROUP BY B.user_id
                                                 LIMIT 6");
 
             $select2->bindValue(':id', $id, PDO::PARAM_INT);

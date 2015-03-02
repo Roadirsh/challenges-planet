@@ -11,7 +11,6 @@
 <?php /** Pural management **/ ?>
 <?php if($nbSponsor < 2){ $Cie = "Compagnie" ; } else { $Cie = "Compagnies"; } ?>
 
-
 <form id="choose" class="mfp-hide white-popup-block" method="post" action="">
 	<h2>Choose your amount to sponsorise the team !</h2>
 	<div>
