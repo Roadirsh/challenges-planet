@@ -186,7 +186,7 @@ class LogController extends CoreController{
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-        define("PAGE_TITLE", SITE_NAME . " PASSWORD");
+        define("PAGE_TITLE", SITE_NAME . " Forgot password");
         define("PAGE_DESCR", SITE_NAME . "");
         define("PAGE_ID", "forgot");
         

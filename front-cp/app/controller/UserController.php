@@ -69,7 +69,27 @@ class UserController extends CoreController {
         * LET'S UPDATE
         */
         if(isset($_POST) && !empty($_POST)){
-            if(isset($_POST['mp_pseudo']) && !empty($_POST['mp_pseudo'])){
+            if(isset($_POST['mp_firstname']) && !empty($_POST['mp_firstname'])){
+                /* * * * * * * * * * * * * * * * * * * * * * * * *
+                * CHANGE FIRSTNAME
+                */
+                $newfirst = $showUser->updateFirstname($_POST['mp_firstname'], $id);
+                $_POST = null;
+                // initialization of the messages
+                $_SESSION['message'] = "Your pseudo has been well updated ! ";
+                $_SESSION['messtype'] = 'success';
+            }
+            elseif(isset($_POST['mp_lastname']) && !empty($_POST['mp_lastname'])){
+                /* * * * * * * * * * * * * * * * * * * * * * * * *
+                * CHANGE LASTNAME
+                */
+                $newlast = $showUser->updateLastname($_POST['mp_lastname'], $id);
+                $_POST = null;
+                // initialization of the messages
+                $_SESSION['message'] = "Your pseudo has been well updated ! ";
+                $_SESSION['messtype'] = 'success';
+            }
+            elseif(isset($_POST['mp_pseudo']) && !empty($_POST['mp_pseudo'])){
                 /* * * * * * * * * * * * * * * * * * * * * * * * *
                 * CHANGE PSEUDO
                 */
@@ -77,6 +97,16 @@ class UserController extends CoreController {
                 $_POST = null;
                 // initialization of the messages
                 $_SESSION['message'] = "Your pseudo has been well updated ! ";
+                $_SESSION['messtype'] = 'success';
+            }
+            elseif(isset($_POST['mp_birth']) && !empty($_POST['mp_birth'])){
+                /* * * * * * * * * * * * * * * * * * * * * * * * *
+                * CHANGE DOB
+                */
+                $newbirth = $showUser->updateBirthday($_POST['mp_birth'], $id);
+                $_POST = null;
+                // initialization of the messages
+                $_SESSION['message'] = "Your D.O.B has been well updated ! ";
                 $_SESSION['messtype'] = 'success';
             }
             elseif(isset($_POST['mp_site'])){
@@ -98,7 +128,8 @@ class UserController extends CoreController {
                 $_SESSION['message'] = "Your phone number has been well updated ! ";
                 $_SESSION['messtype'] = 'success';
             }
-            elseif(isset($_POST['mp_num']) && !empty($_POST['mp_num']) 
+            elseif(isset($_POST['mp_type']) && !empty($_POST['mp_type']) 
+                && isset($_POST['mp_num']) && !empty($_POST['mp_num']) 
                 && isset($_POST['mp_street']) && !empty($_POST['mp_street'])
                 && isset($_POST['mp_city']) && !empty($_POST['mp_city'])
                 && isset($_POST['mp_zip']) && !empty($_POST['mp_zip'])
@@ -107,6 +138,7 @@ class UserController extends CoreController {
                 * CHANGE ADRESS PLACE
                 */
                 $array = array();
+                $array['mp_type'] = $_POST['mp_type'];
                 $array['mp_num'] = $_POST['mp_num'];
                 $array['mp_street'] = $_POST['mp_street'];
                 $array['mp_zip'] = $_POST['mp_zip'];
@@ -158,25 +190,30 @@ class UserController extends CoreController {
 		/* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-		define("PAGE_TITLE", SITE_NAME . " User name"); // TODO
+		define("PAGE_TITLE", SITE_NAME . " - My profile"); // TODO
 		define("PAGE_DESCR", SITE_NAME . " user name"); // TODO
 		define("PAGE_ID", "seeMyPage");
 
+
+        /* Construct the array to pass */
+        $array = array();
+        $array['user'] = $oneUser;
+        $array['events'] = $oneUserEvents;
+        $array['groups'] = $oneUserGroups;
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * Age telling
         */
-        $date = new DateTime($oneUser['user_birthday']);
-        $now = new DateTime();
-        $interval = $now->diff($date);
-        $age = $interval->y;
+        if(isset($oneUser['user_birthday']) && !empty($oneUser['user_birthday'])){
+            $date = new DateTime($oneUser['user_birthday']);
+            $now = new DateTime();
+            $interval = $now->diff($date);
+            $age = $interval->y;
+
+            $array['user']['age'] = $age;
+        }
 
 
-		/* Construct the array to pass */
-		$array = array();
-		$array['user'] = $oneUser;
-        $array['user']['age'] = $age;
-        $array['events'] = $oneUserEvents;
-        $array['groups'] = $oneUserGroups;
+
         /* Load the view */
 		$this->load->view('user', 'seeMyPage', $array);
 	
@@ -204,7 +241,7 @@ class UserController extends CoreController {
             /* * * * * * * * * * * * * * * * * * * * * * * *
             * <head> STUFF </head>
             */
-            define("PAGE_TITLE", SITE_NAME . " User name"); // TODO
+            define("PAGE_TITLE", SITE_NAME . " - User"); // TODO
             define("PAGE_DESCR", SITE_NAME . " user name"); // TODO
             define("PAGE_ID", "seeMyPage");
 

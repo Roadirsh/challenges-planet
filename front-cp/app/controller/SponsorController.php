@@ -53,7 +53,7 @@ class SponsorController extends CoreController {
 		/* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-		define("PAGE_TITLE", SITE_NAME . " sponsors");
+		define("PAGE_TITLE", SITE_NAME . " - Sponsors");
 		define("PAGE_DESCR", SITE_NAME . " All our sponsors");
 		define("PAGE_ID", "seeSponsor");
 		
@@ -85,7 +85,7 @@ class SponsorController extends CoreController {
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-        define("PAGE_TITLE", SITE_NAME . " sponsors");
+        define("PAGE_TITLE", SITE_NAME . " - Sponsors");
         define("PAGE_DESCR", SITE_NAME . " All our sponsors");
         define("PAGE_ID", "seeSponsor");
         

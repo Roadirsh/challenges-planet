@@ -150,8 +150,10 @@
 		<?php foreach($events as $k => $e){ ?>
 				<div class="event medium-6 columns">
 					<div class="wrapper clearfix">
-						<div style="background:url('<?php echo EVENT . 'mini/' . $e['event_img']; ?>'); background-position: right;background-size: cover;" class="img large-6 medium-12 columns">
-						</div>
+						<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $e['event_id']; ?>">
+							<div style="background:url('<?php echo EVENT . 'mini/' . $e['event_img']; ?>'); background-position: right;background-size: cover;" class="img large-6 medium-12 columns">
+							</div>
+						</a>
 						<div class="infos large-6 medium-12 columns">
 							<h2><?php echo $e['event_name']; ?></h2>
 							<span><b><?php echo $e['event_type']; ?></b> race</span>

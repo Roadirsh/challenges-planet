@@ -88,9 +88,24 @@ height: 20px;
 color: black;
 }
 #mp_pseudo{
-width: 50%;
+width: 70%;
 height: 30px;
 margin-right: 4%;
+}
+#mp_firstname{
+width: 70%;
+height: 30px;
+margin-right: 4%;
+}
+#mp_lastname{
+width: 70%;
+height: 30px;
+margin-right: 4%;
+}
+#mp_birth{
+width: 45%;
+height: 30px;
+margin-right: 4%;  
 }
 
 #mp_site{
@@ -101,7 +116,9 @@ width: 26%;
 width: 30%;
 margin-right: 15px;
 }
-
+#mp_type{
+width: 22%;
+}
 #mp_num{
 width: 10%;
 float: left;
@@ -134,4 +151,10 @@ width: 140%;
 .edit{
 padding: 6px;
 width: 45px;
+}
+
+.see-user {
+padding: 15px;
+background-color: #e5ded8;
+height: 800px;
 }

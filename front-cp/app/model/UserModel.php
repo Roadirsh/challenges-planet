@@ -46,8 +46,7 @@ class UserModel extends CoreModel{
             */
             $select = $this->connexion->prepare("SELECT *
                                                 FROM " . PREFIX . "user
-                                                WHERE user_type != 'admin'
-                                                AND user_id = :userID");
+                                                WHERE user_id = :userID");
            
             $select->bindValue(':userID', $id, PDO::PARAM_INT);
             $select->execute();
@@ -55,7 +54,11 @@ class UserModel extends CoreModel{
             $user = $select->FetchAll();
             $select->closeCursor(); 
 
-            $retour = $user[0];
+            if(isset($user[0])){
+                $retour = $user[0];
+            } else {
+                $retour = $user;
+            }
 
             if(!empty($user)){
 
@@ -188,6 +191,70 @@ class UserModel extends CoreModel{
      * controller/UserController.php
      * view/seemypage.php
      * 
+     * Update firstname
+     * 
+     * @param $id $_GET ID
+     */
+    public function updateFirstname($data, $id) {
+
+        $data = addslashes($data);
+        $data = preg_replace("/'/", "", $data);
+        $data = preg_replace("/=/", "", $data);
+
+
+        try {
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_firstname` = '" . $data . "'
+                                                WHERE user_id = '" . $id . "'");
+            if($select->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
+     * 
+     * Update lastname
+     * 
+     * @param $id $_GET ID
+     */
+    public function updateLastname($data, $id) {
+
+        $data = addslashes($data);
+        $data = preg_replace("/'/", "", $data);
+        $data = preg_replace("/=/", "", $data);
+
+
+        try {
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_lastname` = '" . $data . "'
+                                                WHERE user_id = '" . $id . "'");
+            if($select->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
+     * 
      * Update pseudo
      * 
      * @param $id $_GET ID
@@ -205,6 +272,38 @@ class UserModel extends CoreModel{
                                                 WHERE user_id = '" . $id . "'");
             if($select->execute()){
                 $_SESSION[PREFIX . 'userPseudo'] = $data;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
+    }
+
+    /**
+     * Linked to : 
+     * controller/UserController.php
+     * view/seemypage.php
+     * 
+     * Update birthday
+     * 
+     * @param $id $_GET ID
+     */
+    public function updateBirthday($data, $id) {
+
+        $data = addslashes($data);
+        $data = preg_replace("/'/", "", $data);
+        $data = preg_replace("/=/", "", $data);
+
+
+        try {
+            $select = $this->connexion->prepare("UPDATE " . PREFIX . "user 
+                                                SET `user_birthday` = '" . $data . "'
+                                                WHERE user_id = '" . $id . "'");
+            if($select->execute()){
                 return true;
             } else {
                 return false;
@@ -278,21 +377,51 @@ class UserModel extends CoreModel{
      * @param $id $_GET ID
      */
     public function updateAdress($data, $id) {
-
         try {
-            $select = $this->connexion->prepare("UPDATE " . PREFIX . "adress 
-                                                SET 
-                                                `ad_num` = '" . $data['mp_num'] . "',
-                                                `ad_street` = '" . $data['mp_street'] . "',
-                                                `ad_zipcode` = '" . $data['mp_zip'] . "',
-                                                `ad_city` = '" . $data['mp_city'] . "',
-                                                `ad_country` = '" . $data['mp_country'] . "'
+            $select = $this->connexion->prepare("SELECT adress_id
+                                                FROM " . PREFIX . "adress 
                                                 WHERE user_user_id = '" . $id . "'");
-            print_r($select);
-            if($select->execute()){
-                return true;
+
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $userCount = $select->rowCount();
+            $select->closeCursor();
+
+
+            if($userCount == 1){
+                $select = $this->connexion->prepare("UPDATE " . PREFIX . "adress 
+                                                    SET
+                                                    `ad_type` = '" . $data['mp_type'] . "', 
+                                                    `ad_num` = '" . $data['mp_num'] . "',
+                                                    `ad_street` = '" . $data['mp_street'] . "',
+                                                    `ad_zipcode` = '" . $data['mp_zip'] . "',
+                                                    `ad_city` = '" . $data['mp_city'] . "',
+                                                    `ad_country` = '" . $data['mp_country'] . "'
+                                                    WHERE user_user_id = '" . $id . "'");
+
+                if($select->execute()){
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
-                return false;
+                $select = $this->connexion->prepare("INSERT INTO `" . PREFIX . "adress`
+                                                    (`user_user_id`, `ad_num`, `ad_street`, `ad_zipcode`, `ad_city`, `ad_country`, `ad_type`) 
+                                                    VALUES 
+                                                    ('" . $id . "', :num, :street, :zipcode, :city, :country, :type)");
+                
+                $select->bindParam(':num', $data['mp_num']);
+                $select->bindParam(':street', $data['mp_street']);
+                $select->bindParam(':zipcode', $data['mp_zip']);
+                $select->bindParam(':city', $data['mp_city']);
+                $select->bindParam(':country', $data['mp_country']);
+                $select->bindParam(':type', $data['mp_type']);
+
+                if($select->execute()){
+                    return true;
+                } else {
+                    return false;
+                }
             }
         }
         catch (Exception $e)

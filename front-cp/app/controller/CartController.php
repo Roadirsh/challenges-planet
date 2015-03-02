@@ -65,7 +65,7 @@ class CartController extends CoreController {
             /* * * * * * * * * * * * * * * * * * * * * * * *
             * <head> STUFF </head>
             */
-    		define("PAGE_TITLE", SITE_NAME . " home");
+    		define("PAGE_TITLE", SITE_NAME . " - Cart");
     		define("PAGE_DESCR", ""); // TODO
     		define("PAGE_ID", "home");
 

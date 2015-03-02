@@ -62,7 +62,7 @@ class EventController extends CoreController {
 		/* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-		define("PAGE_TITLE", SITE_NAME . " - JOIN and CREATE");
+		define("PAGE_TITLE", SITE_NAME . " - JOIN &amp; CREATE");
 		define("PAGE_DESCR", SITE_NAME . " JOIN THE BEST CARITIVES STUDENT CHALLENGES");
 		define("PAGE_ID", "addEvent");
         
@@ -136,7 +136,7 @@ class EventController extends CoreController {
 		/* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-		define("PAGE_TITLE", SITE_NAME . " - EVENTS");
+		define("PAGE_TITLE", SITE_NAME . " - Events");
 		define("PAGE_DESCR", SITE_NAME . "'s all events");
 		define("PAGE_ID", "SeeEvent");
         
@@ -289,7 +289,7 @@ class EventController extends CoreController {
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-        define("PAGE_TITLE", SITE_NAME . " - " . $array['event']['event_name']); 
+        define("PAGE_TITLE", SITE_NAME . " - " . ucfirst($array['event']['event_name'])); 
         define("PAGE_DESCR", SITE_NAME . " - " . substr($array['event']['event_decr'], 0, 100)); 
         define("PAGE_ID", $array['event']['event_name']);
 

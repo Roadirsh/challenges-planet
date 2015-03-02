@@ -54,7 +54,7 @@ class PageController extends CoreController {
 		/* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-		define("PAGE_TITLE", SITE_NAME . " home");
+		define("PAGE_TITLE", SITE_NAME . " - Home");
 		define("PAGE_DESCR", "Platform of comparison of students and companies within the framework of participation of event sportsmen to be sponsored");
 		define("PAGE_ID", "home");
 
@@ -99,7 +99,7 @@ class PageController extends CoreController {
 		/* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
-		define("PAGE_TITLE", SITE_NAME . " GUC");
+		define("PAGE_TITLE", SITE_NAME . " - GUC");
 		define("PAGE_DESCR", SITE_NAME . "");
 		define("PAGE_ID", "cgu");
 		

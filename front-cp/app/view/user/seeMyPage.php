@@ -5,7 +5,6 @@
 <?php if(isset($data['user']) && !empty($data['user']) ){ $user = $data['user']; } ?>
 <?php if(isset($data['events'][0]) && !empty($data['events'][0]) ){ $events = $data['events']; } ?>
 <?php if(isset($data['groups'][0]) && !empty($data['groups'][0]) ){ $groups = $data['groups']; } ?>
-
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
 
     <div class="see-user tabs-user">
@@ -23,17 +22,53 @@
                         <h1>My profile</h1>
 
                         <div class="medium-3 columns">
-                            <div id="circle"><img src="<?php echo AVATAR . $user['user_profil_pic']; ?>" alt="photo-profil" title="photo-profil"/></div>
+                            <div id="circle">
+                            <?php if(isset($user['user_profil_pic']) && !empty($user['user_profil_pic'])){ ?>
+                                <img src="<?php echo AVATAR . $user['user_profil_pic']; ?>" alt="photo-profil" title="photo-profil"/>
+                            <?php } else { ?>
+                                <img src="<?php echo AVATAR . 'default.png'; ?>" alt="photo-profil" title="photo-profil"/>
+                            <?php } ?>
+                            </div>
                         </div>
 
                         <div class="medium-5 columns">
-                            <h3><?php echo strtoupper($user['user_firstname']) . ' ' . $user['user_lastname'] ; ?></h3>
-                            <form method="post" action="" id="form-pseudo">
-                                <!-- id rajouté -->
-                                <input class="medium-3 columns" id="mp_pseudo" type="text" name="mp_pseudo" value="<?php echo strtoupper($user['user_pseudo']); ?>" required />
+        
+                            <?php if(isset($user['user_firstname']) && !empty($user['user_firstname'])){
+                                $firstname = strtoupper($user['user_firstname']);
+                            } else { $firstname = strtoupper('FIRSTNAME');  } ?>
+                            <form method="post" action="" id="form-first">
+                                <input class="medium-3 columns" id="mp_firstname" type="text" name="mp_firstname" value="<?php echo $firstname; ?>" required />
                                 <input type="submit" class="button submit edit" value="Edit"/>
                             </form>
-                            <p><?php echo $user['age']; ?> years old</p>
+
+
+                            <?php if(isset($user['user_lastname']) && !empty($user['user_lastname'])){
+                                $lastname = strtoupper($user['user_lastname']);
+                            } else { $lastname = strtoupper('LASTNAME');  } ?>
+                            <form method="post" action="" id="form-last">
+                                <input class="medium-3 columns" id="mp_lastname" type="text" name="mp_lastname" value="<?php echo $lastname; ?>" required />
+                                <input type="submit" class="button submit edit" value="Edit"/>
+                            </form>
+
+                            <form method="post" action="" id="form-pseudo">
+                                <!-- id rajouté -->
+                                <?php if(isset($user['user_pseudo']) && !empty($user['user_pseudo'])){
+                                    $pseudo = $user['user_pseudo'];
+                                } else { $pseudo = 'PSEUDO'; } ?>
+                                <input class="medium-3 columns" id="mp_pseudo" type="text" name="mp_pseudo" value="<?php echo $pseudo; ?>" required />
+                                <input type="submit" class="button submit edit" value="Edit"/>
+                            </form>
+
+
+                            <p>
+                                <?php if(isset($user['age']) && !empty($user['age'])){
+                                    echo $age = $user['age'] . ' years old (' . $user['user_birthday'] . ')';
+                                } else { echo $age = 'no birthday'; } ?>
+                                <form method="post" action="" id="form-birth">
+                                    <input class="medium-3 columns" id="mp_birth" type="date" name="mp_birth" value="<?php echo $age; ?>" required />
+                                    <input type="submit" class="button submit edit" value="Edit"/>
+                                </form>
+                            </p>
                         </div>
 
                         <!-- VERSION 2  -->
@@ -46,7 +81,10 @@
                             <img src="img/icon-location.png" alt="icon-location" title="location"/>
                             <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>">
                             <!-- <a href="<?php echo $user['user_site']; ?>" alt="" title=""> -->
-                                <input class="medium-6" type="url" name="mp_site" id="mp_site" value="<?php echo $user['user_site']; ?>" />
+                                <?php if(isset($user['user_site']) && !empty($user['user_site'])){
+                                    $site = strtoupper($user['user_site']);
+                                } else { $site = 'http://'; } ?>
+                                <input class="medium-6" type="url" name="mp_site" id="mp_site" value="<?php echo $site; ?>" />
                                 <input type="submit" class="button submit edit" value="Edit"/>
                             <!-- </a> -->
                             </form>
@@ -60,27 +98,53 @@
                             <p>
                                 <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>" id="form-phone">
                                     <p class="mp clear mp_type">Phone : </p> 
-                                    <input type="tel" class="mp" name="mp_phone" id="mp_phone" value="<?php echo $user['phone_num']; ?>" required />
+                                    <?php if(isset($user['user_phone']) && !empty($user['user_phone'])){
+                                        $phone = strtoupper($user['user_phone']);
+                                    } else { $phone = '+33'; } ?>
+                                    <input type="tel" class="mp" name="mp_phone" id="mp_phone" value="<?php echo $phone ; ?>" required />
                                     <input type="submit" class="button submit edit" value="Edit"/>
                                 </form>
                                 <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>">
-                                    <p class="mp clear mp_type mp_adress">Adress "<?php echo $user['ad_type']; ?>"</p>
+                                    <?php if(isset($user['ad_type']) && !empty($user['ad_type'])){
+                                        $type = strtoupper($user['ad_type']);
+                                    } else { $type = 'no type defined'; } ?>
+                                    <p class="mp clear mp_type mp_adress">Adress "<?php echo $type; ?>"</p>
+                                    <select class="form-create-progress" name="mp_type" required>
+                                        <option value="Home">Home</option>
+                                        <option value="Invoice">Invoice</option>
+                                    </select>
                                     <p class="mp clear-b mp_type">Street : </p>
                                     <p class="mp clear">
-                                        <input type="num" name="mp_num" id="mp_num" value="<?php echo $user['ad_num']; ?>" required /> 
-                                        <input type="text" name="mp_street" id="mp_street" value="<?php echo $user['ad_street']; ?>" required /><br>
+                                        <?php if(isset($user['ad_num']) && !empty($user['ad_num'])){
+                                            $num = $user['ad_num'];
+                                        } else { $num = ''; } ?>
+                                        <input type="num" name="mp_num" id="mp_num" value="<?php echo $num; ?>" required /> 
+                                        <?php if(isset($user['ad_street']) && !empty($user['ad_street'])){
+                                            $street = strtoupper($user['ad_street']);
+                                        } else { $street = 'street'; } ?>
+                                        <input type="text" name="mp_street" id="mp_street" value="<?php echo $street; ?>" required /><br>
                                     </p>
                                     <p class="mp clear mp_type">Zipcode &amp; City : </p>
                                     <p class="mp clear-b">
-                                        <input type="num" name="mp_zip" id="mp_zip" value="<?php echo $user['ad_zipcode']; ?>" required />
-                                        <input type="text" name="mp_city" id="mp_city" value="<?php echo $user['ad_city']; ?>" required />
+                                        <?php if(isset($user['ad_zipcode']) && !empty($user['ad_zipcode'])){
+                                            $zip = strtoupper($user['ad_zipcode']);
+                                        } else { $zip = ''; } ?>
+                                        <input type="num" name="mp_zip" id="mp_zip" value="<?php echo $zip; ?>" required />
+                                        <?php if(isset($user['ad_city']) && !empty($user['ad_city'])){
+                                            $city = strtoupper($user['ad_city']);
+                                        } else { $city = ''; } ?>
+                                        <input type="text" name="mp_city" id="mp_city" value="<?php echo $city; ?>" required />
                                     </p>
                                     <p class="mp clear-b mp_type">Country : </p>
                                     <p class="mp clear">
                                         <select class="form-create-progress" id="mp_country" name="mp_country" required>
                                             <!-- Include avec l'ensemble des pays -->
-                                            <option><?php echo ucfirst($user['ad_country']); ?></option>
-                                            <?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
+                                            <?php if(isset($user['ad_country']) && !empty($user['ad_country'])){ ?>
+                                                <option><?php echo ucfirst($user['ad_country']); ?></option>
+                                                <?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
+                                            <?php } else { ?>
+                                                <?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
+                                            <?php } ?>
                                         </select>
                                         <input type="submit" class="button submit edit" value="Edit"/>
                                     </p>
@@ -96,7 +160,12 @@
                             <div class="medium-12 general-profil">
                                 <div class=" first-info"><p>Mail adress<p></div>
                                 <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>">
-                                    <div class=" second-info"><input type="email" name="mp_email" value="<?php echo $user['user_mail']; ?>"/></div>
+                                    <div class=" second-info">
+                                        <?php if(isset($user['user_mail']) && !empty($user['user_mail'])){
+                                            $mail = $user['user_mail'];
+                                        } else { $mail = ''; } ?>
+                                        <input type="email" name="mp_email" value="<?php echo $mail; ?>"/>
+                                    </div>
                                     
                                     <div class=" third-info">
                                         <input type="submit" class="button submit edit" value="Edit"/>
@@ -107,7 +176,12 @@
                             <div class="medium-12 right general-profil">
                                 <div class="medium-12 first-info"><p>Password<p></div>
                                 <form method="post" action="<?php echo MODULE . 'user' . ACTION . 'seeMyPage'; ?>">
-                                    <div class="second-info"><input type="password" name="mp_pwd" value="<?php echo $user['user_password']; ?>" /></div>
+                                    <div class="second-info">
+                                        <?php if(isset($user['user_password']) && !empty($user['user_password'])){
+                                            $password = $user['user_password'];
+                                        } else { $password = ''; } ?>
+                                        <input type="password" name="mp_pwd" value="<?php echo $password; ?>" />
+                                    </div>
                                     <input type="submit" class="button submit edit" value="Edit"/>
                                 </form>
                             </div>
@@ -123,8 +197,10 @@
                             <?php foreach ($events as $key => $event) { ?>
                             <div class="medium-6 columns">
                                 <div class="wrapper clearfix event-profil">
-                                    <div class="medium-6 columns img" style="background:url('<?php echo EVENT . 'mini/' . $event['event_img']; ?>'); background-size: cover; background-position: top right;" >
-                                    </div>
+                                    <a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $event['event_id']; ?>">
+                                        <div class="medium-6 columns img" style="background:url('<?php echo EVENT . 'mini/' . $event['event_img']; ?>'); background-size: cover; background-position: top right;" >
+                                        </div>
+                                    </a>
 
                                     <div class="medium-6 info-event columns">
                                         <h2><?php echo $event['event_name']; ?></h2>
