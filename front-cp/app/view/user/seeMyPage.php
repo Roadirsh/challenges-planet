@@ -28,6 +28,9 @@
 
                         <div class="medium-5 columns">
                             <h3><?php echo strtoupper($user['user_firstname']) . ' ' . $user['user_lastname'] ; ?></h3>
+                            <input class="medium-3 columns" type="text" name="pseudo" value="<?php echo strtoupper($user['user_pseudo']); ?>" />
+                            <a class="modif" href="#">Edit</a>
+
                             <p><?php echo $user['age']; ?> years old</p>
                         </div>
 
@@ -39,7 +42,8 @@
 
                         <span id="location">
                             <img src="img/icon-location.png" alt="icon-location" title="location"/>
-                            <a href="<?php echo $user['user_site']; ?>" alt="" title=""><?php echo $user['user_site']; ?></a>
+                            <a href="<?php echo $user['user_site']; ?>" alt="" title=""><input type="email" name="email" value="<?php echo $user['user_site']; ?>" /></a><br>
+                            <a class="modif" href="#">Edit</a>
                         </span>
 
                     </div>
@@ -48,16 +52,16 @@
                         <div class="medium-6 columns general-profil">
                             <h2>My information</h2>
                             <p>
-                                Phone: <?php echo $user['phone_num']; ?><br>
-                                Adress : <?php echo $user['ad_type']; ?><br>
-                                <?php echo $user['ad_num']; ?> <?php echo $user['ad_street']; ?><br>
-                                <?php echo $user['ad_zipcode']; ?> <?php echo $user['ad_city']; ?><br>
-                                <?php echo ucfirst($user['ad_country']); ?>
+                                Phone: <input type="text" name="phone" value="<?php echo $user['phone_num']; ?>" /><br>
+                                <a class="modif" href="#">Edit</a><br>
+                                Adress : <input type="text" name="type" value="<?php echo $user['ad_type']; ?>" /><br>
+                                n° : <input type="text" name="type" value="<?php echo $user['ad_num']; ?>" /> 
+                                Street : <input type="text" name="type" value="<?php echo $user['ad_street']; ?>" /><br>
+                                Zipcode : <input type="text" name="type" value="<?php echo $user['ad_zipcode']; ?>" />
+                                City : <input type="text" name="type" value="<?php echo $user['ad_city']; ?>" /><br>
+                                Country : <input type="text" name="type" value="<?php echo ucfirst($user['ad_country']); ?>" />
                             </p>
-                            <!-- A mettre en commentaire si tu veux bosser sur le edit -->
-                            <?php if(isset($_SESSION[PREFIX . 'userID']) && $_SESSION[PREFIX . 'userID'] == $user['user_id']){ ?>
-                                <a class="modif" href="#">Edit information</a>
-                            <?php } ?>
+                            <a class="modif" href="#">Edit</a>
                         </div>
                         <div id="account" class="medium-6 columns">
                             <div class=" content-profil clearfix">
@@ -66,24 +70,16 @@
 
                             <div class="medium-12 general-profil">
                                 <div class="medium-3 first-info"><p>Mail adress<p></div>
-                                <div class="medium-5 second-info"><p><?php echo $user['user_mail']; ?></p></div>
+                                <div class="medium-5 second-info"><input type="email" name="email" value="<?php echo $user['user_mail']; ?>"/></div>
                                 <div class="medium-4 third-info">
-                                    <!-- A mettre en commentaire si tu veux bosser sur le edit -->
-                                    <?php if(isset($_SESSION[PREFIX . 'userID']) && $_SESSION[PREFIX . 'userID'] == $user['user_id']){ ?>
-                                        <a class="modif" href="#">Edit</a>
-                                    <?php } ?>
+                                <a class="modif" href="#">Edit</a>
                                 </div>
                             </div>
 
                             <div class="medium-12 right general-profil">
                                 <div class="medium-3 first-info"><p>Password<p></div>
-                                <!-- A mettre en commentaire si tu veux bosser sur le edit -->
-                                <?php if(isset($_SESSION[PREFIX . 'userID']) && $_SESSION[PREFIX . 'userID'] == $user['user_id']){ ?>
                                     <div class="medium-5 second-info"><input type="password" value="<?php echo $user['user_password']; ?>" /></div>
                                     <div class="medium-4 third-info"><a class="modif" href="#">Edit</a></div>
-                                <?php } else { ?>
-                                    <p>Please log in to modify your password</p>
-                                <?php } ?>
                             </div>
                         </div>                
                     </div>
@@ -126,55 +122,65 @@
                 </div>
 
                 <div id="teams" class=" tab clearfix">
-
-                    <div class="team-wrapper columns medium-4">
-                        <div class="wrapper">
-                            <div class="img" style="background:url(''); background-position: top left;background-size: cover;">
-                                <a href="" alt="" title="" >
-                                    <div class="hover">
-                                        <span>They need you<br>help them</span>
+                
+                <?php if(isset($groups)){ ?>
+                    <?php foreach ($groups as $key => $t) { ?>
+                        <?php $percent = number_format(($t['helped'] / $t['group_money']) *100, 0);?>
+                        <?php if($percent <= 100) { ?>
+                        <div class="columns large-3 medium-4 team-wrapper">
+                            <div class="wrapper">
+                                <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title="">
+                                    <div class="img" style="background:url('<?php echo PROJECT . $t['group_img']; ?>'); background-position: top left;background-size: cover;">
+                                        <div class="hover"><span>They need you<br>help them</span></div>
                                     </div>
                                 </a>
-                            </div>
-
-                            <div class="title-team">LOL</div>
-                            <div class="date">Created on</div>
-                            <div class="progressteam">
-                                <div class="clearfix">
-                                    <div class="columns medium-4 small-4 numbers"><span> €</span><br>goals</div>
-                                    <div class="columns medium-4 small-4 funded"><span>  %</span><br>funded</div>
-                                    <div class="columns medium-4 small-4 daysleft">
-                                        <span>
-
-                                        </span>
-                                        <br>days left
+                                <div class="title-team"><a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title=""><?php echo $t['group_name']; ?></a></div>
+                                <div class="name"><?php echo $t['event_name']; ?></div>
+                                <div class="date"><?php echo formDate($t['event_begin'], 0); ?> - <?php echo formDate($t['event_end'], 0); ?></div>
+                                <div class="progressteam">
+                                    <div class="clearfix">
+                                        <div class="columns medium-4 small-4 numbers">
+                                            <span><?php echo $t['group_money']; ?> €</span>
+                                            <br>goals
+                                        </div>
+                                        <div class="columns medium-4 small-4 funded">
+                                            <span><?php  echo number_format(($t['helped'] / $t['group_money']) *100, 0); ?>  %</span>
+                                            </br>funded
+                                        </div>
+                                        <div class="columns medium-4 small-4 daysleft">
+                                            <span>
+                                                <?php $diff = (new DateTime('now'))->diff(new DateTime($t['event_end'])); ?>
+                                                <?php echo $diff->format('%a'); ?>
+                                            </span>
+                                            <br> DAYS LEFT
+                                        </div>
                                     </div>
+                                    
+                                    <div class="progress-team notyet" data-percent="<?php echo $percent; ?>"></div>
                                 </div>
-                           
-                            <div data-percent="80" class="progress-team notyet"></div>
                             </div>
                         </div>
-                    </div>
-                        
-                        <?php if(isset($groups)){ ?>
-                            <?php foreach ($groups as $key => $group) { ?>
-                                Name : <?php echo $group['group_name']; ?><br>
-                                IMG : <?php echo $group['group_img']; ?><br>
-                                Date : <?php echo formDate($group['group_date'], 0); ?><br>
-                                Event : <?php echo $group['event_name']; ?><br>
-                                Event date : <?php echo formDate($group['event_begin'], 0); ?> - <?php echo formDate($group['event_end'], 0); ?><br>
-                                Goal : <?php echo $group['group_money']; ?> €<br>
-                                Fund : <?php echo $group['helped']; ?> €<br>
-                                <?php $percent = number_format(($group['helped'] / $group['group_money']) *100, 0); ?> 
-                                <?php /** If they have more then asked **/ ?>
-                                <?php if($percent > 100){ $percent = 100;} ?>
-                                data ="<?php echo $percent; ?>"<br>
-                                <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $group['group_id']; ?>"> >> link << </a>
-                            <?php } ?>
-                        <?php } else { ?>
-                            You don't have a team yet ! 
+                        <?php } else { $percent = 100; ?>
+                        <div class="columns large-3 medium-4 team-wrapper">
+                            <div class="wrapper done">
+                                <div class="img" style="background:url('<?php echo PROJECT . $t['group_img']; ?>'); background-position: left;background-size: cover;">
+                                    <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title="">
+                                        <div class="hover done"><span>It's done thank you !</span></div>
+                                    </a>
+                                </div>
+                                <div class="title-team"><?php echo $t['group_name']; ?></div>
+                                <div class="name"><?php echo $t['event_name']; ?></div>
+                                <div class="date"><?php echo formDate($t['event_begin'], 0); ?> - <?php echo formDate($t['event_end'], 0); ?></div>
+                                <div class="progressteam">
+                                    <span class="validate"></span>
+                                    <div class="number"><span>100 %</span><br>goal reached !</div>
+                                    <div class="progress-team-done good"></div>
+                                </div>
+                            </div>
+                        </div>
                         <?php } ?>
-
+                    <?php } ?>
+                <?php } ?>
                 </div>
             </div>
         </div>

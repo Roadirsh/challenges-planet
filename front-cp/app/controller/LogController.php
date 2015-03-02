@@ -50,8 +50,6 @@ class LogController extends CoreController{
      */
 	public function Login(){
 		
-		
-        require(ROOT . 'conf/messages.php');
 		if(isset($_POST['email']) && !empty($_POST['email'])){
 
 			/* * * * * * * * * * * * * * * * * * * * * * * *
@@ -115,8 +113,6 @@ class LogController extends CoreController{
      * @param Array $_POST
      */
 	public function Signup(){
-
-		include(ROOT . "conf/messages.php");
 
         /* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>

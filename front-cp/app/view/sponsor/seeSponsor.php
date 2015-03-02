@@ -11,7 +11,7 @@
     		<h1>They helped them</h1>
             <div class="clearfix wrapper-list">
                 <?php foreach ($sponsors as $key => $sponsor) { ?>
-                    <a href="<?php echo MODULE . 'sponsor' . ACTION . 'seesoneponsor' . ID . $sponsor["user_id"]; ?>">
+                    <a href="<?php echo MODULE . 'sponsor' . ACTION . 'seeonesponsor' . ID . $sponsor["user_id"]; ?>">
                         <div class="medium-4 columns" >
                             <div class="wrapper">
                                 <div class="img" style="background:url('<?php echo AVATAR . $sponsor['user_profil_pic']; ?>'); background-position: center;background-size: cover;">

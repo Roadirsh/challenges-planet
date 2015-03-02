@@ -71,6 +71,14 @@ class UserController extends CoreController {
 		$oneUser = $showUser->SeeMyPage();
         $oneUserEvents = $showUser->SeeMyPageEvents($_SESSION[PREFIX . 'userID']);
         $oneUserGroups = $showUser->SeeMyPageGroups($_SESSION[PREFIX . 'userID']);
+
+        if(isset($_POST) && !empty($_POST)){
+            
+
+
+
+            
+        }
 		/* * * * * * * * * * * * * * * * * * * * * * * *
         * <head> STUFF </head>
         */
