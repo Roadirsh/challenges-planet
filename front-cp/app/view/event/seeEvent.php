@@ -9,7 +9,7 @@
 <div class="list-events clearfix">
 	<div class="head clearfix">
 		<h1>Dynamics and charity challenges</h1>
-		<p class="medium-8">Find any best sports events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating your !</p>
+		<p class="medium-8">Find any best sport events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating yours !</p>
 		<span class="medium-12 number-events">
 			    <?php if(isset($events) && !empty($events)){ 
 			        	echo titleEvent($count['count'], $search, 'event'); // count || array search || title;
@@ -197,6 +197,7 @@
 	</div>
 	<div class="medium-12 pagination">
 		<?php 
+		if(isset($count['count']) && !empty($count['count'])){
 			/* * * * * * * * * * * * * * * * * * * * * * * * *
 		    * PAGINATION
 		    */
@@ -207,7 +208,8 @@
 			<?php } else { ?>
 				<a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
 			<?php } ?>
-		<?php } ?>
+		<?php } 
+		} ?>
 	</div>
 </div>
 
