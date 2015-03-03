@@ -42,7 +42,9 @@ class ProjectModel extends CoreModel{
                                                 WHERE 
                                                  A.group_id = :id
                                                 AND C.group_group_id = :id
-                                                AND D.event_id = (SELECT event_event_id FROM cp_event_has_group where group_group_id = :id)");
+                                                AND D.event_id = (SELECT event_event_id 
+                                                                FROM " . PREFIX . "event_has_group 
+                                                                WHERE group_group_id = :id)");
 
             $select->bindValue(':id', $id, PDO::PARAM_INT);
             $select->execute();

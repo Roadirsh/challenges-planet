@@ -10,9 +10,9 @@
             <div class="classic-login">
                 <fieldset>
                     <h1>Please enter your email, you will recive a new password on your mailbox</h1>
-                    <label for="email">Email</label>
+                    <label for="sign-up-email">Email</label>
                     <input id="sign-up-email" name="forgot_email" type="email" placeholder="" required>
-                    <input type="submit" class="button-submit" value="get my new password" alt="sign up">
+                    <input type="submit" class="button-submit" value="get my new password" >
                 </fieldset>
             </div>
             <div class="">

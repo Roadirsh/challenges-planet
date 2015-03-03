@@ -263,8 +263,8 @@ class EventModel extends CoreModel{
             $array = array();
             $i = 0;
             foreach ($eID as $key => $eID) {
-                $select = $this->connexion->prepare("SELECT A.group_id, A.group_money , SUM(B.donate_amount) as total, C.group_group_id, C.event_event_id
-                                                    FROM " . PREFIX . "group A, " . PREFIX . "donate B, " . PREFIX . "event_has_group C
+                $select = $this->connexion->prepare("SELECT A.group_id, A.group_money , SUM(B.donate_amount) as total,  C.group_group_id,  C.event_event_id
+                                                    FROM " . PREFIX . "group A,  " . PREFIX . "donate B,  " . PREFIX . "event_has_group C
                                                     WHERE A.group_id = C.group_group_id 
                                                     AND B.group_group_id = A.group_id 
                                                     AND A.group_valid = 1 
@@ -831,7 +831,6 @@ class EventModel extends CoreModel{
 					move_uploaded_file($tmp, $string);
 				}
 				
-				
 				$insertEventHasGroup = $this->connexion->prepare("INSERT INTO `cp_event_has_group` (`event_event_id`, `group_group_id`) VALUES (:event, :group)");
 				$insertEventHasGroup->bindParam(':event', $idEvent);
 				$insertEventHasGroup->bindParam(':group', $idGroup);
@@ -851,13 +850,6 @@ class EventModel extends CoreModel{
 				}else{
 					$this->sendMail($_SESSION['cp_userMail']); 
 				}
-				
-				
-				
-				
-				
-				
-				
 				
 				$userExist = $this->isUserExistInEvent($_POST['mail_one'], $idEvent);
 				if(!$userExist){		
@@ -930,13 +922,7 @@ class EventModel extends CoreModel{
 						$this->sendMail($_POST['mail_four']);
 					}
 				}
-				
-				
-				
-				
-				
-				
-				
+
 			$this->connexion->commit();
 			return true;
 		}
@@ -948,13 +934,22 @@ class EventModel extends CoreModel{
 	}
 	
 	/**
-	 * Vérification si l'utilisateur existe et n'est pas dans l'evenement
-	 */
+     * Linked to : 
+     * controller/EventController.php
+     * view/addEvent.php
+     * 
+     * Verification of exists user
+     * 
+     * @param String mail 
+     * @param String event
+     */
 	public function isUserExistInEvent($studentMail, $event)
 	{
 		try {
 			
-				$select = $this->connexion->prepare("Select count(*) as exist , user_id FROM cp_user WHERE user_mail = :mail");
+				$select = $this->connexion->prepare("SELECT count(*) as exist , user_id 
+                                                    FROM " . PREFIX . "user 
+                                                    WHERE user_mail = :mail");
 				$select->bindParam(':mail', $studentMail);
 				$select->execute();
 				$select->setFetchMode(PDO::FETCH_ASSOC);
@@ -963,7 +958,9 @@ class EventModel extends CoreModel{
 				{
 					
 					$select2 = $this->connexion->prepare("SELECT count(*) as exist
-	                                            FROM " . PREFIX . "event_has_user WHERE event_event_id = :event AND user_user_id = :student");
+	                                                   FROM " . PREFIX . "event_has_user 
+                                                       WHERE event_event_id = :event 
+                                                       AND user_user_id = :student");
 					
 		            $select2->bindParam(':student', $select[0]['user_id']);
 		            $select2->bindParam(':event', $event);
@@ -995,7 +992,9 @@ class EventModel extends CoreModel{
 	
 	public function getUserIdByMail($mail)
 	{
-		$select = $this->connexion->prepare("Select user_id FROM cp_user WHERE user_mail = :mail");
+		$select = $this->connexion->prepare("SELECT user_id 
+                                            FROM " . PREFIX . "user 
+                                            WHERE user_mail = :mail");
 		$select->bindParam(':mail', $mail);
 		$select->execute();
 		$select->setFetchMode(PDO::FETCH_ASSOC);
@@ -1008,15 +1007,24 @@ class EventModel extends CoreModel{
 		}
 	}
 	
+     /**
+     * Linked to : 
+     * controller/EventController.php
+     * view/addEvent.php
+     * 
+     * Send an email with swiftMailer
+     *
+     * @param array $_POST
+     */
 	public function sendMail($mail){
-		require_once '../../front-cp/vendor//swiftmailer/lib/swift_required.php';
+		require_once '../../front-cp/vendor/swiftmailer/lib/swift_required.php';
 
 		// Create the Transport
 		$transport = Swift_SmtpTransport::newInstance('ssl://smtp.gmail.com', 465)
 		  ->setUsername('challengesplanet@gmail.com') 
 		  ->setPassword('EEMI2014')
 		  ;
-				// Create the Mailer using your created Transport
+		// Create the Mailer using your created Transport
 		$mailer = Swift_Mailer::newInstance($transport);
 		$body = "A friend of yours add you in a project, please senpai, sign up. http://ns366377.ovh.net:8888/challenges-planet/front-cp/public/index.php?module=log&action=signup";
 		

@@ -48,6 +48,14 @@ CAMBOUR Jeremy<br>
 VERPILLOT Maud<br>
 MATHIEU Amélie<br>
 
+#### **== Errors ==**
+
+HTML / front :<br>
+Line 88, Column 54: Element ul not allowed as child of element ul in this context. (Suppressing further errors from this subtree.)
+`<ul class="social-media clearfix">`<br>
+This error is related to the social medias icon.<br>
+It is because this `<ul>` is an other one's child. 
+
 #### **== Links ==**
 
 Title    		| Links

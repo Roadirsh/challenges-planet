@@ -1,4 +1,5 @@
 <?php include(ROOT . "view/layout/header.inc.php"); ?>
+
 <?php if(isset($data['events']) && !empty($data['events']) ){ $events = $data['events']; } ?>
 <?php if(isset($data['type']) && !empty($data['type']) ){ $tpe = $data['type']; } ?>
 <?php if(isset($data['nb_team']) && !empty($data['nb_team']) ){ $nbteam = $data['nb_team']; } ?>
@@ -12,7 +13,7 @@
 		<p class="medium-8">Find any best sport events specially reserved for the students with the aim of helping charitable and humanitarian associations. Begin your adventure by joining an event or by creating yours !</p>
 		<span class="medium-12 number-events">
 			    <?php if(isset($events) && !empty($events)){ 
-			        	echo titleEvent($count['count'], $search, 'event'); // count || array search || title;
+			        	echo titleEvent(count($events), $search, 'event'); // count || array search || title;
 			        } elseif(!empty($search[1] )){ 
 			        	echo "Sorry, we don't have any projects for <span class='active'>'" . $search[1] . "'</span>";  
 			        } else {
@@ -198,21 +199,27 @@
 		</div>
 	</div>
 	<div class="medium-12 pagination">
-		<?php 
-		if(isset($count['count']) && !empty($count['count'])){
-			/* * * * * * * * * * * * * * * * * * * * * * * * *
-		    * PAGINATION
-		    */
-			$limit = ceil($count['count'] / LIMIT);
-			for ($i=1; $i <= $limit; $i++) { 
-				if($_GET['page'] == $i){ ?>
-			    <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" ><?php echo $i; ?></a>
-			<?php } else { ?>
-				<a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title=""  ><?php echo $i; ?></a>
-			<?php } ?>
-		<?php } 
-		} ?>
-	</div>
+
+	  <?php 
+	  if(isset($count['count']) && !empty($count['count'])){
+	   /* * * * * * * * * * * * * * * * * * * * * * * * *
+	      * PAGINATION
+	      */
+	   $limit = ceil($count['count'] / LIMIT);
+	   for ($i=1; $i <= $limit; $i++) { 
+	    if($_GET['page'] == $i){ ?>
+	       <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" >
+	        <?php echo $i; ?>
+	       </a>
+	   <?php } else { ?>
+	    <a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" >
+	     <?php echo $i; ?>
+	    </a>
+	   <?php } ?>
+	  <?php } 
+	  } ?>
+	  
+	 </div>
 </div>
 
 

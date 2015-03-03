@@ -29,32 +29,32 @@
 				</div>
 					<div class="clearfix">
 						<div class="medium-6 columns">
-							<label for="">First name</label>
+							<label for="firstname">First name</label>
 							<div>
-								<input type="text" name="user_firstname" value="<?php if(isset($data['user'][0]['user_firstname'])){ echo $data['user'][0]['user_firstname']; } ?>" required >
+								<input id="firstname" type="text" name="user_firstname" value="<?php if(isset($data['user'][0]['user_firstname'])){ echo $data['user'][0]['user_firstname']; } ?>" required >
 							</div>
 						</div>
 						<div class="medium-6 columns">
-							<label for="">Last name</label>
+							<label for="lastname">Last name</label>
 							<div>
-								<input type="text" name="user_lastname" value="<?php if(isset($data['user'][0]['user_lastname'])){ echo $data['user'][0]['user_lastname']; } ?>" required>
+								<input id="lastname" type="text" name="user_lastname" value="<?php if(isset($data['user'][0]['user_lastname'])){ echo $data['user'][0]['user_lastname']; } ?>" required>
 							</div>
 						</div>
 					</div>
 					<div class="clearfix">
 						<div class="medium-6 columns">
-							<label for="">Company</label>
+							<label for="company">Company</label>
 							<div>
-								<input type="text" name="user_pseudo" value="<?php if(isset($data['user'][0]['user_pseudo'])){ echo $data['user'][0]['user_pseudo']; } ?>" required>
+								<input id="company" type="text" name="user_pseudo" value="<?php if(isset($data['user'][0]['user_pseudo'])){ echo $data['user'][0]['user_pseudo']; } ?>" required>
 							</div>
 						</div>
 						<div class="medium-6 columns">
-							<label for="">Logo (width 250px)</label>
+							<label for="logo">Logo (width 250px)</label>
 							<div>
 								<?php if(isset($_SESSION['connect_compte_FRONT']) && $_SESSION['connect_compte_FRONT'] == true) {?>
 
 								<img src="<?php echo AVATAR; if(isset($data['user'][0]['user_profil_pic'])){ echo $data['user'][0]['user_profil_pic']; } ?>" alt="">
-								<input type="hidden" name="hidden_user_pic" value="<?php if(isset($data['user'][0]['user_profil_pic'])){ echo $data['user'][0]['user_profil_pic']; } ?>" >
+								<input id="logo" type="hidden" name="hidden_user_pic" value="<?php if(isset($data['user'][0]['user_profil_pic'])){ echo $data['user'][0]['user_profil_pic']; } ?>" >
 								<?php } ?>
 								<input type="file" name="user_pic" <?php if(!isset($_SESSION['connect_compte_FRONT']) || $_SESSION['connect_compte_FRONT'] == false) { echo 'required'; }?>>
 							</div>
@@ -62,29 +62,29 @@
 					</div>
 					<div class="clearfix">
 						<div class="medium-6 columns">
-							<label for="">Adress num</label>
+							<label for="ad_num" >Adress num</label>
 							<div>
-								<input type="text" name="invoice_ad_num" value="<?php if(isset($data['info'][0]['ad_num'])){ echo $data['info'][0]['ad_num']; } ?>" required >
+								<input id="ad_num" type="text" name="invoice_ad_num" value="<?php if(isset($data['info'][0]['ad_num'])){ echo $data['info'][0]['ad_num']; } ?>" required >
 							</div>
 						</div>
 						<div class="medium-6 columns">
-							<label for="">Adress street</label>
+							<label for="ad_street">Adress street</label>
 							<div>
-								<input type="text" name="invoice_ad_street" value="<?php if(isset($data['info'][0]['ad_street'])){ echo $data['info'][0]['ad_street']; } ?>" required >
+								<input id="ad_street" type="text" name="invoice_ad_street" value="<?php if(isset($data['info'][0]['ad_street'])){ echo $data['info'][0]['ad_street']; } ?>" required >
 							</div>
 						</div>
 					</div>
 					<div class="clearfix">
 						<div class="medium-6 columns">
-							<label for="">City</label>
+							<label for="ad_city">City</label>
 							<div>
-								<input type="text" name="invoice_ad_city" value="<?php if(isset($data['info'][0]['ad_city'])){ echo $data['info'][0]['ad_city']; } ?>" required >
+								<input id="ad_city" type="text" name="invoice_ad_city" value="<?php if(isset($data['info'][0]['ad_city'])){ echo $data['info'][0]['ad_city']; } ?>" required >
 							</div>
 						</div>
 						<div class="medium-6 columns">
-							<label for="">ZIP</label>
+							<label for="zip">ZIP</label>
 							<div>
-								<input type="text" name="invoice_ad_zipcode" value="<?php if(isset($data['info'][0]['ad_zipcode'])){ echo $data['info'][0]['ad_zipcode']; } ?>" required >
+								<input id="zip" type="text" name="invoice_ad_zipcode" value="<?php if(isset($data['info'][0]['ad_zipcode'])){ echo $data['info'][0]['ad_zipcode']; } ?>" required >
 							</div>
 						</div>
 					</div>
@@ -97,29 +97,29 @@
 							<label for="country">Country (required)</label> 
 							<select class="form-create-progress" id="country" name="invoice_ad_country" required>
 								<!-- Include avec l'ensemble des pays -->
-								<option>-- <?php if(isset($data['info'][0]['ad_country'])){ echo $data['info'][0]['ad_country']; } ?> --</option>
+								<option><?php if(isset($data['info'][0]['ad_country'])){ echo $data['info'][0]['ad_country']; } ?></option>
 								<?php require_once(ROOT . 'view/layout/country.inc.php'); ?>
 							</select>
 						</div>
 						<div class="medium-6 columns">
-							<label for="">Phone number</label>
+							<label for="phone_number">Phone number</label>
 							<div>
 								
-								<input class="input-large focused" name="phone_number" id="phone_number" type="tel" title="The phone number must be between 6 and 14 numbers and begin with a &quot;+&quot;." value="<?php if(isset($data['phone'][0]['phone_num'])){ echo $data['phone'][0]['phone_num']; } ?>" pattern="^\+(?:[0-9]?){6,14}[0-9]$" placeholder="+33xxxxxxx">
+								<input  class="input-large focused" name="phone_number" id="phone_number" type="tel" title="The phone number must be between 6 and 14 numbers and begin with a &quot;+&quot;." value="<?php if(isset($data['phone'][0]['phone_num'])){ echo $data['phone'][0]['phone_num']; } ?>" pattern="^\+(?:[0-9]?){6,14}[0-9]$" placeholder="+33xxxxxxx">
 							</div>
 						</div>
 					</div><div class="clearfix">
 						<div class="medium-6 columns">
-							<label for="">Email</label>
+							<label for="email">Email</label>
 							<div>
-								<input type="email" name="user_mail" value="<?php if(isset($data['user'][0]['user_mail'])){ echo $data['user'][0]['user_mail']; } ?>" required >
+								<input id="email" type="email" name="user_mail" value="<?php if(isset($data['user'][0]['user_mail'])){ echo $data['user'][0]['user_mail']; } ?>" required >
 							</div>
 						</div>
 						<?php if(!isset($_SESSION['connect_compte_FRONT']) || $_SESSION['connect_compte_FRONT'] == false) {?>
 						<div class="medium-6 columns">
-							<label for="">Password</label>
+							<label for="password">Password</label>
 							<div>
-								<input type="password" name="user_password">
+								<input id="password" type="password" name="user_password">
 							</div>
 						</div>
 						<?php } ?>
@@ -127,9 +127,9 @@
 					
 					<div class="clearfix">
 						<div class="medium-6 columns">
-							<label for="">Website</label>
+							<label for="site">Website</label>
 							<div>
-								<input type="url" name="user_site" value="http://<?php if(isset($data['user'][0]['user_site'])){ echo $data['user'][0]['user_site']; } ?>" >
+								<input id="site" type="url" name="user_site" value="<?php if(isset($data['user'][0]['user_site'])){ echo "http://".$data['user'][0]['user_site']; } ?>" >
 							</div>
 						</div>
 					</div>
