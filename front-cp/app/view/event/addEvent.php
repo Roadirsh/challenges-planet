@@ -31,6 +31,7 @@
 								<input  type="hidden" name="event_location" value="<?php echo mb_strimwidth($topev['event_location'], 0, 20, "..."); ?>" />
 								<input  type="hidden" name="event_begin" value="<?php echo formDate($topev['event_begin'], 0); ?>" />
 								<input  type="hidden" name="event_end" value="<?php echo formDate($topev['event_end'], 0); ?>" />
+								<input  type="hidden" name="event_name" value="<?php echo substr($topev['event_name'], 0, 40); ?>" />
 								<h2><?php echo substr($topev['event_name'], 0, 15); ?> <small> ...</small></h2>
 								<span class="info-event"><?php echo mb_strimwidth($topev['event_location'], 0, 20, "..."); ?><small> ...</small> 
 								<br> <span class="date"><?php echo formDate($topev['event_begin'], 0); ?> - <?php echo formDate($topev['event_end'], 0); ?></span></span>
@@ -259,7 +260,7 @@
 										</div>
 									</div>
 								</div>
-								<h1><span>Join </span>the <span class="blue">name event</span></h1>
+								<h1><span>Join </span>the <span id="event_name" class="blue">name event</span></h1>
 				    			<p>Hi, build your own team and get ready !</p>
 				            	<div class="clearfix">
 				            		<div class="medium-4 columns event-info">
