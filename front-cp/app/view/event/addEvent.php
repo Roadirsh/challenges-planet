@@ -264,7 +264,7 @@
 				            	<div class="clearfix">
 				            		<div class="medium-4 columns event-info">
 					            		<label class="team-name" for="name">Name of your team (required)</label>
-					            		<input required class="form-join-progress" type="text" id="name-team">
+					            		<input required class="form-join-progress" type="text" name="name-team" id="name-team" value="<?php if(isset($_SESSION['name-team'])){ echo $_SESSION['name-team'];} ?>">
 
 					            		<label for="info-event">Event informations</label>
 					            		<div class="info-event">
@@ -284,7 +284,7 @@
 												<span class="desc">Add a cover, it's better !</span>
 												<div class="custom-file-upload">
 												    <!--<label for="file">File: </label>--> 
-												    <input required class="form-join-progress" type="file" id="file1" name="myfiles" multiple />
+												    <input required class="form-join-progress" type="file" id="file1" name="myfiles" />
 												</div>
 												<span class="info">(size : 587px * 240px)</span>
 										</div>
@@ -295,26 +295,27 @@
 				            		<div class="medium-6 columns add-mates">
 				            			<label for="mates">Add your mates ! (required)</label>
 				            			<div class="mates">
-				            				<input required class="form-join-progress" id="mail-team" placeholder="Email of your mate" type="email">
-				            				<input placeholder="Email of your mate" type="email">
-				            				<input placeholder="Email of your mate" type="email">
-				            				<input placeholder="Email of your mate" type="email">
+				            				<input required class="form-join-progress" id="mail-team" name="mail_one" placeholder="Email of your mate" type="email" value="<?php if(isset($_SESSION['mail_one'])){ echo $_SESSION['mail_one'];} ?>">
+				            				<input placeholder="Email of your mate" name="mail_two" type="email" value="<?php if(isset($_SESSION['mail_two'])){ echo $_SESSION['mail_two'];} ?>">
+				            				<input placeholder="Email of your mate" name="mail_three" type="email" value="<?php if(isset($_SESSION['mail_three'])){ echo $_SESSION['mail_three'];} ?>">
+				            				<input placeholder="Email of your mate" name="mail_four" type="email" value="<?php if(isset($_SESSION['mail_four'])){ echo $_SESSION['mail_four'];} ?>">
+				            				<input placeholder="Moneyyy" name="group_money" type="number" value="<?php if(isset($_SESSION['group_money'])){ echo $_SESSION['group_money'];} ?>" required>
 				            			</div>
 				            		</div>
 				            		<div class="medium-6 columns">
 				            			<label for="your-team">Your team (required)</label>
-				            			<textarea class="form-join-progress" required placeholder="Tell us more about your team !"></textarea>
+				            			<textarea class="form-join-progress" name="team" required placeholder="Tell us more about your team !"><?php if(isset($_SESSION['team'])){ echo $_SESSION['team'];} ?></textarea>
 				            		</div>
 				            	</div>
 
 				            	<div class="clearfix">
 				            		<div class="medium-6 columns team-goal">
 				            			<label for="your-goal">Your goal (required)</label>
-				            			<textarea class="form-join-progress" required name="" id="" placeholder="Why this event ? Explain your motivation here !"></textarea>
+				            			<textarea class="form-join-progress" required name="goal" id="" placeholder="Why this event ? Explain your motivation here !"><?php if(isset($_SESSION['goal'])){ echo $_SESSION['goal'];} ?></textarea>
 				            		</div>
 				            		<div class="medium-6 columns">
 				            			<label for="your-budget">Your budget (required)</label>
-				            			<textarea class="form-join-progress" required name="" id="" placeholder="Detail your buget and explain it !"></textarea>
+				            			<textarea class="form-join-progress" required name="budget" id="" placeholder="Detail your buget and explain it !"><?php if(isset($_SESSION['budget'])){ echo $_SESSION['budget'];} ?></textarea>
 				            		</div>
 				            	</div>
 				

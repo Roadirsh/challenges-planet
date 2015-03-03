@@ -806,5 +806,230 @@ class EventModel extends CoreModel{
 		$extension_upload = strtolower(  substr(  strrchr($fichier, '.') ,1)  );
 		return $extension_upload;
 	}
+	
+	public function insertNewGroup($idEvent){
+		try 
+			{		
+				
+				$this->connexion->beginTransaction();
+		        $insert = $this->connexion->prepare("INSERT INTO `cp_group` (`group_id`, `group_date`, `group_name`, `group_descr`, `group_img`, `group_money`, `group_valid`, `group_project`, `group_budget`) VALUES (NULL, now(), :name, :descr, :img, :money, 0, :project, :budget)");
+		            	
+		        $insert->bindParam(':name', $_POST['name-team']);
+		        $insert->bindParam(':descr', $_POST['team']);
+		        $img = uniqid().$_FILES['myfiles']['name'];
+		        $insert->bindParam(':img', $img);
+				$insert->bindParam(':money', $_POST['group_money']);
+	            $insert->bindParam(':project', $_POST['goal']);
+	            $insert->bindParam(':budget', $_POST['budget']);
+		        
+				$insert->execute();
+				$idGroup = $this->connexion->lastInsertId();
+				if(!empty($img))
+				{
+					$string= PROJECT.$img;
+					$tmp = $_FILES['myfiles']['tmp_name'];
+					move_uploaded_file($tmp, $string);
+				}
+				
+				
+				$insertEventHasGroup = $this->connexion->prepare("INSERT INTO `cp_event_has_group` (`event_event_id`, `group_group_id`) VALUES (:event, :group)");
+				$insertEventHasGroup->bindParam(':event', $idEvent);
+				$insertEventHasGroup->bindParam(':group', $idGroup);
+				$insertEventHasGroup->execute();
+				
+				$userExist = $this->isUserExistInEvent($_SESSION['cp_userMail'], $idEvent);
+				if(!$userExist){		
+					$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
+						$insertEventHasUser->bindParam(':event', $idEvent);
+						$insertEventHasUser->bindParam(':user', $_SESSION['cp_userID']);
+						$insertEventHasUser->execute();
+						
+					$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
+						$insertUserHasGroup->bindParam(':user', $_SESSION['cp_userID']);
+						$insertUserHasGroup->bindParam(':group', $idGroup);
+						$insertUserHasGroup->execute();
+				}else{
+					$this->sendMail($_SESSION['cp_userMail']); 
+				}
+				
+				
+				
+				
+				
+				
+				
+				
+				$userExist = $this->isUserExistInEvent($_POST['mail_one'], $idEvent);
+				if(!$userExist){		
+					$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
+					$userId = $this->getUserIdByMail($_POST['mail_one']);
+					$insertEventHasUser->bindParam(':event', $event);
+					$insertEventHasUser->bindParam(':user', $userId);
+					$insertEventHasUser->execute();
+						
+					$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
+						$insertUserHasGroup->bindParam(':user', $userId);
+						$insertUserHasGroup->bindParam(':group', $idGroup);
+						$insertUserHasGroup->execute();
+				}else{
+					$this->sendMail($_POST['mail_one']);
+				}
+				
+				if(isset($_POST['mail_two']) && !empty($_POST['mail_two'])){
+					
+					$userExist = $this->isUserExistInEvent($_POST['mail_two'], $idEvent);
+					if(!$userExist){		
+						$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
+						$userId = $this->getUserIdByMail($_POST['mail_two']);
+						$insertEventHasUser->bindParam(':event', $event);
+						$insertEventHasUser->bindParam(':user', $userId);
+						$insertEventHasUser->execute();
+							
+						$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
+							$insertUserHasGroup->bindParam(':user', $userId);
+							$insertUserHasGroup->bindParam(':group', $idGroup);
+							$insertUserHasGroup->execute();
+					}else{
+						$this->sendMail($_POST['mail_two']);
+					}
+				}
+				
+				if(isset($_POST['mail_three']) && !empty($_POST['mail_three'])){
+					
+					$userExist = $this->isUserExistInEvent($_POST['mail_three'], $idEvent);
+					if(!$userExist){		
+						$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
+						$userId = $this->getUserIdByMail($_POST['mail_three']);
+						$insertEventHasUser->bindParam(':event', $event);
+						$insertEventHasUser->bindParam(':user', $userId);
+						$insertEventHasUser->execute();
+							
+						$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
+							$insertUserHasGroup->bindParam(':user', $userId);
+							$insertUserHasGroup->bindParam(':group', $idGroup);
+							$insertUserHasGroup->execute();
+					}else{
+						$this->sendMail($_POST['mail_three']);
+					}
+				}
+				if(isset($_POST['mail_four']) && !empty($_POST['mail_four'])){
+					
+					$userExist = $this->isUserExistInEvent($_POST['mail_four'], $idEvent);
+					if(!$userExist){		
+						$insertEventHasUser = $this->connexion->prepare("INSERT INTO `cp_event_has_user` (`event_event_id`, `user_user_id`) VALUES (:event, :user)");
+						$userId = $this->getUserIdByMail($_POST['mail_four']);
+						$insertEventHasUser->bindParam(':event', $event);
+						$insertEventHasUser->bindParam(':user', $userId);
+						$insertEventHasUser->execute();
+							
+						$insertUserHasGroup = $this->connexion->prepare("INSERT INTO `cp_user_has_group` (`user_user_id`, `group_group_id`) VALUES (:user, :group)");
+							$insertUserHasGroup->bindParam(':user', $userId);
+							$insertUserHasGroup->bindParam(':group', $idGroup);
+							$insertUserHasGroup->execute();
+					}else{
+						$this->sendMail($_POST['mail_four']);
+					}
+				}
+				
+				
+				
+				
+				
+				
+				
+			$this->connexion->commit();
+			return true;
+		}
+	    catch (Exception $e)
+	    {
+	        $this->connexion->rollback();
+            echo 'Message:' . $e -> getMessage();
+        }
+	}
+	
+	/**
+	 * Vérification si l'utilisateur existe et n'est pas dans l'evenement
+	 */
+	public function isUserExistInEvent($studentMail, $event)
+	{
+		try {
+			
+				$select = $this->connexion->prepare("Select count(*) as exist , user_id FROM cp_user WHERE user_mail = :mail");
+				$select->bindParam(':mail', $studentMail);
+				$select->execute();
+				$select->setFetchMode(PDO::FETCH_ASSOC);
+				$select = $select->FetchAll();
+				if(isset($select[0]['exist']) && $select[0]['exist'] == 1)
+				{
+					
+					$select2 = $this->connexion->prepare("SELECT count(*) as exist
+	                                            FROM " . PREFIX . "event_has_user WHERE event_event_id = :event AND user_user_id = :student");
+					
+		            $select2->bindParam(':student', $select[0]['user_id']);
+		            $select2->bindParam(':event', $event);
+		            $select2->execute();
+					$select2->setFetchMode(PDO::FETCH_ASSOC);
+					$select2 = $select2 -> FetchAll();
+					if($select2[0]['exist'] == 1)
+					{
+						
+						return true;
+					}else{
+						
+						return false;
+						
+
+					}
+					
+				}else{
+					return true;
+				}
+	 		
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e -> getMessage();
+        }
+
+	}
+	
+	public function getUserIdByMail($mail)
+	{
+		$select = $this->connexion->prepare("Select user_id FROM cp_user WHERE user_mail = :mail");
+		$select->bindParam(':mail', $mail);
+		$select->execute();
+		$select->setFetchMode(PDO::FETCH_ASSOC);
+		$select = $select -> FetchAll();
+		if(isset($select[0]['user_id'])){ 
+			return $select[0]['user_id'];
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public function sendMail($mail){
+		require_once '../../front-cp/vendor//swiftmailer/lib/swift_required.php';
+
+		// Create the Transport
+		$transport = Swift_SmtpTransport::newInstance('ssl://smtp.gmail.com', 465)
+		  ->setUsername('challengesplanet@gmail.com') 
+		  ->setPassword('EEMI2014')
+		  ;
+				// Create the Mailer using your created Transport
+		$mailer = Swift_Mailer::newInstance($transport);
+		$body = "A friend of yours add you in a project, please senpai, sign up. http://ns366377.ovh.net:8888/challenges-planet/front-cp/public/index.php?module=log&action=signup";
+		
+		// Create a message
+		$message = Swift_Message::newInstance('Wonderful Subject')
+		  ->setFrom(array('john@doe.com' => 'John Doe'))
+		  ->setTo(array('roadirsh@gmail.com', $mail))
+		  ->setBody($body)
+		  ;
+		
+		// Send the message
+		$result = $mailer->send($message);
+	}
 
 }

@@ -95,7 +95,7 @@ class LogController extends CoreController{
 	public function Logout(){
 
 		$_SESSION['connect_compte_BACK'] = false;
-		//session_unset('Dashboard');
+		session_unset('Dashboard');
 		$this->coreRedirect('user', 'login');
 
 	}

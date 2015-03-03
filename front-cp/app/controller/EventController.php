@@ -108,7 +108,35 @@ class EventController extends CoreController {
                 $SeeEvent = $event->SeeTopEvent();
             }
             $_POST = null;
+        } elseif(isset($_POST['name-team']) and !empty($_POST['name-team']))
+        {
+	        
+	        if(isset($_SESSION['connect_compte_FRONT']) &&  $_SESSION['connect_compte_FRONT'] == false ){
+		        $_SESSION['name-team'] = $_POST['name-team'];
+		        $_SESSION['mail_one'] = $_POST['mail_one'];
+		        if(isset($_POST['mail_two'])){ $_SESSION['mail_two'] = $_POST['mail_two']; }
+		        if(isset($_POST['mail_three'])){ $_SESSION['mail_three'] = $_POST['mail_three']; }
+		        if(isset($_POST['mail_four'])){ $_SESSION['mail_four'] = $_POST['mail_four']; }
+		        $_SESSION['team'] = $_POST['team'];
+		        $_SESSION['goal'] = $_POST['goal'];
+		        $_SESSION['budget'] = $_POST['budget'];
+		        $_SESSION['group_money'] = $_POST['group_money'];
+		        $this->coreRedirect('log', 'signup'); 
+
+	        }
+	        else{
+		        
+		        if($event->insertNewGroup($_POST['event_id'])){
+			        $_SESSION['message'] = "success";
+		        }
+		        else{
+			        $_SESSION['message'] = "oops something went wrong";
+		        }
+		        
+		        //insert bdd + home
+	        }
         }
+       
 		
         /* Construct the array to pass */
 		$array = array();
