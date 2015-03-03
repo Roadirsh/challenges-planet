@@ -284,6 +284,8 @@ if (numValid == 6) {
         $(".info-event #event_location").html("Location : " + $('#'+this.id+' input[name="event_location"]').val());
         $(".info-event #event_begin").html("Beginning date : " + $('#'+this.id+' input[name="event_begin"]').val());
         $(".info-event #event_end").html("Ending date : " + $('#'+this.id+' input[name="event_end"]').val());
+        $("#event_name").html($('#'+this.id+' input[name="event_name"]').val());
+
     });
 
 
