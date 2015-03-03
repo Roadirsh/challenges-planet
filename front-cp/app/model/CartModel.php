@@ -475,6 +475,7 @@ class CartModel extends CoreModel{
 				$_SESSION['connect_compte_FRONT'] = true;
 				$_SESSION[PREFIX . 'user'] = $_POST['user_lastname'];
 				$_SESSION[PREFIX . 'userPseudo'] = $_POST['user_pseudo'];
+				$_SESSION[PREFIX . 'userMail'] = $_POST['user_mail'];
 				$_SESSION[PREFIX . 'userID'] = $id;
 				$_SESSION[PREFIX . 'spyID'] = rand();
 				
@@ -776,7 +777,7 @@ class CartModel extends CoreModel{
 	}
 
 	public function sendMail(){
-		require_once '../../front-cp/vendor/swiftmailer/swiftmailer/lib/swift_required.php';
+		require_once '../../front-cp/vendor//swiftmailer/lib/swift_required.php';
 
 		// Create the Transport
 		$transport = Swift_SmtpTransport::newInstance('ssl://smtp.gmail.com', 465)

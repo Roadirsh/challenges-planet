@@ -191,10 +191,7 @@ class CartController extends CoreController {
 	        }
         }
 
-        $array = '';
-
-        /* Load the view */
-        $this->load->view('cart', 'paiement', $array); 
+        
 
     }
 

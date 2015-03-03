@@ -20,13 +20,17 @@
 					</div>
 					<?php if(isset($topdev) && !empty($topdev) ){ ?>
 	                    <?php foreach($topdev as $k => $topev){ ?>
-						<div class="sticker columns large-3 medium-4">
-							<div class="wrapper">
+						<div id="event_id<?php echo $topev['event_id']; ?>" class="sticker columns large-3 medium-4">
+							<div class="wrapper" >
 								<div class="img" style="background:url('<?php echo EVENT . 'mini/' . $topev['event_img']; ?>'); background-position: right;background-size: cover;">
 									<div class="hover">
 										<span>Join this event !</span>
 									</div>
 								</div>
+								<input  type="hidden" name="event_id" value="<?php echo $topev['event_id']; ?>" />
+								<input  type="hidden" name="event_location" value="<?php echo mb_strimwidth($topev['event_location'], 0, 20, "..."); ?>" />
+								<input  type="hidden" name="event_begin" value="<?php echo formDate($topev['event_begin'], 0); ?>" />
+								<input  type="hidden" name="event_end" value="<?php echo formDate($topev['event_end'], 0); ?>" />
 								<h2><?php echo substr($topev['event_name'], 0, 15); ?> <small> ...</small></h2>
 								<span class="info-event"><?php echo mb_strimwidth($topev['event_location'], 0, 20, "..."); ?><small> ...</small> 
 								<br> <span class="date"><?php echo formDate($topev['event_begin'], 0); ?> - <?php echo formDate($topev['event_end'], 0); ?></span></span>
@@ -264,10 +268,10 @@
 
 					            		<label for="info-event">Event informations</label>
 					            		<div class="info-event">
-					            			<input type="hidden" value="#id" />
-					            			<span>Location : </span>
-						            		<span>Beginning date : </span>
-						            		<span>Ending date : </span>
+						            		<input id='event_id' name='event_id' type='hidden' value='' />
+					            			<span id="event_location">Location : </span>
+						            		<span id="event_begin">Beginning date : </span>
+						            		<span id="event_end">Ending date : </span>
 					            		</div>
 				            		</div>
 				            		<div>

@@ -66,6 +66,7 @@ class LogModel extends CoreModel{
 				$_SESSION[PREFIX . 'userPseudo'] = $retour[0]['user_pseudo'];
 				$_SESSION[PREFIX . 'userID'] = $retour[0]['user_id'];
 				$_SESSION[PREFIX . 'spyID'] = rand();
+				$_SESSION[PREFIX . 'userMail'] = $retour[0]['user_mail'];
 
 				if (isset($post['reco'])){
 					if(!setcookie("Login",$login,time()+3600*24*31))

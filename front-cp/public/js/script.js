@@ -267,7 +267,7 @@ if (numValid == 6) {
 });
 
   $( ".sticker" ).click(function() {
-    $( ".form-create-event" ).fadeOut()
+    $( ".form-create-event" ).fadeOut();
     $( ".wrapper-info-caritative" ).fadeOut({
       complete: function(){
         $(".form-join-event").fadeIn({
@@ -279,6 +279,11 @@ if (numValid == 6) {
                 });
             }
         });
+        
+        $(".info-event #event_id").val($('#'+this.id+' input[name="event_id"]').val());
+        $(".info-event #event_location").html("Location : " + $('#'+this.id+' input[name="event_location"]').val());
+        $(".info-event #event_begin").html("Beginning date : " + $('#'+this.id+' input[name="event_begin"]').val());
+        $(".info-event #event_end").html("Ending date : " + $('#'+this.id+' input[name="event_end"]').val());
     });
 
 
