@@ -67,7 +67,7 @@
                                         <div class="hover"><span>They need you<br>help them</span></div>
                                     </div>
                                 </a>
-                                <div class="title-team"><a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title=""><?php echo $t['group_name']; ?></a></div>
+                                <div class="title-team"><a href="<?php echo MODULE . 'event' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" title=""><?php echo $t['group_name']; ?></a></div>
                                 <div class="name"><?php echo $t['event_name']; ?></div>
                                 <div class="date"><?php echo formDate($t['event_begin'], 0); ?> - <?php echo formDate($t['event_end'], 0); ?></div>
                                 <div class="progressteam">

@@ -206,9 +206,9 @@
 			$limit = ceil($count['count'] / LIMIT);
 			for ($i=1; $i <= $limit; $i++) { 
 				if($_GET['page'] == $i){ ?>
-			    <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+			    <a class="select" href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" ><?php echo $i; ?></a>
 			<?php } else { ?>
-				<a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title="" alt="" ><?php echo $i; ?></a>
+				<a href="<?php echo MODULE . 'event' . ACTION . 'seeevent' . PAGE . $i; ?>" title=""  ><?php echo $i; ?></a>
 			<?php } ?>
 		<?php } 
 		} ?>

@@ -47,14 +47,14 @@
 						<li><a class="connect popup-with-form" href="#form-login" onClick="ga('send', 'event', 'link','clic', 'connect3');">Login</a></li>
 						<li><a class="register" href="<?php echo MODULE . 'log' . ACTION . 'signup'; ?>" onClick="ga('send', 'event', 'link','clic', 'registerv3');">Sign up</a></li>
                 <?php } ?>
-				<div class="social-media clearfix">
+				<ul class="social-media clearfix">
 					<li><a target="_blank" href="https://www.facebook.com/challengesplanet?fref=ts">
 					    <img src="img/fb.png" width="20" alt=""></a></li>
 					<li><a target="_blank" href="https://twitter.com/ChallPlanet">
 					    <img src="img/twitter.png" width="20" alt=""></a></li>
 					<li><a target="_blank" href="https://plus.google.com/116420885451887262970/about">
 					    <img src="img/google+.png" width="20" alt=""></a></li>
-				</div>
+				</ul>
 			</ul>
 		</nav>
 
@@ -62,9 +62,9 @@
 	    	<div class="classic-login medium-6 columns">
 	    		<fieldset>
 	    			<h1>Start your challenge here !</h1>
-		            <label for="name">Email</label>
+		            <label for="login-email">Email</label>
 		            <input id="login-email" name="email" type="text" placeholder="">
-		            <label for="password">Password</label>
+		            <label for="login-password">Password</label>
 		            <input id="login-password" name="pwd" type="password" placeholder="">
 		            
 		            <a href="<?php echo MODULE . 'log' . ACTION . 'forgot'; ?>" class="columns medium-6">forgot password ?</a>

@@ -21,7 +21,7 @@
     <!-- Main content -->
     <section class="content">
         <div id="content" class="span10">
-	        <?if(!empty($_SESSION['message'])){ ?>
+	        <?php if(!empty($_SESSION['message'])){ ?>
                 <div class="alert alert-success" role="alert"><?php echo $_SESSION['message']; ?></div>
             <?php $_SESSION['message'] = ''; } ?>
             <div class="row-fluid">		

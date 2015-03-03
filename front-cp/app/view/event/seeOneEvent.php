@@ -120,7 +120,7 @@
                             <div class="team-wrapper columns medium-4">
                                 <div class="wrapper">
                                     <div class="img" style="background:url('<?php echo PROJECT . $g['group_img']; ?>'); background-position: top left;background-size: cover;">
-                                        <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $g['group_id']; ?>" alt="" title="" >
+                                        <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $g['group_id']; ?>" title="" >
                                             <!-- <img src="img/group/<?php echo $g['group_img']; ?>" alt=""> -->
                                             <div class="hover">
                                                 <span>They need you<br>help them</span>
