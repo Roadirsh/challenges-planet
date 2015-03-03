@@ -1,14 +1,14 @@
 <div class="container row"> <!-- CONTAINER -->
     <div class="header"> <!-- HEADER -->
 		<div class="logo show-for-small-only">
-			<a href="<?php echo MODULE . 'page' . ACTION . 'home'; ?>"><img src="img/logo.png"alt="challenges planet"></a>
+			<a href="<?php echo MODULE . 'page' . ACTION . 'home'; ?>"><img src="img/logo.png" alt="challenges planet"></a>
 		</div>
 
 		 <nav class="show-for-small-only menu-mobile">
 			<ul>
 				<li><a href="<?php echo MODULE . 'event' . ACTION . 'seeevent'; ?>">let's see events</a></li>
 				<li><a href="<?php echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>">they helped them</a></li>
-				<a class="join" href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>">ready for your adventure ?</a>
+				<li><a class="join" href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>">ready for your adventure ?</a></li>
 				<li class="clearfix">
 				    <a class="connect popup-with-form" href="#form-login">Login</a>
 				    <a href="<?php echo MODULE . 'log' . ACTION . 'signup'; ?>" class="register">Sign up</a>
@@ -28,13 +28,13 @@
 		<nav class="show-for-medium-up menu clearfix">
 
 			<div class="logo show-for-medium-up">
-				<a href="<?php echo MODULE . 'page' . ACTION . 'home'; ?>"><img src="img/logo.png"alt=""></a>
+				<a href="<?php echo MODULE . 'page' . ACTION . 'home'; ?>"><img src="img/logo.png" alt=""></a>
 			</div>
 			<ul class="first-nav">
 				<li><a href="<?php echo MODULE . 'event' . ACTION . 'seeevent'; ?>">let's see events</a></li>
 				<li class="helped"><a href="<?php echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>">they helped them</a></li>
-				<a class="join" href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'create-eventv3');">
-					ready for your adventure ?</a>
+				<li><a class="join" href="<?php echo MODULE . 'event' . ACTION . 'addevent'; ?>" onClick="ga('send', 'event', 'link','clic', 'create-eventv3');">
+					ready for your adventure ?</a></li>
 			</ul>
 			<ul class="second-nav clearfix">
 
@@ -77,7 +77,7 @@
 	    		<fieldset>
 	    			<h1>Or log in with your favorite social media !</h1>
 	    			<div class="social-sign-up">
-	    				<a href="<?php echo MODULE . 'fb' . ACTION . 'facebookConnect'; ?>"><img src="img/fb-login.png"alt="facebook">Log in with Facebook</a>
+	    				<a href="<?php echo MODULE . 'fb' . ACTION . 'facebookConnect'; ?>"><img src="img/fb-login.png" alt="facebook">Log in with Facebook</a>
 	    				<a href="<?php echo MODULE . 'log' . ACTION . 'signup'; ?>">No account? ? Sign up with your email !</a>
 	    			</div>
 	    		</fieldset>

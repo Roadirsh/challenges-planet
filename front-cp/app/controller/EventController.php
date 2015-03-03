@@ -84,11 +84,10 @@ class EventController extends CoreController {
             if($event->insertNewEvent($_POST)){   
                 $_POST = null;
                 // initialization of the messages
-                $_SESSION['message'] = $messageInfo['EVENT_ADD_OK'];
+                $_SESSION['message'] = "Event waiting approval";
                 $_SESSION['messtype'] = 'default';
 
                 $addOk = 'ok';
-                $this->coreRedirect('connexion', 'signup');
             } else{
                 $_POST = null;
                 // initialization of the messages

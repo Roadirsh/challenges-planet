@@ -76,9 +76,9 @@ class EventModel extends CoreModel{
         $location = $post['place'] . ', ' . $post['country'];
 
         $img = '';
-        if(isset($_FILES['myfiles']['name'][0]) && !empty($_FILES['myfiles']['name'][0])){
-            $img = $_FILES['myfiles']['name'][0];
-            $tmp = $_FILES['myfiles']['tmp_name'][0];
+        if(isset($_FILES['file']['name']) && !empty($_FILES['file']['name'])){
+            $img = uniqid().$_FILES['file']['name'];
+            $tmp = $_FILES['file']['tmp_name'];
         }
 
         try 
@@ -978,7 +978,6 @@ class EventModel extends CoreModel{
 						
 						return false;
 						
-
 					}
 					
 				}else{

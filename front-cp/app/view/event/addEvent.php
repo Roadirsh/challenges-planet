@@ -181,7 +181,7 @@
 											<img src="img/camera.png"alt="camera">
 											<span class="desc">Add a cover, it's better ! (required)</span>
 											<div class="custom-file-upload">
-											    <input class="form-create-progress" type="file" id="file" name="myfiles[]" multiple / required>
+											    <input class="form-create-progress" type="file" id="file" name="file"  required>
 											</div>
 											<span class="info">(size : 1280px * 490px)</span>
 										</div>
