@@ -13,8 +13,9 @@
         <?php $i = 0; ?>
         <?php if(isset($data['slider']) && !empty($data['slider']) ){ ?>
             <?php foreach($slider as $k => $s){ ?>
-            <a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>">
-            	<div class="img-slider" index='<?php echo $i; ?>'>
+            	<div class="img-slider" >
+	            	            			<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>">
+
             		<img src="<?php echo EVENT . 'slider/' . $s['event_img']; ?>" alt="">
             		<div class="show-for-small-only caption clearfix">
             			<span><?php echo $s['event_name']; ?></span>
@@ -23,15 +24,15 @@
             			<h1 class="slogan"><?php echo JOIN ?></h1>
             			<h3><?php echo $s['event_name']; ?></h3>
             			<p><?php echo mb_strimwidth($s['event_decr'], 0, 150, "..."); ?></p>
-            			<a href="<?php echo MODULE . 'event' . ACTION . 'seeoneevent' . ID . $s['event_id']; ?>">
             			    <span class="see-event">Let's see the event !</span>
             		</div>
+            		            </a>
+
             	</div>
         	<?php $i ++; ?>
-            </a>
         	<?php } ?> 
         <?php } else { ?> 
-                <div class="img-slider " index='<?php echo $i; ?>'>
+                <div class="img-slider " >
                     <img src="https://paulinevetuna.files.wordpress.com/2013/08/keep-calm-go-with-the-flow-desktop.jpg" alt="">
                     <div class="show-for-small-only caption clearfix">
                         <span>SORRY</span>
@@ -61,7 +62,7 @@
                         <?php if(isset($t['group_name']) && !empty($t['group_name'])){ ?>
                         <div class="columns large-3 medium-4 team-wrapper">
                             <div class="wrapper">
-                                <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>" alt="" title="">
+                                <a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $t['group_id']; ?>"  title="">
                                     <div class="img" style="background:url('<?php echo PROJECT . $t['group_img']; ?>'); background-position: top left;background-size: cover;">
                                         <div class="hover"><span>They need you<br>help them</span></div>
                                     </div>
@@ -77,7 +78,7 @@
                                         </div>
                                         <div class="columns medium-4 small-4 funded">
                                             <span><?php  echo number_format(($t['group_needed'] / $t['group_money']) *100, 0); ?>  %</span>
-                                            </br>funded
+                                            <br>funded
                                         </div>
                                         <div class="columns medium-4 small-4 daysleft">
                                             <span>
@@ -114,7 +115,7 @@
     			<div class="columns large-3 medium-4 team-wrapper">
     				<div class="wrapper done">
     					<div class="img" style="background:url('<?php echo PROJECT . $done['group_img']; ?>'); background-position: left;background-size: cover;">
-    						<a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $done['group_id']; ?>" alt="" title="">
+    						<a href="<?php echo MODULE . 'project' . ACTION . 'seeoneproject' . ID . $done['group_id']; ?>" title="">
                                 <div class="hover done"><span>It's done thank you !</span></div>
                             </a>
     					</div>
@@ -134,7 +135,6 @@
         </div>
     <!-- </a> -->
 
-	<a href="<?php echo MODULE . 'sponsor' . ACTION . 'seesponsor'; ?>" onClick="ga('send', 'event', 'link','clic', 'sponsorsv3');">
 		<div class="sponsors clearfix">
 		<h2>Our sponsors</h2>
 		<section class="first clearfix">
@@ -153,6 +153,7 @@
         					<a class="help sponsored" href="<?php echo MODULE . 'sponsor' . ACTION . 'seeonesponsor' . ID . $s['user_id']; ?>">View events sponsored</a> -->
         				</div>
     			    </div>
+    			</a>
     			<?php } ?>
             <?php } else { ?>
                     <a href="">
@@ -169,7 +170,6 @@
                 <?php } ?>
 		</section>
 		</div>
-	</a>		
 </div>
 
 <!--  /* * * * * * * * * * * * * * * * * * * * * * * *
