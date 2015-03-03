@@ -127,39 +127,6 @@ class PageModel extends CoreModel{
         }  
     }
     
-    
-    /**
-     * Linked to : 
-     * controller/PageController.php
-     * view/home.php
-     * 
-     * Get 8 last sponsors
-     */
-    public function SeeLastSponsors() {
-
-        try {
-            $select = $this->connexion->prepare("SELECT * 
-                                            FROM " . PREFIX . "user A, " . PREFIX . "donate B 
-                                            WHERE A.user_type = 'organisme'
-                                            AND A.user_donut > 0
-                                            GROUP BY A.user_id 
-                                            ORDER BY B.donate_date ASC
-                                            LIMIT 8");
-            
-            $select->execute();
-            $select->setFetchMode(PDO::FETCH_ASSOC);
-            $retour = $select->fetchAll();
-            $select->closeCursor(); 
-
-            return $retour;
-        }
-
-        catch (Exception $e)
-        {
-            echo 'Message:' . $e->getMessage();
-        }
-    }
-    
 
     /**
      * Linked to : 
@@ -307,6 +274,38 @@ class PageModel extends CoreModel{
         } catch (Exception $e) {
             echo 'Message:' . $e->getMessage();
         } 
+    }
+
+    /**
+     * Linked to : 
+     * controller/PageController.php
+     * view/home.php
+     * 
+     * Get 8 last sponsors
+     */
+    public function SeeLastSponsors() {
+
+        try {
+            $select = $this->connexion->prepare("SELECT * 
+                                            FROM " . PREFIX . "user A, " . PREFIX . "donate B 
+                                            WHERE A.user_type = 'organisme'
+                                            AND A.user_donut > 0
+                                            GROUP BY A.user_id 
+                                            ORDER BY B.donate_date ASC
+                                            LIMIT 8");
+            
+            $select->execute();
+            $select->setFetchMode(PDO::FETCH_ASSOC);
+            $retour = $select->fetchAll();
+            $select->closeCursor(); 
+
+            return $retour;
+        }
+
+        catch (Exception $e)
+        {
+            echo 'Message:' . $e->getMessage();
+        }
     }
     
 }

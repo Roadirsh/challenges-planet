@@ -26,70 +26,70 @@
             </div>
 
             <div class="main-contain clearfix">
-                <a href="#form-search" class="hide-for-large-up show-for-small-up popup-with-form sidebar-sort-mobile">Search and sort</a>
-                <form id="form-search" class="search-bar mfp-hide white-popup-block" method="post" action="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>">
-                    <input type="text" size="21">
+                <?php // $form = '<a href="#form-search" class="hide-for-large-up show-for-small-up popup-with-form sidebar-sort-mobile">Search and sort</a>
+                //     <form id="form-search" class="search-bar mfp-hide white-popup-block" method="post" action="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ? >">
+                //     <input type="text" size="21">
                         
-                        <div class="team-progress">
-                            <span>Team Progress</span>
-                            <div>
-                                <input type="checkbox" name="help" value="need" onchange='submit();'> Help them, they need you !
-                            </div>
-                            <div>
-                                <input type="checkbox" name="help" value="almost" onchange='submit();'> Just a little bit of help !
-                            </div>
-                            <div>
-                                <input type="checkbox" name="help" value="done" onchange='submit();'> It's Done ! Thank you !
-                            </div>    
-                        </div>
+                //         <div class="team-progress">
+                //             <span>Team Progress</span>
+                //             <div>
+                //                 <input type="checkbox" name="help" value="need" onchange="submit();"> Help them, they need you !
+                //             </div>
+                //             <div>
+                //                 <input type="checkbox" name="help" value="almost" onchange="submit();"> Just a little bit of help !
+                //             </div>
+                //             <div>
+                //                 // <input type="checkbox" name="help" value="done" onchange="submit();"">IT\'s Done ! Thank you !
+                //             </div>    
+                //         </div>
                         
-                        <div class="team-budget">
-                            <span>Budget</span>
-                            <div>
-                                <input type="checkbox" name="budget" value="2000" onclick='submit();'> From to 2000 €
-                            </div>
-                            <div>
-                                <input type="checkbox" name="budget" value="6000" onclick='submit();'> From to 6000 €
-                            </div>
-                            <div>
-                                <input type="checkbox" name="budget" value="10000" onclick='submit();'> From to 10 000 €
-                            </div>
-                        </div>
+                //         <div class="team-budget">
+                //             <span>Budget</span>
+                //             <div>
+                //                 <input type="checkbox" name="budget" value="2000" onchange="submit();"> From to 2000 €
+                //             </div>
+                //             <div>
+                //                 <input type="checkbox" name="budget" value="6000" onchange="submit();"> From to 6000 €
+                //             </div>
+                //             <div>
+                //                 <input type="checkbox" name="budget" value="10000" onchange="submit();"> From to 10 000 €
+                //             </div>
+                //         </div>
 
-                </form>
-                <div class="show-for-large-up sidebar-sort medium-3 columns">
-                    <h2>Search and sort</h2>
-                    <form class="search-bar" method="post" action="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ?>">
-                        <input type="text" size="21" name="search">
+                // </form>
+                // <div class="show-for-large-up sidebar-sort medium-3 columns">
+                //     <h2>Search and sort</h2>
+                //     <form class="search-bar" method="post" action="<?php echo MODULE . 'event' . ACTION . 'seeoneevent'; ? >">
+                //         <input type="text" size="21" name="search">
                         
-                        <div class="team-progress">
-                            <span>Team Progress</span>
-                            <div>
-                                <input type="checkbox" name="help" value="need" onchange='submit();'> Help them, they need you !
-                            </div>
-                            <div>
-                                <input type="checkbox" name="help" value="almost" onchange='submit();'> Just a little bit of help !
-                            </div>
-                            <div>
-                                <input type="checkbox" name="help" value="done" onchange='submit();'> It's Done ! Thank you !
-                            </div>    
-                        </div>
+                //         <div class="team-progress">
+                //             <span>Team Progress</span>
+                //             <div>
+                //                 <input type="checkbox" name="help" value="need" onchange="submit();"> Help them, they need you !
+                //             </div>
+                //             <div>
+                //                 <input type="checkbox" name="help" value="almost" onchange="submit();"> Just a little bit of help !
+                //             </div>
+                //             <div>
+                //                 <input type="checkbox" name="help" value="done" onchange="submit();"> It\'s Done ! Thank you !
+                //             </div>    
+                //         </div>
                         
-                        <div class="team-budget">
-                            <span>Budget</span>
-                            <div>
-                                <input type="checkbox" name="budget" value="2000" onclick='submit();'> From 0 € to 2000 €
-                            </div>
-                            <div>
-                                <input type="checkbox" name="budget" value="6000" onclick='submit();'> From 2000 € to 6000 €
-                            </div>
-                            <div>
-                                <input type="checkbox" name="budget" value="10000" onclick='submit();'> From 6000 € to 10 000 €
-                            </div>
-                        </div>
+                //         <div class="team-budget">
+                //             <span>Budget</span>
+                //             <div>
+                //                 <input type="checkbox" name="budget" value="2000" onchange="submit();"> From 0 € to 2000 €
+                //             </div>
+                //             <div>
+                //                 <input type="checkbox" name="budget" value="6000" onchange="submit();"> From 2000 € to 6000 €
+                //             </div>
+                //             <div>
+                //                 <input type="checkbox" name="budget" value="10000" onchange="submit();"> From 6000 € to 10 000 €
+                //             </div>
+                //         </div>
                         
-                    </form>
-                </div>
+                //     </form>
+                // </div>'; ?>
                 <div class="teams large-9 medium-12 clearfix columns">
 
                     <?php if(isset($done[0]['group_id']) && !empty($data['done'][0]['group_id']) ){ ?>
