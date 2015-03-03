@@ -408,29 +408,29 @@
 /* line 407, ../sass/create.scss */
 .tabs .form-create-img .medium-3 img {
   width: 100%;
+  height: 150px;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 414, ../sass/create.scss */
+  /* line 415, ../sass/create.scss */
   .tabs .button-submit {
     width: 30%;
   }
 }
-/* line 420, ../sass/create.scss */
+/* line 421, ../sass/create.scss */
 .tabs h1 {
   text-align: center;
   font-family: "franklin_gothic_fsdemi";
   font-size: 29px;
   text-transform: uppercase;
 }
-/* line 426, ../sass/create.scss */
+/* line 427, ../sass/create.scss */
 .tabs h1 span {
   color: #88a83b;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 420, ../sass/create.scss */
+  /* line 421, ../sass/create.scss */
   .tabs h1 {
     text-align: left;
-    padding-left: 15px;
   }
 }
 /* line 436, ../sass/create.scss */
@@ -632,10 +632,9 @@
   /* line 619, ../sass/create.scss */
   .tabs p {
     text-align: left;
-    padding-left: 15px;
   }
 }
-/* line 630, ../sass/create.scss */
+/* line 629, ../sass/create.scss */
 .tabs #description {
   height: 250px;
   background-color: #fff;
@@ -643,14 +642,14 @@
 
 /*----- Tab Links -----*/
 /* Clearfix */
-/* line 638, ../sass/create.scss */
+/* line 637, ../sass/create.scss */
 .tab-links:after {
   display: block;
   clear: both;
   content: '';
 }
 
-/* line 644, ../sass/create.scss */
+/* line 643, ../sass/create.scss */
 .tab-links li {
   margin: 0px 5px;
   float: left;
@@ -658,7 +657,7 @@
   text-align: center;
 }
 
-/* line 651, ../sass/create.scss */
+/* line 650, ../sass/create.scss */
 .tab-links a {
   padding: 9px 15px;
   display: inline-block;
@@ -673,25 +672,25 @@
   width: 105px;
 }
 
-/* line 665, ../sass/create.scss */
+/* line 664, ../sass/create.scss */
 .tab-links a:hover {
   background: #a7cce5;
   text-decoration: none;
 }
 
-/* line 670, ../sass/create.scss */
+/* line 669, ../sass/create.scss */
 li.active a, li.active a:hover {
   background: #1a2129;
   color: #fff;
 }
 
 /*----- Content of Tabs -----*/
-/* line 680, ../sass/create.scss */
+/* line 679, ../sass/create.scss */
 .tab {
   display: none;
 }
 
-/* line 684, ../sass/create.scss */
+/* line 683, ../sass/create.scss */
 .tab.active {
   display: block;
 }

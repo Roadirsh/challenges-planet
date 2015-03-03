@@ -299,7 +299,6 @@
 				            				<input placeholder="Email of your mate" name="mail_two" type="email" value="<?php if(isset($_SESSION['mail_two'])){ echo $_SESSION['mail_two'];} ?>">
 				            				<input placeholder="Email of your mate" name="mail_three" type="email" value="<?php if(isset($_SESSION['mail_three'])){ echo $_SESSION['mail_three'];} ?>">
 				            				<input placeholder="Email of your mate" name="mail_four" type="email" value="<?php if(isset($_SESSION['mail_four'])){ echo $_SESSION['mail_four'];} ?>">
-				            				<input placeholder="Moneyyy" name="group_money" type="number" value="<?php if(isset($_SESSION['group_money'])){ echo $_SESSION['group_money'];} ?>" required>
 				            			</div>
 				            		</div>
 				            		<div class="medium-6 columns">
@@ -315,7 +314,8 @@
 				            		</div>
 				            		<div class="medium-6 columns">
 				            			<label for="your-budget">Your budget (required)</label>
-				            			<textarea class="form-join-progress" required name="budget" id="" placeholder="Detail your buget and explain it !"><?php if(isset($_SESSION['budget'])){ echo $_SESSION['budget'];} ?></textarea>
+				            			<input class="form-join-progress" placeholder="Your final goal" name="group_money" type="number" value="<?php if(isset($_SESSION['group_money'])){ echo $_SESSION['group_money'];} ?>" required>
+				            			<textarea class="form-join-progress budget" required name="budget" id="" placeholder="Detail your buget and explain it !"><?php if(isset($_SESSION['budget'])){ echo $_SESSION['budget'];} ?></textarea>
 				            		</div>
 				            	</div>
 				

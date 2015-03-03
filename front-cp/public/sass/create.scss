@@ -406,6 +406,7 @@ $bg-color:		#f2efec;
 
             img {
                 width: 100%;
+                height: 150px;
             }
         }
     }
@@ -429,7 +430,6 @@ $bg-color:		#f2efec;
 
 		@media #{$medium-up} {
 			text-align: left;
-			padding-left: 15px;
 		}
     }
 
@@ -623,7 +623,6 @@ $bg-color:		#f2efec;
 
     	@media #{$medium-up} {
 			text-align: left;
-			padding-left: 15px;
 		}
     }
 

@@ -365,6 +365,12 @@ body {
 					position: relative;
 					text-align: center;
 
+					.join {
+						&:hover {
+							color: #fff !important;
+						}
+					}
+
 					a:nth-child(-n+2) {
 
 						-webkit-transition: all 0.5s ease;
